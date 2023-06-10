@@ -1,0 +1,4 @@
+category:
+  $ref: "./category.yaml"
+fulfillments:
+  $ref: "./fulfillments.yaml"

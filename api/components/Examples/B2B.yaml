@@ -1,0 +1,39 @@
+search:
+  examples:
+    - $ref: ./B2B/search/search_by_item.yaml
+    - $ref: ./B2B/search/search_by_category.yaml
+    - $ref: ./B2B/search/search_by_fulfillment_end_loc.yaml
+select:
+  examples:
+    - $ref: ./B2B/select/select.yaml
+init:
+  examples:
+    - $ref: ./B2B/init/init.yaml
+confirm:
+  examples:
+    - $ref: ./B2B/confirm/confirm.yaml
+update:
+  examples:
+    - $ref: ./B2B/update/update.yaml
+status:
+  examples:
+    - $ref: ./B2B/status/status.yaml
+on_search:
+  examples:
+    - $ref: ./B2B/on_search/on_search.yaml
+on_select:
+  examples:
+    - $ref: ./B2B/on_select/on_select.yaml
+on_init:
+  examples:
+    - $ref: ./B2B/on_init/on_init.yaml
+on_confirm:
+  examples:
+    - $ref: ./B2B/on_confirm/on_confirm.yaml
+on_status:
+  examples:
+    - $ref: ./B2B/on_status/on_status.yaml
+on_update:
+  examples:
+    - $ref: ./B2B/on_update/on_update.yaml
+    - $ref: ./B2B/on_update/on_update_fulfillments.yaml

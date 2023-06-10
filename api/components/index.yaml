@@ -1,0 +1,8 @@
+examples:
+  $ref: "./examples/B2B.yaml"
+enum:
+  $ref: "./enums/index.yaml"
+tags:
+  $ref: "./tags/TagGroup.yaml"
+dictionary:
+  $ref: "./dictionary/index.yaml"

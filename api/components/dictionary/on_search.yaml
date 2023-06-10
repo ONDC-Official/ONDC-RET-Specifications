@@ -1,0 +1,12 @@
+context:
+  $ref: "../enums/context.yaml"
+message:
+  catalog:
+    fulfillments:
+      $ref: "../enums/fulfillments.yaml"
+    provider:          
+      tags:
+        $ref: "../tags/TagGroup.yaml#/providers"
+      items:
+        tags:
+          $ref: "../tags/TagGroup.yaml#/catalog/items"
