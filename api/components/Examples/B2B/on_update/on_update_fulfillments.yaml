@@ -27,12 +27,13 @@ value:
       items:
       - id: I1
         quantity:
-          count: 200
+          selected:
+            count: 200
         fulfillment_ids:
         - F1
         - F2
-      payment:
-        uri: https://ondc.transaction.com/payment
+      payments:
+      - uri: https://ondc.transaction.com/payment
         tl_method: http/get
         params:
           currency: INR
