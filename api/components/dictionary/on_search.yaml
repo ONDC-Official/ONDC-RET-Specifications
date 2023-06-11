@@ -8,5 +8,7 @@ message:
       tags:
         $ref: "../tags/TagGroup.yaml#/providers"
       items:
+        category_ids:
+          $ref: "../enums/category.yaml"
         tags:
           $ref: "../tags/TagGroup.yaml#/catalog/items"
