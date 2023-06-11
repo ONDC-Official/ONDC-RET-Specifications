@@ -1976,32 +1976,33 @@ paths:
                       items:
                         - id: I1
                           quantity:
-                            count: 200
+                            selected:
+                              count: 200
                           fulfillment_ids:
                             - F1
                             - F2
-                      payment:
-                        uri: https://ondc.transaction.com/payment
-                        tl_method: http/get
-                        params:
-                          currency: INR
-                          transaction_id: '3937'
-                          amount: '53600'
-                        status: PAID
-                        type: ON-ORDER
-                        collected_by: BPP
-                        '@ondc/org/buyer_app_finder_fee_type': percent
-                        '@ondc/org/buyer_app_finder_fee_amount': '0'
-                        '@ondc/org/settlement_details':
-                          - settlement_counterparty: buyer-app
-                            settlement_phase: sale-amount
-                            settlement_type: upi
-                            upi_address: gft@oksbi
-                            settlement_bank_account_no: XXXXXXXXXX
-                            settlement_ifsc_code: XXXXXXXXX
-                            beneficiary_name: xxxxx
-                            bank_name: xxxx
-                            branch_name: xxxx
+                      payments:
+                        - uri: https://ondc.transaction.com/payment
+                          tl_method: http/get
+                          params:
+                            currency: INR
+                            transaction_id: '3937'
+                            amount: '53600'
+                          status: PAID
+                          type: ON-ORDER
+                          collected_by: BPP
+                          '@ondc/org/buyer_app_finder_fee_type': percent
+                          '@ondc/org/buyer_app_finder_fee_amount': '0'
+                          '@ondc/org/settlement_details':
+                            - settlement_counterparty: buyer-app
+                              settlement_phase: sale-amount
+                              settlement_type: upi
+                              upi_address: gft@oksbi
+                              settlement_bank_account_no: XXXXXXXXXX
+                              settlement_ifsc_code: XXXXXXXXX
+                              beneficiary_name: xxxxx
+                              bank_name: xxxx
+                              branch_name: xxxx
                       fulfillments:
                         - id: F1
                           '@ondc/org/provider_name': Loadshare
