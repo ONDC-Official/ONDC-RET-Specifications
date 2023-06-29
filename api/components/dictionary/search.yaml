@@ -1,0 +1,7 @@
+context:
+  $ref: "../enums/context.yaml"
+message:
+  intent:
+    tags:
+      $ref: "../tags/TagGroup.yaml#/intent"
+

@@ -1,0 +1,123 @@
+bap_terms:
+  - code: FINDER_FEE_AMOUNT
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: FINDER_FEE_TYPE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+buyer_id:
+  - code: BUYER_ID_CODE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: BUYER_ID_NO
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+buyer_terms:
+  - code: ITEM_REQ
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: PACKAGING_REQ
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+item_details:
+  - code: ITEM_ID
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: COUNT
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: MEASURE_UNIT
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: MEASURE_VALUE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+serviceability:
+  - code: LOCATION
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: CATEGORY
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: TYPE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: VAL
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: UNIT
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+seller_terms:
+  - code: GST_CREDIT_INVOICE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+seller_id:
+  - code: SELLER_ID_CODE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: SELLER_ID_NO
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+variant:
+  - code: VARIANT_GROUP_ID
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: VARIANT_ATTR
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+image:
+  - code: TYPE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: URL
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+g2:
+  - code: TIME_TO_SHIP
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: TAX_RATE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+g3:
+  - code: BRAND
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: PACK_SIZE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: NUM_PRICE_SLABS
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+price_slab:
+  - code: MIN_PACK_SIZE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: MAX_PACK_SIZE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: UNIT_SALE_PRICE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+delivery_terms:
+  - code: INCOTERMS
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      - code: CIF
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: EXW
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+  - code: DELIVERY_DUTY
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      - code: DDU
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: DDP
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>

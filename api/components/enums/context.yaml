@@ -1,0 +1,23 @@
+context:
+  domain: 
+    - code: ONDC:RET10
+      description: Grocery
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: ONDC:RET11
+      description: F&B
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: ONDC:RET12
+      description: Fashion
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: ONDC:RET13
+      description: BPC
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: ONDC:RET14
+      description: Electronics
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: ONDC:RET15
+      description: Home & Decor
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: ONDC:RET16
+      description: Pharma
+      reference: <PR/Issue/Discussion Links md format text>

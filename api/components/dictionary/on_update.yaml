@@ -1,0 +1,7 @@
+context:
+  $ref: "../enums/context.yaml"
+message:
+  order:
+    fulfillments:
+      tags: 
+        $ref: "../tags/TagGroup.yaml#/fulfillments/tags"
