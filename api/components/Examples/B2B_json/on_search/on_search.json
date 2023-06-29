@@ -174,7 +174,7 @@
                   }
                 ]
               },
-              "manufacturer": {
+              "creator": {
                 "descriptor": {
                   "name": "Mother Dairy",
                   "contact": {
@@ -199,7 +199,21 @@
                     "unit": "millilitre",
                     "value": "500"
                   }
-                }
+                },
+                "available": {
+                "measure": {
+                  "unit": "millilitre",
+                  "value": "500"
+                },
+                "count": "2000"
+              },
+              "maximum": {
+                "measure": {
+                  "unit": "millilitre",
+                  "value": "500"
+                },
+                "count": "4000"
+              }
               },
               "category_ids": [
                 "RET10-1042"
@@ -284,36 +298,64 @@
               "recommended": "true",
               "tags": [
                 {
-                  "code": "variant",
-                  "list": [
+                  "code":"origin",
+                  "list":
+                  [
                     {
-                      "code": "variant_group_id",
-                      "value": "parent_item_id"
-                    },
-                    {
-                      "code": "variant_attr",
-                      "value": "quantity.unitized.measure.unit"
-                    },
-                    {
-                      "code": "variant_attr",
-                      "value": "quantity.unitized.measure.value"
-                    },
-                    {
-                      "code": "variant_attr",
-                      "value": "pack_size"
+                      "code":"country",
+                      "value":"IND"
                     }
                   ]
                 },
                 {
-                  "code": "image",
-                  "list": [
+                  "code":"image",
+                  "list":
+                  [
                     {
-                      "code": "type",
-                      "value": "back_image"
+                      "code":"type",
+                      "value":"back_image"
                     },
                     {
-                      "code": "url",
-                      "value": "https://abc.com/images/back-image.png"
+                      "code":"url",
+                      "value":"https://sellerNP.com/images/i1_back_image.png"
+                    }
+                  ]
+                },
+                {
+                  "code":"veg_nonveg",
+                  "list":
+                  [
+                    {
+                      "code":"veg",
+                      "value":"yes"
+                    }
+                  ]
+                },
+                {
+                  "code":"variant",
+                  "list":
+                  [
+                    {
+                      "code":"variant_group_id",
+                      "value":"V1"
+                    },
+                    {
+                      "code":"variant_attr",
+                      "value":"quantity.unitized.measure"
+                    }
+                  ]
+                },
+                {
+                  "code":"variant_seq",
+                  "list":
+                  [
+                    {
+                      "code":"variant_attr",
+                      "value":"quantity.unitized.measure"
+                    },
+                    {
+                      "code":"seq",
+                      "value":"1"
                     }
                   ]
                 },
@@ -395,6 +437,23 @@
                     {
                       "code": "unit_sale_price",
                       "value": "175"
+                    }
+                  ]
+                },
+                {
+                  "code": "FSSAI_LICENSE_NO",
+                  "list": [
+                    {
+                      "code": "BRAND_OWNER",
+                      "value": "12345678901234"
+                    },
+                    {
+                      "code": "OTHER",
+                      "value": "12345678901234"
+                    },
+                    {
+                      "code": "IMPORTER",
+                      "value": "12345678901234"
                     }
                   ]
                 }

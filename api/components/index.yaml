@@ -6,3 +6,5 @@ tags:
   $ref: "./tags/TagGroup.yaml"
 dictionary:
   $ref: "./dictionary/index.yaml"
+flows:
+  $ref: "./flows/index.yaml"

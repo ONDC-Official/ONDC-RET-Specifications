@@ -24,7 +24,7 @@ value:
         id: P1
         locations:
         - id: L1
-        ttl: 1D
+        ttl: P1D
       items:
       - id: I1
         location_ids:
