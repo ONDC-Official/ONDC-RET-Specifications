@@ -14,8 +14,8 @@ value:
     bap_uri: https://buyerapp.com/grocery
     bpp_id: sellerapp.com
     bpp_uri: https://sellerapp.com/grocery
-    transaction_id: T1
-    message_id: M1
+    transaction_id: 0f851fd5-f585-45b7-a302-90cd891fa2ca
+    message_id: ff9249f3-2b35-4c3a-8a7d-d4867fbfc905
     timestamp: '2023-01-08T22:00:30.000Z'
     ttl: PT30S
   message:
@@ -78,7 +78,7 @@ value:
               type: License
               desc: Import License No. ESG-12345678
               icon: https://abcd.cdn.com/images/license-img
-              url: https://abcd.dnb.com/verify?id=’ESG-12345678'
+              url: https://abcd.dnb.com/verify?id=ESG-12345678
         tags:
         - descriptor:
             code: DELIVERY_TERMS

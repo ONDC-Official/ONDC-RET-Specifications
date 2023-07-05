@@ -12,8 +12,8 @@ value:
     version: 2.0.1
     bap_id: buyerapp.com
     bap_uri: https://buyerapp.com/grocery
-    transaction_id: T1
-    message_id: M1
+    transaction_id: 0f851fd5-f585-45b7-a302-90cd891fa2ca
+    message_id: ff9249f3-2b35-4c3a-8a7d-d4867fbfc905
     timestamp: '2023-01-08T22:00:00.000Z'
     ttl: PT30S
   message:

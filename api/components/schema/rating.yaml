@@ -1,0 +1,333 @@
+type: object
+properties:
+  context:
+    allOf:
+      - description: >-
+          Every API call in beckn protocol has a context. It provides a
+          high-level overview to the receiver about the nature of the intended
+          transaction. Typically, it is the BAP that sets the transaction
+          context based on the consumer's location and action on their UI. But
+          sometimes, during unsolicited callbacks, the BPP also sets the
+          transaction context but it is usually the same as the context of a
+          previous full-cycle, request-callback interaction between the BAP and
+          the BPP. The context object contains four types of fields.
+          <ol><li>Demographic information about the transaction using fields
+          like `domain`, `country`, and `region`.</li><li>Addressing details
+          like the sending and receiving platform's ID and API
+          URL.</li><li>Interoperability information like the protocol version
+          that implemented by the sender and,</li><li>Transaction details like
+          the method being called at the receiver's endpoint, the transaction_id
+          that represents an end-to-end user session at the BAP, a message ID to
+          pair requests with callbacks, a timestamp to capture sending times, a
+          ttl to specifiy the validity of the request, and a key to encrypt
+          information if necessary.</li></ol> This object must be passed in
+          every interaction between a BAP and a BPP. In HTTP/S implementations,
+          it is not necessary to send the context during the synchronous
+          response. However, in asynchronous protocols, the context must be sent
+          during all interactions,
+        type: object
+        properties:
+          domain:
+            description: Domain code that is relevant to this transaction context
+            allOf:
+              - description: >-
+                  Standard code representing the domain. The standard is usually
+                  published as part of the network policy. Furthermore, the
+                  network facilitator should also provide a mechanism to provide
+                  the supported domains of a network.
+          location:
+            description: The location where the transaction is intended to be fulfilled.
+            allOf:
+              - description: The physical location of something
+                type: object
+                properties:
+                  id:
+                    type: string
+                  descriptor:
+                    description: Physical description of something.
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      code:
+                        type: string
+                      short_desc:
+                        type: string
+                      long_desc:
+                        type: string
+                      additional_desc:
+                        type: object
+                        properties:
+                          url:
+                            type: string
+                          content_type:
+                            type: string
+                            enum:
+                              - text/plain
+                              - text/html
+                              - application/json
+                      media:
+                        type: array
+                        items:
+                          description: This object contains a url to a media file.
+                          type: object
+                          properties:
+                            mimetype:
+                              description: >-
+                                indicates the nature and format of the document,
+                                file, or assortment of bytes. MIME types are
+                                defined and standardized in IETF's RFC 6838
+                              type: string
+                            url:
+                              description: The URL of the file
+                              type: string
+                              format: uri
+                            signature:
+                              description: >-
+                                The digital signature of the file signed by the
+                                sender
+                              type: string
+                            dsa:
+                              description: The signing algorithm used by the sender
+                              type: string
+                      images:
+                        type: array
+                        items:
+                          description: Describes an image
+                          type: object
+                          properties:
+                            url:
+                              description: >-
+                                URL to the image. This can be a data url or an
+                                remote url
+                              type: string
+                              format: uri
+                            size_type:
+                              description: >-
+                                The size of the image. The network policy can
+                                define the default dimensions of each type
+                              type: string
+                              enum:
+                                - xs
+                                - sm
+                                - md
+                                - lg
+                                - xl
+                                - custom
+                            width:
+                              description: Width of the image in pixels
+                              type: string
+                            height:
+                              description: Height of the image in pixels
+                              type: string
+                  map_url:
+                    description: >-
+                      The url to the map of the location. This can be a globally
+                      recognized map url or the one specified by the network
+                      policy.
+                    type: string
+                    format: uri
+                  gps:
+                    description: The GPS co-ordinates of this location.
+                    allOf:
+                      - &ref_0
+                        description: Describes a GPS coordinate
+                        type: string
+                        pattern: >-
+                          ^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$
+                  address:
+                    description: The address of this location.
+                    allOf:
+                      - description: Describes a postal address.
+                        type: string
+                  city:
+                    description: The city this location is, or is located within
+                    allOf:
+                      - description: Describes a city
+                        type: object
+                        properties:
+                          name:
+                            description: Name of the city
+                            type: string
+                          code:
+                            description: City code
+                            type: string
+                  district:
+                    description: The state this location is, or is located within
+                    type: string
+                  state:
+                    description: The state this location is, or is located within
+                    allOf:
+                      - description: >-
+                          A bounded geopolitical region of governance inside a
+                          country.
+                        type: object
+                        properties:
+                          name:
+                            type: string
+                            description: Name of the state
+                          code:
+                            type: string
+                            description: >-
+                              State code as per country or international
+                              standards
+                  country:
+                    description: The country this location is, or is located within
+                    allOf:
+                      - description: Describes a country
+                        type: object
+                        properties:
+                          name:
+                            type: string
+                            description: Name of the country
+                          code:
+                            type: string
+                            description: >-
+                              Country code as per ISO 3166-1 and ISO 3166-2
+                              format
+                  area_code:
+                    type: string
+                  circle:
+                    description: >-
+                      Describes a circular region of a specified radius centered
+                      at a specified GPS coordinate.
+                    type: object
+                    properties:
+                      gps: *ref_0
+                      radius:
+                        description: Describes a scalar
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                            enum:
+                              - CONSTANT
+                              - VARIABLE
+                          value: &ref_1
+                            description: Describes a numerical value in decimal form
+                            type: string
+                            pattern: '[+-]?([0-9]*[.])?[0-9]+'
+                          estimated_value: *ref_1
+                          computed_value: *ref_1
+                          range:
+                            type: object
+                            properties:
+                              min: *ref_1
+                              max: *ref_1
+                          unit:
+                            type: string
+                  polygon:
+                    description: The boundary polygon of this location
+                    type: string
+                  3dspace:
+                    description: The three dimensional region describing this location
+                    type: string
+                  rating:
+                    description: The rating of this location
+                    allOf:
+                      - &ref_4
+                        description: >-
+                          Rating value given to the object. This can be a single
+                          value or can also contain an inequality operator like
+                          gt, gte, lt, lte. This can also contain an inequality
+                          expression containing logical operators like && and
+                          ||.
+                        type: string
+          action:
+            description: >-
+              The Beckn protocol method being called by the sender and executed
+              at the receiver.
+            type: string
+          version:
+            type: string
+            description: Version of transaction protocol being used by the sender.
+          bap_id:
+            description: Subscriber ID of the BAP
+            allOf:
+              - &ref_2
+                description: >-
+                  A globally unique identifier of the platform, Typically it is
+                  the fully qualified domain name (FQDN) of the platform.
+                type: string
+          bap_uri:
+            description: Subscriber URL of the BAP for accepting callbacks from BPPs.
+            allOf:
+              - &ref_3
+                description: >-
+                  The callback URL of the Subscriber. This should necessarily
+                  contain the same domain name as set in `subscriber_id``.
+                type: string
+                format: uri
+          bpp_id:
+            description: Subscriber ID of the BPP
+            allOf:
+              - *ref_2
+          bpp_uri:
+            description: Subscriber URL of the BPP for accepting calls from BAPs.
+            allOf:
+              - *ref_3
+          transaction_id:
+            description: >-
+              This is a unique value which persists across all API calls from
+              `search` through `confirm`. This is done to indicate an active
+              user session across multiple requests. The BPPs can use this value
+              to push personalized recommendations, and dynamic offerings
+              related to an ongoing transaction despite being unaware of the
+              user active on the BAP.
+            type: string
+            format: uuid
+          message_id:
+            description: >-
+              This is a unique value which persists during a request / callback
+              cycle. Since beckn protocol APIs are asynchronous, BAPs need a
+              common value to match an incoming callback from a BPP to an
+              earlier call. This value can also be used to ignore duplicate
+              messages coming from the BPP. It is recommended to generate a
+              fresh message_id for every new interaction. When sending
+              unsolicited callbacks, BPPs must generate a new message_id.
+            type: string
+            format: uuid
+          timestamp:
+            description: Time of request generation in RFC3339 format
+            type: string
+            format: date-time
+          key:
+            description: The encryption public key of the sender
+            type: string
+          ttl:
+            description: >-
+              The duration in ISO8601 format after timestamp for which this
+              message holds valid
+            type: string
+      - properties:
+          action:
+            enum:
+              - rating
+        required:
+          - action
+  message:
+    type: object
+    properties:
+      ratings:
+        type: array
+        items:
+          description: Describes the rating of an entity
+          type: object
+          properties:
+            rating_category:
+              description: Category of the entity being rated
+              type: string
+              enum:
+                - Item
+                - Order
+                - Fulfillment
+                - Provider
+                - Agent
+                - Support
+            id:
+              description: Id of the object being rated
+              type: string
+            value: *ref_4
+required:
+  - context
+  - message
