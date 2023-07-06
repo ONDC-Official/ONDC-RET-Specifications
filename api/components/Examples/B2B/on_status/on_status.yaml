@@ -57,7 +57,8 @@ value:
             descriptor:
               name: ABC Store
               images:
-              - https://gf-integration/images/5.png
+                - items: 
+                  url: https://gf-integration/images/5.png
             gps: 12.956399,77.636803
           time:
             range:
@@ -69,7 +70,8 @@ value:
             short_desc: Proof of pickup details
             long_desc: Proof of pickup details
             images:
-            - https://image1_url.png
+              - items: 
+                  url: https://image1_url.png
           contact:
             phone: '9886098860'
             email: nobody@nomail.com
@@ -94,7 +96,8 @@ value:
             short_desc: Proof of delivery details
             long_desc: Proof of delivery details
             images:
-            - https://image1_url.png
+              - items: 
+                 url: https://image1_url.png
           contact:
             phone: '9886098860'
           agent:

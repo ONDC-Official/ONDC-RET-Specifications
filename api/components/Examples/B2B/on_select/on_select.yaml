@@ -51,9 +51,9 @@ value:
           item:
             quantity:
               available:
-                count: '200'
+                count: 200
               maximum:
-                count: '200'
+                count: 200
             price:
               currency: INR
               value: '250'
