@@ -4,15 +4,22 @@ search:
   message:
     intent:
       fulfillment: &fulfillment
-        $ref: "./fulfillments.yaml"
+        type: 
+          $ref: "./fulfillments.yaml#/fulfillments/type"
 on_search:
   message:
     catalog:
-        providers:
-          items:
-            category_ids: &category_ids
-              $ref: "./category.yaml"
+      "bpp/fulfillments": *fulfillment
+      "bpp/providers":
         fulfillments: *fulfillment
+        items:
+          quantity:
+            unitized: &measure
+              $ref: "./measure.yaml"
+            available: *measure
+            maximum: *measure
+        offers:
+          $ref: "./offers.yaml#/offers"
 select:
   context: *context
   message:

@@ -1,0 +1,23 @@
+payment:
+  type:
+    - code: ON-ORDER
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: ON-FULFILLMENT
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: POST-FULFILLMENT
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>  
+  '@ondc/org/settlement_details':
+      settlement_type:
+      - code: upi
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: neft
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: rtgs
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>  
+  

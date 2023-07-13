@@ -6,3 +6,39 @@ fulfillments:
     - code: Self-Pickup
       description: about the enum
       reference: <PR/Issue/Discussion Links md format text>
+    - code: Delivery and Self-Pickup
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+  instructions: 
+    code:
+    - code: 1
+      description: buyer contact no (for self-pickup)
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: 2
+      description: merchant order no
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: 3
+      description: other pickup confirmation code
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: 4
+      description: (OTP) required when order is "Packed"
+      reference: <PR/Issue/Discussion Links md format text>
+  '@ondc/org/category':
+    - code: Takeaway
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: Kerbside
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: Express Delivery
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text> 
+    - code: Immediate Delivery
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: Same Day Delivery
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>  
+    - code: Next Day Delivery
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>   

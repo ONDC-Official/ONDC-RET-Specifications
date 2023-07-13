@@ -121,3 +121,15 @@ delivery_terms:
       - code: DDP
         description: about the enum
         reference: <PR/Issue/Discussion Links md format text>
+categories_type:
+  - code: TYPE
+    description: Defines category types at provider level
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      - code: 1
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: 2
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+

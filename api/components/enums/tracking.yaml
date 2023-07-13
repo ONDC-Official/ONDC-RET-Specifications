@@ -1,0 +1,8 @@
+tracking:
+  status:
+    - code: active
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: inactive
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>

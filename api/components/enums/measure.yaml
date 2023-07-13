@@ -1,0 +1,23 @@
+measure:
+  unit:
+    - code: unit
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: gram
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: dozen
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: kilogram
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: tonne
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: litre
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: millilitre
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text> 

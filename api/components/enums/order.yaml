@@ -1,0 +1,18 @@
+order:
+  state:
+    - code: Created
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: Accepted
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: In-progress
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: Completed
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: Cancelled
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+ 

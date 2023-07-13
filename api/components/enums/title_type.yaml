@@ -1,0 +1,25 @@
+'@ondc/org/title_type':
+    - code: item
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: delivery
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: packing
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: tax
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: misc
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: discount
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: discount_f
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text> 
+    - code: tax_f
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text> 
