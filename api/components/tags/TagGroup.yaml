@@ -1,82 +1,184 @@
 intent:
   tags:
-    - code: BAP_TERMS
+    - code: CATALOG_INC
       description: Description about the tags
       reference: <PR/Issue/Discussion Links md format text>
       list:
-        $ref: "./Tag.yaml#/bap_terms"
-    - code: BUYER_ID
+        $ref: "./tag.yaml#/catalog_inc"
+    - code: CATALOG_FULL
       description: Description about the tags
       reference: <PR/Issue/Discussion Links md format text>
       list:
-        $ref: "./Tag.yaml#/buyer_id"
+        $ref: "./tag.yaml#/catalog_full"
 providers:
   tags:
     - code: SERVICEABILITY
       description: Description about the tags
       reference: <PR/Issue/Discussion Links md format text>
       list:
-        $ref: "./Tag.yaml#/serviceability"
-    - code: SELLER_TERMS
+        $ref: "./tag.yaml#/serviceability"
+    - code: ORDER_VALUE
       description: Description about the tags
       reference: <PR/Issue/Discussion Links md format text>
       list:
-        $ref: "./Tag.yaml#/seller_terms"
-    - code: SELLER_ID
+        $ref: "./tag.yaml#/order_value"
+    - code: CATALOG_LINK
       description: Description about the tags
       reference: <PR/Issue/Discussion Links md format text>
       list:
-        $ref: "./Tag.yaml#/seller_id"
-catalog:
+        $ref: "./tag.yaml#/catalog_link"
+    - code: TIMING
+      description: Description about the tags
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        $ref: "./tag.yaml#/timing"
+  categories:
+    tags: 
+    - code: TYPE
+      description: Description about the tags
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        $ref: "./tag.yaml#/type"
+    - code: TIMING
+      description: Description about the tags
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        $ref: "./tag.yaml#/timing"
+    - code: DISPLAY
+      description: Description about the tags
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        $ref: "./tag.yaml#/display"
+    - code: CONFIG
+      description: Description about the tags
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        $ref: "./tag.yaml#/config"
   items:
+      tags:
+        - code: CUSTOM_GROUP
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+          list:
+            $ref: "./tag.yaml#/custom_group"
+        - code: CONFIG
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+          list:
+            $ref: "./tag.yaml#/config"
+        - code: ORIGIN
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+          list:
+            $ref: "./tag.yaml#/origin"
+        - code: ATTRIBUTE
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+          list:
+            $ref: "./tag.yaml#/attribute"
+        - code: TIMING
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+          list:
+            $ref: "./tag.yaml#/timing"
+        - code: VEG_NONVEG
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+          list:
+            $ref: "./tag.yaml#/veg_nonveg"
+        - code: VARIANT
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+          list:
+          $ref: "./tag.yaml#/variant"
+        - code: VARIANT_SQQ
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+          list:
+          $ref: "./tag.yaml#/variant_seq"
+        - code: PARENT
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+          list:
+          $ref: "./tag.yaml#/parent"
+        - code: TYPE
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+          list:
+          $ref: "./tag.yaml#/type"
+  offers:
     tags:
-      - code: VARIANT
+      - code: CART
         description: Description about the tags
         reference: <PR/Issue/Discussion Links md format text>
         list:
-          $ref: "./Tag.yaml#/variant"
-      - code: IMAGE
+          $ref: "./tag.yaml#/cart"
+      - code: OFFER
         description: Description about the tags
         reference: <PR/Issue/Discussion Links md format text>
         list:
-          $ref: "./Tag.yaml#/image"
-      - code: G2
+         $ref: "./tag.yaml#/offer"
+      - code: PARENT
         description: Description about the tags
         reference: <PR/Issue/Discussion Links md format text>
         list:
-          $ref: "./Tag.yaml#/g2"
-      - code: G3
+         $ref: "./tag.yaml#/parent"
+      - code: TYPE
         description: Description about the tags
         reference: <PR/Issue/Discussion Links md format text>
         list:
-          $ref: "./Tag.yaml#/g3"
-      - code: PRICE_SLAB
-        description: Description about the tags
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
+         $ref: "./tag.yaml#/type"
 order:
   items:
     tags:
-      - code: BUYER_TERMS
+      - code: TYPE
         description: Description about the tags
         reference: <PR/Issue/Discussion Links md format text>
         list:
-          $ref: "./Tag.yaml#/buyer_terms"
+          $ref: "./tag.yaml#/type"
+      - code: CHILD
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          $ref: "./tag.yaml#/child"
   tags:
     - code: BUYER_ID
       description: Description about the tags
       reference: <PR/Issue/Discussion Links md format text>
       list:
-        $ref: "./Tag.yaml#/buyer_id"
-fulfillments:
-  tags:
-    - code: ITEM_DETAILS
+        $ref: "./tag.yaml#/buyer_id"
+    - code: BPP_TERMS
       description: Description about the tags
       reference: <PR/Issue/Discussion Links md format text>
       list:
-        $ref: "./Tag.yaml#/item_details"
-    - code: DELIVERY_TERMS
+        $ref: "./tag.yaml#/bpp_terms"
+    - code: BAP_TERMS
       description: Description about the tags
       reference: <PR/Issue/Discussion Links md format text>
       list:
-        $ref: "./Tag.yaml#/delivery_terms"
+        $ref: "./tag.yaml#/bap_terms"
+  item:
+    tags:
+      - code: TYPE
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          $ref: "./tag.yaml#/type"
+  fulfillments:
+    tags:
+      - code: CANCEL_REQUEST
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          $ref: "./tag.yaml#/cancel_request"
+      - code: QUOTE_TRAIL
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          $ref: "./tag.yaml#/quote_trail"
+      - code: RETURN_REQUEST
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          $ref: "./tag.yaml#/return_request"
+   
