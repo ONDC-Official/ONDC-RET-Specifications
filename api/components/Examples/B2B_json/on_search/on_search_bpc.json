@@ -1,6 +1,6 @@
 {
     "context": {
-      "domain": "ONDC:RET10",
+      "domain": "ONDC:RET13",
       "location": {
         "city": {
           "code": "std:080"
@@ -12,9 +12,9 @@
       "action": "on_search",
       "version": "2.0.1",
       "bap_id": "buyerapp.com",
-      "bap_uri": "https://buyerapp.com/grocery",
+      "bap_uri": "https://buyerapp.com/bpc",
       "bpp_id": "sellerapp.com",
-      "bpp_uri": "https://sellerapp.com/grocery",
+      "bpp_uri": "https://sellerapp.com/bpc",
       "transaction_id": "T1",
       "message_id": "M1",
       "timestamp": "2023-01-08T22:00:30.000Z",
@@ -153,66 +153,15 @@
                 ]
               }
             ],
-            "categories":
-            [
-              {
-                "id":"V1",
-                "descriptor":
-                {
-                  "name":"Variant Group 1"
-                },
-                "tags":
-                [
-                  {
-                    "code":"type",
-                    "list":
-                    [
-                      {
-                        "code":"type",
-                        "value":"variant_group"
-                      }
-                    ]
-                  },
-                  {
-                    "code":"attr",
-                    "list":
-                    [
-                      {
-                        "code":"name",
-                        "value":"item.tags.attribute.colour"
-                      },
-                      {
-                        "code":"seq",
-                        "value":"1"
-                      }
-                    ]
-                  },
-                  {
-                    "code":"attr",
-                    "list":
-                    [
-                      {
-                        "code":"name",
-                        "value":"item.tags.attribute.size"
-                      },
-                      {
-                        "code":"seq",
-                        "value":"2"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
             "items": [
               {
                 "id": "I1",
                 "parent_item_id": "V1",
                 "descriptor": {
-                  "name": "Dhara Mustard Oil",
+                  "name": "Kesh King Ayurvedic Hair Oil",
                   "code": "UPC / EAN code",
-                  "short_desc": "Dhara refined mustard oil",
-                  "long_desc": "Dhara refined mustard oil",
+                  "short_desc": "Kesh King Ayurvedic Hair Oil",
+                  "long_desc": "Kesh King Ayurvedic Hair Oil",
                   "images": [
                     {
                       "url": "https://abc.com/images/207.png"
@@ -227,14 +176,14 @@
                 },
                 "creator": {
                   "descriptor": {
-                    "name": "Mother Dairy",
+                    "name": "Emami Ltd",
                     "contact": {
                       "name": "Raj Kumar",
                       "address": {
-                        "full": "Mother Dairy Fruit & Vegetable Pvt Ltd,A-3, NDDB House, Sector-1, Noida,Uttar Pradesh-201301"
+                        "full": "Emami Ltd., 687 Anandapur, Kolkata 700107"
                       },
                       "phone": "18001801018",
-                      "email": "consumer.services@motherdairy.com"
+                      "email": "info@keshking.com"
                     }
                   }
                 },
@@ -282,9 +231,9 @@
                   {
                     "id": "78787723",
                     "descriptor": {
-                      "name": "Dhara Sunflower Oil",
-                      "short_desc": "Dhara Sunflower Oil",
-                      "long_desc": "Dhara Sunflower Oil",
+                      "name": "Kesh King Ayurvedic Shampoo",
+                      "short_desc": "Kesh King Ayurvedic Shampoo",
+                      "long_desc": "Kesh King Ayurvedic Shampoo",
                       "images": [
                         {
                           "url": "https://abc.com/images/208.png"
@@ -519,10 +468,10 @@
               {
                 "id": "offer-1",
                 "descriptor": {
-                  "name": "Dhara Olive Oil",
+                  "name": "Kesh King Ayurvedic Shampoo",
                   "code": "FREEBIE",
-                  "short_desc": "Dhara Olive Oil",
-                  "long_desc": "Dhara Olive Oil",
+                  "short_desc": "Kesh King Ayurvedic Shampoo 5 ml Pouch",
+                  "long_desc": "Kesh King Ayurvedic Shampoo 5 ml Pouch",
                   "images": [
                     {
                       "url": "https://abc.com/images/207.png"

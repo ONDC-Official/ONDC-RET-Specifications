@@ -1,6 +1,6 @@
 {
     "context": {
-      "domain": "ONDC:RET10",
+      "domain": "ONDC:RET12",
       "location": {
         "city": {
           "code": "std:080"
@@ -12,9 +12,9 @@
       "action": "on_search",
       "version": "2.0.1",
       "bap_id": "buyerapp.com",
-      "bap_uri": "https://buyerapp.com/grocery",
+      "bap_uri": "https://buyerapp.com/fs",
       "bpp_id": "sellerapp.com",
-      "bpp_uri": "https://sellerapp.com/grocery",
+      "bpp_uri": "https://sellerapp.com/fs",
       "transaction_id": "T1",
       "message_id": "M1",
       "timestamp": "2023-01-08T22:00:30.000Z",
@@ -209,10 +209,10 @@
                 "id": "I1",
                 "parent_item_id": "V1",
                 "descriptor": {
-                  "name": "Dhara Mustard Oil",
+                  "name": "Allen Solly Men T-shirt",
                   "code": "UPC / EAN code",
-                  "short_desc": "Dhara refined mustard oil",
-                  "long_desc": "Dhara refined mustard oil",
+                  "short_desc": "Allen Solly Men T-shirt",
+                  "long_desc": "Allen Solly Men T-shirt",
                   "images": [
                     {
                       "url": "https://abc.com/images/207.png"
@@ -227,14 +227,14 @@
                 },
                 "creator": {
                   "descriptor": {
-                    "name": "Mother Dairy",
+                    "name": "xxxxx",
                     "contact": {
-                      "name": "Raj Kumar",
+                      "name": "xxxx",
                       "address": {
-                        "full": "Mother Dairy Fruit & Vegetable Pvt Ltd,A-3, NDDB House, Sector-1, Noida,Uttar Pradesh-201301"
+                        "full": "Allen Solly Ltd,A-3, NDDB House, Sector-1, Noida,Uttar Pradesh-201301"
                       },
                       "phone": "18001801018",
-                      "email": "consumer.services@motherdairy.com"
+                      "email": "consumer.services@xxxx.com"
                     }
                   }
                 },
@@ -247,27 +247,27 @@
                 "quantity": {
                   "unitized": {
                     "measure": {
-                      "unit": "millilitre",
-                      "value": "500"
+                      "unit": "unit",
+                      "value": "1"
                     }
                   },
                   "available": {
                   "measure": {
-                    "unit": "millilitre",
-                    "value": "500"
+                    "unit": "unit",
+                    "value": "1"
                   },
-                  "count": "2000"
+                  "count": "99"
                 },
                 "maximum": {
                   "measure": {
-                    "unit": "millilitre",
-                    "value": "500"
+                    "unit": "unit",
+                    "value": "1"
                   },
-                  "count": "4000"
+                  "count": "99"
                 }
                 },
                 "category_ids": [
-                  "RET10-1042"
+                  "RET12-102F"
                 ],
                 "fulfillment_ids": [
                   "1"
@@ -277,27 +277,6 @@
                 ],
                 "payment_ids": [
                   "2"
-                ],
-                "add-ons": [
-                  {
-                    "id": "78787723",
-                    "descriptor": {
-                      "name": "Dhara Sunflower Oil",
-                      "short_desc": "Dhara Sunflower Oil",
-                      "long_desc": "Dhara Sunflower Oil",
-                      "images": [
-                        {
-                          "url": "https://abc.com/images/208.png"
-                        }
-                      ]
-                    },
-                    "price": {
-                      "currency": "INR",
-                      "value": "170.0",
-                      "offered_value": "100.0",
-                      "maximum_value": "170.0"
-                    }
-                  }
                 ],
                 "cancellation_terms": [
                   {
@@ -506,21 +485,287 @@
                         "value": "175"
                       }
                     ]
+                  }
+                ]
+              },
+              {
+                "id": "I2",
+                "parent_item_id": "V1",
+                "descriptor": {
+                  "name": "Allen Solly Men T-shirt",
+                  "code": "UPC / EAN code",
+                  "short_desc": "Allen Solly Men T-shirt",
+                  "long_desc": "Allen Solly Men T-shirt",
+                  "images": [
+                    {
+                      "url": "https://abc.com/images/207.png"
+                    }
+                  ],
+                  "media": [
+                    {
+                      "mimetype": "video/mp4",
+                      "url": "video_url"
+                    }
+                  ]
+                },
+                "creator": {
+                  "descriptor": {
+                    "name": "xxxxx",
+                    "contact": {
+                      "name": "xxxx",
+                      "address": {
+                        "full": "Allen Solly Ltd,A-3, NDDB House, Sector-1, Noida,Uttar Pradesh-201301"
+                      },
+                      "phone": "18001801018",
+                      "email": "consumer.services@xxxx.com"
+                    }
+                  }
+                },
+                "price": {
+                  "currency": "INR",
+                  "value": "300.00",
+                  "offered_value": "250.00",
+                  "maximum_value": "350.00"
+                },
+                "quantity": {
+                  "unitized": {
+                    "measure": {
+                      "unit": "unit",
+                      "value": "1"
+                    }
+                  },
+                  "available": {
+                  "measure": {
+                    "unit": "unit",
+                    "value": "1"
+                  },
+                  "count": "99"
+                },
+                "maximum": {
+                  "measure": {
+                    "unit": "unit",
+                    "value": "1"
+                  },
+                  "count": "99"
+                }
+                },
+                "category_ids": [
+                  "RET12-102F"
+                ],
+                "fulfillment_ids": [
+                  "1"
+                ],
+                "location_ids": [
+                  "L1"
+                ],
+                "payment_ids": [
+                  "2"
+                ],
+                "cancellation_terms": [
+                  {
+                    "fulfillment_state": {
+                      "descriptor": {
+                        "code": "Pending"
+                      }
+                    },
+                    "refund_eligible": "true"
                   },
                   {
-                    "code": "FSSAI_LICENSE_NO",
+                    "fulfillment_state": {
+                      "descriptor": {
+                        "code": "Packed"
+                      }
+                    },
+                    "refund_eligible": "true"
+                  },
+                  {
+                    "fulfillment_state": {
+                      "descriptor": {
+                        "code": "Order-delivered"
+                      }
+                    },
+                    "return_policy": {
+                      "return_eligible": "true",
+                      "return_within": "P7D",
+                      "fulfillment_managed_by": "seller",
+                      "return_location": {
+                        "address": "RTO address",
+                        "gps": "12.667555,77.349666"
+                      }
+                    }
+                  }
+                ],
+                "replacement_terms": [
+                  {
+                    "replace_within": "P7D"
+                  }
+                ],
+                "time": {
+                  "label": "validity",
+                  "range": {
+                    "start": "2022-12-24T00:00:00.000Z",
+                    "end": "2022-12-31T00:00:00.000Z"
+                  }
+                },
+                "matched": "true",
+                "recommended": "true",
+                "tags": [
+                  {
+                    "code":"origin",
+                    "list":
+                    [
+                      {
+                        "code":"country",
+                        "value":"IND"
+                      }
+                    ]
+                  },
+                  {
+                    "code":"image",
+                    "list":
+                    [
+                      {
+                        "code":"type",
+                        "value":"back_image"
+                      },
+                      {
+                        "code":"url",
+                        "value":"https://sellerNP.com/images/i1_back_image.png"
+                      }
+                    ]
+                  },
+                  {
+                    "code":"attribute",
+                    "list":
+                    [
+                      {
+                        "code":"brand",
+                        "value":"Allen Solly"
+                      },
+                      {
+                        "code":"colour",
+                        "value":"coral"
+                      },
+                      {
+                        "code":"size",
+                        "value":"M"
+                      },
+                      {
+                        "code":"gender",
+                        "value":"male"
+                      },
+                      {
+                        "code":"pattern",
+                        "value":"striped"
+                      },
+                      {
+                        "code":"material",
+                        "value":"cotton"
+                      },
+                      {
+                        "code":"occasion",
+                        "value":"casual"
+                      },
+                      {
+                        "code":"season",
+                        "value":"summer"
+                      },
+                      {
+                        "code":"trend",
+                        "value":"tribal"
+                      },
+                      {
+                        "code":"features",
+                        "value":"alpha"
+                      },
+                      {
+                        "code":"material_finish",
+                        "value":"embossed"
+                      },
+                      {
+                        "code":"size_chart",
+                        "value":"https://sellerNP.com/images/i1_size_chart.png"
+                      }
+                    ]
+                  },   
+                  {
+                    "code": "g2",
                     "list": [
                       {
-                        "code": "BRAND_OWNER",
-                        "value": "12345678901234"
+                        "code": "time_to_ship",
+                        "value": "P1D"
                       },
                       {
-                        "code": "OTHER",
-                        "value": "12345678901234"
+                        "code": "tax_rate",
+                        "value": "12"
+                      }
+                    ]
+                  },
+                  {
+                    "code": "g3",
+                    "list": [
+                      {
+                        "code": "brand",
+                        "value": "Allen Solly"
                       },
                       {
-                        "code": "IMPORTER",
-                        "value": "12345678901234"
+                        "code": "pack_size",
+                        "value": "5"
+                      },
+                      {
+                        "code": "num_price_slabs",
+                        "value": "3"
+                      }
+                    ]
+                  },
+                  {
+                    "code": "price_slab",
+                    "list": [
+                      {
+                        "code": "min_pack_size",
+                        "value": "1"
+                      },
+                      {
+                        "code": "max_pack_size",
+                        "value": "4"
+                      },
+                      {
+                        "code": "unit_sale_price",
+                        "value": "250"
+                      }
+                    ]
+                  },
+                  {
+                    "code": "price_slab",
+                    "list": [
+                      {
+                        "code": "min_pack_size",
+                        "value": "5"
+                      },
+                      {
+                        "code": "max_pack_size",
+                        "value": "9"
+                      },
+                      {
+                        "code": "unit_sale_price",
+                        "value": "200"
+                      }
+                    ]
+                  },
+                  {
+                    "code": "price_slab",
+                    "list": [
+                      {
+                        "code": "min_pack_size",
+                        "value": "10"
+                      },
+                      {
+                        "code": "max_pack_size",
+                        "value": ""
+                      },
+                      {
+                        "code": "unit_sale_price",
+                        "value": "175"
                       }
                     ]
                   }
@@ -531,10 +776,10 @@
               {
                 "id": "offer-1",
                 "descriptor": {
-                  "name": "Dhara Olive Oil",
+                  "name": "Scarf",
                   "code": "FREEBIE",
-                  "short_desc": "Dhara Olive Oil",
-                  "long_desc": "Dhara Olive Oil",
+                  "short_desc": "Scarf",
+                  "long_desc": "Scarf",
                   "images": [
                     {
                       "url": "https://abc.com/images/207.png"
