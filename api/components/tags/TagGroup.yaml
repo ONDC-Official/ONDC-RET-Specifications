@@ -73,6 +73,11 @@ order:
       reference: <PR/Issue/Discussion Links md format text>
       list:
         $ref: "./Tag.yaml#/buyer_id"
+    - code: COMM_CHANNEL
+      description: Description about the tags
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        $ref: "./Tag.yaml#/comm_channel"
 fulfillments:
   tags:
     - code: ITEM_DETAILS
