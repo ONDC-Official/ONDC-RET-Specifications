@@ -1,0 +1,15 @@
+offers:
+  descriptor:
+    code:
+      - code: Disc_Pct
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: Disc_Amt
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: BuyXGetY
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: Freebie
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
