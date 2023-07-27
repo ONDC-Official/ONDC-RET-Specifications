@@ -40,6 +40,11 @@ catalog:
         reference: <PR/Issue/Discussion Links md format text>
         list:
           $ref: "./Tag.yaml#/image"
+      - code: ATTRIBUTE
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          $ref: "./Tag.yaml#/attribute"
       - code: G2
         description: Description about the tags
         reference: <PR/Issue/Discussion Links md format text>
