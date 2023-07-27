@@ -16,7 +16,7 @@ type:
   - code: TYPE
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
-timing:
+timing: 
   - code: DAY_FROM
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
@@ -29,16 +29,13 @@ timing:
   - code: TIME_TO
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
+provider_timing:
+  allOf:
+  - $ref: "#/timing"
   - code: TYPE
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
   - code: LOCATION
-    description: Description about the tags
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: DISPLAY
-    description: Description about the tags
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: REFRESH
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
 display:
@@ -58,7 +55,24 @@ config:
   - code: SEQ
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
+item_config:
   - code: ID
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: MIN
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: MAX
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: SEQ
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+attr:
+  - code: NAME
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: SEQ
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
 veg_nonveg:
@@ -84,12 +98,6 @@ parent:
     reference: <PR/Issue/Discussion Links md format text>
 child:
   - code: ID
-    description: Description about the tags
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: TYPE
-    description: Description about the tags
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: PARENT_ID
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
 cart:
@@ -158,9 +166,6 @@ verification:
     reference: <PR/Issue/Discussion Links md format text>
 custom_group:
   - code: ID
-    description: Description about the tags
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: ITEM_COUNT
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
 attribute:
@@ -258,6 +263,12 @@ attribute:
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
   - code: SPECIAL_FEATURE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: DISPLAY
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: REFRESH
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
 bap_provider_link:
@@ -454,5 +465,12 @@ variant:
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
   - code: VARIANT_ATTR
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+path:
+  - code: lat_lng
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: sequence
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>

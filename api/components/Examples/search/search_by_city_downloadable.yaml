@@ -1,0 +1,26 @@
+summary: search_by_category
+description: Search By Category
+value:
+  context:
+    domain: ONDC:RET10
+    city: std:080
+    country: IND
+    action: search
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    transaction_id: T1
+    message_id: M1
+    timestamp: '2023-06-03T08:00:00.000Z'
+    ttl: PT30S
+  message:
+    intent:
+      payment:
+        "@ondc/org/buyer_app_finder_fee_type": percent
+        "@ondc/org/buyer_app_finder_fee_amount": 3
+      tags:
+      - code: catalog_full
+        list:
+        - code: payload_type
+          value: link
+

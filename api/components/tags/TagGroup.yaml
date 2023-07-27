@@ -31,7 +31,7 @@ providers:
       description: Description about the tags
       reference: <PR/Issue/Discussion Links md format text>
       list:
-        $ref: "./tag.yaml#/timing"
+        $ref: "./tag.yaml#/provider_timing"
   categories:
     tags: 
     - code: TYPE
@@ -54,8 +54,18 @@ providers:
       reference: <PR/Issue/Discussion Links md format text>
       list:
         $ref: "./tag.yaml#/config"
+    - code: ATTR
+      description: Description about the tags
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        $ref: "./tag.yaml#/attr"
   items:
       tags:
+        - code: ORIGIN
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+          list:
+            $ref: "./tag.yaml#/origin"
         - code: CUSTOM_GROUP
           description: Description about the tags
           reference: <PR/Issue/Discussion Links md format text>
@@ -65,17 +75,7 @@ providers:
           description: Description about the tags
           reference: <PR/Issue/Discussion Links md format text>
           list:
-            $ref: "./tag.yaml#/config"
-        - code: ORIGIN
-          description: Description about the tags
-          reference: <PR/Issue/Discussion Links md format text>
-          list:
-            $ref: "./tag.yaml#/origin"
-        - code: ATTRIBUTE
-          description: Description about the tags
-          reference: <PR/Issue/Discussion Links md format text>
-          list:
-            $ref: "./tag.yaml#/attribute"
+            $ref: "./tag.yaml#/item_config"
         - code: TIMING
           description: Description about the tags
           reference: <PR/Issue/Discussion Links md format text>
@@ -86,26 +86,26 @@ providers:
           reference: <PR/Issue/Discussion Links md format text>
           list:
             $ref: "./tag.yaml#/veg_nonveg"
-        - code: VARIANT
-          description: Description about the tags
-          reference: <PR/Issue/Discussion Links md format text>
-          list:
-          $ref: "./tag.yaml#/variant"
-        - code: VARIANT_SQQ
-          description: Description about the tags
-          reference: <PR/Issue/Discussion Links md format text>
-          list:
-          $ref: "./tag.yaml#/variant_seq"
         - code: PARENT
           description: Description about the tags
           reference: <PR/Issue/Discussion Links md format text>
           list:
           $ref: "./tag.yaml#/parent"
+        - code: CHILD
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+          list:
+          $ref: "./tag.yaml#/child"
         - code: TYPE
           description: Description about the tags
           reference: <PR/Issue/Discussion Links md format text>
           list:
           $ref: "./tag.yaml#/type"
+        - code: ATTRIBUTE
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+          list:
+          $ref: "./tag.yaml#/attribute"
   offers:
     tags:
       - code: CART
@@ -181,4 +181,11 @@ order:
         reference: <PR/Issue/Discussion Links md format text>
         list:
           $ref: "./tag.yaml#/return_request"
-   
+
+tracking:
+  tags:
+    - code: PATH
+      description: Description about the tags
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        $ref: "./tag.yaml#/path"
