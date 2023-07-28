@@ -104,7 +104,7 @@ value:
             - url: https://abc.com/images/207.png
             media:
             - mimetype: video/mp4
-              url: video_url
+              url: https://abc.com/images/207.mp4
           creator:
             descriptor:
               name: Emami Ltd
