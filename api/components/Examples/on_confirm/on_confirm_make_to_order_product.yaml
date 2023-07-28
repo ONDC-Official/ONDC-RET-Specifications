@@ -80,9 +80,6 @@ message:
             range:
               start: '2023-06-03T11:00:00.000Z'
               end: '2023-06-03T11:30:00.000Z'
-          instructions:
-            name: Status for drop
-            short_desc: Delivery Confirmation Code
           person:
             name: name_of_person
           contact:

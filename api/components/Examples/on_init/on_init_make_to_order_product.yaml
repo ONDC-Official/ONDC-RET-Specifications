@@ -17,8 +17,6 @@ message:
       id: P1
       locations:
         - id: L1
-    provider_location:
-      id: L1
     items:
       - fulfillment_id: F1
         id: DI1
