@@ -48,14 +48,20 @@
                     ],
                     "tags": [
                         {
-                            "code": "BUYER_TERMS",
+                            "descriptor": {
+                                "code": "BUYER_TERMS"
+                            },
                             "list": [
                                 {
-                                    "code": "ITEM_REQ",
+                                    "descriptor": {
+                                        "code": "ITEM_REQ"
+                                    },
                                     "value": "free text on Item Customization"
                                 },
                                 {
-                                    "code": "PACKAGING_REQ",
+                                    "descriptor": {
+                                        "code": "PACKAGING_REQ"
+                                    },
                                     "value": "free text on packaging Customization"
                                 }
                             ]
@@ -90,14 +96,20 @@
                     },
                     "tags": [
                         {
-                            "code": "DELIVERY_TERMS",
+                            "descriptor": {
+                                "code": "DELIVERY_TERMS"
+                            },
                             "list": [
                                 {
-                                    "code": "INCOTERMS",
+                                    "descriptor": {
+                                        "code": "INCOTERMS"
+                                    },
                                     "value": "CIF"
                                 },
                                 {
-                                    "code": "DELIVERY_DUTY",
+                                    "descriptor": {
+                                        "code": "DELIVERY_DUTY"
+                                    },
                                     "value": "DDP"
                                 }
                             ]

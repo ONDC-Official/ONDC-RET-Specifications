@@ -35,11 +35,14 @@ value:
         add-ons:
         - id: '78787723'
         tags:
-        - code: BUYER_TERMS
+        - descriptor:
+            code: BUYER_TERMS
           list:
-          - code: ITEM_REQ
+          - descriptor:
+              code: ITEM_REQ
             value: free text on Item Customization
-          - code: PACKAGING_REQ
+          - descriptor:
+              code: PACKAGING_REQ
             value: free text on packaging Customization
       fulfillments:
       - stops:
@@ -56,11 +59,14 @@ value:
               icon: https://abcd.cdn.com/images/license-img
               url: https://abcd.dnb.com/verify?id=’ESG-12345678'
         tags:
-        - code: DELIVERY_TERMS
+        - descriptor:
+            code: DELIVERY_TERMS
           list:
-          - code: INCOTERMS
+          - descriptor:
+              code: INCOTERMS
             value: CIF
-          - code: DELIVERY_DUTY
+          - descriptor:
+              code: DELIVERY_DUTY
             value: DDP
       payments:
       - type: ON-FULFILLMENT
@@ -74,4 +80,4 @@ value:
       - code: COMM_CHANNEL
         list:
         - code: chat_url
-          value: https://chatengine.xxx.app?token=xxxxx
+          value: https://chatengine.xxx.in/

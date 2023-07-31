@@ -35,11 +35,14 @@ value:
         add-ons:
         - id: '78787723'
         tags:
-        - code: BUYER_TERMS
+        - descriptor:
+            code: BUYER_TERMS
           list:
-          - code: ITEM_REQ
+          - descriptor:
+              code: ITEM_REQ
             value: free text on Item Customization
-          - code: PACKAGING_REQ
+          - descriptor:
+              code: PACKAGING_REQ
             value: free text on packaging Customization
       fulfillments:
       - stops:
@@ -56,11 +59,14 @@ value:
               icon: https://abcd.cdn.com/images/license-img
               url: https://abcd.dnb.com/verify?id=’ESG-12345678'
         tags:
-        - code: DELIVERY_TERMS
+        - descriptor:
+            code: DELIVERY_TERMS
           list:
-          - code: INCOTERMS
+          - descriptor:
+              code: INCOTERMS
             value: CIF
-          - code: DELIVERY_DUTY
+          - descriptor:
+              code: DELIVERY_DUTY
             value: DDP
       payments:
       - type: ON-FULFILLMENT
@@ -71,3 +77,56 @@ value:
           value: gst
         - code: buyer_id_no
           value: xxxxxxxxxxxxxxx
+
+      order:
+        provider:
+          id: P1
+          locations:
+          - id: L1
+          ttl: P1D
+        items:
+        - id: I1
+          location_ids:
+          - L1
+          quantity:
+            selected:
+              count: 200
+          add-ons:
+          - id: '78787723'
+          tags:
+          - code: BUYER_TERMS
+            list:
+            - code: ITEM_REQ
+              value: free text on Item Customization
+            - code: PACKAGING_REQ
+              value: free text on packaging Customization
+        fulfillments:
+        - stops:
+          - type: end
+            location:
+              gps: 1.3806217468119772, 103.74636438437074
+              area_code: '680230'
+          customer:
+            person:
+              creds:
+              - id: ESG-12345678
+                type: License
+                desc: Import License No. ESG-12345678
+                icon: https://abcd.cdn.com/images/license-img
+                url: https://abcd.dnb.com/verify?id=’ESG-12345678'
+          tags:
+          - code: DELIVERY_TERMS
+            list:
+            - code: INCOTERMS
+              value: CIF
+            - code: DELIVERY_DUTY
+              value: DDP
+        payments:
+        - type: ON-FULFILLMENT
+        tags:
+        - code: buyer_id
+          list:
+          - code: buyer_id_code
+            value: gst
+          - code: buyer_id_no
+            value: xxxxxxxxxxxxxxx
