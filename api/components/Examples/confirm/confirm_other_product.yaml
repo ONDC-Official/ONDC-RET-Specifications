@@ -512,7 +512,6 @@ message:
       ttl: PT1H
     payment:
       uri: https://ondc.transaction.com/payment
-      tl_method: http/get
       params:
         currency: INR
         transaction_id: '3937'
