@@ -121,6 +121,15 @@
                             "value": "xxxxxxxxxxxxxxx"
                         }
                     ]
+                },
+                {
+                    "code": "COMM_CHANNEL",
+                    "list": [
+                        {
+                            "code": "chat_url",
+                            "value": "https://chatengine.xxx.app?token=xxxxx"
+                        }
+                    ]
                 }
             ]
         }

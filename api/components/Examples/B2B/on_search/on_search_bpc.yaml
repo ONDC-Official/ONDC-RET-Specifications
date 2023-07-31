@@ -1,8 +1,8 @@
-summary: Return the catalog
-description: Return the catalog
+summary: Return the catalog for BPC products
+description: Return the catalog for BPC products
 value:
   context:
-    domain: ONDC:RET10
+    domain: ONDC:RET13
     location:
       city:
         code: std:080
@@ -11,9 +11,9 @@ value:
     action: on_search
     version: 2.0.1
     bap_id: buyerapp.com
-    bap_uri: https://buyerapp.com/grocery
+    bap_uri: https://buyerapp.com/bpc
     bpp_id: sellerapp.com
-    bpp_uri: https://sellerapp.com/grocery
+    bpp_uri: https://sellerapp.com/bpc
     transaction_id: T1
     message_id: M1
     timestamp: '2023-01-08T22:00:30.000Z'
@@ -94,12 +94,12 @@ value:
             value: xxxxxxxxxxxxxxx
         items:
         - id: I1
-          parent_item_id: PI1
+          parent_item_id: V1
           descriptor:
-            name: Dhara Mustard Oil
+            name: Kesh King Ayurvedic Hair Oil
             code: UPC / EAN code
-            short_desc: Dhara refined mustard oil
-            long_desc: Dhara refined mustard oil
+            short_desc: Kesh King Ayurvedic Hair Oil
+            long_desc: Kesh King Ayurvedic Hair Oil
             images:
             - url: https://abc.com/images/207.png
             media:
@@ -107,14 +107,13 @@ value:
               url: https://abc.com/images/207.mp4
           creator:
             descriptor:
-              name: Mother Dairy
+              name: Emami Ltd
               contact:
                 name: Raj Kumar
                 address:
-                  full: Mother Dairy Fruit & Vegetable Pvt Ltd,A-3, NDDB House, Sector-1,
-                    Noida,Uttar Pradesh-201301
+                  full: Emami Ltd., 687 Anandapur, Kolkata 700107
                 phone: '18001801018'
-                email: consumer.services@motherdairy.com
+                email: info@keshking.com
           price:
             currency: INR
             value: '300.00'
@@ -129,12 +128,12 @@ value:
               measure:
                 unit: millilitre
                 value: '500'
-              count: 2000
+              count: '2000'
             maximum:
               measure:
                 unit: millilitre
                 value: '500'
-              count: 4000  
+              count: '4000'
           category_ids:
           - RET10-1042
           fulfillment_ids:
@@ -146,9 +145,9 @@ value:
           add-ons:
           - id: '78787723'
             descriptor:
-              name: Dhara Sunflower Oil
-              short_desc: Dhara Sunflower Oil
-              long_desc: Dhara Sunflower Oil
+              name: Kesh King Ayurvedic Shampoo
+              short_desc: Kesh King Ayurvedic Shampoo
+              long_desc: Kesh King Ayurvedic Shampoo
               images:
               - url: https://abc.com/images/208.png
             price:
@@ -195,22 +194,26 @@ value:
               value: back_image
             - code: url
               value: https://sellerNP.com/images/i1_back_image.png
-          - code: veg_nonveg
+          - code: attribute
             list:
-            - code: veg
-              value: 'yes'
-          - code: variant
-            list:
-            - code: variant_group_id
-              value: V1
-            - code: variant_attr
-              value: quantity.unitized.measure
-          - code: variant_seq
-            list:
-            - code: variant_attr
-              value: quantity.unitized.measure
-            - code: seq
-              value: '1'
+            - code: brand
+              value: Kesh King
+            - code: colour
+              value: black
+            - code: gender
+              value: male
+            - code: concern
+              value: tangled_hair
+            - code: ingredient
+              value: neem
+            - code: conscious
+              value: natural
+            - code: preference
+              value: herbal
+            - code: formulation
+              value: liquid
+            - code: skin_type
+              value: normal
           - code: g2
             list:
             - code: time_to_ship
@@ -260,10 +263,10 @@ value:
         offers:
         - id: offer-1
           descriptor:
-            name: Dhara Olive Oil
+            name: Kesh King Ayurvedic Shampoo
             code: FREEBIE
-            short_desc: Dhara Olive Oil
-            long_desc: Dhara Olive Oil
+            short_desc: Kesh King Ayurvedic Shampoo 5 ml Pouch
+            long_desc: Kesh King Ayurvedic Shampoo 5 ml Pouch
             images:
             - url: https://abc.com/images/207.png
           location_ids: []

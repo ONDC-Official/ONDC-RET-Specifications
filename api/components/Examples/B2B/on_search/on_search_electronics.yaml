@@ -1,8 +1,8 @@
-summary: Return the catalog
-description: Return the catalog
+summary: Return the catalog for Electronics products
+description: Return the catalog for Electronics products
 value:
   context:
-    domain: ONDC:RET10
+    domain: ONDC:RET14
     location:
       city:
         code: std:080
@@ -11,9 +11,9 @@ value:
     action: on_search
     version: 2.0.1
     bap_id: buyerapp.com
-    bap_uri: https://buyerapp.com/grocery
+    bap_uri: https://buyerapp.com/electronics
     bpp_id: sellerapp.com
-    bpp_uri: https://sellerapp.com/grocery
+    bpp_uri: https://sellerapp.com/electronics
     transaction_id: T1
     message_id: M1
     timestamp: '2023-01-08T22:00:30.000Z'
@@ -92,14 +92,35 @@ value:
             value: gst
           - code: seller_id_no
             value: xxxxxxxxxxxxxxx
+        categories:
+        - id: V1
+          descriptor:
+            name: Variant Group 1
+          tags:
+          - code: type
+            list:
+            - code: type
+              value: variant_group
+          - code: attr
+            list:
+            - code: name
+              value: item.tags.attribute.colour
+            - code: seq
+              value: '1'
+          - code: attr
+            list:
+            - code: name
+              value: item.tags.attribute.storage
+            - code: seq
+              value: '2'
         items:
         - id: I1
-          parent_item_id: PI1
+          parent_item_id: V1
           descriptor:
-            name: Dhara Mustard Oil
+            name: Apple Iphone 14
             code: UPC / EAN code
-            short_desc: Dhara refined mustard oil
-            long_desc: Dhara refined mustard oil
+            short_desc: Apple Iphone 14
+            long_desc: Apple Iphone 14
             images:
             - url: https://abc.com/images/207.png
             media:
@@ -107,14 +128,13 @@ value:
               url: https://abc.com/images/207.mp4
           creator:
             descriptor:
-              name: Mother Dairy
+              name: Iphone
               contact:
                 name: Raj Kumar
                 address:
-                  full: Mother Dairy Fruit & Vegetable Pvt Ltd,A-3, NDDB House, Sector-1,
-                    Noida,Uttar Pradesh-201301
+                  full: Iphone Ltd., Delhi
                 phone: '18001801018'
-                email: consumer.services@motherdairy.com
+                email: consumer.services@abc.com
           price:
             currency: INR
             value: '300.00'
@@ -123,20 +143,20 @@ value:
           quantity:
             unitized:
               measure:
-                unit: millilitre
-                value: '500'
+                unit: unit
+                value: '1'
             available:
               measure:
-                unit: millilitre
-                value: '500'
-              count: 2000
+                unit: unit
+                value: '1'
+              count: '2000'
             maximum:
               measure:
-                unit: millilitre
-                value: '500'
-              count: 4000  
+                unit: unit
+                value: '1'
+              count: '4000'
           category_ids:
-          - RET10-1042
+          - RET14-1042
           fulfillment_ids:
           - '1'
           location_ids:
@@ -146,9 +166,9 @@ value:
           add-ons:
           - id: '78787723'
             descriptor:
-              name: Dhara Sunflower Oil
-              short_desc: Dhara Sunflower Oil
-              long_desc: Dhara Sunflower Oil
+              name: Iphone Cover
+              short_desc: Iphone Cover
+              long_desc: Iphone Cover
               images:
               - url: https://abc.com/images/208.png
             price:
@@ -195,22 +215,46 @@ value:
               value: back_image
             - code: url
               value: https://sellerNP.com/images/i1_back_image.png
-          - code: veg_nonveg
+          - code: attribute
             list:
-            - code: veg
-              value: 'yes'
-          - code: variant
-            list:
-            - code: variant_group_id
-              value: V1
-            - code: variant_attr
-              value: quantity.unitized.measure
-          - code: variant_seq
-            list:
-            - code: variant_attr
-              value: quantity.unitized.measure
-            - code: seq
-              value: '1'
+            - code: brand
+              value: Samsung
+            - code: model
+              value: Galaxy Bean Buds Live
+            - code: colour
+              value: mystic black
+            - code: connectivity
+              value: wireless
+            - code: form_factor
+              value: In Ear
+            - code: size
+              value: 128GB
+            - code: style
+              value: Modern
+            - code: screen_size
+              value: 1.99"
+            - code: memory
+              value: 8GB
+            - code: cpu
+              value: Core M family
+            - code: cpu_mfr
+              value: Intel
+            - code: storage
+              value: 256GB
+            - code: os
+              value: Windows 11
+            - code: includes
+              value: Desktop, User Manual, Warranty Card
+            - code: compatible_devices
+              value: PC, MAC, Laptop, Smartphone, Tablet
+            - code: type
+              value: wireless
+            - code: special_feature
+              value: wireless,laser
+            - code: display
+              value: 1920x1080px
+            - code: refresh
+              value: 60Hz
           - code: g2
             list:
             - code: time_to_ship
@@ -249,31 +293,6 @@ value:
               value: ''
             - code: unit_sale_price
               value: '175'
-          - code: FSSAI_LICENSE_NO
-            list:
-            - code: BRAND_OWNER
-              value: '12345678901234'
-            - code: OTHER
-              value: '12345678901234'
-            - code: IMPORTER
-              value: '12345678901234'
-        offers:
-        - id: offer-1
-          descriptor:
-            name: Dhara Olive Oil
-            code: FREEBIE
-            short_desc: Dhara Olive Oil
-            long_desc: Dhara Olive Oil
-            images:
-            - url: https://abc.com/images/207.png
-          location_ids: []
-          category_ids: []
-          item_ids: []
-          time:
-            label: validity
-            range:
-              start: '2023-01-08T00:00:00.000Z'
-              end: '2023-01-15T00:00:00.000Z'
         fulfillments:
         - contact:
             phone: '9886098860'

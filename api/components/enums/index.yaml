@@ -13,10 +13,13 @@ on_search:
             category_ids: &category_ids
               $ref: "./category.yaml"
         fulfillments: *fulfillment
+        offers:
+          $ref: "./offers.yaml#/offers"
 select:
   context: *context
   message:
     order: &order
+      status: "./orderstatus.yaml"
       fulfillments: *fulfillment
 on_select:
   context: *context
