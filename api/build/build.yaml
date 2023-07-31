@@ -3755,14 +3755,11 @@ x-flows:
                     add-ons:
                       - id: '78787723'
                     tags:
-                      - descriptor:
-                          code: BUYER_TERMS
+                      - code: BUYER_TERMS
                         list:
-                          - descriptor:
-                              code: ITEM_REQ
+                          - code: ITEM_REQ
                             value: free text on Item Customization
-                          - descriptor:
-                              code: PACKAGING_REQ
+                          - code: PACKAGING_REQ
                             value: free text on packaging Customization
                 fulfillments:
                   - stops:
@@ -3779,14 +3776,11 @@ x-flows:
                             icon: https://abcd.cdn.com/images/license-img
                             url: https://abcd.dnb.com/verify?id=’ESG-12345678'
                     tags:
-                      - descriptor:
-                          code: DELIVERY_TERMS
+                      - code: DELIVERY_TERMS
                         list:
-                          - descriptor:
-                              code: INCOTERMS
+                          - code: INCOTERMS
                             value: CIF
-                          - descriptor:
-                              code: DELIVERY_DUTY
+                          - code: DELIVERY_DUTY
                             value: DDP
                 payments:
                   - type: ON-FULFILLMENT
@@ -5228,14 +5222,11 @@ x-examples:
                   add-ons:
                     - id: '78787723'
                   tags:
-                    - descriptor:
-                        code: BUYER_TERMS
+                    - code: BUYER_TERMS
                       list:
-                        - descriptor:
-                            code: ITEM_REQ
+                        - code: ITEM_REQ
                           value: free text on Item Customization
-                        - descriptor:
-                            code: PACKAGING_REQ
+                        - code: PACKAGING_REQ
                           value: free text on packaging Customization
               fulfillments:
                 - stops:
@@ -5252,14 +5243,11 @@ x-examples:
                           icon: https://abcd.cdn.com/images/license-img
                           url: https://abcd.dnb.com/verify?id=’ESG-12345678'
                   tags:
-                    - descriptor:
-                        code: DELIVERY_TERMS
+                    - code: DELIVERY_TERMS
                       list:
-                        - descriptor:
-                            code: INCOTERMS
+                        - code: INCOTERMS
                           value: CIF
-                        - descriptor:
-                            code: DELIVERY_DUTY
+                        - code: DELIVERY_DUTY
                           value: DDP
               payments:
                 - type: ON-FULFILLMENT
