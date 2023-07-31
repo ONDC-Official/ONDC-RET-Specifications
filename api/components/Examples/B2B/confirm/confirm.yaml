@@ -156,11 +156,14 @@ value:
           bank_name: xxxx
           branch_name: xxxx
       tags:
-      - code: buyer_id
+      - descriptor:
+          code: buyer_id
         list:
-        - code: buyer_id_code
+        - descriptor:
+            code: buyer_id_code
           value: gst
-        - code: buyer_id_no
+        - descriptor:
+            code: buyer_id_no
           value: xxxxxxxxxxxxxxx
       created_at: '2023-02-03T09:30:00.000Z'
       updated_at: '2023-02-03T09:30:00.000Z'

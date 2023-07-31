@@ -103,9 +103,38 @@ value:
           - descriptor:
               code: seller_id_no
             value: xxxxxxxxxxxxxxx
+        categories:
+        - id: V1
+          descriptor:
+            name: Variant Group 1
+          tags:
+          - descriptor:
+              code: type
+            list:
+            - descriptor:
+                code: type
+              value: variant_group
+          - descriptor:
+              code: attr
+            list:
+            - descriptor:
+                code: name
+              value: item.tags.attribute.colour
+            - descriptor:
+                code: seq
+              value: '1'
+          - descriptor:
+              code: attr
+            list:
+            - descriptor:
+                code: name
+              value: item.tags.attribute.size
+            - descriptor:
+                code: seq
+              value: '2'
         items:
         - id: I1
-          parent_item_id: PI1
+          parent_item_id: V1
           descriptor:
             name: Dhara Mustard Oil
             code: UPC / EAN code

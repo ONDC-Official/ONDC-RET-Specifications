@@ -106,48 +106,70 @@
   
             "tags": [
               {
-                "code": "serviceability",
+                "descriptor": {
+                  "code": "serviceability"
+                },
                 "list": [
                   {
-                    "code": "location",
+                    "descriptor": {
+                      "code": "location"
+                    },
                     "value": "L1"
                   },
                   {
-                    "code": "category",
+                    "descriptor": {
+                      "code": "category"
+                    },
                     "value": "RET10-1042"
                   },
                   {
-                    "code": "type",
+                    "descriptor": {
+                      "code": "type"
+                    },
                     "value": "12"
                   },
                   {
-                    "code": "val",
+                    "descriptor": {
+                      "code": "val"
+                    },
                     "value": "SGP"
                   },
                   {
-                    "code": "unit",
+                    "descriptor": {
+                      "code": "unit"
+                    },
                     "value": "country"
                   }
                 ]
               },
               {
-                "code": "seller_terms",
+                "descriptor": {
+                  "code": "seller_terms"
+                },
                 "list": [
                   {
-                    "code": "gst_credit_invoice",
+                    "descriptor": {
+                      "code": "gst_credit_invoice"
+                    },
                     "value": "Y"
                   }
                 ]
               },
               {
-                "code": "seller_id",
+                "descriptor": {
+                  "code": "seller_id"
+                },
                 "list": [
                   {
-                    "code": "seller_id_code",
+                    "descriptor": {
+                      "code": "seller_id_code"
+                    },
                     "value": "gst"
                   },
                   {
-                    "code": "seller_id_no",
+                    "descriptor": {
+                      "code": "seller_id_no"
+                    },
                     "value": "xxxxxxxxxxxxxxx"
                   }
                 ]
@@ -164,39 +186,55 @@
                 "tags":
                 [
                   {
-                    "code":"type",
+                    "descriptor": {
+                      "code":"type"
+                    },
                     "list":
                     [
                       {
-                        "code":"type",
+                        "descriptor": {
+                          "code":"type"
+                        },
                         "value":"variant_group"
                       }
                     ]
                   },
                   {
-                    "code":"attr",
+                    "descriptor": {
+                      "code":"attr"
+                    },
                     "list":
                     [
                       {
-                        "code":"name",
+                        "descriptor": {
+                          "code":"name"
+                        },
                         "value":"item.tags.attribute.colour"
                       },
                       {
-                        "code":"seq",
+                        "descriptor": {
+                          "code":"seq"
+                        },
                         "value":"1"
                       }
                     ]
                   },
                   {
-                    "code":"attr",
+                    "descriptor": {
+                      "code":"attr"
+                    },
                     "list":
                     [
                       {
-                        "code":"name",
+                        "descriptor": {
+                          "code":"name"
+                        },
                         "value":"item.tags.attribute.storage"
                       },
                       {
-                        "code":"seq",
+                        "descriptor": {
+                          "code":"seq"
+                        },
                         "value":"2"
                       }
                     ]
@@ -349,43 +387,61 @@
                 "recommended": "true",
                 "tags": [
                   {
-                    "code":"origin",
+                    "descriptor": {
+                      "code":"origin"
+                    },
                     "list":
                     [
                       {
-                        "code":"country",
+                        "descriptor": {
+                          "code":"country"
+                        },
                         "value":"IND"
                       }
                     ]
                   },
                   {
-                    "code":"image",
+                    "descriptor": {
+                      "code":"image"
+                    },
                     "list":
                     [
                       {
-                        "code":"type",
+                        "descriptor": {
+                          "code":"type"
+                        },
                         "value":"back_image"
                       },
                       {
-                        "code":"url",
+                        "descriptor": {
+                          "code":"url"
+                        },
                         "value":"https://sellerNP.com/images/i1_back_image.png"
                       }
                     ]
                   },
                   {
-                    "code":"attribute",
+                    "descriptor": {
+                      "code":"attribute"
+                    },
                     "list":
                     [
                       {
-                        "code":"brand",
+                        "descriptor": {
+                          "code":"brand"
+                        },
                         "value":"Samsung"
                       },
                       {
-                        "code":"model",
+                        "descriptor": {
+                          "code":"model"
+                        },
                         "value":"Galaxy Bean Buds Live"
                       },
                       {
-                        "code":"colour",
+                        "descriptor": {
+                          "code":"colour"
+                        },
                         "value":"mystic black"
                       },
                       {
@@ -393,144 +449,212 @@
                         "value":"wireless"
                       },
                       {
-                        "code":"form_factor",
+                        "descriptor": {
+                          "code":"form_factor"
+                        },
                         "value":"In Ear"
                       },
                       {
-                        "code":"size",
+                        "descriptor": {
+                          "code":"size"
+                        },
                         "value":"128GB"
                       },
                       {
-                        "code":"style",
+                        "descriptor": {
+                          "code":"style"
+                        },
                         "value":"Modern"
                       },
                       {
-                        "code":"screen_size",
+                        "descriptor": {
+                          "code":"screen_size"
+                        },
                         "value":"1.99\""
                       },
                       {
-                        "code":"memory",
+                        "descriptor": {
+                          "code":"memory"
+                        },
                         "value":"8GB"
                       },
                       {
-                        "code":"cpu",
+                        "descriptor": {
+                          "code":"cpu"
+                        },
                         "value":"Core M family"
                       },
                       {
-                        "code":"cpu_mfr",
+                        "descriptor": {
+                          "code":"cpu_mfr"
+                        },
                         "value":"Intel"
                       },
                       {
-                        "code":"storage",
+                        "descriptor": {
+                          "code":"storage"
+                        },
                         "value":"256GB"
                       },
                       {
-                        "code":"os",
+                        "descriptor": {
+                          "code":"os"
+                        },
                         "value":"Windows 11"
                       },
                       {
-                        "code":"includes",
+                        "descriptor": {
+                          "code":"includes"
+                        },
                         "value":"Desktop, User Manual, Warranty Card"
                       },
                       {
-                        "code":"compatible_devices",
+                        "descriptor": {
+                          "code":"compatible_devices"
+                        },
                         "value":"PC, MAC, Laptop, Smartphone, Tablet"
                       },
                       {
-                        "code":"type",
+                        "descriptor": {
+                          "code":"type"
+                        },
                         "value":"wireless"
                       },
                       {
-                        "code":"special_feature",
+                        "descriptor": {
+                          "code":"special_feature"
+                        },
                         "value":"wireless,laser"
                       },
                       {
-                        "code":"display",
+                        "descriptor": {
+                          "code":"display"
+                        },
                         "value":"1920x1080px"
                       },
                       {
-                        "code":"refresh",
+                        "descriptor": {
+                          "code":"refresh"
+                        },
                         "value":"60Hz"
                       }    
                     ]
                   },  
                   {
-                    "code": "g2",
+                    "descriptor": {
+                      "code": "g2"
+                    },
                     "list": [
                       {
-                        "code": "time_to_ship",
+                        "descriptor": {
+                          "code": "time_to_ship"
+                        },
                         "value": "P1D"
                       },
                       {
-                        "code": "tax_rate",
+                        "descriptor": {
+                          "code": "tax_rate"
+                        },
                         "value": "12"
                       }
                     ]
                   },
                   {
-                    "code": "g3",
+                    "descriptor": {
+                      "code": "g3"
+                    },
                     "list": [
                       {
-                        "code": "brand",
+                        "descriptor": {
+                          "code": "brand"
+                        },
                         "value": "Dhara"
                       },
                       {
-                        "code": "pack_size",
+                        "descriptor": {
+                          "code": "pack_size"
+                        },
                         "value": "5"
                       },
                       {
-                        "code": "num_price_slabs",
+                        "descriptor": {
+                          "code": "num_price_slabs"
+                        },
                         "value": "3"
                       }
                     ]
                   },
                   {
-                    "code": "price_slab",
+                    "descriptor": {
+                      "code": "price_slab"
+                    },
                     "list": [
                       {
-                        "code": "min_pack_size",
+                        "descriptor": {
+                          "code": "min_pack_size"
+                        },
                         "value": "1"
                       },
                       {
-                        "code": "max_pack_size",
+                        "descriptor": {
+                          "code": "max_pack_size"
+                        },
                         "value": "4"
                       },
                       {
-                        "code": "unit_sale_price",
+                        "descriptor": {
+                          "code": "unit_sale_price"
+                        },
                         "value": "250"
                       }
                     ]
                   },
                   {
-                    "code": "price_slab",
+                    "descriptor": {
+                      "code": "price_slab"
+                    },
                     "list": [
                       {
-                        "code": "min_pack_size",
+                        "descriptor": {
+                          "code": "min_pack_size"
+                        },
                         "value": "5"
                       },
                       {
-                        "code": "max_pack_size",
+                        "descriptor": {
+                          "code": "max_pack_size"
+                        },
                         "value": "9"
                       },
                       {
-                        "code": "unit_sale_price",
+                        "descriptor": {
+                          "code": "unit_sale_price"
+                        },
                         "value": "200"
                       }
                     ]
                   },
                   {
-                    "code": "price_slab",
+                    "descriptor": {
+                      "code": "price_slab"
+                    },
                     "list": [
                       {
-                        "code": "min_pack_size",
+                        "descriptor": {
+                          "code": "min_pack_size"
+                        },
                         "value": "10"
                       },
                       {
-                        "code": "max_pack_size",
+                        "descriptor": {
+                          "code": "max_pack_size"
+                        },
                         "value": ""
                       },
                       {
-                        "code": "unit_sale_price",
+                        "descriptor": {
+                          "code": "unit_sale_price"
+                        },
                         "value": "175"
                       }
                     ]

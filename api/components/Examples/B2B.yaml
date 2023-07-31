@@ -6,6 +6,7 @@ search:
 select:
   examples:
     - $ref: ./B2B/select/select.yaml
+    - $ref: ./B2B/select/select_BAP_chat.yaml
 init:
   examples:
     - $ref: ./B2B/init/init.yaml
@@ -21,6 +22,10 @@ status:
 on_search:
   examples:
     - $ref: ./B2B/on_search/on_search.yaml
+    - $ref: ./B2B/on_search/on_search_bpc.yaml
+    - $ref: ./B2B/on_search/on_search_fashion.yaml
+    - $ref: ./B2B/on_search/on_search_electronics.yaml
+    - $ref: ./B2B/on_search/on_search_grocery.yaml
 on_select:
   examples:
     - $ref: ./B2B/on_select/on_select.yaml
