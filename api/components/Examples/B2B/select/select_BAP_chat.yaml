@@ -71,3 +71,7 @@ value:
           value: gst
         - code: buyer_id_no
           value: xxxxxxxxxxxxxxx
+      - code: COMM_CHANNEL
+        list:
+        - code: chat_url
+          value: https://chatengine.xxx.app?token=xxxxx
