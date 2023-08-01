@@ -1,0 +1,10 @@
+extension_type:
+  - code: human hair
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: animal fur
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: synthetic hair
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

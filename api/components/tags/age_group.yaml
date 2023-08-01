@@ -1,0 +1,79 @@
+age_group:
+  - code: new born
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 0-3 months
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 3-6 months
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 6-9 months
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 9-12 months
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 12-18 months
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 18-24 months
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 24-36 months
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 3-4 years
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 4-5 years
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 5-6 years
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 6-7 years
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 7-8 years
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 8-9 years
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 9-10 years
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 10-11 years
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 11-12 years
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 12-13 years
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 13-14 years
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 14-15 years
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 15-16 years
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 16 years & above
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 20 years & above
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 30 years & above
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 40 years & above
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 50 years & above
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

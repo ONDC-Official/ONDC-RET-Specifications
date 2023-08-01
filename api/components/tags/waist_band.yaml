@@ -1,0 +1,10 @@
+waist_band:
+  - code: alpha
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: inner elastic
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: outer elastic
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

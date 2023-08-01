@@ -1,0 +1,13 @@
+toe_shape:
+  - code: alpha
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: pointed
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: round
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: square
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

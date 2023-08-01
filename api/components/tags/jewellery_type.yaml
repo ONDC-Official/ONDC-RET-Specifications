@@ -1,0 +1,25 @@
+jewellery_type:
+  - code: statement
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: stones
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: pearl
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: kundan
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: oxidised
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: tasse
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: sterling silver
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: meenakari
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

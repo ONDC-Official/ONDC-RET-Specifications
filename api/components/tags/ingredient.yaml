@@ -1,0 +1,100 @@
+ingredient:
+  - code: almond
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: aloe_vera
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: argan_oil
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: avocado
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: beeswax
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: beetroot
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: castor_oil
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: chamomile
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: charcoal
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: clay
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: coconut
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: eucalyptus
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: green_tea
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: honey
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: jojoba_oil
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: lemon_grass
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: moringa
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: neem
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: niacinamide
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: papaya
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: pomegranate
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: rose
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: salicylic_acid
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: sandalwood
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: shea_butter
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: squalene
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: sunflower
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: tea_tree
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: tulsi
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: turmeric
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: vitamin_a
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: vitamin_c
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: vitamin_e
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

@@ -1,0 +1,16 @@
+spf:
+  - code: above 50
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: between 30-50
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: between 15-30
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: below 15
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: none
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

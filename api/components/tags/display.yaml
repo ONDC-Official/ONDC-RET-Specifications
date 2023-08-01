@@ -1,0 +1,10 @@
+display:
+  - code: alpha
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: analogue
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: digital
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

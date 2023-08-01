@@ -1,0 +1,151 @@
+preference:
+  - code: acetone_free
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: alcohol_free
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: allergy_free
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: ammonia_free
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: animal_hair
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: anti_inflammatory
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: anti_oxidants
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: clinically_proven
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: collagen
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: cruelty_free
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: dermatologically_tested
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: formaldehyde_free
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: fragrance_free
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: gluten_free
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: halal_certified
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: herbal
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: hyaluronic_acid
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: hypoallergenic
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: mineral_oil_free
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: natural
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: niacinamide
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: non_comedogenic
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: non_vegetarian
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: nut_free
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: oil_free
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: ophthalmologically_tested
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: organic
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: paba_free
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: paraben_free
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: paraffin_free
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: petrochemical_free
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: propleyne_free
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: pthalate_free
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: salicylic_acid
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: silicone_free
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: sls_free
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: soap_free
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: squalane
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: sulphate_free
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: sun_protection
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: synthetic
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: synthetic_color_free
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: vegan
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: vegetarian
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: vitamin_a
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: vitamin_c
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: vitamin_e
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: water_resistant
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: waterproof
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: waterless
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

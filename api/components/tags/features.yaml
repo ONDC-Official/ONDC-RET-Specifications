@@ -1,0 +1,16 @@
+features:
+  - code: alpha
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: basic
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: pullover
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: threebuttoned
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: flared
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

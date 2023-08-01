@@ -1,0 +1,61 @@
+formulation:
+  - code: cream
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: foam
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: gel
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: lotion
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: paste
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: powder
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: wax
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: liquid
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: bar
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: butter
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: spray
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: mist
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: roll_on
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: serum
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: solid
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: mousse
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: stick
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: tablet
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: capsule
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: mask
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
