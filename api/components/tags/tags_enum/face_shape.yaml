@@ -1,0 +1,16 @@
+face_shape:
+  - code: rectangular
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: oval
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: circular
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: square
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: triangular
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

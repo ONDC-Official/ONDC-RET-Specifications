@@ -1,0 +1,43 @@
+occasion:
+  - code: day
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: evening
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: work
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: party
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: casual
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: formal
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: sports
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: festive
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: brunch
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: everyday essentials
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: workout
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: wedding
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: semiformal
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: semicasual
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

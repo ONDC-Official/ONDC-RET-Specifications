@@ -1,0 +1,31 @@
+neck:
+  - code: boat
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: cowl
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: halter
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: hanley
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: high
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: polo
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: round
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: scoop
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: turtle
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: v-neck
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

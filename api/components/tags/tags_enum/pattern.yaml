@@ -1,0 +1,64 @@
+pattern:
+  - code: solid/plain
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: embellished/sequined
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: printed
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: detailing
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: embroidered
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: tie & dye
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: geometric
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: patterned
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: floral
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: polka dots
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: pleated
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: animal print
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: stripes
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: ruffled
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: plaid
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: checks
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: mirror work
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: dyed
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: painted
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: textured
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: colourblocked
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

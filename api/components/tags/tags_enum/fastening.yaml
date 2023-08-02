@@ -1,0 +1,10 @@
+fastening:
+  - code: lace-up
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: slip-on
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: velcro
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

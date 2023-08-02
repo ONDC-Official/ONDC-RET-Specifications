@@ -1,0 +1,13 @@
+compartment_closure:
+  - code: buckle
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: drawstring
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: flap
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: zip
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

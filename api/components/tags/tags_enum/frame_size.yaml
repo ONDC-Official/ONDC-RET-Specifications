@@ -1,0 +1,16 @@
+frame_size:
+  - code: extra narrow
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: narrow
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: medium
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: wide
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: extra wide
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

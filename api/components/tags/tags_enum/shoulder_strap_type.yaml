@@ -1,0 +1,13 @@
+shoulder_strap_type:
+  - code: cross body
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: ergonomic
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: sternum
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: yoke style
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

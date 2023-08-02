@@ -1,0 +1,37 @@
+closure_type:
+  - code: button
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: draw string
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: foldover
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: hook
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: interlock
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: interlock
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: lobster
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: s-hook
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: screw
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: slip-on
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: spring ring
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: tang
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

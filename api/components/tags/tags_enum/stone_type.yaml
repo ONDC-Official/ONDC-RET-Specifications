@@ -1,0 +1,10 @@
+stone_type:
+  - code: precious
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: semi precious
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: artificial
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

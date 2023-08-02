@@ -1,0 +1,34 @@
+base_metal:
+  - code: gold
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: silver
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: brass
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: alloy
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: ceramic
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: wood
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: metal
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: german silver
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: leather
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: plastic
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: pu
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

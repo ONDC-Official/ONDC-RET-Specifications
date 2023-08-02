@@ -1,0 +1,16 @@
+straps:
+  - code: halter
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: one shoulder
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: multiway
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: regular
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: starpless
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

@@ -1,0 +1,19 @@
+strap_material:
+  - code: canvas
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: ceramic
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: leather
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: stainless steel
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: silicon
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: synthetic
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

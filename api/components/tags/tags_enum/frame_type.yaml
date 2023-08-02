@@ -1,0 +1,10 @@
+frame_type:
+  - code: full rim
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: half rim
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: rimless
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

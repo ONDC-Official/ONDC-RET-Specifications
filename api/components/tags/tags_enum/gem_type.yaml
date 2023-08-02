@@ -1,0 +1,16 @@
+gem_type:
+  - code: acetate
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: acrylic
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: mineral
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: plastic
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: sapphire crystal
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

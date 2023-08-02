@@ -1,0 +1,22 @@
+battery_life:
+  - code: up to 12 hrs
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 12 - 24 hrs
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 24 - 48 hrs
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: up to 3 days
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: up to 4 days
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: up to 5 days
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: up to 7 days
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

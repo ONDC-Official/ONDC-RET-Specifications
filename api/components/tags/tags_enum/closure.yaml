@@ -1,0 +1,16 @@
+closure:
+  - code: back
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: front
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: side
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: slip-ons
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: tie-ups
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

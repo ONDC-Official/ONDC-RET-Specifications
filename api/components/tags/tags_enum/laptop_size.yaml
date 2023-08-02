@@ -1,0 +1,19 @@
+laptop_size:
+  - code: 11 inch
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 12 inch
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 13 inch
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 14 inch
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 15 inch
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 16 inch
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

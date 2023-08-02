@@ -1,0 +1,19 @@
+dial_shape:
+  - code: diamond
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: oval
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: asymetric
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: rectangular
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: round
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: square
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

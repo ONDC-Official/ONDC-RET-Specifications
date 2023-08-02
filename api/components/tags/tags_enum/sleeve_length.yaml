@@ -1,0 +1,13 @@
+sleeve_length:
+  - code: full sleeve
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: half sleeve
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: sleeveless
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 3/4th sleeve
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

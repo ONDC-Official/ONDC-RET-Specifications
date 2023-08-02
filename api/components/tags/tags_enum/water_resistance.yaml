@@ -1,0 +1,13 @@
+water_resistance:
+  - code: 30 meter
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 50 meter
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 100 meter
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 200 meter
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

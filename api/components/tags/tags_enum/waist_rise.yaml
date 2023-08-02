@@ -1,0 +1,10 @@
+waist_rise:
+  - code: low
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: high
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: med
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
