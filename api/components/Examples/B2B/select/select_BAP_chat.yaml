@@ -34,16 +34,6 @@ value:
             count: 200
         add-ons:
         - id: '78787723'
-        tags:
-        - descriptor:
-            code: BUYER_TERMS
-          list:
-          - descriptor:
-              code: ITEM_REQ
-            value: free text on Item Customization
-          - descriptor:
-              code: PACKAGING_REQ
-            value: free text on packaging Customization
       fulfillments:
       - stops:
         - type: end
@@ -58,26 +48,21 @@ value:
               desc: Import License No. ESG-12345678
               icon: https://abcd.cdn.com/images/license-img
               url: https://abcd.dnb.com/verify?id=’ESG-12345678'
-        tags:
-        - descriptor:
-            code: DELIVERY_TERMS
-          list:
-          - descriptor:
-              code: INCOTERMS
-            value: CIF
-          - descriptor:
-              code: DELIVERY_DUTY
-            value: DDP
       payments:
       - type: ON-FULFILLMENT
       tags:
-      - code: buyer_id
+      - descriptor:
+          code: buyer_id
         list:
-        - code: buyer_id_code
+        - descriptor:
+            code: buyer_id_code
           value: gst
-        - code: buyer_id_no
+        - descriptor:
+            code: buyer_id_no
           value: xxxxxxxxxxxxxxx
-      - code: COMM_CHANNEL
+      - descriptor:
+          code: COMM_CHANNEL
         list:
-        - code: chat_url
+        - descriptor:
+            code: chat_url
           value: https://chatengine.xxx.in/

@@ -266,7 +266,7 @@
           "amount":"53600"
         },
         "status":"PAID",
-        "type":"ON-ORDER",
+        "type":"PRE-FULFILLMENT",
         "collected_by":"BAP",
         "@ondc/org/buyer_app_finder_fee_type":"percent",
         "@ondc/org/buyer_app_finder_fee_amount":"3",

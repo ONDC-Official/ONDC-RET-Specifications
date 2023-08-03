@@ -241,7 +241,7 @@
               "amount":"53600"
             },
             "status":"NOT-PAID",
-            "type":"ON-ORDER",
+            "type":"PRE-FULFILLMENT",
             "collected_by":"BPP",
             "@ondc/org/buyer_app_finder_fee_type":"percent",
             "@ondc/org/buyer_app_finder_fee_amount":"0",
@@ -263,14 +263,20 @@
         ],
         "tags": [
           {
-            "code": "buyer_id",
+            "descriptor": {
+              "code": "buyer_id"
+            },
             "list": [
               {
-                "code": "buyer_id_code",
+                "descriptor": {
+                  "code": "buyer_id_code"
+                },
                 "value": "gst"
               },
               {
-                "code": "buyer_id_no",
+                "descriptor": {
+                  "code": "buyer_id_no"
+                },
                 "value": "xxxxxxxxxxxxxxx"
               }
             ]
