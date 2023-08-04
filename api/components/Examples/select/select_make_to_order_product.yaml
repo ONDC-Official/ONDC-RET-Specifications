@@ -1,0 +1,166 @@
+summary: Get quote for specific item
+description: Get quote for specific item for make to order products
+value:
+  context:
+    domain: ONDC:RET11
+    action: select
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    bpp_id: sellerNP.com
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: T2
+    message_id: M2
+    city: std:080
+    country: IND
+    timestamp: '2023-06-03T08:30:00.000Z'
+    ttl: PT30S
+  message:
+    order:
+      provider:
+        id: P1
+        locations:
+          - id: L1
+      items:
+        - id: I1
+          parent_item_id: DI1
+          location_id: L1
+          quantity:
+            count: 1
+          tags:
+            - code: type
+              list:
+                - code: type
+                  value: item
+        - id: C1
+          parent_item_id: DI1
+          location_id: L1
+          quantity:
+            count: 1
+          tags:
+            - code: type
+              list:
+                - code: type
+                  value: customization
+            - code: parent
+              list:
+                - code: id
+                  value: CG1
+        - id: C7
+          parent_item_id: DI1
+          location_id: L1
+          quantity:
+            count: 1
+          tags:
+            - code: type
+              list:
+                - code: type
+                  value: customization
+            - code: parent
+              list:
+                - code: id
+                  value: CG2
+        - id: C14
+          parent_item_id: DI1
+          location_id: L1
+          quantity:
+            count: 1
+          tags:
+            - code: type
+              list:
+                - code: type
+                  value: customization
+            - code: parent
+              list:
+                - code: id
+                  value: CG3
+        - id: C16
+          parent_item_id: DI1
+          location_id: L1
+          quantity:
+            count: 1
+          tags:
+            - code: type
+              list:
+                - code: type
+                  value: customization
+            - code: parent
+              list:
+                - code: id
+                  value: CG3
+        - id: I1
+          parent_item_id: DI2
+          location_id: L1
+          quantity:
+            count: 1
+          tags:
+            - code: type
+              list:
+                - code: type
+                  value: item
+        - id: C2
+          parent_item_id: DI2
+          location_id: L1
+          quantity:
+            count: 1
+          tags:
+            - code: type
+              list:
+                - code: type
+                  value: customization
+            - code: parent
+              list:
+                - code: id
+                  value: CG1
+        - id: C7
+          parent_item_id: DI2
+          location_id: L1
+          quantity:
+            count: 1
+          tags:
+            - code: type
+              list:
+                - code: type
+                  value: customization
+            - code: parent
+              list:
+                - code: id
+                  value: CG2
+        - id: C14
+          parent_item_id: DI2
+          location_id: L1
+          quantity:
+            count: 1
+          tags:
+            - code: type
+              list:
+                - code: type
+                  value: customization
+            - code: parent
+              list:
+                - code: id
+                  value: CG3
+        - id: C15
+          parent_item_id: DI2
+          location_id: L1
+          quantity:
+            count: 1
+          tags:
+            - code: type
+              list:
+                - code: type
+                  value: customization
+            - code: parent
+              list:
+                - code: id
+                  value: CG3
+      offers:
+        - id: BUY2GET3
+      fulfillments:
+        - end:
+            location:
+              gps: 12.453544,77.928379
+              address:
+                area_code: '560001'
+      payment:
+        type: ON-FULFILLMENT
