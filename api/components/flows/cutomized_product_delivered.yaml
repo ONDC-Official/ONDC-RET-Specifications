@@ -1,0 +1,82 @@
+summary: Retail 1.2.0 (Delivered customized product)
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order customized item and it is delivered successfully
+reference: if any
+steps:
+  - summary: Incremental catalog refresh one time
+    api: search
+    description:  Incremental catalog refresh one time
+    reference: if any
+    example:
+      $ref: "../Examples/search/incremental_catalog_refresh_regular_push.yaml"
+  - summary: Stop incremental search
+    api: search
+    description:  Stop incremental search
+    reference: if any
+    example:
+      $ref: "../Examples/search/stop_incremental_refresh.yaml"
+  - summary: Returns the item or catalog
+    api: on_search
+    description:  
+    reference: if any
+    example:
+      $ref: "../Examples/on_search/on_search_F&B_Pizza.yaml"
+  - summary: Select the item
+    api: select
+    description: 
+    reference: if any
+    example:
+      $ref: "../Examples/select/select_make_to_order_product.yaml"
+  - summary: Returns item breakup for a product with customization
+    api: on_select
+    description: 
+    reference: if any
+    example:
+      $ref: "../Examples/on_select/on_select_product_with_customization.yaml"
+  - summary: Buyer initiate the product and send the updated fulfillment id
+    api: init
+    description: 
+    reference: if any
+    example:
+      $ref: "../Examples/init/init_make_to_order_product.yaml"
+  - summary: Respond to init
+    api: on_init
+    description: 
+    reference: if any
+    example:
+      $ref: "../Examples/on_init/on_init_make_to_order_product.yaml"
+  - summary: Buyer confirms product
+    api: confirm
+    description: 
+    reference: if any
+    example:
+      $ref: "../Examples/confirm/confirm_make_to_order.yaml"
+  - summary: Seller Accepts confirmation
+    api: on_confirm
+    description: 
+    reference: if any
+    example:
+      $ref: "../Examples/on_confirm/on_confirm_make_to_order_product.yaml"                       
+  - summary: To know real time coordinates for the rider
+    api: track
+    description: 
+    reference: if any
+    example:
+      $ref: "../Examples/track/track.yaml"                          
+  - summary: Get the information about rider
+    api: on_track
+    description: 
+    reference: if any
+    example:
+      $ref: "../Examples/on_track/on_track.yaml"                                  
+  - summary: Buyer platform requests for latest status
+    api: status
+    description: 
+    reference: if any
+    example:
+      $ref: "../Examples/status/status.yaml"                          
+  - summary: Seller provides latest order status
+    api: on_status
+    description: Seller provides the updated status to the buyer
+    reference: if any
+    example:
+      $ref: "../Examples/on_status/on_status_make_to_order_product.yaml"                                  

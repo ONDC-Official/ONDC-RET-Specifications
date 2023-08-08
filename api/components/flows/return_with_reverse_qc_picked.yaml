@@ -1,0 +1,106 @@
+summary: Retail 1.2.0 (Return with reverse qc - NP approves request - Return Picked)
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order BPC item and return it with reverse qc.Seller approves it and return picked successfully
+reference: if any
+steps:
+  - summary: Search by city
+    api: search
+    description:  Buyer search by city
+    reference: if any
+    example:
+      $ref: "../Examples/search/search_by_city.yaml"
+  - summary: Returns the item or catalog
+    api: on_search
+    description:  
+    reference: if any
+    example:
+      $ref: "../Examples/on_search/on_search_BPC.yaml"
+  - summary: Select the item
+    api: select
+    description: 
+    reference: if any
+    example:
+      $ref: "../Examples/select/select_other_product.yaml"
+  - summary: Returns item breakup when item is in stock and offer applied
+    api: on_select
+    description: 
+    reference: if any
+    example:
+      $ref: "../Examples/on_select/on_select_BUY2GET3_applied.yaml"
+  - summary: Buyer initiate the product and send the updated fulfillment id
+    api: init
+    description: 
+    reference: if any
+    example:
+      $ref: "../Examples/init/init_other_product.yaml"
+  - summary: Respond to init
+    api: on_init
+    description: 
+    reference: if any
+    example:
+      $ref: "../Examples/on_init/on_init_other_product.yaml"
+  - summary: Buyer confirms product
+    api: confirm
+    description: 
+    reference: if any
+    example:
+      $ref: "../Examples/confirm/confirm_other_product.yaml"
+  - summary: Seller Accepts confirmation
+    api: on_confirm
+    description: 
+    reference: if any
+    example:
+      $ref: "../Examples/on_confirm/on_confirm_other_product.yaml"
+  - summary:  Buyer initiated the return with reverse qc
+    api: update
+    description: 
+    reference: if any
+    example:
+      $ref: "../Examples/update/update_buyer_initiated_return_with_reverse_qc_request.yaml"
+  - summary: Seller send the interim status request
+    api: on_update
+    description:
+    reference: if any
+    example:
+      $ref: "../Examples/on_update/on_update_np_sends_interim_status_request.yaml"
+  - summary: seller approves the return with reverse qc
+    api: on_update
+    description: 
+    reference: if any
+    example:
+      $ref: "../Examples/on_update/on_update_np_approves_request.yaml"
+  - summary: Seller updates for item pickup
+    api: on_update
+    description:
+    reference: if any
+    example:
+      $ref: "../Examples/on_update/on_update_return_picked.yaml"
+  - summary: seller updates for return delivered
+    api: on_update
+    description: 
+    reference: if any
+    example:
+      $ref: "../Examples/on_update/on_update_return_delivered.yaml"                           
+  - summary: To know real time coordinates for the rider
+    api: track
+    description: 
+    reference: if any
+    example:
+      $ref: "../Examples/track/track.yaml"                          
+  - summary: Get the information about rider
+    api: on_track
+    description: 
+    reference: if any
+    example:
+      $ref: "../Examples/on_track/on_track.yaml"                                  
+  - summary: Buyer platform requests for latest status
+    api: status
+    description: 
+    reference: if any
+    example:
+      $ref: "../Examples/status/status.yaml"                          
+  - summary: Provider platform provides latest status
+    api: on_status
+    description: Provider platform provides the updated status to the buyer
+    reference: if any
+    example:
+      $ref: "../Examples/on_status/on_status_other_product.yaml"                                  
