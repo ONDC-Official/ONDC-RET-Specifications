@@ -75,7 +75,7 @@
             ]
           },
           "rating": "4.4",
-          "ttl": "86400",
+          "ttl": "PT1D",
           "locations": [
             {
               "id": "L1",

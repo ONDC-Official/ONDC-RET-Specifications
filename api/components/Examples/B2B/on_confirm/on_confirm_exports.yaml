@@ -1,14 +1,14 @@
-summary: Raise PO
-description: PO raised by buyer based on the RFQ response received.
+summary: Accept PO
+description: PO acceptance by Seller
 value:
   context:
     domain: ONDC:RET10
     location:
       city:
-        code: std:080
+        code: std:999
       country:
         code: IND
-    action: confirm
+    action: on_confirm
     version: 2.0.1
     bap_id: buyerapp.com
     bap_uri: https://buyerapp.com/grocery
@@ -21,11 +21,12 @@ value:
   message:
     order:
       id: O1
-      state: Created
+      state: Accepted
       provider:
         id: P1
         locations:
         - id: L1
+        rateable: true
       items:
       - id: I1
         fulfillment_ids:
@@ -57,9 +58,29 @@ value:
         phone: '9886098860'
       fulfillments:
       - id: F1
+        "@ondc/org/provider_name": Loadshare
+        state:
+          descriptor:
+            code: Pending
         type: Delivery
         tracking: false
         stops:
+        - type: start
+          location:
+            id: L1
+            descriptor:
+              name: ABC Store
+            gps: 12.956399,77.636803
+          time:
+            range:
+              start: '2023-02-03T10:00:00.000Z'
+              end: '2023-02-03T10:30:00.000Z'
+          instructions:
+            name: Status for pickup
+            short_desc: Pickup Confirmation Code
+          contact:
+            phone: '9886098860'
+            email: nobody@nomail.com
         - type: end
           location:
             gps: 1.3806217468119772, 103.74636438437074
@@ -73,10 +94,7 @@ value:
               name: ''
           contact:
             phone: '9886098860'
-            email: nobody@nomail.com
-          customer:
-            person:
-              name: Ramu
+        rateable: true
         tags:
         - descriptor:
             code: DELIVERY_TERMS
@@ -141,18 +159,18 @@ value:
           transaction_id: '3937'
           amount: '53600'
         status: NOT-PAID
-        type: ON-ORDER
+        type: PRE-FULFILLMENT
         collected_by: BPP
         "@ondc/org/buyer_app_finder_fee_type": percent
         "@ondc/org/buyer_app_finder_fee_amount": '0'
         "@ondc/org/settlement_details":
-        - settlement_counterparty: buyer-app
+        - settlement_counterparty: seller-app
           settlement_phase: sale-amount
+          beneficiary_name: xxxxx
           settlement_type: upi
           upi_address: gft@oksbi
           settlement_bank_account_no: XXXXXXXXXX
           settlement_ifsc_code: XXXXXXXXX
-          beneficiary_name: xxxxx
           bank_name: xxxx
           branch_name: xxxx
       tags:
@@ -166,4 +184,4 @@ value:
             code: buyer_id_no
           value: xxxxxxxxxxxxxxx
       created_at: '2023-02-03T09:30:00.000Z'
-      updated_at: '2023-02-03T09:30:00.000Z'
+      updated_at: '2023-02-03T09:31:30.000Z'

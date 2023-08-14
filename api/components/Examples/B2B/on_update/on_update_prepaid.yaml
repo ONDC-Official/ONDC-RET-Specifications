@@ -1,5 +1,5 @@
-summary: Buyer updates payment status
-description: Buyer updates payment status (CollectedBy BAP)
+summary: Seller updating the payment status
+description: Seller updating the payment status (CollectedBy BPP)
 value:
   context:
     domain: ONDC:RET10
@@ -8,7 +8,7 @@ value:
         code: std:080
       country:
         code: IND
-    action: update
+    action: on_update
     version: 2.0.1
     bap_id: buyerapp.com
     bap_uri: https://buyerapp.com/grocery
@@ -19,7 +19,6 @@ value:
     timestamp: '2023-01-08T22:00:30.000Z'
     ttl: PT30S
   message:
-    update_target: item
     order:
       id: O1
       state: Accepted
@@ -38,7 +37,7 @@ value:
           transaction_id: '3937'
           amount: '53600'
         status: PAID
-        type: ON-ORDER
+        type: PRE-FULFILLMENT
         collected_by: BPP
         "@ondc/org/buyer_app_finder_fee_type": percent
         "@ondc/org/buyer_app_finder_fee_amount": '0'

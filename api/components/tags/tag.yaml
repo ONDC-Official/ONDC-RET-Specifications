@@ -42,16 +42,44 @@ serviceability:
   - code: TYPE
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
+    value:
+      - code: 10
+        description: Hyperlocal
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: 11
+        description: Intercity
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: 12
+        description: Pan-India
+        reference: <PR/Issue/Discussion Links md format text>
   - code: VAL
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
   - code: UNIT
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
+    value:
+      - code: 'km'
+        description: If type is 10 - Hyperlocal
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: pincode
+        description: If type is 11 - Intercity
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: country
+        description: If type is 12 - Pan-India
+        reference: <PR/Issue/Discussion Links md format text>
+
 seller_terms:
   - code: GST_CREDIT_INVOICE
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
+    value:
+    - code: 'Y'
+      description: GST credit invoice available
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: 'N'
+      description: GST credit invoice not available
+      reference: <PR/Issue/Discussion Links md format text>
 seller_id:
   - code: SELLER_ID_CODE
     description: Description about the tags

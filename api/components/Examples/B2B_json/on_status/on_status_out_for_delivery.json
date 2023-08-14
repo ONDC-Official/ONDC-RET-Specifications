@@ -26,7 +26,7 @@
     "order":
     {
       "id":"O1",
-      "state":"Completed",
+      "state":"In-progress",
       "provider":
       {
         "id":"P1",
@@ -74,7 +74,7 @@
           {
             "descriptor":
             {
-              "code":"Pending"
+              "code":"Out-for-delivery"
             }
           },
           "stops": [
@@ -101,7 +101,7 @@
                   "start":"2023-02-03T10:00:00.000Z",
                   "end":"2023-02-03T10:30:00.000Z"
                 },
-                "timestamp":"2023-02-03T10:25:00.000Z"
+                "timestamp": "2023-02-03T10:25:00.000Z"
               },
               "instructions":
               {
@@ -142,8 +142,7 @@
                 {
                   "start":"2023-02-03T11:00:00.000Z",
                   "end":"2023-02-03T11:30:00.000Z"
-                },
-                "timestamp":"2023-02-03T11:35:00.000Z"
+                }
               },
               "instructions":
               {
@@ -157,15 +156,6 @@
               },
               "contact": {
                 "phone": "9886098860"
-              },
-              "agent":
-              {
-                "person": {
-                  "name": "Ramu"
-                },
-                "contact": {
-                  "phone": "9886098860"
-                }     
               }
             }
           ]
@@ -257,8 +247,6 @@
       },
       "payments":[
       {
-        "uri":"https://ondc.transaction.com/payment",
-        "tl_method":"http/get",
         "params":
         {
           "currency":"INR",
@@ -277,8 +265,6 @@
             "settlement_phase":"sale-amount",
             "beneficiary_name":"xxxxx",
             "settlement_reference":"XXXX",
-            "settlement_status":"PAID",
-            "settlement_timestamp":"2023-02-04T10:00:00.000Z",
             "settlement_type":"upi",
             "upi_address":"gft@oksbi",
             "settlement_bank_account_no":"XXXXXXXXXX",
@@ -292,7 +278,7 @@
       [
         {
           "url":"https://invoice_url",
-          "label":"Invoice"
+          "label":"PROFORMA_INVOICE"
         }
       ],
       "created_at":"2023-02-03T09:30:00.000Z",

@@ -12,9 +12,9 @@
     "action": "on_search",
     "version": "2.0.1",
     "bap_id": "buyerapp.com",
-    "bap_uri": "https://buyerapp.com/grocery",
+    "bap_uri": "https://buyerapp.com/ondc",
     "bpp_id": "sellerapp.com",
-    "bpp_uri": "https://sellerapp.com/grocery",
+    "bpp_uri": "https://sellerapp.com/ondc",
     "transaction_id": "T1",
     "message_id": "M1",
     "timestamp": "2023-01-08T22:00:30.000Z",
@@ -75,7 +75,7 @@
             ]
           },
           "rating": "4.4",
-          "ttl": "86400",
+          "ttl": "PT1D",
           "locations": [
             {
               "id": "L1",
@@ -94,16 +94,6 @@
               "area_code": "560076"
             }
           ],
-          "creds":
-          [
-            {
-              "id":"ESG-12345678",
-              "type": "License",
-              "desc":"Export License No. ESG-12345678",
-              "url":"https://abcd.cdn.com/images/license-img"
-            }
-          ],
-
           "tags": [
             {
               "descriptor": {
@@ -132,7 +122,7 @@
                   "descriptor": {
                     "code": "val"
                   },
-                  "value": "SGP"
+                  "value": "IND"
                 },
                 {
                   "descriptor": {

@@ -51,7 +51,7 @@ value:
           images:
           - url: https://abc.com/images/1-shop-img
         rating: '4.4'
-        ttl: '86400'
+        ttl: 'PT1D'
         locations:
         - id: L1
           gps: 12.967555,77.749666
@@ -64,11 +64,6 @@ value:
           country:
             code: IND
           area_code: '560076'
-        creds:
-        - id: ESG-12345678
-          type: License
-          desc: Export License No. ESG-12345678
-          url: https://abcd.cdn.com/images/license-img
         tags:
         - descriptor:
             code: serviceability
@@ -84,7 +79,7 @@ value:
             value: '12'
           - descriptor:
               code: val
-            value: SGP
+            value: IND
           - descriptor:
               code: unit
             value: country
