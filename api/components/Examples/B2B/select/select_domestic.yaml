@@ -24,7 +24,6 @@ value:
         id: P1
         locations:
         - id: L1
-        ttl: P1D
       items:
       - id: I1
         location_ids:
@@ -38,16 +37,8 @@ value:
       - stops:
         - type: end
           location:
-            gps: 1.3806217468119772, 103.74636438437074
-            area_code: '680230'
-        customer:
-          person:
-            creds:
-            - id: ESG-12345678
-              type: License
-              desc: Import License No. ESG-12345678
-              icon: https://abcd.cdn.com/images/license-img
-              url: https://abcd.dnb.com/verify?id=’ESG-12345678'
+            gps: 12.974002,77.613458
+            area_code: '560001'
       payments:
       - type: ON-FULFILLMENT
       tags:

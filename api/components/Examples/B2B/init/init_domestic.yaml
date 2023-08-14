@@ -46,11 +46,11 @@ value:
             value: free text on packaging Customization
       billing:
         name: ONDC buyer
-        address: B005 aaspire heights, Jurong East, SGP, 680230
+        address: 22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar, Bengaluru, Karnataka 560001
         state:
-          name: Jurong East
+          name: Karnataka
         city:
-          name: Jurong East
+          name: Bengaluru
         tax_id: XXXXXXXXXXXXXXX
         email: nobody@nomail.com
         phone: '9886098860'
@@ -60,35 +60,17 @@ value:
         stops:
         - type: end
           location:
-            gps: 1.3806217468119772, 103.74636438437074
+            gps: 12.974002,77.613458
             address: 'My House #, My buildin'
             city:
-              name: Jurong East
+              name: Bengaluru
             country:
-              code: SGP
-            area_code: '680230'
+              code: IND
+            area_code: '560001'
             state:
-              name: ''
+              name: 'Karnataka'
           contact:
             phone: '9886098860'
-        customer:
-          person:
-            creds:
-            - id: ESG-12345678
-              type: License
-              desc: Import License No. ESG-12345678
-              icon: https://abcd.cdn.com/images/license-img
-              url: https://abcd.dnb.com/verify?id=’ESG-12345678'
-        tags:
-        - descriptor:
-            code: DELIVERY_TERMS
-          list:
-          - descriptor:
-              code: INCOTERMS
-            value: CIF
-          - descriptor:
-              code: DELIVERY_DUTY
-            value: DDP
       payments:
       - type: ON-FULFILLMENT
       tags:

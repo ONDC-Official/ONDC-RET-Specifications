@@ -1,5 +1,5 @@
-summary: Seller updates the order status and shares Invoice
-description: Seller updates the order status and shares Invoice
+summary: Raise PO
+description: PO raised by buyer based on the RFQ response received.
 value:
   context:
     domain: ONDC:RET10
@@ -8,7 +8,7 @@ value:
         code: std:080
       country:
         code: IND
-    action: on_status
+    action: confirm
     version: 2.0.1
     bap_id: buyerapp.com
     bap_uri: https://buyerapp.com/grocery
@@ -21,7 +21,7 @@ value:
   message:
     order:
       id: O1
-      state: Completed
+      state: Created
       provider:
         id: P1
         locations:
@@ -33,6 +33,18 @@ value:
         quantity:
           selected:
             count: 200
+        add-ons:
+        - id: '78787723'
+        tags:
+        - descriptor:
+            code: BUYER_TERMS
+          list:
+          - descriptor:
+              code: ITEM_REQ
+            value: free text on Item Customization
+          - descriptor:
+              code: PACKAGING_REQ
+            value: free text on packaging Customization
       billing:
         name: ONDC buyer
         address: B005 aaspire heights, Jurong East, SGP, 680230
@@ -40,39 +52,14 @@ value:
           name: Jurong East
         city:
           name: Jurong East
+        tax_id: XXXXXXXXXXXXXXX
         email: nobody@nomail.com
         phone: '9886098860'
       fulfillments:
       - id: F1
-        "@ondc/org/provider_name": Loadshare
         type: Delivery
         tracking: false
-        state:
-          descriptor:
-            code: Pending
         stops:
-        - type: start
-          location:
-            id: L1
-            descriptor:
-              name: ABC Store
-              images:
-              - https://gf-integration/images/5.png
-            gps: 12.956399,77.636803
-          time:
-            range:
-              start: '2023-02-03T10:00:00.000Z'
-              end: '2023-02-03T10:30:00.000Z'
-            timestamp: '2023-02-03T10:25:00.000Z'
-          instructions:
-            name: Proof of pickup
-            short_desc: Proof of pickup details
-            long_desc: Proof of pickup details
-            images:
-            - https://image1_url.png
-          contact:
-            phone: '9886098860'
-            email: nobody@nomail.com
         - type: end
           location:
             gps: 1.3806217468119772, 103.74636438437074
@@ -84,24 +71,22 @@ value:
             area_code: '680230'
             state:
               name: ''
-          time:
-            range:
-              start: '2023-02-03T11:00:00.000Z'
-              end: '2023-02-03T11:30:00.000Z'
-            timestamp: '2023-02-03T11:35:00.000Z'
-          instructions:
-            name: Proof of delivery
-            short_desc: Proof of delivery details
-            long_desc: Proof of delivery details
-            images:
-            - https://image1_url.png
           contact:
             phone: '9886098860'
-          agent:
+            email: nobody@nomail.com
+          customer:
             person:
               name: Ramu
-            contact:
-              phone: '9886098860'
+        tags:
+        - descriptor:
+            code: DELIVERY_TERMS
+          list:
+          - descriptor:
+              code: INCOTERMS
+            value: CIF
+          - descriptor:
+              code: DELIVERY_DUTY
+            value: DDP
       quote:
         price:
           currency: INR
@@ -151,32 +136,34 @@ value:
             value: '100'
         ttl: P1D
       payments:
-      - uri: https://ondc.transaction.com/payment
-        tl_method: http/get
-        params:
+      - params:
           currency: INR
           transaction_id: '3937'
           amount: '53600'
-        status: PAID
-        type: ON-ORDER
-        collected_by: BAP
+        status: NOT-PAID
+        type: PRE-FULFILLMENT
+        collected_by: BPP
         "@ondc/org/buyer_app_finder_fee_type": percent
-        "@ondc/org/buyer_app_finder_fee_amount": '3'
+        "@ondc/org/buyer_app_finder_fee_amount": '0'
         "@ondc/org/settlement_details":
-        - settlement_counterparty: seller-app
+        - settlement_counterparty: buyer-app
           settlement_phase: sale-amount
-          beneficiary_name: xxxxx
-          settlement_reference: XXXX
-          settlement_status: PAID
-          settlement_timestamp: '2023-02-04T10:00:00.000Z'
           settlement_type: upi
           upi_address: gft@oksbi
           settlement_bank_account_no: XXXXXXXXXX
           settlement_ifsc_code: XXXXXXXXX
+          beneficiary_name: xxxxx
           bank_name: xxxx
           branch_name: xxxx
-      documents:
-      - url: https://invoice_url
-        label: Invoice
+      tags:
+      - descriptor:
+          code: buyer_id
+        list:
+        - descriptor:
+            code: buyer_id_code
+          value: gst
+        - descriptor:
+            code: buyer_id_no
+          value: xxxxxxxxxxxxxxx
       created_at: '2023-02-03T09:30:00.000Z'
-      updated_at: '2023-02-03T10:00:00.201Z'
+      updated_at: '2023-02-03T09:30:00.000Z'

@@ -1,0 +1,58 @@
+summary: B2B
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order bulk items
+reference: if any
+steps:
+  - summary: Search based on the category
+    api: search
+    description:  
+    reference: if any
+    example:
+      $ref: "../../Examples/B2B/search/search_by_category.yaml"
+  - summary: Search by fulfillment end location
+    api: search
+    description:  
+    reference: if any
+    example:
+      $ref: "../../Examples/B2B/search/search_by_fulfillment_end_loc.yaml"
+  - summary: Returns item/ catalog
+    api: on_search
+    description:  
+    reference: if any
+    example:
+      $ref: "../../Examples/B2B/on_search/on_search_grocery.yaml"
+  - summary: Select the item
+    api: select
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2B/select/select_domestic.yaml"
+  - summary: Returns item breakup
+    api: on_select
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2B/on_select/on_select.yaml"
+  - summary: Requests for Quotation
+    api: init
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2B/init/init_domestic.yaml"
+  - summary: Responds to Quotation
+    api: on_init
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2B/on_init/on_init_domestic.yaml"
+  - summary: Buyer raises PO
+    api: confirm
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2B/confirm/confirm_domestic.yaml"
+  - summary: Seller Accepts PO
+    api: on_confirm
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2B/on_confirm/on_confirm_domestic.yaml"

@@ -96,26 +96,6 @@
               }
             },
             {
-              "@ondc/org/item_id":"F1",
-              "title":"Delivery charges",
-              "@ondc/org/title_type":"delivery",
-              "price":
-              {
-                "currency":"INR",
-                "value":"4000"
-              }
-            },
-            {
-              "@ondc/org/item_id":"F1",
-              "title":"Packing charges",
-              "@ondc/org/title_type":"packing",
-              "price":
-              {
-                "currency":"INR",
-                "value":"500"
-              }
-            },
-            {
               "@ondc/org/item_id":"I1",
               "title":"Tax",
               "@ondc/org/title_type":"tax",
@@ -123,26 +103,6 @@
               {
                 "currency":"INR",
                 "value": "0"
-              }
-            },
-            {
-              "@ondc/org/item_id":"I1",
-              "title":"Discount",
-              "@ondc/org/title_type":"discount",
-              "price":
-              {
-                "currency":"INR",
-                "value": "-1000"
-              }
-            },
-            {	
-              "@ondc/org/item_id":"F1",
-              "title":"Convenience Fee",
-              "@ondc/org/title_type":"misc",
-              "price":
-              {
-                "currency":"INR",
-                "value":"100"
               }
             }
           ],
