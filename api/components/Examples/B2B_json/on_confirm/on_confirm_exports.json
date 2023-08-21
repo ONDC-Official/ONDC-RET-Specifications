@@ -174,9 +174,9 @@
                   },
                   {
                     "descriptor": {
-                      "code": "DELIVERY_DUTY"
+                      "code": "NAMED_PLACE_OF_DELIVERY"
                     },
-                    "value": "DDP"
+                    "value": "SGP"
                   }
                 ]
               }

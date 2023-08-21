@@ -45,27 +45,6 @@
                         {
                             "id": "78787723"
                         }
-                    ],
-                    "tags": [
-                        {
-                            "descriptor": {
-                                "code": "BUYER_TERMS"
-                            },
-                            "list": [
-                                {
-                                    "descriptor": {
-                                        "code": "ITEM_REQ"
-                                    },
-                                    "value": "free text on Item Customization"
-                                },
-                                {
-                                    "descriptor": {
-                                        "code": "PACKAGING_REQ"
-                                    },
-                                    "value": "free text on packaging Customization"
-                                }
-                            ]
-                        }
                     ]
                 }
             ],
@@ -93,29 +72,7 @@
                                 }
                             ]
                         }
-                    },
-                    "tags": [
-                        {
-                            "descriptor": {
-                                "code": "DELIVERY_TERMS"
-                            },
-                            
-                            "list": [
-                                {
-                                    "descriptor": {
-                                        "code": "INCOTERMS"
-                                    },
-                                    "value": "CIF"
-                                },
-                                {
-                                    "descriptor": {
-                                        "code": "DELIVERY_DUTY"
-                                    },
-                                    "value": "DDP"
-                                }
-                            ]
-                        }
-                    ]
+                    }
                 }
             ],
             "payments": [{

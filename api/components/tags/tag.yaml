@@ -242,16 +242,18 @@ delivery_terms:
       - code: EXW
         description: about the enum
         reference: <PR/Issue/Discussion Links md format text>
-  - code: DELIVERY_DUTY
-    description: Description about the tags
-    reference: <PR/Issue/Discussion Links md format text>
-    value:
-      - code: DDU
+      - code: FOB
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: DAP
         description: about the enum
         reference: <PR/Issue/Discussion Links md format text>
       - code: DDP
         description: about the enum
         reference: <PR/Issue/Discussion Links md format text>
+  - code: NAMED_PLACE_OF_DELIVERY
+    description: Place of delivery based on the incoterm used.
+    reference: <PR/Issue/Discussion Links md format text>
 comm_channel:
   - code: CHAT_URL
     description: Description about the tags

@@ -103,8 +103,8 @@ value:
               code: INCOTERMS
             value: CIF
           - descriptor:
-              code: DELIVERY_DUTY
-            value: DDP
+              code: NAMED_PLACE_OF_DELIVERY
+            value: SGP
       quote:
         price:
           currency: INR
