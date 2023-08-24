@@ -1,5 +1,5 @@
 summary: Cancellation by Buyer
-description: Cancellation by Buyer
+description: Cancellation by Buyer 
 value:
   context:
     domain: ONDC:RET10
