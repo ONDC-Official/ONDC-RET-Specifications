@@ -1,5 +1,5 @@
-summary: Return with reverse QC updated by buyer
-description: Return with reverse QC updated by buyer
+summary: Return with liquidation updated by buyer
+description: Return with liquidation updated by buyer
 value:
   context:
     domain: ONDC:RET10
@@ -27,15 +27,17 @@ value:
                   value: R1 [^2]
                 - code: item_id
                   value: I1
+                - code: parent_item_id [^3]
+                  value: DI1
                 - code: item_quantity
                   value: '1'
-                - code: reason_id [^3]
+                - code: reason_id [^4]
                   value: '003'
                 - code: reason_desc
                   value: detailed description for return
                 - code: images
                   value: url_for_image1,url_for_image2
-                - code: ttl_approval [^4]
+                - code: ttl_approval [^5]
                   value: PT24H
-                - code: ttl_reverseqc [^5]
+                - code: ttl_reverseqc [^6]
                   value: P3D

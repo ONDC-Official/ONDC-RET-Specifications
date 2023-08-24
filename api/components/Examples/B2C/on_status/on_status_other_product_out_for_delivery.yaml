@@ -18,7 +18,7 @@ value:
   message:
     order:
       id: O1
-      state: Completed [^1]
+      state: In-progress [^1]
       cancellation [^2]:
         cancelled_by: buyerNP.com
         reason:
@@ -58,7 +58,7 @@ value:
           '@ondc/org/TAT': PT60M
           state:
             descriptor:
-              code: Order-delivered [^6]
+              code: Out-for-delivery [^6]
           start:
             location:
               descriptor:

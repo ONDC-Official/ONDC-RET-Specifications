@@ -1,0 +1,100 @@
+summary: Retail 1.2.0 (Return with reverse qc - NP approves request - Return failed)
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order fashion item and return it with reverse qc.Seller approves it and return attempt failed
+reference: if any
+steps:
+  - summary: Search by fulfillment end location 
+    api: search
+    description:  Buyer search by fulfillment end location
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/search/search_by_fulfillment_end_loc.yaml"
+    notes:
+      $ref: "../../notes/search/search_by_fulfillment_end_loc.yaml"
+  - summary: Returns the item or catalog
+    api: on_search
+    description:  
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/on_search/on_search_Fashion.yaml"
+    notes:
+      $ref: "../../notes/on_search/on_search_Fashion.yaml"
+  - summary: Select the item
+    api: select
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/select/select_other_product.yaml"
+    notes:
+      $ref: "../../notes/select/select_other_product.yaml"
+  - summary: Returns item breakup when item is in stock and offer applied
+    api: on_select
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/on_select/on_select_DISCP60_applied.yaml"
+    notes:
+      $ref: "../../notes/on_select/on_select_DISCP60_applied.yaml"
+  - summary: Buyer initiate the product and send the updated fulfillment id
+    api: init
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/init/init_other_product.yaml"
+    notes:
+      $ref: "../../notes/init/init_other_product.yaml"
+  - summary: Respond to init
+    api: on_init
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/on_init/on_init_other_product.yaml"
+    notes:
+      $ref: "../../notes/on_init/on_init_other_product.yaml"
+  - summary: Buyer confirms product
+    api: confirm
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/confirm/confirm_other_product.yaml"
+    notes:
+      $ref: "../../notes/confirm/confirm_other_product.yaml"
+  - summary: Seller Accepts confirmation
+    api: on_confirm
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/on_confirm/on_confirm_other_product.yaml"
+    notes:
+      $ref: "../../notes/on_confirm/on_confirm_other_product.yaml"
+  - summary:  Buyer initiated the return with reverse qc
+    api: update
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/update/update_buyer_initiated_return_with_reverse_qc_request.yaml"
+    notes:
+      $ref: "../../notes/update/update_buyer_initiated_return_with_reverse_qc_request.yaml"
+  - summary: Seller send the interim status request
+    api: on_update
+    description:
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/on_update/on_update_np_sends_interim_status_request.yaml"
+    notes:
+      $ref: "../../notes/on_update/on_update_np_sends_interim_status_request.yaml"
+  - summary: seller approves the return with reverse qc
+    api: on_update
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/on_update/on_update_np_approves_request.yaml"
+    notes:
+      $ref: "../../notes/on_update/on_update_np_approves_request.yaml"
+  - summary: Seller send the interim status request
+    api: on_update
+    description:
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/on_update/on_update_return_failed.yaml"   
+    notes:
+      $ref: "../../notes/on_update/on_update_return_failed.yaml"                                                               
