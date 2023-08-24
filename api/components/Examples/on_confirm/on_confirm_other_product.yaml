@@ -17,7 +17,7 @@ value:
   message:
     order:
       id: O1
-      state: Accepted
+      state: Accepted [^1]
       provider:
         id: P1
         locations:
@@ -37,10 +37,10 @@ value:
           state: Karnataka
           country: IND
           area_code: '560037'
-        email: nobody@nomail.com
+        email [^2]: nobody@nomail.com
         phone: '9886098860'
-        created_at: '2023-06-03T09:00:00.000Z'
-        updated_at: '2023-06-03T09:00:00.000Z'
+        created_at [^3]: '2023-06-03T09:00:00.000Z'
+        updated_at [^4]: '2023-06-03T09:00:00.000Z'
       fulfillments:
         - id: F1
           '@ondc/org/provider_name': LSP or Provider Name
@@ -48,33 +48,33 @@ value:
             descriptor:
               code: Pending
           type: Delivery
-          tracking: true
-          '@ondc/org/TAT': PT60M
+          tracking: true [^5]
+          '@ondc/org/TAT': PT60M [^6]
           start:
             location:
               id: L1
               descriptor:
                 name: ABC Store
               gps: 12.956399,77.636803
-              address:
+              address [^7]:
                 locality: Jayanagar
                 city: Bengaluru
                 area_code: '560076'
                 state: KA
-            time:
+            time [^8]:
               range:
                 start: '2023-06-03T10:00:00.000Z'
                 end: '2023-06-03T10:30:00.000Z'
-            instructions:
-              code: '2'
+            instructions [^9]:
+              code: '2 [^10]'
               name: ONDC order
-              short_desc: value of PCC
+              short_desc: value of PCC [^11]
               long_desc: >-
                 additional instructions such as register or counter no for
                 self-pickup
             contact:
               phone: '9886098860'
-              email: nobody@nomail.com
+              email [^12]: nobody@nomail.com
           end:
             location:
               gps: 12.453544,77.928379
@@ -86,7 +86,7 @@ value:
                 state: Karnataka
                 country: IND
                 area_code: '560037'
-            time:
+            time [^13]:
               range:
                 start: '2023-06-03T11:00:00.000Z'
                 end: '2023-06-03T11:30:00.000Z'
@@ -94,7 +94,7 @@ value:
               name: name_of_person
             contact:
               phone: '9886098860'
-              email: nobody@nomail.com
+              email [^14]: nobody@nomail.com
       quote:
         price:
           currency: INR
@@ -143,9 +143,9 @@ value:
               currency: INR
               value: '10.00'
         ttl: P1D
-      payment:
-        uri: https://ondc.transaction.com/payment
-        tl_method: http/get
+      payment [^15]:
+        uri [^16]: https://ondc.transaction.com/payment
+        tl_method [^17]: http/get
         params:
           currency: INR
           transaction_id: '3937'
@@ -168,7 +168,7 @@ value:
             settlement_ifsc_code: XXXXXXXXX
             bank_name: xxxx
             branch_name: xxxx
-      cancellation_terms:
+      cancellation_terms [^18]:
         - fulfillment_state:
             descriptor:
               code: Pending
@@ -219,7 +219,7 @@ value:
             amount:
               currency: INR
               value: '100.00'
-      tags:
+      tags [^19]:
         - code: bpp_terms
           list:
             - code: max_liability_cap
@@ -234,7 +234,7 @@ value:
               value: '1000.00'
             - code: tax_number
               value: gst_number_of_sellerNP
-            - code: accept_bap_terms
+            - code: accept_bap_terms [^20]
               value: 'Y'
         - code: bap_terms
           list:
@@ -243,5 +243,5 @@ value:
                 https://github.com/ONDC-Official/protocol-network-extension/discussions/79
             - code: tax_number
               value: gst_number_of_buyerNP
-      created_at: '2023-06-03T09:30:00.000Z'
-      updated_at: '2023-06-03T09:31:30.000Z'
+      created_at [^21]: '2023-06-03T09:30:00.000Z'
+      updated_at [^22]: '2023-06-03T09:31:30.000Z'

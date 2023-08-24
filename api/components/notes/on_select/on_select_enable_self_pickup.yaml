@@ -1,0 +1,6 @@
+value:
+  [^1]: only one fulfillment option assigned to items
+  [^2]: O2D = O2S (i.e. max of time_to_ship for items in order) + S2D (for delivery)
+  [^3]: enums for fulfillment type "Self-Pickup" are "Takeaway", "Kerbside"
+  [^4]: O2S time, i.e. max of time_to_ship for items in order
+  [^5]: includes costs for both fulfillment options

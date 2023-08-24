@@ -27,7 +27,7 @@ value:
         - id: P1
           time:
             label: enable
-            timestamp: "2023-06-03T08:00:30.000Z"
+            timestamp: "2023-06-03T08:00:30.000Z [^1]"
           fulfillments:
             - id: F1
               type: Delivery
@@ -45,8 +45,8 @@ value:
           locations:
             - id: L1
               time:
-                label: enable
-                timestamp: "2023-06-03T07:30:30.000Z"
+                label: enable [^2]
+                timestamp: "2023-06-03T07:30:30.000Z [^3]"
                 schedule:
                   holidays:
                     - "2023-08-15"
@@ -73,7 +73,7 @@ value:
                     - code: max
                       value: "1"
                     - code: input
-                      value: text
+                      value: text [^4]
                     - code: seq
                       value: "1"
             - id: V1
@@ -99,12 +99,12 @@ value:
           items:
             - id: I1
               time:
-                label: enable
-                timestamp: "2023-06-03T07:30:00.000Z"
-              parent_item_id: V1
+                label: enable [^5]
+                timestamp: "2023-06-03T07:30:00.000Z [^6]"
+              parent_item_id: V1 [^7]
               descriptor:
                 name: Apple iPhone 14
-                code: 5:<unique_product_code>
+                code: 5:<unique_product_code> [^8]
                 symbol: https://sellerNP.com/images/i1.png
                 short_desc: Apple iPhone 14
                 long_desc: Apple iPhone 14
@@ -138,16 +138,16 @@ value:
                   list:
                     - code: country
                       value: IND
-                - code: attribute
+                - code: attribute [^9]
                   list:
                     - code: brand
                       value: Apple iPhone
                     - code: colour
-                      value: blue
+                      value: blue [^10]
                     - code: size
                       value: 128GB
             - id: I2
-              parent_item_id: V1
+              parent_item_id: V1 [^11]
               descriptor:
                 name: Apple iPhone 14
                 code: 5:<unique_product_code>
@@ -193,7 +193,7 @@ value:
                     - code: size
                       value: 512GB
             - id: I3
-              parent_item_id: V1
+              parent_item_id: V1 [^12]
               descriptor:
                 name: Apple iPhone 14
                 code: 5:<unique_product_code>
@@ -239,7 +239,7 @@ value:
                     - code: size
                       value: 128GB
             - id: I4
-              parent_item_id: V1
+              parent_item_id: V1 [^13]
               descriptor:
                 name: Apple iPhone 14
                 code: 5:<unique_product_code>
@@ -285,7 +285,7 @@ value:
                     - code: size
                       value: 256GB
             - id: I5
-              parent_item_id: V1
+              parent_item_id: V1 [^14]
               descriptor:
                 name: Apple iPhone 14
                 code: 5:<unique_product_code>
@@ -365,7 +365,7 @@ value:
                   list:
                     - code: id
                       value: CG1
-          creds:
+          creds [^15]:
             - id: Auth33567
               descriptor:
                 name: Authorised Apple Dealer
@@ -383,7 +383,7 @@ value:
             - code: timing
               list:
                 - code: type
-                  value: All
+                  value: All [^16]
                 - code: location
                   value: L1
                 - code: day_from

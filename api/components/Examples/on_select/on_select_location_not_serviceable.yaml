@@ -19,7 +19,7 @@ value:
       provider:
         id: P1
         locations:
-          - id: L1
+          - id: L1 [^1]
       items:
         - fulfillment_id: F1
           id: I1
@@ -58,4 +58,4 @@ value:
         ttl: P1D
   error:
     type: DOMAIN-ERROR
-    code: '30009'
+    code: '30009 [^2]'

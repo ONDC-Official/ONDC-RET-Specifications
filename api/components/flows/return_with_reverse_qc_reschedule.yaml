@@ -14,75 +14,101 @@ steps:
     reference: if any
     example:
       $ref: "../Examples/on_search/on_search_Home&Kitchen.yaml"
+    notes:
+      $ref: "../notes/on_search/on_search_Home&Kitchen.yaml"
   - summary: Select the item
     api: select
     description: 
     reference: if any
     example:
       $ref: "../Examples/select/select_other_product.yaml"
+    notes:
+      $ref: "../notes/select/select_other_product.yaml"
   - summary: Returns item breakup when item is in stock and offer applied
     api: on_select
     description: 
     reference: if any
     example:
       $ref: "../Examples/on_select/on_select_FREEBIE_applied.yaml"
+    notes:
+      $ref: "../notes/on_select/on_select_FREEBIE_applied.yaml"
   - summary: Buyer initiate the product and send the updated fulfillment id
     api: init
     description: 
     reference: if any
     example:
       $ref: "../Examples/init/init_other_product.yaml"
+    notes:
+      $ref: "../notes/init/init_other_product.yaml"
   - summary: Respond to init
     api: on_init
     description: 
     reference: if any
     example:
       $ref: "../Examples/on_init/on_init_other_product.yaml"
+    notes:
+      $ref: "../notes/on_init/on_init_other_product.yaml"
   - summary: Buyer confirms product
     api: confirm
     description: 
     reference: if any
     example:
       $ref: "../Examples/confirm/confirm_other_product.yaml"
+    notes:
+      $ref: "../notes/confirm/confirm_other_product.yaml"
   - summary: Seller Accepts confirmation
     api: on_confirm
     description: 
     reference: if any
     example:
       $ref: "../Examples/on_confirm/on_confirm_other_product.yaml"
+    notes:
+      $ref: "../notes/on_confirm/on_confirm_other_product.yaml"
   - summary:  Buyer initiated the return with reverse qc
     api: update
     description: 
     reference: if any
     example:
       $ref: "../Examples/update/update_buyer_initiated_return_with_reverse_qc_request.yaml"
+    notes:
+      $ref: "../notes/update/update_buyer_initiated_return_with_reverse_qc_request.yaml"
   - summary: Seller send the interim status request
     api: on_update
     description:
     reference: if any
     example:
       $ref: "../Examples/on_update/on_update_np_sends_interim_status_request.yaml"
-  - summary: seller approves the return with reverse qc
+    notes:
+      $ref: "../notes/on_update/on_update_np_sends_interim_status_request.yaml"
+  - summary: Seller approves the return with reverse qc
     api: on_update
     description: 
     reference: if any
     example:
       $ref: "../Examples/on_update/on_update_np_approves_request.yaml"
+    notes:
+      $ref: "../notes/on_update/on_update_np_approves_request.yaml"
   - summary: Seller send the interim status request
     api: on_update
     description:
     reference: if any
     example:
-      $ref: "../Examples/on_update/on_update_return_resechedule.yaml"                                                           
+      $ref: "../Examples/on_update/on_update_return_resechedule.yaml"    
+    notes:
+      $ref: "../notes/on_update/on_update_return_resechedule.yaml"                                                     
   - summary: Buyer platform requests for latest status
     api: status
     description: 
     reference: if any
     example:
-      $ref: "../Examples/status/status.yaml"                          
+      $ref: "../Examples/status/status.yaml"    
+    notes:
+      $ref: "../notes/status/status.yaml"                     
   - summary: Provider platform provides latest order status
     api: on_status
     description: Provider platform provides the updated status to the buyer
     reference: if any
     example:
-      $ref: "../Examples/on_status/on_status_other_product.yaml"                                  
+      $ref: "../Examples/on_status/on_status_other_product.yaml"  
+    notes:
+      $ref: "../notes/on_status/on_status_other_product.yaml"                               

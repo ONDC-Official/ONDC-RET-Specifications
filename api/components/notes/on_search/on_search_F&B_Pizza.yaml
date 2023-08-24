@@ -1,0 +1,23 @@
+value:
+  [^1]: enum - "enable" (default), "disable" (soft delete of provider from buyer NP cache)
+  [^2]: timestamp when the snapshot for this provider (including provider details, items) was generated, must be <= Context.timestamp. Buyer NPs can use this to determine from when to start incremental refresh
+  [^3]: enum - "enable" (default), "disable" (soft delete of provider location, i.e. warehouse or store, from buyer NP cache - in this case, serviceability for the store should not be a part of the catalog), "close" (temporary closure of store with the same format for time.range as specified, for incremental refresh, here - https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.ar4y0zvk65s4 only if this event is available at the time of generating the full catalog snapshot)
+  [^4]: timestamp when the snapshot for location was generated, must be <= Context.timestamp
+  [^5]: enum - "enable", "disable"
+  [^6]: timestamp for item event
+  [^7]: (optional) upper & lower price range, for product created using this base item & customizations, for display on the store listing page
+  [^8]: up to 2 decimal places
+  [^9]: up to 2 decimal places
+  [^10]: default = "no" is optional
+  [^11]: default = "no" is optional
+  [^12]: default = "no" is optional
+  [^13]: default = "no" is optional
+  [^14]: default = "no" is optional
+  [^15]: default = "no" is optional
+  [^16]: default = "no" is optional
+  [^17]: default = "no" is optional
+  [^18]: default = "no" is optional
+  [^19]: default = "no" is optional
+  [^20]: default = "no" is optional
+  [^21]: default = "no" is optional
+  [^22]: default = "no" is optional

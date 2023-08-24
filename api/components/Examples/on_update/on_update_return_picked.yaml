@@ -51,9 +51,9 @@ value:
                 city: Bengaluru
                 area_code: '560076'
                 state: KA
-            time:
+            time [^1]:
               timestamp: '2023-06-03T10:25:00.000Z'
-            instructions:
+            instructions [^2]:
               code: '1'
               name: Proof of pickup
               short_desc: pickup confirmation code
@@ -61,7 +61,7 @@ value:
               images:
                 - https://lsp.com/pickup_image.png
                 - https://lsp.com/rider_location.png
-            authorization:
+            authorization [^3]:
               type: OTP
               token: OTP code
               valid_from: '2023-06-03T12:00:00.000Z'
@@ -80,16 +80,16 @@ value:
                 state: Karnataka
                 country: IND
                 area_code: '560037'
-            time:
+            time [^4]:
               timestamp: '2023-06-03T11:35:00.000Z'
-            instructions:
+            instructions [^5]:
               code: '3'
               name: Proof of delivery
               short_desc: value of delivery code
               images:
                 - https://lsp.com/delivery_image.png
                 - https://lsp.com/rider_location.png
-            authorization:
+            authorization [^6]:
               type: OTP
               token: OTP code
               valid_from: '2023-06-03T18:00:00.000Z'
@@ -99,23 +99,23 @@ value:
             contact:
               phone: '9886098860'
               email: nobody@nomail.com
-          agent:
+          agent [^7]:
             name: agent_name
             phone: '9886098860'
-          vehicle:
+          vehicle [^8]:
             registration: 3LVJ945
         - id: R1
           type: Return
           '@ondc/org/provider_name': LSP courier 1
           state:
             descriptor:
-              code: Return_Picked
+              code: Return_Picked [^9]
           start:
             time:
               range:
                 start: '2023-06-04T10:00:00.000Z'
                 end: '2023-06-04T10:30:00.000Z'
-              timestamp: '2023-06-04T10:15:00.000Z'
+              timestamp [^10]: '2023-06-04T10:15:00.000Z'
           tags:
             - code: return_request
               list:
@@ -123,7 +123,7 @@ value:
                   value: I1
                 - code: item_quantity
                   value: '1'
-                - code: reason_id
+                - code: reason_id [^11]
                   value: '003'
                 - code: reason_desc
                   value: detailed description for return
@@ -131,10 +131,10 @@ value:
                   value: url_for_image1,url_for_image2
                 - code: ttl_approval
                   value: PT24H
-                - code: ttl_reverseqc
+                - code: ttl_reverseqc [^12]
                   value: P3D
                 - code: initiated_by
-                  value: buyerNP.com
+                  value: buyerNP.com [^13]
             - code: quote_trail
               list:
                 - code: type
@@ -203,7 +203,7 @@ value:
               currency: INR
               value: '10.00'
         ttl: P1D
-      payment:
+      payment [^14]:
         uri: https://ondc.transaction.com/payment
         tl_method: http/get
         params:
@@ -225,7 +225,7 @@ value:
             settlement_ifsc_code: XXXXXXXXX
             bank_name: xxxx
             branch_name: xxxx
-      documents:
+      documents [^15]:
         - url: https://invoice_url
           label: Invoice
       created_at: '2023-06-03T09:30:00.000Z'

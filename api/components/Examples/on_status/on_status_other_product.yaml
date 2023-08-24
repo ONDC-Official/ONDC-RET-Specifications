@@ -18,8 +18,8 @@ value:
   message:
     order:
       id: O1
-      state: Completed
-      cancellation:
+      state: Completed [^1]
+      cancellation [^2]:
         cancelled_by: buyerNP.com
         reason:
           id: '004'
@@ -35,7 +35,7 @@ value:
         - id: I1
           fulfillment_id: R1
           quantity:
-            count: 1
+            count: 1 [^3]
       billing:
         name: ONDC buyer
         address:
@@ -46,9 +46,9 @@ value:
           state: Karnataka
           country: IND
           area_code: '560037'
-        email: nobody@nomail.com
+        email [^4]: nobody@nomail.com
         phone: '9886098860'
-        created_at: '2023-06-03T09:00:00.000Z'
+        created_at [^5]: '2023-06-03T09:00:00.000Z'
         updated_at: '2023-06-03T09:00:00.000Z'
       fulfillments:
         - id: F1
@@ -58,7 +58,7 @@ value:
           '@ondc/org/TAT': PT60M
           state:
             descriptor:
-              code: Order-delivered
+              code: Order-delivered [^6]
           start:
             location:
               descriptor:
@@ -73,23 +73,23 @@ value:
               range:
                 start: '2023-06-03T10:00:00.000Z'
                 end: '2023-06-03T10:30:00.000Z'
-              timestamp: '2023-06-03T10:25:00.000Z'
+              timestamp [^7]: '2023-06-03T10:25:00.000Z'
             instructions:
-              code: '1'
+              code: '1 [^8]'
               name: ONDC Order
-              short_desc: value of PCC
+              short_desc: value of PCC [^9]
               long_desc: additional instructions for pickup
-              images:
+              images [^10]:
                 - https://lsp.com/pickup_image.png
                 - https://lsp.com/rider_location.png
-            authorization:
-              type: OTP
+            authorization [^11]:
+              type: OTP [^12]
               token: OTP code
               valid_from: '2023-06-03T12:00:00.000Z'
               valid_to: '2023-06-03T14:00:00.000Z'
             contact:
               phone: '9886098860'
-              email: nobody@nomail.com
+              email [^13]: nobody@nomail.com
           end:
             location:
               gps: 12.453544,77.928379
@@ -105,17 +105,17 @@ value:
               range:
                 start: '2023-06-03T11:00:00.000Z'
                 end: '2023-06-03T11:30:00.000Z'
-              timestamp: '2023-06-03T11:35:00.000Z'
+              timestamp [^14]: '2023-06-03T11:35:00.000Z'
             instructions:
-              code: '3'
+              code: '3 [^15]'
               name: ONDC Order
-              short_desc: value of DCC
+              short_desc: value of DCC [^16]
               Long_desc: additional instructions for delivery
-              images:
+              images [^17]:
                 - https://lsp.com/delivery_image.png
                 - https://lsp.com/rider_location.png
-            authorization:
-              type: OTP
+            authorization [^18]:
+              type: OTP [^19]
               token: OTP code
               valid_from: '2023-06-03T18:00:00.000Z'
               valid_to: '2023-06-03T22:00:00.000Z'
@@ -123,10 +123,10 @@ value:
               name: name_of_person
             contact:
               phone: '9886098860'
-          agent:
+          agent [^20]:
             name: agent_name
             phone: '9886098860'
-          vehicle:
+          vehicle [^21]:
             registration: 3LVJ945
       quote:
         price:
@@ -176,7 +176,7 @@ value:
               currency: INR
               value: '10'
         ttl: P1D
-      payment:
+      payment [^22]:
         uri: https://ondc.transaction.com/payment
         tl_method: http/get
         params:
@@ -186,7 +186,7 @@ value:
         status: PAID
         type: ON-ORDER
         collected_by: BAP
-        time:
+        time [^23]:
           timestamp: '2023-06-04T10:00:00.000Z'
         '@ondc/org/buyer_app_finder_fee_type': percent
         '@ondc/org/buyer_app_finder_fee_amount': '3'
@@ -211,7 +211,7 @@ value:
             settlement_type: upi
             settlement_amount: '1000'
             settlement_timestamp: '2023-02-04T18:00:00.000Z'
-      documents:
+      documents [^24]:
         - url: https://invoice_url
           label: Invoice
       created_at: '2023-06-03T09:30:00.000Z'

@@ -15,7 +15,7 @@ value:
     country: IND
     timestamp: '2023-06-03T10:30:30.000Z'
   message:
-    order:
+    order [^1]:
       id: O1
       state: Accepted
       provider:
@@ -24,13 +24,13 @@ value:
           - id: L1
       items:
         - id: I1
-          fulfillment_id: F1
+          fulfillment_id: F1 [^2]
           quantity:
-            count: 1
+            count: 1 [^3]
         - id: I1
-          fulfillment_id: C1
+          fulfillment_id: C1 [^4]
           quantity:
-            count: 1
+            count: 1 [^5]
       billing:
         name: ONDC buyer
         address:
@@ -101,18 +101,18 @@ value:
             - code: cancel_request
               list:
                 - code: reason_id
-                  value: '002'
+                  value: '002 [^6]'
                 - code: initiated_by
-                  value: sellerNP.com
+                  value: sellerNP.com [^7]
             - code: quote_trail
               list:
-                - code: type
+                - code: type [^8]
                   value: item
-                - code: id
+                - code: id [^9]
                   value: I1
                 - code: currency
                   value: INR
-                - code: value
+                - code: value [^10]
                   value: '-170.00'
             - code: quote_trail
               list:
@@ -127,11 +127,11 @@ value:
       quote:
         price:
           currency: INR
-          value: '245.00'
+          value: '245.00 [^11]'
         breakup:
           - '@ondc/org/item_id': I1
             '@ondc/org/item_quantity':
-              count: 1
+              count: 1 [^12]
             title: Atta
             '@ondc/org/title_type': item
             price:
@@ -172,7 +172,7 @@ value:
               currency: INR
               value: '10.00'
         ttl: P1D
-      payment:
+      payment [^13]:
         uri: https://ondc.transaction.com/payment
         params:
           currency: INR

@@ -19,10 +19,10 @@ value:
       provider:
         id: P1
         locations:
-          - id: L1
+          - id: L1 [^1]
       items:
         - fulfillment_id: F1
-          id: DI1
+          id: DI1 [^2]
         - fulfillment_id: F1
           id: DI2
       fulfillments:
@@ -88,7 +88,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG1
+                      value: CG1 [^3]
           - '@ondc/org/item_id': C7
             '@ondc/org/item_quantity':
               count: 1
@@ -115,7 +115,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG2
+                      value: CG2 [^4]
           - '@ondc/org/item_id': C14
             '@ondc/org/item_quantity':
               count: 1
@@ -142,7 +142,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG3
+                      value: CG3 [^5]
           - '@ondc/org/item_id': C16
             '@ondc/org/item_quantity':
               count: 1
@@ -169,7 +169,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG3
+                      value: CG3 [^6]
           - '@ondc/org/item_id': I1
             '@ondc/org/item_quantity':
               count: 1
@@ -219,7 +219,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG1
+                      value: CG1 [^7]
           - '@ondc/org/item_id': C7
             '@ondc/org/item_quantity':
               count: 1
@@ -246,7 +246,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG2
+                      value: CG2 [^8]
           - '@ondc/org/item_id': C14
             '@ondc/org/item_quantity':
               count: 1
@@ -273,7 +273,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG3
+                      value: CG3 [^9]
           - '@ondc/org/item_id': C15
             '@ondc/org/item_quantity':
               count: 1
@@ -482,7 +482,7 @@ value:
               currency: INR
               value: '10.00'
         ttl: PT1H
-  error:
+  error [^10]:
     type: DOMAIN-ERROR
     code: '40002'
     message: DI1->I1,DI1->C1->CG1,DI2->C7->CG2

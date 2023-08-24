@@ -15,7 +15,7 @@ value:
     country: IND
     timestamp: '2023-06-03T10:30:30.000Z'
   message:
-    order:
+    order [^1]:
       id: O1
       state: Completed
       provider:
@@ -24,7 +24,7 @@ value:
           - id: L1
       items:
         - id: I1
-          fulfillment_id: F1
+          fulfillment_id: F1 [^2]
           quantity:
             count: 2
       billing:
@@ -61,9 +61,9 @@ value:
                 city: Bengaluru
                 area_code: '560076'
                 state: KA
-            time:
+            time [^3]:
               timestamp: '2023-06-03T10:25:00.000Z'
-            instructions:
+            instructions [^4]:
               code: '1'
               name: Proof of pickup
               short_desc: pickup confirmation code
@@ -71,7 +71,7 @@ value:
               images:
                 - https://lsp.com/pickup_image.png
                 - https://lsp.com/rider_location.png
-            authorization:
+            authorization [^5]:
               type: OTP
               token: OTP code
               valid_from: '2023-06-03T12:00:00.000Z'
@@ -90,16 +90,16 @@ value:
                 state: Karnataka
                 country: IND
                 area_code: '560037'
-            time:
+            time [^6]:
               timestamp: '2023-06-03T11:35:00.000Z'
-            instructions:
+            instructions [^7]:
               code: '3'
               name: Proof of delivery
               short_desc: value of delivery code
               images:
                 - https://lsp.com/delivery_image.png
                 - https://lsp.com/rider_location.png
-            authorization:
+            authorization [^8]:
               type: OTP
               token: OTP code
               valid_from: '2023-06-03T18:00:00.000Z'
@@ -109,12 +109,12 @@ value:
             contact:
               phone: '9886098860'
               email: nobody@nomail.com
-          agent:
+          agent [^9]:
             name: agent_name
             phone: '9886098860'
-          vehicle:
+          vehicle [^10]:
             registration: 3LVJ945
-        - id: R1
+        - id: R1 [^11]
           type: Return
           state:
             descriptor:
@@ -128,15 +128,15 @@ value:
                   value: I1
                 - code: item_quantity
                   value: '1'
-                - code: reason_id
+                - code: reason_id [^12]
                   value: '003'
                 - code: reason_desc
                   value: detailed description for return
                 - code: images
                   value: url_for_image1,url_for_image2
-                - code: ttl_approval
+                - code: ttl_approval [^13]
                   value: PT24H
-                - code: ttl_reverseqc
+                - code: ttl_reverseqc [^14]
                   value: P3D
       quote:
         price:
@@ -186,7 +186,7 @@ value:
               currency: INR
               value: '10.00'
         ttl: P1D
-      payment:
+      payment [^15]:
         uri: https://ondc.transaction.com/payment
         tl_method: http/get
         params:

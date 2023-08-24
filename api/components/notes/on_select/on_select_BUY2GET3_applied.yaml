@@ -1,0 +1,6 @@
+value:
+  [^1]: may be the same location as selected by the buyer or a different location
+  [^2]: quote.price.value = quote.breakup[].price.value (for title_type of "item", "delivery", "discount_f", "tax", "tax_f", "packing", "misc") + quote.breakup[].price.offered_value (for title_type "offer")
+  [^3]: offer title_type applies at the order level
+  [^4]: in case of offers, both value and offered_value are required
+  [^5]: total offered value = unit offered value * quantity; same applies to value 

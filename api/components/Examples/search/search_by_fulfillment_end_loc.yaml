@@ -1,8 +1,8 @@
-summary: search_by_fulfillment_end_loc
+summary: search_by_fulfillment_end_loc [^1]
 description: Search By Fulfilment End Loc
 value:
   context:
-    domain: ONDC:RET10
+    domain: ONDC:RET10 [^2]
     city: std:080
     country: IND
     action: search
@@ -16,10 +16,10 @@ value:
   message:
     intent:
       fulfillment:
-        type: Delivery
+        type [^3]: Delivery
         end:
           location:
-            gps: 12.974002,77.613458
+            gps [^4]: 12.974002,77.613458
             address:
               - area_code: "560001"
       payment:

@@ -18,12 +18,12 @@ value:
   message:
     order:
       id: O1
-      state: Completed
+      state: Completed [^1]
       provider:
         id: P1
         locations:
           - id: L1
-      items:
+      items [^2]:
         - id: I1
           fulfillment_id: F1
           quantity:
@@ -54,7 +54,7 @@ value:
           '@ondc/org/TAT': PT60M
           state:
             descriptor:
-              code: Cancelled
+              code: Cancelled [^3]
           start:
             location:
               id: L1
@@ -108,7 +108,7 @@ value:
           type: RTO
           state:
             descriptor:
-              code: RTO-Initiated
+              code: RTO-Initiated [^4]
           start:
             time:
               timestamp: '2023-06-03T11:00:30.000Z'
@@ -124,13 +124,13 @@ value:
                 - code: value
                   value: '50.00'
       quote:
-        price:
+        price [^5]:
           currency: INR
           value: '125.00'
         breakup:
           - '@ondc/org/item_id': I1
             '@ondc/org/item_quantity':
-              count: 0
+              count: 0 [^6]
             title: Atta
             '@ondc/org/title_type': item
             price:

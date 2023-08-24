@@ -1,24 +1,24 @@
-summary: search_by_city
-description: Search By City
+summary: search_by_city [^1]
+description: search request for all sellers in the city identified in Context
 value:
   context:
-    domain: ONDC:RET10
+    domain: ONDC:RET10 [^2]
     action: search
     country: IND
-    city: std:080
+    city: std:080 [^3]
     core_version: 1.2.0
-    bap_id: buyerNP.com
-    bap_uri: https://buyerNP.com/ondc
+    bap_id [^4]: buyerNP.com
+    bap_uri [^5]: https://buyerNP.com/ondc
     transaction_id: T1
     message_id: M1
-    timestamp: '2023-06-03T08:00:00.000Z'
-    ttl: PT30S
+    timestamp [^6]: '2023-06-03T08:00:00.000Z'
+    ttl [^7]: PT30S
   message:
     intent:
-      category:
-        id: Foodgrains
-      fulfillment:
+      category [^8]:
+        id: Foodgrains [^9]
+      fulfillment [^10]:
         type: Delivery
       payment:
         '@ondc/org/buyer_app_finder_fee_type': percent
-        '@ondc/org/buyer_app_finder_fee_amount': '3'
+        '@ondc/org/buyer_app_finder_fee_amount [^11]': '3'

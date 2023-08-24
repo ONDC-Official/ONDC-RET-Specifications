@@ -1,0 +1,53 @@
+value:
+  [^1]: updated domain namespace is https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
+  [^2]: descriptor for seller NP
+  [^3]: logo or image for seller NP
+  [^4]: descriptor for seller (merchant) that processes & fulfills orders
+  [^5]: unique id for provider, must be same as bpp_id for ISN seller apps. Use of same provider id for distinct legal entities will cause an MSN being regarded as ISN and use of different provider id for same legal entity will cause an ISN being regarded as MSN, thus resulting in tax non-compliance
+  [^6]: enum - "enable" (default), "disable" (soft delete of provider from buyer NP cache)
+  [^7]: timestamp when the snapshot for this provider (including provider details, items) was generated, must be <= Context.timestamp. Buyer NPs can use this to determine from when to start incremental refresh
+  [^8]: provider level fulfillment options
+  [^9]: contact details for merchant - if merchant is in multiple locations, this will be the contact detail for merchant and contact detail for the storefront (specific location) will be in fulfillment.start
+  [^10]: valid 10 digit (mobile no) or 11 digit no
+  [^11]: email id of merchant or seller NP
+  [^12]: ISO8601 duration format for validity of provider catalog
+  [^13]: locations for provider with unique id for each location
+  [^14]: enum - "enable" (default), "disable" (soft delete of provider location, i.e. warehouse or store, from buyer NP cache - in this case, serviceability for the store should not be a part of the catalog), "close" (temporary closure of store with the same format for time.range as specified, for incremental refresh, here - https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.ar4y0zvk65s4 only if this event is available at the time of generating the full catalog snapshot)
+  [^15]: timestamp when the snapshot for location was generated, must be <= Context.timestamp
+  [^16]: list of future dated holidays, to be used as per holiday calendar; if no holidays, empty array needs to be passed
+  [^17]: locality name
+  [^18]: enum - "enable", "disable"
+  [^19]: timestamp for item event
+  [^20]: optional; unique code for item which will be in this format - "type:code" where type is 1 - EAN, 2 - ISBN, 3 - GTIN, 4 - HSN, 5 - UPC, 6 - others
+  [^21]: enum - "unit", "dozen", "kilogram", "tonne", "litre", "millilitre" (https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/grocery/RET10-UOM.json)
+  [^22]: stringified integer value - default value for item in stock
+  [^23]: stringified integer value - cap per order (if exists) or default value
+  [^24]: enum from https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+  [^25]: should default to true except for specific make-to-order items
+  [^26]: should default to true except for specific make-to-order items
+  [^27]: whether seller is responsible for pick up of item for return
+  [^28]: valid contact details exactly in this format - name, email, contact no
+  [^29]: mapping of category to attribute key is defined https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+  [^30]: identifies origin of item i.e. country, state, etc
+  [^31]: ISO 3166-1 alpha-3 code
+  [^32]: images for statutory requirements - optional
+  [^33]: credentials for provider (optional)
+  [^34]: globally identifiable identity or unique ID provided by seller app; mandatory if creds are provided
+  [^35]: display URL for credential, optional
+  [^36]: optional, only if available
+  [^37]: for defining order value (e.g. min order value) for provider
+  [^38]: minimum order value for provider (up to 2 decimals)
+  [^39]: option for catalog response using link or inline (default)
+  [^40]: enum - "link" (link to zip file for items array for the provider), "inline" (items array in inline response, which is the default today)
+  [^41]: authorized link URL, required only if type = "link"; in this case, items array won’t be a part of inline response
+  [^42]: authorized link validity from last_update, required only if type = "link"
+  [^43]: timestamp for last update of link (RFC3339), required only if type = "link"
+  [^44]: timing for fulfillment type, enum - "Order" (online order processing timings), "Delivery" (order shipment timings, will be same as delivery timings for hyperlocal), "Self-Pickup" (self-pickup timings); example shows store open 24x7- Monday to Sunday (0000 - 2359)
+  [^45]: location id for provider
+  [^46]: valid value - day of week ("1" - Monday, "7" - Sunday)
+  [^47]: valid value - day of week ("1" - Monday, "7" - Sunday), day_to >= day_from
+  [^48]: valid value - 24hr format ("0000" to "2359")
+  [^49]: valid value - 24hr format ("0000" to "2359"), time_to >= time_from
+  [^50]: serviceability construct is defined for (provider+location+category) at either of these levels -  hyperlocal (radius) or intercity (pincodes) or pan-India; every unique combination of (provider+location+category) can have serviceability defined only at one of these levels
+  [^51]: maps to unique location for provider
+  [^52]: enum - "10" (hyperlocal), "11" (intercity), "12" (pan-India)

@@ -19,23 +19,23 @@ value:
     order:
       id: O1
       fulfillments:
-        - type: Return
+        - type: Return [^1]
           tags:
             - code: return_request
               list:
                 - code: id
-                  value: R1
+                  value: R1 [^2]
                 - code: item_id
                   value: I1
                 - code: item_quantity
                   value: '1'
-                - code: reason_id
+                - code: reason_id [^3]
                   value: '003'
                 - code: reason_desc
                   value: detailed description for return
                 - code: images
                   value: url_for_image1,url_for_image2
-                - code: ttl_approval
+                - code: ttl_approval [^4]
                   value: PT24H
-                - code: ttl_reverseqc
+                - code: ttl_reverseqc [^5]
                   value: P3D

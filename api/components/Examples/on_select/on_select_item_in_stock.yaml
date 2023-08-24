@@ -19,33 +19,33 @@ value:
       provider:
         id: P1
         locations:
-          - id: L1
+          - id: L1 [^1]
       items:
         - fulfillment_id: F1
           id: I1
-      fulfillments:
-        - id: F1
+      fulfillments [^2]:
+        - id: F1 [^3]
           type: Delivery
           '@ondc/org/provider_name': LSP or Provider Name
           tracking: false
-          '@ondc/org/category': Immediate Delivery
-          '@ondc/org/TAT': PT60M
-          state:
+          '@ondc/org/category [^4]': Immediate Delivery [^5]
+          '@ondc/org/TAT [^6]': PT60M
+          state [^7]:
             descriptor:
-              code: Serviceable
+              code: Serviceable [^8]
       quote:
         price:
           currency: INR
           value: '245'
         breakup:
-          - '@ondc/org/item_id': I1
+          - '@ondc/org/item_id [^9]': I1
             '@ondc/org/item_quantity':
-              count: 1
+              count [^10]: 1
             title: Atta
-            '@ondc/org/title_type': item
+            '@ondc/org/title_type [^11]': item
             price:
               currency: INR
-              value: '170.00'
+              value: '170.00 [^12]'
             item:
               quantity:
                 available:
@@ -57,44 +57,44 @@ value:
                 value: '170.00'
           - '@ondc/org/item_id': F1
             title: Delivery charges
-            '@ondc/org/title_type': delivery
+            '@ondc/org/title_type [^13]': delivery
             price:
               currency: INR
               value: '50.00'
           - '@ondc/org/item_id': F1
             title: Discount
-            '@ondc/org/title_type': discount_f
+            '@ondc/org/title_type': discount_f [^14]
             price:
               currency: INR
               value: '-50.00'
           - '@ondc/org/item_id': F1
             title: Tax
-            '@ondc/org/title_type': tax_f
+            '@ondc/org/title_type': tax_f [^15]
             price:
               currency: INR
               value: '9.00'
           - '@ondc/org/item_id': F1
             title: Packing charges
-            '@ondc/org/title_type': packing
+            '@ondc/org/title_type [^16]': packing
             price:
               currency: INR
               value: '25.00'
           - '@ondc/org/item_id': I1
             title: Tax
-            '@ondc/org/title_type': tax
+            '@ondc/org/title_type [^17]': tax
             price:
               currency: INR
               value: '0.00'
           - '@ondc/org/item_id': I1
             title: Discount
-            '@ondc/org/title_type': discount
+            '@ondc/org/title_type [^18]': discount
             price:
               currency: INR
               value: '-10.00'
           - '@ondc/org/item_id': F1
             title: Convenience Fee
-            '@ondc/org/title_type': misc
+            '@ondc/org/title_type [^19]': misc
             price:
               currency: INR
               value: '10.00'
-        ttl: P1D
+        ttl: P1D [^20]

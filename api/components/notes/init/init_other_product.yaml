@@ -1,0 +1,9 @@
+value:
+  [^1]: house no (for independent dwellings) or door no (for apartments or community dwellings) if name is house no, building is optional
+  [^2]: street name
+  [^3]: optional, may be required for B2B
+  [^4]: optional
+  [^5]: timestamp for creation of billing object
+  [^6]: same as created_at
+  [^7]: name + building + locality < 190 chars, name != locality
+  [^8]: house no (for independent dwellings) or door no (for apartments or community dwellings) if name is house no, building is optional

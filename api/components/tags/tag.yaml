@@ -666,7 +666,10 @@ cancel_request:
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
 quote_trail:
-  - code: TITLE_TYPE
+  - code: TYPE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: SUBTYPE
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
   - code: ID
@@ -683,6 +686,9 @@ return_request:
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
   - code: ITEM_ID
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: PARENT_ITEM_ID
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
   - code: ITEM_QUANTITY

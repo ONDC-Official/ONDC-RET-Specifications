@@ -1,0 +1,8 @@
+value:
+  [^1]: dynamic item id created by buyer NP for make-to-order product; alphanumeric & up to 12 characters
+  [^2]: parent for customization, i.e. customization group
+  [^3]: dynamic item id
+  [^4]: optional, only if buyer selects offer code
+  [^5]: if offer code is not valid, seller NP can NACK /select with error code 30006
+  [^6]: optional
+  [^7]: enum - "ON-ORDER" (prepaid), "ON-FULFILLMENT" (on delivery), "POST-FULFILLMENT" (after delivery)

@@ -65,9 +65,9 @@ value:
                 city: Bengaluru
                 area_code: '560076'
                 state: KA
-            time:
+            time [^1]:
               timestamp: '2023-06-03T10:25:00.000Z'
-            instructions:
+            instructions [^2]:
               code: '1'
               name: Proof of pickup
               short_desc: pickup confirmation code
@@ -75,7 +75,7 @@ value:
               images:
                 - https://lsp.com/pickup_image.png
                 - https://lsp.com/rider_location.png
-            authorization:
+            authorization [^3]:
               type: OTP
               token: OTP code
               valid_from: '2023-06-03T12:00:00.000Z'
@@ -94,16 +94,16 @@ value:
                 state: Karnataka
                 country: IND
                 area_code: '560037'
-            time:
+            time [^4]:
               timestamp: '2023-06-03T11:35:00.000Z'
-            instructions:
+            instructions [^5]:
               code: '3'
               name: Proof of delivery
               short_desc: value of delivery code
               images:
                 - https://lsp.com/delivery_image.png
                 - https://lsp.com/rider_location.png
-            authorization:
+            authorization [^6]:
               type: OTP
               token: OTP code
               valid_from: '2023-06-03T18:00:00.000Z'
@@ -113,10 +113,10 @@ value:
             contact:
               phone: '9886098860'
               email: nobody@nomail.com
-          agent:
+          agent [^7]:
             name: agent_name
             phone: '9886098860'
-          vehicle:
+          vehicle [^8]:
             registration: 3LVJ945
         - id: R1
           type: Return
@@ -124,7 +124,7 @@ value:
           state:
             descriptor:
               code: Return_Rejected
-              Short_desc: return rejection reason code
+              Short_desc: return rejection reason code [^9]
           tags:
             - code: return_request
               list:
@@ -134,15 +134,15 @@ value:
                   value: I1
                 - code: item_quantity
                   value: '1'
-                - code: reason_id
+                - code: reason_id [^10]
                   value: '003'
                 - code: reason_desc
                   value: detailed description for return
                 - code: images
                   value: url_for_image1,url_for_image2
-                - code: ttl_approval
+                - code: ttl_approval [^11]
                   value: PT24H
-                - code: ttl_reverseqc
+                - code: ttl_reverseqc [^12]
                   value: P3D
       quote:
         price:

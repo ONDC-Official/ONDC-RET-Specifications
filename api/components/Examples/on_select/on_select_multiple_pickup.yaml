@@ -20,7 +20,7 @@ value:
         id: P1
       items:
         - id: I1
-          fulfillment_id: F1
+          fulfillment_id: F1 [^1]
       fulfillments:
         - id: F1
           type: Delivery

@@ -23,24 +23,24 @@ value:
           type: Self-Pickup
         - id: '3'
           type: Delivery and Self-Pickup
-      bpp/descriptor:
+      bpp/descriptor [^1]:
         name: Seller NP
-        symbol: https://sellerNP.com/images/np.png
+        symbol [^2]: https://sellerNP.com/images/np.png
         short_desc: Seller Marketplace
         long_desc: Seller Marketplace
         images:
           - https://sellerNP.com/images/np.png
-      bpp/providers:
-        - id: P1
+      bpp/providers [^3]:
+        - id: P1 [^4]
           time:
-            label: enable
-            timestamp: '2023-06-03T07:00:00.000Z'
-          fulfillments:
+            label: enable [^5]
+            timestamp: '2023-06-03T07:00:00.000Z [^6]'
+          fulfillments [^7]:
             - id: F1
               type: Delivery
-              contact:
-                phone: '9886098860'
-                email: abc@xyz.com
+              contact [^8]:
+                phone: '9886098860 [^9]'
+                email [^10]: abc@xyz.com
             - id: F2
               type: Self-Pickup
               contact:
@@ -53,25 +53,25 @@ value:
             long_desc: Store 1
             images:
               - https://sellerNP.com/images/store1.png
-          '@ondc/org/fssai_license_no': '12345678901234'
-          ttl: P1D
-          locations:
+          '@ondc/org/fssai_license_no [^11]': '12345678901234'
+          ttl: P1D [^12]
+          locations [^13]:
             - id: L1
               time:
-                label: enable
-                timestamp: '2023-06-03T07:30:30.000Z'
+                label: enable [^14]
+                timestamp: '2023-06-03T07:30:30.000Z [^15]'
                 schedule:
-                  holidays:
+                  holidays [^16]:
                     - '2023-08-15'
               gps: 12.967555,77.749666
               address:
-                locality: Jayanagar
+                locality [^17]: Jayanagar
                 street: Jayanagar 4th Block
                 city: Bengaluru
                 area_code: '560076'
                 state: KA
-          categories:
-            - id: '5'
+          categories [^18]:
+            - id: '5 [^19]' 
               parent_category_id: ''
               descriptor:
                 name: Pizza
@@ -83,37 +83,37 @@ value:
                 - code: type
                   list:
                     - code: type
-                      value: custom_menu
-                - code: timing
+                      value: custom_menu [^20]
+                - code: timing [^21]
                   list:
                     - code: day_from
-                      value: '1'
-                    - code: day_to
+                      value: '1 [^22]' 
+                    - code: day_to [^23]
                       value: '5'
-                    - code: time_from
+                    - code: time_from [^24]
                       value: '1800'
-                    - code: time_to
+                    - code: time_to [^25]
                       value: '2200'
-                - code: display
+                - code: display [^26]
                   list:
                     - code: rank
                       value: '3'
-            - id: CG1
+            - id: CG1 [^27]
               descriptor:
                 name: Crust (any 1 option)
               tags:
                 - code: type
                   list:
                     - code: type
-                      value: custom_group
-                - code: config
+                      value: custom_group [^28]
+                - code: config [^29]
                   list:
                     - code: min
                       value: '1'
                     - code: max
                       value: '1'
                     - code: input
-                      value: select
+                      value: select [^30]
                     - code: seq
                       value: '1'
             - id: CG2
@@ -169,57 +169,64 @@ value:
           items:
             - id: I1
               time:
-                label: enable
-                timestamp: '2023-06-03T07:30:00.000Z'
+                label: enable [^31]
+                timestamp: '2023-06-03T07:30:00.000Z [^32]'
               parent_item_id: V1
               descriptor:
                 name: Farmhouse Pizza
                 symbol: https://sellerNP.com/images/i1.png
                 short_desc: Farmhouse Pizza
                 long_desc: Farmhouse Pizza
-                images:
+                images [^33]:
                   - https://sellerNP.com/images/i1.png
               quantity:
                 unitized:
                   measure:
-                    unit: unit
+                    unit: unit [^34]
                     value: '1'
                 available:
-                  count: '99'
+                  count [^35]: '99'
                 maximum:
-                  count: '99'
+                  count [^36]: '99'
               price:
                 currency: INR
-                value: '269.0'
+                value: '269.0 [^37]' 
                 maximum_value: '269.0'
-              category_id: Pizza
+              tags [^38]:
+                - code: range
+                  list:
+                    - code: lower
+                      value: '269.00 [^39]' 
+                    - code: upper
+                      value: '304.00 [^40]' 
+              category_id: Pizza [^41]
               category_ids:
-                - '5:1'
-              fulfillment_id: F1
-              location_id: L1
+                - '5:1 [^42]' 
+              fulfillment_id [^43]: F1
+              location_id [^44]: L1
               related: false
               recommended: true
               '@ondc/org/returnable': false
-              '@ondc/org/cancellable': false
+              '@ondc/org/cancellable': false [^45]
               '@ondc/org/return_window': PT1H
-              '@ondc/org/seller_pickup_return': false
+              '@ondc/org/seller_pickup_return [^46]': false
               '@ondc/org/time_to_ship': PT45M
               '@ondc/org/available_on_cod': false
-              '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
+              '@ondc/org/contact_details_consumer_care [^47]': Ramesh,ramesh@abc.com,18004254444
               tags:
-                - code: type
+                - code: type [^48] 
                   list:
                     - code: type
-                      value: item
-                - code: custom_group
-                  list:
+                      value: item [^49]
+                - code: custom_group [^50]
+                  list [^51]:
                     - code: id
                       value: CG1
                     - code: id
                       value: CG2
                     - code: id
                       value: CG3
-                - code: config
+                - code: config [^52]
                   list:
                     - code: id
                       value: CG1
@@ -229,7 +236,7 @@ value:
                       value: '1'
                     - code: seq
                       value: '1'
-                - code: timing
+                - code: timing [^53]
                   list:
                     - code: day_from
                       value: '1'
@@ -241,7 +248,7 @@ value:
                       value: '2200'
                 - code: veg_nonveg
                   list:
-                    - code: veg
+                    - code: veg [^54]
                       value: 'yes'
             - id: C1
               descriptor:
@@ -261,20 +268,20 @@ value:
                 - code: type
                   list:
                     - code: type
-                      value: customization
-                - code: parent
+                      value: customization [^55]
+                - code: parent [^56]
                   list:
                     - code: id
-                      value: CG1
-                    - code: default
+                      value: CG1 [^57]
+                    - code: default [^58]
                       value: 'yes'
-                - code: child
+                - code: child [^59]
                   list:
                     - code: id
                       value: CG2
                 - code: veg_nonveg
                   list:
-                    - code: veg
+                    - code: veg [^60]
                       value: 'yes'
             - id: C2
               descriptor:
@@ -307,7 +314,7 @@ value:
                       value: CG3
                 - code: veg_nonveg
                   list:
-                    - code: veg
+                    - code: veg [^61]
                       value: 'yes'
             - id: C3
               descriptor:
@@ -328,7 +335,7 @@ value:
                   list:
                     - code: type
                       value: customization
-                - code: parent
+                - code: parent [^62]
                   list:
                     - code: id
                       value: CG3
@@ -336,9 +343,9 @@ value:
                       value: 'yes'
                 - code: veg_nonveg
                   list:
-                    - code: veg
+                    - code: veg [^63]
                       value: 'yes'
-          offers:
+          offers [^64]:
             - id: TRYNEW
               descriptor:
                 code: Disc_Pct
@@ -446,35 +453,35 @@ value:
                     - code: item_value
                       value: '200.00'
           tags:
-            - code: order_value
+            - code: order_value [^65]
               list:
-                - code: min_value
+                - code: min_value [^66]
                   value: '300.00'
-            - code: catalog_link
+            - code: catalog_link [^67]
               list:
                 - code: type
-                  value: inline
-                - code: type_value
+                  value: inline [^68]
+                - code: type_value [^69]
                   value: https://s3.amazon.com/xjhjsfsdfs/s-12349.zip
-                - code: type_validity
+                - code: type_validity [^70]
                   value: PT24H
-                - code: last_update
+                - code: last_update [^71]
                   value: 2023-05-21T00:00:00:000Z
             - code: timing
               list:
                 - code: type
-                  value: Order
+                  value: Order [^72]
                 - code: location
-                  value: L1
+                  value: L1 [^73]
                 - code: day_from
-                  value: '1'
+                  value: '1 [^74]' 
                 - code: day_to
-                  value: '5'
+                  value: '5 [^75]' 
                 - code: time_from
-                  value: '0900'
+                  value: '0900 [^76]' 
                 - code: time_to
-                  value: '1100'
-            - code: timing
+                  value: '1100 [^77]' 
+            - code: timing [^78]
               list:
                 - code: type
                   value: Order
@@ -558,14 +565,14 @@ value:
                   value: '1100'
                 - code: time_to
                   value: '2200'
-            - code: serviceability
+            - code: serviceability [^79]
               list:
                 - code: location
-                  value: L1
+                  value: L1 [^80]
                 - code: category
                   value: F&B
                 - code: type
-                  value: '10'
+                  value: '10 [^81]' 
                 - code: val
                   value: '3'
                 - code: unit

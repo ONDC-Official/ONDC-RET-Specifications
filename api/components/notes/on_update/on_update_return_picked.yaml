@@ -1,0 +1,16 @@
+value:
+  [^1]: pickup time
+  [^2]: PCC, proof of pickup
+  [^3]: pickup authorization (optional)
+  [^4]: delivery time
+  [^5]: DCC, proof of delivery
+  [^6]: delivery authorization (optional)
+  [^7]: agent details (optional)
+  [^8]: vehicle details (for rider) or buyer (for kerbside pickup) - optional
+  [^9]: status updated
+  [^10]: pickup time updated
+  [^11]: valid return reason codes are https://docs.google.com/document/d/1M-lZSduYMFKIk1V6d8QLt-j-16-rVzYVdPn0pmbkclk/edit#heading=h.lnyp7qt40f7f
+  [^12]: ttl for initiating reverse qc, reverse qc (if required) should be completed within the return window
+  [^13]: bpp id of seller NP or source from which request initiated
+  [^14]: optional keys here as defined in /confirm
+  [^15]: invoice from seller

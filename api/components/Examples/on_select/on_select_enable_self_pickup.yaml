@@ -20,14 +20,14 @@ value:
         id: P1
       items:
         - id: I1
-          fulfillment_id: F1
+          fulfillment_id: F1 [^1]
       fulfillments:
         - id: F1
           type: Delivery
           '@ondc/org/provider_name': LSP or Provider Name
           tracking: false
           '@ondc/org/category': Immediate Delivery
-          '@ondc/org/TAT': PT60M
+          '@ondc/org/TAT': PT60M [^2]
           state:
             descriptor:
               code: Serviceable
@@ -35,12 +35,12 @@ value:
           type: Self-Pickup
           '@ondc/org/provider_name': ''
           tracking: false
-          '@ondc/org/category': Takeaway
-          '@ondc/org/TAT': PT15M
+          '@ondc/org/category': Takeaway [^3]
+          '@ondc/org/TAT': PT15M [^4]
           state:
             descriptor:
               code: Serviceable
-      quote:
+      quote [^5]:
         price:
           currency: INR
           value: '1360.00'

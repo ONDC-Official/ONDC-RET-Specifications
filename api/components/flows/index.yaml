@@ -1,0 +1,8 @@
+- $ref: "./return_with_reverse_qc_picked.yaml"
+- $ref: "./cutomized_product_delivered.yaml"
+- $ref: "./cancellation_rto_flow.yaml"
+- $ref: "./return_with_liquidation_other_product.yaml"
+- $ref: "./merchant_cancels_customized_product.yaml"
+- $ref: "./merchant_cancels_non_customized_product.yaml"
+- $ref: "./return_with_reverse_qc_failed.yaml"
+- $ref: "./return_with_reverse_qc_reschedule.yaml"

@@ -17,7 +17,7 @@ value:
     ttl: PT30S
   message:
     order:
-      id: O1
+      id: O1 [^1]
       state: Created
       provider:
         id: P1
@@ -39,19 +39,19 @@ value:
           country: IND
           area_code: '560037'
         phone: '9886098860'
-        email: nobody@nomail.com
-        created_at: '2023-02-03T09:00:00.000Z'
-        updated_at: '2023-02-03T09:00:00.000Z'
+        email [^2]: nobody@nomail.com
+        created_at [^3]: '2023-02-03T09:00:00.000Z'
+        updated_at [^4]: '2023-02-03T09:00:00.000Z'
       fulfillments:
         - id: F1
           type: Delivery
-          '@ondc/org/TAT': PT60M
+          '@ondc/org/TAT': PT60M [^5]
           tracking: false
           end:
             person:
               name: name_of_person
             contact:
-              email: nobody@nomail.com
+              email [^6]: nobody@nomail.com
               phone: '9886098860'
             location:
               gps: 12.453544,77.928379
@@ -63,7 +63,7 @@ value:
                 state: Karnataka
                 country: IND
                 area_code: '560037'
-          vehicle:
+          vehicle [^7]:
             registration: 3LVJ945
       quote:
         price:
@@ -514,21 +514,22 @@ value:
               value: '10.00'
         ttl: PT1H
       payment:
-        uri: https://ondc.transaction.com/payment
+        uri [^8]: https://ondc.transaction.com/payment
+        tl_method [^9]: http/get
         params:
           currency: INR
-          transaction_id: '3937'
-          amount: '1946.65'
-        status: PAID
-        type: ON-ORDER
-        collected_by: BAP
+          transaction_id [^10]: '3937'
+          amount: '1946.65 [^11]'
+        status: PAID [^12]
+        type: ON-ORDER [^13]
+        collected_by: BAP [^14]
         '@ondc/org/buyer_app_finder_fee_type': percent
         '@ondc/org/buyer_app_finder_fee_amount': '3'
-        '@ondc/org/settlement_basis': delivery
-        '@ondc/org/settlement_window': P1D
-        '@ondc/org/withholding_amount': '10.00'
-        '@ondc/org/settlement_details':
-          - settlement_counterparty: seller-app
+        '@ondc/org/settlement_basis': delivery [^15]
+        '@ondc/org/settlement_window': P1D [^16]
+        '@ondc/org/withholding_amount': '10.00 [^17]' 
+        '@ondc/org/settlement_details [^18]':
+          - settlement_counterparty: seller-app [^19]
             settlement_phase: sale-amount
             settlement_type: upi
             upi_address: gft@oksbi
@@ -554,12 +555,12 @@ value:
               value: gst_number_of_sellerNP
         - code: bap_terms
           list:
-            - code: accept_bpp_terms
+            - code: accept_bpp_terms [^20]
               value: 'Y'
-            - code: fixed_terms
+            - code: fixed_terms  [^21]
               value: >-
                 https://github.com/ONDC-Official/protocol-network-extension/discussions/79
-            - code: tax_number
+            - code: tax_number [^22]
               value: gst_number_of_buyerNP
-      created_at: '2023-06-03T09:30:00.000Z'
-      updated_at: '2023-06-03T09:30:00.000Z'
+      created_at [^23]: '2023-06-03T09:30:00.000Z'
+      updated_at [^24]: '2023-06-03T09:30:00.000Z'

@@ -27,7 +27,7 @@ value:
         - id: P1
           time:
             label: enable
-            timestamp: '2023-06-03T08:00:30.000Z'
+            timestamp: '2023-06-03T08:00:30.000Z [^1]'
           fulfillments:
             - id: F1
               type: Delivery
@@ -45,8 +45,8 @@ value:
           locations:
             - id: L1
               time:
-                label: enable
-                timestamp: '2023-06-03T07:30:30.000Z'
+                label: enable [^2]
+                timestamp: '2023-06-03T07:30:30.000Z [^3]'
                 schedule:
                   holidays:
                     - '2023-08-15'
@@ -81,12 +81,12 @@ value:
           items:
             - id: I1
               time:
-                label: enable
-                timestamp: '2023-06-03T07:30:00.000Z'
-              parent_item_id: V1
+                label: enable [^4]
+                timestamp: '2023-06-03T07:30:00.000Z [^5]'
+              parent_item_id: V1 [^6]
               descriptor:
                 name: Allen Solly Men T-shirt
-                code: 1:XXXXXXXXXXXXX
+                code [^7]: 1:XXXXXXXXXXXXX
                 symbol: https://sellerNP.com/images/i1.png
                 short_desc: Allen Solly Men T-shirt
                 long_desc: Allen Solly Men T-shirt
@@ -105,7 +105,7 @@ value:
                 currency: INR
                 value: '579.00'
                 maximum_value: '999.0'
-              category_id: Men's Topwear
+              category_id: Men's Topwear [^8]
               fulfillment_id: F1
               location_id: L1
               '@ondc/org/returnable': true
@@ -115,46 +115,46 @@ value:
               '@ondc/org/time_to_ship': P1D
               '@ondc/org/available_on_cod': false
               '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
-              '@ondc/org/statutory_reqs_packaged_commodities':
+              '@ondc/org/statutory_reqs_packaged_commodities [^9]':
                 manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
                 manufacturer_or_packer_address: >-
                   Building 2, Divyasree Technopolis, Off HAL Airport Road,
                   Bengaluru-560037
                 common_or_generic_name_of_commodity: Polo
-                month_year_of_manufacture_packing_import: 01/2017
+                month_year_of_manufacture_packing_import: 01/2017 [^10]
               tags:
                 - code: origin
                   list:
                     - code: country
                       value: IND
-                - code: attribute
+                - code: attribute [^11]
                   list:
                     - code: brand
                       value: Allen Solly
                     - code: colour
-                      value: coral
+                      value: coral [^12]
                     - code: size
-                      value: S
+                      value: S [^13]
                     - code: gender
-                      value: male
+                      value: male [^14]
                     - code: pattern
-                      value: striped
+                      value: striped [^15]
                     - code: material
-                      value: cotton
+                      value: cotton [^16]
                     - code: occasion
-                      value: casual
+                      value: casual [^17]
                     - code: season
-                      value: summer
+                      value: summer [^18]
                     - code: trend
-                      value: tribal
+                      value: tribal [^19]
                     - code: features
-                      value: alpha
+                      value: alpha [^20]
                     - code: material_finish
-                      value: embossed
+                      value: embossed [^21]
                     - code: size_chart
                       value: https://sellerNP.com/images/i1_size_chart.png
             - id: I2
-              parent_item_id: V1
+              parent_item_id: V1 [^22]
               descriptor:
                 name: Allen Solly Men T-shirt
                 code: 1:XXXXXXXXXXXXX
@@ -186,13 +186,13 @@ value:
               '@ondc/org/time_to_ship': P1D
               '@ondc/org/available_on_cod': false
               '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
-              '@ondc/org/statutory_reqs_packaged_commodities':
+              '@ondc/org/statutory_reqs_packaged_commodities [^23]':
                 manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
                 manufacturer_or_packer_address: >-
                   Building 2, Divyasree Technopolis, Off HAL Airport Road,
                   Bengaluru-560037
                 common_or_generic_name_of_commodity: Polo
-                month_year_of_manufacture_packing_import: 01/2017
+                month_year_of_manufacture_packing_import: 01/2017 [^24]
               tags:
                 - code: origin
                   list:
@@ -225,7 +225,7 @@ value:
                     - code: size_chart
                       value: https://sellerNP.com/images/i1_size_chart.png
             - id: I3
-              parent_item_id: V1
+              parent_item_id: V1 [^25]
               descriptor:
                 name: Allen Solly Men T-shirt
                 code: 1:XXXXXXXXXXXXX
@@ -257,13 +257,13 @@ value:
               '@ondc/org/time_to_ship': P1D
               '@ondc/org/available_on_cod': false
               '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
-              '@ondc/org/statutory_reqs_packaged_commodities':
+              '@ondc/org/statutory_reqs_packaged_commodities [^26]':
                 manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
                 manufacturer_or_packer_address: >-
                   Building 2, Divyasree Technopolis, Off HAL Airport Road,
                   Bengaluru-560037
                 common_or_generic_name_of_commodity: Polo
-                month_year_of_manufacture_packing_import: 01/2017
+                month_year_of_manufacture_packing_import: 01/2017 [^27]
               tags:
                 - code: origin
                   list:
@@ -296,7 +296,7 @@ value:
                     - code: size_chart
                       value: https://sellerNP.com/images/i1_size_chart.png
             - id: I4
-              parent_item_id: V1
+              parent_item_id: V1 [^28]
               descriptor:
                 name: Allen Solly Men T-shirt
                 code: 1:XXXXXXXXXXXXX
@@ -328,13 +328,13 @@ value:
               '@ondc/org/time_to_ship': P1D
               '@ondc/org/available_on_cod': false
               '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
-              '@ondc/org/statutory_reqs_packaged_commodities':
+              '@ondc/org/statutory_reqs_packaged_commodities [^29]':
                 manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
                 manufacturer_or_packer_address: >-
                   Building 2, Divyasree Technopolis, Off HAL Airport Road,
                   Bengaluru-560037
                 common_or_generic_name_of_commodity: Polo
-                month_year_of_manufacture_packing_import: 01/2017
+                month_year_of_manufacture_packing_import: 01/2017 [^30]
               tags:
                 - code: origin
                   list:
@@ -367,7 +367,7 @@ value:
                     - code: size_chart
                       value: https://sellerNP.com/images/i1_size_chart.png
             - id: I5
-              parent_item_id: V1
+              parent_item_id: V1 [^31]
               descriptor:
                 name: Allen Solly Men T-shirt
                 code: 1:XXXXXXXXXXXXX
@@ -399,13 +399,13 @@ value:
               '@ondc/org/time_to_ship': P1D
               '@ondc/org/available_on_cod': false
               '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
-              '@ondc/org/statutory_reqs_packaged_commodities':
+              '@ondc/org/statutory_reqs_packaged_commodities [^32]':
                 manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
                 manufacturer_or_packer_address: >-
                   Building 2, Divyasree Technopolis, Off HAL Airport Road,
                   Bengaluru-560037
                 common_or_generic_name_of_commodity: Polo
-                month_year_of_manufacture_packing_import: 01/2017
+                month_year_of_manufacture_packing_import: 01/2017 [^33]
               tags:
                 - code: origin
                   list:
@@ -438,7 +438,7 @@ value:
                     - code: size_chart
                       value: https://sellerNP.com/images/i1_size_chart.png
             - id: I6
-              parent_item_id: V1
+              parent_item_id: V1 [^34]
               descriptor:
                 name: Allen Solly Men T-shirt
                 code: 1:XXXXXXXXXXXXX
@@ -470,13 +470,13 @@ value:
               '@ondc/org/time_to_ship': P1D
               '@ondc/org/available_on_cod': false
               '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
-              '@ondc/org/statutory_reqs_packaged_commodities':
+              '@ondc/org/statutory_reqs_packaged_commodities [^35]':
                 manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
                 manufacturer_or_packer_address: >-
                   Building 2, Divyasree Technopolis, Off HAL Airport Road,
                   Bengaluru-560037
                 common_or_generic_name_of_commodity: Polo
-                month_year_of_manufacture_packing_import: 01/2017
+                month_year_of_manufacture_packing_import: 01/2017 [^36]
               tags:
                 - code: origin
                   list:
@@ -509,7 +509,7 @@ value:
                     - code: size_chart
                       value: https://sellerNP.com/images/i1_size_chart.png
             - id: I7
-              parent_item_id: V1
+              parent_item_id: V1 [^37]
               descriptor:
                 name: Allen Solly Men T-shirt
                 code: 1:XXXXXXXXXXXXX
@@ -541,13 +541,13 @@ value:
               '@ondc/org/time_to_ship': P1D
               '@ondc/org/available_on_cod': false
               '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
-              '@ondc/org/statutory_reqs_packaged_commodities':
+              '@ondc/org/statutory_reqs_packaged_commodities [^38]':
                 manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
                 manufacturer_or_packer_address: >-
                   Building 2, Divyasree Technopolis, Off HAL Airport Road,
                   Bengaluru-560037
                 common_or_generic_name_of_commodity: Polo
-                month_year_of_manufacture_packing_import: 01/2017
+                month_year_of_manufacture_packing_import: 01/2017 [^39]
               tags:
                 - code: origin
                   list:
@@ -579,7 +579,7 @@ value:
                       value: embossed
                     - code: size_chart
                       value: https://sellerNP.com/images/i1_size_chart.png
-          creds:
+          creds [^40]:
             - id: ESG-12345678
               descriptor:
                 code: ESG-12345678
@@ -602,7 +602,7 @@ value:
             - code: timing
               list:
                 - code: type
-                  value: All
+                  value: All [^41]
                 - code: location
                   value: L1
                 - code: day_from

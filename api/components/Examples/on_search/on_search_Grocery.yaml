@@ -2,7 +2,7 @@ summary: Return the catalog for Grocery products
 description: Return the catalog for Grocery products
 value:
   context:
-    domain: ONDC:RET10
+    domain: ONDC:RET10 [^1]
     country: IND
     city: std:080
     action: on_search
@@ -16,24 +16,24 @@ value:
     timestamp: '2023-06-03T08:00:30.000Z'
   message:
     catalog:
-      bpp/descriptor:
+      bpp/descriptor [^2]:
         name: Seller NP
-        symbol: https://sellerNP.com/images/np.png
+        symbol [^3]: https://sellerNP.com/images/np.png
         short_desc: Seller Marketplace
         long_desc: Seller Marketplace
         images:
           - https://sellerNP.com/images/np.png
-      bpp/providers:
-        - id: P1
+      bpp/providers [^4]:
+        - id: P1 [^5]
           time:
-            label: enable
-            timestamp: '2023-06-03T07:00:30.000Z'
-          fulfillments:
+            label: enable [^6]
+            timestamp: '2023-06-03T07:00:30.000Z [^7]' 
+          fulfillments [^8]:
             - id: F1
               type: Delivery
-              contact:
-                phone: '9886098860'
-                email: abc@xyz.com
+              contact [^9]:
+                phone: '9886098860 [^10]' 
+                email [^11]: abc@xyz.com
             - id: F2
               type: Self-Pickup
               contact:
@@ -46,18 +46,18 @@ value:
             long_desc: Store 1
             images:
               - https://sellerNP.com/images/store1.png
-          ttl: P1D
-          locations:
+          ttl: P1D [^12]
+          locations [^13]:
             - id: L1
               time:
-                label: enable
-                timestamp: '2023-06-03T07:30:30.000Z'
+                label: enable [^14]
+                timestamp: '2023-06-03T07:30:30.000Z [^15]'
                 schedule:
-                  holidays:
+                  holidays [^16]:
                     - '2023-08-15'
               gps: 12.967555,77.749666
               address:
-                locality: Jayanagar
+                locality [^17]: Jayanagar
                 street: Jayanagar 4th Block
                 city: Bengaluru
                 area_code: '560076'
@@ -71,55 +71,55 @@ value:
                   list:
                     - code: type
                       value: variant_group
-                - code: attr
+                - code: attr [^18]
                   list:
-                    - code: name
-                      value: item.quantity.unitized.measure
+                    - code: name [^19]
+                      value: item.quantity.unitized.measure [^20]
                     - code: seq
                       value: '1'
           items:
             - id: I1
               time:
-                label: enable
-                timestamp: '2023-06-03T07:30:00.000Z'
-              parent_item_id: V1
+                label: enable [^21]
+                timestamp: '2023-06-03T07:30:00.000Z [^22]' 
+              parent_item_id: V1 [^23]
               descriptor:
                 name: Plain Atta
-                code: 1:XXXXXXXXXXXXX
+                code [^24]: 1:XXXXXXXXXXXXX
                 symbol: https://sellerNP.com/images/i1.png
                 short_desc: Plain Atta
                 long_desc: Plain Atta
-                images:
+                images [^25]:
                   - https://sellerNP.com/images/i1.png
               quantity:
                 unitized:
                   measure:
-                    unit: kilogram
+                    unit: kilogram [^26]
                     value: '1'
                 available:
-                  count: '99'
+                  count [^27]: '99'
                 maximum:
-                  count: '99'
+                  count [^28]: '99'
               price:
                 currency: INR
                 value: '65.00'
                 maximum_value: '65.0'
-              category_id: Foodgrains
+              category_id: Foodgrains [^29]
               fulfillment_id: F1
               location_id: L1
-              '@ondc/org/returnable': true
-              '@ondc/org/cancellable': true
+              '@ondc/org/returnable': true [^30]
+              '@ondc/org/cancellable': true [^31]
               '@ondc/org/return_window': PT1H
-              '@ondc/org/seller_pickup_return': true
+              '@ondc/org/seller_pickup_return [^32]': true
               '@ondc/org/time_to_ship': PT45M
               '@ondc/org/available_on_cod': false
-              '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
-              '@ondc/org/statutory_reqs_packaged_commodities':
+              '@ondc/org/contact_details_consumer_care [^33]': Ramesh,ramesh@abc.com,18004254444
+              '@ondc/org/statutory_reqs_packaged_commodities [^34]':
                 manufacturer_or_packer_name: ITC
                 manufacturer_or_packer_address: ITC Quality Care Cell,P.O Box No.592,Bangalore-560005
                 common_or_generic_name_of_commodity: Ashirwad Atta
                 month_year_of_manufacture_packing_import: 01/2023
-              '@ondc/org/statutory_reqs_prepackaged_food':
+              '@ondc/org/statutory_reqs_prepackaged_food [^35]':
                 nutritional_info: >-
                   Energy(KCal)-(per 100kg) 420,(per serving
                   50g)250;Protein(g)-(per 100kg) 12,(per serving 50g) 6
@@ -128,25 +128,25 @@ value:
                 other_FSSAI_license_no: '12345678901234'
                 importer_FSSAI_license_no: '12345678901234'
               tags:
-                - code: origin
+                - code: origin [^36]
                   list:
                     - code: country
-                      value: IND
-                - code: image
+                      value: IND [^37]
+                - code: image [^38]
                   list:
                     - code: type
                       value: back_image
                     - code: url
                       value: https://sellerNP.com/images/i1_back_image.png
-                - code: veg_nonveg
+                - code: veg_nonveg [^39]
                   list:
-                    - code: veg
+                    - code: veg [^40]
                       value: 'yes'
             - id: I2
-              parent_item_id: V1
+              parent_item_id [^41]: V1
               descriptor:
                 name: Plain Atta
-                code: 1:XXXXXXXXXXXXX
+                code [^42]: 1:XXXXXXXXXXXXX
                 symbol: https://sellerNP.com/images/i2.png
                 short_desc: Plain Atta
                 long_desc: Plain Atta
@@ -155,7 +155,7 @@ value:
               quantity:
                 unitized:
                   measure:
-                    unit: kilogram
+                    unit: kilogram [^43]
                     value: '2'
                 available:
                   count: '99'
@@ -165,7 +165,7 @@ value:
                 currency: INR
                 value: '125.00'
                 maximum_value: '125.0'
-              category_id: Foodgrains
+              category_id: Foodgrains [^44]
               fulfillment_id: F1
               location_id: L1
               '@ondc/org/returnable': true
@@ -174,13 +174,13 @@ value:
               '@ondc/org/seller_pickup_return': true
               '@ondc/org/time_to_ship': PT45M
               '@ondc/org/available_on_cod': false
-              '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
-              '@ondc/org/statutory_reqs_packaged_commodities':
+              '@ondc/org/contact_details_consumer_care [^45]': Ramesh,ramesh@abc.com,18004254444
+              '@ondc/org/statutory_reqs_packaged_commodities [^46]':
                 manufacturer_or_packer_name: ITC
                 manufacturer_or_packer_address: ITC Quality Care Cell,P.O Box No.592,Bangalore-560005
                 common_or_generic_name_of_commodity: Ashirwad Atta
                 month_year_of_manufacture_packing_import: 01/2023
-              '@ondc/org/statutory_reqs_prepackaged_food':
+              '@ondc/org/statutory_reqs_prepackaged_food [^47]':
                 nutritional_info: >-
                   Energy(KCal)-(per 100kg) 420,(per serving
                   50g)250;Protein(g)-(per 100kg) 12,(per serving 50g) 6
@@ -189,19 +189,19 @@ value:
                 other_FSSAI_license_no: '12345678901234'
                 importer_FSSAI_license_no: '12345678901234'
               tags:
-                - code: origin
+                - code: origin [^48]
                   list:
                     - code: country
-                      value: IND
-                - code: veg_nonveg
+                      value: IND [^49]
+                - code: veg_nonveg [^50]
                   list:
-                    - code: veg
+                    - code: veg [^51]
                       value: 'yes'
             - id: I3
-              parent_item_id: V1
+              parent_item_id: V1 [^52]
               descriptor:
                 name: Plain Atta
-                code: 1:XXXXXXXXXXXXX
+                code [^53]: 1:XXXXXXXXXXXXX
                 symbol: https://sellerNP.com/images/i3.png
                 short_desc: Plain Atta
                 long_desc: Plain Atta
@@ -210,7 +210,7 @@ value:
               quantity:
                 unitized:
                   measure:
-                    unit: kilogram
+                    unit: kilogram [^54]
                     value: '5'
                 available:
                   count: '99'
@@ -220,7 +220,7 @@ value:
                 currency: INR
                 value: '300.00'
                 maximum_value: '300.0'
-              category_id: Foodgrains
+              category_id: Foodgrains [^55]
               fulfillment_id: F1
               location_id: L1
               '@ondc/org/returnable': true
@@ -230,12 +230,12 @@ value:
               '@ondc/org/time_to_ship': PT45M
               '@ondc/org/available_on_cod': false
               '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
-              '@ondc/org/statutory_reqs_packaged_commodities':
+              '@ondc/org/statutory_reqs_packaged_commodities [^56]':
                 manufacturer_or_packer_name: ITC
                 manufacturer_or_packer_address: ITC Quality Care Cell,P.O Box No.592,Bangalore-560005
                 common_or_generic_name_of_commodity: Ashirwad Atta
                 month_year_of_manufacture_packing_import: 01/2023
-              '@ondc/org/statutory_reqs_prepackaged_food':
+              '@ondc/org/statutory_reqs_prepackaged_food [^57]':
                 nutritional_info: >-
                   Energy(KCal)-(per 100kg) 420,(per serving
                   50g)250;Protein(g)-(per 100kg) 12,(per serving 50g) 6
@@ -244,20 +244,20 @@ value:
                 other_FSSAI_license_no: '12345678901234'
                 importer_FSSAI_license_no: '12345678901234'
               tags:
-                - code: origin
+                - code: origin [^58]
                   list:
                     - code: country
-                      value: IND
-                - code: veg_nonveg
+                      value: IND [^59]
+                - code: veg_nonveg [^60]
                   list:
-                    - code: veg
+                    - code: veg [^61]
                       value: 'yes'
-          creds:
-            - id: ESG-12345678
+          creds [^62]:
+            - id [^63]: ESG-12345678
               descriptor:
                 code: ESG-12345678
                 name: Dun & Bradstreet ESG Badge No.
-              url: https://abcd.cdn.com/images/badge-img
+              url [^64]: https://abcd.cdn.com/images/badge-img
               tags:
                 - code: verification
                   list:
@@ -265,9 +265,9 @@ value:
                       value: https://abcd.dnb.com/verify?id=’ESG-12345678'
                     - code: valid_from
                       value: 2023-06-03T00:00:00:000Z
-                    - code: valid_to
+                    - code: valid_to [^65]
                       value: 2024-06-03T23:59:59:999Z
-          offers:
+          offers [^66]:
             - id: TRYNEW
               descriptor:
                 code: Disc_Pct
@@ -375,34 +375,34 @@ value:
                     - code: item_value
                       value: '200.00'
           tags:
-            - code: order_value
+            - code: order_value [^67]
               list:
-                - code: min_value
+                - code: min_value [^68]
                   value: '300.00'
-            - code: catalog_link
+            - code: catalog_link [^69]
               list:
                 - code: type
-                  value: inline
-                - code: type_value
+                  value: inline [^70]
+                - code: type_value [^71]
                   value: https://s3.amazon.com/x-12349.zip
-                - code: type_validity
+                - code: type_validity [^72]
                   value: PT24H
-                - code: last_update
+                - code: last_update [^73]
                   value: 2023-05-21T00:00:00:000Z
             - code: timing
               list:
                 - code: type
-                  value: Order
+                  value: Order [^74]
                 - code: location
-                  value: L1
+                  value: L1 [^75]
                 - code: day_from
-                  value: '1'
+                  value: '1 [^76]' 
                 - code: day_to
-                  value: '7'
+                  value: '7 [^77]' 
                 - code: time_from
-                  value: '0000'
+                  value: '0000 [^78]' 
                 - code: time_to
-                  value: '2359'
+                  value: '2359 [^79]' 
             - code: timing
               list:
                 - code: type
@@ -431,14 +431,14 @@ value:
                   value: '1100'
                 - code: time_to
                   value: '2200'
-            - code: serviceability
+            - code: serviceability [^80]
               list:
                 - code: location
-                  value: L1
+                  value: L1 [^81]
                 - code: category
                   value: F&B
                 - code: type
-                  value: '10'
+                  value: '10 [^82]' 
                 - code: val
                   value: '3'
                 - code: unit

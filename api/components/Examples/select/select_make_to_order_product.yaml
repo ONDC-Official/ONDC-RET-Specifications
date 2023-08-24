@@ -23,7 +23,7 @@ value:
           - id: L1
       items:
         - id: I1
-          parent_item_id: DI1
+          parent_item_id: DI1 [^1]
           location_id: L1
           quantity:
             count: 1
@@ -42,7 +42,7 @@ value:
               list:
                 - code: type
                   value: customization
-            - code: parent
+            - code: parent [^2]
               list:
                 - code: id
                   value: CG1
@@ -89,7 +89,7 @@ value:
                 - code: id
                   value: CG3
         - id: I1
-          parent_item_id: DI2
+          parent_item_id: DI2 [^3]
           location_id: L1
           quantity:
             count: 1
@@ -154,13 +154,13 @@ value:
               list:
                 - code: id
                   value: CG3
-      offers:
-        - id: BUY2GET3
+      offers [^4]:
+        - id: BUY2GET3 [^5]
       fulfillments:
         - end:
             location:
               gps: 12.453544,77.928379
               address:
                 area_code: '560001'
-      payment:
-        type: ON-FULFILLMENT
+      payment [^6]:
+        type: ON-FULFILLMENT [^7]

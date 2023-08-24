@@ -1,0 +1,4 @@
+summary: search by city
+description: search by city
+example_set:
+  $ref: "./search/search_by_city.yaml"

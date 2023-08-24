@@ -1,0 +1,7 @@
+value:
+  [^1]: for single fulfillment order, terminal state will be "Cancelled" (if RTO is initiated); for multi-fulfillment order, terminal state will depend on the status of the other fulfillment(s)
+  [^2]: items reassigned from forward fulfillment to RTO fulfillment
+  [^3]: forward fulfillment is cancelled and RTO reasons added
+  [^4]: enum - "RTO-Initiated", "RTO-Delivered", "RTO-Disposed"
+  [^5]: updated order value including cancellation charges (delivery + packing charges)
+  [^6]: for make-to-order items, quantity may not be changed

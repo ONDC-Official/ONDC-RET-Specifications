@@ -27,7 +27,7 @@ value:
         - id: P1
           time:
             label: enable
-            timestamp: "2023-06-03T08:00:30.000Z"
+            timestamp: "2023-06-03T08:00:30.000Z [^1]"
           fulfillments:
             - id: F1
               type: Delivery
@@ -45,8 +45,8 @@ value:
           locations:
             - id: L1
               time:
-                label: enable
-                timestamp: "2023-06-03T07:30:30.000Z"
+                label: enable [^2]
+                timestamp: "2023-06-03T07:30:30.000Z [^3]"
                 schedule:
                   holidays:
                     - "2023-08-15"
@@ -60,8 +60,8 @@ value:
           items:
             - id: I1
               time:
-                label: enable
-                timestamp: "2023-06-03T07:30:00.000Z"
+                label: enable [^4]
+                timestamp: "2023-06-03T07:30:00.000Z [^5]"
               descriptor:
                 name: MacBook Air Laptop
                 code: 5:<unique_product_code>
@@ -108,18 +108,18 @@ value:
                     - code: model
                       value: MacBook Air
                     - code: colour
-                      value: gold
+                      value: gold [^6]
                     - code: screen_size
                       value: 13"
                     - code: memory
                       value: 8GB
                     - code: cpu
                       value: Core M family
-                    - code: cpu_mfr
+                    - code: cpu_mfr [^7]
                       value: Intel
                     - code: storage
                       value: 256GB
-          creds:
+          creds [^8]:
             - id: Auth33567
               descriptor:
                 name: Authorised Apple Dealer
@@ -137,7 +137,7 @@ value:
             - code: timing
               list:
                 - code: type
-                  value: All
+                  value: All [^9]
                 - code: location
                   value: L1
                 - code: day_from

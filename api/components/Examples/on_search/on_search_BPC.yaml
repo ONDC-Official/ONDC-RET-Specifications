@@ -27,7 +27,7 @@ value:
         - id: P1
           time:
             label: enable
-            timestamp: '2023-06-03T08:00:30.000Z'
+            timestamp: '2023-06-03T08:00:30.000Z [^1]'
           fulfillments:
             - id: F1
               type: Delivery
@@ -45,8 +45,8 @@ value:
           locations:
             - id: L1
               time:
-                label: enable
-                timestamp: '2023-06-03T07:30:30.000Z'
+                label: enable [^2]
+                timestamp: '2023-06-03T07:30:30.000Z [^3]'
                 schedule:
                   holidays:
                     - '2023-08-15'
@@ -60,11 +60,11 @@ value:
           items:
             - id: I1
               time:
-                label: enable
-                timestamp: '2023-06-03T07:30:00.000Z'
+                label: enable [^4]
+                timestamp: '2023-06-03T07:30:00.000Z [^5]'
               descriptor:
                 name: Kesh King Ayurvedic Hair Oil
-                code: 1:XXXXXXXXXXXXX
+                code: 1:XXXXXXXXXXXXX [^6]
                 symbol: https://sellerNP.com/images/i1.png
                 short_desc: Kesh King Ayurvedic Hair Oil
                 long_desc: Kesh King Ayurvedic Hair Oil
@@ -93,7 +93,7 @@ value:
               '@ondc/org/time_to_ship': P1D
               '@ondc/org/available_on_cod': false
               '@ondc/org/contact_details_consumer_care': Ramesh,info@keshking.com,18001035155
-              '@ondc/org/statutory_reqs_packaged_commodities':
+              '@ondc/org/statutory_reqs_packaged_commodities [^7]':
                 manufacturer_or_packer_name: Emami Ltd
                 manufacturer_or_packer_address: Emami Ltd., 687 Anandapur, Kolkata 700107
                 common_or_generic_name_of_commodity: Hair Oil
@@ -103,33 +103,33 @@ value:
                   list:
                     - code: country
                       value: IND
-                - code: image
+                - code: image [^8]
                   list:
                     - code: type
                       value: back_image
                     - code: url
                       value: https://sellerNP.com/images/i1_back_image.png
-                - code: attribute
+                - code: attribute [^9]
                   list:
                     - code: brand
                       value: Kesh King
                     - code: colour
-                      value: black
+                      value: black [^10]
                     - code: gender
-                      value: male
+                      value: male [^11]
                     - code: concern
-                      value: tangled_hair
+                      value: tangled_hair [^12]
                     - code: ingredient
-                      value: neem
+                      value: neem [^13]
                     - code: conscious
-                      value: natural
+                      value: natural [^14]
                     - code: preference
-                      value: herbal
+                      value: herbal [^15]
                     - code: formulation
-                      value: liquid
+                      value: liquid [^16]
                     - code: skin_type
-                      value: normal
-          creds:
+                      value: normal [^17]
+          creds [^18]:
             - id: ESG-12345678
               descriptor:
                 code: ESG-12345678
@@ -152,7 +152,7 @@ value:
             - code: timing
               list:
                 - code: type
-                  value: All
+                  value: All [^19]
                 - code: location
                   value: L1
                 - code: day_from

@@ -1,8 +1,8 @@
-summary: search_by_item
+summary: search_by_item [^1]
 description: Search By Item
 value:
   context:
-    domain: ONDC:RET10
+    domain: ONDC:RET10 [^2]
     action: search
     country: IND
     city: std:080
@@ -16,12 +16,13 @@ value:
   message:
     intent:
       fulfillment:
-        type: Delivery
+        type [^3]: Delivery
         end:
           location:
-            gps: 12.974002,77.613458
-            address:
+            gps [^4]: 12.974002,77.613458
+            address [^5]:
               area_code: '560001'
       payment:
         '@ondc/org/buyer_app_finder_fee_type': percent
         '@ondc/org/buyer_app_finder_fee_amount': '3'
+  

@@ -1,0 +1,7 @@
+value:
+  [^1]: optional, only if buyer selects offer code
+  [^2]: if offer code is not valid, seller NP can NACK /select with error code 30006
+  [^3]: fulfillment end location, i.e. delivery location for buyer
+  [^4]: GPS coordinates & precision for fulfillment end location has to be same in /confirm
+  [^5]: optional
+  [^6]: enum - "ON-ORDER" (prepaid), "ON-FULFILLMENT" (on delivery), "POST-FULFILLMENT" (after delivery)

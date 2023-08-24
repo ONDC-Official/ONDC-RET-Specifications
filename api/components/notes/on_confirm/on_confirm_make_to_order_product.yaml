@@ -1,0 +1,31 @@
+value:
+  [^1]: enum - "Created", "Accepted", "Cancelled"
+  [^2]: id for dynamic item created by buyer app for make-to-order product and available in parent_item_id in /select
+  [^3]: optional
+  [^4]: same as in /init
+  [^5]: same as in /init
+  [^6]: true if tracking enabled through /on_track
+  [^7]: if TAT is different from what was originally quoted in /on_select, buyer NP can NACK the request with error code 22504
+  [^8]: store address
+  [^9]: optional, pickup time range may be provided if available
+  [^10]: optional
+  [^11]: type of pickup confirmation code (PCC), enum - "1" (buyer contact no (for self-pickup)), "2" (merchant order no), "3" (other pickup confirmation code), "4" (OTP); required when order is "Packed"
+  [^12]: value of PCC (required when order is "Packed") - contact no - 10 digits;merchant order no - max 6 digits;other pickup confirmation code - max 6 digits;OTP - max 6 digits
+  [^13]: optional
+  [^14]: optional, pickup time range may be provided if available
+  [^15]: optional
+  [^16]: id of customization group for the customization
+  [^17]: id of customization group for the customization
+  [^18]: id of customization group for the customization
+  [^19]: id of customization group for the customization
+  [^20]: id of customization group for the customization
+  [^21]: id of customization group for the customization
+  [^22]: id of customization group for the customization
+  [^23]: same values as in /confirm
+  [^24]: optional
+  [^25]: optional
+  [^26]: if cancellation terms are different from what was quoted earlier, buyer NP can NACK /on_confirm with error code 22505
+  [^27]: if terms & conditions different from what was quoted earlier, buyer NP can NACK /on_confirm with error code 22506
+  [^28]: seller NP must accept proposed bap terms & conditions (if proposed). If not accepted, buyer NP can NACK /on_confirm with error code 27502
+  [^29]: same as in /confirm
+  [^30]: can’t be a future date

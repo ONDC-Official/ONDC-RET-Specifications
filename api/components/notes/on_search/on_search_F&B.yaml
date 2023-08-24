@@ -1,0 +1,82 @@
+value:
+  [^1]: descriptor for seller NP
+  [^2]: logo or image for seller NP
+  [^3]: descriptor for seller (merchant) that processes & fulfills orders
+  [^4]: unique id for provider, must be same as bpp_id for ISN seller apps. Use of same provider id for distinct legal entities will cause an MSN being regarded as ISN and use of different provider id for same legal entity will cause an ISN being regarded as MSN, thus resulting in tax non-compliance
+  [^5]: enum - "enable" (default), "disable" (soft delete of provider from buyer NP cache)
+  [^6]: timestamp when the snapshot for this provider (including provider details, items) was generated, must be <= Context.timestamp. Buyer NPs can use this to determine from when to start incremental refresh
+  [^7]: provider level fulfillment options
+  [^8]: contact details for merchant - if merchant is in multiple locations, this will be the contact detail for merchant and contact detail for the storefront (specific location) will be in fulfillment.start
+  [^9]: valid 10 digit (mobile no) or 11 digit no
+  [^10]: email id of merchant or seller NP
+  [^11]: valid 14 digit FSSAI # required for F&B provider
+  [^12]: ISO8601 duration format for validity of provider catalog
+  [^13]: locations for provider with unique id for each location
+  [^14]: enum - "enable" (default), "disable" (soft delete of provider location, i.e. warehouse or store, from buyer NP cache - in this case, serviceability for the store should not be a part of the catalog), "close" (temporary closure of store with the same format for time.range as specified, for incremental refresh, here - https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.ar4y0zvk65s4 only if this event is available at the time of generating the full catalog snapshot)
+  [^15]: timestamp when the snapshot for location was generated, must be <= Context.timestamp
+  [^16]: list of future dated holidays, to be used as per holiday calendar; if no holidays, empty array needs to be passed
+  [^17]: locality name
+  [^18]: custom menu / customization group / variant definitions for provider (optional)
+  [^19]: unique id for custom category (across customization group, custom menu, variant group); alphanumeric & up to 12 characters
+  [^20]: enum - "custom_menu", "custom_group", "variant_group
+  [^21]: (optional) if specified, indicates preferred display timing for custom menu item, e.g. above means preference is to display this menu item from Monday to Friday from 1800 to 2200; if not specified, indicates preference for displaying this menu item as per store timings
+  [^22]: valid value - day of week ("1" - Monday, "7" - Sunday)
+  [^23]: valid value - day of week ("1" - Monday, "7" - Sunday), day_to >= day_from
+  [^24]: valid value - 24hr format ("0000" to "2359")
+  [^25]: valid value - 24hr format ("0000" to "2359"), time_to > time_from
+  [^26]: preferred display rank for custom menu item, above example means preference is to display in rank 3 of the custom menu
+  [^27]: unique id for custom category (across customization group, custom menu, variant); alphanumeric & up to 12 character
+  [^28]: custom category type, enum - "custom_menu", "custom_group", "variant_group
+  [^29]: customization group definition including id, name, min / max, input type, sequence of display
+  [^30]: input type for customization group, enum - "select" (selection by buyer from available customizations based on min/max), "text" (text entered by buyer e.g. for engraving)
+  [^31]: enum - "enable", "disable"
+  [^32]: timestamp for item event
+  [^33]: while item images ensures better discoverability & enhances user experience, if no image is available, seller NPs shouldn’t send image (instead of sending placeholder image)
+  [^34]: enum - "unit", "dozen", "kilogram", "tonne", "litre", "millilitre" (list https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/grocery/RET10-UOM.json)
+  [^35]: stringified integer value - default value for item in stock
+  [^36]: stringified integer value - cap per order (if exists) or default value
+  [^37]: in case value for base item is 0 (for item with customizations), buyer NPs should check for mandatory customization group(s) and default customization for each group and add this for displaying on the item listing page
+  [^38]: (optional) upper & lower price range, for product created using this base item & customizations, for display on the store listing page
+  [^39]: up to 2 decimal places
+  [^40]: up to 2 decimal places
+  [^41]: item category from this list and used by buyer NPs to categorize on CLP; if seller NPs enter "F&B", buyer NPs can use their own intelligence to show the grouping
+  [^42]: item assigned to custom menu, can only be assigned to child menu item (if there is a parent menu item) or the root menu item; defined in this format - "custom menu item id:display sequence within custom menu item", in this case, "Farm House Pizza" is displayed at the top when menu item for id 5 ("Pizza") is clicked. If custom menu item id is not found or invalid, buyer NP may decide to show this item under the parent menu item id (in case of parent->child menu item) or delink this item from the custom menu (however, the item will still be visible on the item listing for the provider or through other modes of discovery)
+  [^43]: default fulfillment type
+  [^44]: unique location for provider as defined in the catalog
+  [^45]: should default to false except for specific packaged items
+  [^46]: whether seller is responsible for pick up of item for return
+  [^47]: valid contact details exactly in this format - name, email, contact no
+  [^48]: required only for items that can be configured using customizations
+  [^49]: enum - "item", "dynamic_item", "customization"
+  [^50]: all customization group(s) used to configure item should be listed here; customization group(s) assigned should have default customization of type "veg", if the base item (I1) in this case is also "veg"
+  [^51]: if any mandatory customization group, being used to configure the base item, is not defined (in provider.categories) or no customizations have been mapped to this customization group, the buyer NP may consider the base item as invalid & disable accordingly
+  [^52]: configuration of customization group for item, only if overridden at item level; otherwise, configurations are inherited from the custom category definition for the provider, of type "custom_group" for this id
+  [^53]: item availability timing; if separate timing for each day, can create multiple such groups. If there is an overlap across these availability timing groups, the union of timings will be considered
+  [^54]: enum - "veg", "non_veg", "egg"
+  [^55]: enum - "customization", "dynamic_item", "item" (base item or SKU)
+  [^56]: identifies customization group(s) to which this customization belongs
+  [^57]: customization group id
+  [^58]: whether this customization is the default in this customization group (only for customization groups where min is 1)
+  [^59]: identifies nested customization group(s)
+  [^60]: enum - "veg", "non_veg", "egg"
+  [^61]: enum - "veg", "non_veg", "egg"
+  [^62]: customization group to which customization belongs; since this example is for - crust (CG1) -> nesting (CG2) -> toppings (CG3), there is no nested customization group here
+  [^63]: enum - "veg", "non_veg", "egg"
+  [^64]: offer definition as per the template defined above
+  [^65]: for defining order value (e.g. min order value) for provider
+  [^66]: minimum order value for provider (up to 2 decimals)
+  [^67]: optional, for catalog refresh using link or inline (default)
+  [^68]: option for catalog response, enum - "link" (link to zip file for items array for the provider), "inline" (items array in inline response, which is the default today)
+  [^69]: authorized link URL, required only if type = "link"; in this case, items array won’t be a part of inline response
+  [^70]: authorized link validity from last_update, required only if type = "link"
+  [^71]: timestamp for last update of link (RFC3339), required only if type = "link"
+  [^72]: timing for fulfillment type, enum - "Order" (online order processing timings), "Delivery" (order shipment timings, will be same as delivery timings for hyperlocal), "Self-Pickup" (self-pickup timings), "All" (same timing for all fulfillments supported by seller); example shows for following timings- Monday to Friday (0900 - 1100, 1300 - 1530, 1830 - 2130), Saturday to Sunday (1300 - 1600, 1900 - 2300)
+  [^73]: location id for provider
+  [^74]: valid value - day of week ("1" - Monday, "7" - Sunday)
+  [^75]: valid value - day of week ("1" - Monday, "7" - Sunday), day_to >= day_from
+  [^76]: valid value - 24hr format ("0000" to "2359")
+  [^77]: valid value - 24hr format ("0000" to "2359"), time_to >= time_from
+  [^78]: in case of overlapping store timing e.g. for Monday from 1300 - 1600 and 1500 - 1700, the union of these store timings will be considered (1300 - 1700)
+  [^79]: serviceability construct is defined for (provider+location+category) at either of these levels -  hyperlocal (radius) or intercity (pincodes) or pan-India; every unique combination of (provider+location+category) can have serviceability defined only at one of these levels
+  [^80]: maps to unique location for provider
+  [^81]: enum - "10" (hyperlocal), "11" (intercity), "12" (pan-India)

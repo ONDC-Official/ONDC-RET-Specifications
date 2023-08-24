@@ -15,7 +15,7 @@ value:
     country: IND
     timestamp: '2023-06-03T10:30:30.000Z'
   message:
-    order:
+    order [^1]:
       id: O1
       state: Accepted
       provider:
@@ -24,13 +24,13 @@ value:
           - id: L1
       items:
         - id: DI2
-          fulfillment_id: F1
+          fulfillment_id: F1 [^2]
           quantity:
             count: 1
         - id: DI1
-          fulfillment_id: C1
+          fulfillment_id: C1 [^3]
           quantity:
-            count: 1
+            count: 1 [^4]
       billing:
         name: ONDC buyer
         address:
@@ -101,32 +101,32 @@ value:
             - code: cancel_request
               list:
                 - code: reason_id
-                  value: '002'
+                  value: '002 [^5]'
                 - code: initiated_by
-                  value: sellerNP.com
+                  value: sellerNP.com [^6]
             - code: quote_trail
               list:
-                - code: type
+                - code: type [^7]
                   value: item
-                - code: subtype
+                - code: subtype [^8]
                   value: item
-                - code: id
+                - code: id [^9]
                   value: I1
                 - code: currency
                   value: INR
-                - code: value
+                - code: value [^10]
                   value: '-269.00'
             - code: quote_trail
               list:
-                - code: type
+                - code: type 
                   value: item
-                - code: subtype
+                - code: subtype 
                   value: customization
                 - code: id
                   value: C1
                 - code: currency
                   value: INR
-                - code: value
+                - code: value [^11]
                   value: '-0.00'
             - code: quote_trail
               list:
@@ -168,7 +168,7 @@ value:
               list:
                 - code: type
                   value: tax
-                - code: subtype
+                - code: subtype [^12]
                   value: item
                 - code: id
                   value: I1
@@ -278,7 +278,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG1
+                      value: CG1 [^13]
           - '@ondc/org/item_id': C7
             '@ondc/org/item_quantity':
               count: 0
@@ -305,7 +305,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG2
+                      value: CG2 [^14]
           - '@ondc/org/item_id': C14
             '@ondc/org/item_quantity':
               count: 0
@@ -332,7 +332,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG3
+                      value: CG3 [^15]
           - '@ondc/org/item_id': C16
             '@ondc/org/item_quantity':
               count: 0
@@ -359,7 +359,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG3
+                      value: CG3 [^16]
           - '@ondc/org/item_id': I1
             '@ondc/org/item_quantity':
               count: 1
@@ -409,7 +409,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG1
+                      value: CG1 [^17]
           - '@ondc/org/item_id': C7
             '@ondc/org/item_quantity':
               count: 1
@@ -436,7 +436,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG2
+                      value: CG2 [^18]
           - '@ondc/org/item_id': C14
             '@ondc/org/item_quantity':
               count: 1
@@ -463,7 +463,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG3
+                      value: CG3 [^19]
           - '@ondc/org/item_id': C15
             '@ondc/org/item_quantity':
               count: 1
@@ -672,7 +672,7 @@ value:
               currency: INR
               value: '10.00'
         ttl: PT1H
-      payment:
+      payment [^20]:
         uri: https://ondc.transaction.com/payment
         params:
           currency: INR

@@ -1,0 +1,5 @@
+value:
+  [^1]: order state will be updated to "Cancelled" if the order is cancelled
+  [^2]: to be used only if order is cancelled
+  [^3]: only if fulfillment is cancelled
+  [^4]: updated order value including cancellation charges (delivery + packing charges)

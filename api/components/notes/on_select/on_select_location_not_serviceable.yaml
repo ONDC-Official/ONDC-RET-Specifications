@@ -1,0 +1,3 @@
+value:
+  [^1]: may be the same location as selected by the buyer or a different location
+  [^2]: if merchant not available, use error code 30017

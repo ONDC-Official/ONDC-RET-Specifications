@@ -1,0 +1,11 @@
+value:
+  [^1]: location could be same as what was selected by buyer or may be filled from different location
+  [^2]: id for dynamic item created by buyer app for make-to-order product and available in parent_item_id in /select
+  [^3]: id of customization group for the customization
+  [^4]: id of customization group for the customization
+  [^5]: id of customization group for the customization 
+  [^6]: id of customization group for the customization
+  [^7]: id of customization group for the customization
+  [^8]: id of customization group for the customization
+  [^9]: id of customization group for the customization 
+  [^10]: only if item(s) out of stock or location not serviceable

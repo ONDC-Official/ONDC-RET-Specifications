@@ -17,7 +17,7 @@ value:
     ttl: PT30S
   message:
     order_id: O1
-    cancellation_reason_id: '004'
-    descriptor:
+    cancellation_reason_id: '004 [^1]'
+    descriptor [^2]:
       name: fulfillment
-      short_desc: F1
+      short_desc: F1 [^3]

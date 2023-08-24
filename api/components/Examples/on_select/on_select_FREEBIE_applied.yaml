@@ -19,7 +19,7 @@ value:
       provider:
         id: P1
         locations:
-          - id: L1
+          - id: L1 [^1]
       items:
         - id: I1
           fulfillment_id: F1

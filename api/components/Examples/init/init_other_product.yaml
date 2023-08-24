@@ -29,26 +29,26 @@ value:
       billing:
         name: ONDC buyer
         address:
-          name: 'My House #'
+          name: 'My House # [^1]'
           building: My building name
-          locality: My Street name
+          locality [^2]: My Street name
           city: Bengaluru
           state: Karnataka
           country: IND
           area_code: '560037'
-        tax_number: XXXXXXXXXXXXXXX
-        email: nobody@nomail.com
+        tax_number [^3]: XXXXXXXXXXXXXXX
+        email [^4]: nobody@nomail.com
         phone: '9886098860'
-        created_at: '2023-06-03T09:00:00.000Z'
-        updated_at: '2023-06-03T09:00:00.000Z'
+        created_at [^5]: '2023-06-03T09:00:00.000Z'
+        updated_at [^6]: '2023-06-03T09:00:00.000Z'
       fulfillments:
         - id: F1
           type: Delivery
           end:
             location:
               gps: 12.453544,77.928379
-              address:
-                name: 'My House #'
+              address [^7]:
+                name: 'My House # [^8]'
                 building: My building name
                 locality: My Street name
                 city: Bengaluru

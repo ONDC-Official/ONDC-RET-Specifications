@@ -1,0 +1,10 @@
+value:
+  [^1]: id for dynamic item created by buyer app for make-to-order product and available in parent_item_id in /select
+  [^2]: house no (for independent dwellings) or door no (for apartments or community dwellings) if name is house no, building is optional
+  [^3]: street name
+  [^4]: optional, may be required for B2B
+  [^5]: optional
+  [^6]: timestamp for creation of billing object
+  [^7]: same as created_at
+  [^8]: name + building + locality < 190 chars, name != locality
+  [^9]: house no (for independent dwellings) or door no (for apartments or community dwellings) if name is house no, building is optional

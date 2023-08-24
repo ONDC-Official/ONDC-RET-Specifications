@@ -19,7 +19,7 @@ value:
       provider:
         id: P1
         locations:
-          - id: L1
+          - id: L1 [^1]
       items:
         - fulfillment_id: F1
           id: I1
@@ -40,7 +40,7 @@ value:
         breakup:
           - '@ondc/org/item_id': I1
             '@ondc/org/item_quantity':
-              count: 0
+              count: 0 [^2]
             title: Atta
             '@ondc/org/title_type': item
             price:
@@ -57,7 +57,7 @@ value:
                 value: '170'
           - '@ondc/org/item_id': F1
             title: Delivery charges
-            '@ondc/org/title_type': delivery
+            '@ondc/org/title_type [^3]': delivery
             price:
               currency: INR
               value: '0.00'
@@ -65,4 +65,4 @@ value:
   error:
     type: DOMAIN-ERROR
     code: '40002'
-    message: M1
+    message: M1 [^4]

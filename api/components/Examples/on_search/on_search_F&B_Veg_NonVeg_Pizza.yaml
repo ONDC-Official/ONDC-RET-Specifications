@@ -27,7 +27,7 @@ value:
         - id: P1
           time:
             label: enable
-            timestamp: '2023-06-03T08:00:30.000Z'
+            timestamp: '2023-06-03T08:00:30.000Z [^1]'
           fulfillments:
             - id: F1
               type: Delivery
@@ -51,8 +51,8 @@ value:
           locations:
             - id: L1
               time:
-                label: enable
-                timestamp: '2023-06-03T07:30:30.000Z'
+                label: enable [^2]
+                timestamp: '2023-06-03T07:30:30.000Z [^3]'
                 schedule:
                   holidays:
                     - '2023-08-15'
@@ -148,8 +148,8 @@ value:
           items:
             - id: I1
               time:
-                label: enable
-                timestamp: '2023-06-03T07:30:00.000Z'
+                label: enable [^4]
+                timestamp: '2023-06-03T07:30:00.000Z [^5]'
               descriptor:
                 name: Veg & Non-Veg Pizza (Combo)
                 symbol: https://sellerNP.com/images/i1.png
@@ -170,6 +170,13 @@ value:
                 currency: INR
                 value: '400.0'
                 maximum_value: '400.0'
+                tags [^6]:
+                  - code: range
+                  list:
+                    - code: lower
+                      value: '229.00 [7]'
+                    - code: upper
+                      value: '718.00 [^8]'
               category_id: F&B
               category_ids:
                 - '5:1'
@@ -197,7 +204,7 @@ value:
                       value: CG2
                     - code: id
                       value: CG3
-                - code: timing
+                - code: timing [^9]
                   list:
                     - code: day_from
                       value: '1'
@@ -273,7 +280,7 @@ value:
                   list:
                     - code: id
                       value: CG1
-                    - code: default
+                    - code [^10]: default
                       value: 'no'
                 - code: child
                   list:
@@ -308,7 +315,7 @@ value:
                   list:
                     - code: id
                       value: CG1
-                    - code: default
+                    - code [^11]: default
                       value: 'no'
                 - code: child
                   list:
@@ -372,7 +379,7 @@ value:
                   list:
                     - code: id
                       value: CG2
-                    - code: default
+                    - code [^12]: default
                       value: 'no'
                 - code: veg_nonveg
                   list:
@@ -401,7 +408,7 @@ value:
                   list:
                     - code: id
                       value: CG2
-                    - code: default
+                    - code [^13]: default
                       value: 'no'
                 - code: veg_nonveg
                   list:
@@ -430,7 +437,7 @@ value:
                   list:
                     - code: id
                       value: CG2
-                    - code: default
+                    - code [^14]: default
                       value: 'no'
                 - code: veg_nonveg
                   list:
@@ -488,7 +495,7 @@ value:
                   list:
                     - code: id
                       value: CG3
-                    - code: default
+                    - code [^15]: default
                       value: 'no'
                 - code: veg_nonveg
                   list:
@@ -517,7 +524,7 @@ value:
                   list:
                     - code: id
                       value: CG3
-                    - code: default
+                    - code [^16]: default
                       value: 'no'
                 - code: veg_nonveg
                   list:

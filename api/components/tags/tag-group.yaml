@@ -90,22 +90,22 @@ providers:
           description: Description about the tags
           reference: <PR/Issue/Discussion Links md format text>
           list:
-          $ref: "./tag.yaml#/parent"
+            $ref: "./tag.yaml#/parent"
         - code: CHILD
           description: Description about the tags
           reference: <PR/Issue/Discussion Links md format text>
           list:
-          $ref: "./tag.yaml#/child"
+            $ref: "./tag.yaml#/child"
         - code: TYPE
           description: Description about the tags
           reference: <PR/Issue/Discussion Links md format text>
           list:
-          $ref: "./tag.yaml#/type"
+            $ref: "./tag.yaml#/type"
         - code: ATTRIBUTE
           description: Description about the tags
           reference: <PR/Issue/Discussion Links md format text>
           list:
-          $ref: "./tag.yaml#/attribute"
+            $ref: "./tag.yaml#/attribute"
   offers:
     tags:
       - code: CART
@@ -122,12 +122,19 @@ providers:
         description: Description about the tags
         reference: <PR/Issue/Discussion Links md format text>
         list:
-         $ref: "./tag.yaml#/parent"
+          $ref: "./tag.yaml#/parent"
       - code: TYPE
         description: Description about the tags
         reference: <PR/Issue/Discussion Links md format text>
         list:
-         $ref: "./tag.yaml#/type"
+          $ref: "./tag.yaml#/type"
+  creds:
+    tags:
+      - code: VERIFICATION
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          $ref: "./tag.yaml#/verification"
 order:
   items:
     tags:
@@ -141,6 +148,11 @@ order:
         reference: <PR/Issue/Discussion Links md format text>
         list:
           $ref: "./tag.yaml#/child"
+      - code: PARENT
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          $ref: "./tag.yaml#/parent"
   tags:
     - code: BUYER_ID
       description: Description about the tags
@@ -157,13 +169,6 @@ order:
       reference: <PR/Issue/Discussion Links md format text>
       list:
         $ref: "./tag.yaml#/bap_terms"
-  item:
-    tags:
-      - code: TYPE
-        description: Description about the tags
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          $ref: "./tag.yaml#/type"
   fulfillments:
     tags:
       - code: CANCEL_REQUEST
@@ -181,6 +186,18 @@ order:
         reference: <PR/Issue/Discussion Links md format text>
         list:
           $ref: "./tag.yaml#/return_request"
+  quote:
+    tags:
+      - code: TYPE
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          $ref: "./tag.yaml#/type"
+      - code: PARENT
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+         $ref: "./tag.yaml#/parent"
 
 tracking:
   tags:

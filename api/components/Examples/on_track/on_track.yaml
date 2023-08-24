@@ -17,14 +17,14 @@ value:
     ttl: PT30S
   message:
     tracking:
-      id: F1
+      id: F1 [^1]
       location:
-        gps: 12.974002,77.613458
+        gps [^2]: 12.974002,77.613458
         time:
-          timestamp: '2023-06-02T06:30:00.000Z'
-        updated_at: '2023-06-02T06:20:00.000Z'
-      status: active
-      tags:
+          timestamp [^3]: '2023-06-02T06:30:00.000Z'
+        updated_at [^4]: '2023-06-02T06:20:00.000Z'
+      status [^5]: active
+      tags [^6]:
         - code: path
           list:
             - code: lat_lng

@@ -1,0 +1,16 @@
+value:
+  [^1]: shows the current state of order with the new fulfillment for part cancel by merchant
+  [^2]: forward shipment fulfillment
+  [^3]: pickup time
+  [^4]: PCC, proof of pickup
+  [^5]: pickup authorization (optional)
+  [^6]: delivery time
+  [^7]: DCC, proof of delivery
+  [^8]: delivery authorization (optional)
+  [^9]: agent details (optional)
+  [^10]: vehicle details (for rider) or buyer (for kerbside pickup) - optional
+  [^11]: new fulfillment created with the same id as return request with status code "Return_Initiated". If return is approved ("Return_Approved" or "Liquidated"), the items will be assigned to this fulfillment, else, the status code will change to "Return_Rejected"
+  [^12]: valid return reason codes are https://docs.google.com/document/d/1M-lZSduYMFKIk1V6d8QLt-j-16-rVzYVdPn0pmbkclk/edit#heading=h.lnyp7qt40f7f
+  [^13]: ttl for either approving or rejecting the return request
+  [^14]: ttl for initiating reverse qc, reverse qc (if required) should be completed within the return window
+  [^15]: optional keys here as defined in /confirm

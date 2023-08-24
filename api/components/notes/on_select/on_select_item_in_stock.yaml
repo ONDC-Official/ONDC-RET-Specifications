@@ -1,0 +1,21 @@
+value:
+  [^1]: may be the same location as selected by the buyer or a different location
+  [^2]: order can have multiple fulfillments; in this case, unique fulfillment id (for provider & order) needs to be assigned by seller NP for each fulfillment & mapped to item(s) that are a part of that fulfillment
+  [^3]: unique fulfillment id assigned by seller NP here & mapped to item and will be persisted right through order confirm
+  [^4]: maps to logistics category as defined in Logistics API contract
+  [^5]: should only be used where O2D TAT <= 2 hrs
+  [^6]: Order-to-delivery (O2D) TAT shown = max(time_to_ship for items in the fulfillment) + ship-to-delivery (S2D) time provided by LSP in TAT
+  [^7]: Seller NP performs serviceability check based on end location in /select. If non serviceable, seller app has to return the appropriate error code along with a valid /on_select response
+  [^8]: enum - "Serviceable", "Non-serviceable"
+  [^9]: item_id should match either item.id or fulfillment.id based on how the line item (as defined by "title_type") is assigned, i.e. "delivery", "discount_f", "tax_f", "packing", "misc" are at fulfillment level while "item", "tax", "discount" are at item level
+  [^10]: if required quantity (as selected by buyer) is not in stock, seller app should show the quantity available in stock (or 0 if completely out-of-stock) and show the appropriate error code (40002) in the /on_select response
+  [^11]: defines the type of line item; enum - "item" (product cost), "delivery" (shipping charges), "packing", "tax", "misc" (convenience fees), "discount", discount_f, tax_f. Title text can be customized by buyer NP
+  [^12]: item price should be either inclusive or exclusive of taxes, exactly as defined in the catalog
+  [^13]: delivery charge to be included only if fulfillment state code is "Serviceable"
+  [^14]: discount on delivery charge, to be included only if not 0
+  [^15]: tax on fulfillment level charges, to be included only if not 0 (i.e. seller NP provides tax inclusive fulfillment level charges)
+  [^16]: packing charge to be included only if not 0
+  [^17]: tax breakup to be included only if tax is not 0
+  [^18]: discount to be included only if not 0
+  [^19]: misc to be included only if not 0
+  [^20]: validity of quote

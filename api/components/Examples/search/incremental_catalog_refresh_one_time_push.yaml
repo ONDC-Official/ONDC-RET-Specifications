@@ -19,7 +19,7 @@ value:
         '@ondc/org/buyer_app_finder_fee_type': percent
         '@ondc/org/buyer_app_finder_fee_amount': '3'
       tags:
-        - code: catalog_inc
+        - code: catalog_inc [^1]
           list:
             - code: start_time
               value: '2023-06-03T08:00:00.000Z'

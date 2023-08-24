@@ -1,0 +1,14 @@
+value:
+  [^1]: shows the current state of order with the new fulfillment for part cancel by merchant
+  [^2]: forward shipment fulfillment id
+  [^3]: quantity changed from 2 to 1 as seller NP initiated cancel for 1 quantity
+  [^4]: new fulfillment id for cancel request, must be unique for each cancellation / cancellation request
+  [^5]: quantity for which cancel initiated, i.e. for this specific cancellation identified by unique fulfillment id "C1"
+  [^6]: valid reason code from https://docs.google.com/document/d/1M-lZSduYMFKIk1V6d8QLt-j-16-rVzYVdPn0pmbkclk/edit#heading=h.lq5jsehzritb for part cancel
+  [^7]: bpp id of seller NP or source from which request initiated, details of this id can be verified using registry lookup
+  [^8]: matches order.quote.breakup[].title_type
+  [^9]: id for title_type e.g. item id for "item" / "tax", fulfillment id for "delivery" / "packing" / "misc"
+  [^10]: value by which order quote for title_type is adjusted, will always be negative
+  [^11]: updated order value after deducting amount for item being cancelled
+  [^12]: updated quantity of item remaining after merchant part cancel (if entire item is cancelled, this will be 0)
+  [^13]: optional keys here as defined in /confirm
