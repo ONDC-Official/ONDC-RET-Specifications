@@ -90,6 +90,27 @@ on_confirm:
           $ref: "./fulfillments.yaml#/fulfillments/state"
       payment:
         $ref: "./payment.yaml"
+update:
+  context: *context
+  message:
+    order:
+      payment:
+        $ref: "./payment.yaml"
+on_update:
+  context: *context
+  message:
+    order:
+      $ref: "./order.yaml#/order"
+      fulfillments:
+        state:
+          $ref: "./fulfillments.yaml#/fulfillments/state"
+        instructions:
+          $ref: "./fulfillments.yaml#/fulfillments/instructions"
+      quote:
+        breakup:
+          $ref: "./title_type.yaml#/breakup"
+      payment:
+        $ref: "./payment.yaml"
 status:
   context: *context
 on_status:
