@@ -1,12 +1,10 @@
 fulfillments:
-  allOf:
-    - $ref: "./fulfillments.yaml#/fulfillments"
-    - state:
-        descriptor:
-          code:
-            - code: Serviceable
-              description: about the enum
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: Non-Serviceable
-              description: about the enum
-              reference: <PR/Issue/Discussion Links md format text>
+  state:
+    descriptor:
+      code:
+      - code: Serviceable
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: Non-Serviceable
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>

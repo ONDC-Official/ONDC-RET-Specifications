@@ -16,8 +16,17 @@ context:
       description: Electronics
       reference: <PR/Issue/Discussion Links md format text>
     - code: ONDC:RET15
-      description: Home & Decor
+      description: Appliances
       reference: <PR/Issue/Discussion Links md format text>
     - code: ONDC:RET16
-      description: Pharma
+      description: Home & Kitchen
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: ONDC:RET17
+      description: Toys & Games
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: ONDC:RET18
+      description: Agriculture
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: ONDC:RET19
+      description: Health & Wellness
       reference: <PR/Issue/Discussion Links md format text>

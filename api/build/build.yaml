@@ -2597,15 +2597,24 @@ x-enum:
             description: Electronics
             reference: <PR/Issue/Discussion Links md format text>
           - code: ONDC:RET15
-            description: Home & Decor
+            description: Appliances
             reference: <PR/Issue/Discussion Links md format text>
           - code: ONDC:RET16
-            description: Pharma
+            description: Home & Kitchen
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: ONDC:RET17
+            description: Toys & Games
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: ONDC:RET18
+            description: Agriculture
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: ONDC:RET19
+            description: Health & Wellness
             reference: <PR/Issue/Discussion Links md format text>
     message:
       intent:
-        fulfillment: &ref_0
-          type:
+        fulfillments: &ref_0
+          type: &ref_4
             - code: Delivery
               description: about the enum
               reference: <PR/Issue/Discussion Links md format text>
@@ -2649,7 +2658,7 @@ x-enum:
                       reference: <PR/Issue/Discussion Links md format text>
               available: *ref_1
               maximum: *ref_1
-          offers:
+          offers: &ref_3
             descriptor:
               code:
                 - code: Disc_Pct
@@ -2667,44 +2676,240 @@ x-enum:
   select:
     context: *ref_2
     message:
-      order: &ref_3
-        fulfillments: *ref_0
+      order:
+        offers: *ref_3
+        payment: &ref_7
+          - code: ON-ORDER
+            description: about the enum
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: ON-FULFILLMENT
+            description: about the enum
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: POST-FULFILLMENT
+            description: about the enum
+            reference: <PR/Issue/Discussion Links md format text>
   on_select:
     context: *ref_2
     message:
-      order: *ref_3
+      order:
+        fulfillments:
+          state: *ref_4
+          fulfillments:
+            type: *ref_4
+            instructions: &ref_10
+              code:
+                - code: 1
+                  description: buyer contact no (for self-pickup)
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: 2
+                  description: merchant order no
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: 3
+                  description: other pickup confirmation code
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: 4
+                  description: (OTP) required when order is "Packed"
+                  reference: <PR/Issue/Discussion Links md format text>
+            '@ondc/org/category':
+              - code: Takeaway
+                description: about the enum
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: Kerbside
+                description: about the enum
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: Express Delivery
+                description: about the enum
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: Immediate Delivery
+                description: about the enum
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: Same Day Delivery
+                description: about the enum
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: Next Day Delivery
+                description: about the enum
+                reference: <PR/Issue/Discussion Links md format text>
+            state: &ref_6
+              descriptor:
+                code:
+                  - code: Pending
+                    description: about the enum
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: Packed
+                    description: about the enum
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: Agent-assigned
+                    description: about the enum
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: Out-for-pickup
+                    description: about the enum
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: Order-picked-up
+                    description: about the enum
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: Out-for-delivery
+                    description: about the enum
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: Order-delivered
+                    description: about the enum
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: Cancelled
+                    description: about the enum
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: Pickup-failed
+                    description: about the enum
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: In-transit
+                    description: about the enum
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: At-destination-hub
+                    description: about the enum
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: Delivery-failed
+                    description: about the enum
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: RTO-Initiated
+                    description: about the enum
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: RTO-Delivered
+                    description: about the enum
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: RTO-Disposed
+                    description: about the enum
+                    reference: <PR/Issue/Discussion Links md format text>
+        quote:
+          breakup: &ref_5
+            '@ondc/org/title_type':
+              - code: item
+                description: about the enum
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: delivery
+                description: about the enum
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: packing
+                description: about the enum
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: tax
+                description: about the enum
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: misc
+                description: about the enum
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: discount
+                description: about the enum
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: discount_f
+                description: about the enum
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: tax_f
+                description: about the enum
+                reference: <PR/Issue/Discussion Links md format text>
   init:
     context: *ref_2
     message:
-      order: *ref_3
+      order:
+        fulfillments:
+          type: *ref_4
   on_init:
     context: *ref_2
     message:
-      order: *ref_3
+      order:
+        fulfillment:
+          type: *ref_4
+        quote:
+          breakup: *ref_5
+        cancellation_terms:
+          fulfillment_state: *ref_6
+        payment: &ref_8
+          payment:
+            type: *ref_7
+            '@ondc/org/settlement_details':
+              settlement_type:
+                - code: upi
+                  description: about the enum
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: neft
+                  description: about the enum
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: rtgs
+                  description: about the enum
+                  reference: <PR/Issue/Discussion Links md format text>
   confirm:
     context: *ref_2
     message:
-      order: *ref_3
+      order:
+        fulfillment:
+          type: *ref_4
+        quote:
+          breakup: *ref_5
+        payment: *ref_8
+        state: &ref_9
+          - code: Created
+            description: about the enum
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: Accepted
+            description: about the enum
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: In-progress
+            description: about the enum
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: Completed
+            description: about the enum
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: Cancelled
+            description: about the enum
+            reference: <PR/Issue/Discussion Links md format text>
   on_confirm:
     context: *ref_2
     message:
-      order: *ref_3
+      order:
+        fulfillments:
+          type: *ref_4
+          state: *ref_6
+        quote:
+          breakup: *ref_5
+        cancellation_terms:
+          fulfillment_state: *ref_6
+        payment: *ref_8
+        state: *ref_9
   status:
     context: *ref_2
   on_status:
     context: *ref_2
     message:
-      order: *ref_3
+      order:
+        fulfillments:
+          state: *ref_6
+          instructions: *ref_10
+        quote:
+          breakup: *ref_5
+        payment: *ref_8
+        state: *ref_9
   cancel:
     context: *ref_2
   on_cancel:
     context: *ref_2
     message:
-      order: *ref_3
+      order:
+        fulfillments:
+          type: *ref_4
+          state: *ref_6
+        quote:
+          breakup: *ref_5
+        payment: *ref_8
   track:
     context: *ref_2
   on_track:
     context: *ref_2
+    message:
+      tracking:
+        status:
+          - code: active
+            description: about the enum
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: inactive
+            description: about the enum
+            reference: <PR/Issue/Discussion Links md format text>
 x-tags:
   search:
     message:
@@ -2782,7 +2987,7 @@ x-tags:
               reference: <PR/Issue/Discussion Links md format text>
               list:
                 allOf:
-                  - &ref_4
+                  - &ref_11
                     - code: DAY_FROM
                       description: Description about the tags
                       reference: <PR/Issue/Discussion Links md format text>
@@ -2806,14 +3011,14 @@ x-tags:
               - code: TYPE
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
-                list: &ref_5
+                list: &ref_12
                   - code: TYPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
               - code: TIMING
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
-                list: *ref_4
+                list: *ref_11
               - code: DISPLAY
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
@@ -2882,7 +3087,7 @@ x-tags:
               - code: TIMING
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
-                list: *ref_4
+                list: *ref_11
               - code: VEG_NONVEG
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
@@ -2896,7 +3101,7 @@ x-tags:
               - code: PARENT
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
-                list: &ref_7
+                list: &ref_14
                   - code: ID
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
@@ -2906,14 +3111,14 @@ x-tags:
               - code: CHILD
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
-                list: &ref_8
+                list: &ref_15
                   - code: ID
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
               - code: TYPE
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
-                list: *ref_5
+                list: *ref_12
               - code: ATTRIBUTE
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
@@ -3295,7 +3500,7 @@ x-tags:
                   - code: EXTENSION_COLOUR
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    value: &ref_6
+                    value: &ref_13
                       - code: black
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4150,7 +4355,7 @@ x-tags:
                   - code: COLOUR
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    value: *ref_6
+                    value: *ref_13
                   - code: GENDER
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
@@ -5350,11 +5555,11 @@ x-tags:
               - code: PARENT
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
-                list: *ref_7
+                list: *ref_14
               - code: TYPE
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
-                list: *ref_5
+                list: *ref_12
           creds:
             tags:
               - code: VERIFICATION
@@ -5370,28 +5575,28 @@ x-tags:
                   - code: VALID_TO
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-  select: &ref_9
+  select: &ref_16
     message:
-      order: &ref_10
+      order: &ref_17
         tags:
           - code: TYPE
             description: Description about the tags
             reference: <PR/Issue/Discussion Links md format text>
-            list: *ref_5
+            list: *ref_12
           - code: CHILD
             description: Description about the tags
             reference: <PR/Issue/Discussion Links md format text>
-            list: *ref_8
+            list: *ref_15
           - code: PARENT
             description: Description about the tags
             reference: <PR/Issue/Discussion Links md format text>
-            list: *ref_7
-  on_select: *ref_9
-  init: *ref_9
-  on_init: &ref_11
+            list: *ref_14
+  on_select: *ref_16
+  init: *ref_16
+  on_init: &ref_18
     message:
       order:
-        items: *ref_10
+        items: *ref_17
         tags:
           - code: BUYER_ID
             description: Description about the tags
@@ -5531,21 +5736,21 @@ x-tags:
                 - code: INITIATED_BY
                   description: Description about the tags
                   reference: <PR/Issue/Discussion Links md format text>
-        quote: &ref_12
+        quote: &ref_19
           tags:
             - code: TYPE
               description: Description about the tags
               reference: <PR/Issue/Discussion Links md format text>
-              list: *ref_5
+              list: *ref_12
             - code: PARENT
               description: Description about the tags
               reference: <PR/Issue/Discussion Links md format text>
-              list: *ref_7
-  confirm: *ref_11
-  on_confirm: *ref_11
-  update: *ref_11
-  on_update: *ref_11
-  on_cancel: *ref_11
+              list: *ref_14
+  confirm: *ref_18
+  on_confirm: *ref_18
+  update: *ref_18
+  on_update: *ref_18
+  on_cancel: *ref_18
   on_track:
     message:
       tracking:
@@ -5562,7 +5767,7 @@ x-tags:
                 reference: <PR/Issue/Discussion Links md format text>
   on_status:
     message:
-      order: *ref_12
+      order: *ref_19
 x-flows:
   - summary: >-
       Retail 1.2.0 (Return with reverse qc - NP approves request - Return
@@ -5577,7 +5782,7 @@ x-flows:
         api: search
         description: Buyer search by city
         reference: if any
-        example: &ref_31
+        example: &ref_38
           summary: search_by_city [^1]
           description: search request for all sellers in the city identified in Context
           value:
@@ -5602,7 +5807,7 @@ x-flows:
                 payment:
                   '@ondc/org/buyer_app_finder_fee_type': percent
                   '@ondc/org/buyer_app_finder_fee_amount [^11]': '3'
-        notes: &ref_32
+        notes: &ref_39
           value:
             ^1: search request for all sellers in the city identified in Context
             ^2: >-
@@ -5872,7 +6077,7 @@ x-flows:
         api: select
         description: null
         reference: if any
-        example: &ref_15
+        example: &ref_22
           summary: Get quote for specific item
           description: Get quote for specific item for other products
           value:
@@ -5909,7 +6114,7 @@ x-flows:
                           area_code: '560001'
                 payment [^5]:
                   type: ON-FULFILLMENT [^6]
-        notes: &ref_16
+        notes: &ref_23
           value:
             ^1: optional, only if buyer selects offer code
             ^2: >-
@@ -6050,7 +6255,7 @@ x-flows:
         api: init
         description: null
         reference: if any
-        example: &ref_17
+        example: &ref_24
           summary: Send buyer and delivery terms for other products
           description: Send buyer and delivery terms for other products
           value:
@@ -6110,7 +6315,7 @@ x-flows:
                           area_code: '560037'
                       contact:
                         phone: '9886098860'
-        notes: &ref_18
+        notes: &ref_25
           value:
             ^1: >-
               house no (for independent dwellings) or door no (for apartments or
@@ -6128,7 +6333,7 @@ x-flows:
         api: on_init
         description: null
         reference: if any
-        example: &ref_19
+        example: &ref_26
           summary: Respond to init call for other products
           description: Respond to init call for other products
           value:
@@ -6327,7 +6532,7 @@ x-flows:
                         value: '1000.00'
                       - code: tax_number [^25]
                         value: gst_number_of_sellerNP
-        notes: &ref_20
+        notes: &ref_27
           value:
             ^1: >-
               may be the same location as selected by the buyer or a different
@@ -6404,7 +6609,7 @@ x-flows:
         api: confirm
         description: null
         reference: if any
-        example: &ref_21
+        example: &ref_28
           summary: Confirmation by Buyer
           description: Confirmation by Buyer for other products
           value:
@@ -6971,7 +7176,7 @@ x-flows:
                         value: gst_number_of_buyerNP
                 created_at [^23]: '2023-06-03T09:30:00.000Z'
                 updated_at [^24]: '2023-06-03T09:30:00.000Z'
-        notes: &ref_22
+        notes: &ref_29
           value:
             ^1: alphanumeric, up to 32 characters
             ^2: optional
@@ -7017,7 +7222,7 @@ x-flows:
         api: on_confirm
         description: null
         reference: if any
-        example: &ref_23
+        example: &ref_30
           summary: Acceptance by Seller
           description: Acceptance by Seller for other products
           value:
@@ -7265,7 +7470,7 @@ x-flows:
                         value: gst_number_of_buyerNP
                 created_at [^21]: '2023-06-03T09:30:00.000Z'
                 updated_at [^22]: '2023-06-03T09:31:30.000Z'
-        notes: &ref_24
+        notes: &ref_31
           value:
             ^1: enum - "Created", "Accepted", "Cancelled"
             ^2: optional
@@ -7308,7 +7513,7 @@ x-flows:
         api: update
         description: null
         reference: if any
-        example: &ref_56
+        example: &ref_63
           summary: Return with reverse QC updated by buyer
           description: Return with reverse QC updated by buyer
           value:
@@ -7352,7 +7557,7 @@ x-flows:
                             value: PT24H
                           - code: ttl_reverseqc [^6]
                             value: P3D
-        notes: &ref_57
+        notes: &ref_64
           value:
             ^1: >-
               new fulfillment of type "Return" created, with return request
@@ -7370,7 +7575,7 @@ x-flows:
         api: on_update
         description: null
         reference: if any
-        example: &ref_58
+        example: &ref_65
           summary: Seller send interim status
           description: Seller send interim status
           value:
@@ -7584,7 +7789,7 @@ x-flows:
                       branch_name: xxxx
                 created_at: '2023-06-03T09:30:00.000Z'
                 updated_at: '2023-06-03T10:31:30.000Z'
-        notes: &ref_59
+        notes: &ref_66
           value:
             ^1: >-
               shows the current state of order with the new fulfillment for part
@@ -7618,7 +7823,7 @@ x-flows:
         api: on_update
         description: null
         reference: if any
-        example: &ref_60
+        example: &ref_67
           summary: Request approved by Seller
           description: Request approved by Seller
           value:
@@ -7846,7 +8051,7 @@ x-flows:
                       branch_name: xxxx
                 created_at: '2023-06-03T09:30:00.000Z'
                 updated_at: '2023-06-03T13:30:00.000Z'
-        notes: &ref_61
+        notes: &ref_68
           value:
             ^1: forward shipment fulfillment
             ^2: pickup time
@@ -8136,7 +8341,7 @@ x-flows:
         api: on_update
         description: null
         reference: if any
-        example: &ref_64
+        example: &ref_71
           summary: Seller updates return delivered
           description: Seller updates return delivered
           value:
@@ -8372,7 +8577,7 @@ x-flows:
                     label: Invoice
                 created_at: '2023-06-03T09:30:00.000Z'
                 updated_at: '2023-06-04T12:00:00.000Z'
-        notes: &ref_65
+        notes: &ref_72
           value:
             ^1: pickup time
             ^2: PCC, proof of pickup
@@ -8406,7 +8611,7 @@ x-flows:
         api: search
         description: Search for an item
         reference: if any
-        example: &ref_13
+        example: &ref_20
           summary: search_by_item [^1]
           description: Search By Item
           value:
@@ -8434,7 +8639,7 @@ x-flows:
                 payment:
                   '@ondc/org/buyer_app_finder_fee_type': percent
                   '@ondc/org/buyer_app_finder_fee_amount': '3'
-        notes: &ref_14
+        notes: &ref_21
           value:
             ^1: >-
               search request for catalog from sellers that match the search item
@@ -8452,7 +8657,7 @@ x-flows:
         api: on_search
         description: null
         reference: if any
-        example: &ref_66
+        example: &ref_73
           summary: Return the catalog for F&B Pizza
           description: Return the catalog for F&B Pizza
           value:
@@ -9288,7 +9493,7 @@ x-flows:
                             value: '3'
                           - code: unit
                             value: km
-        notes: &ref_67
+        notes: &ref_74
           value:
             ^1: >-
               enum - "enable" (default), "disable" (soft delete of provider from
@@ -9335,7 +9540,7 @@ x-flows:
         api: select
         description: null
         reference: if any
-        example: &ref_33
+        example: &ref_40
           summary: Get quote for specific item
           description: Get quote for specific item for make to order products
           value:
@@ -9502,7 +9707,7 @@ x-flows:
                           area_code: '560001'
                 payment [^6]:
                   type: ON-FULFILLMENT [^7]
-        notes: &ref_34
+        notes: &ref_41
           value:
             ^1: >-
               dynamic item id created by buyer NP for make-to-order product;
@@ -9521,7 +9726,7 @@ x-flows:
         api: on_select
         description: null
         reference: if any
-        example: &ref_35
+        example: &ref_42
           summary: Send quote and breakup
           description: Send quote and breakup for products with customization
           value:
@@ -10010,7 +10215,7 @@ x-flows:
               type: DOMAIN-ERROR
               code: '40002'
               message: DI1->I1,DI1->C1->CG1,DI2->C7->CG2
-        notes: &ref_36
+        notes: &ref_43
           value:
             ^1: >-
               location could be same as what was selected by buyer or may be
@@ -10030,7 +10235,7 @@ x-flows:
         api: init
         description: null
         reference: if any
-        example: &ref_37
+        example: &ref_44
           summary: Send buyer and delivery terms for make to order products
           description: Send buyer and delivery terms for make to order products
           value:
@@ -10090,7 +10295,7 @@ x-flows:
                           area_code: '560037'
                       contact:
                         phone: '9886098860'
-        notes: &ref_38
+        notes: &ref_45
           value:
             ^1: >-
               id for dynamic item created by buyer app for make-to-order product
@@ -10111,7 +10316,7 @@ x-flows:
         api: on_init
         description: null
         reference: if any
-        example: &ref_39
+        example: &ref_46
           summary: Respond to init call for make to order products
           description: Respond to init call for make to order products
           value:
@@ -10703,7 +10908,7 @@ x-flows:
                         value: '1000.00'
                       - code: tax_number [^29]
                         value: gst_number_of_sellerNP
-        notes: &ref_40
+        notes: &ref_47
           value:
             ^1: >-
               may be the same location as selected by the buyer or a different
@@ -10773,7 +10978,7 @@ x-flows:
         api: confirm
         description: null
         reference: if any
-        example: &ref_41
+        example: &ref_48
           summary: Confirmation by Buyer
           description: Confirmation by Buyer for make to order products
           value:
@@ -11339,7 +11544,7 @@ x-flows:
                         value: gst_number_of_buyerNP
                 created_at [^31]: '2023-06-03T09:30:00.000Z'
                 updated_at [^32]: '2023-06-03T09:30:00.000Z'
-        notes: &ref_42
+        notes: &ref_49
           value:
             ^1: alphanumeric, up to 32 characters
             ^2: >-
@@ -11401,7 +11606,7 @@ x-flows:
         api: on_confirm
         description: null
         reference: if any
-        example: &ref_43
+        example: &ref_50
           summary: Acceptance by Seller
           description: Acceptance by Seller for make to order products
           value:
@@ -12049,7 +12254,7 @@ x-flows:
                         value: gst_number_of_buyerNP
                 created_at [^29]: '2023-06-03T09:30:00.000Z'
                 updated_at [^30]: '2023-06-03T09:31:30.000Z'
-        notes: &ref_44
+        notes: &ref_51
           value:
             ^1: enum - "Created", "Accepted", "Cancelled"
             ^2: >-
@@ -12102,7 +12307,7 @@ x-flows:
         api: track
         description: null
         reference: if any
-        example: &ref_68
+        example: &ref_75
           summary: Track GPS Coordinates
           description: Track GPS Coordinates for the rider
           value:
@@ -12122,7 +12327,7 @@ x-flows:
               ttl: PT30S
             message:
               order_id: O1
-        notes: &ref_69
+        notes: &ref_76
           value:
             ^1: >-
               updated domains defined
@@ -12131,7 +12336,7 @@ x-flows:
         api: on_track
         description: null
         reference: if any
-        example: &ref_70
+        example: &ref_77
           summary: Respond to track call
           description: Respond to track call
           value:
@@ -12177,7 +12382,7 @@ x-flows:
                         value: 12.974098,77.613699
                       - code: sequence
                         value: '3'
-        notes: &ref_71
+        notes: &ref_78
           value:
             ^1: >-
               matches the fulfillment id for which tracking is enabled. In case
@@ -12197,7 +12402,7 @@ x-flows:
         api: status
         description: null
         reference: if any
-        example: &ref_29
+        example: &ref_36
           summary: Buyer asks for order status
           description: Buyer asks for order status
           value:
@@ -12217,7 +12422,7 @@ x-flows:
               ttl: PT30S
             message:
               order_id: O1
-        notes: &ref_30
+        notes: &ref_37
           value:
             ^1: >-
               status for order can be queried using same transaction id used for
@@ -12226,7 +12431,7 @@ x-flows:
         api: on_status
         description: Seller provides the updated status to the buyer
         reference: if any
-        example: &ref_25
+        example: &ref_32
           summary: >-
             Seller updates the order status and shares Invoice for other
             products
@@ -12449,7 +12654,7 @@ x-flows:
                     label: Invoice
                 created_at: '2023-06-03T09:30:00.000Z'
                 updated_at: '2023-06-03T10:00:30.201Z'
-        notes: &ref_26
+        notes: &ref_33
           value:
             ^1: enum - "Created","Accepted","In-progress","Completed","Cancelled"
             ^2: required if order state is "Cancelled"
@@ -12528,7 +12733,7 @@ x-flows:
         api: on_status
         description: Seller provides the updated status to the buyer
         reference: if any
-        example: &ref_27
+        example: &ref_34
           summary: >-
             Seller updates the order status and shares Invoice for other
             products
@@ -12751,7 +12956,7 @@ x-flows:
                     label: Invoice
                 created_at: '2023-06-03T09:30:00.000Z'
                 updated_at: '2023-06-03T10:00:30.201Z'
-        notes: &ref_28
+        notes: &ref_35
           value:
             ^1: enum - "Created","Accepted","In-progress","Completed","Cancelled"
             ^2: required if order state is "Cancelled"
@@ -12830,7 +13035,7 @@ x-flows:
         api: on_status
         description: Seller provides the updated status to the buyer
         reference: if any
-        example: &ref_45
+        example: &ref_52
           summary: >-
             Seller updates the order status and shares Invoice for make to order
             products
@@ -13451,7 +13656,7 @@ x-flows:
                     label: Invoice
                 created_at: '2023-06-03T09:30:00.000Z'
                 updated_at: '2023-06-03T10:00:30.201Z'
-        notes: &ref_46
+        notes: &ref_53
           value:
             ^1: enum - "Created","Accepted","In-progress","Completed","Cancelled"
             ^2: required if order state is "Cancelled"
@@ -13540,13 +13745,13 @@ x-flows:
         api: search
         description: Buyer search for an item
         reference: if any
-        example: *ref_13
-        notes: *ref_14
+        example: *ref_20
+        notes: *ref_21
       - summary: Returns the item or catalog
         api: on_search
         description: null
         reference: if any
-        example: &ref_47
+        example: &ref_54
           summary: Return the catalog for Fashion products
           description: Return the catalog for Fashion products
           value:
@@ -14174,7 +14379,7 @@ x-flows:
                             value: IND
                           - code: unit
                             value: country
-        notes: &ref_48
+        notes: &ref_55
           value:
             ^1: >-
               timestamp when the snapshot for this provider (including provider
@@ -14299,13 +14504,13 @@ x-flows:
         api: select
         description: null
         reference: if any
-        example: *ref_15
-        notes: *ref_16
+        example: *ref_22
+        notes: *ref_23
       - summary: Returns item breakup when item is in stock and offer applied
         api: on_select
         description: null
         reference: if any
-        example: &ref_49
+        example: &ref_56
           summary: Send quote and breakup
           description: >-
             Send quote and breakup for items selected in select Api call with
@@ -14398,7 +14603,7 @@ x-flows:
                         currency: INR
                         value: '0'
                   ttl: PT1H
-        notes: &ref_50
+        notes: &ref_57
           value:
             ^1: >-
               may be the same location as selected by the buyer or a different
@@ -14408,38 +14613,38 @@ x-flows:
         api: init
         description: null
         reference: if any
-        example: *ref_17
-        notes: *ref_18
+        example: *ref_24
+        notes: *ref_25
       - summary: Respond to init
         api: on_init
         description: null
         reference: if any
-        example: *ref_19
-        notes: *ref_20
+        example: *ref_26
+        notes: *ref_27
       - summary: Buyer confirms product
         api: confirm
         description: null
         reference: if any
-        example: *ref_21
-        notes: *ref_22
+        example: *ref_28
+        notes: *ref_29
       - summary: Seller Accepts confirmation
         api: on_confirm
         description: null
         reference: if any
-        example: *ref_23
-        notes: *ref_24
+        example: *ref_30
+        notes: *ref_31
       - summary: Seller provides latest order status
         api: on_status
         description: Seller provides the updated status to the buyer
         reference: if any
-        example: *ref_25
-        notes: *ref_26
+        example: *ref_32
+        notes: *ref_33
       - summary: Seller provides latest order status
         api: on_status
         description: Seller provides the updated status to the buyer
         reference: if any
-        example: *ref_27
-        notes: *ref_28
+        example: *ref_34
+        notes: *ref_35
       - summary: seller cancels the order
         api: on_cancel (RTO flow)
         description: null
@@ -14655,8 +14860,8 @@ x-flows:
         api: status
         description: null
         reference: if any
-        example: *ref_29
-        notes: *ref_30
+        example: *ref_36
+        notes: *ref_37
       - summary: Seller provides latest order status
         api: on_status
         description: Seller provides the updated status to the buyer
@@ -15368,13 +15573,13 @@ x-flows:
         api: search
         description: Buyer search for an item
         reference: if any
-        example: *ref_13
-        notes: *ref_14
+        example: *ref_20
+        notes: *ref_21
       - summary: Returns the item or catalog
         api: on_search
         description: null
         reference: if any
-        example: &ref_62
+        example: &ref_69
           summary: Return the catalog for Home & Kitchen products
           description: Return the catalog for Home & Kitchen products
           value:
@@ -15584,7 +15789,7 @@ x-flows:
                             value: IND
                           - code: unit
                             value: country
-        notes: &ref_63
+        notes: &ref_70
           value:
             ^1: >-
               updated domain namespace is
@@ -15707,8 +15912,8 @@ x-flows:
         api: select
         description: null
         reference: if any
-        example: *ref_15
-        notes: *ref_16
+        example: *ref_22
+        notes: *ref_23
       - summary: Returns item breakup when item is in stock
         api: on_select
         description: null
@@ -15873,26 +16078,26 @@ x-flows:
         api: init
         description: null
         reference: if any
-        example: *ref_17
-        notes: *ref_18
+        example: *ref_24
+        notes: *ref_25
       - summary: Respond to init
         api: on_init
         description: null
         reference: if any
-        example: *ref_19
-        notes: *ref_20
+        example: *ref_26
+        notes: *ref_27
       - summary: Buyer confirms product
         api: confirm
         description: null
         reference: if any
-        example: *ref_21
-        notes: *ref_22
+        example: *ref_28
+        notes: *ref_29
       - summary: Seller Accepts confirmation
         api: on_confirm
         description: null
         reference: if any
-        example: *ref_23
-        notes: *ref_24
+        example: *ref_30
+        notes: *ref_31
       - summary: Buyer initiated the return with liquidation
         api: update
         description: null
@@ -16478,8 +16683,8 @@ x-flows:
         api: search
         description: Search by city
         reference: if any
-        example: *ref_31
-        notes: *ref_32
+        example: *ref_38
+        notes: *ref_39
       - summary: Returns the item or catalog
         api: on_search
         description: null
@@ -17260,43 +17465,43 @@ x-flows:
         api: select
         description: null
         reference: if any
-        example: *ref_33
-        notes: *ref_34
+        example: *ref_40
+        notes: *ref_41
       - summary: Returns item breakup for a product with customization
         api: on_select
         description: null
         reference: if any
-        example: *ref_35
-        notes: *ref_36
+        example: *ref_42
+        notes: *ref_43
       - summary: Buyer initiate the product and send the updated fulfillment id
         api: init
         description: null
         reference: if any
-        example: *ref_37
-        notes: *ref_38
+        example: *ref_44
+        notes: *ref_45
       - summary: Respond to init
         api: on_init
         description: null
         reference: if any
-        example: *ref_39
-        notes: *ref_40
+        example: *ref_46
+        notes: *ref_47
       - summary: Buyer confirms product
         api: confirm
         description: null
         reference: if any
-        example: *ref_41
-        notes: *ref_42
+        example: *ref_48
+        notes: *ref_49
       - summary: Seller Accepts confirmation
         api: on_confirm
         description: null
         reference: if any
-        example: *ref_43
-        notes: *ref_44
+        example: *ref_50
+        notes: *ref_51
       - summary: seller cancels customized product
         api: on_update
         description: null
         reference: if any
-        example: &ref_51
+        example: &ref_58
           context:
             domain: ONDC:RET11
             action: on_update
@@ -18068,7 +18273,7 @@ x-flows:
                     branch_name: xxxx
               created_at: '2023-06-03T09:30:00.000Z'
               updated_at: '2023-06-03T10:31:30.000Z'
-        notes: &ref_52
+        notes: &ref_59
           value:
             ^1: >-
               shows the current state of order with the new fulfillment for part
@@ -18109,7 +18314,7 @@ x-flows:
         api: update
         description: null
         reference: if any
-        example: &ref_53
+        example: &ref_60
           summary: Settlement trail cancel updated by buyer
           description: Settlement trail cancel updated by buyer
           value:
@@ -18144,26 +18349,26 @@ x-flows:
         api: status
         description: null
         reference: if any
-        example: *ref_29
-        notes: *ref_30
+        example: *ref_36
+        notes: *ref_37
       - summary: Seller provides latest order status
         api: on_status
         description: Seller provides the updated status to the buyer
         reference: if any
-        example: *ref_25
-        notes: *ref_26
+        example: *ref_32
+        notes: *ref_33
       - summary: Seller provides latest order status
         api: on_status
         description: Seller provides the updated status to the buyer
         reference: if any
-        example: *ref_27
-        notes: *ref_28
+        example: *ref_34
+        notes: *ref_35
       - summary: Seller provides latest order status
         api: on_status
         description: Seller provides the updated status to the buyer
         reference: if any
-        example: *ref_45
-        notes: *ref_46
+        example: *ref_52
+        notes: *ref_53
   - summary: Retail 1.2.0 (Merchant cancels non customized product)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -18174,7 +18379,7 @@ x-flows:
         api: search
         description: Buyer search by fulfillment end location
         reference: if any
-        example: &ref_54
+        example: &ref_61
           summary: search_by_fulfillment_end_loc [^1]
           description: Search By Fulfilment End Loc
           value:
@@ -18202,7 +18407,7 @@ x-flows:
                 payment:
                   '@ondc/org/buyer_app_finder_fee_type': percent
                   '@ondc/org/buyer_app_finder_fee_amount': 3
-        notes: &ref_55
+        notes: &ref_62
           value:
             ^1: >-
               search request for catalog from sellers that provide fulfillment
@@ -18221,79 +18426,79 @@ x-flows:
         api: on_search
         description: null
         reference: if any
-        example: *ref_47
-        notes: *ref_48
+        example: *ref_54
+        notes: *ref_55
       - summary: Select the item
         api: select
         description: null
         reference: if any
-        example: *ref_15
-        notes: *ref_16
+        example: *ref_22
+        notes: *ref_23
       - summary: Returns item breakup when item is in stock and offer applied
         api: on_select
         description: null
         reference: if any
-        example: *ref_49
-        notes: *ref_50
+        example: *ref_56
+        notes: *ref_57
       - summary: Buyer initiate the product and send the updated fulfillment id
         api: init
         description: null
         reference: if any
-        example: *ref_17
-        notes: *ref_18
+        example: *ref_24
+        notes: *ref_25
       - summary: Respond to init
         api: on_init
         description: null
         reference: if any
-        example: *ref_19
-        notes: *ref_20
+        example: *ref_26
+        notes: *ref_27
       - summary: Buyer confirms product
         api: confirm
         description: null
         reference: if any
-        example: *ref_21
-        notes: *ref_22
+        example: *ref_28
+        notes: *ref_29
       - summary: Seller Accepts confirmation
         api: on_confirm
         description: null
         reference: if any
-        example: *ref_23
-        notes: *ref_24
+        example: *ref_30
+        notes: *ref_31
       - summary: seller cancels non customized product
         api: on_update
         description: null
         reference: if any
-        example: *ref_51
-        notes: *ref_52
+        example: *ref_58
+        notes: *ref_59
       - summary: Settlement trail for refund initiation
         api: update
         description: null
         reference: if any
-        example: *ref_53
+        example: *ref_60
       - summary: Buyer platform requests for latest status
         api: status
         description: null
         reference: if any
-        example: *ref_29
-        notes: *ref_30
+        example: *ref_36
+        notes: *ref_37
       - summary: Seller provides latest order status
         api: on_status
         description: Seller provides the updated status to the buyer
         reference: if any
-        example: *ref_25
-        notes: *ref_26
+        example: *ref_32
+        notes: *ref_33
       - summary: Seller provides latest order status
         api: on_status
         description: Seller provides the updated status to the buyer
         reference: if any
-        example: *ref_27
-        notes: *ref_28
+        example: *ref_34
+        notes: *ref_35
       - summary: Seller provides latest order status
         api: on_status
         description: Seller provides the updated status to the buyer
         reference: if any
-        example: *ref_45
-        notes: *ref_46
+        example: *ref_52
+        notes: *ref_53
   - summary: >-
       Retail 1.2.0 (Return with reverse qc - NP approves request - Return
       failed)
@@ -18307,68 +18512,68 @@ x-flows:
         api: search
         description: Buyer search by fulfillment end location
         reference: if any
-        example: *ref_54
-        notes: *ref_55
+        example: *ref_61
+        notes: *ref_62
       - summary: Returns the item or catalog
         api: on_search
         description: null
         reference: if any
-        example: *ref_47
-        notes: *ref_48
+        example: *ref_54
+        notes: *ref_55
       - summary: Select the item
         api: select
         description: null
         reference: if any
-        example: *ref_15
-        notes: *ref_16
+        example: *ref_22
+        notes: *ref_23
       - summary: Returns item breakup when item is in stock and offer applied
         api: on_select
         description: null
         reference: if any
-        example: *ref_49
-        notes: *ref_50
+        example: *ref_56
+        notes: *ref_57
       - summary: Buyer initiate the product and send the updated fulfillment id
         api: init
         description: null
         reference: if any
-        example: *ref_17
-        notes: *ref_18
+        example: *ref_24
+        notes: *ref_25
       - summary: Respond to init
         api: on_init
         description: null
         reference: if any
-        example: *ref_19
-        notes: *ref_20
+        example: *ref_26
+        notes: *ref_27
       - summary: Buyer confirms product
         api: confirm
         description: null
         reference: if any
-        example: *ref_21
-        notes: *ref_22
+        example: *ref_28
+        notes: *ref_29
       - summary: Seller Accepts confirmation
         api: on_confirm
         description: null
         reference: if any
-        example: *ref_23
-        notes: *ref_24
+        example: *ref_30
+        notes: *ref_31
       - summary: Buyer initiated the return with reverse qc
         api: update
         description: null
         reference: if any
-        example: *ref_56
-        notes: *ref_57
+        example: *ref_63
+        notes: *ref_64
       - summary: Seller send the interim status request
         api: on_update
         description: null
         reference: if any
-        example: *ref_58
-        notes: *ref_59
+        example: *ref_65
+        notes: *ref_66
       - summary: seller approves the return with reverse qc
         api: on_update
         description: null
         reference: if any
-        example: *ref_60
-        notes: *ref_61
+        example: *ref_67
+        notes: *ref_68
       - summary: Seller send the interim status request
         api: on_update
         description: null
@@ -18616,20 +18821,20 @@ x-flows:
         api: search
         description: Buyer search for an item
         reference: if any
-        example: *ref_13
-        notes: *ref_14
+        example: *ref_20
+        notes: *ref_21
       - summary: Returns the item or catalog
         api: on_search
         description: null
         reference: if any
-        example: *ref_62
-        notes: *ref_63
+        example: *ref_69
+        notes: *ref_70
       - summary: Select the item
         api: select
         description: null
         reference: if any
-        example: *ref_15
-        notes: *ref_16
+        example: *ref_22
+        notes: *ref_23
       - summary: Returns item breakup when item is in stock and offer applied
         api: on_select
         description: null
@@ -18744,44 +18949,44 @@ x-flows:
         api: init
         description: null
         reference: if any
-        example: *ref_17
-        notes: *ref_18
+        example: *ref_24
+        notes: *ref_25
       - summary: Respond to init
         api: on_init
         description: null
         reference: if any
-        example: *ref_19
-        notes: *ref_20
+        example: *ref_26
+        notes: *ref_27
       - summary: Buyer confirms product
         api: confirm
         description: null
         reference: if any
-        example: *ref_21
-        notes: *ref_22
+        example: *ref_28
+        notes: *ref_29
       - summary: Seller Accepts confirmation
         api: on_confirm
         description: null
         reference: if any
-        example: *ref_23
-        notes: *ref_24
+        example: *ref_30
+        notes: *ref_31
       - summary: Buyer initiated the return with reverse qc
         api: update
         description: null
         reference: if any
-        example: *ref_56
-        notes: *ref_57
+        example: *ref_63
+        notes: *ref_64
       - summary: Seller send the interim status request
         api: on_update
         description: null
         reference: if any
-        example: *ref_58
-        notes: *ref_59
+        example: *ref_65
+        notes: *ref_66
       - summary: Seller approves the return with reverse qc
         api: on_update
         description: null
         reference: if any
-        example: *ref_60
-        notes: *ref_61
+        example: *ref_67
+        notes: *ref_68
       - summary: Seller send the interim status request
         api: on_update
         description: null
@@ -19020,8 +19225,8 @@ x-flows:
         api: on_update
         description: null
         reference: if any
-        example: *ref_64
-        notes: *ref_65
+        example: *ref_71
+        notes: *ref_72
   - summary: Retail 1.2.0 (Incremental One Time Push)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -19070,80 +19275,80 @@ x-flows:
         api: on_search
         description: null
         reference: if any
-        example: *ref_66
-        notes: *ref_67
+        example: *ref_73
+        notes: *ref_74
       - summary: Select the item
         api: select
         description: null
         reference: if any
-        example: *ref_33
-        notes: *ref_34
+        example: *ref_40
+        notes: *ref_41
       - summary: Returns item breakup for a product with customization
         api: on_select
         description: null
         reference: if any
-        example: *ref_35
-        notes: *ref_36
+        example: *ref_42
+        notes: *ref_43
       - summary: Buyer initiate the product and send the updated fulfillment id
         api: init
         description: null
         reference: if any
-        example: *ref_37
-        notes: *ref_38
+        example: *ref_44
+        notes: *ref_45
       - summary: Respond to init
         api: on_init
         description: null
         reference: if any
-        example: *ref_39
-        notes: *ref_40
+        example: *ref_46
+        notes: *ref_47
       - summary: Buyer confirms product
         api: confirm
         description: null
         reference: if any
-        example: *ref_41
-        notes: *ref_42
+        example: *ref_48
+        notes: *ref_49
       - summary: Seller Accepts confirmation
         api: on_confirm
         description: null
         reference: if any
-        example: *ref_43
-        notes: *ref_44
+        example: *ref_50
+        notes: *ref_51
       - summary: To know real time coordinates for the rider
         api: track
         description: null
         reference: if any
-        example: *ref_68
-        notes: *ref_69
+        example: *ref_75
+        notes: *ref_76
       - summary: Get the information about rider
         api: on_track
         description: null
         reference: if any
-        example: *ref_70
-        notes: *ref_71
+        example: *ref_77
+        notes: *ref_78
       - summary: Buyer platform requests for latest status
         api: status
         description: null
         reference: if any
-        example: *ref_29
-        notes: *ref_30
+        example: *ref_36
+        notes: *ref_37
       - summary: Seller provides latest order status
         api: on_status
         description: Seller provides the updated status to the buyer
         reference: if any
-        example: *ref_25
-        notes: *ref_26
+        example: *ref_32
+        notes: *ref_33
       - summary: Seller provides latest order status
         api: on_status
         description: Seller provides the updated status to the buyer
         reference: if any
-        example: *ref_27
-        notes: *ref_28
+        example: *ref_34
+        notes: *ref_35
       - summary: Seller provides latest order status
         api: on_status
         description: Seller provides the updated status to the buyer
         reference: if any
-        example: *ref_45
-        notes: *ref_46
+        example: *ref_52
+        notes: *ref_53
   - summary: Retail 1.2.0 (Incremental Regular Push)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -19215,80 +19420,80 @@ x-flows:
         api: on_search
         description: null
         reference: if any
-        example: *ref_66
-        notes: *ref_67
+        example: *ref_73
+        notes: *ref_74
       - summary: Select the item
         api: select
         description: null
         reference: if any
-        example: *ref_33
-        notes: *ref_34
+        example: *ref_40
+        notes: *ref_41
       - summary: Returns item breakup for a product with customization
         api: on_select
         description: null
         reference: if any
-        example: *ref_35
-        notes: *ref_36
+        example: *ref_42
+        notes: *ref_43
       - summary: Buyer initiate the product and send the updated fulfillment id
         api: init
         description: null
         reference: if any
-        example: *ref_37
-        notes: *ref_38
+        example: *ref_44
+        notes: *ref_45
       - summary: Respond to init
         api: on_init
         description: null
         reference: if any
-        example: *ref_39
-        notes: *ref_40
+        example: *ref_46
+        notes: *ref_47
       - summary: Buyer confirms product
         api: confirm
         description: null
         reference: if any
-        example: *ref_41
-        notes: *ref_42
+        example: *ref_48
+        notes: *ref_49
       - summary: Seller Accepts confirmation
         api: on_confirm
         description: null
         reference: if any
-        example: *ref_43
-        notes: *ref_44
+        example: *ref_50
+        notes: *ref_51
       - summary: To know real time coordinates for the rider
         api: track
         description: null
         reference: if any
-        example: *ref_68
-        notes: *ref_69
+        example: *ref_75
+        notes: *ref_76
       - summary: Get the information about rider
         api: on_track
         description: null
         reference: if any
-        example: *ref_70
-        notes: *ref_71
+        example: *ref_77
+        notes: *ref_78
       - summary: Buyer platform requests for latest status
         api: status
         description: null
         reference: if any
-        example: *ref_29
-        notes: *ref_30
+        example: *ref_36
+        notes: *ref_37
       - summary: Seller provides latest order status
         api: on_status
         description: Seller provides the updated status to the buyer
         reference: if any
-        example: *ref_25
-        notes: *ref_26
+        example: *ref_32
+        notes: *ref_33
       - summary: Seller provides latest order status
         api: on_status
         description: Seller provides the updated status to the buyer
         reference: if any
-        example: *ref_27
-        notes: *ref_28
+        example: *ref_34
+        notes: *ref_35
       - summary: Seller provides latest order status
         api: on_status
         description: Seller provides the updated status to the buyer
         reference: if any
-        example: *ref_45
-        notes: *ref_46
+        example: *ref_52
+        notes: *ref_53
 x-examples:
   summary: search by city
   description: search by city
