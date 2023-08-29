@@ -16,12 +16,6 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/B2C/search/incremental_catalog_refresh_regular_push.yaml"
-  - summary: Stop incremental refresh
-    api: search
-    description:  Stop incremental refresh
-    reference: if any
-    example:
-      $ref: "../../Examples/B2C/search/stop_incremental_refresh.yaml"
   - summary: Returns the item or catalog
     api: on_search
     description:  
@@ -30,3 +24,9 @@ steps:
       $ref: "../../Examples/B2C/on_search/incremental_catalog_refresh_store_closed_temporarily.yaml"
     notes:
       $ref: "../../notes/on_search/incremental_catalog_refresh_store_closed_temporarily.yaml"   
+  - summary: Stop incremental refresh
+    api: search
+    description:  Stop incremental refresh
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/search/stop_incremental_refresh.yaml"
