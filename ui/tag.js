@@ -170,8 +170,76 @@ function displayTag() {
   if (tableBody && tableBody != {}) tableBody.innerHTML = '';
   insertRow(tableBody, "Code", tableData.code)
   insertRow(tableBody, "Description", tableData.description)
-  // insertRow(tableBody, "Refrences", tableData.reference)
 
+  let tagValueList = tableData.list
+  if (tagValueList) {
+    let dropdown5 = document.getElementById('tag-value-dropdown');
+    let i, L = dropdown5.options.length - 1;
+    for (i = L; i >= 0; i--) {
+      dropdown5.remove(i);
+    }
+    
+    tagValueList.forEach(function (obj) {
+      var option = document.createElement('option');
+      option.text = obj["code"];
+      dropdown5.append(option);
+    })
+
+    document.getElementById('tag-value-row').style.cssText = 'display:revert'
+    document.getElementById('tag-value-table').style.cssText = 'display:revert'
+    const selectedValue5 = dropdown5.value
+
+    const tagValueTableData = tagValueList.find(obj => {
+      if (obj["code"] == selectedValue5)
+        return obj
+    });
+
+    if (tagValueTableData) {
+      const tagValueTable = document.getElementById('tag-value-table');
+      if (tagValueTable && tagValueTable != {}) tagValueTable.innerHTML = '';
+      insertRow(tagValueTable, "Code", tagValueTableData.code)
+      insertRow(tagValueTable, "Description", tagValueTableData.description)
+    }
+  }
+  else{
+    document.getElementById('tag-value-row').style.cssText = 'display:none'
+    document.getElementById('tag-value-table').style.cssText = 'display:none'
+  }
+}
+
+function displayTagValue() {
+  const selectedValue1 = document.getElementById('tag-schema-dropdown').value;
+  let selectedValue2 = document.getElementById('tag-path-dropdown').value;
+  let selectedValue3 = document.getElementById('tag-group-dropdown').value;
+  const selectedValue4 = document.getElementById('tag-dropdown').value;
+
+  // Get the table data
+  let data = flattenObject(TagData[selectedValue1])
+  selectedObject2 = data[selectedValue2]
+  selectedObject3 = selectedObject2.find(obj => {
+    if (obj["code"] === selectedValue3)
+      return obj
+  });
+
+  let list = selectedObject3["list"]
+
+  const tableData = list.find(obj => {
+    if (obj["code"] == selectedValue4)
+      return obj
+  });
+
+  let tagValueList = tableData.list
+  const selectedValue5 = document.getElementById('tag-value-dropdown').value
+
+  const tagValueTableData = tagValueList.find(obj => {
+    if (obj["code"] == selectedValue5)
+      return obj
+  });
+
+  const tagValueTable = document.getElementById('tag-value-table');
+  if (tagValueTable && tagValueTable != {}) tagValueTable.innerHTML = '';
+  insertRow(tagValueTable, "Code", tagValueTableData.code)
+  insertRow(tagValueTable, "Description", tagValueTableData.description)
 }
 
 function insertRow(tableBody, key, value) {
