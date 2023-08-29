@@ -1,0 +1,67 @@
+value:
+  [^1]: descriptor for seller NP
+  [^2]: logo or image for seller NP
+  [^3]: descriptor for seller (merchant) that processes & fulfills orders
+  [^4]: unique id for provider, must be same as bpp_id for ISN seller apps. Use of same provider id for distinct legal entities will cause an MSN being regarded as ISN and use of different provider id for same legal entity will cause an ISN being regarded as MSN, thus resulting in tax non-compliance
+  [^5]: enum - "enable" (default), "disable" (soft delete of provider from buyer NP cache)
+  [^6]: timestamp when the snapshot for this provider (including provider details, items) was generated, must be <= Context.timestamp. Buyer NPs can use this to determine from when to start incremental refresh
+  [^7]: provider level fulfillment options
+  [^8]: contact details for merchant - if merchant is in multiple locations, this will be the contact detail for merchant and contact detail for the storefront (specific location) will be in fulfillment.start
+  [^9]: valid 10 digit (mobile no) or 11 digit no
+  [^10]: email id of merchant or seller NP
+  [^11]: ISO8601 duration format for validity of provider catalog
+  [^12]: locations for provider with unique id for each location
+  [^13]: enum - "enable" (default), "disable" (soft delete of provider location, i.e. warehouse or store, from buyer NP cache - in this case, serviceability for the store should not be a part of the catalog), "close" (temporary closure of store with the same format for time.range as specified, for incremental refresh, here - https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.ar4y0zvk65s4 only if this event is available at the time of generating the full catalog snapshot)
+  [^14]: timestamp when the snapshot for location was generated, must be <= Context.timestamp
+  [^15]: list of future dated holidays, to be used as per holiday calendar; if no holidays, empty array needs to be passed
+  [^16]: locality name
+  [^17]: enum - "enable", "disable"
+  [^18]: timestamp for item event
+  [^19]: name of medicine
+  [^20]: optional; unique code for item which will be in this format - "type:code" where type is 1 - EAN, 2 - ISBN, 3 - GTIN, 4 - HSN, 5 - UPC, 6 - others
+  [^21]: name of medicine
+  [^22]: name of medicine
+  [^23]: while item images ensures better discoverability & enhances user experience, if no image is available, seller NPs shouldn’t send image (instead of sending placeholder image)
+  [^24]: enum - "unit", "dozen", "kilogram", "tonne", "litre", "millilitre" https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/uom.json
+  [^25]: stringified integer value - default value for item in stock
+  [^26]: stringified integer value - cap per order (if exists) or default value
+  [^27]: list of category is https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=1999500764
+  [^28]: unique location for provider as defined in the catalog
+  [^29]: should default to true except for specific make-to-order items
+  [^30]: should default to true except for specific make-to-order items
+  [^31]: whether seller is responsible for pick up of item for return
+  [^32]: valid contact details exactly in this format - name, email, contact no
+  [^33]: optional
+  [^34]: manufacturing license no
+  [^35]: generic name
+  [^36]: pack size e.g. no of medicines in strip
+  [^37]: month & year of manufacturing
+  [^38]: expiry date
+  [^39]: optional
+  [^40]: ingredient info
+  [^41]: identifies origin of item i.e. country, state, etc.
+  [^42]: ISO 3166-1 alpha-3 code
+  [^43]: images for statutory requirements
+  [^44]: back image with all details; either back image or text details need to be provided (manufacturer_or_packer_name, manufacturer_or_packer_address, mfg_license_no, common_or_generic_name_of_commodity, multiple_products_name_number_or_qty, month_year_of_manufacture_packing_import, expiry_date, ingredients_info)
+  [^45]: credentials for provider (optional)
+  [^46]: globally identifiable identity or unique ID provided by seller app; mandatory if creds are provided
+  [^47]: display URL for credential, optional
+  [^48]: optional, only if available
+  [^49]: offer definition as per the template defined above
+  [^50]: for defining order value (e.g. min order value) for provider
+  [^51]: minimum order value for provider (up to 2 decimals)
+  [^52]: optional, for catalog refresh using link or inline (default)
+  [^53]: enum - "link" (link to zip file for items array for the provider), "inline" (items array in inline response, which is the default today)
+  [^54]: authorized link URL, required only if type = "link"; in this case, items array won’t be a part of inline response
+  [^55]: authorized link validity from last_update, required only if type = "link"
+  [^56]: timestamp for last update of link (RFC3339), required only if type = "link"
+  [^57]: timing for fulfillment type, enum - "Order" (online order processing timings), "Delivery" (order shipment timings, will be same as delivery timings for hyperlocal), "Self-Pickup" (self-pickup timings), "All" (same timing for all fulfillments supported by seller); example shows for following timings- Monday to Friday (0900 - 1100, 1300 - 1530, 1830 - 2130), Saturday to Sunday (1300 - 1600, 1900 - 2300)
+  [^58]: location id for provider
+  [^59]: valid value - day of week ("1" - Monday, "7" - Sunday)
+  [^60]: valid value - day of week ("1" - Monday, "7" - Sunday), day_to >= day_from
+  [^61]: valid value - 24hr format ("0000" to "2359")
+  [^62]: valid value - 24hr format ("0000" to "2359"), time_to >= time_from
+  [^63]: in case of overlapping store timing e.g. for Monday from 1300 - 1600 and 1500 - 1700, the union of these store timings will be considered (1300 - 1700)
+  [^64]: serviceability construct is defined for (provider+location+category) at either of these levels -  hyperlocal (radius) or intercity (pincodes) or pan-India; every unique combination of (provider+location+category) can have serviceability defined only at one of these levels
+  [^65]: maps to unique location for provider
+  [^66]: enum - "10" (hyperlocal), "11" (intercity), "12" (pan-India)

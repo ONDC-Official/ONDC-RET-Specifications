@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   title: ONDC Specification
   description: ONDC Specification
-  version: 2.0.1
+  version: 1.2.0
 security:
   - SubscriberAuth: []
 paths:
@@ -113,32 +113,6 @@ paths:
       responses:
         default:
           $ref: ../../beckn-core/api/transaction/components/io/Response.yaml
-  /rating:
-    post:
-      tags:
-        - Provider Platform
-      description: Provide feedback on a service
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: ../../beckn-core/api/transaction/components/io/Rating.yaml
-      responses:
-        default:
-          $ref: ../../beckn-core/api/transaction/components/io/Response.yaml
-  /support:
-    post:
-      tags:
-        - Provider Platform
-      description: Contact support
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: ../../beckn-core/api/transaction/components/io/Support.yaml
-      responses:
-        default:
-          $ref: ../../beckn-core/api/transaction/components/io/Response.yaml
   /on_search:
     post:
       tags:
@@ -242,32 +216,6 @@ paths:
           application/json:
             schema:
               $ref: ../../beckn-core/api/transaction/components/io/OnStatus.yaml
-      responses:
-        default:
-          $ref: ../../beckn-core/api/transaction/components/io/Response.yaml
-  /on_rating:
-    post:
-      tags:
-        - Consumer Platform
-      description: Provide feedback on a service
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: ../../beckn-core/api/transaction/components/io/OnRating.yaml
-      responses:
-        default:
-          $ref: ../../beckn-core/api/transaction/components/io/Response.yaml
-  /on_support:
-    post:
-      tags:
-        - Consumer Platform
-      description: Contact Support
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: ../../beckn-core/api/transaction/components/io/OnSupport.yaml
       responses:
         default:
           $ref: ../../beckn-core/api/transaction/components/io/Response.yaml
