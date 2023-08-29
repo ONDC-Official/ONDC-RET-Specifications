@@ -1,0 +1,13 @@
+value:
+  [^1]: pickup time
+  [^2]: PCC, proof of pickup
+  [^3]: pickup authorization (optional)
+  [^4]: delivery time
+  [^5]: DCC, proof of delivery
+  [^6]: delivery authorization (optional)
+  [^7]: pickup time
+  [^8]: vehicle details (for rider) or buyer (for kerbside pickup) - optional
+  [^9]: valid return rejection reason codes are https://docs.google.com/document/d/1M-lZSduYMFKIk1V6d8QLt-j-16-rVzYVdPn0pmbkclk/edit#heading=h.urm96q1ruugy
+  [^10]: valid return reason codes are https://docs.google.com/document/d/1M-lZSduYMFKIk1V6d8QLt-j-16-rVzYVdPn0pmbkclk/edit#heading=h.lnyp7qt40f7f
+  [^11]: ttl for either approving or rejecting the return request
+  [^12]: ttl for initiating reverse qc, reverse qc (if required) should be completed within the return window

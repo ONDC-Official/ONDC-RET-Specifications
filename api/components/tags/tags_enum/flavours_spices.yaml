@@ -1,0 +1,235 @@
+flavours_spices:
+  - code: ajwain
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: amla
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: aniseed
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: apple
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: asafetida
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: assorted
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: banana
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: basil
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: bay leaf
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: blueberry
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: butter
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: caramel
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: caraway
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: cardamom
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: chervil
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: chillies
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: chive
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: chocolate
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: cilantro
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: cinnamon
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: cloves
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: cola
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: coriander
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: corn
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: cranberry
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: cumin
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: curry leaves
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: dill
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: elaichi
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: fennel
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: fenugreek
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: fruits
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: galangal
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: garlic
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: ginger
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: guava
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: horseradish
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: imli
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: jeera
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: kaffir lime leaf
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: kasuri methi
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: kokum
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: lemon
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: lemon grass
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: mace
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: mango
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: marjoram
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: methi
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: mint
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: mixed fruit
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: mushrooms
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: mustard
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: nutmeg
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: onion
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: orange
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: oregano
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: parsley
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: peach
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: pepper
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: peppercorns
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: peppermint
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: pineapple
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: pomegranate
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: raspberry
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: rosemary
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: saffron
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: sage
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: spearmint
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: star anise
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: strawberry
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: sweetmint
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: tamarind
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: tarragon
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: thyme
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: turmeric
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: vanilla
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: wasabi
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: watermelon
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

@@ -1,0 +1,191 @@
+summary: Cancellation by Seller
+description: Rto will be initiated if Buyer does not accept the fulfillment or buyer cannot be located
+value:
+  context:
+    domain: ONDC:RET10
+    country: IND
+    city: std:080
+    action: on_cancel
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    bpp_id: sellerNP.com
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: T2
+    message_id: M10
+    timestamp: '2023-06-03T11:00:30.000Z'
+    ttl: PT30S
+  message:
+    order:
+      id: O1
+      state: Completed [^1]
+      provider:
+        id: P1
+        locations:
+          - id: L1
+      items [^2]:
+        - id: I1
+          fulfillment_id: F1
+          quantity:
+            count: 0
+        - id: I1
+          fulfillment_id: F1-RTO
+          quantity:
+            count: 2
+      billing:
+        name: ONDC buyer
+        address:
+          name: 'My house #'
+          building: My building name
+          locality: My street name
+          city: Bengaluru
+          state: Karnataka
+          country: IND
+          area_code: '560037'
+        email: nobody@nomail.com
+        phone: '9886098860'
+        created_at: '2023-06-03T09:00:00.000Z'
+        updated_at: '2023-06-03T09:00:00.000Z'
+      fulfillments:
+        - id: F1
+          '@ondc/org/provider_name': LSP or Provider Name
+          type: Delivery
+          tracking: true
+          '@ondc/org/TAT': PT60M
+          state:
+            descriptor:
+              code: Cancelled [^3]
+          start:
+            location:
+              id: L1
+              descriptor:
+                name: ABC Store
+              gps: 12.956399,77.636803
+              address:
+                locality: Jayanagar
+                city: Bengaluru
+                area_code: '560076'
+                state: KA
+            time:
+              range:
+                start: '2023-06-03T10:00:00.000Z'
+                end: '2023-06-03T10:30:00.000Z'
+            contact:
+              phone: '9886098860'
+              email: nobody@nomail.com
+          end:
+            location:
+              gps: 12.453544,77.928379
+              address:
+                name: 'My house #'
+                building: My building name
+                locality: My street name
+                city: Bengaluru
+                state: Karnataka
+                country: IND
+                area_code: '560037'
+            time:
+              range:
+                start: '2023-06-03T11:00:00.000Z'
+                end: '2023-06-03T11:30:00.000Z'
+            person:
+              name: name_of_person
+            contact:
+              phone: '9886098860'
+              email: nobody@nomail.com
+          tags:
+            - code: cancel_request
+              list:
+                - code: retry_count
+                  value: '3'
+                - code: rto_id
+                  value: F1-RTO
+                - code: reason_id
+                  value: '013'
+                - code: cancelled_by
+                  value: lsp.com
+        - id: F1-RTO
+          type: RTO
+          state:
+            descriptor:
+              code: RTO-Initiated [^4]
+          start:
+            time:
+              timestamp: '2023-06-03T11:00:30.000Z'
+          tags:
+            - code: quote_trail
+              list:
+                - code: title_type
+                  value: delivery
+                - code: id
+                  value: F1-RTO
+                - code: currency
+                  value: INR
+                - code: value
+                  value: '50.00'
+      quote:
+        price [^5]:
+          currency: INR
+          value: '125.00'
+        breakup:
+          - '@ondc/org/item_id': I1
+            '@ondc/org/item_quantity':
+              count: 0 [^6]
+            title: Atta
+            '@ondc/org/title_type': item
+            price:
+              currency: INR
+              value: '0.00'
+            item:
+              price:
+                currency: INR
+                value: '170.00'
+          - '@ondc/org/item_id': F1
+            title: Delivery charges
+            '@ondc/org/title_type': delivery
+            price:
+              currency: INR
+              value: '50.00'
+          - '@ondc/org/item_id': F1-RTO
+            title: Delivery charges
+            '@ondc/org/title_type': delivery
+            price:
+              currency: INR
+              value: '50.00'
+          - '@ondc/org/item_id': F1
+            title: Packing charges
+            '@ondc/org/title_type': packing
+            price:
+              currency: INR
+              value: '25.00'
+          - '@ondc/org/item_id': I1
+            title: Tax
+            '@ondc/org/title_type': tax
+            price:
+              currency: INR
+              value: '0.00'
+        ttl: P1D
+      payment:
+        uri: https://ondc.transaction.com/payment
+        tl_method: http/get
+        params:
+          currency: INR
+          transaction_id: '3937'
+          amount: '415.00'
+        status: PAID
+        type: ON-ORDER
+        collected_by: BAP
+        '@ondc/org/buyer_app_finder_fee_type': percent
+        '@ondc/org/buyer_app_finder_fee_amount': '3'
+        '@ondc/org/settlement_details':
+          - settlement_counterparty: seller-app
+            settlement_phase: sale-amount
+            beneficiary_name: xxxxx
+            settlement_type: upi
+            upi_address: gft@oksbi
+            settlement_bank_account_no: XXXXXXXXXX
+            settlement_ifsc_code: XXXXXXXXX
+            bank_name: xxxx
+            branch_name: xxxx
+      created_at: '2023-06-03T09:30:00.000Z'
+      updated_at: '2023-06-03T11:00:30.000Z'

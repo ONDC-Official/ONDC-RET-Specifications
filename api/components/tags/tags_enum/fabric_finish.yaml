@@ -1,0 +1,28 @@
+fabric_finish:
+  - code: satin
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: crepe
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: merserised
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: printed
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: painted
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: embroidered
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: patchwork
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: woven
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: knitted
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

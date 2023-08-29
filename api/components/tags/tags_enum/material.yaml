@@ -1,0 +1,46 @@
+material:
+  - code: cotton
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: silk
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: polyester
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: wool
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: jute
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: leather
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: pu
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: vegan leather
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: nylon
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: viscose
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: linen
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: rayon
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: modal
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: elastane
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: synthetic
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

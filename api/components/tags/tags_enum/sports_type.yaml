@@ -1,0 +1,46 @@
+sports_type:
+  - code: running
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: walking
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: basketball
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: baseball
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: football
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: soccer
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: hockey
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: lacrosse
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: rugby
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: vollyball
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: training
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: golf
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: tennis
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: cycling
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: skateboarding
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

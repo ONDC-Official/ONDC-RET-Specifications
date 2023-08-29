@@ -1,0 +1,579 @@
+summary: Return the catalog for F&B products
+description: Return the catalog for F&B products
+value:
+  context:
+    domain: ONDC:RET11
+    country: IND
+    city: std:080
+    action: on_search
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    bpp_id: sellerNP.com
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: T1
+    message_id: M1
+    timestamp: '2023-06-03T08:00:30.000Z'
+  message:
+    catalog:
+      bpp/fulfillments:
+        - id: '1'
+          type: Delivery
+        - id: '2'
+          type: Self-Pickup
+        - id: '3'
+          type: Delivery and Self-Pickup
+      bpp/descriptor [^1]:
+        name: Seller NP
+        symbol [^2]: https://sellerNP.com/images/np.png
+        short_desc: Seller Marketplace
+        long_desc: Seller Marketplace
+        images:
+          - https://sellerNP.com/images/np.png
+      bpp/providers [^3]:
+        - id: P1 [^4]
+          time:
+            label: enable [^5]
+            timestamp: '2023-06-03T07:00:00.000Z [^6]'
+          fulfillments [^7]:
+            - id: F1
+              type: Delivery
+              contact [^8]:
+                phone: '9886098860 [^9]'
+                email [^10]: abc@xyz.com
+            - id: F2
+              type: Self-Pickup
+              contact:
+                phone: '9886098860'
+                email: abc@xyz.com
+          descriptor:
+            name: Store 1
+            symbol: https://sellerNP.com/images/store1.png
+            short_desc: Store 1
+            long_desc: Store 1
+            images:
+              - https://sellerNP.com/images/store1.png
+          '@ondc/org/fssai_license_no [^11]': '12345678901234'
+          ttl: P1D [^12]
+          locations [^13]:
+            - id: L1
+              time:
+                label: enable [^14]
+                timestamp: '2023-06-03T07:30:30.000Z [^15]'
+                schedule:
+                  holidays [^16]:
+                    - '2023-08-15'
+              gps: 12.967555,77.749666
+              address:
+                locality [^17]: Jayanagar
+                street: Jayanagar 4th Block
+                city: Bengaluru
+                area_code: '560076'
+                state: KA
+          categories [^18]:
+            - id: '5 [^19]' 
+              parent_category_id: ''
+              descriptor:
+                name: Pizza
+                short_desc: Veg and Non-Veg pizza
+                long_desc: American and Italian Veg and Non-Veg Pizza
+                images:
+                  - https://sellerNP.com/ondc/m005.png
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: custom_menu [^20]
+                - code: timing [^21]
+                  list:
+                    - code: day_from
+                      value: '1 [^22]' 
+                    - code: day_to [^23]
+                      value: '5'
+                    - code: time_from [^24]
+                      value: '1800'
+                    - code: time_to [^25]
+                      value: '2200'
+                - code: display [^26]
+                  list:
+                    - code: rank
+                      value: '3'
+            - id: CG1 [^27]
+              descriptor:
+                name: Crust (any 1 option)
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: custom_group [^28]
+                - code: config [^29]
+                  list:
+                    - code: min
+                      value: '1'
+                    - code: max
+                      value: '1'
+                    - code: input
+                      value: select [^30]
+                    - code: seq
+                      value: '1'
+            - id: CG2
+              descriptor:
+                name: Size (any 1 option)
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: custom_group
+                - code: config
+                  list:
+                    - code: min
+                      value: '1'
+                    - code: max
+                      value: '1'
+                    - code: input
+                      value: select
+                    - code: seq
+                      value: '2'
+            - id: CG3
+              descriptor:
+                name: Toppings (up to 2 options)
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: custom_group
+                - code: config
+                  list:
+                    - code: min
+                      value: '0'
+                    - code: max
+                      value: '2'
+                    - code: input
+                      value: select
+                    - code: seq
+                      value: '3'
+            - id: V1
+              descriptor:
+                name: Variant Group 1
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: variant_group
+                - code: attr
+                  list:
+                    - code: name
+                      value: item.quantity.unitized.measure
+                    - code: seq
+                      value: '1'
+          items:
+            - id: I1
+              time:
+                label: enable [^31]
+                timestamp: '2023-06-03T07:30:00.000Z [^32]'
+              parent_item_id: V1
+              descriptor:
+                name: Farmhouse Pizza
+                symbol: https://sellerNP.com/images/i1.png
+                short_desc: Farmhouse Pizza
+                long_desc: Farmhouse Pizza
+                images [^33]:
+                  - https://sellerNP.com/images/i1.png
+              quantity:
+                unitized:
+                  measure:
+                    unit: unit [^34]
+                    value: '1'
+                available:
+                  count [^35]: '99'
+                maximum:
+                  count [^36]: '99'
+              price:
+                currency: INR
+                value: '269.0 [^37]' 
+                maximum_value: '269.0'
+              tags [^38]:
+                - code: range
+                  list:
+                    - code: lower
+                      value: '269.00 [^39]' 
+                    - code: upper
+                      value: '304.00 [^40]' 
+              category_id: Pizza [^41]
+              category_ids:
+                - '5:1 [^42]' 
+              fulfillment_id [^43]: F1
+              location_id [^44]: L1
+              related: false
+              recommended: true
+              '@ondc/org/returnable': false
+              '@ondc/org/cancellable': false [^45]
+              '@ondc/org/return_window': PT1H
+              '@ondc/org/seller_pickup_return [^46]': false
+              '@ondc/org/time_to_ship': PT45M
+              '@ondc/org/available_on_cod': false
+              '@ondc/org/contact_details_consumer_care [^47]': Ramesh,ramesh@abc.com,18004254444
+              tags:
+                - code: type [^48] 
+                  list:
+                    - code: type
+                      value: item [^49]
+                - code: custom_group [^50]
+                  list [^51]:
+                    - code: id
+                      value: CG1
+                    - code: id
+                      value: CG2
+                    - code: id
+                      value: CG3
+                - code: config [^52]
+                  list:
+                    - code: id
+                      value: CG1
+                    - code: min
+                      value: '1'
+                    - code: max
+                      value: '1'
+                    - code: seq
+                      value: '1'
+                - code: timing [^53]
+                  list:
+                    - code: day_from
+                      value: '1'
+                    - code: day_to
+                      value: '5'
+                    - code: time_from
+                      value: '1800'
+                    - code: time_to
+                      value: '2200'
+                - code: veg_nonveg
+                  list:
+                    - code: veg [^54]
+                      value: 'yes'
+            - id: C1
+              descriptor:
+                name: New Hand Tossed
+              quantity:
+                available:
+                  count: '99'
+                maximum:
+                  count: '99'
+              price:
+                currency: INR
+                value: '0.0'
+                maximum_value: '0.0'
+              category_id: F&B
+              related: true
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: customization [^55]
+                - code: parent [^56]
+                  list:
+                    - code: id
+                      value: CG1 [^57]
+                    - code: default [^58]
+                      value: 'yes'
+                - code: child [^59]
+                  list:
+                    - code: id
+                      value: CG2
+                - code: veg_nonveg
+                  list:
+                    - code: veg [^60]
+                      value: 'yes'
+            - id: C2
+              descriptor:
+                name: Regular
+              quantity:
+                available:
+                  count: '99'
+                maximum:
+                  count: '99'
+              price:
+                currency: INR
+                value: '0.0'
+                maximum_value: '0.0'
+              category_id: F&B
+              related: true
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: customization
+                - code: parent
+                  list:
+                    - code: id
+                      value: CG2
+                    - code: default
+                      value: 'yes'
+                - code: child
+                  list:
+                    - code: id
+                      value: CG3
+                - code: veg_nonveg
+                  list:
+                    - code: veg [^61]
+                      value: 'yes'
+            - id: C3
+              descriptor:
+                name: Grilled Mushrooms
+              quantity:
+                available:
+                  count: '99'
+                maximum:
+                  count: '99'
+              price:
+                currency: INR
+                value: '35.0'
+                maximum_value: '35.0'
+              category_id: F&B
+              related: true
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: customization
+                - code: parent [^62]
+                  list:
+                    - code: id
+                      value: CG3
+                    - code: default
+                      value: 'yes'
+                - code: veg_nonveg
+                  list:
+                    - code: veg [^63]
+                      value: 'yes'
+          offers [^64]:
+            - id: TRYNEW
+              descriptor:
+                code: Disc_Pct
+                images:
+                  - https://sellerNP.com/images/offer2-banner.png
+              location_ids:
+                - L1
+              item_ids:
+                - I1
+              time:
+                label: valid
+                range:
+                  start: '2023-06-21T16:00:00.000Z'
+                  end: '2023-06-21T23:00:00.000Z'
+              tags:
+                - code: cart
+                  list:
+                    - code: min_value
+                      value: '159'
+                - code: offer
+                  list:
+                    - code: offered_value_type
+                      value: percent
+                    - code: offered_value_amt
+                      value: '-60.00'
+                    - code: offered_value_cap
+                      value: '-120.00'
+            - id: FLAT150
+              descriptor:
+                code: Disc_Amt
+                images:
+                  - https://sellerNP.com/images/offer2-banner.png
+              location_ids:
+                - L1
+              item_ids:
+                - I1
+              time:
+                label: valid
+                range:
+                  start: '2023-06-22T16:00:00.000Z'
+                  end: '2023-06-22T23:00:00.000Z'
+              tags:
+                - code: cart
+                  list:
+                    - code: min_value
+                      value: '499.00'
+                - code: offer
+                  list:
+                    - code: offered_value_type
+                      value: amount
+                    - code: offered_value_amt
+                      value: '-150.00'
+            - id: BUY2GET3
+              descriptor:
+                code: BuyXGetY
+                images:
+                  - https://sellerNP.com/images/offer1-banner.png
+              location_ids:
+                - L1
+              item_ids:
+                - I1
+              time:
+                label: valid
+                range:
+                  start: '2023-06-23T16:00:00.000Z'
+                  end: '2023-06-23T23:00:00.000Z'
+              tags:
+                - code: cart
+                  list:
+                    - code: item_count
+                      value: '2'
+                - code: offer
+                  list:
+                    - code: item_count
+                      value: '3'
+                    - code: item_id
+                      value: sku_id_for_extra_item
+            - id: FREEBIE
+              descriptor:
+                code: Freebie
+                images:
+                  - https://sellerNP.com/images/offer3-banner.png
+              location_ids:
+                - L1
+              item_ids:
+                - I1
+              time:
+                label: valid
+                range:
+                  start: '2023-06-24T16:00:00.000Z'
+                  end: '2023-06-24T23:00:00.000Z'
+              tags:
+                - code: cart
+                  list:
+                    - code: min_value
+                      value: '598.00'
+                - code: offer
+                  list:
+                    - code: offered_value
+                      value: '0.00'
+                    - code: item_count
+                      value: '1'
+                    - code: item_id
+                      value: sku_id_for_extra_item
+                    - code: item_value
+                      value: '200.00'
+          tags:
+            - code: order_value [^65]
+              list:
+                - code: min_value [^66]
+                  value: '300.00'
+            - code: catalog_link [^67]
+              list:
+                - code: type
+                  value: inline [^68]
+                - code: type_value [^69]
+                  value: https://s3.amazon.com/xjhjsfsdfs/s-12349.zip
+                - code: type_validity [^70]
+                  value: PT24H
+                - code: last_update [^71]
+                  value: 2023-05-21T00:00:00:000Z
+            - code: timing
+              list:
+                - code: type
+                  value: Order [^72]
+                - code: location
+                  value: L1 [^73]
+                - code: day_from
+                  value: '1 [^74]' 
+                - code: day_to
+                  value: '5 [^75]' 
+                - code: time_from
+                  value: '0900 [^76]' 
+                - code: time_to
+                  value: '1100 [^77]' 
+            - code: timing [^78]
+              list:
+                - code: type
+                  value: Order
+                - code: location
+                  value: L1
+                - code: day_from
+                  value: '1'
+                - code: day_to
+                  value: '5'
+                - code: time_from
+                  value: '1300'
+                - code: time_to
+                  value: '1530'
+            - code: timing
+              list:
+                - code: type
+                  value: Order
+                - code: location
+                  value: L1
+                - code: day_from
+                  value: '1'
+                - code: day_to
+                  value: '5'
+                - code: time_from
+                  value: '1830'
+                - code: time_to
+                  value: '2130'
+            - code: timing
+              list:
+                - code: type
+                  value: Order
+                - code: location
+                  value: L1
+                - code: day_from
+                  value: '6'
+                - code: day_to
+                  value: '7'
+                - code: time_from
+                  value: '1300'
+                - code: time_to
+                  value: '1600'
+            - code: timing
+              list:
+                - code: type
+                  value: Order
+                - code: location
+                  value: L1
+                - code: day_from
+                  value: '6'
+                - code: day_to
+                  value: '7'
+                - code: time_from
+                  value: '1900'
+                - code: time_to
+                  value: '2300'
+            - code: timing
+              list:
+                - code: type
+                  value: Self-Pickup
+                - code: location
+                  value: L1
+                - code: day_from
+                  value: '1'
+                - code: day_to
+                  value: '7'
+                - code: time_from
+                  value: '1100'
+                - code: time_to
+                  value: '2000'
+            - code: timing
+              list:
+                - code: type
+                  value: Delivery
+                - code: location
+                  value: L1
+                - code: day_from
+                  value: '1'
+                - code: day_to
+                  value: '7'
+                - code: time_from
+                  value: '1100'
+                - code: time_to
+                  value: '2200'
+            - code: serviceability [^79]
+              list:
+                - code: location
+                  value: L1 [^80]
+                - code: category
+                  value: F&B
+                - code: type
+                  value: '10 [^81]' 
+                - code: val
+                  value: '3'
+                - code: unit
+                  value: km

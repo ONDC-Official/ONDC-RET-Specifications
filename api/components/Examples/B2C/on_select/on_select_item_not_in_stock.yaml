@@ -1,0 +1,68 @@
+summary: Send error
+description: Send error for item not in stock 
+value:
+  context:
+    domain: ONDC:RET10
+    action: on_select
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    bpp_id: sellerNP.com
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: T2
+    message_id: M2
+    city: std:080
+    country: IND
+    timestamp: '2023-06-03T08:30:30.000Z'
+  message:
+    order:
+      provider:
+        id: P1
+        locations:
+          - id: L1 [^1]
+      items:
+        - fulfillment_id: F1
+          id: I1
+      fulfillments:
+        - id: F1
+          type: Delivery
+          '@ondc/org/provider_name': LSP or Provider Name
+          tracking: false
+          '@ondc/org/category': Immediate Delivery
+          '@ondc/org/TAT': PT60M
+          state:
+            descriptor:
+              code: Serviceable
+      quote:
+        price:
+          currency: INR
+          value: '0'
+        breakup:
+          - '@ondc/org/item_id': I1
+            '@ondc/org/item_quantity':
+              count: 0 [^2]
+            title: Atta
+            '@ondc/org/title_type': item
+            price:
+              currency: INR
+              value: '0'
+            item:
+              quantity:
+                available:
+                  count: '0'
+                maximum:
+                  count: '0'
+              price:
+                currency: INR
+                value: '170'
+          - '@ondc/org/item_id': F1
+            title: Delivery charges
+            '@ondc/org/title_type [^3]': delivery
+            price:
+              currency: INR
+              value: '0.00'
+        ttl: P1D
+  error:
+    type: DOMAIN-ERROR
+    code: '40002'
+    message: M1 [^4]

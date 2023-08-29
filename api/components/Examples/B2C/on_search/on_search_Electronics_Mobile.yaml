@@ -1,0 +1,408 @@
+summary: Return the catalog for Electronic Mobile products
+description: Return the catalog for Electronic Mobile products
+value:
+  context:
+    domain: ONDC:RET14
+    country: IND
+    city: std:080
+    action: on_search
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    bpp_id: sellerNP.com
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: T1
+    message_id: M1
+    timestamp: "2023-06-03T08:00:30.000Z"
+  message:
+    catalog:
+      bpp/descriptor:
+        name: Seller NP
+        symbol: https://sellerNP.com/images/np.png
+        short_desc: Seller Marketplace
+        long_desc: Seller Marketplace
+        images:
+          - https://sellerNP.com/images/np.png
+      bpp/providers:
+        - id: P1
+          time:
+            label: enable
+            timestamp: "2023-06-03T08:00:30.000Z [^1]"
+          fulfillments:
+            - id: F1
+              type: Delivery
+              contact:
+                phone: "9886098860"
+                email: abc@xyz.com
+          descriptor:
+            name: Store 1
+            symbol: https://sellerNP.com/images/store1.png
+            short_desc: Store 1
+            long_desc: Store 1
+            images:
+              - https://sellerNP.com/images/store1.png
+          ttl: P1D
+          locations:
+            - id: L1
+              time:
+                label: enable [^2]
+                timestamp: "2023-06-03T07:30:30.000Z [^3]"
+                schedule:
+                  holidays:
+                    - "2023-08-15"
+              gps: 12.967555,77.749666
+              address:
+                locality: Jayanagar
+                street: Jayanagar 4th Block
+                city: Bengaluru
+                area_code: "560076"
+                state: KA
+          categories:
+            - id: CG1
+              descriptor:
+                name: Engraving
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: custom_group
+                - code: config
+                  list:
+                    - code: min
+                      value: "1"
+                    - code: max
+                      value: "1"
+                    - code: input
+                      value: text [^4]
+                    - code: seq
+                      value: "1"
+            - id: V1
+              descriptor:
+                name: Variant Group 1
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: variant_group
+                - code: attr
+                  list:
+                    - code: name
+                      value: item.tags.attribute.colour
+                    - code: seq
+                      value: "1"
+                - code: attr
+                  list:
+                    - code: name
+                      value: item.tags.attribute.size
+                    - code: seq
+                      value: "2"
+          items:
+            - id: I1
+              time:
+                label: enable [^5]
+                timestamp: "2023-06-03T07:30:00.000Z [^6]"
+              parent_item_id: V1 [^7]
+              descriptor:
+                name: Apple iPhone 14
+                code: 5:<unique_product_code> [^8]
+                symbol: https://sellerNP.com/images/i1.png
+                short_desc: Apple iPhone 14
+                long_desc: Apple iPhone 14
+                images:
+                  - https://sellerNP.com/images/i1.png
+              quantity:
+                unitized:
+                  measure:
+                    unit: unit
+                    value: "1"
+                available:
+                  count: "99"
+                maximum:
+                  count: "99"
+              price:
+                currency: INR
+                value: "67999.00"
+                maximum_value: "79990.0"
+              category_id: Mobile Phone
+              fulfillment_id: F1
+              location_id: L1
+              "@ondc/org/returnable": true
+              "@ondc/org/cancellable": true
+              "@ondc/org/return_window": P7D
+              "@ondc/org/seller_pickup_return": true
+              "@ondc/org/time_to_ship": PT3H
+              "@ondc/org/available_on_cod": false
+              "@ondc/org/contact_details_consumer_care": Ramesh,ramesh@abc.com,18004254444
+              tags:
+                - code: origin
+                  list:
+                    - code: country
+                      value: IND
+                - code: attribute [^9]
+                  list:
+                    - code: brand
+                      value: Apple iPhone
+                    - code: colour
+                      value: blue [^10]
+                    - code: size
+                      value: 128GB
+            - id: I2
+              parent_item_id: V1 [^11]
+              descriptor:
+                name: Apple iPhone 14
+                code: 5:<unique_product_code>
+                symbol: https://sellerNP.com/images/i2.png
+                short_desc: Apple iPhone 14
+                long_desc: Apple iPhone 14
+                images:
+                  - https://sellerNP.com/images/i2.png
+              quantity:
+                unitized:
+                  measure:
+                    unit: unit
+                    value: "1"
+                available:
+                  count: "99"
+                maximum:
+                  count: "99"
+              price:
+                currency: INR
+                value: "97999.00"
+                maximum_value: "109990.0"
+              category_id: Mobile Phone
+              fulfillment_id: F1
+              location_id: L1
+              "@ondc/org/returnable": true
+              "@ondc/org/cancellable": true
+              "@ondc/org/return_window": P7D
+              "@ondc/org/seller_pickup_return": true
+              "@ondc/org/time_to_ship": PT3H
+              "@ondc/org/available_on_cod": false
+              "@ondc/org/contact_details_consumer_care": Ramesh,ramesh@abc.com,18004254444
+              tags:
+                - code: origin
+                  list:
+                    - code: country
+                      value: IND
+                - code: attribute
+                  list:
+                    - code: brand
+                      value: Apple iPhone
+                    - code: colour
+                      value: blue
+                    - code: size
+                      value: 512GB
+            - id: I3
+              parent_item_id: V1 [^12]
+              descriptor:
+                name: Apple iPhone 14
+                code: 5:<unique_product_code>
+                symbol: https://sellerNP.com/images/i3.png
+                short_desc: Apple iPhone 14
+                long_desc: Apple iPhone 14
+                images:
+                  - https://sellerNP.com/images/i3.png
+              quantity:
+                unitized:
+                  measure:
+                    unit: unit
+                    value: "1"
+                available:
+                  count: "99"
+                maximum:
+                  count: "99"
+              price:
+                currency: INR
+                value: "69999.00"
+                maximum_value: "79990.0"
+              category_id: Mobile Phone
+              fulfillment_id: F1
+              location_id: L1
+              "@ondc/org/returnable": true
+              "@ondc/org/cancellable": true
+              "@ondc/org/return_window": P7D
+              "@ondc/org/seller_pickup_return": true
+              "@ondc/org/time_to_ship": PT3H
+              "@ondc/org/available_on_cod": false
+              "@ondc/org/contact_details_consumer_care": Ramesh,ramesh@abc.com,18004254444
+              tags:
+                - code: origin
+                  list:
+                    - code: country
+                      value: IND
+                - code: attribute
+                  list:
+                    - code: brand
+                      value: Apple iPhone
+                    - code: colour
+                      value: red
+                    - code: size
+                      value: 128GB
+            - id: I4
+              parent_item_id: V1 [^13]
+              descriptor:
+                name: Apple iPhone 14
+                code: 5:<unique_product_code>
+                symbol: https://sellerNP.com/images/i4.png
+                short_desc: Apple iPhone 14
+                long_desc: Apple iPhone 14
+                images:
+                  - https://sellerNP.com/images/i4.png
+              quantity:
+                unitized:
+                  measure:
+                    unit: unit
+                    value: "1"
+                available:
+                  count: "99"
+                maximum:
+                  count: "99"
+              price:
+                currency: INR
+                value: "79999.0"
+                maximum_value: "89990.0"
+              category_id: Mobile Phone
+              fulfillment_id: F1
+              location_id: L1
+              "@ondc/org/returnable": true
+              "@ondc/org/cancellable": true
+              "@ondc/org/return_window": P7D
+              "@ondc/org/seller_pickup_return": true
+              "@ondc/org/time_to_ship": PT3H
+              "@ondc/org/available_on_cod": false
+              "@ondc/org/contact_details_consumer_care": Ramesh,ramesh@abc.com,18004254444
+              tags:
+                - code: origin
+                  list:
+                    - code: country
+                      value: IND
+                - code: attribute
+                  list:
+                    - code: brand
+                      value: Apple iPhone
+                    - code: colour
+                      value: red
+                    - code: size
+                      value: 256GB
+            - id: I5
+              parent_item_id: V1 [^14]
+              descriptor:
+                name: Apple iPhone 14
+                code: 5:<unique_product_code>
+                symbol: https://sellerNP.com/images/i5.png
+                short_desc: Apple iPhone 14
+                long_desc: Apple iPhone 14
+                images:
+                  - https://sellerNP.com/images/i5.png
+              quantity:
+                unitized:
+                  measure:
+                    unit: unit
+                    value: "1"
+                available:
+                  count: "99"
+                maximum:
+                  count: "99"
+              price:
+                currency: INR
+                value: "97999.0"
+                maximum_value: "109990.0"
+              category_id: Mobile Phone
+              fulfillment_id: F1
+              location_id: L1
+              "@ondc/org/returnable": true
+              "@ondc/org/cancellable": true
+              "@ondc/org/return_window": P7D
+              "@ondc/org/seller_pickup_return": true
+              "@ondc/org/time_to_ship": PT3H
+              "@ondc/org/available_on_cod": false
+              "@ondc/org/contact_details_consumer_care": Ramesh,ramesh@abc.com,18004254444
+              tags:
+                - code: origin
+                  list:
+                    - code: country
+                      value: IND
+                - code: attribute
+                  list:
+                    - code: brand
+                      value: Apple iPhone
+                    - code: colour
+                      value: red
+                    - code: size
+                      value: 512GB
+                - code: type
+                  list:
+                    - code: type
+                      value: item
+                - code: custom_group
+                  list:
+                    - code: id
+                      value: CG1
+            - id: C1
+              descriptor:
+                name: Engraving
+              quantity:
+                unitized:
+                  measure:
+                    unit: unit
+                    value: "1"
+                available:
+                  count: "99"
+                maximum:
+                  count: "99"
+              price:
+                currency: INR
+                value: "1000.0"
+                maximum_value: "1000.0"
+              category_id: Mobile Phone
+              related: true
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: customization
+                - code: parent
+                  list:
+                    - code: id
+                      value: CG1
+          creds [^15]:
+            - id: Auth33567
+              descriptor:
+                name: Authorised Apple Dealer
+              url: https://abcd.cdn.com/images/badge-img
+              tags:
+                - code: verification
+                  list:
+                    - code: verify_url
+                      value: https://abcd.dnb.com/verify?id=’ESG-12345678'
+                    - code: valid_from
+                      value: 2023-06-03T00:00:00:000Z
+                    - code: valid_to
+                      value: 2024-06-03T23:59:59:999Z
+          tags:
+            - code: timing
+              list:
+                - code: type
+                  value: All [^16]
+                - code: location
+                  value: L1
+                - code: day_from
+                  value: "1"
+                - code: day_to
+                  value: "7"
+                - code: time_from
+                  value: "0000"
+                - code: time_to
+                  value: "2359"
+            - code: serviceability
+              list:
+                - code: location
+                  value: L1
+                - code: category
+                  value: Mobile Phone
+                - code: type
+                  value: "12"
+                - code: val
+                  value: IND
+                - code: unit
+                  value: country

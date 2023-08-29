@@ -1,0 +1,13 @@
+rice_grain_type:
+  - code: broken grain
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: long grain
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: short grain
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: medium grain
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

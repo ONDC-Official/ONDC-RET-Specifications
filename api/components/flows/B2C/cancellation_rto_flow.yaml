@@ -1,0 +1,84 @@
+summary: Retail 1.2.0 (On cancel RTO flow)
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order fashion item and seller cancels it due to any of the reason below - a) buyer does not accept the fulfillment b) buyer cannot be located for their fulfillment to be delivered c) merchant / LSP inability to deliver because of natural calamities, vehicle breakdown, etc.
+reference: if any
+steps:
+  - summary: Search for an item
+    api: search
+    description:  Buyer search for an item
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/search/search_by_item.yaml"
+    notes:
+      $ref: "../../notes/search/search_by_item.yaml"
+  - summary: Returns the item or catalog
+    api: on_search
+    description:  
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/on_search/on_search_Fashion.yaml"
+    notes:
+      $ref: "../../notes/on_search/on_search_Fashion.yaml"
+  - summary: Select the item
+    api: select
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/select/select_other_product.yaml"
+    notes:
+      $ref: "../../notes/select/select_other_product.yaml"
+  - summary: Returns item breakup when item is in stock and offer applied
+    api: on_select
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/on_select/on_select_DISCP60_applied.yaml"
+    notes:
+      $ref: "../../notes/on_select/on_select_DISCP60_applied.yaml"
+  - summary: Buyer initiate the product and send the updated fulfillment id
+    api: init
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/init/init_other_product.yaml"
+    notes:
+      $ref: "../../notes/init/init_other_product.yaml"
+  - summary: Respond to init
+    api: on_init
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/on_init/on_init_other_product.yaml"
+    notes:
+      $ref: "../../notes/on_init/on_init_other_product.yaml"
+  - summary: Buyer confirms product
+    api: confirm
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/confirm/confirm_other_product.yaml"
+    notes:
+      $ref: "../../notes/confirm/confirm_other_product.yaml"
+  - summary: Seller Accepts confirmation
+    api: on_confirm
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/on_confirm/on_confirm_other_product.yaml"
+    notes:
+      $ref: "../../notes/on_confirm/on_confirm_other_product.yaml"
+  - summary: Seller provides latest order status
+    api: on_status
+    description: Seller provides the updated status to the buyer
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/on_status/on_status_other_product_order_pickup.yaml" 
+    notes:
+      $ref: "../../notes/on_status/on_status_other_product_order_pickup.yaml" 
+  - summary: Cancellation RTO initiated as buyer is not available or rejectes the order
+    api: on_cancel (RTO flow)
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/on_cancel/on_cancel_rto.yaml"  
+    notes:
+      $ref: "../../notes/on_cancel/on_cancel_rto.yaml"                                                                         

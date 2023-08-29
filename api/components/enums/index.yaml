@@ -3,15 +3,15 @@ search:
     $ref: "./context.yaml"
   message:
     intent:
-      fulfillment: &fulfillment
+      fulfillments: &fulfillments
         type: 
           $ref: "./fulfillments.yaml#/fulfillments/type"
 on_search:
   message:
     catalog:
-      "bpp/fulfillments": *fulfillment
+      "bpp/fulfillments": *fulfillments
       "bpp/providers":
-        fulfillments: *fulfillment
+        fulfillments: *fulfillments
         items:
           quantity:
             unitized: &measure
@@ -23,41 +23,131 @@ on_search:
 select:
   context: *context
   message:
-    order: &order
-      fulfillments: *fulfillment
+    order: 
+      offers:
+          $ref: "./offers.yaml#/offers"
+      payment:
+        $ref: "./payment.yaml#/payment/type" 
 on_select:
   context: *context
   message:
-    order: *order
+    order:
+      fulfillments:
+        $ref: "./fulfillments.yaml"
+      quote:
+        breakup:
+          $ref: "./title_type.yaml#/breakup"   
 init:
   context: *context
   message:
-    order: *order
+    order:
+      fulfillments:
+        type: 
+          $ref: "./fulfillments.yaml#/fulfillments/type"  
 on_init:
   context: *context
   message:
-    order: *order
+    order:
+      fulfillment:
+        type: 
+          $ref: "./fulfillments.yaml#/fulfillments/type"
+      quote:
+        breakup:
+          $ref: "./title_type.yaml#/breakup"
+      cancellation_terms:
+        fulfillment_state:
+          $ref: "./fulfillments.yaml#/fulfillments/state"
+      payment:
+        $ref: "./payment.yaml"
 confirm:
   context: *context
   message:
-    order: *order
+    order:
+      $ref: "./order.yaml#/order"
+      fulfillment:
+        type: 
+          $ref: "./fulfillments.yaml#/fulfillments/type"
+      quote:
+        breakup:
+          $ref: "./title_type.yaml#/breakup"
+      payment:
+        $ref: "./payment.yaml"
 on_confirm:
   context: *context
   message:
-    order: *order
+    order:
+      $ref: "./order.yaml#/order"
+      fulfillments:
+        type: 
+          $ref: "./fulfillments.yaml#/fulfillments/type"
+        state:
+          $ref: "./fulfillments.yaml#/fulfillments/state"
+      quote:
+        breakup:
+          $ref: "./title_type.yaml#/breakup"
+      cancellation_terms:
+        fulfillment_state:
+          $ref: "./fulfillments.yaml#/fulfillments/state"
+      payment:
+        $ref: "./payment.yaml"
+update:
+  context: *context
+  message:
+    order:
+      payment:
+        $ref: "./payment.yaml"
+on_update:
+  context: *context
+  message:
+    order:
+      $ref: "./order.yaml#/order"
+      fulfillments:
+        state:
+          $ref: "./fulfillments.yaml#/fulfillments/state"
+        instructions:
+          $ref: "./fulfillments.yaml#/fulfillments/instructions"
+      quote:
+        breakup:
+          $ref: "./title_type.yaml#/breakup"
+      payment:
+        $ref: "./payment.yaml"
 status:
   context: *context
 on_status:
   context: *context
   message:
-    order: *order
+    order:
+      $ref: "./order.yaml#/order"
+      fulfillments:
+        state:
+          $ref: "./fulfillments.yaml#/fulfillments/state"
+        instructions:
+          $ref: "./fulfillments.yaml#/fulfillments/instructions"
+      quote:
+        breakup:
+          $ref: "./title_type.yaml#/breakup"
+      payment:
+        $ref: "./payment.yaml"
 cancel:
   context: *context
 on_cancel:
   context: *context
   message:
-    order: *order
+    order:
+      fulfillments:
+        type: 
+          $ref: "./fulfillments.yaml#/fulfillments/type"
+        state:
+          $ref: "./fulfillments.yaml#/fulfillments/state"
+      quote:
+        breakup:
+          $ref: "./title_type.yaml#/breakup"
+      payment:
+        $ref: "./payment.yaml"
 track:
   context: *context
 on_track:
   context: *context
+  message:
+    tracking:
+      $ref: "./tracking.yaml#/tracking"

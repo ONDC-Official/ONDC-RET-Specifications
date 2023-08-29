@@ -1,0 +1,591 @@
+summary: Return F&B Veg and Non Veg Pizza
+description: Return F&B Veg and Non Veg Pizza
+value:
+  context:
+    domain: ONDC:RET11
+    country: IND
+    city: std:080
+    action: on_search
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    bpp_id: sellerNP.com
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: T1
+    message_id: M1
+    timestamp: '2023-06-03T08:00:30.000Z'
+  message:
+    catalog:
+      bpp/descriptor:
+        name: Seller NP
+        symbol: https://sellerNP.com/images/np.png
+        short_desc: Seller Marketplace
+        long_desc: Seller Marketplace
+        images:
+          - https://sellerNP.com/images/np.png
+      bpp/providers:
+        - id: P1
+          time:
+            label: enable
+            timestamp: '2023-06-03T08:00:30.000Z [^1]'
+          fulfillments:
+            - id: F1
+              type: Delivery
+              contact:
+                phone: '9886098860'
+                email: abc@xyz.com
+            - id: F2
+              type: Self-Pickup
+              contact:
+                phone: '9886098860'
+                email: abc@xyz.com
+          descriptor:
+            name: Store 1
+            symbol: https://sellerNP.com/images/store1.png
+            short_desc: Store 1
+            long_desc: Store 1
+            images:
+              - https://sellerNP.com/images/store1.png
+          '@ondc/org/fssai_license_no': '12345678901234'
+          ttl: P1D
+          locations:
+            - id: L1
+              time:
+                label: enable [^2]
+                timestamp: '2023-06-03T07:30:30.000Z [^3]'
+                schedule:
+                  holidays:
+                    - '2023-08-15'
+              gps: 12.967555,77.749666
+              address:
+                locality: Jayanagar
+                street: Jayanagar 4th Block
+                city: Bengaluru
+                area_code: '560076'
+                state: KA
+          categories:
+            - id: '5'
+              parent_category_id: ''
+              descriptor:
+                name: Pizza
+                short_desc: Veg and Non-Veg pizza
+                long_desc: American and Italian Veg and Non-Veg Pizza
+                images:
+                  - https://sellerNP.com/ondc/m005.png
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: custom_menu
+                - code: timing
+                  list:
+                    - code: day_from
+                      value: '1'
+                    - code: day_to
+                      value: '5'
+                    - code: time_from
+                      value: '1800'
+                    - code: time_to
+                      value: '2200'
+                - code: display
+                  list:
+                    - code: rank
+                      value: '3'
+            - id: CG1
+              descriptor:
+                name: Choice of Crust (any 1 option)
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: custom_group
+                - code: config
+                  list:
+                    - code: min
+                      value: '1'
+                    - code: max
+                      value: '1'
+                    - code: input
+                      value: select
+                    - code: seq
+                      value: '1'
+            - id: CG2
+              descriptor:
+                name: First Veg Half (any 1 option)
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: custom_group
+                - code: config
+                  list:
+                    - code: min
+                      value: '1'
+                    - code: max
+                      value: '1'
+                    - code: input
+                      value: select
+                    - code: seq
+                      value: '2'
+            - id: CG3
+              descriptor:
+                name: Second Non-Veg Half (any 1 option)
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: custom_group
+                - code: config
+                  list:
+                    - code: min
+                      value: '1'
+                    - code: max
+                      value: '1'
+                    - code: input
+                      value: select
+                    - code: seq
+                      value: '3'
+          items:
+            - id: I1
+              time:
+                label: enable [^4]
+                timestamp: '2023-06-03T07:30:00.000Z [^5]'
+              descriptor:
+                name: Veg & Non-Veg Pizza (Combo)
+                symbol: https://sellerNP.com/images/i1.png
+                short_desc: Veg & Non-Veg Pizza (Combo)
+                long_desc: Veg & Non-Veg Pizza (Combo)
+                images:
+                  - https://sellerNP.com/images/i1.png
+              quantity:
+                unitized:
+                  measure:
+                    unit: unit
+                    value: '1'
+                available:
+                  count: '99'
+                maximum:
+                  count: '99'
+              price:
+                currency: INR
+                value: '400.0'
+                maximum_value: '400.0'
+                tags [^6]:
+                - code: range
+                  list:
+                  - code: lower
+                    value: '229.00 [7]'
+                  - code: upper
+                    value: '718.00 [^8]'
+              category_id: F&B
+              category_ids:
+                - '5:1'
+              fulfillment_id: F1
+              location_id: L1
+              related: false
+              recommended: true
+              '@ondc/org/returnable': false
+              '@ondc/org/cancellable': false
+              '@ondc/org/return_window': PT1H
+              '@ondc/org/seller_pickup_return': false
+              '@ondc/org/time_to_ship': PT45M
+              '@ondc/org/available_on_cod': false
+              '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: item
+                - code: custom_group
+                  list:
+                    - code: id
+                      value: CG1
+                    - code: id
+                      value: CG2
+                    - code: id
+                      value: CG3
+                - code: timing [^9]
+                  list:
+                    - code: day_from
+                      value: '1'
+                    - code: day_to
+                      value: '5'
+                    - code: time_from
+                      value: '1800'
+                    - code: time_to
+                      value: '2200'
+                - code: veg_nonveg
+                  list:
+                    - code: veg
+                      value: 'yes'
+            - id: C1
+              descriptor:
+                name: Pan Tossed
+              quantity:
+                unitized:
+                  measure:
+                    unit: unit
+                    value: '1'
+                available:
+                  count: '99'
+                maximum:
+                  count: '99'
+              price:
+                currency: INR
+                value: '0.0'
+                maximum_value: '0.0'
+              category_id: F&B
+              related: true
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: customization
+                - code: parent
+                  list:
+                    - code: id
+                      value: CG1
+                    - code: default
+                      value: 'yes'
+                - code: child
+                  list:
+                    - code: id
+                      value: CG2
+                    - code: id
+                      value: CG3
+                - code: veg_nonveg
+                  list:
+                    - code: veg
+                      value: 'yes'
+            - id: C2
+              descriptor:
+                name: Cheese Blast
+              quantity:
+                available:
+                  count: '99'
+                maximum:
+                  count: '99'
+              price:
+                currency: INR
+                value: '99.0'
+                maximum_value: '99.0'
+              category_id: F&B
+              related: true
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: customization
+                - code: parent
+                  list:
+                    - code: id
+                      value: CG1
+                    - code [^10]: default
+                      value: 'no'
+                - code: child
+                  list:
+                    - code: id
+                      value: CG2
+                    - code: id
+                      value: CG3
+                - code: veg_nonveg
+                  list:
+                    - code: veg
+                      value: 'yes'
+            - id: C3
+              descriptor:
+                name: Chicken Cheese Blast
+              quantity:
+                available:
+                  count: '99'
+                maximum:
+                  count: '99'
+              price:
+                currency: INR
+                value: '129.0'
+                maximum_value: '129.0'
+              category_id: F&B
+              related: true
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: customization
+                - code: parent
+                  list:
+                    - code: id
+                      value: CG1
+                    - code [^11]: default
+                      value: 'no'
+                - code: child
+                  list:
+                    - code: id
+                      value: CG2
+                    - code: id
+                      value: CG3
+                - code: veg_nonveg
+                  list:
+                    - code: non_veg
+                      value: 'yes'
+            - id: C4
+              descriptor:
+                name: Double Cheese Margherita
+              quantity:
+                available:
+                  count: '99'
+                maximum:
+                  count: '99'
+              price:
+                currency: INR
+                value: '0.0'
+                maximum_value: '0.0'
+              category_id: F&B
+              related: true
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: customization
+                - code: parent
+                  list:
+                    - code: id
+                      value: CG2
+                    - code: default
+                      value: 'yes'
+                - code: veg_nonveg
+                  list:
+                    - code: veg
+                      value: 'yes'
+            - id: C5
+              descriptor:
+                name: Paneer Tikka
+              quantity:
+                available:
+                  count: '99'
+                maximum:
+                  count: '99'
+              price:
+                currency: INR
+                value: '50.0'
+                maximum_value: '50.0'
+              category_id: F&B
+              related: true
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: customization
+                - code: parent
+                  list:
+                    - code: id
+                      value: CG2
+                    - code [^12]: default
+                      value: 'no'
+                - code: veg_nonveg
+                  list:
+                    - code: veg
+                      value: 'yes'
+            - id: C6
+              descriptor:
+                name: Farmer’s Market
+              quantity:
+                available:
+                  count: '99'
+                maximum:
+                  count: '99'
+              price:
+                currency: INR
+                value: '0.0'
+                maximum_value: '0.0'
+              category_id: F&B
+              related: true
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: customization
+                - code: parent
+                  list:
+                    - code: id
+                      value: CG2
+                    - code [^13]: default
+                      value: 'no'
+                - code: veg_nonveg
+                  list:
+                    - code: veg
+                      value: 'yes'
+            - id: C7
+              descriptor:
+                name: Spicy Mexicano
+              quantity:
+                available:
+                  count: '99'
+                maximum:
+                  count: '99'
+              price:
+                currency: INR
+                value: '50.0'
+                maximum_value: '50.0'
+              category_id: F&B
+              related: true
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: customization
+                - code: parent
+                  list:
+                    - code: id
+                      value: CG2
+                    - code [^14]: default
+                      value: 'no'
+                - code: veg_nonveg
+                  list:
+                    - code: veg
+                      value: 'yes'
+            - id: C8
+              descriptor:
+                name: Chicken Smokey Joe
+              quantity:
+                available:
+                  count: '99'
+                maximum:
+                  count: '99'
+              price:
+                currency: INR
+                value: '0.0'
+                maximum_value: '0.0'
+              category_id: F&B
+              related: true
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: customization
+                - code: parent
+                  list:
+                    - code: id
+                      value: CG3
+                    - code: default
+                      value: 'yes'
+                - code: veg_nonveg
+                  list:
+                    - code: non_veg
+                      value: 'yes'
+            - id: C9
+              descriptor:
+                name: Peri Peri Chicken
+              quantity:
+                available:
+                  count: '99'
+                maximum:
+                  count: '99'
+              price:
+                currency: INR
+                value: '40.0'
+                maximum_value: '40.0'
+              category_id: F&B
+              related: true
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: customization
+                - code: parent
+                  list:
+                    - code: id
+                      value: CG3
+                    - code [^15]: default
+                      value: 'no'
+                - code: veg_nonveg
+                  list:
+                    - code: non_veg
+                      value: 'yes'
+            - id: C10
+              descriptor:
+                name: BBQ Chicken
+              quantity:
+                available:
+                  count: '99'
+                maximum:
+                  count: '99'
+              price:
+                currency: INR
+                value: '40.0'
+                maximum_value: '40.0'
+              category_id: F&B
+              related: true
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: customization
+                - code: parent
+                  list:
+                    - code: id
+                      value: CG3
+                    - code [^16]: default
+                      value: 'no'
+                - code: veg_nonveg
+                  list:
+                    - code: non_veg
+                      value: 'yes'
+          tags:
+            - code: order_value
+              list:
+                - code: min_value
+                  value: '300.00'
+            - code: timing
+              list:
+                - code: type
+                  value: Order
+                - code: location
+                  value: L1
+                - code: day_from
+                  value: '1'
+                - code: day_to
+                  value: '7'
+                - code: time_from
+                  value: '1000'
+                - code: time_to
+                  value: '2200'
+            - code: timing
+              list:
+                - code: type
+                  value: Self-Pickup
+                - code: location
+                  value: L1
+                - code: day_from
+                  value: '1'
+                - code: day_to
+                  value: '7'
+                - code: time_from
+                  value: '1000'
+                - code: time_to
+                  value: '2200'
+            - code: timing
+              list:
+                - code: type
+                  value: Delivery
+                - code: location
+                  value: L1
+                - code: day_from
+                  value: '1'
+                - code: day_to
+                  value: '7'
+                - code: time_from
+                  value: '1000'
+                - code: time_to
+                  value: '2200'
+            - code: serviceability
+              list:
+                - code: location
+                  value: L1
+                - code: category
+                  value: F&B
+                - code: type
+                  value: '10'
+                - code: val
+                  value: '3'
+                - code: unit
+                  value: km

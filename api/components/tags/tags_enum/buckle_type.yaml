@@ -1,0 +1,22 @@
+buckle_type:
+  - code: cam
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: ratchet
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: roller
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: side release
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: slide
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: snap
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: tie
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

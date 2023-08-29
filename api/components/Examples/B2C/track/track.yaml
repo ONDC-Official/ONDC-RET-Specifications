@@ -1,0 +1,19 @@
+summary: Track GPS Coordinates
+description: Track GPS Coordinates for the rider
+value:
+  context:
+    domain: ONDC:RET11 [^1]
+    action: track
+    country: IND
+    city: std:080
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    bpp_id: sellerNP.com
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: T2
+    message_id: M11
+    timestamp: '2023-06-04T06:00:00.000Z'
+    ttl: PT30S
+  message:
+    order_id: O1

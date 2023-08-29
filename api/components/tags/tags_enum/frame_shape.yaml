@@ -1,0 +1,22 @@
+frame_shape:
+  - code: rectangular
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: square
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: round
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: cat eye
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: geometric
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: aviator
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: wayfarer
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

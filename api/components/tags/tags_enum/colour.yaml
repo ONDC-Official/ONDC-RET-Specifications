@@ -1,0 +1,79 @@
+colour:
+  - code: black
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: grey
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: white
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: off-white
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: transparent
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: blue
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: red
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: green
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: yellow
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: brown
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: pink
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: orange
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: turquoise
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: gold
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: purple
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: beige
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: silver
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: multicoloured
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: active black
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: fixed/alpha
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: active black
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: coral
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: maroon
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: lavender
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: clear
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: bronze
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

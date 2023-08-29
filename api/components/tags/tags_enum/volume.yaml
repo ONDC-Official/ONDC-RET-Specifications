@@ -1,0 +1,13 @@
+volume:
+  - code: numeric
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: up to 23 lt
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 24 - 30 lt
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 31 lt and more
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

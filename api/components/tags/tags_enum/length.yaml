@@ -1,0 +1,10 @@
+length:
+  - code: long
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: short
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: 3/4th
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

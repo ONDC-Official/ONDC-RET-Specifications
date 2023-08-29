@@ -1,0 +1,19 @@
+plating:
+  - code: brass
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: copper
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: gold
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: rose gold
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: rhodium
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: silver
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

@@ -1,0 +1,116 @@
+summary: Retail 1.2.0 (Delivered customized product)
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order customized item and it is delivered successfully
+reference: if any
+steps:
+  - summary: Search for an item
+    api: search
+    description:  Search for an item
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/search/search_by_item.yaml"
+    notes:
+      $ref: "../../notes/search/search_by_item.yaml"
+  - summary: Returns the item or catalog
+    api: on_search
+    description:  
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/on_search/on_search_F&B_Pizza.yaml"
+    notes:
+      $ref: "../../notes/on_search/on_search_F&B_Pizza.yaml"   
+  - summary: Select the item
+    api: select
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/select/select_make_to_order_product.yaml"
+    notes:
+      $ref: "../../notes/select/select_make_to_order_product.yaml"  
+  - summary: Returns item breakup for a product with customization
+    api: on_select
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/on_select/on_select_product_with_customization.yaml"
+    notes:
+      $ref: "../../notes/on_select/on_select_product_with_customization.yaml"    
+  - summary: Buyer initiate the product and send the updated fulfillment id
+    api: init
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/init/init_make_to_order_product.yaml"
+    notes:
+      $ref: "../../notes/init/init_make_to_order_product.yaml"    
+  - summary: Respond to init
+    api: on_init
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/on_init/on_init_make_to_order_product.yaml"
+    notes:
+      $ref: "../../notes/on_init/on_init_make_to_order_product.yaml" 
+  - summary: Buyer confirms product
+    api: confirm
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/confirm/confirm_make_to_order.yaml"
+    notes:
+      $ref: "../../notes/confirm/confirm_make_to_order.yaml"   
+  - summary: Seller Accepts confirmation
+    api: on_confirm
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/on_confirm/on_confirm_make_to_order_product.yaml"  
+    notes:
+      $ref: "../../notes/on_confirm/on_confirm_make_to_order_product.yaml"                                                     
+  - summary: Buyer platform requests for latest status
+    api: status
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/status/status.yaml"   
+    notes:
+      $ref: "../../notes/status/status.yaml"                           
+  - summary: Seller provides latest order status
+    api: on_status
+    description: Seller provides the updated status to the buyer
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/on_status/on_status_other_product_order_pickup.yaml" 
+    notes:
+      $ref: "../../notes/on_status/on_status_other_product_order_pickup.yaml" 
+  - summary: Seller provides latest order status
+    api: on_status
+    description: Seller provides the updated status to the buyer
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/on_status/on_status_other_product_out_for_delivery.yaml" 
+    notes:
+      $ref: "../../notes/on_status/on_status_other_product_out_for_delivery.yaml" 
+  - summary: To know real time coordinates for the rider
+    api: track
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/track/track.yaml"    
+    notes:
+      $ref: "../../notes/track/track.yaml"                           
+  - summary: Get the information about rider
+    api: on_track
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/on_track/on_track.yaml"  
+    notes:
+      $ref: "../../notes/on_track/on_track.yaml"       
+  - summary: Seller provides latest order status
+    api: on_status
+    description: Seller provides the updated status to the buyer
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/on_status/on_status_make_to_order_product_order_delivered.yaml" 
+    notes:
+      $ref: "../../notes/on_status/on_status_make_to_order_product_order_delivered.yaml"

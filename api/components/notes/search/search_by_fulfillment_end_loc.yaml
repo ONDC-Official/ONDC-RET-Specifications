@@ -1,0 +1,4 @@
+value:  
+  [^1]: updated domains defined - https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
+  [^2]: optional, when not specified, all fulfillment types supported by provider should be returned in response
+  [^3]: minimum 6 digit decimal precision for gps coordinates

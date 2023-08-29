@@ -1,0 +1,13 @@
+padding:
+  - code: lightly padded
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: heavily padded
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: non padded
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: removable padding
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

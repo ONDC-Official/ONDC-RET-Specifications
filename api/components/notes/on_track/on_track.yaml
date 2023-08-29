@@ -1,0 +1,7 @@
+value:
+  [^1]: matches the fulfillment id for which tracking is enabled. In case multiple fulfillments have tracking enabled, the id should match the fulfillment for which rider has been assigned and for multiple fulfillments, separate /on_track response can be sent with the same transaction_id and corresponding fulfillment id
+  [^2]: gps coordinates of rider
+  [^3]: time for which gps coordinates sent
+  [^4]: time when gps coordinates updated
+  [^5]: enum - "active", "inactive"; if inactive, "location" will be empty. If tracking is enabled, status should become "active" when rider is assigned
+  [^6]: optional - path as a sequence of gps lat/lng coordinates

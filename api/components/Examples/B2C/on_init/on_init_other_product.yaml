@@ -1,0 +1,198 @@
+summary: Respond to init call for other products
+description: Respond to init call for other products
+value:
+  context:
+    domain: ONDC:RET10
+    action: on_init
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    bpp_id: sellerNP.com
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: T2
+    message_id: M3
+    city: std:080
+    country: IND
+    timestamp: '2023-06-03T09:00:30.000Z'
+  message:
+    order:
+      provider:
+        id: P1
+        locations:
+          - id: L1 [^1]
+      items:
+        - id: I1
+          fulfillment_id: F1
+          quantity:
+            count: 2
+      billing [^2]:
+        name: ONDC buyer
+        address:
+          name: 'My house #'
+          building: My building name
+          locality: My street name
+          city: Bengaluru
+          state: Karnataka
+          country: IND
+          area_code: '560037'
+        tax_number [^3]: XXXXXXXXXXXXXXX
+        email [^4]: nobody@nomail.com
+        phone: '9886098860'
+        created_at [^5]: '2023-06-03T09:00:00.000Z'
+        updated_at [^6]: '2023-06-03T09:00:00.000Z'
+      fulfillments:
+        - id: F1
+          type: Delivery
+          tracking: false
+          end:
+            location:
+              gps: 12.453544,77.928379
+              address:
+                name: 'My house #'
+                building: My building name
+                locality: My street name
+                city: Bengaluru
+                state: Karnataka
+                country: IND
+                area_code: '560037'
+            contact:
+              phone: '9886098860'
+      quote:
+        price:
+          currency: INR
+          value: '415.00'
+        breakup:
+          - '@ondc/org/item_id': I1
+            '@ondc/org/item_quantity':
+              count: 2
+            title: Atta
+            '@ondc/org/title_type': item
+            price:
+              currency: INR
+              value: '340.00'
+            item:
+              price:
+                currency: INR
+                value: '170.00'
+          - '@ondc/org/item_id': F1
+            title: Delivery charges
+            '@ondc/org/title_type': delivery
+            price:
+              currency: INR
+              value: '50.00'
+          - '@ondc/org/item_id': F1
+            title: Packing charges
+            '@ondc/org/title_type': packing
+            price:
+              currency: INR
+              value: '25.00'
+          - '@ondc/org/item_id': I1
+            title: Tax
+            '@ondc/org/title_type': tax
+            price:
+              currency: INR
+              value: '0.00'
+          - '@ondc/org/item_id': I1
+            title: Discount
+            '@ondc/org/title_type': discount
+            price:
+              currency: INR
+              value: '-10.00'
+          - '@ondc/org/item_id': F1
+            title: Convenience Fee
+            '@ondc/org/title_type': misc
+            price:
+              currency: INR
+              value: '10.00'
+        ttl: P1D
+      payment [^7]:
+        type: ON-ORDER
+        collected_by: BPP
+        uri: https://snp.com/pg
+        status: NOT-PAID [^8]
+        '@ondc/org/buyer_app_finder_fee_type': percent
+        '@ondc/org/buyer_app_finder_fee_amount': '3'
+        '@ondc/org/settlement_basis': delivery [^9]
+        '@ondc/org/settlement_window': P1D [^10]
+        '@ondc/org/withholding_amount': '10.00 [^11]'
+        '@ondc/org/settlement_details [^12]':
+          - settlement_counterparty: seller-app
+            settlement_phase: sale-amount
+            settlement_type: upi [^13]
+            beneficiary_name: xxxxx
+            upi_address: gft@oksbi
+            settlement_bank_account_no: XXXXXXXXXX
+            settlement_ifsc_code: XXXXXXXXX
+            bank_name: xxxx
+            branch_name: xxxx
+      cancellation_terms:
+        - fulfillment_state:
+            descriptor:
+              code: Pending [^14]
+              short_desc [^15]: ''
+          refund_eligible [^16]: true
+          reason_required [^17]: false
+          cancellation_fee [^18]:
+            percentage: '0.00'
+            amount:
+              currency: INR
+              value: '0.00'
+        - fulfillment_state:
+            descriptor:
+              code: Packed
+              short_desc: 001,003
+          refund_eligible: true [^19]
+          reason_required: true
+          cancellation_fee [^20]:
+            percentage: '10.00'
+            amount:
+              currency: INR
+              value: '50.00'
+        - fulfillment_state:
+            descriptor:
+              code: Order-picked-up
+              short_desc: 001,003
+          refund_eligible: true
+          reason_required: true
+          cancellation_fee:
+            percentage: '10.00'
+            amount:
+              currency: INR
+              value: '50.00'
+        - fulfillment_state:
+            descriptor:
+              code: Out-for-delivery
+              short_desc: '009'
+          refund_eligible: true
+          reason_required: true
+          cancellation_fee [^21]:
+            percentage: '0.00'
+            amount:
+              currency: INR
+              value: '0.00'
+        - fulfillment_state:
+            descriptor:
+              code: Out-for-delivery
+              short_desc: 010,011,012,013,014,015 [^22]
+          refund_eligible: true
+          reason_required: true
+          cancellation_fee [^23]:
+            percentage: '20.00'
+            amount:
+              currency: INR
+              value: '100.00'
+      tags:
+        - code: bpp_terms [^24]
+          list:
+            - code: max_liability
+              value: '2'
+            - code: max_liability_cap
+              value: '10000.00'
+            - code: mandatory_arbitration
+              value: 'false'
+            - code: court_jurisdiction
+              value: Bengaluru
+            - code: delay_interest
+              value: '1000.00'
+            - code: tax_number [^25]
+              value: gst_number_of_sellerNP

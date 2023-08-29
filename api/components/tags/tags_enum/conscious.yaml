@@ -1,0 +1,10 @@
+conscious:
+  - code: cruelty_free
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: vegan
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: natural
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

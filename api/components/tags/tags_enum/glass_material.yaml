@@ -1,0 +1,28 @@
+glass_material:
+  - code: crystals
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: peals
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: diamonds
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: american diamonds
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: aquamarine
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: quartz
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: zirconia
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: garnet
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: sapphire
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

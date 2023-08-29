@@ -1,0 +1,109 @@
+concern:
+  - code: acne_blemishes
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: anti_ageing
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: anti_pollution
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: bad_breath
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: blackheads_whiteheads
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: brightening
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: cavities
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: chapped_lips
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: cleansing
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: colour_protection
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: cuticle_care
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: dandruff
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: dark_spots_pigmentation
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: dry_frizzy_hair
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: dryness
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: dullness
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: fine_lines_wrinkles
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: firming
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: hairfall_thinning
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: heat_protection
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: hydration
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: menstrual_cycle
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: odour
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: oil_control
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: plaque
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: pores
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: product_build_up
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: soap_free
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: split_ends
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: stretch_marks
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: sun_protection
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: tan_removal
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: tangled_hair
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: under_eye
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: uneven_skin_tone
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: waterproof
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

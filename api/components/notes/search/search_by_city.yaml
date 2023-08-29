@@ -1,0 +1,11 @@
+value:
+  [^1]: updated domain namespace defined here - https://docs.google.com/document/d/brvcltG_DagZ3kGrZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
+  [^2]: city code for search that identifies the cities where sellers have stores. List of city codes, with pincode mapping, are here - https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=1474472733
+  [^3]: subscriber id for buyer app
+  [^4]: subscriber URI for buyer app
+  [^5]: RFC3339 compliant timestamp
+  [^6]: validity of message
+  [^7]: optional
+  [^8]: category id will be from this list - https://docs.google.com/spreadsheets/d/APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+  [^9]: optional, when not specified, all fulfillment types supported by provider should be returned in response
+  [^10]: buyer NP finder fee calculations are detailed - https://docs.google.com/document/d/iqLdayk488ekEzKrEs-yn6gVrevbxBkILBe5j4oIxMY/edit

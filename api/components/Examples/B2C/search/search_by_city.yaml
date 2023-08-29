@@ -1,0 +1,24 @@
+summary: search_by_city
+description: search request for all sellers in the city identified in Context
+value:
+  context:
+    domain: ONDC:RET10 [^1]
+    action: search
+    country: IND
+    city: std:080 [^2]
+    core_version: 1.2.0
+    bap_id [^3]: buyerNP.com
+    bap_uri [^4]: https://buyerNP.com/ondc
+    transaction_id: T1
+    message_id: M1
+    timestamp [^5]: '2023-06-03T08:00:00.000Z'
+    ttl [^6]: PT30S
+  message:
+    intent:
+      category [^7]:
+        id: Foodgrains [^8]
+      fulfillment [^9]:
+        type: Delivery
+      payment:
+        '@ondc/org/buyer_app_finder_fee_type': percent
+        '@ondc/org/buyer_app_finder_fee_amount [^10]': '3'

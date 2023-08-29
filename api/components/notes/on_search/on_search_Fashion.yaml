@@ -1,0 +1,42 @@
+value:
+  [^1]: timestamp when the snapshot for this provider (including provider details, items) was generated, must be <= Context.timestamp. Buyer NPs can use this to determine from when to start incremental refresh
+  [^2]: enum - "enable" (default), "disable" (soft delete of provider location, i.e. warehouse or store, from buyer NP cache - in this case, serviceability for the store should not be a part of the catalog), "close" (temporary closure of store with the same format for time.range as specified, for incremental refresh, here - https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.ar4y0zvk65s4 only if this event is available at the time of generating the full catalog snapshot)
+  [^3]: timestamp when the snapshot for location was generated, must be <= Context.timestamp
+  [^4]: enum - "enable", "disable"
+  [^5]: timestamp for item event
+  [^6]: if variant grouping defined for provider above, this matches id for variant_group definition; if not defined or id is invalid, buyer NPs may choose to display as normal SKU item
+  [^7]: optional; network-wide unique code for item which will be in this format - "type:code" where type is 1 - EAN, 2 - ISBN, 3 - GTIN, 4 - HSN, 5 - UPC, 6 - others
+  [^8]: list of fashion categories is https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=623321892
+  [^9]: mapping of category to attribute key is defined https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+  [^10]: date first available
+  [^11]: item attributes - populating with valid values will enable better discoverability on buyer NPs
+  [^12]: suggestive enum is https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/fashion/RET12-colour.json
+  [^13]: suggestive enum is https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/fashion/RET12-colour.json
+  [^14]: suggestive enum is https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/fashion/RET12-colour.json
+  [^15]: suggestive enum is https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/fashion/RET12-colour.json
+  [^16]: suggestive enum is https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/fashion/RET12-colour.json
+  [^17]: suggestive enum is https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/fashion/RET12-colour.json
+  [^18]: suggestive enum is https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/fashion/RET12-colour.json
+  [^19]: suggestive enum is https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/fashion/RET12-colour.json
+  [^20]: suggestive enum is https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/fashion/RET12-colour.json
+  [^21]: suggestive enum is https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/fashion/RET12-colour.json
+  [^22]: if variant grouping defined for provider above, this matches id for variant_group definition; if not defined or id is invalid, buyer NPs may choose to display as normal SKU item
+  [^23]: mapping of category to attribute key is defined https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+  [^24]: date first available
+  [^25]: if variant grouping defined for provider above, this matches id for variant_group definition; if not defined or id is invalid, buyer NPs may choose to display as normal SKU item
+  [^26]: mapping of category to attribute key is defined https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+  [^27]: date first available
+  [^28]: if variant grouping defined for provider above, this matches id for variant_group definition; if not defined or id is invalid, buyer NPs may choose to display as normal SKU item
+  [^29]: mapping of category to attribute key is defined https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+  [^30]: date first available
+  [^31]: if variant grouping defined for provider above, this matches id for variant_group definition; if not defined or id is invalid, buyer NPs may choose to display as normal SKU item
+  [^32]: mapping of category to attribute key is defined https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+  [^33]: date first available
+  [^34]: if variant grouping defined for provider above, this matches id for variant_group definition; if not defined or id is invalid, buyer NPs may choose to display as normal SKU item
+  [^35]: mapping of category to attribute key is defined https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+  [^36]: date first available
+  [^37]: if variant grouping defined for provider above, this matches id for variant_group definition; if not defined or id is invalid, buyer NPs may choose to display as normal SKU item
+  [^38]: mapping of category to attribute key is defined https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+  [^39]: date first available
+  [^40]: optional
+  [^41]: means same timings for online order processing, shipment, self-pickup (as applicable)

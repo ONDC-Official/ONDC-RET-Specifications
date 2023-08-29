@@ -1,0 +1,45 @@
+summary: Respond to track call
+description: Respond to track call
+value:
+  context:
+    domain: ONDC:RET11
+    action: on_track
+    country: IND
+    city: std:080
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    bpp_id: sellerNP.com
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: T2
+    message_id: M11
+    timestamp: '2023-06-04T06:00:00.000Z'
+    ttl: PT30S
+  message:
+    tracking:
+      id: F1 [^1]
+      location:
+        gps [^2]: 12.974002,77.613458
+        time:
+          timestamp [^3]: '2023-06-02T06:30:00.000Z'
+        updated_at [^4]: '2023-06-02T06:20:00.000Z'
+      status [^5]: active
+      tags [^6]:
+        - code: path
+          list:
+            - code: lat_lng
+              value: 12.974002,77.613458
+            - code: sequence
+              value: '1'
+        - code: path
+          list:
+            - code: lat_lng
+              value: 12.974077,77.613600
+            - code: sequence
+              value: '2'
+        - code: path
+          list:
+            - code: lat_lng
+              value: 12.974098,77.613699
+            - code: sequence
+              value: '3'

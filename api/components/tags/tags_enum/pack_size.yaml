@@ -1,0 +1,7 @@
+pack_size:
+  - code: single
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: pack
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

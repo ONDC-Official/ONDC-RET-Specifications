@@ -1,0 +1,30 @@
+summary: Settlement trail return with liquidation updated by buyer
+description: Settlement trail return with liquidation updated by buyer
+value:
+  context:
+    domain: ONDC:RET10
+    action: update
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    bpp_id: sellerNP.com
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: T2
+    message_id: M8
+    city: std:080
+    country: IND
+    timestamp: '2023-06-03T13:30:00.000Z'
+  message:
+    update_target: payment
+    order:
+      id: O1
+      fulfillments:
+        - id: R1
+          type: Return
+      payment:
+        '@ondc/org/settlement_details':
+          - settlement_counterparty: buyer
+            settlement_phase: refund
+            settlement_type: upi
+            settlement_amount: '170.00'
+            settlement_timestamp: '2023-06-03T13:30:00.000Z'

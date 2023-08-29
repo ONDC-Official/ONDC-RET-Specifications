@@ -10,12 +10,24 @@ on_search:
 select: &ref0
   message:
     order:
-      $ref: "./tag-group.yaml#/order"
+      $ref: "./tag-group.yaml#/order/items"
 on_select: *ref0
-on_init: *ref0
+init: *ref0
+on_init: &ref0
+  message:
+    order:
+      $ref: "./tag-group.yaml#/order"
 confirm: *ref0
 on_confirm: *ref0
 update: *ref0
 on_update: *ref0
 on_cancel: *ref0
+on_track:
+  message:
+    tracking:
+      $ref: "./tag-group.yaml#/tracking"
+on_status:
+  message:
+    order:
+      $ref: "./tag-group.yaml#/order/quote"
 

@@ -1,0 +1,2 @@
+value:
+  [^1]: start_time < Context.timestamp, end_time <= Context.timestamp, end_time > start_time

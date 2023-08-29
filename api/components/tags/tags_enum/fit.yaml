@@ -1,0 +1,19 @@
+fit:
+  - code: regular
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: slim
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: ultra slim
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: smart
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: loose
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: relax
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

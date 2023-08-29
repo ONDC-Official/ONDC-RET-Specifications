@@ -1,0 +1,40 @@
+sole_material:
+  - code: crosslite
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: eva
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: rubber
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: synthetic
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: tpr
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: leather
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: neolite
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: tpu
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: tunit
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: pu
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: pvc
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: phylon
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: resin
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

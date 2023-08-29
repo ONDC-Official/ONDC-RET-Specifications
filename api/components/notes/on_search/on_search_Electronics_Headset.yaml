@@ -1,0 +1,8 @@
+value:
+  [^1]: timestamp when the snapshot for this provider (including provider details, items) was generated, must be <= Context.timestamp. Buyer NPs can use this to determine from when to start incremental refresh
+  [^2]: enum - "enable" (default), "disable" (soft delete of provider location, i.e. warehouse or store, from buyer NP cache - in this case, serviceability for the store should not be a part of the catalog), "close" (temporary closure of store with the same format for time.range as specified, for incremental refresh, here - https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.ar4y0zvk65s4 only if this event is available at the time of generating the full catalog snapshot)
+  [^3]: timestamp when the snapshot for location was generated, must be <= Context.timestamp
+  [^4]: enum - "enable", "disable"
+  [^5]: timestamp for item event
+  [^6]: optional
+  [^7]: means same timings for online order processing, shipment, self-pickup (as applicable)

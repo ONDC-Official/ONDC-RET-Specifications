@@ -1,0 +1,19 @@
+summary: Buyer asks for order status
+description: Buyer asks for order status
+value:
+  context:
+    domain: ONDC:RET10
+    action: status
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    bpp_id: sellerNP.com
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id [^1]: T2
+    message_id: M12
+    city: std:080
+    country: IND
+    timestamp: '2023-06-04T10:00:00.000Z'
+    ttl: PT30S
+  message:
+    order_id: O1

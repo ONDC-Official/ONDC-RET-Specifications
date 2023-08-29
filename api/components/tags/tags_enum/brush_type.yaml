@@ -1,0 +1,43 @@
+brush_type:
+  - code: foundation brush
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: stippling brush
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: concealer brush
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: powder brush
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: blush brush
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: contour brush
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: bronzer brush
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: highlight brush
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: eyeshadow brush
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: eyeshadow crease brush
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: eyeshadow blending brush
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: eye liner brush
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: mascara brush/wand
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: lip brush
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

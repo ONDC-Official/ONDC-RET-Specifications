@@ -1,0 +1,16 @@
+gender:
+  - code: unisex
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: male
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: female
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: boy
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: girl
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

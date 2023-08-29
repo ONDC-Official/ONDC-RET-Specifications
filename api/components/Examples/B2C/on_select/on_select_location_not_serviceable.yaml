@@ -1,0 +1,61 @@
+summary: Send error
+description: Send error for location not serviceable
+value:
+  context:
+    domain: ONDC:RET10
+    action: on_select
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    bpp_id: sellerNP.com
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: T2
+    message_id: M2
+    city: std:080
+    country: IND
+    timestamp: '2023-06-03T08:30:30.000Z'
+  message:
+    order:
+      provider:
+        id: P1
+        locations:
+          - id: L1 [^1]
+      items:
+        - fulfillment_id: F1
+          id: I1
+      fulfillments:
+        - id: F1
+          type: Delivery
+          '@ondc/org/provider_name': LSP or Provider Name
+          tracking: false
+          '@ondc/org/category': ''
+          '@ondc/org/TAT': ''
+          state:
+            descriptor:
+              code: Non-serviceable
+      quote:
+        price:
+          currency: INR
+          value: '170.00'
+        breakup:
+          - '@ondc/org/item_id': I1
+            '@ondc/org/item_quantity':
+              count: 1
+            title: Atta
+            '@ondc/org/title_type': item
+            price:
+              currency: INR
+              value: '170.00'
+            item:
+              quantity:
+                available:
+                  count: '99'
+                maximum:
+                  count: '99'
+              price:
+                currency: INR
+                value: '170.00'
+        ttl: P1D
+  error:
+    type: DOMAIN-ERROR
+    code: '30009 [^2]'

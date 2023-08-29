@@ -1,0 +1,26 @@
+value:
+  [^1]: may be the same location as selected by the buyer or a different location
+  [^2]: billing object timestamps (created_at, updated_at) have to be the same as in /init
+  [^3]: optional, same as provided in /init
+  [^4]: optional
+  [^5]: same as in /init
+  [^6]: same as in /init
+  [^7]: if seller NP is collecting pre-paid payment (for categories like electronics), they may provide the following - type, collected_by, uri (payment link), status, settlement_basis, settlement_window, withholding_amount
+  [^8]: enum - "PAID", "NOT-PAID"
+  [^9]: indicates from when settlement window starts, enum - "delivery" (from delivery), "shipment" (from shipment), "return_window_expiry" (from expiry of return window)
+  [^10]: settlement window, as per settlement basis, in ISO8601 Duration format
+  [^11]: withholding amount as % of total order value (valid values between "0.00" and "100.00")
+  [^12]: optional (may be provided by seller NP if they are not collecting payment or not CoD payment)
+  [^13]: enum - "upi", "neft", "rtgs"; for "upi", upi_address needs to be entered & for the other settlement_type, ("settlement_bank_account_no", "settlement_ifsc_code", "bank_name", "branch_name") should be entered
+  [^14]: fulfillment state
+  [^15]: reason code (list https://docs.google.com/document/d/1M-lZSduYMFKIk1V6d8QLt-j-16-rVzYVdPn0pmbkclk/edit#heading=h.lq5jsehzritb), mandatory if reason_required is "true"
+  [^16]: whether cancellation in this state is eligible for refund
+  [^17]: whether cancellation reason code is required
+  [^18]: cancellation fee, if any, for this state & reason code - either percentage (of order value, in the above format between "0.00" and "100.00") or amount needs to be provided (if both provided, minimum should be considered by buyer NP); seller NP can calculate based on what needs to be deducted e.g. packaging charges / convenience fee / product cost, etc
+  [^19]: could be false for make-to-order items (F&B)
+  [^20]: cancellation fee, if any of this state & reason code could include packing charge - either percentage (of order value) or amount needs to be provided (if both provided, minimum should be considered by buyer NP)
+  [^21]: in case of RTO where buyer is responsible, the forward & reverse shipment costs could be deducted as cancellation fees
+  [^22]: list of reason codes delimited by "," (above shows RTO reason codes where buyer is not available)
+  [^23]: in case of RTO where buyer is responsible, the forward & reverse shipment costs could be deducted as cancellation fees
+  [^24]: buyer NP has to accept bpp terms in /confirm. If buyer NP doesn’t accept these terms, they should NACK /on_init with error code 27501
+  [^25]: GST no for ISN/MSN for TDS/TCS deduction / input credit, KYC verification. For MSN/ISN with stores located in multiple states, the GST no for HQ for the provider legal entity should be provided

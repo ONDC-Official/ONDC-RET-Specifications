@@ -1,0 +1,100 @@
+search:
+  examples:
+    - $ref: ./search/search_by_city.yaml
+    - $ref: ./search/search_by_item.yaml
+    - $ref: ./search/search_by_fulfillment_end_loc.yaml
+    - $ref: ./search/incremental_catalog_refresh_one_time_push.yaml
+    - $ref: ./search/incremental_catalog_refresh_regular_push.yaml
+    - $ref: ./search/stop_incremental_refresh.yaml
+select:
+  examples:
+    - $ref: ./select/select_make_to_order_product.yaml
+    - $ref: ./select/select_other_product.yaml
+init:
+  examples:
+    - $ref: ./init/init_make_to_order_product.yaml
+    - $ref: ./init/init_other_product.yaml
+confirm:
+  examples:
+    - $ref: ./confirm/confirm_make_to_order.yaml
+    - $ref: ./confirm/confirm_other_product.yaml
+update:
+  examples:
+    - $ref: ./update/update_buyer_initiated_return_with_liquidation.yaml
+    - $ref: ./update/update_buyer_initiated_return_with_reverse_qc_request.yaml
+    - $ref: ./update/update_settlement_trail_cancel_by_merchant.yaml
+    - $ref: ./update/update_settlement_trail_return_with_liquidation.yaml
+    - $ref: ./update/update_settlement_trail_return_with_reverse_qc_request.yaml
+cancel:
+  examples:
+    - $ref: ./cancel/cancel.yaml
+track:
+  examples:
+    - $ref: ./track/track.yaml
+status:
+  examples:
+    - $ref: ./status/status.yaml
+on_search:
+  examples:
+    - $ref: ./on_search/on_search_F&B.yaml
+    - $ref: ./on_search/on_search_F&B_Sandwich.yaml
+    - $ref: ./on_search/on_search_F&B_Pizza.yaml
+    - $ref: ./on_search/on_search_F&B_Veg_NonVeg_Pizza.yaml
+    - $ref: ./on_search/on_search_Fashion.yaml
+    - $ref: ./on_search/on_search_Grocery.yaml
+    - $ref: ./on_search/on_search_BPC.yaml
+    - $ref: ./on_search/on_search_Electronics_Desktop.yaml
+    - $ref: ./on_search/on_search_Electronics_Headset.yaml
+    - $ref: ./on_search/on_search_Electronics_Keyboard.yaml
+    - $ref: ./on_search/on_search_Electronics_Laptop.yaml
+    - $ref: ./on_search/on_search_Electronics_Mobile.yaml
+    - $ref: ./on_search/on_search_Electronics_Monitor.yaml
+    - $ref: ./on_search/on_search_Electronics_Mouse.yaml
+    - $ref: ./on_search/on_search_Electronics_Smartwatch.yaml
+    - $ref: ./on_search/on_search_Health_Wellness.yaml
+    - $ref: ./on_search/on_search_Home&Kitchen.yaml
+on_select:
+  examples:
+    - $ref: ./on_select/on_select_item_in_stock.yaml
+    - $ref: ./on_select/on_select_item_not_in_stock.yaml
+    - $ref: ./on_select/on_select_location_not_serviceable.yaml
+    - $ref: ./on_select/on_select_BUY2GET3_applied.yaml
+    - $ref: ./on_select/on_select_DISCP60_applied.yaml
+    - $ref: ./on_select/on_select_FREEBIE_applied.yaml
+    - $ref: ./on_select/on_select_enable_self_pickup.yaml
+    - $ref: ./on_select/on_select_multiple_pickup.yaml
+    - $ref: ./on_select/on_select_product_with_customization.yaml
+on_init:
+  examples:
+    - $ref: ./on_init/on_init_make_to_order_product.yaml
+    - $ref: ./on_init/on_init_other_product.yaml
+on_confirm:
+  examples:
+    - $ref: ./on_confirm/on_confirm_make_to_order_product.yaml
+    - $ref: ./on_confirm/on_confirm_other_product.yaml
+on_update:
+  examples:
+    - $ref: ./on_update/on_update_merchant_cancels_customized.yaml
+    - $ref: ./on_update/on_update_merchant_cancels_non_customized.yaml
+    - $ref: ./on_update/on_update_np_approves_liquidation_request.yaml
+    - $ref: ./on_update/on_update_np_approves_request.yaml
+    - $ref: ./on_update/on_update_np_sends_interim_status_liquidation_request.yaml
+    - $ref: ./on_update/on_update_np_sends_interim_status_request.yaml
+    - $ref: ./on_update/on_update_reject_request.yaml
+    - $ref: ./on_update/on_update_return_delivered.yaml
+    - $ref: ./on_update/on_update_return_failed.yaml
+    - $ref: ./on_update/on_update_return_picked.yaml
+    - $ref: ./on_update/on_update_return_resechedule.yaml
+on_cancel:
+  examples:
+    - $ref: ./on_cancel/on_cancel.yaml
+    - $ref: ./on_cancel/on_cancel_rto.yaml
+on_track:
+  examples:
+    - $ref: ./on_track/on_track.yaml
+on_status:
+  examples:
+    - $ref: ./on_status/on_status_make_to_order_product_order_cancelled.yaml
+    - $ref: ./on_status/on_status_make_to_order_product_order_delivered.yaml
+    - $ref: ./on_status/on_status_other_product_order_pickup.yaml
+    - $ref: ./on_status/on_status_other_product_out_for_delivery.yaml

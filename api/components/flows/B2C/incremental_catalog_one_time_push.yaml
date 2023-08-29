@@ -1,0 +1,28 @@
+summary: Retail 1.2.0 (Incremental One Time Push)
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order customized item and it is delivered successfully and it is searched through incremental one time push
+reference: if any
+steps:
+  - summary: Search by city
+    api: search
+    description:  Search by city
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/search/search_by_city.yaml"
+    notes:
+      $ref: "../../notes/search/search_by_city.yaml"
+  - summary: Search by incremental one time push catalog refresh
+    api: search
+    description:  Search by incremental one time push catalog refresh
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/search/incremental_catalog_refresh_one_time_push.yaml"
+    notes:
+      $ref: "../../notes/search/incremental_catalog_refresh_one_time_push.yaml"
+  - summary: Returns the item or catalog
+    api: on_search
+    description:  
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/on_search/incremental_catalog_refresh_item_changes.yaml"
+    notes:
+      $ref: "../../notes/on_search/incremental_catalog_refresh_item_changes.yaml"   

@@ -1,0 +1,19 @@
+skin_type:
+  - code: dry
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: oily
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: sensitive
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: normal
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: all
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: very_dry
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

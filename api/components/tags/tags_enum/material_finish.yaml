@@ -1,0 +1,7 @@
+material_finish:
+  - code: embossed
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: embroidered
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

@@ -1,0 +1,10 @@
+midsole:
+  - code: leather
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: rubber
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: pu
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

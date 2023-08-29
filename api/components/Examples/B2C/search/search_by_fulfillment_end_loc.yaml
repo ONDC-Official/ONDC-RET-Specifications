@@ -1,0 +1,27 @@
+summary: search_by_fulfillment_end_loc
+description: Search By Fulfilment End Loc
+value:
+  context:
+    domain: ONDC:RET10 [^1]
+    city: std:080
+    country: IND
+    action: search
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    transaction_id: T1
+    message_id: M1
+    timestamp: "2023-06-03T08:00:00.000Z"
+    ttl: PT30S
+  message:
+    intent:
+      fulfillment:
+        type [^2]: Delivery
+        end:
+          location:
+            gps [^3]: 12.974002,77.613458
+            address:
+              - area_code: "560001"
+      payment:
+        "@ondc/org/buyer_app_finder_fee_type": percent
+        "@ondc/org/buyer_app_finder_fee_amount": 3

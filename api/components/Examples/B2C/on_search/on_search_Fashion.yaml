@@ -1,0 +1,627 @@
+summary: Return the catalog for Fashion products
+description: Return the catalog for Fashion products
+value:
+  context:
+    domain: ONDC:RET12
+    country: IND
+    city: std:080
+    action: on_search
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    bpp_id: sellerNP.com
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: T1
+    message_id: M1
+    timestamp: '2023-06-03T08:00:30.000Z'
+  message:
+    catalog:
+      bpp/descriptor:
+        name: Seller NP
+        symbol: https://sellerNP.com/images/np.png
+        short_desc: Seller Marketplace
+        long_desc: Seller Marketplace
+        images:
+          - https://sellerNP.com/images/np.png
+      bpp/providers:
+        - id: P1
+          time:
+            label: enable
+            timestamp: '2023-06-03T08:00:30.000Z [^1]'
+          fulfillments:
+            - id: F1
+              type: Delivery
+              contact:
+                phone: '9886098860'
+                email: abc@xyz.com
+          descriptor:
+            name: Store 1
+            symbol: https://sellerNP.com/images/store1.png
+            short_desc: Store 1
+            long_desc: Store 1
+            images:
+              - https://sellerNP.com/images/store1.png
+          ttl: P1D
+          locations:
+            - id: L1
+              time:
+                label: enable [^2]
+                timestamp: '2023-06-03T07:30:30.000Z [^3]'
+                schedule:
+                  holidays:
+                    - '2023-08-15'
+              gps: 12.967555,77.749666
+              address:
+                locality: Jayanagar
+                street: Jayanagar 4th Block
+                city: Bengaluru
+                area_code: '560076'
+                state: KA
+          categories:
+            - id: V1
+              descriptor:
+                name: Variant Group 1
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: variant_group
+                - code: attr
+                  list:
+                    - code: name
+                      value: item.tags.attribute.colour
+                    - code: seq
+                      value: '1'
+                - code: attr
+                  list:
+                    - code: name
+                      value: item.tags.attribute.size
+                    - code: seq
+                      value: '2'
+          items:
+            - id: I1
+              time:
+                label: enable [^4]
+                timestamp: '2023-06-03T07:30:00.000Z [^5]'
+              parent_item_id: V1 [^6]
+              descriptor:
+                name: Allen Solly Men T-shirt
+                code [^7]: 1:XXXXXXXXXXXXX
+                symbol: https://sellerNP.com/images/i1.png
+                short_desc: Allen Solly Men T-shirt
+                long_desc: Allen Solly Men T-shirt
+                images:
+                  - https://sellerNP.com/images/i1.png
+              quantity:
+                unitized:
+                  measure:
+                    unit: unit
+                    value: '1'
+                available:
+                  count: '99'
+                maximum:
+                  count: '99'
+              price:
+                currency: INR
+                value: '579.00'
+                maximum_value: '999.0'
+              category_id: Men's Topwear [^8]
+              fulfillment_id: F1
+              location_id: L1
+              '@ondc/org/returnable': true
+              '@ondc/org/cancellable': true
+              '@ondc/org/return_window': P7D
+              '@ondc/org/seller_pickup_return': true
+              '@ondc/org/time_to_ship': P1D
+              '@ondc/org/available_on_cod': false
+              '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
+              '@ondc/org/statutory_reqs_packaged_commodities [^9]':
+                manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
+                manufacturer_or_packer_address: >-
+                  Building 2, Divyasree Technopolis, Off HAL Airport Road,
+                  Bengaluru-560037
+                common_or_generic_name_of_commodity: Polo
+                month_year_of_manufacture_packing_import: 01/2017 [^10]
+              tags:
+                - code: origin
+                  list:
+                    - code: country
+                      value: IND
+                - code: attribute [^11]
+                  list:
+                    - code: brand
+                      value: Allen Solly
+                    - code: colour
+                      value: coral [^12]
+                    - code: size
+                      value: S [^13]
+                    - code: gender
+                      value: male [^14]
+                    - code: pattern
+                      value: striped [^15]
+                    - code: material
+                      value: cotton [^16]
+                    - code: occasion
+                      value: casual [^17]
+                    - code: season
+                      value: summer [^18]
+                    - code: trend
+                      value: tribal [^19]
+                    - code: features
+                      value: alpha [^20]
+                    - code: material_finish
+                      value: embossed [^21]
+                    - code: size_chart
+                      value: https://sellerNP.com/images/i1_size_chart.png
+            - id: I2
+              parent_item_id: V1 [^22]
+              descriptor:
+                name: Allen Solly Men T-shirt
+                code: 1:XXXXXXXXXXXXX
+                symbol: https://sellerNP.com/images/i2.png
+                short_desc: Allen Solly Men T-shirt
+                long_desc: Allen Solly Men T-shirt
+                images:
+                  - https://sellerNP.com/images/i2.png
+              quantity:
+                unitized:
+                  measure:
+                    unit: unit
+                    value: '1'
+                available:
+                  count: '99'
+                maximum:
+                  count: '99'
+              price:
+                currency: INR
+                value: '538.00'
+                maximum_value: '999.0'
+              category_id: Men's Topwear
+              fulfillment_id: F1
+              location_id: L1
+              '@ondc/org/returnable': true
+              '@ondc/org/cancellable': true
+              '@ondc/org/return_window': P7D
+              '@ondc/org/seller_pickup_return': true
+              '@ondc/org/time_to_ship': P1D
+              '@ondc/org/available_on_cod': false
+              '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
+              '@ondc/org/statutory_reqs_packaged_commodities [^23]':
+                manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
+                manufacturer_or_packer_address: >-
+                  Building 2, Divyasree Technopolis, Off HAL Airport Road,
+                  Bengaluru-560037
+                common_or_generic_name_of_commodity: Polo
+                month_year_of_manufacture_packing_import: 01/2017 [^24]
+              tags:
+                - code: origin
+                  list:
+                    - code: country
+                      value: IND
+                - code: attribute
+                  list:
+                    - code: brand
+                      value: Allen Solly
+                    - code: colour
+                      value: coral
+                    - code: size
+                      value: M
+                    - code: gender
+                      value: male
+                    - code: pattern
+                      value: striped
+                    - code: material
+                      value: cotton
+                    - code: occasion
+                      value: casual
+                    - code: season
+                      value: summer
+                    - code: trend
+                      value: tribal
+                    - code: features
+                      value: alpha
+                    - code: material_finish
+                      value: embossed
+                    - code: size_chart
+                      value: https://sellerNP.com/images/i1_size_chart.png
+            - id: I3
+              parent_item_id: V1 [^25]
+              descriptor:
+                name: Allen Solly Men T-shirt
+                code: 1:XXXXXXXXXXXXX
+                symbol: https://sellerNP.com/images/i3.png
+                short_desc: Allen Solly Men T-shirt
+                long_desc: Allen Solly Men T-shirt
+                images:
+                  - https://sellerNP.com/images/i3.png
+              quantity:
+                unitized:
+                  measure:
+                    unit: unit
+                    value: '1'
+                available:
+                  count: '99'
+                maximum:
+                  count: '99'
+              price:
+                currency: INR
+                value: '569.00'
+                maximum_value: '999.0'
+              category_id: Men's Topwear
+              fulfillment_id: F1
+              location_id: L1
+              '@ondc/org/returnable': true
+              '@ondc/org/cancellable': true
+              '@ondc/org/return_window': P7D
+              '@ondc/org/seller_pickup_return': true
+              '@ondc/org/time_to_ship': P1D
+              '@ondc/org/available_on_cod': false
+              '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
+              '@ondc/org/statutory_reqs_packaged_commodities [^26]':
+                manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
+                manufacturer_or_packer_address: >-
+                  Building 2, Divyasree Technopolis, Off HAL Airport Road,
+                  Bengaluru-560037
+                common_or_generic_name_of_commodity: Polo
+                month_year_of_manufacture_packing_import: 01/2017 [^27]
+              tags:
+                - code: origin
+                  list:
+                    - code: country
+                      value: IND
+                - code: attribute
+                  list:
+                    - code: brand
+                      value: Allen Solly
+                    - code: colour
+                      value: coral
+                    - code: size
+                      value: L
+                    - code: gender
+                      value: male
+                    - code: pattern
+                      value: striped
+                    - code: material
+                      value: cotton
+                    - code: occasion
+                      value: casual
+                    - code: season
+                      value: summer
+                    - code: trend
+                      value: tribal
+                    - code: features
+                      value: alpha
+                    - code: material_finish
+                      value: embossed
+                    - code: size_chart
+                      value: https://sellerNP.com/images/i1_size_chart.png
+            - id: I4
+              parent_item_id: V1 [^28]
+              descriptor:
+                name: Allen Solly Men T-shirt
+                code: 1:XXXXXXXXXXXXX
+                symbol: https://sellerNP.com/images/i4.png
+                short_desc: Allen Solly Men T-shirt
+                long_desc: Allen Solly Men T-shirt
+                images:
+                  - https://sellerNP.com/images/i4.png
+              quantity:
+                unitized:
+                  measure:
+                    unit: unit
+                    value: '1'
+                available:
+                  count: '99'
+                maximum:
+                  count: '99'
+              price:
+                currency: INR
+                value: '948.0'
+                maximum_value: '999.0'
+              category_id: Men's Topwear
+              fulfillment_id: F1
+              location_id: L1
+              '@ondc/org/returnable': true
+              '@ondc/org/cancellable': true
+              '@ondc/org/return_window': P7D
+              '@ondc/org/seller_pickup_return': true
+              '@ondc/org/time_to_ship': P1D
+              '@ondc/org/available_on_cod': false
+              '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
+              '@ondc/org/statutory_reqs_packaged_commodities [^29]':
+                manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
+                manufacturer_or_packer_address: >-
+                  Building 2, Divyasree Technopolis, Off HAL Airport Road,
+                  Bengaluru-560037
+                common_or_generic_name_of_commodity: Polo
+                month_year_of_manufacture_packing_import: 01/2017 [^30]
+              tags:
+                - code: origin
+                  list:
+                    - code: country
+                      value: IND
+                - code: attribute
+                  list:
+                    - code: brand
+                      value: Allen Solly
+                    - code: colour
+                      value: green
+                    - code: size
+                      value: 2XL
+                    - code: gender
+                      value: male
+                    - code: pattern
+                      value: striped
+                    - code: material
+                      value: cotton
+                    - code: occasion
+                      value: casual
+                    - code: season
+                      value: summer
+                    - code: trend
+                      value: tribal
+                    - code: features
+                      value: alpha
+                    - code: material_finish
+                      value: embossed
+                    - code: size_chart
+                      value: https://sellerNP.com/images/i1_size_chart.png
+            - id: I5
+              parent_item_id: V1 [^31]
+              descriptor:
+                name: Allen Solly Men T-shirt
+                code: 1:XXXXXXXXXXXXX
+                symbol: https://sellerNP.com/images/i5.png
+                short_desc: Allen Solly Men T-shirt
+                long_desc: Allen Solly Men T-shirt
+                images:
+                  - https://sellerNP.com/images/i5.png
+              quantity:
+                unitized:
+                  measure:
+                    unit: unit
+                    value: '1'
+                available:
+                  count: '99'
+                maximum:
+                  count: '99'
+              price:
+                currency: INR
+                value: '589.0'
+                maximum_value: '999.0'
+              category_id: Men's Topwear
+              fulfillment_id: F1
+              location_id: L1
+              '@ondc/org/returnable': true
+              '@ondc/org/cancellable': true
+              '@ondc/org/return_window': P7D
+              '@ondc/org/seller_pickup_return': true
+              '@ondc/org/time_to_ship': P1D
+              '@ondc/org/available_on_cod': false
+              '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
+              '@ondc/org/statutory_reqs_packaged_commodities [^32]':
+                manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
+                manufacturer_or_packer_address: >-
+                  Building 2, Divyasree Technopolis, Off HAL Airport Road,
+                  Bengaluru-560037
+                common_or_generic_name_of_commodity: Polo
+                month_year_of_manufacture_packing_import: 01/2017 [^33]
+              tags:
+                - code: origin
+                  list:
+                    - code: country
+                      value: IND
+                - code: attribute
+                  list:
+                    - code: brand
+                      value: Allen Solly
+                    - code: colour
+                      value: yellow
+                    - code: size
+                      value: L
+                    - code: gender
+                      value: male
+                    - code: pattern
+                      value: striped
+                    - code: material
+                      value: cotton
+                    - code: occasion
+                      value: casual
+                    - code: season
+                      value: summer
+                    - code: trend
+                      value: tribal
+                    - code: features
+                      value: alpha
+                    - code: material_finish
+                      value: embossed
+                    - code: size_chart
+                      value: https://sellerNP.com/images/i1_size_chart.png
+            - id: I6
+              parent_item_id: V1 [^34]
+              descriptor:
+                name: Allen Solly Men T-shirt
+                code: 1:XXXXXXXXXXXXX
+                symbol: https://sellerNP.com/images/i6.png
+                short_desc: Allen Solly Men T-shirt
+                long_desc: Allen Solly Men T-shirt
+                images:
+                  - https://sellerNP.com/images/i6.png
+              quantity:
+                unitized:
+                  measure:
+                    unit: unit
+                    value: '1'
+                available:
+                  count: '99'
+                maximum:
+                  count: '99'
+              price:
+                currency: INR
+                value: '789.0'
+                maximum_value: '999.0'
+              category_id: Men's Topwear
+              fulfillment_id: F1
+              location_id: L1
+              '@ondc/org/returnable': true
+              '@ondc/org/cancellable': true
+              '@ondc/org/return_window': P7D
+              '@ondc/org/seller_pickup_return': true
+              '@ondc/org/time_to_ship': P1D
+              '@ondc/org/available_on_cod': false
+              '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
+              '@ondc/org/statutory_reqs_packaged_commodities [^35]':
+                manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
+                manufacturer_or_packer_address: >-
+                  Building 2, Divyasree Technopolis, Off HAL Airport Road,
+                  Bengaluru-560037
+                common_or_generic_name_of_commodity: Polo
+                month_year_of_manufacture_packing_import: 01/2017 [^36]
+              tags:
+                - code: origin
+                  list:
+                    - code: country
+                      value: IND
+                - code: attribute
+                  list:
+                    - code: brand
+                      value: Allen Solly
+                    - code: colour
+                      value: yellow
+                    - code: size
+                      value: XL
+                    - code: gender
+                      value: male
+                    - code: pattern
+                      value: striped
+                    - code: material
+                      value: cotton
+                    - code: occasion
+                      value: casual
+                    - code: season
+                      value: summer
+                    - code: trend
+                      value: tribal
+                    - code: features
+                      value: alpha
+                    - code: material_finish
+                      value: embossed
+                    - code: size_chart
+                      value: https://sellerNP.com/images/i1_size_chart.png
+            - id: I7
+              parent_item_id: V1 [^37]
+              descriptor:
+                name: Allen Solly Men T-shirt
+                code: 1:XXXXXXXXXXXXX
+                symbol: https://sellerNP.com/images/i7.png
+                short_desc: Allen Solly Men T-shirt
+                long_desc: Allen Solly Men T-shirt
+                images:
+                  - https://sellerNP.com/images/i7.png
+              quantity:
+                unitized:
+                  measure:
+                    unit: unit
+                    value: '1'
+                available:
+                  count: '99'
+                maximum:
+                  count: '99'
+              price:
+                currency: INR
+                value: '689.0'
+                maximum_value: '999.0'
+              category_id: Men's Topwear
+              fulfillment_id: F1
+              location_id: L1
+              '@ondc/org/returnable': true
+              '@ondc/org/cancellable': true
+              '@ondc/org/return_window': P7D
+              '@ondc/org/seller_pickup_return': true
+              '@ondc/org/time_to_ship': P1D
+              '@ondc/org/available_on_cod': false
+              '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
+              '@ondc/org/statutory_reqs_packaged_commodities [^38]':
+                manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
+                manufacturer_or_packer_address: >-
+                  Building 2, Divyasree Technopolis, Off HAL Airport Road,
+                  Bengaluru-560037
+                common_or_generic_name_of_commodity: Polo
+                month_year_of_manufacture_packing_import: 01/2017 [^39]
+              tags:
+                - code: origin
+                  list:
+                    - code: country
+                      value: IND
+                - code: attribute
+                  list:
+                    - code: brand
+                      value: Allen Solly
+                    - code: colour
+                      value: yellow
+                    - code: size
+                      value: 2XL
+                    - code: gender
+                      value: male
+                    - code: pattern
+                      value: striped
+                    - code: material
+                      value: cotton
+                    - code: occasion
+                      value: casual
+                    - code: season
+                      value: summer
+                    - code: trend
+                      value: tribal
+                    - code: features
+                      value: alpha
+                    - code: material_finish
+                      value: embossed
+                    - code: size_chart
+                      value: https://sellerNP.com/images/i1_size_chart.png
+          creds [^40]:
+            - id: ESG-12345678
+              descriptor:
+                code: ESG-12345678
+                name: Dun & Bradstreet ESG Badge No.
+              url: https://abcd.cdn.com/images/badge-img
+              tags:
+                - code: verification
+                  list:
+                    - code: verify_url
+                      value: https://abcd.dnb.com/verify?id=’ESG-12345678'
+                    - code: valid_from
+                      value: 2023-06-03T00:00:00:000Z
+                    - code: valid_to
+                      value: 2024-06-03T23:59:59:999Z
+          tags:
+            - code: order_value
+              list:
+                - code: min_value
+                  value: '300.00'
+            - code: timing
+              list:
+                - code: type
+                  value: All [^41]
+                - code: location
+                  value: L1
+                - code: day_from
+                  value: '1'
+                - code: day_to
+                  value: '7'
+                - code: time_from
+                  value: '0000'
+                - code: time_to
+                  value: '2359'
+            - code: serviceability
+              list:
+                - code: location
+                  value: L1
+                - code: category
+                  value: Men's Topwear
+                - code: type
+                  value: '12'
+                - code: val
+                  value: IND
+                - code: unit
+                  value: country

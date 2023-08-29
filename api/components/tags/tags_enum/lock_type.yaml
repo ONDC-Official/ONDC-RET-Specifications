@@ -1,0 +1,10 @@
+lock_type:
+  - code: tsa
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: combination
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: numeric
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

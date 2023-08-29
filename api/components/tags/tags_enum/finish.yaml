@@ -1,0 +1,46 @@
+finish:
+  - code: matte
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: luminous
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: radiant
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: natural
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: shimmer
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: creme
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: satin
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: tinted
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: metallic
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: glitter
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: glossy
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: special effects
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: clear
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: duochrome
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: gel
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

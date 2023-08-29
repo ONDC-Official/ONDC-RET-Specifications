@@ -1,0 +1,59 @@
+summary: Send buyer and delivery terms for make to order products
+description: Send buyer and delivery terms for make to order products
+value:
+  context:
+    domain: ONDC:RET11
+    action: init
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    bpp_id: sellerNP.com
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: T2
+    message_id: M3
+    city: std:080
+    country: IND
+    timestamp: '2023-06-03T09:00:00.000Z'
+    ttl: PT30S
+  message:
+    order:
+      provider:
+        id: P1
+        locations:
+          - id: L1
+      items:
+        - fulfillment_id: F1
+          id: DI1 [^1]
+        - fulfillment_id: F1
+          id: DI2
+      billing:
+        name: ONDC buyer
+        address:
+          name: 'My House # [^2]'
+          building: My building name
+          locality [^3]: My Street name
+          city: Bengaluru
+          state: Karnataka
+          country: IND
+          area_code: '560037'
+        tax_number [^4]: XXXXXXXXXXXXXXX
+        email [^5]: nobody@nomail.com
+        phone: '9886098860'
+        created_at [^6]: '2023-06-03T09:00:00.000Z'
+        updated_at [^7]: '2023-06-03T09:00:00.000Z'
+      fulfillments:
+        - id: F1
+          type: Delivery
+          end:
+            location:
+              gps: 12.453544,77.928379
+              address [^8]:
+                name: 'My House # [^9]'
+                building: My building name
+                locality: My Street name
+                city: Bengaluru
+                state: Karnataka
+                country: IND
+                area_code: '560037'
+            contact:
+              phone: '9886098860'

@@ -1,0 +1,162 @@
+summary: Return the catalog for Electronic Laptop products
+description: Return the catalog for Electronic Laptop products
+value:
+  context:
+    domain: ONDC:RET14
+    country: IND
+    city: std:080
+    action: on_search
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    bpp_id: sellerNP.com
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: T1
+    message_id: M1
+    timestamp: "2023-06-03T08:00:30.000Z"
+  message:
+    catalog:
+      bpp/descriptor:
+        name: Seller NP
+        symbol: https://sellerNP.com/images/np.png
+        short_desc: Seller Marketplace
+        long_desc: Seller Marketplace
+        images:
+          - https://sellerNP.com/images/np.png
+      bpp/providers:
+        - id: P1
+          time:
+            label: enable
+            timestamp: "2023-06-03T08:00:30.000Z [^1]"
+          fulfillments:
+            - id: F1
+              type: Delivery
+              contact:
+                phone: "9886098860"
+                email: abc@xyz.com
+          descriptor:
+            name: Store 1
+            symbol: https://sellerNP.com/images/store1.png
+            short_desc: Store 1
+            long_desc: Store 1
+            images:
+              - https://sellerNP.com/images/store1.png
+          ttl: P1D
+          locations:
+            - id: L1
+              time:
+                label: enable [^2]
+                timestamp: "2023-06-03T07:30:30.000Z [^3]"
+                schedule:
+                  holidays:
+                    - "2023-08-15"
+              gps: 12.967555,77.749666
+              address:
+                locality: Jayanagar
+                street: Jayanagar 4th Block
+                city: Bengaluru
+                area_code: "560076"
+                state: KA
+          items:
+            - id: I1
+              time:
+                label: enable [^4]
+                timestamp: "2023-06-03T07:30:00.000Z [^5]"
+              descriptor:
+                name: MacBook Air Laptop
+                code: 5:<unique_product_code>
+                symbol: https://sellerNP.com/images/i1.png
+                short_desc: MacBook Air Laptop
+                long_desc:
+                  Apple 2020 MacBook Air Laptop M1 chip, 13.3-inch/33.74 cm Retina
+                  Display, 8GB RAM, 256GB SSD Storage, Backlit Keyboard, FaceTime HD Camera,
+                  Touch ID. Works with iPhone/iPad; Gold
+                images:
+                  - https://sellerNP.com/images/i1.png
+              quantity:
+                unitized:
+                  measure:
+                    unit: unit
+                    value: "1"
+                available:
+                  count: "99"
+                maximum:
+                  count: "99"
+              price:
+                currency: INR
+                value: "81990.00"
+                maximum_value: "99900.00"
+              category_id: Desktop and Laptop
+              fulfillment_id: F1
+              location_id: L1
+              "@ondc/org/returnable": true
+              "@ondc/org/cancellable": true
+              "@ondc/org/return_window": P7D
+              "@ondc/org/seller_pickup_return": true
+              "@ondc/org/time_to_ship": PT3H
+              "@ondc/org/available_on_cod": false
+              "@ondc/org/contact_details_consumer_care": Ramesh,ramesh@abc.com,18004254444
+              tags:
+                - code: origin
+                  list:
+                    - code: country
+                      value: IND
+                - code: attribute
+                  list:
+                    - code: brand
+                      value: Apple
+                    - code: model
+                      value: MacBook Air
+                    - code: colour
+                      value: gold [^6]
+                    - code: screen_size
+                      value: 13"
+                    - code: memory
+                      value: 8GB
+                    - code: cpu
+                      value: Core M family
+                    - code: cpu_mfr [^7]
+                      value: Intel
+                    - code: storage
+                      value: 256GB
+          creds [^8]:
+            - id: Auth33567
+              descriptor:
+                name: Authorised Apple Dealer
+              url: https://abcd.cdn.com/images/badge-img
+              tags:
+                - code: verification
+                  list:
+                    - code: verify_url
+                      value: https://abcd.dnb.com/verify?id='ESG-12345678'
+                    - code: valid_from
+                      value: 2023-06-03T00:00:00:000Z
+                    - code: valid_to
+                      value: 2024-06-03T23:59:59:999Z
+          tags:
+            - code: timing
+              list:
+                - code: type
+                  value: All [^9]
+                - code: location
+                  value: L1
+                - code: day_from
+                  value: "1"
+                - code: day_to
+                  value: "7"
+                - code: time_from
+                  value: "0000"
+                - code: time_to
+                  value: "2359"
+            - code: serviceability
+              list:
+                - code: location
+                  value: L1
+                - code: category
+                  value: Desktop and Laptop
+                - code: type
+                  value: "12"
+                - code: val
+                  value: IND
+                - code: unit
+                  value: country

@@ -1,0 +1,82 @@
+summary: Retail 1.2.0 (Merchant cancels non customized product)
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order fashion item and merchant cancels it
+reference: if any
+steps:
+  - summary: Search by fulfillment end location 
+    api: search
+    description:  Buyer search by fulfillment end location
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/search/search_by_fulfillment_end_loc.yaml"
+    notes:
+      $ref: "../../notes/search/search_by_fulfillment_end_loc.yaml"
+  - summary: Returns the item or catalog
+    api: on_search
+    description:  
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/on_search/on_search_Fashion.yaml"
+    notes:
+      $ref: "../../notes/on_search/on_search_Fashion.yaml"
+  - summary: Select the item
+    api: select
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/select/select_other_product.yaml"
+    notes:
+      $ref: "../../notes/select/select_other_product.yaml"
+  - summary: Returns item breakup when item is in stock and offer applied
+    api: on_select
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/on_select/on_select_DISCP60_applied.yaml"
+    notes:
+      $ref: "../../notes/on_select/on_select_DISCP60_applied.yaml"
+  - summary: Buyer initiate the product and send the updated fulfillment id
+    api: init
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/init/init_other_product.yaml"
+    notes:
+      $ref: "../../notes/init/init_other_product.yaml"
+  - summary: Respond to init
+    api: on_init
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/on_init/on_init_other_product.yaml"
+    notes:
+      $ref: "../../notes/on_init/on_init_other_product.yaml"
+  - summary: Buyer confirms product
+    api: confirm
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/confirm/confirm_other_product.yaml"
+    notes:
+      $ref: "../../notes/confirm/confirm_other_product.yaml"
+  - summary: Seller Accepts confirmation
+    api: on_confirm
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/on_confirm/on_confirm_other_product.yaml"
+    notes:
+      $ref: "../../notes/on_confirm/on_confirm_other_product.yaml"
+  - summary: seller cancels non customized product
+    api: on_update
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/on_update/on_update_merchant_cancels_customized.yaml"
+    notes:
+      $ref: "../../notes/on_update/on_update_merchant_cancels_customized.yaml"
+  - summary: Settlement trail for refund initiation
+    api: update
+    description:
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/update/update_settlement_trail_cancel_by_merchant.yaml"                                                  

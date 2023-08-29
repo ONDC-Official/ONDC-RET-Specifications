@@ -1,0 +1,207 @@
+summary: Return the catalog for Home & Kitchen products
+description: Return the catalog for Home & Kitchen products
+value:
+  context:
+    domain: ONDC:RET16 [^1]
+    country: IND
+    city: std:080
+    action: on_search
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    bpp_id: sellerNP.com
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: T1
+    message_id: M1
+    timestamp: '2023-06-03T08:00:30.000Z'
+  message:
+    catalog:
+      bpp/descriptor [^2]:
+        name: Seller NP
+        symbol [^3]: https://sellerNP.com/images/np.png
+        short_desc: Seller Marketplace
+        long_desc: Seller Marketplace
+        images:
+          - https://sellerNP.com/images/np.png
+      bpp/providers [^4]:
+        - id: P1 [^5]
+          time:
+            label: enable [^6]
+            timestamp: '2023-06-03T07:00:30.000Z [^7]'
+          fulfillments [^8]:
+            - id: F1
+              type: Delivery
+              contact [^9]:
+                phone: '9886098860 [^10]'
+                email [^11]: abc@xyz.com
+            - id: F2
+              type: Self-Pickup
+              contact:
+                phone: '9886098860'
+                email: abc@xyz.com
+          descriptor:
+            name: Store 1
+            symbol: https://sellerNP.com/images/store1.png
+            short_desc: Store 1
+            long_desc: Store 1
+            images:
+              - https://sellerNP.com/images/store1.png
+          ttl: P1D [^12]
+          locations [^13]:
+            - id: L1
+              time:
+                label: enable [^14]
+                timestamp: '2023-06-03T07:30:30.000Z [^15]'
+                schedule:
+                  holidays [^16]:
+                    - '2023-08-15'
+              gps: 12.967555,77.749666
+              address:
+                locality [^17]: Jayanagar
+                street: Jayanagar 4th Block
+                city: Bengaluru
+                area_code: '560076'
+                state: KA
+          items:
+            - id: I1
+              time:
+                label: enable [^18]
+                timestamp: '2023-06-03T07:30:00.000Z [^19]'
+              descriptor:
+                name: Satin Double Bedsheet with Two Pillow Covers
+                code [^20]: 1:XXXXXXXXXXXXX
+                symbol: https://cdn.sellerNP.com/sellers/HANTEX/HAN2/1.jpg
+                long_desc: >-
+                  Hantex | Satin Double Bedsheet with Two Pillow Covers | Vertical
+                  Stripe Bedsheet | Horizontal Stripe Pillow Cover | Colour -
+                  Ochre, Fir Green & Pearl Beige  | Viscose Rayon - Cotton Blend |
+                  Hantex | Handloom | Kerala Handcrafted Fabric | Kerala Kaithari 
+                short_desc: >-
+                  Satin Double Bedsheet with Two Pillow Covers | Vertical Stripe
+                  Bedsheet | Horizontal Stripe Pillow Cover | Colour - Ochre, Fir
+                  Green & Pearl Beige 
+                images:
+                  - https://cdn.sellerNP.com/sellers/HANTEX/HAN2/1.jpg
+              quantity:
+                unitized:
+                  measure:
+                    unit: unit [^21]
+                    value: '3'
+                available:
+                  count [^22]: '99'
+                maximum:
+                  count [^23]: '99'
+              price:
+                currency: INR
+                value: '2808.00'
+                maximum_value: '2808.0'
+              category_id: Home Furnishings [^24]
+              fulfillment_id: F1
+              location_id: L1
+              '@ondc/org/returnable': true [^25]
+              '@ondc/org/cancellable': true [^26]
+              '@ondc/org/return_window': PT1H
+              '@ondc/org/seller_pickup_return [^27]': true
+              '@ondc/org/time_to_ship': PT45M
+              '@ondc/org/available_on_cod': false
+              '@ondc/org/contact_details_consumer_care [^28]': Ramesh,ramesh@abc.com,18004254444
+              '@ondc/org/statutory_reqs_packaged_commodities [^29]':
+                manufacturer_or_packer_name: HANTEX
+                manufacturer_or_packer_address: Hantex Head office, Oottukuzhi, Thiruvananthapuram
+                common_or_generic_name_of_commodity: Bedsheet
+                month_year_of_manufacture_packing_import: 01/2023
+              tags:
+                - code: origin [^30]
+                  list:
+                    - code: country
+                      value: IND [^31]
+                - code: image [^32]
+                  list:
+                    - code: type
+                      value: back_image
+                    - code: url
+                      value: https://sellerNP.com/images/i1_back_image.png
+          creds [^33]:
+            - id [^34]: ESG-12345678
+              descriptor:
+                code: ESG-12345678
+                name: Dun & Bradstreet ESG Badge No.
+              url [^35]: https://abcd.cdn.com/images/badge-img
+              tags:
+                - code: verification
+                  list:
+                    - code: verify_url
+                      value: https://abcd.dnb.com/verify?id=’ESG-12345678'
+                    - code: valid_from
+                      value: 2023-06-03T00:00:00:000Z
+                    - code: valid_to [^36]
+                      value: 2024-06-03T23:59:59:999Z
+          tags:
+            - code: order_value [^37]
+              list:
+                - code: min_value [^38]
+                  value: '2000.00'
+            - code: catalog_link [^39]
+              list:
+                - code: type
+                  value: inline [^40]
+                - code: type_value [^41]
+                  value: https://s3.amazon.com/x-12349.zip
+                - code: type_validity [^42]
+                  value: PT24H
+                - code: last_update [^43]
+                  value: 2023-05-21T00:00:00:000Z
+            - code: timing
+              list:
+                - code: type
+                  value: Order [^44]
+                - code: location
+                  value: L1 [^45]
+                - code: day_from
+                  value: '1 [^46]'
+                - code: day_to
+                  value: '7 [^47]'
+                - code: time_from
+                  value: '0000 [^48]'
+                - code: time_to
+                  value: '2359 [^49]'
+            - code: timing
+              list:
+                - code: type
+                  value: Self-Pickup
+                - code: location
+                  value: L1
+                - code: day_from
+                  value: '1'
+                - code: day_to
+                  value: '7'
+                - code: time_from
+                  value: '1100'
+                - code: time_to
+                  value: '2000'
+            - code: timing
+              list:
+                - code: type
+                  value: Delivery
+                - code: location
+                  value: L1
+                - code: day_from
+                  value: '1'
+                - code: day_to
+                  value: '7'
+                - code: time_from
+                  value: '1100'
+                - code: time_to
+                  value: '2200'
+            - code: serviceability [^50]
+              list:
+                - code: location
+                  value: L1 [^51]
+                - code: category
+                  value: Home Furnishings
+                - code: type
+                  value: '12 [^52]'
+                - code: val
+                  value: IND
+                - code: unit
+                  value: country

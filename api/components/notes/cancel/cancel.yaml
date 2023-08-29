@@ -1,0 +1,4 @@
+value:
+  [^1]: cancellation reason codes are defined here, use "006" for cancellation of fulfillment for TAT breach
+  [^2]: optional, only if fulfillment is being cancelled
+  [^3]: fulfillment id for cancellation of fulfillment for TAT breach

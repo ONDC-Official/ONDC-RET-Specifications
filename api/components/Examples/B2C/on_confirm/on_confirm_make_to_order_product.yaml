@@ -1,0 +1,645 @@
+summary: Acceptance by Seller
+description: Acceptance by Seller for make to order products
+value:
+  context:
+    domain: ONDC:RET11
+    action: on_confirm
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    bpp_id: sellerNP.com
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: T2
+    message_id: M4
+    city: std:080
+    country: IND
+    timestamp: '2023-06-03T09:30:30.000Z'
+  message:
+    order:
+      id: O1
+      state: Accepted [^1]
+      provider:
+        id: P1
+        locations:
+          - id: L1
+      items:
+        - fulfillment_id: F1
+          id: DI1 [^2]
+        - fulfillment_id: F1
+          id: DI2
+      billing:
+        name: ONDC buyer
+        address:
+          name: 'My house #'
+          building: My building name
+          locality: My street name
+          city: Bengaluru
+          state: Karnataka
+          country: IND
+          area_code: '560037'
+        email [^3]: nobody@nomail.com
+        phone: '9886098860'
+        created_at [^4]: '2023-06-03T09:00:00.000Z'
+        updated_at [^5]: '2023-06-03T09:00:00.000Z'
+      fulfillments:
+        - id: F1
+          '@ondc/org/provider_name': LSP or Provider Name
+          state:
+            descriptor:
+              code: Pending
+          type: Delivery
+          tracking: true [^6]
+          '@ondc/org/TAT': PT60M [^7]
+          start:
+            location:
+              id: L1
+              descriptor:
+                name: ABC Store
+              gps: 12.956399,77.636803
+              address [^8]:
+                locality: Jayanagar
+                city: Bengaluru
+                area_code: '560076'
+                state: KA
+            time [^9]:
+              range:
+                start: '2023-06-03T10:00:00.000Z'
+                end: '2023-06-03T10:30:00.000Z'
+            instructions [^10]:
+              code: '2 [^11]'
+              name: ONDC order
+              short_desc: value of PCC [^12]
+              long_desc: additional instructions such as register or counter no for self-pickup
+            contact:
+              phone: '9886098860'
+              email [^13]: nobody@nomail.com
+          end:
+            location:
+              gps: 12.453544,77.928379
+              address:
+                name: 'My house #'
+                building: My building name
+                locality: My street name
+                city: Bengaluru
+                state: Karnataka
+                country: IND
+                area_code: '560037'
+            time [^14]:
+              range:
+                start: '2023-06-03T11:00:00.000Z'
+                end: '2023-06-03T11:30:00.000Z'
+            person:
+              name: name_of_person
+            contact:
+              phone: '9886098860'
+              email [^15]: nobody@nomail.com
+      quote:
+        price:
+          currency: INR
+          value: '1946.65'
+        breakup:
+          - '@ondc/org/item_id': I1
+            '@ondc/org/item_quantity':
+              count: 1
+            title: Farm House Pizza
+            '@ondc/org/title_type': item
+            price:
+              currency: INR
+              value: '269.00'
+            item:
+              parent_item_id: DI1
+              quantity:
+                available:
+                  count: '99'
+                maximum:
+                  count: '99'
+              price:
+                currency: INR
+                value: '269.00'
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: item
+          - '@ondc/org/item_id': C1
+            '@ondc/org/item_quantity':
+              count: 1
+            title: New Hand Tossed
+            '@ondc/org/title_type': item
+            price:
+              currency: INR
+              value: '0.00'
+            item:
+              parent_item_id: DI1
+              quantity:
+                available:
+                  count: '99'
+                maximum:
+                  count: '99'
+              price:
+                currency: INR
+                value: '0.00'
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: customization
+                - code: parent
+                  list:
+                    - code: id
+                      value: CG1 [^16]
+          - '@ondc/org/item_id': C7
+            '@ondc/org/item_quantity':
+              count: 1
+            title: Large
+            '@ondc/org/title_type': item
+            price:
+              currency: INR
+              value: '450.00'
+            item:
+              parent_item_id: DI1
+              quantity:
+                available:
+                  count: '99'
+                maximum:
+                  count: '99'
+              price:
+                currency: INR
+                value: '450.00'
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: customization
+                - code: parent
+                  list:
+                    - code: id
+                      value: CG2 [^17]
+          - '@ondc/org/item_id': C14
+            '@ondc/org/item_quantity':
+              count: 1
+            title: Grilled Mushrooms
+            '@ondc/org/title_type': item
+            price:
+              currency: INR
+              value: '80.00'
+            item:
+              parent_item_id: DI1
+              quantity:
+                available:
+                  count: '99'
+                maximum:
+                  count: '99'
+              price:
+                currency: INR
+                value: '80.00'
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: customization
+                - code: parent
+                  list:
+                    - code: id
+                      value: CG3 [^18]
+          - '@ondc/org/item_id': C16
+            '@ondc/org/item_quantity':
+              count: 1
+            title: Pepper Barbeque Chicken
+            '@ondc/org/title_type': item
+            price:
+              currency: INR
+              value: '95.00'
+            item:
+              parent_item_id: DI1
+              quantity:
+                available:
+                  count: '99'
+                maximum:
+                  count: '99'
+              price:
+                currency: INR
+                value: '95.00'
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: customization
+                - code: parent
+                  list:
+                    - code: id
+                      value: CG3 [^19]
+          - '@ondc/org/item_id': I1
+            '@ondc/org/item_quantity':
+              count: 1
+            title: Farm House Pizza
+            '@ondc/org/title_type': item
+            price:
+              currency: INR
+              value: '269.00'
+            item:
+              parent_item_id: DI2
+              quantity:
+                available:
+                  count: '99'
+                maximum:
+                  count: '99'
+              price:
+                currency: INR
+                value: '269.00'
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: item
+          - '@ondc/org/item_id': C2
+            '@ondc/org/item_quantity':
+              count: 1
+            title: 100% Wheat Thin Crust
+            '@ondc/org/title_type': item
+            price:
+              currency: INR
+              value: '0.00'
+            item:
+              parent_item_id: DI2
+              quantity:
+                available:
+                  count: '99'
+                maximum:
+                  count: '99'
+              price:
+                currency: INR
+                value: '0.00'
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: customization
+                - code: parent
+                  list:
+                    - code: id
+                      value: CG1 [^20]
+          - '@ondc/org/item_id': C7
+            '@ondc/org/item_quantity':
+              count: 1
+            title: Large
+            '@ondc/org/title_type': item
+            price:
+              currency: INR
+              value: '450.00'
+            item:
+              parent_item_id: DI2
+              quantity:
+                available:
+                  count: '99'
+                maximum:
+                  count: '99'
+              price:
+                currency: INR
+                value: '450.00'
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: customization
+                - code: parent
+                  list:
+                    - code: id
+                      value: CG2 [^21]
+          - '@ondc/org/item_id': C14
+            '@ondc/org/item_quantity':
+              count: 1
+            title: Grilled Mushrooms
+            '@ondc/org/title_type': item
+            price:
+              currency: INR
+              value: '80.00'
+            item:
+              parent_item_id: DI2
+              quantity:
+                available:
+                  count: '99'
+                maximum:
+                  count: '99'
+              price:
+                currency: INR
+                value: '80.00'
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: customization
+                - code: parent
+                  list:
+                    - code: id
+                      value: CG3 [^22]
+          - '@ondc/org/item_id': C15
+            '@ondc/org/item_quantity':
+              count: 1
+            title: Fresh Tomato
+            '@ondc/org/title_type': item
+            price:
+              currency: INR
+              value: '80.00'
+            item:
+              parent_item_id: DI2
+              quantity:
+                available:
+                  count: '99'
+                maximum:
+                  count: '99'
+              price:
+                currency: INR
+                value: '80.00'
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: customization
+                - code: parent
+                  list:
+                    - code: id
+                      value: CG3
+          - '@ondc/org/item_id': I1
+            title: Tax
+            '@ondc/org/title_type': tax
+            price:
+              currency: INR
+              value: '13.45'
+            item:
+              parent_item_id: DI1
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: item
+          - '@ondc/org/item_id': C1
+            title: Tax
+            '@ondc/org/title_type': tax
+            price:
+              currency: INR
+              value: '0.00'
+            item:
+              parent_item_id: DI1
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: customization
+                - code: parent
+                  list:
+                    - code: id
+                      value: CG1
+          - '@ondc/org/item_id': C7
+            title: Tax
+            '@ondc/org/title_type': tax
+            price:
+              currency: INR
+              value: '22.50'
+            item:
+              parent_item_id: DI1
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: customization
+                - code: parent
+                  list:
+                    - code: id
+                      value: CG2
+          - '@ondc/org/item_id': C14
+            title: Tax
+            '@ondc/org/title_type': tax
+            price:
+              currency: INR
+              value: '4.00'
+            item:
+              parent_item_id: DI1
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: customization
+                - code: parent
+                  list:
+                    - code: id
+                      value: CG3
+          - '@ondc/org/item_id': C16
+            title: Tax
+            '@ondc/org/title_type': tax
+            price:
+              currency: INR
+              value: '4.75'
+            item:
+              parent_item_id: DI1
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: customization
+                - code: parent
+                  list:
+                    - code: id
+                      value: CG1
+          - '@ondc/org/item_id': I1
+            title: Tax
+            '@ondc/org/title_type': tax
+            price:
+              currency: INR
+              value: '13.45'
+            item:
+              parent_item_id: DI2
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: item
+          - '@ondc/org/item_id': C2
+            title: Tax
+            '@ondc/org/title_type': tax
+            price:
+              currency: INR
+              value: '22.50'
+            item:
+              parent_item_id: DI2
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: customization
+                - code: parent
+                  list:
+                    - code: id
+                      value: CG1
+          - '@ondc/org/item_id': C7
+            title: Tax
+            '@ondc/org/title_type': tax
+            price:
+              currency: INR
+              value: '22.50'
+            item:
+              parent_item_id: DI2
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: customization
+                - code: parent
+                  list:
+                    - code: id
+                      value: CG2
+          - '@ondc/org/item_id': C14
+            title: Tax
+            '@ondc/org/title_type': tax
+            price:
+              currency: INR
+              value: '4.00'
+            item:
+              parent_item_id: DI2
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: customization
+                - code: parent
+                  list:
+                    - code: id
+                      value: CG3
+          - '@ondc/org/item_id': C15
+            title: Tax
+            '@ondc/org/title_type': tax
+            price:
+              currency: INR
+              value: '4.00'
+            item:
+              parent_item_id: DI2
+              tags:
+                - code: type
+                  list:
+                    - code: type
+                      value: customization
+                - code: parent
+                  list:
+                    - code: id
+                      value: CG3
+          - '@ondc/org/item_id': F1
+            title: Delivery charges
+            '@ondc/org/title_type': delivery
+            price:
+              currency: INR
+              value: '50.00'
+          - '@ondc/org/item_id': F1
+            title: Packing charges
+            '@ondc/org/title_type': packing
+            price:
+              currency: INR
+              value: '25.00'
+          - '@ondc/org/item_id': F1
+            title: Convenience Fee
+            '@ondc/org/title_type': misc
+            price:
+              currency: INR
+              value: '10.00'
+        ttl: PT1H
+      payment [^23]:
+        uri [^24]: https://ondc.transaction.com/payment
+        tl_method [^25]: http/get
+        params:
+          currency: INR
+          transaction_id: '3937'
+          amount: '1946.65'
+        status: PAID
+        type: ON-ORDER
+        collected_by: BAP
+        '@ondc/org/buyer_app_finder_fee_type': percent
+        '@ondc/org/buyer_app_finder_fee_amount': '3'
+        '@ondc/org/settlement_basis': delivery
+        '@ondc/org/settlement_window': P1D
+        '@ondc/org/withholding_amount': '10.00'
+        '@ondc/org/settlement_details':
+          - settlement_counterparty: seller-app
+            settlement_phase: sale-amount
+            beneficiary_name: xxxxx
+            settlement_type: upi
+            upi_address: gft@oksbi
+            settlement_bank_account_no: XXXXXXXXXX
+            settlement_ifsc_code: XXXXXXXXX
+            bank_name: xxxx
+            branch_name: xxxx
+      cancellation_terms [^26]:
+        - fulfillment_state:
+            descriptor:
+              code: Pending
+              short_desc: ''
+          refund_eligible: true
+          reason_required: false
+          cancellation_fee:
+            amount:
+              currency: INR
+              value: '0.00'
+        - fulfillment_state:
+            descriptor:
+              code: Packed
+              short_desc: 001,003
+          refund_eligible: true
+          reason_required: true
+          cancellation_fee:
+            amount:
+              currency: INR
+              value: '50.00'
+        - fulfillment_state:
+            descriptor:
+              code: Order-picked-up
+              short_desc: 001,003
+          refund_eligible: true
+          reason_required: true
+          cancellation_fee:
+            amount:
+              currency: INR
+              value: '50.00'
+        - fulfillment_state:
+            descriptor:
+              code: Out-for-delivery
+              short_desc: '009'
+          refund_eligible: true
+          reason_required: true
+          cancellation_fee:
+            amount:
+              currency: INR
+              value: '0.00'
+        - fulfillment_state:
+            descriptor:
+              code: Out-for-delivery
+              short_desc: 011,012,013,014,015
+          refund_eligible: true
+          reason_required: true
+          cancellation_fee:
+            amount:
+              currency: INR
+              value: '100.00'
+      tags [^27]:
+        - code: bpp_terms
+          list:
+            - code: max_liability_cap
+              value: '10000.00'
+            - code: max_liability
+              value: '2'
+            - code: mandatory_arbitration
+              value: 'false'
+            - code: court_jurisdiction
+              value: Bengaluru
+            - code: delay_interest
+              value: '1000.00'
+            - code: tax_number
+              value: gst_number_of_sellerNP
+            - code: accept_bap_terms [^28]
+              value: 'Y'
+        - code: bap_terms
+          list:
+            - code: fixed_terms
+              value: >-
+                https://github.com/ONDC-Official/protocol-network-extension/discussions/79
+            - code: tax_number
+              value: gst_number_of_buyerNP
+      created_at [^29]: '2023-06-03T09:30:00.000Z'
+      updated_at [^30]: '2023-06-03T09:31:30.000Z'

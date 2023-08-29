@@ -1,0 +1,5 @@
+value:
+  [^1]: may be the same location as selected by the buyer or a different location
+  [^2]: can be 0 (completely out of stock) or the reduced quantity in stock
+  [^3]: delivery charge to be included only if fulfillment state code is "Serviceable"
+  [^4]: comma delimited item ids, for items out of stock, should be here, e.g. "I1,I2,I3" means items (with id) "I1", "I2", "I3" are out of stock

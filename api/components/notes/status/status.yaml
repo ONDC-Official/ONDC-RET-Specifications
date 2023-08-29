@@ -1,0 +1,2 @@
+value:
+  [^1]: status for order can be queried using same transaction id used for order /confirm

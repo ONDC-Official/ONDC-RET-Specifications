@@ -1,0 +1,31 @@
+hair_type:
+  - code: dry
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: normal
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: curly
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: straight
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: dull
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: oily
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: fine
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: thick
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: thin
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: wavy
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

@@ -169,58 +169,363 @@ custom_group:
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
 attribute:
-  - code: BRAND
+  - code: AGE_GROUP
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
-  - code: COLOUR
+    value:
+      $ref: "./tags_enum/age_group.yaml#/age_group"
+  - code: BENEFIT
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SIZE
+    value:
+      $ref: "./tags_enum/benefit.yaml#/benefit"
+  - code: BASE_METAL
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
-  - code: GENDER
+    value:
+      $ref: "./tags_enum/base_metal.yaml#/base_metal"
+  - code: BRISTLE_TYPE
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
-  - code: PATTERN
+    value:
+      $ref: "./tags_enum/bristle_type.yaml#/bristle_type"
+  - code: BRUSH_TYPE
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/brush_type.yaml#/brush_type"
+  - code: CONCERN
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/concern.yaml#/concern"
+  - code: CONSCIOUS
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/conscious.yaml#/conscious"
+  - code: COVERAGE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/coverage.yaml#/coverage"
+  - code: EXTENSION_COLOUR
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/colour.yaml#/colour"
+  - code: EXTENSION_TYPE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/extension_type.yaml#/extension_type"
+  - code: FINISH
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/finish.yaml#/finish"
+  - code: FORMULATION
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/formulation.yaml#/formulation"
+  - code: FRAGRANCE_FAMILY
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/fragrance_family.yaml#/fragrance_family"
+  - code: HAIR_TYPE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/hair_type.yaml#/hair_type"
+  - code: JEWELLERY_TYPE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/jewellery_type.yaml#/jewellery_type"
+  - code: INGREDIENT
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/ingredient.yaml#/ingredient"
   - code: MATERIAL
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/material.yaml#/material"
   - code: OCCASION
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/occasion.yaml#/occasion"
+  - code: PACK_SIZE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/pack_size.yaml#/pack_size"
+  - code: PATTERN
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/pattern.yaml#/pattern"
+  - code: PREFERENCE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/preference.yaml#/preference"
+  - code: RICE_GRAIN_TYPE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/rice_grain_type.yaml#/rice_grain_type"
+  - code: PRESERVATIVES
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/preservatives.yaml#/preservatives"
+  - code: SKIN_TONE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/skin_tone.yaml#/skin_tone"
+  - code: SKIN_TYPE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/skin_type.yaml#/skin_type"
+  - code: SPF
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/spf.yaml#/spf"
+  - code: COLOUR
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/colour.yaml#/colour"
+  - code: GENDER
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/gender.yaml#/gender"
+  - code: FLAVOURS_SPICES
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/flavours_spices.yaml#/flavours_spices"
+  - code: BRAND
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: DIAL_SHAPE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/dial_shape.yaml#/dial_shape"
+  - code: DISPLAY
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/display.yaml#/display"
+  - code: FABRIC_FINISH
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/fabric_finish.yaml#/fabric_finish"
+  - code: FACE_SHAPE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/face_shape.yaml#/face_shape"
+  - code: FASTENING
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/fastening.yaml#/fastening"
+  - code: FIT
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/fit.yaml#/fit"
+  - code: FRAME_MATERIAL
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/frame_material.yaml#/frame_material"
+  - code: FRAME_SHAPE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/frame_shape.yaml#/frame_shape"
+  - code: FRAME_SIZE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/frame_size.yaml#/frame_size"
+  - code: FRAME_TYPE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/frame_type.yaml#/frame_type"
+  - code: GEM_TYPE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/gem_type.yaml#/gem_type"
+  - code: GLASS_MATERIAL
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/glass_material.yaml#/glass_material"
+  - code: INSOLE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/insole.yaml#/insole"
+  - code: KURTA_PATTERN
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/kurta_pattern.yaml#/kurta_pattern"
+  - code: LAPTOP_SIZE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/laptop_size.yaml#/laptop_size"
+  - code: LENGTH
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/length.yaml#/length"
+  - code: LENS_MATERIAL
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/lens_material.yaml#/lens_material"
+  - code: LOCK_TYPE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/lock_type.yaml#/lock_type"
+  - code: MIDSOLE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/midsole.yaml#/midsole"
+  - code: NECK
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/neck.yaml#/neck"
+  - code: ORNAMENTATION
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/ornamentation.yaml#/ornamentation"
+  - code: OUTSOLE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/outsole.yaml#/outsole"
+  - code: PADDING
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/padding.yaml#/padding"
+  - code: PLATING
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/plating.yaml#/plating"
+  - code: SEAM
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/seam.yaml#/seam"
+  - code: SHOULDER_STRAP_TYPE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/shoulder_strap_type.yaml#/shoulder_strap_type"
+  - code: SIZE
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
   - code: SEASON
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/season.yaml#/season"
+  - code: SLEEVE_LENGTH
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/sleeve_length.yaml#/sleeve_length"
+  - code: SOLE_MATERIAL
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/sole_material.yaml#/sole_material"
+  - code: SPORTS_TYPE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/sports_type.yaml#/sports_type"
+  - code: STONE_TYPE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/stone_type.yaml#/stone_type"
+  - code: STRAP_MATERIAL
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/strap_material.yaml#/strap_material"
+  - code: STRAPS
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/straps.yaml#/straps"
+  - code: TOE_SHAPE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/toe_shape.yaml#/toe_shape"
   - code: TREND
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/trend.yaml#/trend"
+  - code: VOLUME
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/volume.yaml#/volume"
+  - code: WAIST_BAND
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/waist_band.yaml#/waist_band"
+  - code: WAIST_RISE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/waist_rise.yaml#/waist_rise"
+  - code: WATER_RESISTANCE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/water_resistance.yaml#/water_resistance"
   - code: FEATURES
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/features.yaml#/features"
   - code: MATERIAL_FINISH
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
+    value:
+      $ref: "./tags_enum/material_finish.yaml#/material_finish"
   - code: SIZE_CHART
-    description: Description about the tags
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: CONCERN
-    description: Description about the tags
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: INGREDIENT
-    description: Description about the tags
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: CONSCIOUS
-    description: Description about the tags
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: PREFERENCE
-    description: Description about the tags
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: FORMULATION
-    description: Description about the tags
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SKIN_TYPE
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
   - code: STYLE
@@ -361,7 +666,10 @@ cancel_request:
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
 quote_trail:
-  - code: TITLE_TYPE
+  - code: TYPE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: SUBTYPE
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
   - code: ID
@@ -378,6 +686,9 @@ return_request:
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
   - code: ITEM_ID
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: PARENT_ITEM_ID
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
   - code: ITEM_QUANTITY

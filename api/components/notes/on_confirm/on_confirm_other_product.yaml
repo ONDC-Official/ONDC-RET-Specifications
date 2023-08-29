@@ -1,0 +1,23 @@
+value:
+  [^1]: enum - "Created", "Accepted", "Cancelled"
+  [^2]: optional
+  [^3]: same as in /init
+  [^4]: same as in /init
+  [^5]: true if tracking enabled through /on_track
+  [^6]: if TAT is different from what was originally quoted in /on_select, buyer NP can NACK the request with error code 22504
+  [^7]: store address
+  [^8]: optional, pickup time range may be provided if available
+  [^9]: optional
+  [^10]: type of pickup confirmation code (PCC), enum - "1" (buyer contact no (for self-pickup)), "2" (merchant order no), "3" (other pickup confirmation code), "4" (OTP); required when order is "Packed"
+  [^11]: value of PCC (required when order is "Packed") - contact no - 10 digits;merchant order no - max 6 digits;other pickup confirmation code - max 6 digits;OTP - max 6 digits
+  [^12]: optional
+  [^13]: optional, pickup time range may be provided if available
+  [^14]: optional
+  [^15]: same values as in /confirm
+  [^16]: optional
+  [^17]: optional
+  [^18]: if cancellation terms are different from what was quoted earlier, buyer NP can NACK /on_confirm with error code 22505
+  [^19]: if terms & conditions different from what was quoted earlier, buyer NP can NACK /on_confirm with error code 22506
+  [^20]: seller NP must accept proposed bap terms & conditions (if proposed). If not accepted, buyer NP can NACK /on_confirm with error code 27502
+  [^21]: same as in /confirm
+  [^22]: can’t be a future date

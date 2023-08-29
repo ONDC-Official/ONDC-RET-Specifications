@@ -1,0 +1,16 @@
+lens_material:
+  - code: glass
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: plastic
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: polycarbonate
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: trives
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: high index
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

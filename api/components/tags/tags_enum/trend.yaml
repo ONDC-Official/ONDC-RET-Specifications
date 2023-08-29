@@ -1,0 +1,31 @@
+trend:
+  - code: abstract
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: geometric
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: nautica
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: animal
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: indigo
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: colour_block
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: monochrome
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: typography
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: tribal
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: floral
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

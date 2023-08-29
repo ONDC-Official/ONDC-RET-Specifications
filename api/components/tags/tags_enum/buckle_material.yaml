@@ -1,0 +1,7 @@
+buckle_material:
+  - code: metal
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: leather
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

@@ -1,0 +1,10 @@
+skin_tone:
+  - code: medium/wheatish
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: fair/light
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: dusky/dark
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>

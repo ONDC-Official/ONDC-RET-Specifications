@@ -1,0 +1,43 @@
+summary: Return with liquidation updated by buyer
+description: Return with liquidation updated by buyer
+value:
+  context:
+    domain: ONDC:RET10
+    action: update
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    bpp_id: sellerNP.com
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: T2
+    message_id: M6
+    city: std:080
+    country: IND
+    timestamp: '2023-06-03T10:30:00.000Z'
+  message:
+    update_target: item
+    order:
+      id: O1
+      fulfillments:
+        - type: Return [^1]
+          tags:
+            - code: return_request
+              list:
+                - code: id
+                  value: R1 [^2]
+                - code: item_id
+                  value: I1
+                - code: parent_item_id [^3]
+                  value: DI1
+                - code: item_quantity
+                  value: '1'
+                - code: reason_id [^4]
+                  value: '003'
+                - code: reason_desc
+                  value: detailed description for return
+                - code: images
+                  value: url_for_image1,url_for_image2
+                - code: ttl_approval [^5]
+                  value: PT24H
+                - code: ttl_reverseqc [^6]
+                  value: P3D

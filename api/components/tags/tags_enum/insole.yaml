@@ -1,0 +1,31 @@
+insole:
+  - code: arch support
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: athletic
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: comfort
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: orthpedic
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: rubber
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: fur
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: leather
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: memory foam
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: padded
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
+  - code: support
+    description: about the enum
+    reference: <pr/issue/discussion links md format text>
