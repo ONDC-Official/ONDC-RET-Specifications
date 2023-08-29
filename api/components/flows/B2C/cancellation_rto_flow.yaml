@@ -74,14 +74,6 @@ steps:
       $ref: "../../Examples/B2C/on_status/on_status_other_product_order_pickup.yaml" 
     notes:
       $ref: "../../notes/on_status/on_status_other_product_order_pickup.yaml" 
-  - summary: Seller provides latest order status
-    api: on_status
-    description: Seller provides the updated status to the buyer
-    reference: if any
-    example:
-      $ref: "../../Examples/B2C/on_status/on_status_other_product_out_for_delivery.yaml" 
-    notes:
-      $ref: "../../notes/on_status/on_status_other_product_out_for_delivery.yaml"   
   - summary: seller cancels the order
     api: on_cancel (RTO flow)
     description: 
@@ -89,20 +81,4 @@ steps:
     example:
       $ref: "../../Examples/B2C/on_cancel/on_cancel_rto.yaml"  
     notes:
-      $ref: "../../notes/on_cancel/on_cancel_rto.yaml"                                            
-  - summary: Buyer platform requests for latest status
-    api: status
-    description: 
-    reference: if any
-    example:
-      $ref: "../../Examples/B2C/status/status.yaml"    
-    notes:
-      $ref: "../../notes/status/status.yaml"                    
-  - summary: Seller provides latest order status
-    api: on_status
-    description: Seller provides the updated status to the buyer
-    reference: if any
-    example:
-      $ref: "../../Examples/B2C/on_status/on_status_make_to_order_product_order_cancelled.yaml" 
-    notes:
-      $ref: "../../notes/on_status/on_status_make_to_order_product_order_cancelled.yaml"                                 
+      $ref: "../../notes/on_cancel/on_cancel_rto.yaml"                                                                         

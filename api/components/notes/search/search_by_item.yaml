@@ -1,6 +1,5 @@
 value:
-  [^1]: search request for catalog from sellers that match the search item & provide fulfillment at the specified drop location (gps coordinates, area code)
-  [^2]: updated domains defined - https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
-  [^3]: optional, when not specified, all fulfillment types supported by provider should be returned in response
-  [^4]: minimum 6 digit decimal precision for gps coordinates
-  [^5]: optional
+  [^1]: updated domains defined - https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
+  [^2]: optional, when not specified, all fulfillment types supported by provider should be returned in response
+  [^3]: minimum 6 digit decimal precision for gps coordinates
+  [^4]: optional

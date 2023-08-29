@@ -171,12 +171,12 @@ value:
                 value: '400.0'
                 maximum_value: '400.0'
                 tags [^6]:
-                  - code: range
+                - code: range
                   list:
-                    - code: lower
-                      value: '229.00 [7]'
-                    - code: upper
-                      value: '718.00 [^8]'
+                  - code: lower
+                    value: '229.00 [7]'
+                  - code: upper
+                    value: '718.00 [^8]'
               category_id: F&B
               category_ids:
                 - '5:1'

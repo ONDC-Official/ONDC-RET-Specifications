@@ -1,5 +1,4 @@
 value:  
-  [^1]: search request for catalog from sellers that provide fulfillment at the specified drop location (gps coordinates, area code); optional for both buyer & seller NPs - if buyer NP sends this request which a seller NP does not support, they may not respond or NACK with error 30000
-  [^2]: updated domains defined - https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
-  [^3]: optional, when not specified, all fulfillment types supported by provider should be returned in response
-  [^4]: minimum 6 digit decimal precision for gps coordinates
+  [^1]: updated domains defined - https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
+  [^2]: optional, when not specified, all fulfillment types supported by provider should be returned in response
+  [^3]: minimum 6 digit decimal precision for gps coordinates

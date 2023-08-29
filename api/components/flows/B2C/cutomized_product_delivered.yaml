@@ -65,23 +65,7 @@ steps:
     example:
       $ref: "../../Examples/B2C/on_confirm/on_confirm_make_to_order_product.yaml"  
     notes:
-      $ref: "../../notes/on_confirm/on_confirm_make_to_order_product.yaml"                        
-  - summary: To know real time coordinates for the rider
-    api: track
-    description: 
-    reference: if any
-    example:
-      $ref: "../../Examples/B2C/track/track.yaml"    
-    notes:
-      $ref: "../../notes/track/track.yaml"                           
-  - summary: Get the information about rider
-    api: on_track
-    description: 
-    reference: if any
-    example:
-      $ref: "../../Examples/B2C/on_track/on_track.yaml"  
-    notes:
-      $ref: "../../notes/on_track/on_track.yaml"                                    
+      $ref: "../../notes/on_confirm/on_confirm_make_to_order_product.yaml"                                                     
   - summary: Buyer platform requests for latest status
     api: status
     description: 
@@ -106,6 +90,22 @@ steps:
       $ref: "../../Examples/B2C/on_status/on_status_other_product_out_for_delivery.yaml" 
     notes:
       $ref: "../../notes/on_status/on_status_other_product_out_for_delivery.yaml" 
+  - summary: To know real time coordinates for the rider
+    api: track
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/track/track.yaml"    
+    notes:
+      $ref: "../../notes/track/track.yaml"                           
+  - summary: Get the information about rider
+    api: on_track
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/on_track/on_track.yaml"  
+    notes:
+      $ref: "../../notes/on_track/on_track.yaml"       
   - summary: Seller provides latest order status
     api: on_status
     description: Seller provides the updated status to the buyer
