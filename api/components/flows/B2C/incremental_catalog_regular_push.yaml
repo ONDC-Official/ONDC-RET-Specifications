@@ -10,6 +10,14 @@ steps:
       $ref: "../../Examples/B2C/search/search_by_city.yaml"
     notes:
       $ref: "../../notes/search/search_by_city.yaml"
+  - summary: Returns the item or catalog
+    api: on_search
+    description:  
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/on_search/on_search_Health_Wellness.yaml"
+    notes:
+      $ref: "../../notes/on_search/on_search_Health_Wellness.yaml"
   - summary: Search by incremental regular push catalog refresh
     api: search
     description:  Search by incremental regular push catalog refresh
