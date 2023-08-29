@@ -2,14 +2,14 @@ summary: Retail 1.2.0 (Incremental Regular Push)
 description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order customized item and it is delivered successfully and it is searched through incremental regular push
 reference: if any
 steps:
-  - summary: Search for an item
+  - summary: Search by city
     api: search
-    description:  Buyer search for an item
+    description:  Search by city
     reference: if any
     example:
-      $ref: "../../Examples/B2C/search/search_by_item.yaml"
+      $ref: "../../Examples/B2C/search/search_by_city.yaml"
     notes:
-      $ref: "../../notes/search/search_by_item.yaml"
+      $ref: "../../notes/search/search_by_city.yaml"
   - summary: Search by incremental regular push catalog refresh
     api: search
     description:  Search by incremental regular push catalog refresh
@@ -27,6 +27,6 @@ steps:
     description:  
     reference: if any
     example:
-      $ref: "../../Examples/B2C/on_search/on_search_F&B_Pizza.yaml"
+      $ref: "../../Examples/B2C/on_search/incremental_catalog_refresh_store_closed_temporarily.yaml"
     notes:
-      $ref: "../../notes/on_search/on_search_F&B_Pizza.yaml"   
+      $ref: "../../notes/on_search/incremental_catalog_refresh_store_closed_temporarily.yaml"   

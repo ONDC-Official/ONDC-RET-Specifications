@@ -2,14 +2,14 @@ summary: Retail 1.2.0 (Return with reverse qc - NP approves request - Return Pic
 description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order BPC item and return it with reverse qc.Seller approves it and return picked successfully
 reference: if any
 steps:
-  - summary: Search by city
+  - summary: Search by fulfillment end location 
     api: search
-    description:  Buyer search by city
+    description:  Buyer search by fulfillment end location
     reference: if any
     example:
-      $ref: "../../Examples/B2C/search/search_by_city.yaml"
+      $ref: "../../Examples/B2C/search/search_by_fulfillment_end_loc.yaml"
     notes:
-      $ref: "../../notes/search/search_by_city.yaml"
+      $ref: "../../notes/search/search_by_fulfillment_end_loc.yaml"
   - summary: Returns the item or catalog
     api: on_search
     description:  

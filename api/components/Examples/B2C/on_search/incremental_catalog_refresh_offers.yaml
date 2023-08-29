@@ -1,0 +1,128 @@
+summary: Return the incremental catalog with offers
+description: Return the incremental catalog with offers
+value:
+  context:
+    domain: ONDC:RET10
+    action: on_search
+    country: IND
+    city: '*'
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    bpp_id: sellerNP.com
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: T1
+    message_id: M2
+    timestamp: '2023-06-03T08:30:00.000Z'
+    ttl: PT30S
+  message:
+    catalog:
+      bpp/providers:
+        - id: P1
+          offers:
+            - id: TRYNEW
+              descriptor:
+                code: Disc_Pct
+                images:
+                  - https://sellerNP.com/images/offer2-banner.png
+              location_ids:
+                - L1
+              item_ids:
+                - I1
+              time:
+                label: valid
+                range:
+                  start: '2023-06-21T16:00:00.000Z'
+                  end: '2023-06-21T23:00:00.000Z'
+              tags:
+                - code: cart
+                  list:
+                    - code: min_value
+                      value: '159'
+                - code: offer
+                  list:
+                    - code: offered_value_type
+                      value: percent
+                    - code: offered_value_amt
+                      value: '-60.00'
+                    - code: offered_value_cap
+                      value: '-120.00'
+            - id: FLAT150
+              descriptor:
+                code: Disc_Amt
+                images:
+                  - https://sellerNP.com/images/offer2-banner.png
+              location_ids:
+                - L1
+              item_ids:
+                - I1
+              time:
+                label: valid
+                range:
+                  start: '2023-06-22T16:00:00.000Z'
+                  end: '2023-06-22T23:00:00.000Z'
+              tags:
+                - code: cart
+                  list:
+                    - code: min_value
+                      value: '499.00'
+                - code: offer
+                  list:
+                    - code: offered_value_type
+                      value: amount
+                    - code: offered_value_amt
+                      value: '-150.00'
+            - id: BUY2GET3
+              descriptor:
+                code: BuyXGetY
+                images:
+                  - https://sellerNP.com/images/offer1-banner.png
+              location_ids:
+                - L1
+              item_ids:
+                - I1
+              time:
+                label: valid
+                range:
+                  start: '2023-06-23T16:00:00.000Z'
+                  end: '2023-06-23T23:00:00.000Z'
+              tags:
+                - code: cart
+                  list:
+                    - code: item_count
+                      value: '2'
+                - code: offer
+                  list:
+                    - code: item_count
+                      value: '3'
+                    - code: item_id
+                      value: sku_id_for_extra_item
+            - id: FREEBIE
+              descriptor:
+                code: Freebie
+                images:
+                  - https://sellerNP.com/images/offer3-banner.png
+              location_ids:
+                - L1
+              item_ids:
+                - I1
+              time:
+                label: valid
+                range:
+                  start: '2023-06-24T16:00:00.000Z'
+                  end: '2023-06-24T23:00:00.000Z'
+              tags:
+                - code: cart
+                  list:
+                    - code: min_value
+                      value: '598.00'
+                - code: offer
+                  list:
+                    - code: offered_value
+                      value: '0.00'
+                    - code: item_count
+                      value: '1'
+                    - code: item_id
+                      value: sku_id_for_extra_item
+                    - code: item_value
+                      value: '200.00'

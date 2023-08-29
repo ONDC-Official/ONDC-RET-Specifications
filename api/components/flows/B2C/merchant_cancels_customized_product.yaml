@@ -2,14 +2,14 @@ summary: Retail 1.2.0 (Merchant cancels customized product)
 description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order customized item and merchant cancels it
 reference: if any
 steps:
-  - summary: Search by city
+  - summary: Search by fulfillment end location 
     api: search
-    description:  Search by city
+    description:  Buyer search by fulfillment end location
     reference: if any
     example:
-      $ref: "../../Examples/B2C/search/search_by_city.yaml"
+      $ref: "../../Examples/B2C/search/search_by_fulfillment_end_loc.yaml"
     notes:
-      $ref: "../../notes/search/search_by_city.yaml"
+      $ref: "../../notes/search/search_by_fulfillment_end_loc.yaml"
   - summary: Returns the item or catalog
     api: on_search
     description:  
@@ -80,35 +80,3 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/B2C/update/update_settlement_trail_cancel_by_merchant.yaml"                                                       
-  - summary: Buyer platform requests for latest status
-    api: status
-    description: 
-    reference: if any
-    example:
-      $ref: "../../Examples/B2C/status/status.yaml"      
-    notes:
-      $ref: "../../notes/status/status.yaml"                       
-  - summary: Seller provides latest order status
-    api: on_status
-    description: Seller provides the updated status to the buyer
-    reference: if any
-    example:
-      $ref: "../../Examples/B2C/on_status/on_status_other_product_order_pickup.yaml" 
-    notes:
-      $ref: "../../notes/on_status/on_status_other_product_order_pickup.yaml" 
-  - summary: Seller provides latest order status
-    api: on_status
-    description: Seller provides the updated status to the buyer
-    reference: if any
-    example:
-      $ref: "../../Examples/B2C/on_status/on_status_other_product_out_for_delivery.yaml" 
-    notes:
-      $ref: "../../notes/on_status/on_status_other_product_out_for_delivery.yaml" 
-  - summary: Seller provides latest order status
-    api: on_status
-    description: Seller provides the updated status to the buyer
-    reference: if any
-    example:
-      $ref: "../../Examples/B2C/on_status/on_status_make_to_order_product_order_delivered.yaml" 
-    notes:
-      $ref: "../../notes/on_status/on_status_make_to_order_product_order_delivered.yaml"                                    

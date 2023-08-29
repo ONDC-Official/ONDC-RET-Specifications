@@ -74,7 +74,7 @@ steps:
       $ref: "../../Examples/B2C/on_status/on_status_other_product_order_pickup.yaml" 
     notes:
       $ref: "../../notes/on_status/on_status_other_product_order_pickup.yaml" 
-  - summary: seller cancels the order
+  - summary: Cancellation RTO initiated as buyer is not available or rejectes the order
     api: on_cancel (RTO flow)
     description: 
     reference: if any

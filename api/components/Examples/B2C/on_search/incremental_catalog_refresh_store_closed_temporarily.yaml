@@ -1,0 +1,29 @@
+summary: Return the incremental catalog when store is closed temporarily
+description: Return the incremental catalog when store is closed temporarily
+value:
+  context:
+    domain: ONDC:RET10
+    action: on_search
+    country: IND
+    city: '*'
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    bpp_id: sellerNP.com
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: T1
+    message_id: M2
+    timestamp: '2023-06-03T08:30:00.000Z'
+    ttl: PT30S
+  message:
+    catalog:
+      bpp/providers:
+        - id: P1
+          locations:
+            - id: L1
+              time:
+                label: close
+                timestamp: '2023-06-03T10:20:00.000Z'
+                range [^1]:
+                  start: '2023-06-03T16:00:00.000Z'
+                  end: '2023-06-03T23:59:00.000Z'
