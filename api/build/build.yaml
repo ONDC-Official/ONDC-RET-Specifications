@@ -5701,7 +5701,7 @@ x-flows:
               optional, when not specified, all fulfillment types supported by
               provider should be returned in response
             ^3: minimum 6 digit decimal precision for gps coordinates
-      - summary: Returns the item or catalog
+      - summary: Returns the item or catalog (BPC)
         api: on_search
         description: null
         reference: if any
@@ -8519,7 +8519,7 @@ x-flows:
               provider should be returned in response
             ^3: minimum 6 digit decimal precision for gps coordinates
             ^4: optional
-      - summary: Returns the item or catalog
+      - summary: Returns the item or catalog (F&B_Pizza)
         api: on_search
         description: null
         reference: if any
@@ -13613,7 +13613,7 @@ x-flows:
         reference: if any
         example: *ref_20
         notes: *ref_21
-      - summary: Returns the item or catalog
+      - summary: Returns the item or catalog (Fashion)
         api: on_search
         description: null
         reference: if any
@@ -14731,7 +14731,7 @@ x-flows:
         reference: if any
         example: *ref_20
         notes: *ref_21
-      - summary: Returns the item or catalog
+      - summary: Returns the item or catalog (Home&Kitchen)
         api: on_search
         description: null
         reference: if any
@@ -15841,7 +15841,7 @@ x-flows:
         reference: if any
         example: *ref_34
         notes: *ref_35
-      - summary: Returns the item or catalog
+      - summary: Returns the item or catalog (F&B_Sandwich)
         api: on_search
         description: null
         reference: if any
@@ -17516,7 +17516,7 @@ x-flows:
         reference: if any
         example: *ref_34
         notes: *ref_35
-      - summary: Returns the item or catalog
+      - summary: Returns the item or catalog (Fashion)
         api: on_search
         description: null
         reference: if any
@@ -17584,7 +17584,7 @@ x-flows:
         reference: if any
         example: *ref_34
         notes: *ref_35
-      - summary: Returns the item or catalog
+      - summary: Returns the item or catalog (Fashion)
         api: on_search
         description: null
         reference: if any
@@ -17893,7 +17893,7 @@ x-flows:
         reference: if any
         example: *ref_20
         notes: *ref_21
-      - summary: Returns the item or catalog
+      - summary: Returns the item or catalog (Home&Kitchen)
         api: on_search
         description: null
         reference: if any
@@ -18356,7 +18356,7 @@ x-flows:
             ^10: >-
               buyer NP finder fee calculations are detailed -
               https://docs.google.com/document/d/iqLdayk488ekEzKrEs-yn6gVrevbxBkILBe5j4oIxMY/edit
-      - summary: Returns the item or catalog
+      - summary: Returns the item or catalog (Home&Kitchen)
         api: on_search
         description: null
         reference: if any
@@ -18513,7 +18513,7 @@ x-flows:
         reference: if any
         example: *ref_65
         notes: *ref_66
-      - summary: Returns the item or catalog
+      - summary: Returns the item or catalog (Health_Wellness)
         api: on_search
         description: null
         reference: if any

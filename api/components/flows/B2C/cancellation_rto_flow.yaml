@@ -10,7 +10,7 @@ steps:
       $ref: "../../Examples/B2C/search/search_by_item.yaml"
     notes:
       $ref: "../../notes/search/search_by_item.yaml"
-  - summary: Returns the item or catalog
+  - summary: Returns the item or catalog (Fashion)
     api: on_search
     description:  
     reference: if any
