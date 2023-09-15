@@ -19,7 +19,7 @@
       "transaction_id":"T1",
       "message_id":"M1",
       "timestamp":"2023-01-08T22:00:30.000Z",
-      "ttl":"PT30S"
+      "ttl":"P1D"
     },
     "message":
     {
