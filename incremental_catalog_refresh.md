@@ -30,7 +30,7 @@
 
 Please refer to search example for [this](https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-1.x/api/components/Examples/B2C/search/incremental_catalog_refresh_one_time_push.yaml) 
 
-### <ins>Incremental catalog refresh</ins> <h5>(On_Search - Seller Np will request for incremental catalog refresh)</h5>
+### <ins>Incremental catalog refresh</ins> <h5>(On_Search - Seller Np would send incremental catalog)</h5>
 * Incremental refresh will only include the following:
     * Item(s) changes - entire item record to be sent when there are delta changes since the last full catalog snapshot; 
     * Store temporarily closed for online orders;

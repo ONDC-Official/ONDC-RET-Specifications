@@ -11,7 +11,7 @@
 
 Please refer to search example for [this](https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-1.x/api/components/Examples/B2C/search/search_by_city.yaml)
 
-### <ins>Full catalog refresh</ins> <h5>(On_Search - Seller Np will request for full catalog refresh)</h5>
+### <ins>Full catalog refresh</ins> <h5>(On_Search - Seller Np will respond to full catalog refresh)</h5>
 * Full catalog refresh includes the complete catalog, per provider, for a seller NP at a point in time (as identified by Context.timestamp). If a buyer NP is caching the catalog, the list of items for a provider will be overwritten with the list of items in the catalog refresh, i.e. existing items in the buyer NP cache which aren’t in the catalog refresh will be disabled;
 * However, since seller NPs may send separate catalog responses per provider (i.e. pagination by provider), it is possible that a catalog response for a provider may not be received by the buyer NP. Hence, provider(s) must be explicitly disabled, through the incremental refresh, and cannot be disabled if a response isn’t received in the catalog response;
 * Following enhancements are included:
