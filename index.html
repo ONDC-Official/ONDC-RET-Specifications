@@ -401,7 +401,7 @@
         }
 
         const fileNameFinal = fileNameLatest + arrayWords[arrayWords.length-1] + '.md';
-        const filePath = fileNameFinal;
+        const filePath = 'api/docs/' + fileNameFinal;
         const xhr = new XMLHttpRequest();            
         xhr.open("GET", filePath, true); 
         xhr.onreadystatechange = function () { 
