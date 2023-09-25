@@ -15,9 +15,9 @@ steps:
     description:  
     reference: if any
     example:
-      $ref: "../../Examples/B2C/on_search/on_search_Home&Kitchen.yaml"
+      $ref: "../../Examples/B2C/on_search/on_search_Grocery.yaml"
     notes:
-      $ref: "../../notes/on_search/on_search_Home&Kitchen.yaml"
+      $ref: "../../notes/on_search/on_search_Grocery.yaml"
   - summary: Search by incremental one time push catalog refresh
     api: search
     description:  Search by incremental one time push catalog refresh

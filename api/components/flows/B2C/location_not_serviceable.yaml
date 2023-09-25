@@ -1,0 +1,36 @@
+summary: Retail 1.2.0 (Location not serviceable)
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order electronics item and location is not serviceable
+reference: if any
+steps:
+  - summary: Search for an item
+    api: search
+    description:  Buyer search for an item
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/search/search_by_item.yaml"
+    notes:
+      $ref: "../../notes/search/search_by_item.yaml"
+  - summary: Returns the item or catalog (Electronics Keyboard)
+    api: on_search
+    description:  
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/on_search/on_search_Electronics_Keyboard.yaml"
+    notes:
+      $ref: "../../notes/on_search/on_search_Electronics_Keyboard.yaml" 
+  - summary: Select the item
+    api: select
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/select/select_other_product.yaml"
+    notes:
+      $ref: "../../notes/select/select_other_product.yaml"
+  - summary: Returns that location is not serviceable
+    api: on_select
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/on_select/on_select_location_not_serviceable.yaml"
+    notes:
+      $ref: "../../notes/on_select/on_select_location_not_serviceable.yaml" 
