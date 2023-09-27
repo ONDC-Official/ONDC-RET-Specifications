@@ -1,5 +1,5 @@
-summary: Retail 1.2.0 (Merchant cancels non customized product)
-description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order fashion item and merchant cancels it
+summary: Retail 1.2.0 (Merchant cancels full order)
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order electronics item and then cancels it
 reference: if any
 steps:
   - summary: Search by fulfillment end location 
@@ -10,14 +10,14 @@ steps:
       $ref: "../../Examples/B2C/search/search_by_fulfillment_end_loc.yaml"
     notes:
       $ref: "../../notes/search/search_by_fulfillment_end_loc.yaml"
-  - summary: Returns the item or catalog (Electronics Desktop)
+  - summary: Returns the item or catalog (Electronics Smartwatch)
     api: on_search
     description:  
     reference: if any
     example:
-      $ref: "../../Examples/B2C/on_search/on_search_Electronics_Desktop.yaml"
+      $ref: "../../Examples/B2C/on_search/on_search_Electronics_Smartwatch.yaml"
     notes:
-      $ref: "../../notes/on_search/on_search_Electronics_Desktop.yaml"
+      $ref: "../../notes/on_search/on_search_Electronics_Smartwatch.yaml"
   - summary: Select the item
     api: select
     description: 
@@ -26,14 +26,14 @@ steps:
       $ref: "../../Examples/B2C/select/select_other_product.yaml"
     notes:
       $ref: "../../notes/select/select_other_product.yaml"
-  - summary: Returns item breakup when item is in stock and offer applied
+  - summary: Returns item breakup when item has multiple pickup otions
     api: on_select
     description: 
     reference: if any
     example:
-      $ref: "../../Examples/B2C/on_select/on_select_DISCP60_applied.yaml"
+      $ref: "../../Examples/B2C/on_select/on_select_multiple_pickup.yaml"
     notes:
-      $ref: "../../notes/on_select/on_select_DISCP60_applied.yaml"
+      $ref: "../../notes/on_select/on_select_multiple_pickup.yaml"
   - summary: Buyer initiate the product and send the updated fulfillment id
     api: init
     description: 
@@ -66,17 +66,19 @@ steps:
       $ref: "../../Examples/B2C/on_confirm/on_confirm_other_product.yaml"
     notes:
       $ref: "../../notes/on_confirm/on_confirm_other_product.yaml"
-  - summary: seller cancels non customized product
-    api: on_update
+  - summary: Buyer cancels the product
+    api: cancel
     description: 
     reference: if any
     example:
-      $ref: "../../Examples/B2C/on_update/on_update_merchant_cancels_non_customized.yaml"
+      $ref: "../../Examples/B2C/cancel/cancel.yaml"
     notes:
-      $ref: "../../notes/on_update/on_update_merchant_cancels_non_customized.yaml"
-  - summary: Settlement trail for refund initiation
-    api: update
+      $ref: "../../notes/cancel/cancel.yaml"
+  - summary: Seller accepts the cancellation and responds to it
+    api: on_cancel
     description:
     reference: if any
     example:
-      $ref: "../../Examples/B2C/update/update_settlement_trail_cancel_by_merchant.yaml"                                                  
+      $ref: "../../Examples/B2C/on_cancel/on_cancel.yaml"
+    notes:
+      $ref: "../../notes/on_cancel/on_cancel.yaml"                                          

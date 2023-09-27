@@ -8141,7 +8141,7 @@ x-flows:
         api: update
         description: null
         reference: if any
-        example: &ref_55
+        example: &ref_57
           summary: Return with reverse QC updated by buyer
           description: Return with reverse QC updated by buyer
           value:
@@ -8185,7 +8185,7 @@ x-flows:
                             value: PT24H
                           - code: ttl_reverseqc [^6]
                             value: P3D
-        notes: &ref_56
+        notes: &ref_58
           value:
             ^1: >-
               new fulfillment of type "Return" created, with return request
@@ -8203,7 +8203,7 @@ x-flows:
         api: on_update
         description: null
         reference: if any
-        example: &ref_57
+        example: &ref_59
           summary: Seller send interim status
           description: Seller send interim status
           value:
@@ -8417,7 +8417,7 @@ x-flows:
                       branch_name: xxxx
                 created_at: '2023-06-03T09:30:00.000Z'
                 updated_at: '2023-06-03T10:31:30.000Z'
-        notes: &ref_58
+        notes: &ref_60
           value:
             ^1: >-
               shows the current state of order with the new fulfillment for part
@@ -8451,7 +8451,7 @@ x-flows:
         api: on_update
         description: null
         reference: if any
-        example: &ref_59
+        example: &ref_61
           summary: Request approved by Seller
           description: Request approved by Seller
           value:
@@ -8679,7 +8679,7 @@ x-flows:
                       branch_name: xxxx
                 created_at: '2023-06-03T09:30:00.000Z'
                 updated_at: '2023-06-03T13:30:00.000Z'
-        notes: &ref_60
+        notes: &ref_62
           value:
             ^1: forward shipment fulfillment
             ^2: pickup time
@@ -8969,7 +8969,7 @@ x-flows:
         api: on_update
         description: null
         reference: if any
-        example: &ref_63
+        example: &ref_65
           summary: Seller updates return delivered
           description: Seller updates return delivered
           value:
@@ -9205,7 +9205,7 @@ x-flows:
                     label: Invoice
                 created_at: '2023-06-03T09:30:00.000Z'
                 updated_at: '2023-06-04T12:00:00.000Z'
-        notes: &ref_64
+        notes: &ref_66
           value:
             ^1: pickup time
             ^2: PCC, proof of pickup
@@ -14375,7 +14375,7 @@ x-flows:
         api: on_search
         description: null
         reference: if any
-        example: &ref_48
+        example: &ref_55
           summary: Return the catalog for Fashion products
           description: Return the catalog for Fashion products
           value:
@@ -15003,7 +15003,7 @@ x-flows:
                             value: IND
                           - code: unit
                             value: country
-        notes: &ref_49
+        notes: &ref_56
           value:
             ^1: >-
               timestamp when the snapshot for this provider (including provider
@@ -15134,7 +15134,7 @@ x-flows:
         api: on_select
         description: null
         reference: if any
-        example: &ref_50
+        example: &ref_48
           summary: Send quote and breakup
           description: >-
             Send quote and breakup for items selected in select Api call with
@@ -15227,7 +15227,7 @@ x-flows:
                         currency: INR
                         value: '0'
                   ttl: PT1H
-        notes: &ref_51
+        notes: &ref_49
           value:
             ^1: >-
               may be the same location as selected by the buyer or a different
@@ -15493,7 +15493,7 @@ x-flows:
         api: on_search
         description: null
         reference: if any
-        example: &ref_61
+        example: &ref_63
           summary: Return the catalog for Home & Kitchen products
           description: Return the catalog for Home & Kitchen products
           value:
@@ -15703,7 +15703,7 @@ x-flows:
                             value: IND
                           - code: unit
                             value: country
-        notes: &ref_62
+        notes: &ref_64
           value:
             ^1: >-
               updated domain namespace is
@@ -16016,7 +16016,7 @@ x-flows:
         api: update
         description: null
         reference: if any
-        example:
+        example: &ref_51
           summary: Return with liquidation updated by buyer
           description: Return with liquidation updated by buyer
           value:
@@ -16060,7 +16060,7 @@ x-flows:
                             value: PT24H
                           - code: ttl_reverseqc [^6]
                             value: P3D
-        notes:
+        notes: &ref_52
           value:
             ^1: >-
               new fulfillment of type "Return" created, with return request
@@ -16078,7 +16078,7 @@ x-flows:
         api: on_update
         description: null
         reference: if any
-        example:
+        example: &ref_53
           summary: Seller send interim status for liquidation request
           description: Seller send interim status for liquidation request
           value:
@@ -16293,7 +16293,7 @@ x-flows:
                       branch_name: xxxx
                 created_at: '2023-06-03T09:30:00.000Z'
                 updated_at: '2023-06-03T10:31:30.000Z'
-        notes:
+        notes: &ref_54
           value:
             ^1: >-
               shows the current state of order with the new fulfillment for part
@@ -17415,7 +17415,7 @@ x-flows:
         api: on_update
         description: null
         reference: if any
-        example: &ref_52
+        example:
           summary: Cancel Customised status updated by Seller
           description: Cancel Customised status updated by Seller
           value:
@@ -18190,7 +18190,7 @@ x-flows:
                       branch_name: xxxx
                 created_at: '2023-06-03T09:30:00.000Z'
                 updated_at: '2023-06-03T10:31:30.000Z'
-        notes: &ref_53
+        notes:
           value:
             ^1: >-
               shows the current state of order with the new fulfillment for part
@@ -18231,7 +18231,7 @@ x-flows:
         api: update
         description: null
         reference: if any
-        example: &ref_54
+        example: &ref_50
           summary: Settlement trail cancel updated by buyer
           description: Settlement trail cancel updated by buyer
           value:
@@ -18274,12 +18274,203 @@ x-flows:
         reference: if any
         example: *ref_34
         notes: *ref_35
-      - summary: Returns the item or catalog (Fashion)
+      - summary: Returns the item or catalog (Electronics Desktop)
         api: on_search
         description: null
         reference: if any
-        example: *ref_48
-        notes: *ref_49
+        example:
+          summary: Return the catalog for Electronic Desktop products
+          description: Return the catalog for Electronic Desktop products
+          value:
+            context:
+              domain: ONDC:RET14
+              country: IND
+              city: std:080
+              action: on_search
+              core_version: 1.2.0
+              bap_id: buyerNP.com
+              bap_uri: https://buyerNP.com/ondc
+              bpp_id: sellerNP.com
+              bpp_uri: https://sellerNP.com/ondc
+              transaction_id: T1
+              message_id: M1
+              timestamp: '2023-06-03T08:00:30.000Z'
+            message:
+              catalog:
+                bpp/descriptor:
+                  name: Seller NP
+                  symbol: https://sellerNP.com/images/np.png
+                  short_desc: Seller Marketplace
+                  long_desc: Seller Marketplace
+                  images:
+                    - https://sellerNP.com/images/np.png
+                bpp/providers:
+                  - id: P1
+                    time:
+                      label: enable
+                      timestamp: 2023-06-03T08:00:30.000Z [^1]
+                    fulfillments:
+                      - id: F1
+                        type: Delivery
+                        contact:
+                          phone: '9886098860'
+                          email: abc@xyz.com
+                    descriptor:
+                      name: Store 1
+                      symbol: https://sellerNP.com/images/store1.png
+                      short_desc: Store 1
+                      long_desc: Store 1
+                      images:
+                        - https://sellerNP.com/images/store1.png
+                    ttl: P1D
+                    locations:
+                      - id: L1
+                        time:
+                          label: enable [^2]
+                          timestamp: 2023-06-03T07:30:30.000Z [^3]
+                          schedule:
+                            holidays:
+                              - '2023-08-15'
+                        gps: 12.967555,77.749666
+                        address:
+                          locality: Jayanagar
+                          street: Jayanagar 4th Block
+                          city: Bengaluru
+                          area_code: '560076'
+                          state: KA
+                    items:
+                      - id: I1
+                        time:
+                          label: enable [^4]
+                          timestamp: 2023-06-03T07:30:00.000Z [^5]
+                        descriptor:
+                          name: HP All-in-one Desktop
+                          code: 5:<unique_product_code>
+                          symbol: https://sellerNP.com/images/i1.png
+                          short_desc: HP All-in-one Desktop
+                          long_desc: >-
+                            HP All-in-one AMD Ryzen 3 3250U-21.5 inch(54.61cm)
+                            FHD, Micro-Edge, Anti-Glare Display/8GB RAM/1TB
+                            HDD/Win 11/Wireless Keyboard & Mouse/AMD Radeon
+                            Graphics/720p HD Camera/MSO 2021/White, 22-dd0302in
+                          images:
+                            - https://sellerNP.com/images/i1.png
+                        quantity:
+                          unitized:
+                            measure:
+                              unit: unit
+                              value: '1'
+                          available:
+                            count: '99'
+                          maximum:
+                            count: '99'
+                        price:
+                          currency: INR
+                          value: '40990.00'
+                          maximum_value: '47340.00'
+                        category_id: Desktop and Laptop
+                        fulfillment_id: F1
+                        location_id: L1
+                        '@ondc/org/returnable': true
+                        '@ondc/org/cancellable': true
+                        '@ondc/org/return_window': P7D
+                        '@ondc/org/seller_pickup_return': true
+                        '@ondc/org/time_to_ship': PT3H
+                        '@ondc/org/available_on_cod': false
+                        '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
+                        tags:
+                          - code: origin
+                            list:
+                              - code: country
+                                value: IND
+                          - code: attribute
+                            list:
+                              - code: brand
+                                value: HP
+                              - code: model
+                                value: HP AIO PC
+                              - code: screen_size
+                                value: 21.5"
+                              - code: memory
+                                value: 8GB
+                              - code: cpu
+                                value: Ryzen 3 3250 U
+                              - code: cpu_mfr
+                                value: AMD
+                              - code: storage
+                                value: 1000GB
+                              - code: os
+                                value: Windows 11
+                              - code: includes
+                                value: Desktop, User Manual, Warranty Card
+                              - code: form_factor
+                                value: All-in-one
+                    creds [^6]:
+                      - id: Auth33567
+                        descriptor:
+                          name: Authorised Apple Dealer
+                        url: https://abcd.cdn.com/images/badge-img
+                        tags:
+                          - code: verification
+                            list:
+                              - code: verify_url
+                                value: https://abcd.dnb.com/verify?id='ESG-12345678'
+                              - code: valid_from
+                                value: 2023-06-03T00:00:00:000Z
+                              - code: valid_to
+                                value: 2024-06-03T23:59:59:999Z
+                    tags:
+                      - code: timing
+                        list:
+                          - code: type
+                            value: All [^7]
+                          - code: location
+                            value: L1
+                          - code: day_from
+                            value: '1'
+                          - code: day_to
+                            value: '7'
+                          - code: time_from
+                            value: '0000'
+                          - code: time_to
+                            value: '2359'
+                      - code: serviceability
+                        list:
+                          - code: location
+                            value: L1
+                          - code: category
+                            value: Desktop and Laptop
+                          - code: type
+                            value: '12'
+                          - code: val
+                            value: IND
+                          - code: unit
+                            value: country
+        notes:
+          value:
+            ^1: >-
+              timestamp when the snapshot for this provider (including provider
+              details, items) was generated, must be <= Context.timestamp. Buyer
+              NPs can use this to determine from when to start incremental
+              refresh
+            ^2: >-
+              enum - "enable" (default), "disable" (soft delete of provider
+              location, i.e. warehouse or store, from buyer NP cache - in this
+              case, serviceability for the store should not be a part of the
+              catalog), "close" (temporary closure of store with the same format
+              for time.range as specified, for incremental refresh, here -
+              https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.ar4y0zvk65s4
+              only if this event is available at the time of generating the full
+              catalog snapshot)
+            ^3: >-
+              timestamp when the snapshot for location was generated, must be <=
+              Context.timestamp
+            ^4: enum - "enable", "disable"
+            ^5: timestamp for item event
+            ^6: optional
+            ^7: >-
+              means same timings for online order processing, shipment,
+              self-pickup (as applicable)
       - summary: Select the item
         api: select
         description: null
@@ -18290,8 +18481,8 @@ x-flows:
         api: on_select
         description: null
         reference: if any
-        example: *ref_50
-        notes: *ref_51
+        example: *ref_48
+        notes: *ref_49
       - summary: Buyer initiate the product and send the updated fulfillment id
         api: init
         description: null
@@ -18320,13 +18511,3317 @@ x-flows:
         api: on_update
         description: null
         reference: if any
-        example: *ref_52
-        notes: *ref_53
+        example:
+          summary: Cancel Non Customised status updated by Seller
+          description: Cancel Non Customised status updated by Seller
+          value:
+            context:
+              domain: ONDC:RET11
+              action: on_update
+              core_version: 1.2.0
+              bap_id: buyerNP.com
+              bap_uri: https://buyerNP.com/ondc
+              bpp_id: sellerNP.com
+              bpp_uri: https://sellerNP.com/ondc
+              transaction_id: T2
+              message_id: M5
+              city: std:080
+              country: IND
+              timestamp: '2023-06-03T10:30:30.000Z'
+            message:
+              order [^1]:
+                id: O1
+                state: Accepted
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    fulfillment_id: F1 [^2]
+                    quantity:
+                      count: 1 [^3]
+                  - id: I1
+                    fulfillment_id: C1 [^4]
+                    quantity:
+                      count: 1 [^5]
+                billing:
+                  name: ONDC buyer
+                  address:
+                    name: 'My house #'
+                    building: My building name
+                    locality: My street name
+                    city: Bengaluru
+                    state: Karnataka
+                    country: IND
+                    area_code: '560037'
+                  email: nobody@nomail.com
+                  phone: '9886098860'
+                  created_at: '2023-06-03T09:00:00.000Z'
+                  updated_at: '2023-06-03T09:00:00.000Z'
+                fulfillments:
+                  - id: F1
+                    '@ondc/org/provider_name': LSP or Provider Name
+                    type: Delivery
+                    tracking: true
+                    '@ondc/org/TAT': PT60M
+                    state:
+                      descriptor:
+                        code: Pending
+                    start:
+                      location:
+                        id: L1
+                        descriptor:
+                          name: ABC Store
+                        gps: 12.956399,77.636803
+                        address:
+                          locality: Jayanagar
+                          city: Bengaluru
+                          area_code: '560076'
+                          state: KA
+                      time:
+                        range:
+                          start: '2023-06-03T10:00:00.000Z'
+                          end: '2023-06-03T10:30:00.000Z'
+                      contact:
+                        phone: '9886098860'
+                        email: nobody@nomail.com
+                    end:
+                      location:
+                        gps: 12.453544,77.928379
+                        address:
+                          name: 'My house #'
+                          building: My building name
+                          locality: My street name
+                          city: Bengaluru
+                          state: Karnataka
+                          country: IND
+                          area_code: '560037'
+                      time:
+                        range:
+                          start: '2023-06-03T11:00:00.000Z'
+                          end: '2023-06-03T11:30:00.000Z'
+                      person:
+                        name: name_of_person
+                      contact:
+                        phone: '9886098860'
+                        email: nobody@nomail.com
+                  - id: C1
+                    type: Cancel
+                    state:
+                      descriptor:
+                        code: Cancelled
+                    tags:
+                      - code: cancel_request
+                        list:
+                          - code: reason_id
+                            value: 002 [^6]
+                          - code: initiated_by
+                            value: sellerNP.com [^7]
+                      - code: quote_trail
+                        list:
+                          - code: type [^8]
+                            value: item
+                          - code: id [^9]
+                            value: I1
+                          - code: currency
+                            value: INR
+                          - code: value [^10]
+                            value: '-170.00'
+                      - code: quote_trail
+                        list:
+                          - code: type
+                            value: tax
+                          - code: id
+                            value: I1
+                          - code: currency
+                            value: INR
+                          - code: value
+                            value: '0.00'
+                quote:
+                  price:
+                    currency: INR
+                    value: 245.00 [^11]
+                  breakup:
+                    - '@ondc/org/item_id': I1
+                      '@ondc/org/item_quantity':
+                        count: 1 [^12]
+                      title: Atta
+                      '@ondc/org/title_type': item
+                      price:
+                        currency: INR
+                        value: '170.00'
+                      item:
+                        price:
+                          currency: INR
+                          value: '170.00'
+                    - '@ondc/org/item_id': F1
+                      title: Delivery charges
+                      '@ondc/org/title_type': delivery
+                      price:
+                        currency: INR
+                        value: '50.00'
+                    - '@ondc/org/item_id': F1
+                      title: Packing charges
+                      '@ondc/org/title_type': packing
+                      price:
+                        currency: INR
+                        value: '25.00'
+                    - '@ondc/org/item_id': I1
+                      title: Tax
+                      '@ondc/org/title_type': tax
+                      price:
+                        currency: INR
+                        value: '0.00'
+                    - '@ondc/org/item_id': I1
+                      title: Discount
+                      '@ondc/org/title_type': discount
+                      price:
+                        currency: INR
+                        value: '-10.00'
+                    - '@ondc/org/item_id': F1
+                      title: Convenience Fee
+                      '@ondc/org/title_type': misc
+                      price:
+                        currency: INR
+                        value: '10.00'
+                  ttl: P1D
+                payment [^13]:
+                  uri: https://ondc.transaction.com/payment
+                  params:
+                    currency: INR
+                    transaction_id: '3937'
+                    amount: '415.00'
+                  status: PAID
+                  type: ON-ORDER
+                  collected_by: BAP
+                  '@ondc/org/buyer_app_finder_fee_type': percent
+                  '@ondc/org/buyer_app_finder_fee_amount': '3'
+                  '@ondc/org/settlement_details':
+                    - settlement_counterparty: seller-app
+                      settlement_phase: sale-amount
+                      beneficiary_name: xxxxx
+                      settlement_type: upi
+                      upi_address: gft@oksbi
+                      settlement_bank_account_no: XXXXXXXXXX
+                      settlement_ifsc_code: XXXXXXXXX
+                      bank_name: xxxx
+                      branch_name: xxxx
+                created_at: '2023-06-03T09:30:00.000Z'
+                updated_at: '2023-06-03T10:31:30.000Z'
+        notes:
+          value:
+            ^1: >-
+              shows the current state of order with the new fulfillment for part
+              cancel by merchant
+            ^2: forward shipment fulfillment id
+            ^3: >-
+              quantity changed from 2 to 1 as seller NP initiated cancel for 1
+              quantity
+            ^4: >-
+              new fulfillment id for cancel request, must be unique for each
+              cancellation / cancellation request
+            ^5: >-
+              quantity for which cancel initiated, i.e. for this specific
+              cancellation identified by unique fulfillment id "C1"
+            ^6: >-
+              valid reason code from
+              https://docs.google.com/document/d/1M-lZSduYMFKIk1V6d8QLt-j-16-rVzYVdPn0pmbkclk/edit#heading=h.lq5jsehzritb
+              for part cancel
+            ^7: >-
+              bpp id of seller NP or source from which request initiated,
+              details of this id can be verified using registry lookup
+            ^8: matches order.quote.breakup[].title_type
+            ^9: >-
+              id for title_type e.g. item id for "item" / "tax", fulfillment id
+              for "delivery" / "packing" / "misc"
+            ^10: >-
+              value by which order quote for title_type is adjusted, will always
+              be negative
+            ^11: >-
+              updated order value after deducting amount for item being
+              cancelled
+            ^12: >-
+              updated quantity of item remaining after merchant part cancel (if
+              entire item is cancelled, this will be 0)
+            ^13: optional keys here as defined in /confirm
       - summary: Settlement trail for refund initiation
         api: update
         description: null
         reference: if any
-        example: *ref_54
+        example: *ref_50
+  - summary: Retail 1.2.0 (Merchant cancels full order)
+    description: >-
+      The following is an illustrative flow to perform a transaction of a nature
+      where a buyer would like to order electronics item and then cancels it
+    reference: if any
+    steps:
+      - summary: Search by fulfillment end location
+        api: search
+        description: Buyer search by fulfillment end location
+        reference: if any
+        example: *ref_34
+        notes: *ref_35
+      - summary: Returns the item or catalog (Electronics Smartwatch)
+        api: on_search
+        description: null
+        reference: if any
+        example:
+          summary: Return the catalog for Electronic Smartwatch products
+          description: Return the catalog for Electronic Smartwatch products
+          value:
+            context:
+              domain: ONDC:RET14
+              country: IND
+              city: std:080
+              action: on_search
+              core_version: 1.2.0
+              bap_id: buyerNP.com
+              bap_uri: https://buyerNP.com/ondc
+              bpp_id: sellerNP.com
+              bpp_uri: https://sellerNP.com/ondc
+              transaction_id: T1
+              message_id: M1
+              timestamp: '2023-06-03T08:00:30.000Z'
+            message:
+              catalog:
+                bpp/descriptor:
+                  name: Seller NP
+                  symbol: https://sellerNP.com/images/np.png
+                  short_desc: Seller Marketplace
+                  long_desc: Seller Marketplace
+                  images:
+                    - https://sellerNP.com/images/np.png
+                bpp/providers:
+                  - id: P1
+                    time:
+                      label: enable
+                      timestamp: 2023-06-03T08:00:30.000Z [^1]
+                    fulfillments:
+                      - id: F1
+                        type: Delivery
+                        contact:
+                          phone: '9886098860'
+                          email: abc@xyz.com
+                    descriptor:
+                      name: Store 1
+                      symbol: https://sellerNP.com/images/store1.png
+                      short_desc: Store 1
+                      long_desc: Store 1
+                      images:
+                        - https://sellerNP.com/images/store1.png
+                    ttl: P1D
+                    locations:
+                      - id: L1
+                        time:
+                          label: enable [^2]
+                          timestamp: 2023-06-03T07:30:30.000Z [^3]
+                          schedule:
+                            holidays:
+                              - '2023-08-15'
+                        gps: 12.967555,77.749666
+                        address:
+                          locality: Jayanagar
+                          street: Jayanagar 4th Block
+                          city: Bengaluru
+                          area_code: '560076'
+                          state: KA
+                    items:
+                      - id: I1
+                        time:
+                          label: enable [^4]
+                          timestamp: 2023-06-03T07:30:00.000Z [^5]
+                        descriptor:
+                          name: boAt Ultima Call Max Smart Watch
+                          code: 5:<unique_product_code>
+                          symbol: https://sellerNP.com/images/i1.png
+                          short_desc: boAt Ultima Call Max Smart Watch
+                          long_desc: >-
+                            boAt Newly Launched Ultima Call Max with 2" Big HD
+                            Display, Advanced BT Calling, 100+ Sports Modes, 10
+                            Days Battery Life, Multiple Watch Faces, IP68, HR &
+                            SpO2, Sedentary Alerts(Active Black)
+                          images:
+                            - https://sellerNP.com/images/i1.png
+                        quantity:
+                          unitized:
+                            measure:
+                              unit: unit
+                              value: '1'
+                          available:
+                            count: '99'
+                          maximum:
+                            count: '99'
+                        price:
+                          currency: INR
+                          value: '1999.00'
+                          maximum_value: '8999.00'
+                        category_id: Smart Watches
+                        fulfillment_id: F1
+                        location_id: L1
+                        '@ondc/org/returnable': true
+                        '@ondc/org/cancellable': true
+                        '@ondc/org/return_window': P7D
+                        '@ondc/org/seller_pickup_return': true
+                        '@ondc/org/time_to_ship': PT3H
+                        '@ondc/org/available_on_cod': false
+                        '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
+                        tags:
+                          - code: origin
+                            list:
+                              - code: country
+                                value: IND
+                          - code: attribute [^6]
+                            list:
+                              - code: brand
+                                value: boAt
+                              - code: model
+                                value: Ultima Call Max
+                              - code: style
+                                value: Modern
+                              - code: colour
+                                value: active black [^7]
+                              - code: screen_size
+                                value: 1.99"
+                    creds [^8]:
+                      - id: Auth33567
+                        descriptor:
+                          name: Authorised boAt Dealer
+                        url: https://abcd.cdn.com/images/badge-img
+                        tags:
+                          - code: verification
+                            list:
+                              - code: verify_url
+                                value: https://abcd.dnb.com/verify?id=’ESG-12345678'
+                              - code: valid_from
+                                value: 2023-06-03T00:00:00:000Z
+                              - code: valid_to
+                                value: 2024-06-03T23:59:59:999Z
+                    tags:
+                      - code: timing
+                        list:
+                          - code: type
+                            value: All [^9]
+                          - code: location
+                            value: L1
+                          - code: day_from
+                            value: '1'
+                          - code: day_to
+                            value: '7'
+                          - code: time_from
+                            value: '0000'
+                          - code: time_to
+                            value: '2359'
+                      - code: serviceability
+                        list:
+                          - code: location
+                            value: L1
+                          - code: category
+                            value: Smart Watches
+                          - code: type
+                            value: '12'
+                          - code: val
+                            value: IND
+                          - code: unit
+                            value: country
+        notes:
+          value:
+            ^1: >-
+              timestamp when the snapshot for this provider (including provider
+              details, items) was generated, must be <= Context.timestamp. Buyer
+              NPs can use this to determine from when to start incremental
+              refresh
+            ^2: >-
+              enum - "enable" (default), "disable" (soft delete of provider
+              location, i.e. warehouse or store, from buyer NP cache - in this
+              case, serviceability for the store should not be a part of the
+              catalog), "close" (temporary closure of store with the same format
+              for time.range as specified, for incremental refresh, here -
+              https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.ar4y0zvk65s4
+              only if this event is available at the time of generating the full
+              catalog snapshot)
+            ^3: >-
+              timestamp when the snapshot for location was generated, must be <=
+              Context.timestamp
+            ^4: enum - "enable", "disable"
+            ^5: timestamp for item event
+            ^6: >-
+              item attributes - populating with valid values will enable better
+              discoverability on buyer NPs
+            ^7: >-
+              suggestive enum here
+              https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/fashion/RET12-colour.json
+            ^8: optional
+            ^9: >-
+              means same timings for online order processing, shipment,
+              self-pickup (as applicable)
+      - summary: Select the item
+        api: select
+        description: null
+        reference: if any
+        example: *ref_22
+        notes: *ref_23
+      - summary: Returns item breakup when item has multiple pickup otions
+        api: on_select
+        description: null
+        reference: if any
+        example:
+          summary: Send quote and breakup
+          description: Send quote and breakup for multiple pickup
+          value:
+            context:
+              domain: ONDC:RET11
+              action: on_select
+              core_version: 1.2.0
+              bap_id: buyerNP.com
+              bap_uri: https://buyerNP.com/ondc
+              bpp_id: sellerNP.com
+              bpp_uri: https://sellerNP.com/ondc
+              transaction_id: T2
+              message_id: M2
+              city: std:080
+              country: IND
+              timestamp: '2023-06-03T08:30:30.000Z'
+            message:
+              order:
+                provider:
+                  id: P1
+                items:
+                  - id: I1
+                    fulfillment_id: F1 [^1]
+                fulfillments:
+                  - id: F1
+                    type: Delivery
+                    '@ondc/org/provider_name': LSP or Provider Name
+                    tracking: false
+                    '@ondc/org/category': Immediate Delivery
+                    '@ondc/org/TAT': PT60M
+                    state:
+                      descriptor:
+                        code: Serviceable
+                  - id: F2
+                    type: Delivery
+                    '@ondc/org/provider_name': LSP or Provider Name
+                    tracking: true
+                    '@ondc/org/category': Immediate Delivery
+                    '@ondc/org/TAT': PT90M
+                    state:
+                      descriptor:
+                        code: Serviceable
+                  - id: F3
+                    type: Self-Pickup
+                    '@ondc/org/provider_name': ''
+                    tracking: false
+                    '@ondc/org/category': Takeaway
+                    '@ondc/org/TAT': PT30M
+                    state:
+                      descriptor:
+                        code: Serviceable
+                  - id: F4
+                    type: Self-Pickup
+                    '@ondc/org/provider_name': ''
+                    tracking: false
+                    '@ondc/org/category': Kerbside
+                    '@ondc/org/TAT': PT15M
+                    state:
+                      descriptor:
+                        code: Serviceable
+                quote:
+                  price:
+                    currency: INR
+                    value: '1440.00'
+                  breakup:
+                    - '@ondc/org/item_id': I1
+                      '@ondc/org/item_quantity':
+                        count: 2
+                      title: Veg Pizza
+                      '@ondc/org/title_type': item
+                      price:
+                        currency: INR
+                        value: '1200.00'
+                      item:
+                        quantity:
+                          available:
+                            count: '99'
+                          maximum:
+                            count: '99'
+                        price:
+                          currency: INR
+                          value: '600.00'
+                    - '@ondc/org/item_id': F1
+                      title: Delivery charges
+                      '@ondc/org/title_type': delivery
+                      price:
+                        currency: INR
+                        value: '50.00'
+                    - '@ondc/org/item_id': F1
+                      title: Packing charges
+                      '@ondc/org/title_type': packing
+                      price:
+                        currency: INR
+                        value: '25.00'
+                    - '@ondc/org/item_id': F2
+                      title: Delivery charges
+                      '@ondc/org/title_type': delivery
+                      price:
+                        currency: INR
+                        value: '30.00'
+                    - '@ondc/org/item_id': F2
+                      title: Packing charges
+                      '@ondc/org/title_type': packing
+                      price:
+                        currency: INR
+                        value: '25.00'
+                    - '@ondc/org/item_id': F3
+                      title: Delivery charges
+                      '@ondc/org/title_type': delivery
+                      price:
+                        currency: INR
+                        value: '0.00'
+                    - '@ondc/org/item_id': F3
+                      title: Packing charges
+                      '@ondc/org/title_type': packing
+                      price:
+                        currency: INR
+                        value: '25.00'
+                    - '@ondc/org/item_id': F4
+                      title: Delivery charges
+                      '@ondc/org/title_type': delivery
+                      price:
+                        currency: INR
+                        value: '0.00'
+                    - '@ondc/org/item_id': F4
+                      title: Packing charges
+                      '@ondc/org/title_type': packing
+                      price:
+                        currency: INR
+                        value: '25.00'
+                    - '@ondc/org/item_id': I1
+                      title: Tax
+                      '@ondc/org/title_type': tax
+                      price:
+                        currency: INR
+                        value: '60.00'
+                  ttl: PT30M
+        notes:
+          value:
+            ^1: >-
+              default option - for immediate delivery; all the costs for this
+              option are in the quote
+      - summary: Buyer initiate the product and send the updated fulfillment id
+        api: init
+        description: null
+        reference: if any
+        example: *ref_24
+        notes: *ref_25
+      - summary: Respond to init
+        api: on_init
+        description: null
+        reference: if any
+        example: *ref_26
+        notes: *ref_27
+      - summary: Buyer confirms product
+        api: confirm
+        description: null
+        reference: if any
+        example: *ref_28
+        notes: *ref_29
+      - summary: Seller Accepts confirmation
+        api: on_confirm
+        description: null
+        reference: if any
+        example: *ref_30
+        notes: *ref_31
+      - summary: Buyer cancels the product
+        api: cancel
+        description: null
+        reference: if any
+        example:
+          summary: Cancellation by Buyer
+          description: Cancellation by Buyer
+          value:
+            context:
+              domain: ONDC:RET10
+              country: IND
+              city: std:080
+              action: cancel
+              core_version: 1.2.0
+              bap_id: buyerNP.com
+              bap_uri: https://buyerNP.com/ondc
+              bpp_id: sellerNP.com
+              bpp_uri: https://sellerNP.com/ondc
+              transaction_id: T2
+              message_id: M10
+              timestamp: '2023-06-03T11:00:00.000Z'
+              ttl: PT30S
+            message:
+              order_id: O1
+              cancellation_reason_id: 004 [^1]
+              descriptor [^2]:
+                name: fulfillment
+                short_desc: F1 [^3]
+        notes:
+          value:
+            ^1: >-
+              cancellation reason codes are defined here, use "006" for
+              cancellation of fulfillment for TAT breach
+            ^2: optional, only if fulfillment is being cancelled
+            ^3: fulfillment id for cancellation of fulfillment for TAT breach
+      - summary: Seller accepts the cancellation and responds to it
+        api: on_cancel
+        description: null
+        reference: if any
+        example:
+          summary: Cancellation acceptance by Seller
+          description: Cancellation acceptance by Seller
+          value:
+            context:
+              domain: ONDC:RET10
+              country: IND
+              city: std:080
+              action: on_cancel
+              core_version: 1.2.0
+              bap_id: buyerNP.com
+              bap_uri: https://buyerNP.com/ondc
+              bpp_id: sellerNP.com
+              bpp_uri: https://sellerNP.com/ondc
+              transaction_id: T2
+              message_id: M10
+              timestamp: '2023-06-03T11:00:30.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O1
+                state: Cancelled [^1]
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    fulfillment_id: F1
+                    quantity:
+                      count: 2
+                billing:
+                  name: ONDC buyer
+                  address:
+                    name: 'My house #'
+                    building: My building name
+                    locality: My street name
+                    city: Bengaluru
+                    state: Karnataka
+                    country: IND
+                    area_code: '560037'
+                  email: nobody@nomail.com
+                  phone: '9886098860'
+                  created_at: '2023-06-03T09:00:00.000Z'
+                  updated_at: '2023-06-03T09:00:00.000Z'
+                cancellation [^2]:
+                  cancelled_by: buyerNP.com
+                  reason:
+                    id: '004'
+                fulfillments:
+                  - id: F1
+                    '@ondc/org/provider_name': LSP or Provider Name
+                    state:
+                      descriptor:
+                        code: Cancelled
+                    type: Delivery
+                    tracking: true
+                    '@ondc/org/TAT': PT60M
+                    start:
+                      location:
+                        id: L1
+                        descriptor:
+                          name: ABC Store
+                        gps: 12.956399,77.636803
+                        address:
+                          locality: Jayanagar
+                          city: Bengaluru
+                          area_code: '560076'
+                          state: KA
+                      time:
+                        range:
+                          start: '2023-06-03T10:00:00.000Z'
+                          end: '2023-06-03T10:30:00.000Z'
+                      contact:
+                        phone: '9886098860'
+                        email: nobody@nomail.com
+                    end:
+                      location:
+                        gps: 12.453544,77.928379
+                        address:
+                          name: 'My house #'
+                          building: My building name
+                          locality: My street name
+                          city: Bengaluru
+                          state: Karnataka
+                          country: IND
+                          area_code: '560037'
+                      time:
+                        range:
+                          start: '2023-06-03T11:00:00.000Z'
+                          end: '2023-06-03T11:30:00.000Z'
+                      person:
+                        name: name_of_person
+                      contact:
+                        phone: '9886098860'
+                        email: nobody@nomail.com
+                    tags [^3]:
+                      - code: cancel_request
+                        list:
+                          - code: reason_id
+                            value: '013'
+                          - code: cancelled_by
+                            value: buyerNP.com
+                quote:
+                  price [^4]:
+                    currency: INR
+                    value: '75.00'
+                  breakup:
+                    - '@ondc/org/item_id': I1
+                      '@ondc/org/item_quantity':
+                        count: 0
+                      title: Atta
+                      '@ondc/org/title_type': item
+                      price:
+                        currency: INR
+                        value: '0.00'
+                      item:
+                        price:
+                          currency: INR
+                          value: '170.00'
+                    - '@ondc/org/item_id': F1
+                      title: Delivery charges
+                      '@ondc/org/title_type': delivery
+                      price:
+                        currency: INR
+                        value: '50.00'
+                    - '@ondc/org/item_id': F1
+                      title: Packing charges
+                      '@ondc/org/title_type': packing
+                      price:
+                        currency: INR
+                        value: '25.00'
+                    - '@ondc/org/item_id': I1
+                      title: Tax
+                      '@ondc/org/title_type': tax
+                      price:
+                        currency: INR
+                        value: '0.00'
+                  ttl: P1D
+                payment:
+                  uri: https://ondc.transaction.com/payment
+                  tl_method: http/get
+                  params:
+                    currency: INR
+                    transaction_id: '3937'
+                    amount: '415.00'
+                  status: PAID
+                  type: ON-ORDER
+                  collected_by: BAP
+                  '@ondc/org/buyer_app_finder_fee_type': percent
+                  '@ondc/org/buyer_app_finder_fee_amount': '3'
+                  '@ondc/org/settlement_details':
+                    - settlement_counterparty: seller-app
+                      settlement_phase: sale-amount
+                      beneficiary_name: xxxxx
+                      settlement_type: upi
+                      upi_address: gft@oksbi
+                      settlement_bank_account_no: XXXXXXXXXX
+                      settlement_ifsc_code: XXXXXXXXX
+                      bank_name: xxxx
+                      branch_name: xxxx
+                created_at: '2023-06-03T09:30:00.000Z'
+                updated_at: '2023-06-03T11:00:30.000Z'
+        notes:
+          value:
+            ^1: >-
+              order state will be updated to "Cancelled" if the order is
+              cancelled
+            ^2: to be used only if order is cancelled
+            ^3: only if fulfillment is cancelled
+            ^4: >-
+              updated order value including cancellation charges (delivery +
+              packing charges)
+  - summary: Retail 1.2.0 (Enable self pickup)
+    description: >-
+      The following is an illustrative flow to perform a transaction of a nature
+      where a buyer would like to order customized item and enable self pickup
+      for the same
+    reference: if any
+    steps:
+      - summary: Search by fulfillment end location
+        api: search
+        description: Buyer search by fulfillment end location
+        reference: if any
+        example: *ref_34
+        notes: *ref_35
+      - summary: Returns the item or catalog (F&B_Veg_NonVeg_Pizza)
+        api: on_search
+        description: null
+        reference: if any
+        example:
+          summary: Return F&B Veg and Non Veg Pizza
+          description: Return F&B Veg and Non Veg Pizza
+          value:
+            context:
+              domain: ONDC:RET11
+              country: IND
+              city: std:080
+              action: on_search
+              core_version: 1.2.0
+              bap_id: buyerNP.com
+              bap_uri: https://buyerNP.com/ondc
+              bpp_id: sellerNP.com
+              bpp_uri: https://sellerNP.com/ondc
+              transaction_id: T1
+              message_id: M1
+              timestamp: '2023-06-03T08:00:30.000Z'
+            message:
+              catalog:
+                bpp/descriptor:
+                  name: Seller NP
+                  symbol: https://sellerNP.com/images/np.png
+                  short_desc: Seller Marketplace
+                  long_desc: Seller Marketplace
+                  images:
+                    - https://sellerNP.com/images/np.png
+                bpp/providers:
+                  - id: P1
+                    time:
+                      label: enable
+                      timestamp: 2023-06-03T08:00:30.000Z [^1]
+                    fulfillments:
+                      - id: F1
+                        type: Delivery
+                        contact:
+                          phone: '9886098860'
+                          email: abc@xyz.com
+                      - id: F2
+                        type: Self-Pickup
+                        contact:
+                          phone: '9886098860'
+                          email: abc@xyz.com
+                    descriptor:
+                      name: Store 1
+                      symbol: https://sellerNP.com/images/store1.png
+                      short_desc: Store 1
+                      long_desc: Store 1
+                      images:
+                        - https://sellerNP.com/images/store1.png
+                    '@ondc/org/fssai_license_no': '12345678901234'
+                    ttl: P1D
+                    locations:
+                      - id: L1
+                        time:
+                          label: enable [^2]
+                          timestamp: 2023-06-03T07:30:30.000Z [^3]
+                          schedule:
+                            holidays:
+                              - '2023-08-15'
+                        gps: 12.967555,77.749666
+                        address:
+                          locality: Jayanagar
+                          street: Jayanagar 4th Block
+                          city: Bengaluru
+                          area_code: '560076'
+                          state: KA
+                    categories:
+                      - id: '5'
+                        parent_category_id: ''
+                        descriptor:
+                          name: Pizza
+                          short_desc: Veg and Non-Veg pizza
+                          long_desc: American and Italian Veg and Non-Veg Pizza
+                          images:
+                            - https://sellerNP.com/ondc/m005.png
+                        tags:
+                          - code: type
+                            list:
+                              - code: type
+                                value: custom_menu
+                          - code: timing
+                            list:
+                              - code: day_from
+                                value: '1'
+                              - code: day_to
+                                value: '5'
+                              - code: time_from
+                                value: '1800'
+                              - code: time_to
+                                value: '2200'
+                          - code: display
+                            list:
+                              - code: rank
+                                value: '3'
+                      - id: CG1
+                        descriptor:
+                          name: Choice of Crust (any 1 option)
+                        tags:
+                          - code: type
+                            list:
+                              - code: type
+                                value: custom_group
+                          - code: config
+                            list:
+                              - code: min
+                                value: '1'
+                              - code: max
+                                value: '1'
+                              - code: input
+                                value: select
+                              - code: seq
+                                value: '1'
+                      - id: CG2
+                        descriptor:
+                          name: First Veg Half (any 1 option)
+                        tags:
+                          - code: type
+                            list:
+                              - code: type
+                                value: custom_group
+                          - code: config
+                            list:
+                              - code: min
+                                value: '1'
+                              - code: max
+                                value: '1'
+                              - code: input
+                                value: select
+                              - code: seq
+                                value: '2'
+                      - id: CG3
+                        descriptor:
+                          name: Second Non-Veg Half (any 1 option)
+                        tags:
+                          - code: type
+                            list:
+                              - code: type
+                                value: custom_group
+                          - code: config
+                            list:
+                              - code: min
+                                value: '1'
+                              - code: max
+                                value: '1'
+                              - code: input
+                                value: select
+                              - code: seq
+                                value: '3'
+                    items:
+                      - id: I1
+                        time:
+                          label: enable [^4]
+                          timestamp: 2023-06-03T07:30:00.000Z [^5]
+                        descriptor:
+                          name: Veg & Non-Veg Pizza (Combo)
+                          symbol: https://sellerNP.com/images/i1.png
+                          short_desc: Veg & Non-Veg Pizza (Combo)
+                          long_desc: Veg & Non-Veg Pizza (Combo)
+                          images:
+                            - https://sellerNP.com/images/i1.png
+                        quantity:
+                          unitized:
+                            measure:
+                              unit: unit
+                              value: '1'
+                          available:
+                            count: '99'
+                          maximum:
+                            count: '99'
+                        price:
+                          currency: INR
+                          value: '400.0'
+                          maximum_value: '400.0'
+                          tags [^6]:
+                            - code: range
+                              list:
+                                - code: lower
+                                  value: 229.00 [7]
+                                - code: upper
+                                  value: 718.00 [^8]
+                        category_id: F&B
+                        category_ids:
+                          - '5:1'
+                        fulfillment_id: F1
+                        location_id: L1
+                        related: false
+                        recommended: true
+                        '@ondc/org/returnable': false
+                        '@ondc/org/cancellable': false
+                        '@ondc/org/return_window': PT1H
+                        '@ondc/org/seller_pickup_return': false
+                        '@ondc/org/time_to_ship': PT45M
+                        '@ondc/org/available_on_cod': false
+                        '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
+                        tags:
+                          - code: type
+                            list:
+                              - code: type
+                                value: item
+                          - code: custom_group
+                            list:
+                              - code: id
+                                value: CG1
+                              - code: id
+                                value: CG2
+                              - code: id
+                                value: CG3
+                          - code: timing [^9]
+                            list:
+                              - code: day_from
+                                value: '1'
+                              - code: day_to
+                                value: '5'
+                              - code: time_from
+                                value: '1800'
+                              - code: time_to
+                                value: '2200'
+                          - code: veg_nonveg
+                            list:
+                              - code: veg
+                                value: 'yes'
+                      - id: C1
+                        descriptor:
+                          name: Pan Tossed
+                        quantity:
+                          unitized:
+                            measure:
+                              unit: unit
+                              value: '1'
+                          available:
+                            count: '99'
+                          maximum:
+                            count: '99'
+                        price:
+                          currency: INR
+                          value: '0.0'
+                          maximum_value: '0.0'
+                        category_id: F&B
+                        related: true
+                        tags:
+                          - code: type
+                            list:
+                              - code: type
+                                value: customization
+                          - code: parent
+                            list:
+                              - code: id
+                                value: CG1
+                              - code: default
+                                value: 'yes'
+                          - code: child
+                            list:
+                              - code: id
+                                value: CG2
+                              - code: id
+                                value: CG3
+                          - code: veg_nonveg
+                            list:
+                              - code: veg
+                                value: 'yes'
+                      - id: C2
+                        descriptor:
+                          name: Cheese Blast
+                        quantity:
+                          available:
+                            count: '99'
+                          maximum:
+                            count: '99'
+                        price:
+                          currency: INR
+                          value: '99.0'
+                          maximum_value: '99.0'
+                        category_id: F&B
+                        related: true
+                        tags:
+                          - code: type
+                            list:
+                              - code: type
+                                value: customization
+                          - code: parent
+                            list:
+                              - code: id
+                                value: CG1
+                              - code [^10]: default
+                                value: 'no'
+                          - code: child
+                            list:
+                              - code: id
+                                value: CG2
+                              - code: id
+                                value: CG3
+                          - code: veg_nonveg
+                            list:
+                              - code: veg
+                                value: 'yes'
+                      - id: C3
+                        descriptor:
+                          name: Chicken Cheese Blast
+                        quantity:
+                          available:
+                            count: '99'
+                          maximum:
+                            count: '99'
+                        price:
+                          currency: INR
+                          value: '129.0'
+                          maximum_value: '129.0'
+                        category_id: F&B
+                        related: true
+                        tags:
+                          - code: type
+                            list:
+                              - code: type
+                                value: customization
+                          - code: parent
+                            list:
+                              - code: id
+                                value: CG1
+                              - code [^11]: default
+                                value: 'no'
+                          - code: child
+                            list:
+                              - code: id
+                                value: CG2
+                              - code: id
+                                value: CG3
+                          - code: veg_nonveg
+                            list:
+                              - code: non_veg
+                                value: 'yes'
+                      - id: C4
+                        descriptor:
+                          name: Double Cheese Margherita
+                        quantity:
+                          available:
+                            count: '99'
+                          maximum:
+                            count: '99'
+                        price:
+                          currency: INR
+                          value: '0.0'
+                          maximum_value: '0.0'
+                        category_id: F&B
+                        related: true
+                        tags:
+                          - code: type
+                            list:
+                              - code: type
+                                value: customization
+                          - code: parent
+                            list:
+                              - code: id
+                                value: CG2
+                              - code: default
+                                value: 'yes'
+                          - code: veg_nonveg
+                            list:
+                              - code: veg
+                                value: 'yes'
+                      - id: C5
+                        descriptor:
+                          name: Paneer Tikka
+                        quantity:
+                          available:
+                            count: '99'
+                          maximum:
+                            count: '99'
+                        price:
+                          currency: INR
+                          value: '50.0'
+                          maximum_value: '50.0'
+                        category_id: F&B
+                        related: true
+                        tags:
+                          - code: type
+                            list:
+                              - code: type
+                                value: customization
+                          - code: parent
+                            list:
+                              - code: id
+                                value: CG2
+                              - code [^12]: default
+                                value: 'no'
+                          - code: veg_nonveg
+                            list:
+                              - code: veg
+                                value: 'yes'
+                      - id: C6
+                        descriptor:
+                          name: Farmer’s Market
+                        quantity:
+                          available:
+                            count: '99'
+                          maximum:
+                            count: '99'
+                        price:
+                          currency: INR
+                          value: '0.0'
+                          maximum_value: '0.0'
+                        category_id: F&B
+                        related: true
+                        tags:
+                          - code: type
+                            list:
+                              - code: type
+                                value: customization
+                          - code: parent
+                            list:
+                              - code: id
+                                value: CG2
+                              - code [^13]: default
+                                value: 'no'
+                          - code: veg_nonveg
+                            list:
+                              - code: veg
+                                value: 'yes'
+                      - id: C7
+                        descriptor:
+                          name: Spicy Mexicano
+                        quantity:
+                          available:
+                            count: '99'
+                          maximum:
+                            count: '99'
+                        price:
+                          currency: INR
+                          value: '50.0'
+                          maximum_value: '50.0'
+                        category_id: F&B
+                        related: true
+                        tags:
+                          - code: type
+                            list:
+                              - code: type
+                                value: customization
+                          - code: parent
+                            list:
+                              - code: id
+                                value: CG2
+                              - code [^14]: default
+                                value: 'no'
+                          - code: veg_nonveg
+                            list:
+                              - code: veg
+                                value: 'yes'
+                      - id: C8
+                        descriptor:
+                          name: Chicken Smokey Joe
+                        quantity:
+                          available:
+                            count: '99'
+                          maximum:
+                            count: '99'
+                        price:
+                          currency: INR
+                          value: '0.0'
+                          maximum_value: '0.0'
+                        category_id: F&B
+                        related: true
+                        tags:
+                          - code: type
+                            list:
+                              - code: type
+                                value: customization
+                          - code: parent
+                            list:
+                              - code: id
+                                value: CG3
+                              - code: default
+                                value: 'yes'
+                          - code: veg_nonveg
+                            list:
+                              - code: non_veg
+                                value: 'yes'
+                      - id: C9
+                        descriptor:
+                          name: Peri Peri Chicken
+                        quantity:
+                          available:
+                            count: '99'
+                          maximum:
+                            count: '99'
+                        price:
+                          currency: INR
+                          value: '40.0'
+                          maximum_value: '40.0'
+                        category_id: F&B
+                        related: true
+                        tags:
+                          - code: type
+                            list:
+                              - code: type
+                                value: customization
+                          - code: parent
+                            list:
+                              - code: id
+                                value: CG3
+                              - code [^15]: default
+                                value: 'no'
+                          - code: veg_nonveg
+                            list:
+                              - code: non_veg
+                                value: 'yes'
+                      - id: C10
+                        descriptor:
+                          name: BBQ Chicken
+                        quantity:
+                          available:
+                            count: '99'
+                          maximum:
+                            count: '99'
+                        price:
+                          currency: INR
+                          value: '40.0'
+                          maximum_value: '40.0'
+                        category_id: F&B
+                        related: true
+                        tags:
+                          - code: type
+                            list:
+                              - code: type
+                                value: customization
+                          - code: parent
+                            list:
+                              - code: id
+                                value: CG3
+                              - code [^16]: default
+                                value: 'no'
+                          - code: veg_nonveg
+                            list:
+                              - code: non_veg
+                                value: 'yes'
+                    tags:
+                      - code: order_value
+                        list:
+                          - code: min_value
+                            value: '300.00'
+                      - code: timing
+                        list:
+                          - code: type
+                            value: Order
+                          - code: location
+                            value: L1
+                          - code: day_from
+                            value: '1'
+                          - code: day_to
+                            value: '7'
+                          - code: time_from
+                            value: '1000'
+                          - code: time_to
+                            value: '2200'
+                      - code: timing
+                        list:
+                          - code: type
+                            value: Self-Pickup
+                          - code: location
+                            value: L1
+                          - code: day_from
+                            value: '1'
+                          - code: day_to
+                            value: '7'
+                          - code: time_from
+                            value: '1000'
+                          - code: time_to
+                            value: '2200'
+                      - code: timing
+                        list:
+                          - code: type
+                            value: Delivery
+                          - code: location
+                            value: L1
+                          - code: day_from
+                            value: '1'
+                          - code: day_to
+                            value: '7'
+                          - code: time_from
+                            value: '1000'
+                          - code: time_to
+                            value: '2200'
+                      - code: serviceability
+                        list:
+                          - code: location
+                            value: L1
+                          - code: category
+                            value: F&B
+                          - code: type
+                            value: '10'
+                          - code: val
+                            value: '3'
+                          - code: unit
+                            value: km
+        notes:
+          value:
+            ^1: >-
+              timestamp when the snapshot for this provider (including provider
+              details, items) was generated, must be <= Context.timestamp. Buyer
+              NPs can use this to determine from when to start incremental
+              refresh
+            ^2: >-
+              enum - "enable" (default), "disable" (soft delete of provider
+              location, i.e. warehouse or store, from buyer NP cache - in this
+              case, serviceability for the store should not be a part of the
+              catalog), "close" (temporary closure of store with the same format
+              for time.range as specified, for incremental refresh, here -
+              https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.ar4y0zvk65s4
+              only if this event is available at the time of generating the full
+              catalog snapshot)
+            ^3: >-
+              timestamp when the snapshot for location was generated, must be <=
+              Context.timestamp
+            ^4: enum - "enable", "disable"
+            ^5: timestamp for item event
+            ^6: >-
+              (optional) upper & lower price range, for product created using
+              this base item & customizations, for display on the store listing
+              page
+            ^7: up to 2 decimal places
+            ^8: up to 2 decimal places
+            ^9: >-
+              item availability timing; if separate timing for each day, can
+              create multiple such groups. If there is an overlap across these
+              availability timing groups, the union of timings will be
+              considered
+            ^10: optional
+            ^11: optional
+            ^12: optional
+            ^13: optional
+            ^14: optional
+            ^15: optional
+            ^16: optional
+      - summary: Select the item
+        api: select
+        description: null
+        reference: if any
+        example: *ref_36
+        notes: *ref_37
+      - summary: Returns item breakup for a product with self pickup enabled
+        api: on_select
+        description: null
+        reference: if any
+        example:
+          summary: Send quote and breakup
+          description: >-
+            Send quote and breakup for items selected in select Api call
+            enabling self pickup.
+          value:
+            context:
+              domain: ONDC:RET11
+              action: on_select
+              core_version: 1.2.0
+              bap_id: buyerNP.com
+              bap_uri: https://buyerNP.com/ondc
+              bpp_id: sellerNP.com
+              bpp_uri: https://sellerNP.com/ondc
+              transaction_id: T2
+              message_id: M2
+              city: std:080
+              country: IND
+              timestamp: '2023-06-03T08:30:30.000Z'
+            message:
+              order:
+                provider:
+                  id: P1
+                items:
+                  - id: I1
+                    fulfillment_id: F1 [^1]
+                fulfillments:
+                  - id: F1
+                    type: Delivery
+                    '@ondc/org/provider_name': LSP or Provider Name
+                    tracking: false
+                    '@ondc/org/category': Immediate Delivery
+                    '@ondc/org/TAT': PT60M [^2]
+                    state:
+                      descriptor:
+                        code: Serviceable
+                  - id: F2
+                    type: Self-Pickup
+                    '@ondc/org/provider_name': ''
+                    tracking: false
+                    '@ondc/org/category': Takeaway [^3]
+                    '@ondc/org/TAT': PT15M [^4]
+                    state:
+                      descriptor:
+                        code: Serviceable
+                quote [^5]:
+                  price:
+                    currency: INR
+                    value: '1360.00'
+                  breakup:
+                    - '@ondc/org/item_id': I1
+                      '@ondc/org/item_quantity':
+                        count: 2
+                      title: Veg Pizza
+                      '@ondc/org/title_type': item
+                      price:
+                        currency: INR
+                        value: '1200.00'
+                      item:
+                        quantity:
+                          available:
+                            count: '99'
+                          maximum:
+                            count: '99'
+                        price:
+                          currency: INR
+                          value: '600.00'
+                    - '@ondc/org/item_id': F1
+                      title: Delivery charges
+                      '@ondc/org/title_type': delivery
+                      price:
+                        currency: INR
+                        value: '50.00'
+                    - '@ondc/org/item_id': F1
+                      title: Packing charges
+                      '@ondc/org/title_type': packing
+                      price:
+                        currency: INR
+                        value: '25.00'
+                    - '@ondc/org/item_id': F2
+                      title: Delivery charges
+                      '@ondc/org/title_type': delivery
+                      price:
+                        currency: INR
+                        value: '0.00'
+                    - '@ondc/org/item_id': F2
+                      title: Packing charges
+                      '@ondc/org/title_type': packing
+                      price:
+                        currency: INR
+                        value: '25.00'
+                    - '@ondc/org/item_id': I1
+                      title: Tax
+                      '@ondc/org/title_type': tax
+                      price:
+                        currency: INR
+                        value: '60.00'
+                  ttl: PT30M
+        notes:
+          value:
+            ^1: only one fulfillment option assigned to items
+            ^2: >-
+              O2D = O2S (i.e. max of time_to_ship for items in order) + S2D (for
+              delivery)
+            ^3: >-
+              enums for fulfillment type "Self-Pickup" are "Takeaway",
+              "Kerbside"
+            ^4: O2S time, i.e. max of time_to_ship for items in order
+            ^5: includes costs for both fulfillment options
+      - summary: Buyer initiate the product and send the updated fulfillment id
+        api: init
+        description: null
+        reference: if any
+        example: *ref_40
+        notes: *ref_41
+      - summary: Respond to init
+        api: on_init
+        description: null
+        reference: if any
+        example: *ref_42
+        notes: *ref_43
+      - summary: Buyer confirms product
+        api: confirm
+        description: null
+        reference: if any
+        example: *ref_44
+        notes: *ref_45
+      - summary: Seller Accepts confirmation
+        api: on_confirm
+        description: null
+        reference: if any
+        example: *ref_46
+        notes: *ref_47
+  - summary: Retail 1.2.0 (Item not in stock)
+    description: >-
+      The following is an illustrative flow to perform a transaction of a nature
+      where a buyer would like to order electronics item and item is not in
+      stock
+    reference: if any
+    steps:
+      - summary: Search by fulfillment end location
+        api: search
+        description: Buyer search by fulfillment end location
+        reference: if any
+        example: *ref_34
+        notes: *ref_35
+      - summary: Returns the item or catalog (Electronics Laptop)
+        api: on_search
+        description: null
+        reference: if any
+        example:
+          summary: Return the catalog for Electronic Laptop products
+          description: Return the catalog for Electronic Laptop products
+          value:
+            context:
+              domain: ONDC:RET14
+              country: IND
+              city: std:080
+              action: on_search
+              core_version: 1.2.0
+              bap_id: buyerNP.com
+              bap_uri: https://buyerNP.com/ondc
+              bpp_id: sellerNP.com
+              bpp_uri: https://sellerNP.com/ondc
+              transaction_id: T1
+              message_id: M1
+              timestamp: '2023-06-03T08:00:30.000Z'
+            message:
+              catalog:
+                bpp/descriptor:
+                  name: Seller NP
+                  symbol: https://sellerNP.com/images/np.png
+                  short_desc: Seller Marketplace
+                  long_desc: Seller Marketplace
+                  images:
+                    - https://sellerNP.com/images/np.png
+                bpp/providers:
+                  - id: P1
+                    time:
+                      label: enable
+                      timestamp: 2023-06-03T08:00:30.000Z [^1]
+                    fulfillments:
+                      - id: F1
+                        type: Delivery
+                        contact:
+                          phone: '9886098860'
+                          email: abc@xyz.com
+                    descriptor:
+                      name: Store 1
+                      symbol: https://sellerNP.com/images/store1.png
+                      short_desc: Store 1
+                      long_desc: Store 1
+                      images:
+                        - https://sellerNP.com/images/store1.png
+                    ttl: P1D
+                    locations:
+                      - id: L1
+                        time:
+                          label: enable [^2]
+                          timestamp: 2023-06-03T07:30:30.000Z [^3]
+                          schedule:
+                            holidays:
+                              - '2023-08-15'
+                        gps: 12.967555,77.749666
+                        address:
+                          locality: Jayanagar
+                          street: Jayanagar 4th Block
+                          city: Bengaluru
+                          area_code: '560076'
+                          state: KA
+                    items:
+                      - id: I1
+                        time:
+                          label: enable [^4]
+                          timestamp: 2023-06-03T07:30:00.000Z [^5]
+                        descriptor:
+                          name: MacBook Air Laptop
+                          code: 5:<unique_product_code>
+                          symbol: https://sellerNP.com/images/i1.png
+                          short_desc: MacBook Air Laptop
+                          long_desc: >-
+                            Apple 2020 MacBook Air Laptop M1 chip,
+                            13.3-inch/33.74 cm Retina Display, 8GB RAM, 256GB
+                            SSD Storage, Backlit Keyboard, FaceTime HD Camera,
+                            Touch ID. Works with iPhone/iPad; Gold
+                          images:
+                            - https://sellerNP.com/images/i1.png
+                        quantity:
+                          unitized:
+                            measure:
+                              unit: unit
+                              value: '1'
+                          available:
+                            count: '99'
+                          maximum:
+                            count: '99'
+                        price:
+                          currency: INR
+                          value: '81990.00'
+                          maximum_value: '99900.00'
+                        category_id: Desktop and Laptop
+                        fulfillment_id: F1
+                        location_id: L1
+                        '@ondc/org/returnable': true
+                        '@ondc/org/cancellable': true
+                        '@ondc/org/return_window': P7D
+                        '@ondc/org/seller_pickup_return': true
+                        '@ondc/org/time_to_ship': PT3H
+                        '@ondc/org/available_on_cod': false
+                        '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
+                        tags:
+                          - code: origin
+                            list:
+                              - code: country
+                                value: IND
+                          - code: attribute
+                            list:
+                              - code: brand
+                                value: Apple
+                              - code: model
+                                value: MacBook Air
+                              - code: colour
+                                value: gold [^6]
+                              - code: screen_size
+                                value: 13"
+                              - code: memory
+                                value: 8GB
+                              - code: cpu
+                                value: Core M family
+                              - code: cpu_mfr [^7]
+                                value: Intel
+                              - code: storage
+                                value: 256GB
+                    creds [^8]:
+                      - id: Auth33567
+                        descriptor:
+                          name: Authorised Apple Dealer
+                        url: https://abcd.cdn.com/images/badge-img
+                        tags:
+                          - code: verification
+                            list:
+                              - code: verify_url
+                                value: https://abcd.dnb.com/verify?id='ESG-12345678'
+                              - code: valid_from
+                                value: 2023-06-03T00:00:00:000Z
+                              - code: valid_to
+                                value: 2024-06-03T23:59:59:999Z
+                    tags:
+                      - code: timing
+                        list:
+                          - code: type
+                            value: All [^9]
+                          - code: location
+                            value: L1
+                          - code: day_from
+                            value: '1'
+                          - code: day_to
+                            value: '7'
+                          - code: time_from
+                            value: '0000'
+                          - code: time_to
+                            value: '2359'
+                      - code: serviceability
+                        list:
+                          - code: location
+                            value: L1
+                          - code: category
+                            value: Desktop and Laptop
+                          - code: type
+                            value: '12'
+                          - code: val
+                            value: IND
+                          - code: unit
+                            value: country
+        notes:
+          value:
+            ^1: >-
+              timestamp when the snapshot for this provider (including provider
+              details, items) was generated, must be <= Context.timestamp. Buyer
+              NPs can use this to determine from when to start incremental
+              refresh
+            ^2: >-
+              enum - "enable" (default), "disable" (soft delete of provider
+              location, i.e. warehouse or store, from buyer NP cache - in this
+              case, serviceability for the store should not be a part of the
+              catalog), "close" (temporary closure of store with the same format
+              for time.range as specified, for incremental refresh, here -
+              https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.ar4y0zvk65s4
+              only if this event is available at the time of generating the full
+              catalog snapshot)
+            ^3: >-
+              timestamp when the snapshot for location was generated, must be <=
+              Context.timestamp
+            ^4: enum - "enable", "disable"
+            ^5: timestamp for item event
+            ^6: >-
+              suggestive enum here
+              https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/fashion/RET12-colour.json
+            ^7: CPU manufacturer
+            ^8: optional
+            ^9: >-
+              means same timings for online order processing, shipment,
+              self-pickup (as applicable)
+      - summary: Select the item
+        api: select
+        description: null
+        reference: if any
+        example: *ref_22
+        notes: *ref_23
+      - summary: Returns that item is not in stock
+        api: on_select
+        description: null
+        reference: if any
+        example:
+          summary: Send error
+          description: Send error for item not in stock
+          value:
+            context:
+              domain: ONDC:RET10
+              action: on_select
+              core_version: 1.2.0
+              bap_id: buyerNP.com
+              bap_uri: https://buyerNP.com/ondc
+              bpp_id: sellerNP.com
+              bpp_uri: https://sellerNP.com/ondc
+              transaction_id: T2
+              message_id: M2
+              city: std:080
+              country: IND
+              timestamp: '2023-06-03T08:30:30.000Z'
+            message:
+              order:
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1 [^1]
+                items:
+                  - fulfillment_id: F1
+                    id: I1
+                fulfillments:
+                  - id: F1
+                    type: Delivery
+                    '@ondc/org/provider_name': LSP or Provider Name
+                    tracking: false
+                    '@ondc/org/category': Immediate Delivery
+                    '@ondc/org/TAT': PT60M
+                    state:
+                      descriptor:
+                        code: Serviceable
+                quote:
+                  price:
+                    currency: INR
+                    value: '0'
+                  breakup:
+                    - '@ondc/org/item_id': I1
+                      '@ondc/org/item_quantity':
+                        count: 0 [^2]
+                      title: Atta
+                      '@ondc/org/title_type': item
+                      price:
+                        currency: INR
+                        value: '0'
+                      item:
+                        quantity:
+                          available:
+                            count: '0'
+                          maximum:
+                            count: '0'
+                        price:
+                          currency: INR
+                          value: '170'
+                    - '@ondc/org/item_id': F1
+                      title: Delivery charges
+                      '@ondc/org/title_type [^3]': delivery
+                      price:
+                        currency: INR
+                        value: '0.00'
+                  ttl: P1D
+            error:
+              type: DOMAIN-ERROR
+              code: '40002'
+              message: M1 [^4]
+        notes:
+          value:
+            ^1: >-
+              may be the same location as selected by the buyer or a different
+              location
+            ^2: >-
+              can be 0 (completely out of stock) or the reduced quantity in
+              stock
+            ^3: >-
+              delivery charge to be included only if fulfillment state code is
+              "Serviceable"
+            ^4: >-
+              comma delimited item ids, for items out of stock, should be here,
+              e.g. "I1,I2,I3" means items (with id) "I1", "I2", "I3" are out of
+              stock
+  - summary: Retail 1.2.0 (Location not serviceable)
+    description: >-
+      The following is an illustrative flow to perform a transaction of a nature
+      where a buyer would like to order electronics item and location is not
+      serviceable
+    reference: if any
+    steps:
+      - summary: Search for an item
+        api: search
+        description: Buyer search for an item
+        reference: if any
+        example: *ref_20
+        notes: *ref_21
+      - summary: Returns the item or catalog (Electronics Keyboard)
+        api: on_search
+        description: null
+        reference: if any
+        example:
+          summary: Return the catalog for Electronic Keyboard products
+          description: Return the catalog for Electronic Keyboard products
+          value:
+            context:
+              domain: ONDC:RET14
+              country: IND
+              city: std:080
+              action: on_search
+              core_version: 1.2.0
+              bap_id: buyerNP.com
+              bap_uri: https://buyerNP.com/ondc
+              bpp_id: sellerNP.com
+              bpp_uri: https://sellerNP.com/ondc
+              transaction_id: T1
+              message_id: M1
+              timestamp: '2023-06-03T08:00:30.000Z'
+            message:
+              catalog:
+                bpp/descriptor:
+                  name: Seller NP
+                  symbol: https://sellerNP.com/images/np.png
+                  short_desc: Seller Marketplace
+                  long_desc: Seller Marketplace
+                  images:
+                    - https://sellerNP.com/images/np.png
+                bpp/providers:
+                  - id: P1
+                    time:
+                      label: enable
+                      timestamp: 2023-06-03T08:00:30.000Z [^1]
+                    fulfillments:
+                      - id: F1
+                        type: Delivery
+                        contact:
+                          phone: '9886098860'
+                          email: abc@xyz.com
+                    descriptor:
+                      name: Store 1
+                      symbol: https://sellerNP.com/images/store1.png
+                      short_desc: Store 1
+                      long_desc: Store 1
+                      images:
+                        - https://sellerNP.com/images/store1.png
+                    ttl: P1D
+                    locations:
+                      - id: L1
+                        time:
+                          label: enable [^2]
+                          timestamp: 2023-06-03T07:30:30.000Z [^3]
+                          schedule:
+                            holidays:
+                              - '2023-08-15'
+                        gps: 12.967555,77.749666
+                        address:
+                          locality: Jayanagar
+                          street: Jayanagar 4th Block
+                          city: Bengaluru
+                          area_code: '560076'
+                          state: KA
+                    items:
+                      - id: I1
+                        time:
+                          label: enable [^4]
+                          timestamp: 2023-06-03T07:30:00.000Z [^5]
+                        descriptor:
+                          name: Logitech K580 Keyboard
+                          code: 5:<unique_product_code>
+                          symbol: https://sellerNP.com/images/i1.png
+                          short_desc: Logitech K580 Keyboard
+                          long_desc: >-
+                            Logitech K580 Slim Multi-Device Wireless Keyboard
+                            Bluetooth/Receiver, Compact, Easy Switch, 24 Month
+                            Battery, Win/Mac, Desktop, Tablet, Smartphone,
+                            Laptop Compatible - Graphite
+                          images:
+                            - https://sellerNP.com/images/i1.png
+                        quantity:
+                          unitized:
+                            measure:
+                              unit: unit
+                              value: '1'
+                          available:
+                            count: '99'
+                          maximum:
+                            count: '99'
+                        price:
+                          currency: INR
+                          value: '3595.00'
+                          maximum_value: '3995.00'
+                        category_id: Computer Peripheral
+                        fulfillment_id: F1
+                        location_id: L1
+                        '@ondc/org/returnable': true
+                        '@ondc/org/cancellable': true
+                        '@ondc/org/return_window': P7D
+                        '@ondc/org/seller_pickup_return': true
+                        '@ondc/org/time_to_ship': PT3H
+                        '@ondc/org/available_on_cod': false
+                        '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
+                        tags:
+                          - code: origin
+                            list:
+                              - code: country
+                                value: IND
+                          - code: attribute
+                            list:
+                              - code: brand
+                                value: Logitech
+                              - code: colour
+                                value: blue [^6]
+                              - code: includes
+                                value: Keyboard, Mouse, Webcam
+                              - code: compatible_devices
+                                value: PC, MAC, Laptop, Smartphone, Tablet
+                              - code: connectivity
+                                value: Bluetooth, USB
+                              - code: type
+                                value: wireless
+                    creds [^7]:
+                      - id: Auth33567
+                        descriptor:
+                          name: Authorised Apple Dealer
+                        url: https://abcd.cdn.com/images/badge-img
+                        tags:
+                          - code: verification
+                            list:
+                              - code: verify_url
+                                value: https://abcd.dnb.com/verify?id='ESG-12345678'
+                              - code: valid_from
+                                value: 2023-06-03T00:00:00:000Z
+                              - code: valid_to
+                                value: 2024-06-03T23:59:59:999Z
+                    tags:
+                      - code: timing
+                        list:
+                          - code: type
+                            value: All [^8]
+                          - code: location
+                            value: L1
+                          - code: day_from
+                            value: '1'
+                          - code: day_to
+                            value: '7'
+                          - code: time_from
+                            value: '0000'
+                          - code: time_to
+                            value: '2359'
+                      - code: serviceability
+                        list:
+                          - code: location
+                            value: L1
+                          - code: category
+                            value: Computer Peripheral
+                          - code: type
+                            value: '12'
+                          - code: val
+                            value: IND
+                          - code: unit
+                            value: country
+        notes:
+          value:
+            ^1: >-
+              timestamp when the snapshot for this provider (including provider
+              details, items) was generated, must be <= Context.timestamp. Buyer
+              NPs can use this to determine from when to start incremental
+              refresh
+            ^2: >-
+              enum - "enable" (default), "disable" (soft delete of provider
+              location, i.e. warehouse or store, from buyer NP cache - in this
+              case, serviceability for the store should not be a part of the
+              catalog), "close" (temporary closure of store with the same format
+              for time.range as specified, for incremental refresh, here -
+              https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.ar4y0zvk65s4
+              only if this event is available at the time of generating the full
+              catalog snapshot)
+            ^3: >-
+              timestamp when the snapshot for location was generated, must be <=
+              Context.timestamp
+            ^4: enum - "enable", "disable"
+            ^5: timestamp for item event
+            ^6: >-
+              suggestive enum here
+              https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/fashion/RET12-colour.json
+            ^7: optional
+            ^8: >-
+              means same timings for online order processing, shipment,
+              self-pickup (as applicable)
+      - summary: Select the item
+        api: select
+        description: null
+        reference: if any
+        example: *ref_22
+        notes: *ref_23
+      - summary: Returns that location is not serviceable
+        api: on_select
+        description: null
+        reference: if any
+        example:
+          summary: Send error
+          description: Send error for location not serviceable
+          value:
+            context:
+              domain: ONDC:RET10
+              action: on_select
+              core_version: 1.2.0
+              bap_id: buyerNP.com
+              bap_uri: https://buyerNP.com/ondc
+              bpp_id: sellerNP.com
+              bpp_uri: https://sellerNP.com/ondc
+              transaction_id: T2
+              message_id: M2
+              city: std:080
+              country: IND
+              timestamp: '2023-06-03T08:30:30.000Z'
+            message:
+              order:
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1 [^1]
+                items:
+                  - fulfillment_id: F1
+                    id: I1
+                fulfillments:
+                  - id: F1
+                    type: Delivery
+                    '@ondc/org/provider_name': LSP or Provider Name
+                    tracking: false
+                    '@ondc/org/category': ''
+                    '@ondc/org/TAT': ''
+                    state:
+                      descriptor:
+                        code: Non-serviceable
+                quote:
+                  price:
+                    currency: INR
+                    value: '170.00'
+                  breakup:
+                    - '@ondc/org/item_id': I1
+                      '@ondc/org/item_quantity':
+                        count: 1
+                      title: Atta
+                      '@ondc/org/title_type': item
+                      price:
+                        currency: INR
+                        value: '170.00'
+                      item:
+                        quantity:
+                          available:
+                            count: '99'
+                          maximum:
+                            count: '99'
+                        price:
+                          currency: INR
+                          value: '170.00'
+                  ttl: P1D
+            error:
+              type: DOMAIN-ERROR
+              code: 30009 [^2]
+        notes:
+          value:
+            ^1: >-
+              may be the same location as selected by the buyer or a different
+              location
+            ^2: if merchant not available, use error code 30017
+  - summary: Retail 1.2.0 (Return with liquidation - NP reject request)
+    description: >-
+      The following is an illustrative flow to perform a transaction of a nature
+      where a buyer would like to order f&b item and return it with liquidation
+      and seller rejects it.
+    reference: if any
+    steps:
+      - summary: Search for an item
+        api: search
+        description: Buyer search for an item
+        reference: if any
+        example: *ref_20
+        notes: *ref_21
+      - summary: Returns the item or catalog (F&B)
+        api: on_search
+        description: null
+        reference: if any
+        example:
+          summary: Return the catalog for F&B products
+          description: Return the catalog for F&B products
+          value:
+            context:
+              domain: ONDC:RET11
+              country: IND
+              city: std:080
+              action: on_search
+              core_version: 1.2.0
+              bap_id: buyerNP.com
+              bap_uri: https://buyerNP.com/ondc
+              bpp_id: sellerNP.com
+              bpp_uri: https://sellerNP.com/ondc
+              transaction_id: T1
+              message_id: M1
+              timestamp: '2023-06-03T08:00:30.000Z'
+            message:
+              catalog:
+                bpp/fulfillments:
+                  - id: '1'
+                    type: Delivery
+                  - id: '2'
+                    type: Self-Pickup
+                  - id: '3'
+                    type: Delivery and Self-Pickup
+                bpp/descriptor [^1]:
+                  name: Seller NP
+                  symbol [^2]: https://sellerNP.com/images/np.png
+                  short_desc: Seller Marketplace
+                  long_desc: Seller Marketplace
+                  images:
+                    - https://sellerNP.com/images/np.png
+                bpp/providers [^3]:
+                  - id: P1 [^4]
+                    time:
+                      label: enable [^5]
+                      timestamp: 2023-06-03T07:00:00.000Z [^6]
+                    fulfillments [^7]:
+                      - id: F1
+                        type: Delivery
+                        contact [^8]:
+                          phone: 9886098860 [^9]
+                          email [^10]: abc@xyz.com
+                      - id: F2
+                        type: Self-Pickup
+                        contact:
+                          phone: '9886098860'
+                          email: abc@xyz.com
+                    descriptor:
+                      name: Store 1
+                      symbol: https://sellerNP.com/images/store1.png
+                      short_desc: Store 1
+                      long_desc: Store 1
+                      images:
+                        - https://sellerNP.com/images/store1.png
+                    '@ondc/org/fssai_license_no [^11]': '12345678901234'
+                    ttl: P1D [^12]
+                    locations [^13]:
+                      - id: L1
+                        time:
+                          label: enable [^14]
+                          timestamp: 2023-06-03T07:30:30.000Z [^15]
+                          schedule:
+                            holidays [^16]:
+                              - '2023-08-15'
+                        gps: 12.967555,77.749666
+                        address:
+                          locality [^17]: Jayanagar
+                          street: Jayanagar 4th Block
+                          city: Bengaluru
+                          area_code: '560076'
+                          state: KA
+                    categories [^18]:
+                      - id: 5 [^19]
+                        parent_category_id: ''
+                        descriptor:
+                          name: Pizza
+                          short_desc: Veg and Non-Veg pizza
+                          long_desc: American and Italian Veg and Non-Veg Pizza
+                          images:
+                            - https://sellerNP.com/ondc/m005.png
+                        tags:
+                          - code: type
+                            list:
+                              - code: type
+                                value: custom_menu [^20]
+                          - code: timing [^21]
+                            list:
+                              - code: day_from
+                                value: 1 [^22]
+                              - code: day_to [^23]
+                                value: '5'
+                              - code: time_from [^24]
+                                value: '1800'
+                              - code: time_to [^25]
+                                value: '2200'
+                          - code: display [^26]
+                            list:
+                              - code: rank
+                                value: '3'
+                      - id: CG1 [^27]
+                        descriptor:
+                          name: Crust (any 1 option)
+                        tags:
+                          - code: type
+                            list:
+                              - code: type
+                                value: custom_group [^28]
+                          - code: config [^29]
+                            list:
+                              - code: min
+                                value: '1'
+                              - code: max
+                                value: '1'
+                              - code: input
+                                value: select [^30]
+                              - code: seq
+                                value: '1'
+                      - id: CG2
+                        descriptor:
+                          name: Size (any 1 option)
+                        tags:
+                          - code: type
+                            list:
+                              - code: type
+                                value: custom_group
+                          - code: config
+                            list:
+                              - code: min
+                                value: '1'
+                              - code: max
+                                value: '1'
+                              - code: input
+                                value: select
+                              - code: seq
+                                value: '2'
+                      - id: CG3
+                        descriptor:
+                          name: Toppings (up to 2 options)
+                        tags:
+                          - code: type
+                            list:
+                              - code: type
+                                value: custom_group
+                          - code: config
+                            list:
+                              - code: min
+                                value: '0'
+                              - code: max
+                                value: '2'
+                              - code: input
+                                value: select
+                              - code: seq
+                                value: '3'
+                      - id: V1
+                        descriptor:
+                          name: Variant Group 1
+                        tags:
+                          - code: type
+                            list:
+                              - code: type
+                                value: variant_group
+                          - code: attr
+                            list:
+                              - code: name
+                                value: item.quantity.unitized.measure
+                              - code: seq
+                                value: '1'
+                    items:
+                      - id: I1
+                        time:
+                          label: enable [^31]
+                          timestamp: 2023-06-03T07:30:00.000Z [^32]
+                        parent_item_id: V1
+                        descriptor:
+                          name: Farmhouse Pizza
+                          symbol: https://sellerNP.com/images/i1.png
+                          short_desc: Farmhouse Pizza
+                          long_desc: Farmhouse Pizza
+                          images [^33]:
+                            - https://sellerNP.com/images/i1.png
+                        quantity:
+                          unitized:
+                            measure:
+                              unit: unit [^34]
+                              value: '1'
+                          available:
+                            count [^35]: '99'
+                          maximum:
+                            count [^36]: '99'
+                        price:
+                          currency: INR
+                          value: 269.0 [^37]
+                          maximum_value: '269.0'
+                        tags [^38]:
+                          - code: range
+                            list:
+                              - code: lower
+                                value: 269.00 [^39]
+                              - code: upper
+                                value: 304.00 [^40]
+                        category_id: Pizza [^41]
+                        category_ids:
+                          - 5:1 [^42]
+                        fulfillment_id [^43]: F1
+                        location_id [^44]: L1
+                        related: false
+                        recommended: true
+                        '@ondc/org/returnable': false
+                        '@ondc/org/cancellable': false [^45]
+                        '@ondc/org/return_window': PT1H
+                        '@ondc/org/seller_pickup_return [^46]': false
+                        '@ondc/org/time_to_ship': PT45M
+                        '@ondc/org/available_on_cod': false
+                        '@ondc/org/contact_details_consumer_care [^47]': Ramesh,ramesh@abc.com,18004254444
+                        tags:
+                          - code: type [^48]
+                            list:
+                              - code: type
+                                value: item [^49]
+                          - code: custom_group [^50]
+                            list [^51]:
+                              - code: id
+                                value: CG1
+                              - code: id
+                                value: CG2
+                              - code: id
+                                value: CG3
+                          - code: config [^52]
+                            list:
+                              - code: id
+                                value: CG1
+                              - code: min
+                                value: '1'
+                              - code: max
+                                value: '1'
+                              - code: seq
+                                value: '1'
+                          - code: timing [^53]
+                            list:
+                              - code: day_from
+                                value: '1'
+                              - code: day_to
+                                value: '5'
+                              - code: time_from
+                                value: '1800'
+                              - code: time_to
+                                value: '2200'
+                          - code: veg_nonveg
+                            list:
+                              - code: veg [^54]
+                                value: 'yes'
+                      - id: C1
+                        descriptor:
+                          name: New Hand Tossed
+                        quantity:
+                          available:
+                            count: '99'
+                          maximum:
+                            count: '99'
+                        price:
+                          currency: INR
+                          value: '0.0'
+                          maximum_value: '0.0'
+                        category_id: F&B
+                        related: true
+                        tags:
+                          - code: type
+                            list:
+                              - code: type
+                                value: customization [^55]
+                          - code: parent [^56]
+                            list:
+                              - code: id
+                                value: CG1 [^57]
+                              - code: default [^58]
+                                value: 'yes'
+                          - code: child [^59]
+                            list:
+                              - code: id
+                                value: CG2
+                          - code: veg_nonveg
+                            list:
+                              - code: veg [^60]
+                                value: 'yes'
+                      - id: C2
+                        descriptor:
+                          name: Regular
+                        quantity:
+                          available:
+                            count: '99'
+                          maximum:
+                            count: '99'
+                        price:
+                          currency: INR
+                          value: '0.0'
+                          maximum_value: '0.0'
+                        category_id: F&B
+                        related: true
+                        tags:
+                          - code: type
+                            list:
+                              - code: type
+                                value: customization
+                          - code: parent
+                            list:
+                              - code: id
+                                value: CG2
+                              - code: default
+                                value: 'yes'
+                          - code: child
+                            list:
+                              - code: id
+                                value: CG3
+                          - code: veg_nonveg
+                            list:
+                              - code: veg [^61]
+                                value: 'yes'
+                      - id: C3
+                        descriptor:
+                          name: Grilled Mushrooms
+                        quantity:
+                          available:
+                            count: '99'
+                          maximum:
+                            count: '99'
+                        price:
+                          currency: INR
+                          value: '35.0'
+                          maximum_value: '35.0'
+                        category_id: F&B
+                        related: true
+                        tags:
+                          - code: type
+                            list:
+                              - code: type
+                                value: customization
+                          - code: parent [^62]
+                            list:
+                              - code: id
+                                value: CG3
+                              - code: default
+                                value: 'yes'
+                          - code: veg_nonveg
+                            list:
+                              - code: veg [^63]
+                                value: 'yes'
+                    offers [^64]:
+                      - id: TRYNEW
+                        descriptor:
+                          code: Disc_Pct
+                          images:
+                            - https://sellerNP.com/images/offer2-banner.png
+                        location_ids:
+                          - L1
+                        item_ids:
+                          - I1
+                        time:
+                          label: valid
+                          range:
+                            start: '2023-06-21T16:00:00.000Z'
+                            end: '2023-06-21T23:00:00.000Z'
+                        tags:
+                          - code: cart
+                            list:
+                              - code: min_value
+                                value: '159'
+                          - code: offer
+                            list:
+                              - code: offered_value_type
+                                value: percent
+                              - code: offered_value_amt
+                                value: '-60.00'
+                              - code: offered_value_cap
+                                value: '-120.00'
+                      - id: FLAT150
+                        descriptor:
+                          code: Disc_Amt
+                          images:
+                            - https://sellerNP.com/images/offer2-banner.png
+                        location_ids:
+                          - L1
+                        item_ids:
+                          - I1
+                        time:
+                          label: valid
+                          range:
+                            start: '2023-06-22T16:00:00.000Z'
+                            end: '2023-06-22T23:00:00.000Z'
+                        tags:
+                          - code: cart
+                            list:
+                              - code: min_value
+                                value: '499.00'
+                          - code: offer
+                            list:
+                              - code: offered_value_type
+                                value: amount
+                              - code: offered_value_amt
+                                value: '-150.00'
+                      - id: BUY2GET3
+                        descriptor:
+                          code: BuyXGetY
+                          images:
+                            - https://sellerNP.com/images/offer1-banner.png
+                        location_ids:
+                          - L1
+                        item_ids:
+                          - I1
+                        time:
+                          label: valid
+                          range:
+                            start: '2023-06-23T16:00:00.000Z'
+                            end: '2023-06-23T23:00:00.000Z'
+                        tags:
+                          - code: cart
+                            list:
+                              - code: item_count
+                                value: '2'
+                          - code: offer
+                            list:
+                              - code: item_count
+                                value: '3'
+                              - code: item_id
+                                value: sku_id_for_extra_item
+                      - id: FREEBIE
+                        descriptor:
+                          code: Freebie
+                          images:
+                            - https://sellerNP.com/images/offer3-banner.png
+                        location_ids:
+                          - L1
+                        item_ids:
+                          - I1
+                        time:
+                          label: valid
+                          range:
+                            start: '2023-06-24T16:00:00.000Z'
+                            end: '2023-06-24T23:00:00.000Z'
+                        tags:
+                          - code: cart
+                            list:
+                              - code: min_value
+                                value: '598.00'
+                          - code: offer
+                            list:
+                              - code: offered_value
+                                value: '0.00'
+                              - code: item_count
+                                value: '1'
+                              - code: item_id
+                                value: sku_id_for_extra_item
+                              - code: item_value
+                                value: '200.00'
+                    tags:
+                      - code: order_value [^65]
+                        list:
+                          - code: min_value [^66]
+                            value: '300.00'
+                      - code: catalog_link [^67]
+                        list:
+                          - code: type
+                            value: inline [^68]
+                          - code: type_value [^69]
+                            value: https://s3.amazon.com/xjhjsfsdfs/s-12349.zip
+                          - code: type_validity [^70]
+                            value: PT24H
+                          - code: last_update [^71]
+                            value: 2023-05-21T00:00:00:000Z
+                      - code: timing
+                        list:
+                          - code: type
+                            value: Order [^72]
+                          - code: location
+                            value: L1 [^73]
+                          - code: day_from
+                            value: 1 [^74]
+                          - code: day_to
+                            value: 5 [^75]
+                          - code: time_from
+                            value: 0900 [^76]
+                          - code: time_to
+                            value: 1100 [^77]
+                      - code: timing [^78]
+                        list:
+                          - code: type
+                            value: Order
+                          - code: location
+                            value: L1
+                          - code: day_from
+                            value: '1'
+                          - code: day_to
+                            value: '5'
+                          - code: time_from
+                            value: '1300'
+                          - code: time_to
+                            value: '1530'
+                      - code: timing
+                        list:
+                          - code: type
+                            value: Order
+                          - code: location
+                            value: L1
+                          - code: day_from
+                            value: '1'
+                          - code: day_to
+                            value: '5'
+                          - code: time_from
+                            value: '1830'
+                          - code: time_to
+                            value: '2130'
+                      - code: timing
+                        list:
+                          - code: type
+                            value: Order
+                          - code: location
+                            value: L1
+                          - code: day_from
+                            value: '6'
+                          - code: day_to
+                            value: '7'
+                          - code: time_from
+                            value: '1300'
+                          - code: time_to
+                            value: '1600'
+                      - code: timing
+                        list:
+                          - code: type
+                            value: Order
+                          - code: location
+                            value: L1
+                          - code: day_from
+                            value: '6'
+                          - code: day_to
+                            value: '7'
+                          - code: time_from
+                            value: '1900'
+                          - code: time_to
+                            value: '2300'
+                      - code: timing
+                        list:
+                          - code: type
+                            value: Self-Pickup
+                          - code: location
+                            value: L1
+                          - code: day_from
+                            value: '1'
+                          - code: day_to
+                            value: '7'
+                          - code: time_from
+                            value: '1100'
+                          - code: time_to
+                            value: '2000'
+                      - code: timing
+                        list:
+                          - code: type
+                            value: Delivery
+                          - code: location
+                            value: L1
+                          - code: day_from
+                            value: '1'
+                          - code: day_to
+                            value: '7'
+                          - code: time_from
+                            value: '1100'
+                          - code: time_to
+                            value: '2200'
+                      - code: serviceability [^79]
+                        list:
+                          - code: location
+                            value: L1 [^80]
+                          - code: category
+                            value: F&B
+                          - code: type
+                            value: 10 [^81]
+                          - code: val
+                            value: '3'
+                          - code: unit
+                            value: km
+        notes:
+          value:
+            ^1: descriptor for seller NP
+            ^2: logo or image for seller NP
+            ^3: descriptor for seller (merchant) that processes & fulfills orders
+            ^4: >-
+              unique id for provider, must be same as bpp_id for ISN seller
+              apps. Use of same provider id for distinct legal entities will
+              cause an MSN being regarded as ISN and use of different provider
+              id for same legal entity will cause an ISN being regarded as MSN,
+              thus resulting in tax non-compliance
+            ^5: >-
+              enum - "enable" (default), "disable" (soft delete of provider from
+              buyer NP cache)
+            ^6: >-
+              timestamp when the snapshot for this provider (including provider
+              details, items) was generated, must be <= Context.timestamp. Buyer
+              NPs can use this to determine from when to start incremental
+              refresh
+            ^7: provider level fulfillment options
+            ^8: >-
+              contact details for merchant - if merchant is in multiple
+              locations, this will be the contact detail for merchant and
+              contact detail for the storefront (specific location) will be in
+              fulfillment.start
+            ^9: valid 10 digit (mobile no) or 11 digit no
+            ^10: email id of merchant or seller NP
+            ^11: valid 14 digit FSSAI
+            ^12: ISO8601 duration format for validity of provider catalog
+            ^13: locations for provider with unique id for each location
+            ^14: >-
+              enum - "enable" (default), "disable" (soft delete of provider
+              location, i.e. warehouse or store, from buyer NP cache - in this
+              case, serviceability for the store should not be a part of the
+              catalog), "close" (temporary closure of store with the same format
+              for time.range as specified, for incremental refresh, here -
+              https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.ar4y0zvk65s4
+              only if this event is available at the time of generating the full
+              catalog snapshot)
+            ^15: >-
+              timestamp when the snapshot for location was generated, must be <=
+              Context.timestamp
+            ^16: >-
+              list of future dated holidays, to be used as per holiday calendar;
+              if no holidays, empty array needs to be passed
+            ^17: locality name
+            ^18: >-
+              custom menu / customization group / variant definitions for
+              provider (optional)
+            ^19: >-
+              unique id for custom category (across customization group, custom
+              menu, variant group); alphanumeric & up to 12 characters
+            ^20: enum - "custom_menu", "custom_group", "variant_group
+            ^21: >-
+              (optional) if specified, indicates preferred display timing for
+              custom menu item, e.g. above means preference is to display this
+              menu item from Monday to Friday from 1800 to 2200; if not
+              specified, indicates preference for displaying this menu item as
+              per store timings
+            ^22: valid value - day of week ("1" - Monday, "7" - Sunday)
+            ^23: >-
+              valid value - day of week ("1" - Monday, "7" - Sunday), day_to >=
+              day_from
+            ^24: valid value - 24hr format ("0000" to "2359")
+            ^25: valid value - 24hr format ("0000" to "2359"), time_to > time_from
+            ^26: >-
+              preferred display rank for custom menu item, above example means
+              preference is to display in rank 3 of the custom menu
+            ^27: >-
+              unique id for custom category (across customization group, custom
+              menu, variant); alphanumeric & up to 12 character
+            ^28: >-
+              custom category type, enum - "custom_menu", "custom_group",
+              "variant_group
+            ^29: >-
+              customization group definition including id, name, min / max,
+              input type, sequence of display
+            ^30: >-
+              input type for customization group, enum - "select" (selection by
+              buyer from available customizations based on min/max), "text"
+              (text entered by buyer e.g. for engraving)
+            ^31: enum - "enable", "disable"
+            ^32: timestamp for item event
+            ^33: >-
+              while item images ensures better discoverability & enhances user
+              experience, if no image is available, seller NPs shouldn’t send
+              image (instead of sending placeholder image)
+            ^34: >-
+              enum - "unit", "dozen", "kilogram", "tonne", "litre", "millilitre"
+              (list
+              https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/grocery/RET10-UOM.json)
+            ^35: stringified integer value - default value for item in stock
+            ^36: >-
+              stringified integer value - cap per order (if exists) or default
+              value
+            ^37: >-
+              in case value for base item is 0 (for item with customizations),
+              buyer NPs should check for mandatory customization group(s) and
+              default customization for each group and add this for displaying
+              on the item listing page
+            ^38: >-
+              (optional) upper & lower price range, for product created using
+              this base item & customizations, for display on the store listing
+              page
+            ^39: up to 2 decimal places
+            ^40: up to 2 decimal places
+            ^41: >-
+              item category from this list and used by buyer NPs to categorize
+              on CLP; if seller NPs enter "F&B", buyer NPs can use their own
+              intelligence to show the grouping
+            ^42: >-
+              item assigned to custom menu, can only be assigned to child menu
+              item (if there is a parent menu item) or the root menu item;
+              defined in this format - "custom menu item id:display sequence
+              within custom menu item", in this case, "Farm House Pizza" is
+              displayed at the top when menu item for id 5 ("Pizza") is clicked.
+              If custom menu item id is not found or invalid, buyer NP may
+              decide to show this item under the parent menu item id (in case of
+              parent->child menu item) or delink this item from the custom menu
+              (however, the item will still be visible on the item listing for
+              the provider or through other modes of discovery)
+            ^43: default fulfillment type
+            ^44: unique location for provider as defined in the catalog
+            ^45: should default to false except for specific packaged items
+            ^46: whether seller is responsible for pick up of item for return
+            ^47: >-
+              valid contact details exactly in this format - name, email,
+              contact no
+            ^48: >-
+              required only for items that can be configured using
+              customizations
+            ^49: enum - "item", "dynamic_item", "customization"
+            ^50: >-
+              all customization group(s) used to configure item should be listed
+              here; customization group(s) assigned should have default
+              customization of type "veg", if the base item (I1) in this case is
+              also "veg"
+            ^51: >-
+              if any mandatory customization group, being used to configure the
+              base item, is not defined (in provider.categories) or no
+              customizations have been mapped to this customization group, the
+              buyer NP may consider the base item as invalid & disable
+              accordingly
+            ^52: >-
+              configuration of customization group for item, only if overridden
+              at item level; otherwise, configurations are inherited from the
+              custom category definition for the provider, of type
+              "custom_group" for this id
+            ^53: >-
+              item availability timing; if separate timing for each day, can
+              create multiple such groups. If there is an overlap across these
+              availability timing groups, the union of timings will be
+              considered
+            ^54: enum - "veg", "non_veg", "egg"
+            ^55: enum - "customization", "dynamic_item", "item" (base item or SKU)
+            ^56: >-
+              identifies customization group(s) to which this customization
+              belongs
+            ^57: customization group id
+            ^58: >-
+              whether this customization is the default in this customization
+              group (only for customization groups where min is 1)
+            ^59: identifies nested customization group(s)
+            ^60: enum - "veg", "non_veg", "egg"
+            ^61: enum - "veg", "non_veg", "egg"
+            ^62: >-
+              customization group to which customization belongs; since this
+              example is for - crust (CG1) -> nesting (CG2) -> toppings (CG3),
+              there is no nested customization group here
+            ^63: enum - "veg", "non_veg", "egg"
+            ^64: offer definition as per the template defined above
+            ^65: for defining order value (e.g. min order value) for provider
+            ^66: minimum order value for provider (up to 2 decimals)
+            ^67: optional, for catalog refresh using link or inline (default)
+            ^68: >-
+              option for catalog response, enum - "link" (link to zip file for
+              items array for the provider), "inline" (items array in inline
+              response, which is the default today)
+            ^69: >-
+              authorized link URL, required only if type = "link"; in this case,
+              items array won’t be a part of inline response
+            ^70: >-
+              authorized link validity from last_update, required only if type =
+              "link"
+            ^71: >-
+              timestamp for last update of link (RFC3339), required only if type
+              = "link"
+            ^72: >-
+              timing for fulfillment type, enum - "Order" (online order
+              processing timings), "Delivery" (order shipment timings, will be
+              same as delivery timings for hyperlocal), "Self-Pickup"
+              (self-pickup timings), "All" (same timing for all fulfillments
+              supported by seller); example shows for following timings- Monday
+              to Friday (0900 - 1100, 1300 - 1530, 1830 - 2130), Saturday to
+              Sunday (1300 - 1600, 1900 - 2300)
+            ^73: location id for provider
+            ^74: valid value - day of week ("1" - Monday, "7" - Sunday)
+            ^75: >-
+              valid value - day of week ("1" - Monday, "7" - Sunday), day_to >=
+              day_from
+            ^76: valid value - 24hr format ("0000" to "2359")
+            ^77: valid value - 24hr format ("0000" to "2359"), time_to >= time_from
+            ^78: >-
+              in case of overlapping store timing e.g. for Monday from 1300 -
+              1600 and 1500 - 1700, the union of these store timings will be
+              considered (1300 - 1700)
+            ^79: >-
+              serviceability construct is defined for
+              (provider+location+category) at either of these levels - 
+              hyperlocal (radius) or intercity (pincodes) or pan-India; every
+              unique combination of (provider+location+category) can have
+              serviceability defined only at one of these levels
+            ^80: maps to unique location for provider
+            ^81: enum - "10" (hyperlocal), "11" (intercity), "12" (pan-India)
+      - summary: Select the item
+        api: select
+        description: null
+        reference: if any
+        example: *ref_36
+        notes: *ref_37
+      - summary: Returns item breakup for a product with customization
+        api: on_select
+        description: null
+        reference: if any
+        example: *ref_38
+        notes: *ref_39
+      - summary: Buyer initiate the product and send the updated fulfillment id
+        api: init
+        description: null
+        reference: if any
+        example: *ref_40
+        notes: *ref_41
+      - summary: Respond to init
+        api: on_init
+        description: null
+        reference: if any
+        example: *ref_42
+        notes: *ref_43
+      - summary: Buyer confirms product
+        api: confirm
+        description: null
+        reference: if any
+        example: *ref_44
+        notes: *ref_45
+      - summary: Buyer initiated the return with liquidation
+        api: update
+        description: null
+        reference: if any
+        example: *ref_51
+        notes: *ref_52
+      - summary: Seller send the interim status request
+        api: on_update
+        description: null
+        reference: if any
+        example: *ref_53
+        notes: *ref_54
+      - summary: seller rejects the liquidation request
+        api: on_update
+        description: null
+        reference: if any
+        example:
+          summary: Seller rejects request
+          description: Seller rejects request
+          value:
+            context:
+              domain: ONDC:RET10
+              action: on_update
+              core_version: 1.2.0
+              bap_id: buyerNP.com
+              bap_uri: https://buyerNP.com/ondc
+              bpp_id: sellerNP.com
+              bpp_uri: https://sellerNP.com/ondc
+              transaction_id: T2
+              message_id: M7
+              city: std:080
+              country: IND
+              timestamp: '2023-06-03T13:30:00.000Z'
+            message:
+              order:
+                id: O1
+                state: Completed
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    fulfillment_id: F1
+                    quantity:
+                      count: 2
+                  - id: I1
+                    fulfillment_id: R1
+                    quantity:
+                      count: 0
+                billing:
+                  name: ONDC buyer
+                  address:
+                    name: 'My house #'
+                    building: My building name
+                    locality: My street name
+                    city: Bengaluru
+                    state: Karnataka
+                    country: IND
+                    area_code: '560037'
+                  email: nobody@nomail.com
+                  phone: '9886098860'
+                  created_at: '2023-06-03T09:00:00.000Z'
+                  updated_at: '2023-06-03T09:00:00.000Z'
+                fulfillments:
+                  - id: F1
+                    '@ondc/org/provider_name': LSP or Provider Name
+                    type: Delivery
+                    tracking: true
+                    '@ondc/org/TAT': PT60M
+                    state:
+                      descriptor:
+                        code: Order-delivered
+                    start:
+                      location:
+                        id: L1
+                        descriptor:
+                          name: ABC Store
+                        gps: 12.956399,77.636803
+                        address:
+                          locality: Jayanagar
+                          city: Bengaluru
+                          area_code: '560076'
+                          state: KA
+                      time [^1]:
+                        timestamp: '2023-06-03T10:25:00.000Z'
+                      instructions [^2]:
+                        code: '1'
+                        name: Proof of pickup
+                        short_desc: pickup confirmation code
+                        long_desc: >-
+                          detailed instructions such as register or counter no
+                          for pickup
+                        images:
+                          - https://lsp.com/pickup_image.png
+                          - https://lsp.com/rider_location.png
+                      authorization [^3]:
+                        type: OTP
+                        token: OTP code
+                        valid_from: '2023-06-03T12:00:00.000Z'
+                        valid_to: '2023-06-03T14:00:00.000Z'
+                      contact:
+                        phone: '9886098860'
+                        email: nobody@nomail.com
+                    end:
+                      location:
+                        gps: 12.453544,77.928379
+                        address:
+                          name: 'My house #'
+                          building: My building name
+                          locality: My street name
+                          city: Bengaluru
+                          state: Karnataka
+                          country: IND
+                          area_code: '560037'
+                      time [^4]:
+                        timestamp: '2023-06-03T11:35:00.000Z'
+                      instructions [^5]:
+                        code: '3'
+                        name: Proof of delivery
+                        short_desc: value of delivery code
+                        images:
+                          - https://lsp.com/delivery_image.png
+                          - https://lsp.com/rider_location.png
+                      authorization [^6]:
+                        type: OTP
+                        token: OTP code
+                        valid_from: '2023-06-03T18:00:00.000Z'
+                        valid_to: '2023-06-03T22:00:00.000Z'
+                      person:
+                        name: name_of_person
+                      contact:
+                        phone: '9886098860'
+                        email: nobody@nomail.com
+                    agent [^7]:
+                      name: agent_name
+                      phone: '9886098860'
+                    vehicle [^8]:
+                      registration: 3LVJ945
+                  - id: R1
+                    type: Return
+                    '@ondc/org/provider_name': LSP courier 1
+                    state:
+                      descriptor:
+                        code: Return_Rejected
+                        Short_desc: return rejection reason code [^9]
+                    tags:
+                      - code: return_request
+                        list:
+                          - code: id
+                            value: R1
+                          - code: item_id
+                            value: I1
+                          - code: item_quantity
+                            value: '1'
+                          - code: reason_id [^10]
+                            value: '003'
+                          - code: reason_desc
+                            value: detailed description for return
+                          - code: images
+                            value: url_for_image1,url_for_image2
+                          - code: ttl_approval [^11]
+                            value: PT24H
+                          - code: ttl_reverseqc [^12]
+                            value: P3D
+                quote:
+                  price:
+                    currency: INR
+                    value: '415.00'
+                  breakup:
+                    - '@ondc/org/item_id': I1
+                      '@ondc/org/item_quantity':
+                        count: 2
+                      title: Atta
+                      '@ondc/org/title_type': item
+                      price:
+                        currency: INR
+                        value: '170.00'
+                      item:
+                        price:
+                          currency: INR
+                          value: '170.00'
+                    - '@ondc/org/item_id': F1
+                      title: Delivery charges
+                      '@ondc/org/title_type': delivery
+                      price:
+                        currency: INR
+                        value: '50.00'
+                    - '@ondc/org/item_id': F1
+                      title: Packing charges
+                      '@ondc/org/title_type': packing
+                      price:
+                        currency: INR
+                        value: '25.00'
+                    - '@ondc/org/item_id': I1
+                      title: Tax
+                      '@ondc/org/title_type': tax
+                      price:
+                        currency: INR
+                        value: '0.00'
+                    - '@ondc/org/item_id': I1
+                      title: Discount
+                      '@ondc/org/title_type': discount
+                      price:
+                        currency: INR
+                        value: '-10.00'
+                    - '@ondc/org/item_id': F1
+                      title: Convenience Fee
+                      '@ondc/org/title_type': misc
+                      price:
+                        currency: INR
+                        value: '10.00'
+                  ttl: P1D
+                payment:
+                  uri: https://ondc.transaction.com/payment
+                  tl_method: http/get
+                  params:
+                    currency: INR
+                    transaction_id: '3937'
+                    amount: '415.00'
+                  status: PAID
+                  type: ON-ORDER
+                  collected_by: BAP
+                  '@ondc/org/buyer_app_finder_fee_type': percent
+                  '@ondc/org/buyer_app_finder_fee_amount': '3'
+                  '@ondc/org/settlement_details':
+                    - settlement_counterparty: seller-app
+                      settlement_phase: sale-amount
+                      beneficiary_name: xxxxx
+                      settlement_type: upi
+                      upi_address: gft@oksbi
+                      settlement_bank_account_no: XXXXXXXXXX
+                      settlement_ifsc_code: XXXXXXXXX
+                      bank_name: xxxx
+                      branch_name: xxxx
+                created_at: '2023-06-03T09:30:00.000Z'
+                updated_at: '2023-06-03T13:30:00.000Z'
+        notes:
+          value:
+            ^1: pickup time
+            ^2: PCC, proof of pickup
+            ^3: pickup authorization (optional)
+            ^4: delivery time
+            ^5: DCC, proof of delivery
+            ^6: delivery authorization (optional)
+            ^7: pickup time
+            ^8: >-
+              vehicle details (for rider) or buyer (for kerbside pickup) -
+              optional
+            ^9: >-
+              valid return rejection reason codes are
+              https://docs.google.com/document/d/1M-lZSduYMFKIk1V6d8QLt-j-16-rVzYVdPn0pmbkclk/edit#heading=h.urm96q1ruugy
+            ^10: >-
+              valid return reason codes are
+              https://docs.google.com/document/d/1M-lZSduYMFKIk1V6d8QLt-j-16-rVzYVdPn0pmbkclk/edit#heading=h.lnyp7qt40f7f
+            ^11: ttl for either approving or rejecting the return request
+            ^12: >-
+              ttl for initiating reverse qc, reverse qc (if required) should be
+              completed within the return window
   - summary: >-
       Retail 1.2.0 (Return with reverse qc - NP approves request - Return
       failed)
@@ -18346,8 +21841,8 @@ x-flows:
         api: on_search
         description: null
         reference: if any
-        example: *ref_48
-        notes: *ref_49
+        example: *ref_55
+        notes: *ref_56
       - summary: Select the item
         api: select
         description: null
@@ -18358,8 +21853,8 @@ x-flows:
         api: on_select
         description: null
         reference: if any
-        example: *ref_50
-        notes: *ref_51
+        example: *ref_48
+        notes: *ref_49
       - summary: Buyer initiate the product and send the updated fulfillment id
         api: init
         description: null
@@ -18388,20 +21883,20 @@ x-flows:
         api: update
         description: null
         reference: if any
-        example: *ref_55
-        notes: *ref_56
-      - summary: Seller send the interim status request
-        api: on_update
-        description: null
-        reference: if any
         example: *ref_57
         notes: *ref_58
-      - summary: seller approves the return with reverse qc
+      - summary: Seller send the interim status request
         api: on_update
         description: null
         reference: if any
         example: *ref_59
         notes: *ref_60
+      - summary: seller approves the return with reverse qc
+        api: on_update
+        description: null
+        reference: if any
+        example: *ref_61
+        notes: *ref_62
       - summary: Seller send the interim status request
         api: on_update
         description: null
@@ -18655,8 +22150,8 @@ x-flows:
         api: on_search
         description: null
         reference: if any
-        example: *ref_61
-        notes: *ref_62
+        example: *ref_63
+        notes: *ref_64
       - summary: Select the item
         api: select
         description: null
@@ -18801,20 +22296,20 @@ x-flows:
         api: update
         description: null
         reference: if any
-        example: *ref_55
-        notes: *ref_56
-      - summary: Seller send the interim status request
-        api: on_update
-        description: null
-        reference: if any
         example: *ref_57
         notes: *ref_58
-      - summary: Seller approves the return with reverse qc
+      - summary: Seller send the interim status request
         api: on_update
         description: null
         reference: if any
         example: *ref_59
         notes: *ref_60
+      - summary: Seller approves the return with reverse qc
+        api: on_update
+        description: null
+        reference: if any
+        example: *ref_61
+        notes: *ref_62
       - summary: Seller send the interim status request
         api: on_update
         description: null
@@ -19053,8 +22548,8 @@ x-flows:
         api: on_update
         description: null
         reference: if any
-        example: *ref_63
-        notes: *ref_64
+        example: *ref_65
+        notes: *ref_66
   - summary: Retail 1.2.0 (Incremental One Time Push)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -19066,7 +22561,7 @@ x-flows:
         api: search
         description: Search by city
         reference: if any
-        example: &ref_65
+        example: &ref_67
           summary: search_by_city
           description: search request for all sellers in the city identified in Context
           value:
@@ -19091,7 +22586,7 @@ x-flows:
                 payment:
                   '@ondc/org/buyer_app_finder_fee_type': percent
                   '@ondc/org/buyer_app_finder_fee_amount [^10]': '3'
-        notes: &ref_66
+        notes: &ref_68
           value:
             ^1: >-
               updated domain namespace defined here -
@@ -19118,8 +22613,655 @@ x-flows:
         api: on_search
         description: null
         reference: if any
-        example: *ref_61
-        notes: *ref_62
+        example:
+          summary: Return the catalog for Grocery products
+          description: Return the catalog for Grocery products
+          value:
+            context:
+              domain: ONDC:RET10 [^1]
+              country: IND
+              city: std:080
+              action: on_search
+              core_version: 1.2.0
+              bap_id: buyerNP.com
+              bap_uri: https://buyerNP.com/ondc
+              bpp_id: sellerNP.com
+              bpp_uri: https://sellerNP.com/ondc
+              transaction_id: T1
+              message_id: M1
+              timestamp: '2023-06-03T08:00:30.000Z'
+            message:
+              catalog:
+                bpp/descriptor [^2]:
+                  name: Seller NP
+                  symbol [^3]: https://sellerNP.com/images/np.png
+                  short_desc: Seller Marketplace
+                  long_desc: Seller Marketplace
+                  images:
+                    - https://sellerNP.com/images/np.png
+                bpp/providers [^4]:
+                  - id: P1 [^5]
+                    time:
+                      label: enable [^6]
+                      timestamp: 2023-06-03T07:00:30.000Z [^7]
+                    fulfillments [^8]:
+                      - id: F1
+                        type: Delivery
+                        contact [^9]:
+                          phone: 9886098860 [^10]
+                          email [^11]: abc@xyz.com
+                      - id: F2
+                        type: Self-Pickup
+                        contact:
+                          phone: '9886098860'
+                          email: abc@xyz.com
+                    descriptor:
+                      name: Store 1
+                      symbol: https://sellerNP.com/images/store1.png
+                      short_desc: Store 1
+                      long_desc: Store 1
+                      images:
+                        - https://sellerNP.com/images/store1.png
+                    ttl: P1D [^12]
+                    locations [^13]:
+                      - id: L1
+                        time:
+                          label: enable [^14]
+                          timestamp: 2023-06-03T07:30:30.000Z [^15]
+                          schedule:
+                            holidays [^16]:
+                              - '2023-08-15'
+                        gps: 12.967555,77.749666
+                        address:
+                          locality [^17]: Jayanagar
+                          street: Jayanagar 4th Block
+                          city: Bengaluru
+                          area_code: '560076'
+                          state: KA
+                    categories:
+                      - id: V1
+                        descriptor:
+                          name: Variant Group 1
+                        tags:
+                          - code: type
+                            list:
+                              - code: type
+                                value: variant_group
+                          - code: attr [^18]
+                            list:
+                              - code: name [^19]
+                                value: item.quantity.unitized.measure [^20]
+                              - code: seq
+                                value: '1'
+                    items:
+                      - id: I1
+                        time:
+                          label: enable [^21]
+                          timestamp: 2023-06-03T07:30:00.000Z [^22]
+                        parent_item_id: V1 [^23]
+                        descriptor:
+                          name: Plain Atta
+                          code [^24]: 1:XXXXXXXXXXXXX
+                          symbol: https://sellerNP.com/images/i1.png
+                          short_desc: Plain Atta
+                          long_desc: Plain Atta
+                          images [^25]:
+                            - https://sellerNP.com/images/i1.png
+                        quantity:
+                          unitized:
+                            measure:
+                              unit: kilogram [^26]
+                              value: '1'
+                          available:
+                            count [^27]: '99'
+                          maximum:
+                            count [^28]: '99'
+                        price:
+                          currency: INR
+                          value: '65.00'
+                          maximum_value: '65.0'
+                        category_id: Foodgrains [^29]
+                        fulfillment_id: F1
+                        location_id: L1
+                        '@ondc/org/returnable': true [^30]
+                        '@ondc/org/cancellable': true [^31]
+                        '@ondc/org/return_window': PT1H
+                        '@ondc/org/seller_pickup_return [^32]': true
+                        '@ondc/org/time_to_ship': PT45M
+                        '@ondc/org/available_on_cod': false
+                        '@ondc/org/contact_details_consumer_care [^33]': Ramesh,ramesh@abc.com,18004254444
+                        '@ondc/org/statutory_reqs_packaged_commodities [^34]':
+                          manufacturer_or_packer_name: ITC
+                          manufacturer_or_packer_address: >-
+                            ITC Quality Care Cell,P.O Box
+                            No.592,Bangalore-560005
+                          common_or_generic_name_of_commodity: Ashirwad Atta
+                          month_year_of_manufacture_packing_import: 01/2023
+                        '@ondc/org/statutory_reqs_prepackaged_food [^35]':
+                          nutritional_info: >-
+                            Energy(KCal)-(per 100kg) 420,(per serving
+                            50g)250;Protein(g)-(per 100kg) 12,(per serving 50g)
+                            6
+                          additives_info: Preservatives,Artificial Colours
+                          brand_owner_FSSAI_license_no: '12345678901234'
+                          other_FSSAI_license_no: '12345678901234'
+                          importer_FSSAI_license_no: '12345678901234'
+                        tags:
+                          - code: origin [^36]
+                            list:
+                              - code: country
+                                value: IND [^37]
+                          - code: image [^38]
+                            list:
+                              - code: type
+                                value: back_image
+                              - code: url
+                                value: https://sellerNP.com/images/i1_back_image.png
+                          - code: veg_nonveg [^39]
+                            list:
+                              - code: veg [^40]
+                                value: 'yes'
+                      - id: I2
+                        parent_item_id [^41]: V1
+                        descriptor:
+                          name: Plain Atta
+                          code [^42]: 1:XXXXXXXXXXXXX
+                          symbol: https://sellerNP.com/images/i2.png
+                          short_desc: Plain Atta
+                          long_desc: Plain Atta
+                          images:
+                            - https://sellerNP.com/images/i2.png
+                        quantity:
+                          unitized:
+                            measure:
+                              unit: kilogram [^43]
+                              value: '2'
+                          available:
+                            count: '99'
+                          maximum:
+                            count: '99'
+                        price:
+                          currency: INR
+                          value: '125.00'
+                          maximum_value: '125.0'
+                        category_id: Foodgrains [^44]
+                        fulfillment_id: F1
+                        location_id: L1
+                        '@ondc/org/returnable': true
+                        '@ondc/org/cancellable': true
+                        '@ondc/org/return_window': PT1H
+                        '@ondc/org/seller_pickup_return': true
+                        '@ondc/org/time_to_ship': PT45M
+                        '@ondc/org/available_on_cod': false
+                        '@ondc/org/contact_details_consumer_care [^45]': Ramesh,ramesh@abc.com,18004254444
+                        '@ondc/org/statutory_reqs_packaged_commodities [^46]':
+                          manufacturer_or_packer_name: ITC
+                          manufacturer_or_packer_address: >-
+                            ITC Quality Care Cell,P.O Box
+                            No.592,Bangalore-560005
+                          common_or_generic_name_of_commodity: Ashirwad Atta
+                          month_year_of_manufacture_packing_import: 01/2023
+                        '@ondc/org/statutory_reqs_prepackaged_food [^47]':
+                          nutritional_info: >-
+                            Energy(KCal)-(per 100kg) 420,(per serving
+                            50g)250;Protein(g)-(per 100kg) 12,(per serving 50g)
+                            6
+                          additives_info: Preservatives,Artificial Colours
+                          brand_owner_FSSAI_license_no: '12345678901234'
+                          other_FSSAI_license_no: '12345678901234'
+                          importer_FSSAI_license_no: '12345678901234'
+                        tags:
+                          - code: origin [^48]
+                            list:
+                              - code: country
+                                value: IND [^49]
+                          - code: veg_nonveg [^50]
+                            list:
+                              - code: veg [^51]
+                                value: 'yes'
+                      - id: I3
+                        parent_item_id: V1 [^52]
+                        descriptor:
+                          name: Plain Atta
+                          code [^53]: 1:XXXXXXXXXXXXX
+                          symbol: https://sellerNP.com/images/i3.png
+                          short_desc: Plain Atta
+                          long_desc: Plain Atta
+                          images:
+                            - https://sellerNP.com/images/i3.png
+                        quantity:
+                          unitized:
+                            measure:
+                              unit: kilogram [^54]
+                              value: '5'
+                          available:
+                            count: '99'
+                          maximum:
+                            count: '99'
+                        price:
+                          currency: INR
+                          value: '300.00'
+                          maximum_value: '300.0'
+                        category_id: Foodgrains [^55]
+                        fulfillment_id: F1
+                        location_id: L1
+                        '@ondc/org/returnable': true
+                        '@ondc/org/cancellable': true
+                        '@ondc/org/return_window': PT1H
+                        '@ondc/org/seller_pickup_return': true
+                        '@ondc/org/time_to_ship': PT45M
+                        '@ondc/org/available_on_cod': false
+                        '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
+                        '@ondc/org/statutory_reqs_packaged_commodities [^56]':
+                          manufacturer_or_packer_name: ITC
+                          manufacturer_or_packer_address: >-
+                            ITC Quality Care Cell,P.O Box
+                            No.592,Bangalore-560005
+                          common_or_generic_name_of_commodity: Ashirwad Atta
+                          month_year_of_manufacture_packing_import: 01/2023
+                        '@ondc/org/statutory_reqs_prepackaged_food [^57]':
+                          nutritional_info: >-
+                            Energy(KCal)-(per 100kg) 420,(per serving
+                            50g)250;Protein(g)-(per 100kg) 12,(per serving 50g)
+                            6
+                          additives_info: Preservatives,Artificial Colours
+                          brand_owner_FSSAI_license_no: '12345678901234'
+                          other_FSSAI_license_no: '12345678901234'
+                          importer_FSSAI_license_no: '12345678901234'
+                        tags:
+                          - code: origin [^58]
+                            list:
+                              - code: country
+                                value: IND [^59]
+                          - code: veg_nonveg [^60]
+                            list:
+                              - code: veg [^61]
+                                value: 'yes'
+                    creds [^62]:
+                      - id [^63]: ESG-12345678
+                        descriptor:
+                          code: ESG-12345678
+                          name: Dun & Bradstreet ESG Badge No.
+                        url [^64]: https://abcd.cdn.com/images/badge-img
+                        tags:
+                          - code: verification
+                            list:
+                              - code: verify_url
+                                value: https://abcd.dnb.com/verify?id=’ESG-12345678'
+                              - code: valid_from
+                                value: 2023-06-03T00:00:00:000Z
+                              - code: valid_to [^65]
+                                value: 2024-06-03T23:59:59:999Z
+                    offers [^66]:
+                      - id: TRYNEW
+                        descriptor:
+                          code: Disc_Pct
+                          images:
+                            - https://sellerNP.com/images/offer2-banner.png
+                        location_ids:
+                          - L1
+                        item_ids:
+                          - I1
+                        time:
+                          label: valid
+                          range:
+                            start: '2023-06-21T16:00:00.000Z'
+                            end: '2023-06-21T23:00:00.000Z'
+                        tags:
+                          - code: cart
+                            list:
+                              - code: min_value
+                                value: '159.00'
+                          - code: offer
+                            list:
+                              - code: offered_value_type
+                                value: percent
+                              - code: offered_value_amt
+                                value: '-60.00'
+                              - code: offered_value_cap
+                                value: '-120.00'
+                      - id: FLAT150
+                        descriptor:
+                          code: Disc_Amt
+                          images:
+                            - https://sellerNP.com/images/offer2-banner.png
+                        location_ids:
+                          - L1
+                        item_ids:
+                          - I1
+                        time:
+                          label: valid
+                          range:
+                            start: '2023-06-22T16:00:00.000Z'
+                            end: '2023-06-22T23:00:00.000Z'
+                        tags:
+                          - code: cart
+                            list:
+                              - code: min_value
+                                value: '499.00'
+                          - code: offer
+                            list:
+                              - code: offered_value_type
+                                value: amount
+                              - code: offered_value_amt
+                                value: '-150.00'
+                      - id: BUY2GET3
+                        descriptor:
+                          code: BuyXGetY
+                          images:
+                            - https://sellerNP.com/images/offer1-banner.png
+                        location_ids:
+                          - L1
+                        item_ids:
+                          - I1
+                        time:
+                          label: valid
+                          range:
+                            start: '2023-06-23T16:00:00.000Z'
+                            end: '2023-06-23T23:00:00.000Z'
+                        tags:
+                          - code: cart
+                            list:
+                              - code: item_count
+                                value: '2'
+                          - code: offer
+                            list:
+                              - code: item_count
+                                value: '3'
+                              - code: item_id
+                                value: sku_id_for_extra_item
+                      - id: FREEBIE
+                        descriptor:
+                          code: Freebie
+                          images:
+                            - https://sellerNP.com/images/offer3-banner.png
+                        location_ids:
+                          - L1
+                        item_ids:
+                          - I1
+                        time:
+                          label: valid
+                          range:
+                            start: '2023-06-24T16:00:00.000Z'
+                            end: '2023-06-24T23:00:00.000Z'
+                        tags:
+                          - code: cart
+                            list:
+                              - code: min_value
+                                value: '598.00'
+                          - code: offer
+                            list:
+                              - code: offered_value
+                                value: '0.00'
+                              - code: item_count
+                                value: '1'
+                              - code: item_id
+                                value: sku_id_for_extra_item
+                              - code: item_value
+                                value: '200.00'
+                    tags:
+                      - code: order_value [^67]
+                        list:
+                          - code: min_value [^68]
+                            value: '300.00'
+                      - code: catalog_link [^69]
+                        list:
+                          - code: type
+                            value: inline [^70]
+                          - code: type_value [^71]
+                            value: https://s3.amazon.com/x-12349.zip
+                          - code: type_validity [^72]
+                            value: PT24H
+                          - code: last_update [^73]
+                            value: 2023-05-21T00:00:00:000Z
+                      - code: timing
+                        list:
+                          - code: type
+                            value: Order [^74]
+                          - code: location
+                            value: L1 [^75]
+                          - code: day_from
+                            value: 1 [^76]
+                          - code: day_to
+                            value: 7 [^77]
+                          - code: time_from
+                            value: 0000 [^78]
+                          - code: time_to
+                            value: 2359 [^79]
+                      - code: timing
+                        list:
+                          - code: type
+                            value: Self-Pickup
+                          - code: location
+                            value: L1
+                          - code: day_from
+                            value: '1'
+                          - code: day_to
+                            value: '7'
+                          - code: time_from
+                            value: '1100'
+                          - code: time_to
+                            value: '2000'
+                      - code: timing
+                        list:
+                          - code: type
+                            value: Delivery
+                          - code: location
+                            value: L1
+                          - code: day_from
+                            value: '1'
+                          - code: day_to
+                            value: '7'
+                          - code: time_from
+                            value: '1100'
+                          - code: time_to
+                            value: '2200'
+                      - code: serviceability [^80]
+                        list:
+                          - code: location
+                            value: L1 [^81]
+                          - code: category
+                            value: F&B
+                          - code: type
+                            value: 10 [^82]
+                          - code: val
+                            value: '3'
+                          - code: unit
+                            value: km
+        notes:
+          value:
+            ^1: >-
+              updated domain namespace is
+              https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
+            ^2: descriptor for seller NP
+            ^3: logo or image for seller NP
+            ^4: descriptor for seller (merchant) that processes & fulfills orders
+            ^5: >-
+              unique id for provider, must be same as bpp_id for ISN seller
+              apps. Use of same provider id for distinct legal entities will
+              cause an MSN being regarded as ISN and use of different provider
+              id for same legal entity will cause an ISN being regarded as MSN,
+              thus resulting in tax non-compliance
+            ^6: >-
+              enum - "enable" (default), "disable" (soft delete of provider from
+              buyer NP cache)
+            ^7: >-
+              timestamp when the snapshot for this provider (including provider
+              details, items) was generated, must be <= Context.timestamp. Buyer
+              NPs can use this to determine from when to start incremental
+              refresh
+            ^8: provider level fulfillment options
+            ^9: >-
+              contact details for merchant - if merchant is in multiple
+              locations, this will be the contact detail for merchant and
+              contact detail for the storefront (specific location) will be in
+              fulfillment.start
+            ^10: valid 10 digit (mobile no) or 11 digit no
+            ^11: email id of merchant or seller NP
+            ^12: ISO8601 duration format for validity of provider catalog
+            ^13: locations for provider with unique id for each location
+            ^14: >-
+              enum - "enable" (default), "disable" (soft delete of provider
+              location, i.e. warehouse or store, from buyer NP cache - in this
+              case, serviceability for the store should not be a part of the
+              catalog), "close" (temporary closure of store with the same format
+              for time.range as specified, for incremental refresh, here -
+              https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.ar4y0zvk65s4
+              only if this event is available at the time of generating the full
+              catalog snapshot)
+            ^15: >-
+              timestamp when the snapshot for location was generated, must be <=
+              Context.timestamp
+            ^16: >-
+              list of future dated holidays, to be used as per holiday calendar;
+              if no holidays, empty array needs to be passed
+            ^17: locality name
+            ^18: >-
+              defines variant attributes i.e. attribute & sequence; multiple
+              variant attributes can be defined in multiple attr blocks
+            ^19: >-
+              namespaced attribute, above example means attribute(s) in
+              "quantity.unitized" for an item
+            ^20: >-
+              means concatenation of item.quantity.unitized.measure.value and
+              item.quantity.unitized.measure.unit e.g. "1 kilogram", "2
+              kilogram", "5 kilogram"
+            ^21: enum - "enable", "disable"
+            ^22: timestamp for item event
+            ^23: >-
+              if variant grouping defined for provider above, this matches id
+              for variant_group definition; if not defined or id is invalid,
+              buyer NPs may choose to display as normal SKU item
+            ^24: >-
+              optional; unique code for item which will be in this format -
+              "type:code" where type is 1 - EAN, 2 - ISBN, 3 - GTIN, 4 - HSN, 5
+              - UPC, 6 - others
+            ^25: >-
+              while item images ensures better discoverability & enhances user
+              experience, if no image is available, seller NPs shouldn’t send
+              image (instead of sending placeholder image)
+            ^26: >-
+              enum - "unit", "dozen", "kilogram", "tonne", "litre", "millilitre"
+              (https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/grocery/RET10-UOM.json)
+            ^27: stringified integer value - default value for item in stock
+            ^28: >-
+              stringified integer value - cap per order (if exists) or default
+              value
+            ^29: >-
+              enum from
+              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+            ^30: should default to true except for specific make-to-order items
+            ^31: should default to true except for specific make-to-order items
+            ^32: whether seller is responsible for pick up of item for return
+            ^33: >-
+              valid contact details exactly in this format - name, email,
+              contact no
+            ^34: >-
+              mapping of category to attribute key is defined
+              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+            ^35: >-
+              mapping of category to attribute key is defined
+              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+            ^36: identifies origin of item i.e. country, state, etc
+            ^37: ISO 3166-1 alpha-3 code
+            ^38: images for statutory requirements - optional
+            ^39: optional, only as applicable
+            ^40: enum - "veg", "non_veg"
+            ^41: >-
+              if variant grouping defined for provider above, this matches id
+              for variant_group definition; if not defined or id is invalid,
+              buyer NPs may choose to display as normal SKU item
+            ^42: >-
+              optional; unique code for item which will be in this format -
+              "type:code" where type is 1 - EAN, 2 - ISBN, 3 - GTIN, 4 - HSN, 5
+              - Others
+            ^43: >-
+              enum - "unit", "dozen", "kilogram", "tonne", "litre", "millilitre"
+              https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/grocery/RET10-UOM.json
+            ^44: >-
+              enum from
+              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+            ^45: >-
+              valid contact details exactly in this format - name, email,
+              contact no
+            ^46: >-
+              mapping of category to attribute key is defined
+              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+            ^47: >-
+              mapping of category to attribute key is defined
+              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+            ^48: identifies origin of item i.e. country, state, etc
+            ^49: ISO 3166-1 alpha-3 code
+            ^50: optional, only as applicable
+            ^51: enum - "veg", "non_veg", "egg"
+            ^52: >-
+              if variant grouping defined for provider above, this matches id
+              for variant_group definition; if not defined or id is invalid,
+              buyer NPs may choose to display as normal SKU item
+            ^53: >-
+              optional; unique code for item which will be in this format -
+              "type:code" where type is 1 - EAN, 2 - ISBN, 3 - GTIN, 4 - HSN, 5
+              - Others
+            ^54: >-
+              enum - "unit", "dozen", "kilogram", "tonne", "litre", "millilitre"
+              https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/grocery/RET10-UOM.json
+            ^55: >-
+              enum from
+              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+            ^56: >-
+              mapping of category to attribute key is defined
+              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+            ^57: >-
+              mapping of category to attribute key is defined
+              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+            ^58: identifies origin of item i.e. country, state, etc.
+            ^59: ISO 3166-1 alpha-3 code
+            ^60: optional, only as applicable
+            ^61: enum - "veg", "non_veg", "egg"
+            ^62: credentials for provider (optional)
+            ^63: >-
+              globally identifiable identity or unique ID provided by seller
+              app; mandatory if creds are provided
+            ^64: display URL for credential, optional
+            ^65: optional, only if available
+            ^66: offer definition as per the template defined above
+            ^67: for defining order value (e.g. min order value) for provider
+            ^68: minimum order value for provider (up to 2 decimals)
+            ^69: option for catalog response using link or inline (default)
+            ^70: >-
+              enum - "link" (link to zip file for items array for the provider),
+              "inline" (items array in inline response, which is the default
+              today)
+            ^71: >-
+              authorized link URL, required only if type = "link"; in this case,
+              items array won’t be a part of inline response
+            ^72: >-
+              authorized link validity from last_update, required only if type =
+              "link"
+            ^73: >-
+              timestamp for last update of link (RFC3339), required only if type
+              = "link"
+            ^74: >-
+              timing for fulfillment type, enum - "Order" (online order
+              processing timings), "Delivery" (order shipment timings, will be
+              same as delivery timings for hyperlocal), "Self-Pickup"
+              (self-pickup timings); example shows store open 24x7- Monday to
+              Sunday (0000 - 2359)
+            ^75: location id for provider
+            ^76: valid value - day of week ("1" - Monday, "7" - Sunday)
+            ^77: >-
+              valid value - day of week ("1" - Monday, "7" - Sunday), day_to >=
+              day_from
+            ^78: valid value - 24hr format ("0000" to "2359")
+            ^79: valid value - 24hr format ("0000" to "2359"), time_to >= time_from
+            ^80: >-
+              serviceability construct is defined for
+              (provider+location+category) at either of these levels - 
+              hyperlocal (radius) or intercity (pincodes) or pan-India; every
+              unique combination of (provider+location+category) can have
+              serviceability defined only at one of these levels
+            ^81: maps to unique location for provider
+            ^82: enum - "10" (hyperlocal), "11" (intercity), "12" (pan-India)
       - summary: Search by incremental one time push catalog refresh
         api: search
         description: Search by incremental one time push catalog refresh
@@ -19269,8 +23411,8 @@ x-flows:
         api: search
         description: Search by city
         reference: if any
-        example: *ref_65
-        notes: *ref_66
+        example: *ref_67
+        notes: *ref_68
       - summary: Returns the item or catalog (Health_Wellness)
         api: on_search
         description: null
