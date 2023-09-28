@@ -6624,3 +6624,65 @@ x-examples:
                         - descriptor:
                             code: MEASURE_VALUE
                           value: '500'
+x-attributes:
+  B2B:
+    attribute_set:
+      search:
+        message:
+          intent:
+            fulfillment:
+              stops:
+                location:
+                  area_code:
+                    required: optional
+                    reference: if any
+                    usage: 560001
+                    description: Address of location.
+      on_search:
+        message:
+          catalog:
+            descriptor: &ref_4
+              name:
+                required: true
+                description: Physical description of name value for something.
+                reference: if any
+                usage: ABC store
+              short_desc:
+                required: false
+                description: Short description of value for something.
+                reference: if any
+                usage: Online eCommerce Store
+              long_desc:
+                required: false
+                description: Long description of value for something.
+                reference: if any
+                usage: Online eCommerce Store
+              images:
+                url:
+                  required: true
+                  description: Physical description of the item
+                  reference: if any
+                  usage: https://abc.com/images/1-shop-img
+            providers:
+              id: &ref_5
+                required: true
+                description: Unique human readable ID.
+                reference: if any
+                usage: P1
+              descriptor: *ref_4
+            creds:
+              required: false
+              description: Unique human readable ID.
+              reference: if any
+              usage: P1
+      select:
+        message:
+          order:
+            provider:
+              id: *ref_5
+            payments:
+              type:
+                required: false
+                description: type of the payment
+                reference: if any
+                usage: ON-FULFILLMENT
