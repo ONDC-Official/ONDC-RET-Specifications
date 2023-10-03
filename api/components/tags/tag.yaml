@@ -42,16 +42,44 @@ serviceability:
   - code: TYPE
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
+    value:
+      - code: 10
+        description: Hyperlocal
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: 11
+        description: Intercity
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: 12
+        description: Pan-India
+        reference: <PR/Issue/Discussion Links md format text>
   - code: VAL
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
   - code: UNIT
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
+    value:
+      - code: 'km'
+        description: If type is 10 - Hyperlocal
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: pincode
+        description: If type is 11 - Intercity
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: country
+        description: If type is 12 - Pan-India
+        reference: <PR/Issue/Discussion Links md format text>
+
 seller_terms:
   - code: GST_CREDIT_INVOICE
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
+    value:
+    - code: 'Y'
+      description: GST credit invoice available
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: 'N'
+      description: GST credit invoice not available
+      reference: <PR/Issue/Discussion Links md format text>
 seller_id:
   - code: SELLER_ID_CODE
     description: Description about the tags
@@ -71,6 +99,109 @@ image:
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
   - code: URL
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+attribute:
+  - code: BRAND
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: COLOUR
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: SIZE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: GENDER
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: PATTERN
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: MATERIAL
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: OCCASION
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: SEASON
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: TREND
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: FEATURES
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: MATERIAL_FINISH
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: SIZE_CHART
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: CONCERN
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: INGREDIENT
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: CONSCIOUS
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: PREFERENCE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: FORMULATION
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: SKIN_TYPE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: STYLE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: MODEL
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: SCREEN_SIZE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: MEMORY
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: CPU
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: CPU_MFR
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: STORAGE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: OS
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: INCLUDES
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: FORM_FACTOR
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: COMPATIBLE_DEVICES
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: CONNECTIVITY
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: TYPE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: SPECIAL_FEATURE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: DISPLAY
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: REFRESH
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
 g2:
@@ -111,13 +242,19 @@ delivery_terms:
       - code: EXW
         description: about the enum
         reference: <PR/Issue/Discussion Links md format text>
-  - code: DELIVERY_DUTY
-    description: Description about the tags
-    reference: <PR/Issue/Discussion Links md format text>
-    value:
-      - code: DDU
+      - code: FOB
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: DAP
         description: about the enum
         reference: <PR/Issue/Discussion Links md format text>
       - code: DDP
         description: about the enum
         reference: <PR/Issue/Discussion Links md format text>
+  - code: NAMED_PLACE_OF_DELIVERY
+    description: Place of delivery based on the incoterm used.
+    reference: <PR/Issue/Discussion Links md format text>
+comm_channel:
+  - code: CHAT_URL
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
