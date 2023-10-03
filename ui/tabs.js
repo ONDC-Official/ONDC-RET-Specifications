@@ -7,6 +7,7 @@ window.onload = function () {
       initSchema(data["x-enum"])
       initTag(data["x-tags"])
       loadExample(data["x-examples"])
-      addExample("on-demand")
+      //addExample("on-demand")
       loadFlows(data["x-flows"])
+      loadAttributes(data["x-attributes"])
 }
