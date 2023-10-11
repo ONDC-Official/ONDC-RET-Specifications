@@ -1093,6 +1093,7 @@ components:
             an ongoing transaction despite being unaware of the user active on
             the BAP.
           type: string
+          format: uuid
         message_id:
           description: >-
             This is a unique value which persists during a request / callback
@@ -1103,6 +1104,7 @@ components:
             message_id for every new interaction. When sending unsolicited
             callbacks, BPPs must generate a new message_id.
           type: string
+          format: uuid
         timestamp:
           description: Time of request generation in RFC3339 format
           type: string
@@ -2604,10 +2606,10 @@ x-enum:
             description: Toys & Games
             reference: <PR/Issue/Discussion Links md format text>
           - code: ONDC:RET18
-            description: Agriculture
+            description: Health & Wellness
             reference: <PR/Issue/Discussion Links md format text>
           - code: ONDC:RET19
-            description: Health & Wellness
+            description: Pharma
             reference: <PR/Issue/Discussion Links md format text>
     message:
       intent:
@@ -3274,16 +3276,18 @@ x-tags:
               - code: EXW
                 description: about the enum
                 reference: <PR/Issue/Discussion Links md format text>
-          - code: DELIVERY_DUTY
-            description: Description about the tags
-            reference: <PR/Issue/Discussion Links md format text>
-            value:
-              - code: DDU
+              - code: FOB
+                description: about the enum
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: DAP
                 description: about the enum
                 reference: <PR/Issue/Discussion Links md format text>
               - code: DDP
                 description: about the enum
                 reference: <PR/Issue/Discussion Links md format text>
+          - code: NAMED_PLACE_OF_DELIVERY
+            description: Place of delivery based on the incoterm used.
+            reference: <PR/Issue/Discussion Links md format text>
 x-flows:
   - summary: B2B
     description: >-
@@ -4116,6 +4120,9 @@ x-flows:
                 fulfillments:
                   - id: F1
                     type: Delivery
+                    '@ondc/org/provider_name': Loadshare
+                    '@ondc/org/category': Express Delivery
+                    '@ondc/org/TAT': P7D
                     tracking: false
                     stops:
                       - type: end
@@ -6242,8 +6249,8 @@ x-examples:
                             code: INCOTERMS
                           value: CIF
                         - descriptor:
-                            code: DELIVERY_DUTY
-                          value: DDP
+                            code: NAMED_PLACE_OF_DELIVERY
+                          value: SGP
               payments:
                 - type: ON-FULFILLMENT
               tags:
@@ -6593,8 +6600,8 @@ x-examples:
                             code: INCOTERMS
                           value: CIF
                         - descriptor:
-                            code: DELIVERY_DUTY
-                          value: DDP
+                            code: NAMED_PLACE_OF_DELIVERY
+                          value: SGP
               quote:
                 price:
                   currency: INR
@@ -8558,6 +8565,9 @@ x-examples:
               fulfillments:
                 - id: F1
                   type: Delivery
+                  '@ondc/org/provider_name': Loadshare
+                  '@ondc/org/category': Express Delivery
+                  '@ondc/org/TAT': P7D
                   tracking: false
                   stops:
                     - type: end
@@ -8702,6 +8712,9 @@ x-examples:
               fulfillments:
                 - id: F1
                   type: Delivery
+                  '@ondc/org/provider_name': Loadshare
+                  '@ondc/org/category': Express Delivery
+                  '@ondc/org/TAT': P7D
                   tracking: false
                   stops:
                     - type: end
@@ -8725,8 +8738,8 @@ x-examples:
                             code: INCOTERMS
                           value: CIF
                         - descriptor:
-                            code: DELIVERY_DUTY
-                          value: DDP
+                            code: NAMED_PLACE_OF_DELIVERY
+                          value: SGP
               quote:
                 price:
                   currency: INR
@@ -9084,8 +9097,8 @@ x-examples:
                             code: INCOTERMS
                           value: CIF
                         - descriptor:
-                            code: DELIVERY_DUTY
-                          value: DDP
+                            code: NAMED_PLACE_OF_DELIVERY
+                          value: SGP
               quote:
                 price:
                   currency: INR
@@ -10118,58 +10131,268 @@ x-attributes:
         message:
           intent:
             fulfillment:
-              stops:
-                location:
-                  area_code:
-                    required: optional
-                    reference: if any
-                    usage: 560001
-                    description: Address of location.
+              location:
+                area_code:
+                  required: optional
+                  reference: if any
+                  usage: 560001
+                  description: Area code
+                gps:
+                  required: mandatory
+                  reference: if any
+                  usage: 12.974002,77.613458
+                  description: Gps
+              type:
+                required: optional
+                reference: if any
+                usage: Delivery
+                description: Type of fulfillment
+            item:
+              category:
+                required: optional
+                reference: if any
+                usage: Foodgrains
+                description: Category of item
+            tags:
+              buyer_id:
+                required: mandatory
+                reference: if any
+                usage: xxxxxxxxxxxxxxx
+                description: Category of item
       on_search:
         message:
           catalog:
-            descriptor: &ref_4
+            descriptor: &ref_18
               name:
-                required: true
+                required: mandatory
                 description: Physical description of name value for something.
                 reference: if any
                 usage: ABC store
               short_desc:
-                required: false
+                required: optional
                 description: Short description of value for something.
                 reference: if any
                 usage: Online eCommerce Store
               long_desc:
-                required: false
+                required: optional
                 description: Long description of value for something.
                 reference: if any
                 usage: Online eCommerce Store
               images:
                 url:
-                  required: true
+                  required: mandatory
                   description: Physical description of the item
                   reference: if any
                   usage: https://abc.com/images/1-shop-img
             providers:
-              id: &ref_5
-                required: true
+              id: &ref_19
+                required: mandatory
                 description: Unique human readable ID.
                 reference: if any
                 usage: P1
-              descriptor: *ref_4
-            creds:
-              required: false
-              description: Unique human readable ID.
-              reference: if any
-              usage: P1
+              descriptor: *ref_18
+              additional_desc:
+                required: optional
+                description: Additional description
+                reference: if any
+                usage: chat link
+              creds: &ref_20
+                id:
+                  required: optional
+                  description: Human readable id
+                  reference: if any
+                  usage: ESG-12345678
+                type:
+                  required: optional
+                  description: Type of creds
+                  reference: if any
+                  usage: License
+                desc:
+                  required: optional
+                  description: Description of creds
+                  reference: if any
+                  usage: Export License No. ESG-12345678
+                url:
+                  required: optional
+                  description: Physical description
+                  reference: if any
+                  usage: https://abcd.cdn.com/images/license-img
+              offers:
+                required: optional
+                description: Offers info
+                reference: if any
+                usage: chat link
+            items:
+              tags:
+                veg_nonveg:
+                  required: optional
+                  description: Tags info
+                  reference: if any
+                  usage: veg
+                image:
+                  required: optional
+                  description: Tags info
+                  reference: if any
+                  usage: veg
+                price_slab:
+                  required: optional
+                  description: Tags info
+                  reference: if any
+                  usage: 175
       select:
         message:
           order:
             provider:
-              id: *ref_5
+              id: *ref_19
             payments:
               type:
-                required: false
+                required: optional
                 description: type of the payment
                 reference: if any
                 usage: ON-FULFILLMENT
+      on_select:
+        message:
+          order:
+            provider:
+              id: *ref_19
+            items:
+              id: *ref_19
+      init:
+        message:
+          order:
+            provider:
+              id: *ref_19
+              ttl:
+                required: optional
+                description: ttl
+                reference: if any
+                usage: P1D
+            items:
+              id: *ref_19
+              add-ons:
+                id:
+                  required: optional
+                  description: Id of add-ons
+                  reference: if any
+                  usage: 78787723
+              tags:
+                BUYER_TERMS:
+                  required: optional
+                  description: Tags info
+                  reference: if any
+                  usage: free text on Item Customization
+            fulfillments:
+              customer:
+                person:
+                  creds: *ref_20
+              tags:
+                DELIVERY_TERMS:
+                  required: optional
+                  description: Tags info
+                  reference: if any
+                  usage: CIF
+            billing: &ref_21
+              phone:
+                required: mandatory
+                description: Describes the phone information of an entity
+                reference: if any
+                usage: 9886098860
+              email:
+                required: optional
+                description: Email address of the contact
+                reference: if any
+                usage: nobody@nomail.com
+              name:
+                required: mandatory
+                description: Describes a person name as any individual
+                reference: if any
+                usage: ONDC buyer
+              tax_id:
+                required: mandatory
+                description: Describes tax id
+                reference: if any
+                usage: XXXXXXXXXXXXXXX
+      on_init:
+        message:
+          order:
+            provider:
+              id: *ref_19
+            items:
+              id: *ref_19
+              add-ons:
+                id:
+                  required: optional
+                  description: Id of add-ons
+                  reference: if any
+                  usage: 78787723
+              tags:
+                BUYER_TERMS:
+                  required: optional
+                  description: Tags info
+                  reference: if any
+                  usage: free text on Item Customization
+                DELIVERY_TERMS:
+                  required: optional
+                  description: Tags info
+                  reference: if any
+                  usage: CIF
+            billing: *ref_21
+      confirm:
+        message:
+          order:
+            provider:
+              id: *ref_19
+            items:
+              id: *ref_19
+            billing: *ref_21
+            fulfillments: &ref_22
+              id:
+                required: mandatory
+                description: Unique human readable ID
+                reference: if any
+                usage: F1
+              time:
+                required: optional
+                description: Describes the phone information of an entity
+                reference: if any
+                usage: +91-9897867564
+              contact:
+                phone:
+                  required: mandatory
+                  description: Describes the phone information of an entity
+                  reference: if any
+                  usage: 919876543210
+                email:
+                  required: mandatory
+                  description: Email address of the contact
+                  reference: if any
+                  usage: alpha.manufacturing@gmail.com
+              instructions:
+                required: optional
+                description: The URL of the file
+                reference: if any
+                usage: >-
+                  https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bfd54f
+      on_confirm:
+        message:
+          order:
+            provider:
+              id: *ref_19
+            items:
+              id: *ref_19
+            billing: *ref_21
+            fulfillments: *ref_22
+      update:
+        message:
+          order:
+            provider:
+              id: *ref_19
+            items:
+              id: *ref_19
+      on_update:
+        message:
+          order:
+            provider:
+              id: *ref_19
+            items:
+              id: *ref_19

@@ -1,0 +1,21 @@
+name: 
+  required: mandatory
+  description: Physical description of name value for something.
+  reference: if any
+  usage: ABC store
+short_desc:
+  required: optional
+  description: Short description of value for something.
+  reference: if any
+  usage: Online eCommerce Store
+long_desc:
+  required: optional
+  description: Long description of value for something.
+  reference: if any
+  usage: Online eCommerce Store
+images:
+  url:
+    required: mandatory
+    description: Physical description of the item
+    reference: if any
+    usage: https://abc.com/images/1-shop-img

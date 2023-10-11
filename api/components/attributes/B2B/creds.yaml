@@ -1,0 +1,20 @@
+id:
+  required: optional
+  description: Human readable id
+  reference: if any
+  usage: ESG-12345678
+type:
+  required: optional
+  description: Type of creds
+  reference: if any
+  usage: License
+desc:
+  required: optional
+  description: Description of creds
+  reference: if any
+  usage: Export License No. ESG-12345678
+url:
+  required: optional
+  description: Physical description
+  reference: if any
+  usage: https://abcd.cdn.com/images/license-img 
