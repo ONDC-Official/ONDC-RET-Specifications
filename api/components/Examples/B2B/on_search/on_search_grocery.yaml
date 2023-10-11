@@ -1,5 +1,5 @@
-summary: Return the catalog
-description: Return the catalog
+summary: Return the catalog for grocery
+description: Return the catalog for grocery products
 value:
   context:
     domain: ONDC:RET10
