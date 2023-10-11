@@ -1,0 +1,161 @@
+summary: Respond to init call for other products
+description: Respond to init call for other products
+value:
+  context:
+    domain: ONDC:RET10
+    action: on_init
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    bpp_id: sellerNP.com
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: T2
+    message_id: M3
+    city: IATA:SIN
+    country: SGP
+    timestamp: '2023-06-03T09:00:30.000Z'
+  message:
+    order:
+      provider:
+        id: P1
+        locations:
+          - id: L1 [^1]
+      items:
+        - id: I1
+          fulfillment_id: F1
+          quantity:
+            count: 2
+      billing [^2]:
+        name: ONDC buyer
+        address:
+          name: 'My house #'
+          building: My building name
+          locality: My street name
+          city: Jurong East
+          state: Jurong East
+          country: SGP
+          area_code: '6802308'
+        tax_number [^3]: XXXXXXXXXXXXXXX
+        email [^4]: nobody@nomail.com
+        phone: '9886098860'
+        created_at [^5]: '2023-06-03T09:00:00.000Z'
+        updated_at [^6]: '2023-06-03T09:00:00.000Z'
+      fulfillments:
+        - id: F1
+          type: Delivery
+          tracking: false
+          end:
+            location:
+              gps: 1.380621, 103.746364
+              address:
+                name: 'My house #'
+                building: My building name
+                locality: My street name
+                city: Jurong East
+                state: Jurong East
+                country: SGP
+                area_code: '6802308'
+            contact:
+              phone: '9886098860'
+      quote:
+        price:
+          currency: USD
+          value: '12'
+        breakup:
+          - '@ondc/org/item_id [^9]': I1
+            '@ondc/org/item_quantity':
+              count [^10]: 1
+            title: Allen Solly Men T-shirt
+            '@ondc/org/title_type [^11]': item
+            price:
+              currency: USD
+              value: '10.00 [^12]'
+            item:
+              quantity:
+                available:
+                  count: '99'
+                maximum:
+                  count: '99'
+              price:
+                currency: USD
+                value: '10.00'
+          - '@ondc/org/item_id': F1
+            title: Delivery charges
+            '@ondc/org/title_type [^13]': delivery
+            price:
+              currency: USD
+              value: '2.00'
+          - '@ondc/org/item_id': F1
+            title: Discount
+            '@ondc/org/title_type': discount_f [^14]
+            price:
+              currency: USD
+              value: '-5.00'
+          - '@ondc/org/item_id': F1
+            title: Tax
+            '@ondc/org/title_type': tax_f [^15]
+            price:
+              currency: USD
+              value: '0.00'
+          - '@ondc/org/item_id': F1
+            title: Packing charges
+            '@ondc/org/title_type [^16]': packing
+            price:
+              currency: USD
+              value: '5.00'
+          - '@ondc/org/item_id': I1
+            title: Tax
+            '@ondc/org/title_type [^17]': tax
+            price:
+              currency: USD
+              value: '0.00'
+          - '@ondc/org/item_id': I1
+            title: Discount
+            '@ondc/org/title_type [^18]': discount
+            price:
+              currency: USD
+              value: '-1.00'
+          - '@ondc/org/item_id': F1
+            title: Convenience Fee
+            '@ondc/org/title_type [^19]': misc
+            price:
+              currency: USD
+              value: '1.00'
+        ttl: P1D [^20]
+      payment [^7]:
+        type: ON-ORDER
+        collected_by: SOR
+        uri: https://snp.com/pg
+        status: NOT-PAID [^8]
+        params:
+          currency: USD,
+          amount: '12.00'
+          bank_code: xxxxxxxxx,
+          bank_account_number: xxxxxxxxxxxx
+        '@ondc/org/buyer_app_finder_fee_type': percent
+        '@ondc/org/buyer_app_finder_fee_amount': '3'
+        '@ondc/org/settlement_basis': delivery [^9]
+        '@ondc/org/settlement_window': P1D [^10]
+        '@ondc/org/withholding_amount': '10.00 [^11]'
+        '@ondc/org/settlement_details [^12]':
+          - settlement_counterparty: buyer-app
+            settlement_phase: sale-amount
+            settlement_type: upi [^13]
+            beneficiary_name: xxxxx
+            upi_address: gft@oksbi
+            settlement_bank_account_no: XXXXXXXXXX
+            settlement_ifsc_code: XXXXXXXXX
+            bank_name: xxxx
+            branch_name: xxxx
+        tags:
+          - code: payment_terms
+            list:
+              - code: payment_type
+                value: OPGSP
+              - code: payment_provider
+                value: abcd
+      tags:
+        - code: bpp_terms [^24]
+          list:
+            - code: tax_number [^25]
+              value: gst_number_of_sellerNP
