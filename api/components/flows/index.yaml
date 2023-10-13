@@ -22,4 +22,4 @@
 # - $ref: "./B2C_Exports/location_not_serviceable.yaml"
 # - $ref: "./B2C_Exports/return_with_liquidation_reject_request.yaml"
 - $ref: "./B2C_Exports/incremental_catalog_one_time_push.yaml"
-# - $ref: "./B2C_Exports/incremental_catalog_regular_push.yaml"
+- $ref: "./B2C_Exports/incremental_catalog_regular_push.yaml"

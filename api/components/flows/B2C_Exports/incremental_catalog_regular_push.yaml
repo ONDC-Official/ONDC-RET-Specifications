@@ -1,30 +1,30 @@
-summary: Retail 1.2.0 (Incremental Regular Push)
+summary: Retail 1.2.0 Exports(Incremental Regular Push)
 description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order customized item and it is delivered successfully and it is searched through incremental regular push
 reference: if any
 steps:
-  - summary: Search by city
+  - summary: Search by Country
     api: search
-    description:  Search by city
+    description:  Search by country
     reference: if any
     example:
-      $ref: "../../Examples/B2C/search/search_by_city.yaml"
+      $ref: "../../Examples/B2C Exports/search/search_by_country.yaml"
     notes:
       $ref: "../../notes/search/search_by_city.yaml"
-  - summary: Returns the item or catalog (Health_Wellness)
+  - summary: Returns the item or catalog (Fashion)
     api: on_search
     description:  
     reference: if any
     example:
-      $ref: "../../Examples/B2C/on_search/on_search_Health_Wellness.yaml"
+      $ref: "../../Examples/B2C Exports/on_search/on_search_Fashion.yaml"
     notes:
-      $ref: "../../notes/on_search/on_search_Health_Wellness.yaml"
+      $ref: "../../notes/on_search/on_search_Fashion.yaml"
   - summary: Search by incremental regular push catalog refresh
     api: search
     description:  Search by incremental regular push catalog refresh
     reference: if any
     example:
-      $ref: "../../Examples/B2C/search/incremental_catalog_refresh_regular_push.yaml"
-  - summary: Returns the item or catalog
+      $ref: "../../Examples/B2C Exports/search/incremental_catalog_refresh_regular_push.yaml"
+  - summary: Returns the item or catalog #TODO
     api: on_search
     description:  
     reference: if any
@@ -37,4 +37,4 @@ steps:
     description:  Stop incremental refresh
     reference: if any
     example:
-      $ref: "../../Examples/B2C/search/stop_incremental_refresh.yaml"
+      $ref: "../../Examples/B2C Exports/search/stop_incremental_refresh.yaml"

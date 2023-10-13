@@ -4,5 +4,5 @@ enum:
   $ref: "./enums/index.yaml"
 tags:
   $ref: "./tags/index.yaml"
-# flows:
-#   $ref: "./flows/index.yaml"
+flows:
+  $ref: "./flows/index.yaml"
