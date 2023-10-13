@@ -1,52 +1,52 @@
-summary: B2B
+summary: B2B Prepaid BPP
 description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order bulk items and makes prepaid payment.
 reference: if any
 steps:
   - summary: Search for an item
     api: search
-    description:  
+    description: Buyer searches for an item
     reference: if any
     example:
       $ref: "../../Examples/B2B/search/search_by_item.yaml"
   - summary: Seller returns item/ catalog with communication channel
     api: on_search
-    description:  
+    description: Seller responds back with the catalog
     reference: if any
     example:
       $ref: "../../Examples/B2B/on_search/on_search.yaml"
   - summary: Buyer selects an item.
     api: select
-    description: 
+    description: Buyer selects an item
     reference: if any
     example:
       $ref: "../../Examples/B2B/select/select_domestic.yaml"
   - summary: Seller returns the breakup based on the price listed.
     api: on_select
-    description: 
+    description: Seller responds with the quote breakup
     reference: if any
     example:
       $ref: "../../Examples/B2B/on_select/on_select.yaml"
   - summary: Buyer Requests for Quotation
     api: init
-    description: 
+    description: Buyer requests for quotation
     reference: if any
     example:
       $ref: "../../Examples/B2B/init/init_domestic.yaml"
   - summary: Seller Responds to Quotation with delivery charges
     api: on_init
-    description: 
+    description: Seller provides the final quotation with delivery charges
     reference: if any
     example:
       $ref: "../../Examples/B2B/on_init/on_init_domestic.yaml"
   - summary: Buyer raises PO
     api: confirm
-    description: 
+    description: Buyer creates a Purchase Order
     reference: if any
     example:
       $ref: "../../Examples/B2B/confirm/confirm_domestic.yaml"
   - summary: Seller Accepts PO
     api: on_confirm
-    description: 
+    description: Seller accepts Purchase Order
     reference: if any
     example:
       $ref: "../../Examples/B2B/on_confirm/on_confirm_domestic.yaml"                        
@@ -64,25 +64,25 @@ steps:
       $ref: "../../Examples/B2B/on_update/on_update_prepaid.yaml"
   - summary: Consumer platform requests for latest status
     api: status
-    description: 
+    description: Buyer requests for Shipment status
     reference: if any
     example:
       $ref: "../../Examples/B2B/status/status.yaml"
   - summary: Provider platform updates the latest status - Order Picked up
     api: on_status
-    description: 
+    description: Provider platform provides the updated order status to the consumer once the order is picked up
     reference: if any
     example:
       $ref: "../../Examples/B2B/on_status/on_status_picked_up.yaml"
   - summary: Provider platform updates the latest status - Out for Delivery
     api: on_status
-    description: 
+    description: Provider platform provides the updated order status to the consumer once the order is out for delivery
     reference: if any
     example:
       $ref: "../../Examples/B2B/on_status/on_status_out_for_delivery.yaml"
   - summary: Provider platform updates the latest status - Delivered
     api: on_status
-    description: 
+    description: Provider platform provides the updated order status to the consumer once the order is delivered
     reference: if any
     example:
       $ref: "../../Examples/B2B/on_status/on_status_delivered.yaml"

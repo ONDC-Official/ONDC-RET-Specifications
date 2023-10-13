@@ -1,0 +1,52 @@
+search:
+  examples:
+    - $ref: ./search/search_by_item.yaml
+    - $ref: ./search/search_by_category.yaml
+    - $ref: ./search/search_by_fulfillment_end_loc.yaml
+select:
+  examples:
+    - $ref: ./select/select_domestic.yaml
+    - $ref: ./select/select_exports.yaml
+    - $ref: ./select/select_BAP_chat.yaml
+init:
+  examples:
+    - $ref: ./init/init_exports.yaml
+    - $ref: ./init/init_domestic.yaml
+confirm:
+  examples:
+    - $ref: ./confirm/confirm_domestic.yaml
+    - $ref: ./confirm/confirm_exports.yaml
+update:
+  examples:
+    - $ref: ./update/update_prepaid.yaml
+status:
+  examples:
+    - $ref: ./status/status.yaml
+on_search:
+  examples:
+    - $ref: ./on_search/on_search.yaml
+    - $ref: ./on_search/on_search_bpc.yaml
+    - $ref: ./on_search/on_search_fashion.yaml
+    - $ref: ./on_search/on_search_electronics.yaml
+    - $ref: ./on_search/on_search_grocery.yaml
+on_select:
+  examples:
+    - $ref: ./on_select/on_select.yaml
+on_init:
+  examples:
+    - $ref: ./on_init/on_init_domestic.yaml
+    - $ref: ./on_init/on_init_exports.yaml
+on_confirm:
+  examples:
+    - $ref: ./on_confirm/on_confirm_domestic.yaml
+    - $ref: ./on_confirm/on_confirm_exports.yaml
+on_status:
+  examples:
+    - $ref: ./on_status/on_status_proforma_invoice.yaml
+    - $ref: ./on_status/on_status_picked_up.yaml
+    - $ref: ./on_status/on_status_out_for_delivery.yaml
+    - $ref: ./on_status/on_status_delivered.yaml
+on_update:
+  examples:
+    - $ref: ./on_update/on_update_prepaid.yaml
+    - $ref: ./on_update/on_update_fulfillments.yaml

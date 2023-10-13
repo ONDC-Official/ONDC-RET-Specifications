@@ -1,94 +1,94 @@
-summary: B2B
+summary: B2B Exports
 description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order bulk items
 reference: if any
 steps:
   - summary: Search for an item
     api: search
-    description:  
+    description: Buyer outside India searches for a product
     reference: if any
     example:
       $ref: "../../Examples/B2B/search/search_by_item.yaml"
   - summary: Returns item/ catalog
     api: on_search
-    description:  
+    description: Seller responds with catalog + communication channel
     reference: if any
     example:
       $ref: "../../Examples/B2B/on_search/on_search.yaml"
   - summary: Select the item
     api: select
-    description: 
+    description: Buyer selects an item (Variants/add-ons/offers as required) + Item customization + Delivery terms
     reference: if any
     example:
       $ref: "../../Examples/B2B/select/select_exports.yaml"
   - summary: Returns item breakup
     api: on_select
-    description: 
+    description: Seller responds with quote breakup
     reference: if any
     example:
       $ref: "../../Examples/B2B/on_select/on_select.yaml"
   - summary: Requests for Quotation
     api: init
-    description: 
+    description: Buyer Requests for Quotation
     reference: if any
     example:
       $ref: "../../Examples/B2B/init/init_exports.yaml"
   - summary: Responds to Quotation
     api: on_init
-    description: 
+    description: Seller responds with Quotation
     reference: if any
     example:
       $ref: "../../Examples/B2B/on_init/on_init_exports.yaml"
   - summary: Buyer raises PO
     api: confirm
-    description: 
+    description: Buyer creates a Purchase Order
     reference: if any
     example:
       $ref: "../../Examples/B2B/confirm/confirm_exports.yaml"
   - summary: Seller Accepts PO
     api: on_confirm
-    description: 
+    description: Seller accepts Purchase Order
     reference: if any
     example:
       $ref: "../../Examples/B2B/on_confirm/on_confirm_exports.yaml"
   - summary: Consumer platform requests for latest status
     api: status
-    description: 
+    description: Buyer requests for Shipment status
     reference: if any
     example:
       $ref: "../../Examples/B2B/status/status.yaml"                          
   - summary: Provider platform provides latest order status and sends invoice
     api: on_status
-    description: Provider platform provides the updated order status to the consumer
+    description: Provider platform provides the updated order status to the consumer and sends invoice
     reference: if any
     example:
       $ref: "../../Examples/B2B/on_status/on_status_proforma_invoice.yaml"                                  
   - summary:  Payment details are updated in case BAP collects the payment
     api: update
-    description: 
+    description: Payment status is sent (If collected by BAP) + requests for Invoice
     reference: if any
     example:
       $ref: "../../Examples/B2B/update/update_prepaid.yaml"
   - summary: seller updates fulfilments - Multiple fulfillments for Single PO
     api: on_update
-    description: 
+    description: seller updates fulfilments - Multiple fulfillments for Single PO
     reference: if any
     example:
       $ref: "../../Examples/B2B/on_update/on_update_fulfillments.yaml"
   - summary: Provider platform provides latest order status
     api: on_status
-    description: Provider platform provides the updated order status to the consumer
+    description: Provider platform provides the updated order status to the consumer once the order is picked up
     reference: if any
     example:
       $ref: "../../Examples/B2B/on_status/on_status_picked_up.yaml"
   - summary: Provider platform provides latest order status
     api: on_status
-    description: Provider platform provides the updated order status to the consumer
+    description: Provider platform provides the updated order status to the consumer once the order is out for delivery
     reference: if any
     example:
       $ref: "../../Examples/B2B/on_status/on_status_out_for_delivery.yaml"
   - summary: Provider platform provides latest order status
     api: on_status
-    description: Provider platform provides the updated order status to the consumer
+    description: Provider platform provides the updated order status to the consumer after the order is delivered
     reference: if any
     example:
       $ref: "../../Examples/B2B/on_status/on_status_delivered.yaml"

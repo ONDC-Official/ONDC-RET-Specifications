@@ -1,52 +1,8 @@
-search:
-  examples:
-    - $ref: ./B2B/search/search_by_item.yaml
-    - $ref: ./B2B/search/search_by_category.yaml
-    - $ref: ./B2B/search/search_by_fulfillment_end_loc.yaml
-select:
-  examples:
-    - $ref: ./B2B/select/select_domestic.yaml
-    - $ref: ./B2B/select/select_exports.yaml
-    - $ref: ./B2B/select/select_BAP_chat.yaml
-init:
-  examples:
-    - $ref: ./B2B/init/init_exports.yaml
-    - $ref: ./B2B/init/init_domestic.yaml
-confirm:
-  examples:
-    - $ref: ./B2B/confirm/confirm_domestic.yaml
-    - $ref: ./B2B/confirm/confirm_exports.yaml
-update:
-  examples:
-    - $ref: ./B2B/update/update_prepaid.yaml
-status:
-  examples:
-    - $ref: ./B2B/status/status.yaml
-on_search:
-  examples:
-    - $ref: ./B2B/on_search/on_search.yaml
-    - $ref: ./B2B/on_search/on_search_bpc.yaml
-    - $ref: ./B2B/on_search/on_search_fashion.yaml
-    - $ref: ./B2B/on_search/on_search_electronics.yaml
-    - $ref: ./B2B/on_search/on_search_grocery.yaml
-on_select:
-  examples:
-    - $ref: ./B2B/on_select/on_select.yaml
-on_init:
-  examples:
-    - $ref: ./B2B/on_init/on_init_domestic.yaml
-    - $ref: ./B2B/on_init/on_init_exports.yaml
-on_confirm:
-  examples:
-    - $ref: ./B2B/on_confirm/on_confirm_domestic.yaml
-    - $ref: ./B2B/on_confirm/on_confirm_exports.yaml
-on_status:
-  examples:
-    - $ref: ./B2B/on_status/on_status_proforma_invoice.yaml
-    - $ref: ./B2B/on_status/on_status_picked_up.yaml
-    - $ref: ./B2B/on_status/on_status_out_for_delivery.yaml
-    - $ref: ./B2B/on_status/on_status_delivered.yaml
-on_update:
-  examples:
-    - $ref: ./B2B/on_update/on_update_prepaid.yaml
-    - $ref: ./B2B/on_update/on_update_fulfillments.yaml
+B2B:
+  summary: B2B Use Case Specification
+  description: >-
+    Retail , use case on the network of different entities coming together to offer products or services to buyers on one end and manage sellers on the other end. Consumer Platform use these 
+    specifications to perform e-commerce operations like search, select, confirm and track.At provider platform would use these specifications expose
+    there specific invetory in form of on_search, on_select etc.
+  example_set:
+    $ref: "./B2B/index.yaml"
