@@ -7,7 +7,7 @@ function onFirstLoad(build_spec){
       initTag(data["x-tags"])
       loadExample(data["x-examples"])
       // addExample("on-demand")
-      // loadFlows(data["x-flows"])
+      loadFlows(data["x-flows"])
       // loadAttributes(data["x-attributes"])
 }
 
