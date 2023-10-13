@@ -1,0 +1,96 @@
+summary: Return the incremental catalog for item changes
+description: Return the incremental catalog for item changes
+value:
+  context:
+    domain: ONDC:RET10
+    action: on_search
+    country: IND
+    city: "*"
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    bpp_id: sellerNP.com
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: T1
+    message_id: M2
+    timestamp: "2023-06-03T08:30:00.000Z"
+    ttl: PT30S
+  message:
+    catalog:
+      bpp/providers:
+        - id: P1
+          items:
+            - id: I1
+              time:
+                label: enable [^4]
+                timestamp: "2023-06-03T07:30:00.000Z [^5]"
+              parent_item_id: V1 [^6]
+              descriptor:
+                name: Allen Solly Men T-shirt
+                code [^7]: 1:XXXXXXXXXXXXX
+                symbol: https://sellerNP.com/images/i1.png
+                short_desc: Allen Solly Men T-shirt
+                long_desc: Allen Solly Men T-shirt
+                images:
+                  - https://sellerNP.com/images/i1.png
+              quantity:
+                unitized:
+                  measure:
+                    unit: unit
+                    value: "2"
+                available:
+                  count: "99"
+                maximum:
+                  count: "99"
+              price:
+                currency: USD
+                value: "10.00"
+                maximum_value: "12.0"
+              category_id: Men's Topwear [^8]
+              fulfillment_id: F1
+              location_id: L1
+              "@ondc/org/returnable": true
+              "@ondc/org/cancellable": true
+              "@ondc/org/return_window": P7D
+              "@ondc/org/seller_pickup_return": true
+              "@ondc/org/time_to_ship": P1D
+              "@ondc/org/available_on_cod": false
+              "@ondc/org/contact_details_consumer_care": Ramesh,ramesh@abc.com,18004254444
+              "@ondc/org/statutory_reqs_packaged_commodities [^9]":
+                manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
+                manufacturer_or_packer_address: >-
+                  Building 2, Divyasree Technopolis, Off HAL Airport Road,
+                  Bengaluru-560037
+                common_or_generic_name_of_commodity: Polo
+                month_year_of_manufacture_packing_import: 01/2017 [^10]
+              tags:
+                - code: origin
+                  list:
+                    - code: country
+                      value: IND
+                - code: attribute [^11]
+                  list:
+                    - code: brand
+                      value: Allen Solly
+                    - code: colour
+                      value: coral [^12]
+                    - code: size
+                      value: S [^13]
+                    - code: gender
+                      value: male [^14]
+                    - code: pattern
+                      value: striped [^15]
+                    - code: material
+                      value: cotton [^16]
+                    - code: occasion
+                      value: casual [^17]
+                    - code: season
+                      value: summer [^18]
+                    - code: trend
+                      value: tribal [^19]
+                    - code: features
+                      value: alpha [^20]
+                    - code: material_finish
+                      value: embossed [^21]
+                    - code: size_chart
+                      value: https://sellerNP.com/images/i1_size_chart.png
