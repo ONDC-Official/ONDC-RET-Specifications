@@ -20,4 +20,15 @@ payment:
       - code: rtgs
         description: about the enum
         reference: <PR/Issue/Discussion Links md format text>  
+    collected_by:
+      - code: BAP
+        description: Collected by BAP
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: BPP
+        description: Collected by BPP
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: SOR
+        description: Collected by Seller on Record
+        reference: <PR/Issue/Discussion Links md format text>
+      
   

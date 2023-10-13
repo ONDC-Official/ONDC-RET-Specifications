@@ -1,5 +1,5 @@
 summary: Send error
-description: Send error for item not in stock 
+description: Send error for location not serviceable
 value:
   context:
     domain: ONDC:RET12
@@ -28,41 +28,35 @@ value:
           type: Delivery
           '@ondc/org/provider_name': LSP or Provider Name
           tracking: false
-          '@ondc/org/category': Immediate Delivery
-          '@ondc/org/TAT': PT60M
+          '@ondc/org/category': ''
+          '@ondc/org/TAT': ''
           state:
             descriptor:
-              code: Serviceable
+              code: Non-serviceable
       quote:
         price:
           currency: USD
-          value: '0'
+          value: '10.00'
         breakup:
           - '@ondc/org/item_id [^9]': I1
             '@ondc/org/item_quantity':
-              count [^10]: 0
+              count [^10]: 1
             title: Allen Solly Men T-shirt
-            '@ondc/org/title_type [^11]': item
+            '@ondc/org/title_type': item
             price:
               currency: USD
-              value: '0'
+              value: '10.00'
             item:
               quantity:
                 available:
-                  count: '0'
+                  count: '99'
                 maximum:
-                  count: '0'
+                  count: '99'
               price:
                 currency: USD
-                value: '0'
-          - '@ondc/org/item_id': F1
-            title: Delivery charges
-            '@ondc/org/title_type [^13]': delivery
-            price:
-              currency: USD
-              value: '0'
+                value: '10.00'
+
         ttl: P1D
   error:
     type: DOMAIN-ERROR
-    code: '40002'
-    message: M1 [^4]
+    code: '30009 [^2]'

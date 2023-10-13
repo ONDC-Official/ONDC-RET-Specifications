@@ -7,23 +7,23 @@ steps:
     description:  Buyer search for an item
     reference: if any
     example:
-      $ref: "../../Examples/B2C/search/search_by_item.yaml"
+      $ref: "../../Examples/B2C Exports/search/search_by_item.yaml"
     notes:
       $ref: "../../notes/search/search_by_item.yaml"
-  - summary: Returns the item or catalog (Electronics Keyboard)
+  - summary: Returns the item or catalog (Fashion)
     api: on_search
     description:  
     reference: if any
     example:
-      $ref: "../../Examples/B2C/on_search/on_search_Electronics_Keyboard.yaml"
+      $ref: "../../Examples/B2C Exports/on_search/on_search_Fashion.yaml"
     notes:
-      $ref: "../../notes/on_search/on_search_Electronics_Keyboard.yaml" 
+      $ref: "../../notes/on_search/on_search_Fashion.yaml" 
   - summary: Select the item
     api: select
     description: 
     reference: if any
     example:
-      $ref: "../../Examples/B2C/select/select_other_product.yaml"
+      $ref: "../../Examples/B2C Exports/select/select.yaml"
     notes:
       $ref: "../../notes/select/select_other_product.yaml"
   - summary: Returns that location is not serviceable
@@ -31,6 +31,6 @@ steps:
     description: 
     reference: if any
     example:
-      $ref: "../../Examples/B2C/on_select/on_select_location_not_serviceable.yaml"
+      $ref: "../../Examples/B2C Exports/on_select/on_select_location_not_serviceable.yaml"
     notes:
       $ref: "../../notes/on_select/on_select_location_not_serviceable.yaml" 
