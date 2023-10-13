@@ -20424,7 +20424,7 @@ x-flows:
               type: DOMAIN-ERROR
               code: '40002'
               message: M1 [^4]
-        notes:
+        notes: &ref_76
           value:
             ^1: >-
               may be the same location as selected by the buyer or a different
@@ -20716,7 +20716,7 @@ x-flows:
             error:
               type: DOMAIN-ERROR
               code: 30009 [^2]
-        notes:
+        notes: &ref_77
           value:
             ^1: >-
               may be the same location as selected by the buyer or a different
@@ -23294,7 +23294,7 @@ x-flows:
                         value: '2023-06-03T08:00:00.000Z'
                       - code: end_time
                         value: '2023-06-03T09:00:00.000Z'
-        notes: &ref_74
+        notes: &ref_78
           value:
             ^1: >-
               start_time < Context.timestamp, end_time <= Context.timestamp,
@@ -23394,7 +23394,7 @@ x-flows:
                             list:
                               - code: veg
                                 value: 'yes'
-        notes: &ref_75
+        notes: &ref_79
           value:
             ^1: enum - "enable", "disable"
             ^2: timestamp for item event
@@ -23856,7 +23856,7 @@ x-flows:
         api: on_search
         description: null
         reference: if any
-        example: &ref_77
+        example: &ref_81
           summary: Return the incremental catalog when store is closed temporarily
           description: Return the incremental catalog when store is closed temporarily
           value:
@@ -23886,7 +23886,7 @@ x-flows:
                           range [^1]:
                             start: '2023-06-03T16:00:00.000Z'
                             end: '2023-06-03T23:59:00.000Z'
-        notes: &ref_78
+        notes: &ref_82
           value:
             ^1: means store is closed from 4PM till rest of the day
       - summary: Stop incremental refresh
@@ -23929,7 +23929,7 @@ x-flows:
         api: search
         description: Buyer search by fulfillment end location
         reference: if any
-        example:
+        example: &ref_73
           summary: search_by_fulfillment_end_loc
           description: Search By Fulfilment End Loc
           value:
@@ -23962,7 +23962,7 @@ x-flows:
         api: on_search
         description: null
         reference: if any
-        example: &ref_73
+        example: &ref_74
           summary: Return the catalog for Fashion products
           description: Return the catalog for Fashion products
           value:
@@ -24609,7 +24609,7 @@ x-flows:
         api: select
         description: null
         reference: if any
-        example:
+        example: &ref_75
           summary: Get quote for specific item
           description: Get quote for specific item for other products
           value:
@@ -24621,7 +24621,7 @@ x-flows:
               bap_uri: https://buyerNP.com/ondc
               bpp_id: sellerNP.com
               bpp_uri: https://sellerNP.com/ondc
-              transaction_id: T2
+              transaction_id: T1
               message_id: M2
               city: IATA:SIN
               country: SGP
@@ -25495,6 +25495,227 @@ x-flows:
                 created_at: '2023-06-03T09:30:00.000Z'
                 updated_at: '2023-06-03T11:00:30.000Z'
         notes: *ref_72
+  - summary: Retail 1.2.0 Exports (Item not in stock)
+    description: >-
+      The following is an illustrative flow to perform a transaction of a nature
+      where a buyer would like to order electronics item and item is not in
+      stock
+    reference: if any
+    steps:
+      - summary: Search by fulfillment end location
+        api: search
+        description: Buyer search by fulfillment end location
+        reference: if any
+        example: *ref_73
+        notes: *ref_35
+      - summary: Returns the item or catalog (Fashion)
+        api: on_search
+        description: null
+        reference: if any
+        example: *ref_74
+        notes: *ref_56
+      - summary: Select the item
+        api: select
+        description: null
+        reference: if any
+        example: *ref_75
+        notes: *ref_23
+      - summary: Returns that item is not in stock
+        api: on_select
+        description: null
+        reference: if any
+        example:
+          summary: Send error
+          description: Send error for item not in stock
+          value:
+            context:
+              domain: ONDC:RET12
+              action: on_select
+              core_version: 1.2.0
+              bap_id: buyerNP.com
+              bap_uri: https://buyerNP.com/ondc
+              bpp_id: sellerNP.com
+              bpp_uri: https://sellerNP.com/ondc
+              transaction_id: T1
+              message_id: M2
+              city: IATA:SIN
+              country: SGP
+              timestamp: '2023-06-03T08:30:30.000Z'
+            message:
+              order:
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1 [^1]
+                items:
+                  - fulfillment_id: F1
+                    id: I1
+                fulfillments:
+                  - id: F1
+                    type: Delivery
+                    '@ondc/org/provider_name': LSP or Provider Name
+                    tracking: false
+                    '@ondc/org/category': Immediate Delivery
+                    '@ondc/org/TAT': PT60M
+                    state:
+                      descriptor:
+                        code: Serviceable
+                quote:
+                  price:
+                    currency: USD
+                    value: '0'
+                  breakup:
+                    - '@ondc/org/item_id [^9]': I1
+                      '@ondc/org/item_quantity':
+                        count [^10]: 0
+                      title: Allen Solly Men T-shirt
+                      '@ondc/org/title_type [^11]': item
+                      price:
+                        currency: USD
+                        value: '0'
+                      item:
+                        quantity:
+                          available:
+                            count: '0'
+                          maximum:
+                            count: '0'
+                        price:
+                          currency: USD
+                          value: '0'
+                    - '@ondc/org/item_id': F1
+                      title: Delivery charges
+                      '@ondc/org/title_type [^13]': delivery
+                      price:
+                        currency: USD
+                        value: '0'
+                  ttl: P1D
+            error:
+              type: DOMAIN-ERROR
+              code: '40002'
+              message: M1 [^4]
+        notes: *ref_76
+  - summary: Retail 1.2.0 Exports (Location not serviceable)
+    description: >-
+      The following is an illustrative flow to perform a transaction of a nature
+      where a buyer would like to order electronics item and location is not
+      serviceable
+    reference: if any
+    steps:
+      - summary: Search for an item
+        api: search
+        description: Buyer search for an item
+        reference: if any
+        example:
+          summary: search_by_item
+          description: Search By Item
+          value:
+            context:
+              domain: ONDC:RET12 [^1]
+              action: search
+              country: SGP
+              city: IATA:SIN
+              core_version: 1.2.0
+              bap_id: buyerNP.com
+              bap_uri: https://buyerNP.com/ondc
+              transaction_id: T1
+              message_id: M1
+              timestamp: '2023-06-03T08:00:00.000Z'
+              ttl: PT30S
+            message:
+              intent:
+                item:
+                  descriptor:
+                    name: T-shirt
+                fulfillment:
+                  type [^2]: Delivery
+                  end:
+                    location:
+                      gps [^3]: 1.380621, 103.746364
+                      address [^4]:
+                        area_code: '6802308'
+                payment:
+                  '@ondc/org/buyer_app_finder_fee_type': percent
+                  '@ondc/org/buyer_app_finder_fee_amount': '3'
+        notes: *ref_21
+      - summary: Returns the item or catalog (Fashion)
+        api: on_search
+        description: null
+        reference: if any
+        example: *ref_74
+        notes: *ref_56
+      - summary: Select the item
+        api: select
+        description: null
+        reference: if any
+        example: *ref_75
+        notes: *ref_23
+      - summary: Returns that location is not serviceable
+        api: on_select
+        description: null
+        reference: if any
+        example:
+          summary: Send error
+          description: Send error for location not serviceable
+          value:
+            context:
+              domain: ONDC:RET12
+              action: on_select
+              core_version: 1.2.0
+              bap_id: buyerNP.com
+              bap_uri: https://buyerNP.com/ondc
+              bpp_id: sellerNP.com
+              bpp_uri: https://sellerNP.com/ondc
+              transaction_id: T1
+              message_id: M2
+              city: IATA:SIN
+              country: SGP
+              timestamp: '2023-06-03T08:30:30.000Z'
+            message:
+              order:
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1 [^1]
+                items:
+                  - fulfillment_id: F1
+                    id: I1
+                fulfillments:
+                  - id: F1
+                    type: Delivery
+                    '@ondc/org/provider_name': LSP or Provider Name
+                    tracking: false
+                    '@ondc/org/category': ''
+                    '@ondc/org/TAT': ''
+                    state:
+                      descriptor:
+                        code: Non-serviceable
+                quote:
+                  price:
+                    currency: USD
+                    value: '10.00'
+                  breakup:
+                    - '@ondc/org/item_id [^9]': I1
+                      '@ondc/org/item_quantity':
+                        count [^10]: 1
+                      title: Allen Solly Men T-shirt
+                      '@ondc/org/title_type': item
+                      price:
+                        currency: USD
+                        value: '10.00'
+                      item:
+                        quantity:
+                          available:
+                            count: '99'
+                          maximum:
+                            count: '99'
+                        price:
+                          currency: USD
+                          value: '10.00'
+                  ttl: P1D
+            error:
+              type: DOMAIN-ERROR
+              code: 30009 [^2]
+        notes: *ref_77
   - summary: Retail 1.2.0 Exports (Incremental One Time Push)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -25506,7 +25727,7 @@ x-flows:
         api: search
         description: Search by city
         reference: if any
-        example: &ref_76
+        example: &ref_80
           summary: search_by_city
           description: search request for all sellers in the city identified in Context
           value:
@@ -25536,7 +25757,7 @@ x-flows:
         api: on_search
         description: null
         reference: if any
-        example: *ref_73
+        example: *ref_74
         notes: *ref_56
       - summary: Search by incremental one time push catalog refresh
         api: search
@@ -25570,7 +25791,7 @@ x-flows:
                         value: '2023-06-03T08:00:00.000Z'
                       - code: end_time
                         value: '2023-06-03T09:00:00.000Z'
-        notes: *ref_74
+        notes: *ref_78
       - summary: Returns the item or catalog
         api: on_search
         description: null
@@ -25672,7 +25893,7 @@ x-flows:
                                 value: embossed [^21]
                               - code: size_chart
                                 value: https://sellerNP.com/images/i1_size_chart.png
-        notes: *ref_75
+        notes: *ref_79
   - summary: Retail 1.2.0 Exports(Incremental Regular Push)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -25684,13 +25905,13 @@ x-flows:
         api: search
         description: Search by country
         reference: if any
-        example: *ref_76
+        example: *ref_80
         notes: *ref_68
       - summary: Returns the item or catalog (Fashion)
         api: on_search
         description: null
         reference: if any
-        example: *ref_73
+        example: *ref_74
         notes: *ref_56
       - summary: Search by incremental regular push catalog refresh
         api: search
@@ -25726,8 +25947,8 @@ x-flows:
         api: on_search
         description: null
         reference: if any
-        example: *ref_77
-        notes: *ref_78
+        example: *ref_81
+        notes: *ref_82
       - summary: Stop incremental refresh
         api: search
         description: Stop incremental refresh
@@ -41820,7 +42041,7 @@ x-examples:
                 bap_uri: https://buyerNP.com/ondc
                 bpp_id: sellerNP.com
                 bpp_uri: https://sellerNP.com/ondc
-                transaction_id: T2
+                transaction_id: T1
                 message_id: M2
                 city: IATA:SIN
                 country: SGP
@@ -43297,7 +43518,7 @@ x-examples:
                 bap_uri: https://buyerNP.com/ondc
                 bpp_id: sellerNP.com
                 bpp_uri: https://sellerNP.com/ondc
-                transaction_id: T2
+                transaction_id: T1
                 message_id: M2
                 city: IATA:SIN
                 country: SGP
