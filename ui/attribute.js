@@ -16,6 +16,11 @@ function updateSetsAttribute() {
 }
 
 function loadAttributes(data) {
+  // To fix: attributes are getting appended to list on branch change.
+  var elements = document.getElementsByClassName("test");
+  while (elements.length > 0) {
+    elements[0].parentNode.removeChild(elements[0]);
+  }
   attributes = data;
   var attributesDropDown = document.getElementById("attribute-dropdown");
   attributesDropDown.innerHTML = "";
@@ -48,9 +53,7 @@ function addAttributeSets(option) {
 
   const firstKey = Object.keys(object)[0];
   const keyDetail = object[firstKey];
-  console.log('object',object,keyDetail,keyDetail?.required_attributes  );
   const requiredAttr = 'required_attributes' in keyDetail
-  console.log('requiredAttr', requiredAttr)
   flattenObject(keyDetail,null,null,keyDetail?.required_attributes);
 }
 
@@ -65,16 +68,22 @@ function flattenObject(obj, prefix = "", result = {},requiredAttr) {
     const cell2 = document.createElement("td");
     const cell3 = document.createElement("td");
     const cell4 = document.createElement("td");
+    const cell5 = document.createElement("td");
+    const cell6 = document.createElement("td");
 
     cell1.textContent = prefix;
     cell2.textContent = obj["required"];
     cell3.textContent = obj["usage"];
-    cell4.textContent = obj["description"];
+    cell4.textContent = obj["owner"];
+    cell5.textContent = obj["type"];
+    cell6.textContent = obj["description"];
 
     newRow.appendChild(cell1);
     newRow.appendChild(cell2);
     newRow.appendChild(cell3);
     newRow.appendChild(cell4);
+    newRow.appendChild(cell5);
+    newRow.appendChild(cell6);
 
     table.appendChild(newRow);
     }

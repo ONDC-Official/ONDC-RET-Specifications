@@ -1,8 +1,0 @@
-B2B:
-  summary: B2B Use Case Specification
-  description: >-
-    Retail , use case on the network of different entities coming together to offer products or services to buyers on one end and manage sellers on the other end. Consumer Platform use these 
-    specifications to perform e-commerce operations like search, select, confirm and track.At provider platform would use these specifications expose
-    there specific invetory in form of on_search, on_select etc.
-  example_set:
-    $ref: "./B2B/index.yaml"

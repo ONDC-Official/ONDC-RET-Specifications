@@ -1,3 +1,0 @@
-B2B: 
-  attribute_set:
-    $ref: './B2B/index.yaml' 

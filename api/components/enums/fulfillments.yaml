@@ -1,8 +1,0 @@
-fulfillments:
-  type:
-    - code: Delivery
-      description: about the enum
-      reference: <PR/Issue/Discussion Links md format text>
-    - code: Self-Pickup
-      description: about the enum
-      reference: <PR/Issue/Discussion Links md format text>

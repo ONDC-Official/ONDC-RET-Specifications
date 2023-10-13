@@ -1,8 +1,7 @@
 
 // tabs.js
 
-
-window.onload = function () {
+function onFirstLoad(build_spec){
       let data = build_spec
       initSchema(data["x-enum"])
       initTag(data["x-tags"])
@@ -11,3 +10,7 @@ window.onload = function () {
       loadFlows(data["x-flows"])
       loadAttributes(data["x-attributes"])
 }
+
+// window.onload = function(){
+//       onFirstLoad(build_spec)
+// } 
