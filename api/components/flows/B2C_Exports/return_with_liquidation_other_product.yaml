@@ -1,5 +1,5 @@
-summary: Retail 1.2.0 (Return with liquidation - NP approves request)
-description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order grocery item and return it with liquidation and seller approves it.
+summary: Retail 1.2.0 Exports (Return with liquidation - NP approves request)
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order Fashion item and return it with liquidation and seller approves it.
 reference: if any
 steps:
   - summary: Search for an item
@@ -7,23 +7,23 @@ steps:
     description:  Buyer search for an item
     reference: if any
     example:
-      $ref: "../../Examples/B2C/search/search_by_item.yaml"
+      $ref: "../../Examples/B2C Exports/search/search_by_item.yaml"
     notes:
       $ref: "../../notes/search/search_by_item.yaml"
-  - summary: Returns the item or catalog (Home&Kitchen)
+  - summary: Returns the item or catalog (Fashion)
     api: on_search
     description:  
     reference: if any
     example:
-      $ref: "../../Examples/B2C/on_search/on_search_Home&Kitchen.yaml"
+      $ref: "../../Examples/B2C Exports/on_search/on_search_Fashion.yaml"
     notes:
-      $ref: "../../notes/on_search/on_search_Home&Kitchen.yaml"
+      $ref: "../../notes/on_search/on_search_Fashion.yaml"
   - summary: Select the item
     api: select
     description: 
     reference: if any
     example:
-      $ref: "../../Examples/B2C/select/select_other_product.yaml"
+      $ref: "../../Examples/B2C Exports/select/select.yaml"
     notes:
       $ref: "../../notes/select/select_other_product.yaml"
   - summary: Returns item breakup when item is in stock
@@ -39,7 +39,7 @@ steps:
     description: 
     reference: if any
     example:
-      $ref: "../../Examples/B2C/init/init_other_product.yaml"
+      $ref: "../../Examples/B2C Exports/init/init.yaml"
     notes:
       $ref: "../../notes/init/init_other_product.yaml"
   - summary: Respond to init
@@ -47,7 +47,7 @@ steps:
     description: 
     reference: if any
     example:
-      $ref: "../../Examples/B2C/on_init/on_init_other_product.yaml"
+      $ref: "../../Examples/B2C Exports/on_init/on_init.yaml"
     notes:
       $ref: "../../notes/on_init/on_init_other_product.yaml"
   - summary: Buyer confirms product
@@ -55,7 +55,7 @@ steps:
     description: 
     reference: if any
     example:
-      $ref: "../../Examples/B2C/confirm/confirm_other_product.yaml"
+      $ref: "../../Examples/B2C Exports/confirm/confirm.yaml"
     notes:
       $ref: "../../notes/confirm/confirm_other_product.yaml"
   - summary: Seller Accepts confirmation
@@ -63,7 +63,7 @@ steps:
     description: 
     reference: if any
     example:
-      $ref: "../../Examples/B2C/on_confirm/on_confirm_other_product.yaml"
+      $ref: "../../Examples/B2C Exports/on_confirm/on_confirm.yaml"
     notes:
       $ref: "../../notes/on_confirm/on_confirm_other_product.yaml"
   - summary:  Buyer initiated the return with liquidation
@@ -71,7 +71,7 @@ steps:
     description: 
     reference: if any
     example:
-      $ref: "../../Examples/B2C/update/update_buyer_initiated_return_with_liquidation.yaml"
+      $ref: "../../Examples/B2C Exports/update/update_buyer_initiated_return_with_liquidation.yaml"
     notes:
       $ref: "../../notes/update/update_buyer_initiated_return_with_liquidation.yaml"
   - summary: Seller send the interim status request
@@ -79,7 +79,7 @@ steps:
     description:
     reference: if any
     example:
-      $ref: "../../Examples/B2C/on_update/on_update_np_sends_interim_status_liquidation_request.yaml"
+      $ref: "../../Examples/B2C Exports/on_update/on_update_np_sends_interim_status_liquidation_request.yaml" # TODO: Modification Needed
     notes:
       $ref: "../../notes/on_update/on_update_np_sends_interim_status_liquidation_request.yaml"
   - summary: seller approves the liquidation request
@@ -87,6 +87,6 @@ steps:
     description: 
     reference: if any
     example:
-      $ref: "../../Examples/B2C/on_update/on_update_np_approves_liquidation_request.yaml"   
+      $ref: "../../Examples/B2C Exports/on_update/on_update_np_approves_liquidation_request.yaml"   #TODO: Modifications Needed
     notes:
       $ref: "../../notes/on_update/on_update_np_approves_liquidation_request.yaml"                                                  

@@ -1,5 +1,5 @@
-summary: Retail 1.2.0 (Merchant cancels non customized product)
-description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order fashion item and merchant cancels it
+summary: Retail 1.2.0  Exports (Merchant cancels non customized product)
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order fashion item and merchant part cancels it
 reference: if any
 steps:
   - summary: Search by fulfillment end location 
@@ -7,23 +7,23 @@ steps:
     description:  Buyer search by fulfillment end location
     reference: if any
     example:
-      $ref: "../../Examples/B2C/search/search_by_fulfillment_end_loc.yaml"
+      $ref: "../../Examples/B2C Exports/search/search_by_fulfillment_end_loc.yaml"
     notes:
       $ref: "../../notes/search/search_by_fulfillment_end_loc.yaml"
-  - summary: Returns the item or catalog (Electronics Desktop)
+  - summary: Returns the item or catalog (Fashion)
     api: on_search
     description:  
     reference: if any
     example:
-      $ref: "../../Examples/B2C/on_search/on_search_Electronics_Desktop.yaml"
+      $ref: "../../Examples/B2C Exports/on_search/on_search_Fashion.yaml"
     notes:
-      $ref: "../../notes/on_search/on_search_Electronics_Desktop.yaml"
+      $ref: "../../notes/on_search/on_search_Fashion.yaml"
   - summary: Select the item
     api: select
     description: 
     reference: if any
     example:
-      $ref: "../../Examples/B2C/select/select_other_product.yaml"
+      $ref: "../../Examples/B2C Exports/select/select.yaml"
     notes:
       $ref: "../../notes/select/select_other_product.yaml"
   - summary: Returns item breakup when item is in stock and offer applied
@@ -31,15 +31,15 @@ steps:
     description: 
     reference: if any
     example:
-      $ref: "../../Examples/B2C/on_select/on_select_DISCP60_applied.yaml"
+      $ref: "../../Examples/B2C Exports/on_select/on_select_item_in_stock.yaml"
     notes:
-      $ref: "../../notes/on_select/on_select_DISCP60_applied.yaml"
+      $ref: "../../notes/on_select/on_select_item_in_stock.yaml"
   - summary: Buyer initiate the product and send the updated fulfillment id
     api: init
     description: 
     reference: if any
     example:
-      $ref: "../../Examples/B2C/init/init_other_product.yaml"
+      $ref: "../../Examples/B2C Exports/init/init.yaml" #TODO: Modifications Needed
     notes:
       $ref: "../../notes/init/init_other_product.yaml"
   - summary: Respond to init
@@ -47,7 +47,7 @@ steps:
     description: 
     reference: if any
     example:
-      $ref: "../../Examples/B2C/on_init/on_init_other_product.yaml"
+      $ref: "../../Examples/B2C Exports/on_init/on_init.yaml" #TODO: Modifications Needed
     notes:
       $ref: "../../notes/on_init/on_init_other_product.yaml"
   - summary: Buyer confirms product
@@ -55,7 +55,7 @@ steps:
     description: 
     reference: if any
     example:
-      $ref: "../../Examples/B2C/confirm/confirm_other_product.yaml"
+      $ref: "../../Examples/B2C Exports/confirm/confirm.yaml" #TODO: Check domain
     notes:
       $ref: "../../notes/confirm/confirm_other_product.yaml"
   - summary: Seller Accepts confirmation
@@ -63,7 +63,7 @@ steps:
     description: 
     reference: if any
     example:
-      $ref: "../../Examples/B2C/on_confirm/on_confirm_other_product.yaml"
+      $ref: "../../Examples/B2C Exports/on_confirm/on_confirm.yaml"
     notes:
       $ref: "../../notes/on_confirm/on_confirm_other_product.yaml"
   - summary: seller cancels non customized product
@@ -71,7 +71,7 @@ steps:
     description: 
     reference: if any
     example:
-      $ref: "../../Examples/B2C/on_update/on_update_merchant_cancels_non_customized.yaml"
+      $ref: "../../Examples/B2C Exports/on_update/on_update_merchant_cancels_non_customized.yaml" #Modifications Needed
     notes:
       $ref: "../../notes/on_update/on_update_merchant_cancels_non_customized.yaml"
   - summary: Settlement trail for refund initiation
@@ -79,4 +79,4 @@ steps:
     description:
     reference: if any
     example:
-      $ref: "../../Examples/B2C/update/update_settlement_trail_cancel_by_merchant.yaml"                                                  
+      $ref: "../../Examples/B2C Exports/update/update_settlement_trail_part_cancel_by_merchant.yaml"                                                  
