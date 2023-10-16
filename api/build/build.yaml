@@ -9257,6 +9257,9 @@ x-flows:
               ttl: PT30S
             message:
               intent:
+                item:
+                  descriptor:
+                    name: coffee
                 fulfillment:
                   type [^2]: Delivery
                   end:
@@ -15512,6 +15515,13 @@ x-flows:
               timestamp: '2023-06-03T08:00:30.000Z'
             message:
               catalog:
+                bpp/fulfillments:
+                  - id: '1'
+                    type: Delivery
+                  - id: '2'
+                    type: Self-Pickup
+                  - id: '3'
+                    type: Delivery and Self-Pickup
                 bpp/descriptor [^2]:
                   name: Seller NP
                   symbol [^3]: https://sellerNP.com/images/np.png
@@ -15548,9 +15558,17 @@ x-flows:
                         time:
                           label: enable [^14]
                           timestamp: 2023-06-03T07:30:30.000Z [^15]
+                          days: 1,2,3,4,5,6,7
                           schedule:
                             holidays [^16]:
                               - '2023-08-15'
+                            frequency: PT4H
+                            times:
+                              - '1100'
+                              - '1900'
+                            range:
+                              start: '1100'
+                              end: '2100'
                         gps: 12.967555,77.749666
                         address:
                           locality [^17]: Jayanagar
@@ -15558,6 +15576,11 @@ x-flows:
                           city: Bengaluru
                           area_code: '560076'
                           state: KA
+                        circle:
+                          gps: 12.967555,77.749666
+                          radius:
+                            unit: km
+                            value: '3'
                     items:
                       - id: I1
                         time:
@@ -15619,78 +15642,7 @@ x-flows:
                                 value: back_image
                               - code: url
                                 value: https://sellerNP.com/images/i1_back_image.png
-                    creds [^33]:
-                      - id [^34]: ESG-12345678
-                        descriptor:
-                          code: ESG-12345678
-                          name: Dun & Bradstreet ESG Badge No.
-                        url [^35]: https://abcd.cdn.com/images/badge-img
-                        tags:
-                          - code: verification
-                            list:
-                              - code: verify_url
-                                value: https://abcd.dnb.com/verify?id=’ESG-12345678'
-                              - code: valid_from
-                                value: 2023-06-03T00:00:00:000Z
-                              - code: valid_to [^36]
-                                value: 2024-06-03T23:59:59:999Z
                     tags:
-                      - code: order_value [^37]
-                        list:
-                          - code: min_value [^38]
-                            value: '2000.00'
-                      - code: catalog_link [^39]
-                        list:
-                          - code: type
-                            value: inline [^40]
-                          - code: type_value [^41]
-                            value: https://s3.amazon.com/x-12349.zip
-                          - code: type_validity [^42]
-                            value: PT24H
-                          - code: last_update [^43]
-                            value: 2023-05-21T00:00:00:000Z
-                      - code: timing
-                        list:
-                          - code: type
-                            value: Order [^44]
-                          - code: location
-                            value: L1 [^45]
-                          - code: day_from
-                            value: 1 [^46]
-                          - code: day_to
-                            value: 7 [^47]
-                          - code: time_from
-                            value: 0000 [^48]
-                          - code: time_to
-                            value: 2359 [^49]
-                      - code: timing
-                        list:
-                          - code: type
-                            value: Self-Pickup
-                          - code: location
-                            value: L1
-                          - code: day_from
-                            value: '1'
-                          - code: day_to
-                            value: '7'
-                          - code: time_from
-                            value: '1100'
-                          - code: time_to
-                            value: '2000'
-                      - code: timing
-                        list:
-                          - code: type
-                            value: Delivery
-                          - code: location
-                            value: L1
-                          - code: day_from
-                            value: '1'
-                          - code: day_to
-                            value: '7'
-                          - code: time_from
-                            value: '1100'
-                          - code: time_to
-                            value: '2200'
                       - code: serviceability [^50]
                         list:
                           - code: location
@@ -20802,9 +20754,17 @@ x-flows:
                         time:
                           label: enable [^14]
                           timestamp: 2023-06-03T07:30:30.000Z [^15]
+                          days: 1,2,3,4,5,6,7
                           schedule:
                             holidays [^16]:
                               - '2023-08-15'
+                            frequency: PT4H
+                            times:
+                              - '1100'
+                              - '1900'
+                            range:
+                              start: '1100'
+                              end: '2100'
                         gps: 12.967555,77.749666
                         address:
                           locality [^17]: Jayanagar
@@ -20812,6 +20772,11 @@ x-flows:
                           city: Bengaluru
                           area_code: '560076'
                           state: KA
+                        circle:
+                          gps: 12.967555,77.749666
+                          radius:
+                            unit: km
+                            value: '3'
                     categories [^18]:
                       - id: 5 [^19]
                         parent_category_id: ''
@@ -22579,8 +22544,6 @@ x-flows:
               ttl [^6]: PT30S
             message:
               intent:
-                category [^7]:
-                  id: Foodgrains [^8]
                 fulfillment [^9]:
                   type: Delivery
                 payment:
@@ -22632,6 +22595,13 @@ x-flows:
               timestamp: '2023-06-03T08:00:30.000Z'
             message:
               catalog:
+                bpp/fulfillents:
+                  - id: '1'
+                    type: Delivery
+                  - id: '2'
+                    type: Self-Pickup
+                  - id: '3'
+                    type: Delivery and Self-Pickup
                 bpp/descriptor [^2]:
                   name: Seller NP
                   symbol [^3]: https://sellerNP.com/images/np.png
@@ -22668,9 +22638,17 @@ x-flows:
                         time:
                           label: enable [^14]
                           timestamp: 2023-06-03T07:30:30.000Z [^15]
+                          days: 1,2,3,4,5,6,7
                           schedule:
                             holidays [^16]:
                               - '2023-08-15'
+                            frequency: PT4H
+                            times:
+                              - '1100'
+                              - '1900'
+                            range:
+                              start: '1100'
+                              end: '2100'
                         gps: 12.967555,77.749666
                         address:
                           locality [^17]: Jayanagar
@@ -22678,6 +22656,11 @@ x-flows:
                           city: Bengaluru
                           area_code: '560076'
                           state: KA
+                        circle:
+                          gps: 12.967555,77.749666
+                          radius:
+                            unit: km
+                            value: '3'
                     categories:
                       - id: V1
                         descriptor:
@@ -22877,185 +22860,7 @@ x-flows:
                             list:
                               - code: veg [^61]
                                 value: 'yes'
-                    creds [^62]:
-                      - id [^63]: ESG-12345678
-                        descriptor:
-                          code: ESG-12345678
-                          name: Dun & Bradstreet ESG Badge No.
-                        url [^64]: https://abcd.cdn.com/images/badge-img
-                        tags:
-                          - code: verification
-                            list:
-                              - code: verify_url
-                                value: https://abcd.dnb.com/verify?id=’ESG-12345678'
-                              - code: valid_from
-                                value: 2023-06-03T00:00:00:000Z
-                              - code: valid_to [^65]
-                                value: 2024-06-03T23:59:59:999Z
-                    offers [^66]:
-                      - id: TRYNEW
-                        descriptor:
-                          code: Disc_Pct
-                          images:
-                            - https://sellerNP.com/images/offer2-banner.png
-                        location_ids:
-                          - L1
-                        item_ids:
-                          - I1
-                        time:
-                          label: valid
-                          range:
-                            start: '2023-06-21T16:00:00.000Z'
-                            end: '2023-06-21T23:00:00.000Z'
-                        tags:
-                          - code: cart
-                            list:
-                              - code: min_value
-                                value: '159.00'
-                          - code: offer
-                            list:
-                              - code: offered_value_type
-                                value: percent
-                              - code: offered_value_amt
-                                value: '-60.00'
-                              - code: offered_value_cap
-                                value: '-120.00'
-                      - id: FLAT150
-                        descriptor:
-                          code: Disc_Amt
-                          images:
-                            - https://sellerNP.com/images/offer2-banner.png
-                        location_ids:
-                          - L1
-                        item_ids:
-                          - I1
-                        time:
-                          label: valid
-                          range:
-                            start: '2023-06-22T16:00:00.000Z'
-                            end: '2023-06-22T23:00:00.000Z'
-                        tags:
-                          - code: cart
-                            list:
-                              - code: min_value
-                                value: '499.00'
-                          - code: offer
-                            list:
-                              - code: offered_value_type
-                                value: amount
-                              - code: offered_value_amt
-                                value: '-150.00'
-                      - id: BUY2GET3
-                        descriptor:
-                          code: BuyXGetY
-                          images:
-                            - https://sellerNP.com/images/offer1-banner.png
-                        location_ids:
-                          - L1
-                        item_ids:
-                          - I1
-                        time:
-                          label: valid
-                          range:
-                            start: '2023-06-23T16:00:00.000Z'
-                            end: '2023-06-23T23:00:00.000Z'
-                        tags:
-                          - code: cart
-                            list:
-                              - code: item_count
-                                value: '2'
-                          - code: offer
-                            list:
-                              - code: item_count
-                                value: '3'
-                              - code: item_id
-                                value: sku_id_for_extra_item
-                      - id: FREEBIE
-                        descriptor:
-                          code: Freebie
-                          images:
-                            - https://sellerNP.com/images/offer3-banner.png
-                        location_ids:
-                          - L1
-                        item_ids:
-                          - I1
-                        time:
-                          label: valid
-                          range:
-                            start: '2023-06-24T16:00:00.000Z'
-                            end: '2023-06-24T23:00:00.000Z'
-                        tags:
-                          - code: cart
-                            list:
-                              - code: min_value
-                                value: '598.00'
-                          - code: offer
-                            list:
-                              - code: offered_value
-                                value: '0.00'
-                              - code: item_count
-                                value: '1'
-                              - code: item_id
-                                value: sku_id_for_extra_item
-                              - code: item_value
-                                value: '200.00'
                     tags:
-                      - code: order_value [^67]
-                        list:
-                          - code: min_value [^68]
-                            value: '300.00'
-                      - code: catalog_link [^69]
-                        list:
-                          - code: type
-                            value: inline [^70]
-                          - code: type_value [^71]
-                            value: https://s3.amazon.com/x-12349.zip
-                          - code: type_validity [^72]
-                            value: PT24H
-                          - code: last_update [^73]
-                            value: 2023-05-21T00:00:00:000Z
-                      - code: timing
-                        list:
-                          - code: type
-                            value: Order [^74]
-                          - code: location
-                            value: L1 [^75]
-                          - code: day_from
-                            value: 1 [^76]
-                          - code: day_to
-                            value: 7 [^77]
-                          - code: time_from
-                            value: 0000 [^78]
-                          - code: time_to
-                            value: 2359 [^79]
-                      - code: timing
-                        list:
-                          - code: type
-                            value: Self-Pickup
-                          - code: location
-                            value: L1
-                          - code: day_from
-                            value: '1'
-                          - code: day_to
-                            value: '7'
-                          - code: time_from
-                            value: '1100'
-                          - code: time_to
-                            value: '2000'
-                      - code: timing
-                        list:
-                          - code: type
-                            value: Delivery
-                          - code: location
-                            value: L1
-                          - code: day_from
-                            value: '1'
-                          - code: day_to
-                            value: '7'
-                          - code: time_from
-                            value: '1100'
-                          - code: time_to
-                            value: '2200'
                       - code: serviceability [^80]
                         list:
                           - code: location
@@ -23949,8 +23754,6 @@ x-examples:
                 ttl [^6]: PT30S
               message:
                 intent:
-                  category [^7]:
-                    id: Foodgrains [^8]
                   fulfillment [^9]:
                     type: Delivery
                   payment:
@@ -23973,6 +23776,9 @@ x-examples:
                 ttl: PT30S
               message:
                 intent:
+                  item:
+                    descriptor:
+                      name: coffee
                   fulfillment:
                     type [^2]: Delivery
                     end:
@@ -25853,9 +25659,17 @@ x-examples:
                           time:
                             label: enable [^14]
                             timestamp: 2023-06-03T07:30:30.000Z [^15]
+                            days: 1,2,3,4,5,6,7
                             schedule:
                               holidays [^16]:
                                 - '2023-08-15'
+                              frequency: PT4H
+                              times:
+                                - '1100'
+                                - '1900'
+                              range:
+                                start: '1100'
+                                end: '2100'
                           gps: 12.967555,77.749666
                           address:
                             locality [^17]: Jayanagar
@@ -25863,6 +25677,11 @@ x-examples:
                             city: Bengaluru
                             area_code: '560076'
                             state: KA
+                          circle:
+                            gps: 12.967555,77.749666
+                            radius:
+                              unit: km
+                              value: '3'
                       categories [^18]:
                         - id: 5 [^19]
                           parent_category_id: ''
@@ -29180,6 +28999,13 @@ x-examples:
                 timestamp: '2023-06-03T08:00:30.000Z'
               message:
                 catalog:
+                  bpp/fulfillents:
+                    - id: '1'
+                      type: Delivery
+                    - id: '2'
+                      type: Self-Pickup
+                    - id: '3'
+                      type: Delivery and Self-Pickup
                   bpp/descriptor [^2]:
                     name: Seller NP
                     symbol [^3]: https://sellerNP.com/images/np.png
@@ -29216,9 +29042,17 @@ x-examples:
                           time:
                             label: enable [^14]
                             timestamp: 2023-06-03T07:30:30.000Z [^15]
+                            days: 1,2,3,4,5,6,7
                             schedule:
                               holidays [^16]:
                                 - '2023-08-15'
+                              frequency: PT4H
+                              times:
+                                - '1100'
+                                - '1900'
+                              range:
+                                start: '1100'
+                                end: '2100'
                           gps: 12.967555,77.749666
                           address:
                             locality [^17]: Jayanagar
@@ -29226,6 +29060,11 @@ x-examples:
                             city: Bengaluru
                             area_code: '560076'
                             state: KA
+                          circle:
+                            gps: 12.967555,77.749666
+                            radius:
+                              unit: km
+                              value: '3'
                       categories:
                         - id: V1
                           descriptor:
@@ -29426,186 +29265,7 @@ x-examples:
                               list:
                                 - code: veg [^61]
                                   value: 'yes'
-                      creds [^62]:
-                        - id [^63]: ESG-12345678
-                          descriptor:
-                            code: ESG-12345678
-                            name: Dun & Bradstreet ESG Badge No.
-                          url [^64]: https://abcd.cdn.com/images/badge-img
-                          tags:
-                            - code: verification
-                              list:
-                                - code: verify_url
-                                  value: >-
-                                    https://abcd.dnb.com/verify?id=’ESG-12345678'
-                                - code: valid_from
-                                  value: 2023-06-03T00:00:00:000Z
-                                - code: valid_to [^65]
-                                  value: 2024-06-03T23:59:59:999Z
-                      offers [^66]:
-                        - id: TRYNEW
-                          descriptor:
-                            code: Disc_Pct
-                            images:
-                              - https://sellerNP.com/images/offer2-banner.png
-                          location_ids:
-                            - L1
-                          item_ids:
-                            - I1
-                          time:
-                            label: valid
-                            range:
-                              start: '2023-06-21T16:00:00.000Z'
-                              end: '2023-06-21T23:00:00.000Z'
-                          tags:
-                            - code: cart
-                              list:
-                                - code: min_value
-                                  value: '159.00'
-                            - code: offer
-                              list:
-                                - code: offered_value_type
-                                  value: percent
-                                - code: offered_value_amt
-                                  value: '-60.00'
-                                - code: offered_value_cap
-                                  value: '-120.00'
-                        - id: FLAT150
-                          descriptor:
-                            code: Disc_Amt
-                            images:
-                              - https://sellerNP.com/images/offer2-banner.png
-                          location_ids:
-                            - L1
-                          item_ids:
-                            - I1
-                          time:
-                            label: valid
-                            range:
-                              start: '2023-06-22T16:00:00.000Z'
-                              end: '2023-06-22T23:00:00.000Z'
-                          tags:
-                            - code: cart
-                              list:
-                                - code: min_value
-                                  value: '499.00'
-                            - code: offer
-                              list:
-                                - code: offered_value_type
-                                  value: amount
-                                - code: offered_value_amt
-                                  value: '-150.00'
-                        - id: BUY2GET3
-                          descriptor:
-                            code: BuyXGetY
-                            images:
-                              - https://sellerNP.com/images/offer1-banner.png
-                          location_ids:
-                            - L1
-                          item_ids:
-                            - I1
-                          time:
-                            label: valid
-                            range:
-                              start: '2023-06-23T16:00:00.000Z'
-                              end: '2023-06-23T23:00:00.000Z'
-                          tags:
-                            - code: cart
-                              list:
-                                - code: item_count
-                                  value: '2'
-                            - code: offer
-                              list:
-                                - code: item_count
-                                  value: '3'
-                                - code: item_id
-                                  value: sku_id_for_extra_item
-                        - id: FREEBIE
-                          descriptor:
-                            code: Freebie
-                            images:
-                              - https://sellerNP.com/images/offer3-banner.png
-                          location_ids:
-                            - L1
-                          item_ids:
-                            - I1
-                          time:
-                            label: valid
-                            range:
-                              start: '2023-06-24T16:00:00.000Z'
-                              end: '2023-06-24T23:00:00.000Z'
-                          tags:
-                            - code: cart
-                              list:
-                                - code: min_value
-                                  value: '598.00'
-                            - code: offer
-                              list:
-                                - code: offered_value
-                                  value: '0.00'
-                                - code: item_count
-                                  value: '1'
-                                - code: item_id
-                                  value: sku_id_for_extra_item
-                                - code: item_value
-                                  value: '200.00'
                       tags:
-                        - code: order_value [^67]
-                          list:
-                            - code: min_value [^68]
-                              value: '300.00'
-                        - code: catalog_link [^69]
-                          list:
-                            - code: type
-                              value: inline [^70]
-                            - code: type_value [^71]
-                              value: https://s3.amazon.com/x-12349.zip
-                            - code: type_validity [^72]
-                              value: PT24H
-                            - code: last_update [^73]
-                              value: 2023-05-21T00:00:00:000Z
-                        - code: timing
-                          list:
-                            - code: type
-                              value: Order [^74]
-                            - code: location
-                              value: L1 [^75]
-                            - code: day_from
-                              value: 1 [^76]
-                            - code: day_to
-                              value: 7 [^77]
-                            - code: time_from
-                              value: 0000 [^78]
-                            - code: time_to
-                              value: 2359 [^79]
-                        - code: timing
-                          list:
-                            - code: type
-                              value: Self-Pickup
-                            - code: location
-                              value: L1
-                            - code: day_from
-                              value: '1'
-                            - code: day_to
-                              value: '7'
-                            - code: time_from
-                              value: '1100'
-                            - code: time_to
-                              value: '2000'
-                        - code: timing
-                          list:
-                            - code: type
-                              value: Delivery
-                            - code: location
-                              value: L1
-                            - code: day_from
-                              value: '1'
-                            - code: day_to
-                              value: '7'
-                            - code: time_from
-                              value: '1100'
-                            - code: time_to
-                              value: '2200'
                         - code: serviceability [^80]
                           list:
                             - code: location
@@ -31611,6 +31271,13 @@ x-examples:
                 timestamp: '2023-06-03T08:00:30.000Z'
               message:
                 catalog:
+                  bpp/fulfillments:
+                    - id: '1'
+                      type: Delivery
+                    - id: '2'
+                      type: Self-Pickup
+                    - id: '3'
+                      type: Delivery and Self-Pickup
                   bpp/descriptor [^2]:
                     name: Seller NP
                     symbol [^3]: https://sellerNP.com/images/np.png
@@ -31647,9 +31314,17 @@ x-examples:
                           time:
                             label: enable [^14]
                             timestamp: 2023-06-03T07:30:30.000Z [^15]
+                            days: 1,2,3,4,5,6,7
                             schedule:
                               holidays [^16]:
                                 - '2023-08-15'
+                              frequency: PT4H
+                              times:
+                                - '1100'
+                                - '1900'
+                              range:
+                                start: '1100'
+                                end: '2100'
                           gps: 12.967555,77.749666
                           address:
                             locality [^17]: Jayanagar
@@ -31657,6 +31332,11 @@ x-examples:
                             city: Bengaluru
                             area_code: '560076'
                             state: KA
+                          circle:
+                            gps: 12.967555,77.749666
+                            radius:
+                              unit: km
+                              value: '3'
                       items:
                         - id: I1
                           time:
@@ -31721,79 +31401,7 @@ x-examples:
                                 - code: url
                                   value: >-
                                     https://sellerNP.com/images/i1_back_image.png
-                      creds [^33]:
-                        - id [^34]: ESG-12345678
-                          descriptor:
-                            code: ESG-12345678
-                            name: Dun & Bradstreet ESG Badge No.
-                          url [^35]: https://abcd.cdn.com/images/badge-img
-                          tags:
-                            - code: verification
-                              list:
-                                - code: verify_url
-                                  value: >-
-                                    https://abcd.dnb.com/verify?id=’ESG-12345678'
-                                - code: valid_from
-                                  value: 2023-06-03T00:00:00:000Z
-                                - code: valid_to [^36]
-                                  value: 2024-06-03T23:59:59:999Z
                       tags:
-                        - code: order_value [^37]
-                          list:
-                            - code: min_value [^38]
-                              value: '2000.00'
-                        - code: catalog_link [^39]
-                          list:
-                            - code: type
-                              value: inline [^40]
-                            - code: type_value [^41]
-                              value: https://s3.amazon.com/x-12349.zip
-                            - code: type_validity [^42]
-                              value: PT24H
-                            - code: last_update [^43]
-                              value: 2023-05-21T00:00:00:000Z
-                        - code: timing
-                          list:
-                            - code: type
-                              value: Order [^44]
-                            - code: location
-                              value: L1 [^45]
-                            - code: day_from
-                              value: 1 [^46]
-                            - code: day_to
-                              value: 7 [^47]
-                            - code: time_from
-                              value: 0000 [^48]
-                            - code: time_to
-                              value: 2359 [^49]
-                        - code: timing
-                          list:
-                            - code: type
-                              value: Self-Pickup
-                            - code: location
-                              value: L1
-                            - code: day_from
-                              value: '1'
-                            - code: day_to
-                              value: '7'
-                            - code: time_from
-                              value: '1100'
-                            - code: time_to
-                              value: '2000'
-                        - code: timing
-                          list:
-                            - code: type
-                              value: Delivery
-                            - code: location
-                              value: L1
-                            - code: day_from
-                              value: '1'
-                            - code: day_to
-                              value: '7'
-                            - code: time_from
-                              value: '1100'
-                            - code: time_to
-                              value: '2200'
                         - code: serviceability [^50]
                           list:
                             - code: location
