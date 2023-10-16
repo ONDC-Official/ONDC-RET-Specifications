@@ -2,14 +2,14 @@ summary: Acceptance by Seller
 description: Acceptance by Seller for other products
 value:
   context:
-    domain: ONDC:RET10 #TODO: Confirm Domain
+    domain: ONDC:RET12
     action: on_confirm
     core_version: 1.2.0
     bap_id: buyerNP.com
     bap_uri: https://buyerNP.com/ondc
     bpp_id: sellerNP.com
     bpp_uri: https://sellerNP.com/ondc
-    transaction_id: T2
+    transaction_id: T1
     message_id: M4
     city: IATA:SIN
     country: SGP

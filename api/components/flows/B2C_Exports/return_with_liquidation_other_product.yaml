@@ -79,7 +79,7 @@ steps:
     description:
     reference: if any
     example:
-      $ref: "../../Examples/B2C Exports/on_update/on_update_np_sends_interim_status_liquidation_request.yaml" # TODO: Modification Needed
+      $ref: "../../Examples/B2C Exports/on_update/on_update_np_sends_interim_status_liquidation_request.yaml"
     notes:
       $ref: "../../notes/on_update/on_update_np_sends_interim_status_liquidation_request.yaml"
   - summary: seller approves the liquidation request
@@ -87,6 +87,6 @@ steps:
     description: 
     reference: if any
     example:
-      $ref: "../../Examples/B2C Exports/on_update/on_update_np_approves_liquidation_request.yaml"   #TODO: Modifications Needed
+      $ref: "../../Examples/B2C Exports/on_update/on_update_np_approves_liquidation_request.yaml"
     notes:
       $ref: "../../notes/on_update/on_update_np_approves_liquidation_request.yaml"                                                  

@@ -2,7 +2,7 @@ summary: Get quote for specific item
 description: Get quote for specific item for other products
 value:
   context:
-    domain: ONDC:RET11 # TODO: Confirm Domain
+    domain: ONDC:RET12
     action: select
     core_version: 1.2.0
     bap_id: buyerNP.com
