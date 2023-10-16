@@ -39,7 +39,7 @@ steps:
     description: 
     reference: if any
     example:
-      $ref: "../../Examples/B2C Exports/init/init.yaml" #TODO: Modifications Needed
+      $ref: "../../Examples/B2C Exports/init/init.yaml"
     notes:
       $ref: "../../notes/init/init_other_product.yaml"
   - summary: Respond to init
@@ -47,7 +47,7 @@ steps:
     description: 
     reference: if any
     example:
-      $ref: "../../Examples/B2C Exports/on_init/on_init.yaml" #TODO: Modifications Needed
+      $ref: "../../Examples/B2C Exports/on_init/on_init.yaml"
     notes:
       $ref: "../../notes/on_init/on_init_other_product.yaml"
   - summary: Buyer confirms product
@@ -55,7 +55,7 @@ steps:
     description: 
     reference: if any
     example:
-      $ref: "../../Examples/B2C Exports/confirm/confirm.yaml" #TODO: Check domain
+      $ref: "../../Examples/B2C Exports/confirm/confirm.yaml"
     notes:
       $ref: "../../notes/confirm/confirm_other_product.yaml"
   - summary: Seller Accepts confirmation
@@ -71,7 +71,7 @@ steps:
     description: 
     reference: if any
     example:
-      $ref: "../../Examples/B2C Exports/on_update/on_update_merchant_cancels_non_customized.yaml" #Modifications Needed
+      $ref: "../../Examples/B2C Exports/on_update/on_update_merchant_cancels_non_customized.yaml"
     notes:
       $ref: "../../notes/on_update/on_update_merchant_cancels_non_customized.yaml"
   - summary: Settlement trail for refund initiation

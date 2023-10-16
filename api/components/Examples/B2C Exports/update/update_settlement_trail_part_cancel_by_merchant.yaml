@@ -2,7 +2,7 @@ summary: Settlement trail cancel updated by buyer
 description: Settlement trail cancel updated by buyer
 value:
   context:
-    domain: ONDC:RET10
+    domain: ONDC:RET12
     action: update
     core_version: 1.2.0
     bap_id: buyerNP.com
