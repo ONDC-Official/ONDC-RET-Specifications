@@ -2,7 +2,7 @@ summary: Cancellation acceptance by Seller
 description: Cancellation acceptance by Seller
 value:
   context:
-    domain: ONDC:RET10
+    domain: ONDC:RET12
     country: SGP
     city: IATA:SIN
     action: on_cancel
@@ -12,7 +12,7 @@ value:
     bpp_id: sellerNP.com
     bpp_uri: https://sellerNP.com/ondc
     transaction_id: T2
-    message_id: M10
+    message_id: M11
     timestamp: '2023-06-03T11:00:30.000Z'
     ttl: PT30S
   message:

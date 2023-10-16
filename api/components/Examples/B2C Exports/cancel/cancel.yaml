@@ -2,7 +2,7 @@ summary: Cancellation by Buyer
 description: Cancellation by Buyer 
 value:
   context:
-    domain: ONDC:RET10
+    domain: ONDC:RET12
     country: SGP
     city: IATA:SIN
     action: cancel
