@@ -15,8 +15,6 @@ value:
     ttl [^6]: PT30S
   message:
     intent:
-      category [^7]:
-        id: Foodgrains [^8]
       fulfillment [^9]:
         type: Delivery
       payment:

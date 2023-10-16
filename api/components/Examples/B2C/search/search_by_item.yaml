@@ -15,6 +15,9 @@ value:
     ttl: PT30S
   message:
     intent:
+      item:
+        descriptor:
+          name: coffee
       fulfillment:
         type [^2]: Delivery
         end:
