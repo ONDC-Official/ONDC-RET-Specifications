@@ -1,5 +1,5 @@
 summary: search_by_item
-description: Search By Item
+description: Search request for catalog from sellers that match the search item & provide fulfillment at the specified drop location (gps coordinates, area code);
 value:
   context:
     domain: ONDC:RET10 [^1]
