@@ -85,3 +85,4 @@ on_status:
     - $ref: ./on_status/on_status_make_to_order_product_order_delivered.yaml
     - $ref: ./on_status/on_status_other_product_order_pickup.yaml
     - $ref: ./on_status/on_status_other_product_out_for_delivery.yaml
+    - $ref: ./on_status/on_status_other_product_order_delivered.yaml

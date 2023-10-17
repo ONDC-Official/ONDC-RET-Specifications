@@ -51,7 +51,6 @@ value:
           '@ondc/org/provider_name': LSP or Provider Name
           type: Delivery
           tracking: true
-          '@ondc/org/TAT': PT60M
           state:
             descriptor:
               code: Cancelled [^3]
@@ -102,7 +101,7 @@ value:
                   value: F1-RTO
                 - code: reason_id
                   value: '013'
-                - code: cancelled_by
+                - code: initiated_by
                   value: lsp.com
         - id: F1-RTO
           type: RTO
@@ -115,7 +114,7 @@ value:
           tags:
             - code: quote_trail
               list:
-                - code: title_type
+                - code: type
                   value: delivery
                 - code: id
                   value: F1-RTO
@@ -123,6 +122,16 @@ value:
                   value: INR
                 - code: value
                   value: '50.00'
+            - code: quote_trail
+              list:
+                - code: type
+                  value: item
+                - code: id
+                  value: L1
+                - code: currency
+                  value: INR
+                - code: value
+                  value: "-340.00"
       quote:
         price [^5]:
           currency: INR
