@@ -20,11 +20,7 @@ confirm:
     - $ref: ./confirm/confirm_other_product.yaml
 update:
   examples:
-    - $ref: ./update/update_buyer_initiated_return_with_liquidation.yaml
-    - $ref: ./update/update_buyer_initiated_return_with_reverse_qc_request.yaml
-    - $ref: ./update/update_settlement_trail_cancel_by_merchant.yaml
-    - $ref: ./update/update_settlement_trail_return_with_liquidation.yaml
-    - $ref: ./update/update_settlement_trail_return_with_reverse_qc_request.yaml
+    - $ref: ./update/update_settlement_trail_for_refund_initiation.yaml
 cancel:
   examples:
     - $ref: ./cancel/cancel.yaml
@@ -76,15 +72,6 @@ on_update:
   examples:
     - $ref: ./on_update/on_update_merchant_cancels_customized.yaml
     - $ref: ./on_update/on_update_merchant_cancels_non_customized.yaml
-    - $ref: ./on_update/on_update_np_approves_liquidation_request.yaml
-    - $ref: ./on_update/on_update_np_approves_request.yaml
-    - $ref: ./on_update/on_update_np_sends_interim_status_liquidation_request.yaml
-    - $ref: ./on_update/on_update_np_sends_interim_status_request.yaml
-    - $ref: ./on_update/on_update_reject_request.yaml
-    - $ref: ./on_update/on_update_return_delivered.yaml
-    - $ref: ./on_update/on_update_return_failed.yaml
-    - $ref: ./on_update/on_update_return_picked.yaml
-    - $ref: ./on_update/on_update_return_resechedule.yaml
 on_cancel:
   examples:
     - $ref: ./on_cancel/on_cancel.yaml

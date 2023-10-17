@@ -25,7 +25,6 @@ value:
           id: I1
       fulfillments:
         - id: F1
-          type: Delivery
           '@ondc/org/provider_name': LSP or Provider Name
           tracking: false
           '@ondc/org/category': Immediate Delivery

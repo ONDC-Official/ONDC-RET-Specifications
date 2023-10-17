@@ -1,5 +1,10 @@
-summary: Cancel Non Customised status updated by Seller
-description: Cancel Non Customised status updated by Seller
+summary: On Update flow for when merchant cancels non customized product
+description:
+  nb:
+    - seq: 1
+      value: >
+        For merchant part-cancel, the buyer NP may send NACK with error code 22501 (if the buyer does not accept part fill for the order). In this case, the seller NP will be required to rollback this part cancel request and cancel the full order;
+
 value:
   context:
     domain: ONDC:RET11
@@ -13,9 +18,9 @@ value:
     message_id: M5
     city: std:080
     country: IND
-    timestamp: '2023-06-03T10:30:30.000Z'
+    timestamp: "2023-06-03T10:30:30.000Z"
   message:
-    order [^1]:
+    order:
       id: O1
       state: Accepted
       provider:
@@ -24,33 +29,33 @@ value:
           - id: L1
       items:
         - id: I1
-          fulfillment_id: F1 [^2]
+          fulfillment_id: F1
           quantity:
-            count: 1 [^3]
+            count: 1
         - id: I1
-          fulfillment_id: C1 [^4]
+          fulfillment_id: C1
           quantity:
-            count: 1 [^5]
+            count: 1
       billing:
         name: ONDC buyer
         address:
-          name: 'My house #'
-          building: My building name
-          locality: My street name
+          name: "my house or door or floor #"
+          building: "my building name or house #"
+          locality: my street name
           city: Bengaluru
           state: Karnataka
           country: IND
-          area_code: '560037'
+          area_code: "560037"
         email: nobody@nomail.com
-        phone: '9886098860'
-        created_at: '2023-06-03T09:00:00.000Z'
-        updated_at: '2023-06-03T09:00:00.000Z'
+        phone: "9886098860"
+        created_at: "2023-06-03T09:00:00.000Z"
+        updated_at: "2023-06-03T09:00:00.000Z"
       fulfillments:
         - id: F1
-          '@ondc/org/provider_name': LSP or Provider Name
+          "@ondc/org/provider_name": LSP or Provider Name
           type: Delivery
           tracking: true
-          '@ondc/org/TAT': PT60M
+          "@ondc/org/TAT": PT60M
           state:
             descriptor:
               code: Pending
@@ -63,34 +68,34 @@ value:
               address:
                 locality: Jayanagar
                 city: Bengaluru
-                area_code: '560076'
+                area_code: "560076"
                 state: KA
             time:
               range:
-                start: '2023-06-03T10:00:00.000Z'
-                end: '2023-06-03T10:30:00.000Z'
+                start: "2023-06-03T10:00:00.000Z"
+                end: "2023-06-03T10:30:00.000Z"
             contact:
-              phone: '9886098860'
+              phone: "9886098860"
               email: nobody@nomail.com
           end:
             location:
               gps: 12.453544,77.928379
               address:
-                name: 'My house #'
-                building: My building name
-                locality: My street name
+                name: "my house or door or floor #"
+                building: "my building name or house #"
+                locality: my street name
                 city: Bengaluru
                 state: Karnataka
                 country: IND
-                area_code: '560037'
+                area_code: "560037"
             time:
               range:
-                start: '2023-06-03T11:00:00.000Z'
-                end: '2023-06-03T11:30:00.000Z'
+                start: "2023-06-03T11:00:00.000Z"
+                end: "2023-06-03T11:30:00.000Z"
             person:
               name: name_of_person
             contact:
-              phone: '9886098860'
+              phone: "9886098860"
               email: nobody@nomail.com
         - id: C1
           type: Cancel
@@ -101,19 +106,19 @@ value:
             - code: cancel_request
               list:
                 - code: reason_id
-                  value: '002 [^6]'
+                  value: "002"
                 - code: initiated_by
-                  value: sellerNP.com [^7]
+                  value: sellerNP.com
             - code: quote_trail
               list:
-                - code: type [^8]
+                - code: type
                   value: item
-                - code: id [^9]
+                - code: id
                   value: I1
                 - code: currency
                   value: INR
-                - code: value [^10]
-                  value: '-170.00'
+                - code: value
+                  value: "-170.00"
             - code: quote_trail
               list:
                 - code: type
@@ -123,67 +128,67 @@ value:
                 - code: currency
                   value: INR
                 - code: value
-                  value: '0.00'
+                  value: "0.00"
       quote:
         price:
           currency: INR
-          value: '245.00 [^11]'
+          value: "245.00"
         breakup:
-          - '@ondc/org/item_id': I1
-            '@ondc/org/item_quantity':
-              count: 1 [^12]
+          - "@ondc/org/item_id": I1
+            "@ondc/org/item_quantity":
+              count: 1
             title: Atta
-            '@ondc/org/title_type': item
+            "@ondc/org/title_type": item
             price:
               currency: INR
-              value: '170.00'
+              value: "170.00"
             item:
               price:
                 currency: INR
-                value: '170.00'
-          - '@ondc/org/item_id': F1
+                value: "170.00"
+          - "@ondc/org/item_id": F1
             title: Delivery charges
-            '@ondc/org/title_type': delivery
+            "@ondc/org/title_type": delivery
             price:
               currency: INR
-              value: '50.00'
-          - '@ondc/org/item_id': F1
+              value: "50.00"
+          - "@ondc/org/item_id": F1
             title: Packing charges
-            '@ondc/org/title_type': packing
+            "@ondc/org/title_type": packing
             price:
               currency: INR
-              value: '25.00'
-          - '@ondc/org/item_id': I1
+              value: "25.00"
+          - "@ondc/org/item_id": I1
             title: Tax
-            '@ondc/org/title_type': tax
+            "@ondc/org/title_type": tax
             price:
               currency: INR
-              value: '0.00'
-          - '@ondc/org/item_id': I1
+              value: "0.00"
+          - "@ondc/org/item_id": I1
             title: Discount
-            '@ondc/org/title_type': discount
+            "@ondc/org/title_type": discount
             price:
               currency: INR
-              value: '-10.00'
-          - '@ondc/org/item_id': F1
+              value: "-10.00"
+          - "@ondc/org/item_id": F1
             title: Convenience Fee
-            '@ondc/org/title_type': misc
+            "@ondc/org/title_type": misc
             price:
               currency: INR
-              value: '10.00'
+              value: "10.00"
         ttl: P1D
-      payment [^13]:
+      payment:
         uri: https://ondc.transaction.com/payment
         params:
           currency: INR
-          transaction_id: '3937'
-          amount: '415.00'
+          transaction_id: "3937"
+          amount: "415.00"
         status: PAID
         type: ON-ORDER
         collected_by: BAP
-        '@ondc/org/buyer_app_finder_fee_type': percent
-        '@ondc/org/buyer_app_finder_fee_amount': '3'
-        '@ondc/org/settlement_details':
+        "@ondc/org/buyer_app_finder_fee_type": percent
+        "@ondc/org/buyer_app_finder_fee_amount": "3"
+        "@ondc/org/settlement_details":
           - settlement_counterparty: seller-app
             settlement_phase: sale-amount
             beneficiary_name: xxxxx
@@ -193,5 +198,5 @@ value:
             settlement_ifsc_code: XXXXXXXXX
             bank_name: xxxx
             branch_name: xxxx
-      created_at: '2023-06-03T09:30:00.000Z'
-      updated_at: '2023-06-03T10:31:30.000Z'
+      created_at: "2023-06-03T09:30:00.000Z"
+      updated_at: "2023-06-03T10:31:30.000Z"
