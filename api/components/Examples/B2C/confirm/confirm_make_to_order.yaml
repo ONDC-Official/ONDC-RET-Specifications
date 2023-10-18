@@ -21,7 +21,7 @@ value:
     ttl: PT30S
   message:
     order:
-      id: O1
+      id: O1 [^1]
       state: Created
       provider:
         id: P1
@@ -32,7 +32,7 @@ value:
           fulfillment_id: F1
           quantity:
             count: 1
-          parent_item_id: DI1
+          parent_item_id: DI1 [^2]
           tags:
             - code: type
               list:
@@ -171,9 +171,9 @@ value:
           country: IND
           area_code: "560037"
         phone: "9886098860"
-        email: nobody@nomail.com
-        created_at: "2023-02-03T09:00:00.000Z"
-        updated_at: "2023-02-03T09:00:00.000Z"
+        email [^3]: nobody@nomail.com
+        created_at [^4]: "2023-02-03T09:00:00.000Z"
+        updated_at [^5]: "2023-02-03T09:00:00.000Z"
       fulfillments:
         - id: F1
           type: Delivery
@@ -182,7 +182,7 @@ value:
             person:
               name: name_of_person
             contact:
-              email: nobody@nomail.com
+              email [^7]: nobody@nomail.com
               phone: "9886098860"
             location:
               gps: 12.453544,77.928379
@@ -238,7 +238,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG1
+                      value: CG1 [^9]
           - "@ondc/org/item_id": C7
             "@ondc/org/item_quantity":
               count: 1
@@ -260,7 +260,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG2
+                      value: CG2 [^10]
           - "@ondc/org/item_id": C14
             "@ondc/org/item_quantity":
               count: 1
@@ -282,7 +282,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG3
+                      value: CG3 [^11]
           - "@ondc/org/item_id": C16
             "@ondc/org/item_quantity":
               count: 1
@@ -304,7 +304,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG3
+                      value: CG3 [^12]
           - "@ondc/org/item_id": I1
             "@ondc/org/item_quantity":
               count: 1
@@ -344,7 +344,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG1
+                      value: CG1 [^13]
           - "@ondc/org/item_id": C7
             "@ondc/org/item_quantity":
               count: 1
@@ -366,7 +366,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG2
+                      value: CG2 [^14]
           - "@ondc/org/item_id": C14
             "@ondc/org/item_quantity":
               count: 1
@@ -388,7 +388,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG3
+                      value: CG3 [^15]
           - "@ondc/org/item_id": C15
             "@ondc/org/item_quantity":
               count: 1
@@ -592,23 +592,23 @@ value:
               currency: INR
               value: "10.00"
         ttl: PT1H
-      payment:
-        uri: https://ondc.transaction.com/payment
+      payment [^16]:
+        uri [^17]: https://ondc.transaction.com/payment
         tl_method: http/get
         params:
           currency: INR
-          transaction_id: "3937"
-          amount: "1946.65"
-        status: PAID
-        type: ON-ORDER
-        collected_by: BAP
+          transaction_id  [^18]: "3937"
+          amount: "1946.65 [^19]"
+        status: PAID [^20]
+        type: ON-ORDER [^21]
+        collected_by: BAP [^22]
         "@ondc/org/buyer_app_finder_fee_type": percent
         "@ondc/org/buyer_app_finder_fee_amount": "3"
-        "@ondc/org/settlement_basis": delivery
-        "@ondc/org/settlement_window": P1D
-        "@ondc/org/withholding_amount": "10.00"
-        "@ondc/org/settlement_details":
-          - settlement_counterparty: seller-app
+        "@ondc/org/settlement_basis": delivery [^23]
+        "@ondc/org/settlement_window": P1D [^24]
+        "@ondc/org/withholding_amount": "10.00 [^25]"
+        "@ondc/org/settlement_details [^26]":
+          - settlement_counterparty: seller-app [^27]
             settlement_phase: sale-amount
             settlement_type: upi
             upi_address: gft@oksbi
@@ -624,7 +624,7 @@ value:
               value: gst_number_of_sellerNP
         - code: bap_terms
           list:
-            - code: tax_number
+            - code: tax_number [^28]
               value: gst_number_of_buyerNP
-      created_at: "2023-06-03T09:30:00.000Z"
-      updated_at: "2023-06-03T09:30:00.000Z"
+      created_at [^29]: "2023-06-03T09:30:00.000Z"
+      updated_at [^30]: "2023-06-03T09:30:00.000Z"
