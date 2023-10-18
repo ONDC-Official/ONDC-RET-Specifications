@@ -6,4 +6,4 @@ value:
   [^5]: quote trail for RTO fulfillment will include additional costs charged (+ve) or existing costs refunded (-ve);
   [^6]: quote trail for RTO fulfillment will include additional costs charged (+ve) or existing costs refunded (-ve);
   [^7]: updated order value including cancellation charges (delivery + packing charges)
-  [^6]: for make-to-order items, quantity may not be changed
+  [^8]: for make-to-order items, quantity may not be changed
