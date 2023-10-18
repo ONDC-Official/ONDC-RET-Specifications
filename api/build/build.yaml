@@ -7697,7 +7697,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG1
+                                value: CG1 [^1]
                     - '@ondc/org/item_id': C7
                       '@ondc/org/item_quantity':
                         count: 1
@@ -7724,7 +7724,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG2
+                                value: CG2 [^2]
                     - '@ondc/org/item_id': C14
                       '@ondc/org/item_quantity':
                         count: 1
@@ -7751,7 +7751,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG3
+                                value: CG3 [^3]
                     - '@ondc/org/item_id': C16
                       '@ondc/org/item_quantity':
                         count: 1
@@ -7778,7 +7778,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG3
+                                value: CG3 [^4]
                     - '@ondc/org/item_id': I1
                       '@ondc/org/item_quantity':
                         count: 1
@@ -7828,7 +7828,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG1
+                                value: CG1 [^5]
                     - '@ondc/org/item_id': C7
                       '@ondc/org/item_quantity':
                         count: 1
@@ -7855,7 +7855,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG2
+                                value: CG2 [^6]
                     - '@ondc/org/item_id': C14
                       '@ondc/org/item_quantity':
                         count: 1
@@ -7882,7 +7882,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG3
+                                value: CG3 [^7]
                     - '@ondc/org/item_id': C15
                       '@ondc/org/item_quantity':
                         count: 1
@@ -8091,26 +8091,20 @@ x-flows:
                         currency: INR
                         value: '10.00'
                   ttl: PT1H
-            error:
+            error [^8]:
               type: DOMAIN-ERROR
               code: '40002'
               message: stringified json formatted as in point 7 below
         notes: &ref_27
           value:
-            ^1: >-
-              location could be same as what was selected by buyer or may be
-              filled from different location
-            ^2: >-
-              id for dynamic item created by buyer app for make-to-order product
-              and available in parent_item_id in /select
+            ^1: id of customization group for the customization
+            ^2: id of customization group for the customization
             ^3: id of customization group for the customization
             ^4: id of customization group for the customization
             ^5: id of customization group for the customization
             ^6: id of customization group for the customization
             ^7: id of customization group for the customization
-            ^8: id of customization group for the customization
-            ^9: id of customization group for the customization
-            ^10: only if item(s) out of stock or location not serviceable
+            ^8: only if item(s) out of stock or location not serviceable;
       - summary: Buyer initiate the product and send the updated fulfillment id
         api: init
         description: null
@@ -8144,7 +8138,7 @@ x-flows:
                     fulfillment_id: F1
                     quantity:
                       count: 1
-                    parent_item_id: DI1
+                    parent_item_id: DI1 [^1]
                     tags:
                       - code: type
                         list:
@@ -8275,26 +8269,26 @@ x-flows:
                 billing:
                   name: ONDC buyer
                   address:
-                    name: 'my house or door or floor #'
+                    name: 'my house or door or floor # [^2]'
                     building: 'my building name or house #'
-                    locality: my street name
+                    locality: my street name [^3]
                     city: Bengaluru
                     state: Karnataka
                     country: IND
                     area_code: '560037'
-                  tax_number: XXXXXXXXXXXXXXX
-                  email: nobody@nomail.com
+                  tax_number [^4]: XXXXXXXXXXXXXXX
+                  email [^5]: nobody@nomail.com
                   phone: '9886098860'
-                  created_at: '2023-06-03T09:00:00.000Z'
-                  updated_at: '2023-06-03T09:00:00.000Z'
+                  created_at [^6]: '2023-06-03T09:00:00.000Z'
+                  updated_at [^7]: '2023-06-03T09:00:00.000Z'
                 fulfillments:
                   - id: F1
                     type: Delivery
                     end:
                       location:
                         gps: 12.453544,77.928379
-                        address:
-                          name: 'my house or door or floor #'
+                        address [^8]:
+                          name: 'my house or door or floor # [^9]'
                           building: 'my building name or house #'
                           locality: my street name
                           city: Bengaluru
@@ -8480,7 +8474,7 @@ x-flows:
                         list:
                           - code: id
                             value: CG3
-                billing:
+                billing [^3]:
                   name: ONDC buyer
                   address:
                     name: 'my house or door or floor #'
@@ -8490,11 +8484,11 @@ x-flows:
                     state: Karnataka
                     country: IND
                     area_code: '560037'
-                  tax_number: XXXXXXXXXXXXXXX
-                  email: nobody@nomail.com
+                  tax_number [^4]: XXXXXXXXXXXXXXX
+                  email [^5]: nobody@nomail.com
                   phone: '9886098860'
-                  created_at: '2023-06-03T09:00:00.000Z'
-                  updated_at: '2023-06-03T09:00:00.000Z'
+                  created_at [^6]: '2023-06-03T09:00:00.000Z'
+                  updated_at [^7]: '2023-06-03T09:00:00.000Z'
                 fulfillments:
                   - id: F1
                     type: Delivery
@@ -8566,7 +8560,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG1
+                                value: CG1[^8]
                     - '@ondc/org/item_id': C7
                       '@ondc/org/item_quantity':
                         count: 1
@@ -8593,7 +8587,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG2
+                                value: CG2[^9]
                     - '@ondc/org/item_id': C14
                       '@ondc/org/item_quantity':
                         count: 1
@@ -8620,7 +8614,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG3
+                                value: CG3 [^10]
                     - '@ondc/org/item_id': C16
                       '@ondc/org/item_quantity':
                         count: 1
@@ -8647,7 +8641,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG3
+                                value: CG3 [^11]
                     - '@ondc/org/item_id': I1
                       '@ondc/org/item_quantity':
                         count: 1
@@ -8697,7 +8691,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG1
+                                value: CG1 [^12]
                     - '@ondc/org/item_id': C7
                       '@ondc/org/item_quantity':
                         count: 1
@@ -8724,7 +8718,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG2
+                                value: CG2 [^13]
                     - '@ondc/org/item_id': C14
                       '@ondc/org/item_quantity':
                         count: 1
@@ -8751,7 +8745,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG3
+                                value: CG3 [^14]
                     - '@ondc/org/item_id': C15
                       '@ondc/org/item_quantity':
                         count: 1
@@ -8960,13 +8954,13 @@ x-flows:
                         currency: INR
                         value: '10.00'
                   ttl: PT1H
-                payment:
+                payment [^15]:
                   '@ondc/org/buyer_app_finder_fee_type': percent
                   '@ondc/org/buyer_app_finder_fee_amount': '3'
-                  '@ondc/org/settlement_details':
+                  '@ondc/org/settlement_details [^16]':
                     - settlement_counterparty: seller-app
                       settlement_phase: sale-amount
-                      settlement_type: upi
+                      settlement_type: upi [^17]
                       beneficiary_name: xxxxx
                       upi_address: gft@oksbi
                       settlement_bank_account_no: XXXXXXXXXX
@@ -8975,12 +8969,6 @@ x-flows:
                       branch_name: xxxx
         notes: &ref_31
           value:
-            ^1: >-
-              may be the same location as selected by the buyer or a different
-              location
-            ^2: >-
-              id for dynamic item created by buyer app for make-to-order product
-              and available in parent_item_id in /select
             ^3: >-
               billing object timestamps (created_at, updated_at) have to be the
               same as in /init
@@ -18278,8 +18266,8 @@ x-flows:
         notes:
           value:
             ^1: >-
-              updated domain namespace is
-              https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
+              updated domain namespace is provided
+              [here](https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1)
             ^2: descriptor for seller NP
             ^3: logo or image for seller NP
             ^4: descriptor for seller (merchant) that processes & fulfills orders
@@ -18312,8 +18300,8 @@ x-flows:
               location, i.e. warehouse or store, from buyer NP cache - in this
               case, serviceability for the store should not be a part of the
               catalog), "close" (temporary closure of store with the same format
-              for time.range as specified, for incremental refresh, here -
-              https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.ar4y0zvk65s4
+              for time.range as specified, for incremental refresh,
+              [here](https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.ar4y0zvk65s4)
               only if this event is available at the time of generating the full
               catalog snapshot)
             ^15: >-
@@ -18349,7 +18337,8 @@ x-flows:
               image (instead of sending placeholder image)
             ^26: >-
               enum - "unit", "dozen", "kilogram", "tonne", "litre", "millilitre"
-              (https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/grocery/RET10-UOM.json)
+              (list
+              [here](https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/grocery/RET10-UOM.json))
             ^27: stringified integer value - default value for item in stock
             ^28: >-
               stringified integer value - cap per order (if exists) or default
@@ -19424,7 +19413,7 @@ x-examples:
                       fulfillment_id: F1
                       quantity:
                         count: 1
-                      parent_item_id: DI1
+                      parent_item_id: DI1 [^1]
                       tags:
                         - code: type
                           list:
@@ -19555,26 +19544,26 @@ x-examples:
                   billing:
                     name: ONDC buyer
                     address:
-                      name: 'my house or door or floor #'
+                      name: 'my house or door or floor # [^2]'
                       building: 'my building name or house #'
-                      locality: my street name
+                      locality: my street name [^3]
                       city: Bengaluru
                       state: Karnataka
                       country: IND
                       area_code: '560037'
-                    tax_number: XXXXXXXXXXXXXXX
-                    email: nobody@nomail.com
+                    tax_number [^4]: XXXXXXXXXXXXXXX
+                    email [^5]: nobody@nomail.com
                     phone: '9886098860'
-                    created_at: '2023-06-03T09:00:00.000Z'
-                    updated_at: '2023-06-03T09:00:00.000Z'
+                    created_at [^6]: '2023-06-03T09:00:00.000Z'
+                    updated_at [^7]: '2023-06-03T09:00:00.000Z'
                   fulfillments:
                     - id: F1
                       type: Delivery
                       end:
                         location:
                           gps: 12.453544,77.928379
-                          address:
-                            name: 'my house or door or floor #'
+                          address [^8]:
+                            name: 'my house or door or floor # [^9]'
                             building: 'my building name or house #'
                             locality: my street name
                             city: Bengaluru
@@ -27046,7 +27035,7 @@ x-examples:
                             - code: parent
                               list:
                                 - code: id
-                                  value: CG1
+                                  value: CG1 [^1]
                       - '@ondc/org/item_id': C7
                         '@ondc/org/item_quantity':
                           count: 1
@@ -27073,7 +27062,7 @@ x-examples:
                             - code: parent
                               list:
                                 - code: id
-                                  value: CG2
+                                  value: CG2 [^2]
                       - '@ondc/org/item_id': C14
                         '@ondc/org/item_quantity':
                           count: 1
@@ -27100,7 +27089,7 @@ x-examples:
                             - code: parent
                               list:
                                 - code: id
-                                  value: CG3
+                                  value: CG3 [^3]
                       - '@ondc/org/item_id': C16
                         '@ondc/org/item_quantity':
                           count: 1
@@ -27127,7 +27116,7 @@ x-examples:
                             - code: parent
                               list:
                                 - code: id
-                                  value: CG3
+                                  value: CG3 [^4]
                       - '@ondc/org/item_id': I1
                         '@ondc/org/item_quantity':
                           count: 1
@@ -27177,7 +27166,7 @@ x-examples:
                             - code: parent
                               list:
                                 - code: id
-                                  value: CG1
+                                  value: CG1 [^5]
                       - '@ondc/org/item_id': C7
                         '@ondc/org/item_quantity':
                           count: 1
@@ -27204,7 +27193,7 @@ x-examples:
                             - code: parent
                               list:
                                 - code: id
-                                  value: CG2
+                                  value: CG2 [^6]
                       - '@ondc/org/item_id': C14
                         '@ondc/org/item_quantity':
                           count: 1
@@ -27231,7 +27220,7 @@ x-examples:
                             - code: parent
                               list:
                                 - code: id
-                                  value: CG3
+                                  value: CG3 [^7]
                       - '@ondc/org/item_id': C15
                         '@ondc/org/item_quantity':
                           count: 1
@@ -27440,7 +27429,7 @@ x-examples:
                           currency: INR
                           value: '10.00'
                     ttl: PT1H
-              error:
+              error [^8]:
                 type: DOMAIN-ERROR
                 code: '40002'
                 message: stringified json formatted as in point 7 below
@@ -27601,7 +27590,7 @@ x-examples:
                           list:
                             - code: id
                               value: CG3
-                  billing:
+                  billing [^3]:
                     name: ONDC buyer
                     address:
                       name: 'my house or door or floor #'
@@ -27611,11 +27600,11 @@ x-examples:
                       state: Karnataka
                       country: IND
                       area_code: '560037'
-                    tax_number: XXXXXXXXXXXXXXX
-                    email: nobody@nomail.com
+                    tax_number [^4]: XXXXXXXXXXXXXXX
+                    email [^5]: nobody@nomail.com
                     phone: '9886098860'
-                    created_at: '2023-06-03T09:00:00.000Z'
-                    updated_at: '2023-06-03T09:00:00.000Z'
+                    created_at [^6]: '2023-06-03T09:00:00.000Z'
+                    updated_at [^7]: '2023-06-03T09:00:00.000Z'
                   fulfillments:
                     - id: F1
                       type: Delivery
@@ -27687,7 +27676,7 @@ x-examples:
                             - code: parent
                               list:
                                 - code: id
-                                  value: CG1
+                                  value: CG1[^8]
                       - '@ondc/org/item_id': C7
                         '@ondc/org/item_quantity':
                           count: 1
@@ -27714,7 +27703,7 @@ x-examples:
                             - code: parent
                               list:
                                 - code: id
-                                  value: CG2
+                                  value: CG2[^9]
                       - '@ondc/org/item_id': C14
                         '@ondc/org/item_quantity':
                           count: 1
@@ -27741,7 +27730,7 @@ x-examples:
                             - code: parent
                               list:
                                 - code: id
-                                  value: CG3
+                                  value: CG3 [^10]
                       - '@ondc/org/item_id': C16
                         '@ondc/org/item_quantity':
                           count: 1
@@ -27768,7 +27757,7 @@ x-examples:
                             - code: parent
                               list:
                                 - code: id
-                                  value: CG3
+                                  value: CG3 [^11]
                       - '@ondc/org/item_id': I1
                         '@ondc/org/item_quantity':
                           count: 1
@@ -27818,7 +27807,7 @@ x-examples:
                             - code: parent
                               list:
                                 - code: id
-                                  value: CG1
+                                  value: CG1 [^12]
                       - '@ondc/org/item_id': C7
                         '@ondc/org/item_quantity':
                           count: 1
@@ -27845,7 +27834,7 @@ x-examples:
                             - code: parent
                               list:
                                 - code: id
-                                  value: CG2
+                                  value: CG2 [^13]
                       - '@ondc/org/item_id': C14
                         '@ondc/org/item_quantity':
                           count: 1
@@ -27872,7 +27861,7 @@ x-examples:
                             - code: parent
                               list:
                                 - code: id
-                                  value: CG3
+                                  value: CG3 [^14]
                       - '@ondc/org/item_id': C15
                         '@ondc/org/item_quantity':
                           count: 1
@@ -28081,13 +28070,13 @@ x-examples:
                           currency: INR
                           value: '10.00'
                     ttl: PT1H
-                  payment:
+                  payment [^15]:
                     '@ondc/org/buyer_app_finder_fee_type': percent
                     '@ondc/org/buyer_app_finder_fee_amount': '3'
-                    '@ondc/org/settlement_details':
+                    '@ondc/org/settlement_details [^16]':
                       - settlement_counterparty: seller-app
                         settlement_phase: sale-amount
-                        settlement_type: upi
+                        settlement_type: upi [^17]
                         beneficiary_name: xxxxx
                         upi_address: gft@oksbi
                         settlement_bank_account_no: XXXXXXXXXX

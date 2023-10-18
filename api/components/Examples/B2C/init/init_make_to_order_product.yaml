@@ -157,7 +157,7 @@ value:
       billing:
         name: ONDC buyer
         address:
-          name: 'my house or door or floor #' [^2]
+          name: 'my house or door or floor # [^2]' 
           building: 'my building name or house #'
           locality: my street name [^3]
           city: Bengaluru
@@ -176,7 +176,7 @@ value:
           location:
             gps: 12.453544,77.928379
             address [^8]:
-              name: 'my house or door or floor #' [^9]
+              name: 'my house or door or floor # [^9]'
               building: 'my building name or house #'
               locality: my street name
               city: Bengaluru
