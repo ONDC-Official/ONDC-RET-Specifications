@@ -2,7 +2,7 @@ value:
   [^1]: shows the current state of order with the new fulfillment for part cancel by merchant
   [^2]: new fulfillment id for cancel request, must be unique for each cancellation / cancellation request
   [^3]: quantity for which cancel initiated, i.e. for this specific cancellation identified by unique fulfillment id "C1"
-  [^4]: valid reason code from https://docs.google.com/document/d/1M-lZSduYMFKIk1V6d8QLt-j-16-rVzYVdPn0pmbkclk/edit#heading=h.lq5jsehzritb for part cancel
+  [^4]: valid reason code from [here](https://docs.google.com/document/d/1M-lZSduYMFKIk1V6d8QLt-j-16-rVzYVdPn0pmbkclk/edit#heading=h.lq5jsehzritb) for part cancel
   [^5]: bpp id of seller NP or source from which request initiated, details of this id can be verified using registry lookup
   [^6]: matches order.quote.breakup[].title_type
   [^7]: matches item type, i.e. "item", "customization"
@@ -17,3 +17,4 @@ value:
   [^16]: id of customization group for the customization
   [^17]: id of customization group for the customization
   [^18]: id of customization group for the customization
+  [^19]: optional keys here as defined in /confirm

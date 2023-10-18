@@ -9057,7 +9057,7 @@ x-flows:
               ttl: PT30S
             message:
               order:
-                id: O1
+                id: O1 [^1]
                 state: Created
                 provider:
                   id: P1
@@ -9068,7 +9068,7 @@ x-flows:
                     fulfillment_id: F1
                     quantity:
                       count: 1
-                    parent_item_id: DI1
+                    parent_item_id: DI1 [^2]
                     tags:
                       - code: type
                         list:
@@ -9207,9 +9207,9 @@ x-flows:
                     country: IND
                     area_code: '560037'
                   phone: '9886098860'
-                  email: nobody@nomail.com
-                  created_at: '2023-02-03T09:00:00.000Z'
-                  updated_at: '2023-02-03T09:00:00.000Z'
+                  email [^3]: nobody@nomail.com
+                  created_at [^4]: '2023-02-03T09:00:00.000Z'
+                  updated_at [^5]: '2023-02-03T09:00:00.000Z'
                 fulfillments:
                   - id: F1
                     type: Delivery
@@ -9218,7 +9218,7 @@ x-flows:
                       person:
                         name: name_of_person
                       contact:
-                        email: nobody@nomail.com
+                        email [^7]: nobody@nomail.com
                         phone: '9886098860'
                       location:
                         gps: 12.453544,77.928379
@@ -9274,7 +9274,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG1
+                                value: CG1 [^9]
                     - '@ondc/org/item_id': C7
                       '@ondc/org/item_quantity':
                         count: 1
@@ -9296,7 +9296,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG2
+                                value: CG2 [^10]
                     - '@ondc/org/item_id': C14
                       '@ondc/org/item_quantity':
                         count: 1
@@ -9318,7 +9318,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG3
+                                value: CG3 [^11]
                     - '@ondc/org/item_id': C16
                       '@ondc/org/item_quantity':
                         count: 1
@@ -9340,7 +9340,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG3
+                                value: CG3 [^12]
                     - '@ondc/org/item_id': I1
                       '@ondc/org/item_quantity':
                         count: 1
@@ -9380,7 +9380,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG1
+                                value: CG1 [^13]
                     - '@ondc/org/item_id': C7
                       '@ondc/org/item_quantity':
                         count: 1
@@ -9402,7 +9402,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG2
+                                value: CG2 [^14]
                     - '@ondc/org/item_id': C14
                       '@ondc/org/item_quantity':
                         count: 1
@@ -9424,7 +9424,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG3
+                                value: CG3 [^15]
                     - '@ondc/org/item_id': C15
                       '@ondc/org/item_quantity':
                         count: 1
@@ -9628,23 +9628,23 @@ x-flows:
                         currency: INR
                         value: '10.00'
                   ttl: PT1H
-                payment:
-                  uri: https://ondc.transaction.com/payment
+                payment [^16]:
+                  uri [^17]: https://ondc.transaction.com/payment
                   tl_method: http/get
                   params:
                     currency: INR
-                    transaction_id: '3937'
-                    amount: '1946.65'
-                  status: PAID
-                  type: ON-ORDER
-                  collected_by: BAP
+                    transaction_id  [^18]: '3937'
+                    amount: 1946.65 [^19]
+                  status: PAID [^20]
+                  type: ON-ORDER [^21]
+                  collected_by: BAP [^22]
                   '@ondc/org/buyer_app_finder_fee_type': percent
                   '@ondc/org/buyer_app_finder_fee_amount': '3'
-                  '@ondc/org/settlement_basis': delivery
-                  '@ondc/org/settlement_window': P1D
-                  '@ondc/org/withholding_amount': '10.00'
-                  '@ondc/org/settlement_details':
-                    - settlement_counterparty: seller-app
+                  '@ondc/org/settlement_basis': delivery [^23]
+                  '@ondc/org/settlement_window': P1D [^24]
+                  '@ondc/org/withholding_amount': 10.00 [^25]
+                  '@ondc/org/settlement_details [^26]':
+                    - settlement_counterparty: seller-app [^27]
                       settlement_phase: sale-amount
                       settlement_type: upi
                       upi_address: gft@oksbi
@@ -9660,10 +9660,10 @@ x-flows:
                         value: gst_number_of_sellerNP
                   - code: bap_terms
                     list:
-                      - code: tax_number
+                      - code: tax_number [^28]
                         value: gst_number_of_buyerNP
-                created_at: '2023-06-03T09:30:00.000Z'
-                updated_at: '2023-06-03T09:30:00.000Z'
+                created_at [^29]: '2023-06-03T09:30:00.000Z'
+                updated_at [^30]: '2023-06-03T09:30:00.000Z'
         notes: &ref_33
           value:
             ^1: alphanumeric, up to 32 characters
@@ -9673,12 +9673,7 @@ x-flows:
             ^3: optional
             ^4: same as in /init
             ^5: same as in /init
-            ^6: >-
-              same as what is proposed in /on_select; If TAT is different from
-              what was originally quoted in /on_select, seller NP can NACK the
-              request with error code 30013
             ^7: optional
-            ^8: only for type "Self-Pickup", category "Kerbside"
             ^9: id of customization group for the customization
             ^10: id of customization group for the customization
             ^11: id of customization group for the customization
@@ -9713,15 +9708,9 @@ x-flows:
               collecting prepaid; otherwise, includes the settlement details
               provided by seller NP)
             ^27: buyer-app for payment on delivery
-            ^28: >-
-              buyer NP must accept bpp terms. If not accepted, seller NP can
-              NACK /confirm with error code 50006
-            ^29: >-
-              URL for fixed terms of buyer NP. If seller NP doesn’t accept, they
-              should NACK /confirm with error code 50005
-            ^30: GST no for buyer NP for TDS deduction at seller NP
-            ^31: can’t be future dated timestamp
-            ^32: can’t be future dated timestamp
+            ^28: GST no for buyer NP for TDS deduction at seller NP
+            ^29: can’t be future dated timestamp
+            ^30: can’t be future dated timestamp
       - summary: Seller Accepts confirmation
         api: on_confirm
         description: null
@@ -9746,7 +9735,7 @@ x-flows:
             message:
               order:
                 id: O1
-                state: Accepted
+                state: Accepted [^1]
                 provider:
                   id: P1
                   locations:
@@ -9894,10 +9883,10 @@ x-flows:
                     state: Karnataka
                     country: IND
                     area_code: '560037'
-                  email: nobody@nomail.com
+                  email [^3]: nobody@nomail.com
                   phone: '9886098860'
-                  created_at: '2023-06-03T09:00:00.000Z'
-                  updated_at: '2023-06-03T09:00:00.000Z'
+                  created_at [^4]: '2023-06-03T09:00:00.000Z'
+                  updated_at [^5]: '2023-06-03T09:00:00.000Z'
                 fulfillments:
                   - id: F1
                     '@ondc/org/provider_name': LSP or Provider Name
@@ -9905,26 +9894,26 @@ x-flows:
                       descriptor:
                         code: Pending
                     type: Delivery
-                    tracking: true
+                    tracking: true [^6]
                     start:
                       location:
                         id: L1
                         descriptor:
                           name: ABC Store
                         gps: 12.956399,77.636803
-                        address:
+                        address [^8]:
                           locality: Jayanagar
                           city: Bengaluru
                           area_code: '560076'
                           state: KA
-                      time:
+                      time [^9]:
                         range:
                           start: '2023-06-03T10:00:00.000Z'
                           end: '2023-06-03T10:30:00.000Z'
-                      instructions:
-                        code: '2'
+                      instructions [^10]:
+                        code: 2 [^11]
                         name: ONDC order
-                        short_desc: value of PCC
+                        short_desc: value of PCC [^13]
                         long_desc: >-
                           additional instructions such as register or counter no
                           for self-pickup
@@ -9942,7 +9931,7 @@ x-flows:
                           state: Karnataka
                           country: IND
                           area_code: '560037'
-                      time:
+                      time [^13]:
                         range:
                           start: '2023-06-03T11:00:00.000Z'
                           end: '2023-06-03T11:30:00.000Z'
@@ -9950,7 +9939,7 @@ x-flows:
                         name: name_of_person
                       contact:
                         phone: '9886098860'
-                        email: nobody@nomail.com
+                        email [^14]: nobody@nomail.com
                 quote:
                   price:
                     currency: INR
@@ -9995,7 +9984,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG1
+                                value: CG1 [^16]
                     - '@ondc/org/item_id': C7
                       '@ondc/org/item_quantity':
                         count: 1
@@ -10017,7 +10006,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG2
+                                value: CG2 [^17]
                     - '@ondc/org/item_id': C14
                       '@ondc/org/item_quantity':
                         count: 1
@@ -10039,7 +10028,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG3
+                                value: CG3 [^18]
                     - '@ondc/org/item_id': C16
                       '@ondc/org/item_quantity':
                         count: 1
@@ -10061,7 +10050,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG3
+                                value: CG3 [^19]
                     - '@ondc/org/item_id': I1
                       '@ondc/org/item_quantity':
                         count: 1
@@ -10101,7 +10090,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG1
+                                value: CG1 [^20]
                     - '@ondc/org/item_id': C7
                       '@ondc/org/item_quantity':
                         count: 1
@@ -10123,7 +10112,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG2
+                                value: CG2 [^21]
                     - '@ondc/org/item_id': C14
                       '@ondc/org/item_quantity':
                         count: 1
@@ -10145,7 +10134,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG3
+                                value: CG3 [^22]
                     - '@ondc/org/item_id': C15
                       '@ondc/org/item_quantity':
                         count: 1
@@ -10349,9 +10338,9 @@ x-flows:
                         currency: INR
                         value: '10.00'
                   ttl: PT1H
-                payment:
-                  uri: https://ondc.transaction.com/payment
-                  tl_method: http/get
+                payment [^23]:
+                  uri [^24]: https://ondc.transaction.com/payment
+                  tl_method [^25]: http/get
                   params:
                     currency: INR
                     transaction_id: '3937'
@@ -10383,21 +10372,15 @@ x-flows:
                     list:
                       - code: tax_number
                         value: gst_number_of_buyerNP
-                created_at: '2023-06-03T09:30:00.000Z'
-                updated_at: '2023-06-03T09:31:30.000Z'
+                created_at [^29]: '2023-06-03T09:30:00.000Z'
+                updated_at [^30]: '2023-06-03T09:31:30.000Z'
         notes: &ref_35
           value:
             ^1: enum - "Created", "Accepted", "Cancelled"
-            ^2: >-
-              id for dynamic item created by buyer app for make-to-order product
-              and available in parent_item_id in /select
             ^3: optional
             ^4: same as in /init
             ^5: same as in /init
             ^6: true if tracking enabled through /on_track
-            ^7: >-
-              if TAT is different from what was originally quoted in /on_select,
-              buyer NP can NACK the request with error code 22504
             ^8: store address
             ^9: optional, pickup time range may be provided if available
             ^10: optional
@@ -10410,7 +10393,7 @@ x-flows:
               digits;merchant order no - max 6 digits;other pickup confirmation
               code - max 6 digits;OTP - max 6 digits
             ^13: optional
-            ^14: optional, pickup time range may be provided if available
+            ^14: optional, delivery time range may be provided if available
             ^15: optional
             ^16: id of customization group for the customization
             ^17: id of customization group for the customization
@@ -10422,16 +10405,6 @@ x-flows:
             ^23: same values as in /confirm
             ^24: optional
             ^25: optional
-            ^26: >-
-              if cancellation terms are different from what was quoted earlier,
-              buyer NP can NACK /on_confirm with error code 22505
-            ^27: >-
-              if terms & conditions different from what was quoted earlier,
-              buyer NP can NACK /on_confirm with error code 22506
-            ^28: >-
-              seller NP must accept proposed bap terms & conditions (if
-              proposed). If not accepted, buyer NP can NACK /on_confirm with
-              error code 27502
             ^29: same as in /confirm
             ^30: can’t be a future date
       - summary: Buyer platform requests for latest status
@@ -13157,7 +13130,7 @@ x-flows:
               ttl: PT30S
             message:
               order:
-                id: O1
+                id: O1 [^1]
                 state: Created
                 provider:
                   id: P1
@@ -13179,9 +13152,9 @@ x-flows:
                     country: IND
                     area_code: '560037'
                   phone: '9886098860'
-                  email: nobody@nomail.com
-                  created_at: '2023-02-03T09:00:00.000Z'
-                  updated_at: '2023-02-03T09:00:00.000Z'
+                  email [^2]: nobody@nomail.com
+                  created_at [^3]: '2023-02-03T09:00:00.000Z'
+                  updated_at [^4]: '2023-02-03T09:00:00.000Z'
                 fulfillments:
                   - id: F1
                     type: Delivery
@@ -13190,7 +13163,7 @@ x-flows:
                       person:
                         name: name_of_person
                       contact:
-                        email: nobody@nomail.com
+                        email [^6]: nobody@nomail.com
                         phone: '9886098860'
                       location:
                         gps: 12.453544,77.928379
@@ -13251,22 +13224,22 @@ x-flows:
                         value: '10.00'
                   ttl: P1D
                 payment:
-                  uri: https://ondc.transaction.com/payment
-                  tl_method: http/get
+                  uri [^8]: https://ondc.transaction.com/payment
+                  tl_method [^9]: http/get
                   params:
                     currency: INR
-                    transaction_id: '3937'
-                    amount: '415.00'
-                  status: PAID
-                  type: ON-ORDER
-                  collected_by: BAP
+                    transaction_id [^10]: '3937'
+                    amount: 415.00 [^11]
+                  status: PAID [^12]
+                  type: ON-ORDER [^13]
+                  collected_by: BAP [^14]
                   '@ondc/org/buyer_app_finder_fee_type': percent
                   '@ondc/org/buyer_app_finder_fee_amount': '3'
-                  '@ondc/org/settlement_basis': delivery
-                  '@ondc/org/settlement_window': P1D
-                  '@ondc/org/withholding_amount': '10.00'
-                  '@ondc/org/settlement_details':
-                    - settlement_counterparty: seller-app
+                  '@ondc/org/settlement_basis': delivery [^15]
+                  '@ondc/org/settlement_window': P1D [^16]
+                  '@ondc/org/withholding_amount': 10.00 [^17]
+                  '@ondc/org/settlement_details [^18]':
+                    - settlement_counterparty: seller-app [^19]
                       settlement_phase: sale-amount
                       settlement_type: upi
                       upi_address: gft@oksbi
@@ -13282,22 +13255,17 @@ x-flows:
                         value: gst_number_of_sellerNP
                   - code: bap_terms
                     list:
-                      - code: tax_number
+                      - code: tax_number [^20]
                         value: gst_number_of_buyerNP
-                created_at: '2023-06-03T09:30:00.000Z'
-                updated_at: '2023-06-03T09:30:00.000Z'
+                created_at [^21]: '2023-06-03T09:30:00.000Z'
+                updated_at [^22]: '2023-06-03T09:30:00.000Z'
         notes: &ref_47
           value:
             ^1: alphanumeric, up to 32 characters
             ^2: optional
             ^3: same as in /init
             ^4: same as in /init
-            ^5: >-
-              same as what is proposed in /on_select; If TAT is different from
-              what was originally quoted in /on_select, seller NP can NACK the
-              request with error code 30013
             ^6: optional
-            ^7: only for type "Self-Pickup", category "Kerbside"
             ^8: optional
             ^9: optional
             ^10: >-
@@ -13319,15 +13287,9 @@ x-flows:
               "0.00" and "100.00")
             ^18: optional
             ^19: buyer-app for payment on delivery
-            ^20: >-
-              buyer NP must accept bpp terms. If not accepted, seller NP can
-              NACK /confirm with error code 50006
-            ^21: >-
-              URL for fixed terms of buyer NP. If seller NP doesn’t accept, they
-              should NACK /confirm with error code 50005
-            ^22: GST no for buyer NP for TDS deduction at seller NP
-            ^23: can’t be future dated timestamp
-            ^24: can’t be future dated timestamp
+            ^20: GST no for buyer NP for TDS deduction at seller NP
+            ^21: can’t be future dated timestamp
+            ^22: can’t be future dated timestamp
       - summary: Seller Accepts confirmation
         api: on_confirm
         description: null
@@ -19658,7 +19620,7 @@ x-examples:
                 ttl: PT30S
               message:
                 order:
-                  id: O1
+                  id: O1 [^1]
                   state: Created
                   provider:
                     id: P1
@@ -19669,7 +19631,7 @@ x-examples:
                       fulfillment_id: F1
                       quantity:
                         count: 1
-                      parent_item_id: DI1
+                      parent_item_id: DI1 [^2]
                       tags:
                         - code: type
                           list:
@@ -19808,9 +19770,9 @@ x-examples:
                       country: IND
                       area_code: '560037'
                     phone: '9886098860'
-                    email: nobody@nomail.com
-                    created_at: '2023-02-03T09:00:00.000Z'
-                    updated_at: '2023-02-03T09:00:00.000Z'
+                    email [^3]: nobody@nomail.com
+                    created_at [^4]: '2023-02-03T09:00:00.000Z'
+                    updated_at [^5]: '2023-02-03T09:00:00.000Z'
                   fulfillments:
                     - id: F1
                       type: Delivery
@@ -19819,7 +19781,7 @@ x-examples:
                         person:
                           name: name_of_person
                         contact:
-                          email: nobody@nomail.com
+                          email [^7]: nobody@nomail.com
                           phone: '9886098860'
                         location:
                           gps: 12.453544,77.928379
@@ -19875,7 +19837,7 @@ x-examples:
                             - code: parent
                               list:
                                 - code: id
-                                  value: CG1
+                                  value: CG1 [^9]
                       - '@ondc/org/item_id': C7
                         '@ondc/org/item_quantity':
                           count: 1
@@ -19897,7 +19859,7 @@ x-examples:
                             - code: parent
                               list:
                                 - code: id
-                                  value: CG2
+                                  value: CG2 [^10]
                       - '@ondc/org/item_id': C14
                         '@ondc/org/item_quantity':
                           count: 1
@@ -19919,7 +19881,7 @@ x-examples:
                             - code: parent
                               list:
                                 - code: id
-                                  value: CG3
+                                  value: CG3 [^11]
                       - '@ondc/org/item_id': C16
                         '@ondc/org/item_quantity':
                           count: 1
@@ -19941,7 +19903,7 @@ x-examples:
                             - code: parent
                               list:
                                 - code: id
-                                  value: CG3
+                                  value: CG3 [^12]
                       - '@ondc/org/item_id': I1
                         '@ondc/org/item_quantity':
                           count: 1
@@ -19981,7 +19943,7 @@ x-examples:
                             - code: parent
                               list:
                                 - code: id
-                                  value: CG1
+                                  value: CG1 [^13]
                       - '@ondc/org/item_id': C7
                         '@ondc/org/item_quantity':
                           count: 1
@@ -20003,7 +19965,7 @@ x-examples:
                             - code: parent
                               list:
                                 - code: id
-                                  value: CG2
+                                  value: CG2 [^14]
                       - '@ondc/org/item_id': C14
                         '@ondc/org/item_quantity':
                           count: 1
@@ -20025,7 +19987,7 @@ x-examples:
                             - code: parent
                               list:
                                 - code: id
-                                  value: CG3
+                                  value: CG3 [^15]
                       - '@ondc/org/item_id': C15
                         '@ondc/org/item_quantity':
                           count: 1
@@ -20229,23 +20191,23 @@ x-examples:
                           currency: INR
                           value: '10.00'
                     ttl: PT1H
-                  payment:
-                    uri: https://ondc.transaction.com/payment
+                  payment [^16]:
+                    uri [^17]: https://ondc.transaction.com/payment
                     tl_method: http/get
                     params:
                       currency: INR
-                      transaction_id: '3937'
-                      amount: '1946.65'
-                    status: PAID
-                    type: ON-ORDER
-                    collected_by: BAP
+                      transaction_id  [^18]: '3937'
+                      amount: 1946.65 [^19]
+                    status: PAID [^20]
+                    type: ON-ORDER [^21]
+                    collected_by: BAP [^22]
                     '@ondc/org/buyer_app_finder_fee_type': percent
                     '@ondc/org/buyer_app_finder_fee_amount': '3'
-                    '@ondc/org/settlement_basis': delivery
-                    '@ondc/org/settlement_window': P1D
-                    '@ondc/org/withholding_amount': '10.00'
-                    '@ondc/org/settlement_details':
-                      - settlement_counterparty: seller-app
+                    '@ondc/org/settlement_basis': delivery [^23]
+                    '@ondc/org/settlement_window': P1D [^24]
+                    '@ondc/org/withholding_amount': 10.00 [^25]
+                    '@ondc/org/settlement_details [^26]':
+                      - settlement_counterparty: seller-app [^27]
                         settlement_phase: sale-amount
                         settlement_type: upi
                         upi_address: gft@oksbi
@@ -20261,10 +20223,10 @@ x-examples:
                           value: gst_number_of_sellerNP
                     - code: bap_terms
                       list:
-                        - code: tax_number
+                        - code: tax_number [^28]
                           value: gst_number_of_buyerNP
-                  created_at: '2023-06-03T09:30:00.000Z'
-                  updated_at: '2023-06-03T09:30:00.000Z'
+                  created_at [^29]: '2023-06-03T09:30:00.000Z'
+                  updated_at [^30]: '2023-06-03T09:30:00.000Z'
           - summary: Confirmation for Buyer on purchase of other product
             description: Confirmation for Buyer on purchase of other product
             value:
@@ -20284,7 +20246,7 @@ x-examples:
                 ttl: PT30S
               message:
                 order:
-                  id: O1
+                  id: O1 [^1]
                   state: Created
                   provider:
                     id: P1
@@ -20306,9 +20268,9 @@ x-examples:
                       country: IND
                       area_code: '560037'
                     phone: '9886098860'
-                    email: nobody@nomail.com
-                    created_at: '2023-02-03T09:00:00.000Z'
-                    updated_at: '2023-02-03T09:00:00.000Z'
+                    email [^2]: nobody@nomail.com
+                    created_at [^3]: '2023-02-03T09:00:00.000Z'
+                    updated_at [^4]: '2023-02-03T09:00:00.000Z'
                   fulfillments:
                     - id: F1
                       type: Delivery
@@ -20317,7 +20279,7 @@ x-examples:
                         person:
                           name: name_of_person
                         contact:
-                          email: nobody@nomail.com
+                          email [^6]: nobody@nomail.com
                           phone: '9886098860'
                         location:
                           gps: 12.453544,77.928379
@@ -20378,22 +20340,22 @@ x-examples:
                           value: '10.00'
                     ttl: P1D
                   payment:
-                    uri: https://ondc.transaction.com/payment
-                    tl_method: http/get
+                    uri [^8]: https://ondc.transaction.com/payment
+                    tl_method [^9]: http/get
                     params:
                       currency: INR
-                      transaction_id: '3937'
-                      amount: '415.00'
-                    status: PAID
-                    type: ON-ORDER
-                    collected_by: BAP
+                      transaction_id [^10]: '3937'
+                      amount: 415.00 [^11]
+                    status: PAID [^12]
+                    type: ON-ORDER [^13]
+                    collected_by: BAP [^14]
                     '@ondc/org/buyer_app_finder_fee_type': percent
                     '@ondc/org/buyer_app_finder_fee_amount': '3'
-                    '@ondc/org/settlement_basis': delivery
-                    '@ondc/org/settlement_window': P1D
-                    '@ondc/org/withholding_amount': '10.00'
-                    '@ondc/org/settlement_details':
-                      - settlement_counterparty: seller-app
+                    '@ondc/org/settlement_basis': delivery [^15]
+                    '@ondc/org/settlement_window': P1D [^16]
+                    '@ondc/org/withholding_amount': 10.00 [^17]
+                    '@ondc/org/settlement_details [^18]':
+                      - settlement_counterparty: seller-app [^19]
                         settlement_phase: sale-amount
                         settlement_type: upi
                         upi_address: gft@oksbi
@@ -20409,10 +20371,10 @@ x-examples:
                           value: gst_number_of_sellerNP
                     - code: bap_terms
                       list:
-                        - code: tax_number
+                        - code: tax_number [^20]
                           value: gst_number_of_buyerNP
-                  created_at: '2023-06-03T09:30:00.000Z'
-                  updated_at: '2023-06-03T09:30:00.000Z'
+                  created_at [^21]: '2023-06-03T09:30:00.000Z'
+                  updated_at [^22]: '2023-06-03T09:30:00.000Z'
       update:
         examples:
           - summary: Settlement trail for refund initiation
@@ -28236,7 +28198,7 @@ x-examples:
               message:
                 order:
                   id: O1
-                  state: Accepted
+                  state: Accepted [^1]
                   provider:
                     id: P1
                     locations:
@@ -28384,10 +28346,10 @@ x-examples:
                       state: Karnataka
                       country: IND
                       area_code: '560037'
-                    email: nobody@nomail.com
+                    email [^3]: nobody@nomail.com
                     phone: '9886098860'
-                    created_at: '2023-06-03T09:00:00.000Z'
-                    updated_at: '2023-06-03T09:00:00.000Z'
+                    created_at [^4]: '2023-06-03T09:00:00.000Z'
+                    updated_at [^5]: '2023-06-03T09:00:00.000Z'
                   fulfillments:
                     - id: F1
                       '@ondc/org/provider_name': LSP or Provider Name
@@ -28395,26 +28357,26 @@ x-examples:
                         descriptor:
                           code: Pending
                       type: Delivery
-                      tracking: true
+                      tracking: true [^6]
                       start:
                         location:
                           id: L1
                           descriptor:
                             name: ABC Store
                           gps: 12.956399,77.636803
-                          address:
+                          address [^8]:
                             locality: Jayanagar
                             city: Bengaluru
                             area_code: '560076'
                             state: KA
-                        time:
+                        time [^9]:
                           range:
                             start: '2023-06-03T10:00:00.000Z'
                             end: '2023-06-03T10:30:00.000Z'
-                        instructions:
-                          code: '2'
+                        instructions [^10]:
+                          code: 2 [^11]
                           name: ONDC order
-                          short_desc: value of PCC
+                          short_desc: value of PCC [^13]
                           long_desc: >-
                             additional instructions such as register or counter
                             no for self-pickup
@@ -28432,7 +28394,7 @@ x-examples:
                             state: Karnataka
                             country: IND
                             area_code: '560037'
-                        time:
+                        time [^13]:
                           range:
                             start: '2023-06-03T11:00:00.000Z'
                             end: '2023-06-03T11:30:00.000Z'
@@ -28440,7 +28402,7 @@ x-examples:
                           name: name_of_person
                         contact:
                           phone: '9886098860'
-                          email: nobody@nomail.com
+                          email [^14]: nobody@nomail.com
                   quote:
                     price:
                       currency: INR
@@ -28485,7 +28447,7 @@ x-examples:
                             - code: parent
                               list:
                                 - code: id
-                                  value: CG1
+                                  value: CG1 [^16]
                       - '@ondc/org/item_id': C7
                         '@ondc/org/item_quantity':
                           count: 1
@@ -28507,7 +28469,7 @@ x-examples:
                             - code: parent
                               list:
                                 - code: id
-                                  value: CG2
+                                  value: CG2 [^17]
                       - '@ondc/org/item_id': C14
                         '@ondc/org/item_quantity':
                           count: 1
@@ -28529,7 +28491,7 @@ x-examples:
                             - code: parent
                               list:
                                 - code: id
-                                  value: CG3
+                                  value: CG3 [^18]
                       - '@ondc/org/item_id': C16
                         '@ondc/org/item_quantity':
                           count: 1
@@ -28551,7 +28513,7 @@ x-examples:
                             - code: parent
                               list:
                                 - code: id
-                                  value: CG3
+                                  value: CG3 [^19]
                       - '@ondc/org/item_id': I1
                         '@ondc/org/item_quantity':
                           count: 1
@@ -28591,7 +28553,7 @@ x-examples:
                             - code: parent
                               list:
                                 - code: id
-                                  value: CG1
+                                  value: CG1 [^20]
                       - '@ondc/org/item_id': C7
                         '@ondc/org/item_quantity':
                           count: 1
@@ -28613,7 +28575,7 @@ x-examples:
                             - code: parent
                               list:
                                 - code: id
-                                  value: CG2
+                                  value: CG2 [^21]
                       - '@ondc/org/item_id': C14
                         '@ondc/org/item_quantity':
                           count: 1
@@ -28635,7 +28597,7 @@ x-examples:
                             - code: parent
                               list:
                                 - code: id
-                                  value: CG3
+                                  value: CG3 [^22]
                       - '@ondc/org/item_id': C15
                         '@ondc/org/item_quantity':
                           count: 1
@@ -28839,9 +28801,9 @@ x-examples:
                           currency: INR
                           value: '10.00'
                     ttl: PT1H
-                  payment:
-                    uri: https://ondc.transaction.com/payment
-                    tl_method: http/get
+                  payment [^23]:
+                    uri [^24]: https://ondc.transaction.com/payment
+                    tl_method [^25]: http/get
                     params:
                       currency: INR
                       transaction_id: '3937'
@@ -28873,8 +28835,8 @@ x-examples:
                       list:
                         - code: tax_number
                           value: gst_number_of_buyerNP
-                  created_at: '2023-06-03T09:30:00.000Z'
-                  updated_at: '2023-06-03T09:31:30.000Z'
+                  created_at [^29]: '2023-06-03T09:30:00.000Z'
+                  updated_at [^30]: '2023-06-03T09:31:30.000Z'
           - summary: Acceptance by Seller
             description: Acceptance by Seller for other products
             value:
