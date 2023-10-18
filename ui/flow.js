@@ -19,11 +19,15 @@ async function loadSteps(steps) {
     link.textContent = index + 1 + ". " + step.api;
 
     const content = document.createElement("div");
+    const noteContent = document.createElement("div");
     content.id = step.summary;
+    noteContent.id = 'test';
     content.classList.add("step-content", "p-4");
+    noteContent.classList.add("step-content", "p-4");
 
     var mermaidDiv = document.createElement("description-div");
     var yamlDiv = document.createElement("description-yaml");
+    var noteDiv = document.createElement("note-yaml");
 
     if (details && details?.length) {
       for (const [innerIndex, detail] of details.entries()) {
@@ -58,6 +62,15 @@ async function loadSteps(steps) {
 
     content.appendChild(mermaidDiv);
     content.appendChild(yamlDiv);
+
+    if (step.notes) {
+        noteDiv.innerHTML = step?.api === "form" ? '<div>'+'<pre class="yaml-content">'+'<xmp>'+step.notes.value+'</xmp>'+'</pre>'+'<div class="flow-forms">'+step.notes.value+'</div>'+'</div>'
+        :'<pre class="yaml-content" style="color: #000000; background-color:lightgray;">' +
+         JSON.stringify(step.notes.value, null, 2) +
+        "</pre>";
+        noteContent.innerHTML = "<div><h3>Notes</h3></div>";
+        noteContent.appendChild(noteDiv);
+      }
     link.addEventListener("click", function (event) {
       event.preventDefault();
       document.querySelectorAll(".step-item").forEach(function (item) {
@@ -65,12 +78,17 @@ async function loadSteps(steps) {
       });
       document.querySelectorAll(".step-content").forEach(function (content) {
         content.classList.remove("active");
+        noteContent.classList.remove("active");
       });
       link.classList.add("active");
       content.classList.add("active");
+      noteContent.classList.add("active");
     });
     stepPane.appendChild(link);
     contentPane.appendChild(content);
+    if (step.notes) {
+        contentPane.appendChild(noteContent);
+      }
   }
 }
 

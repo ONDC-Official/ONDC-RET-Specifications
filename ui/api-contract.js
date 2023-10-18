@@ -1,3 +1,4 @@
+// const {getFeatures} = require("./features")
 function getStringAfterEquals(inputString) {
   const index = inputString.indexOf("=");
   if (index !== -1) {
@@ -10,7 +11,8 @@ function getStringAfterEquals(inputString) {
 async function readBuildFile(branchName) {
   if (!branchName) return;
   const url = `https://api.github.com/repos/ondc-official/ONDC-RET-Specifications/contents/ui/build.js?ref=${branchName}`;
-
+  const features = await getFeatures(branchName)
+ 
   try {
     const response = await fetch(url, {
       headers: {
@@ -28,10 +30,11 @@ async function readBuildFile(branchName) {
         });
         const formattedrawResponse = await rawResponse?.text();
         build_spec = JSON.parse(getStringAfterEquals(formattedrawResponse));
-        onFirstLoad(build_spec);
+        
+        onFirstLoad(build_spec,features);
       },1200)
     }
-
+   
     // let splitedText = atob(formattedResponse?.content);
     // build_spec = JSON.parse(getStringAfterEquals(splitedText));
     // onFirstLoad(build_spec);
@@ -78,6 +81,7 @@ function upadteContract() {
   const selectedOption = document.getElementById("contract-dropdown")?.value;
   readBuildFile(selectedOption);
 }
+
 
 window.onload = function () {
   loadContracts()
