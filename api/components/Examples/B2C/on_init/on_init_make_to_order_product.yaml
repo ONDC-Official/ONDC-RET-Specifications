@@ -153,7 +153,7 @@ value:
               list:
                 - code: id
                   value: CG3
-      billing:
+      billing [^3]:
         name: ONDC buyer
         address:
           name: "my house or door or floor #"
@@ -163,11 +163,11 @@ value:
           state: Karnataka
           country: IND
           area_code: "560037"
-        tax_number: XXXXXXXXXXXXXXX
-        email: nobody@nomail.com
+        tax_number [^4]: XXXXXXXXXXXXXXX
+        email [^5]: nobody@nomail.com
         phone: "9886098860"
-        created_at: "2023-06-03T09:00:00.000Z"
-        updated_at: "2023-06-03T09:00:00.000Z"
+        created_at [^6]: "2023-06-03T09:00:00.000Z"
+        updated_at [^7]: "2023-06-03T09:00:00.000Z"
       fulfillments:
         - id: F1
           type: Delivery
@@ -239,7 +239,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG1
+                      value: CG1[^8]
           - "@ondc/org/item_id": C7
             "@ondc/org/item_quantity":
               count: 1
@@ -266,7 +266,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG2
+                      value: CG2[^9]
           - "@ondc/org/item_id": C14
             "@ondc/org/item_quantity":
               count: 1
@@ -293,7 +293,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG3
+                      value: CG3 [^10]
           - "@ondc/org/item_id": C16
             "@ondc/org/item_quantity":
               count: 1
@@ -320,7 +320,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG3
+                      value: CG3 [^11]
           - "@ondc/org/item_id": I1
             "@ondc/org/item_quantity":
               count: 1
@@ -370,7 +370,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG1
+                      value: CG1 [^12]
           - "@ondc/org/item_id": C7
             "@ondc/org/item_quantity":
               count: 1
@@ -397,7 +397,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG2
+                      value: CG2 [^13]
           - "@ondc/org/item_id": C14
             "@ondc/org/item_quantity":
               count: 1
@@ -424,7 +424,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG3
+                      value: CG3 [^14]
           - "@ondc/org/item_id": C15
             "@ondc/org/item_quantity":
               count: 1
@@ -633,13 +633,13 @@ value:
               currency: INR
               value: "10.00"
         ttl: PT1H
-      payment:
+      payment [^15]:
         "@ondc/org/buyer_app_finder_fee_type": percent
         "@ondc/org/buyer_app_finder_fee_amount": "3"
-        "@ondc/org/settlement_details":
+        "@ondc/org/settlement_details [^16]":
           - settlement_counterparty: seller-app
             settlement_phase: sale-amount
-            settlement_type: upi
+            settlement_type: upi [^17]
             beneficiary_name: xxxxx
             upi_address: gft@oksbi
             settlement_bank_account_no: XXXXXXXXXX

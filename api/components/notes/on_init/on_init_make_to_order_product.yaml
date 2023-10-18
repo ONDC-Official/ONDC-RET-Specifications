@@ -1,6 +1,4 @@
 value:
-  [^1]: may be the same location as selected by the buyer or a different location
-  [^2]: id for dynamic item created by buyer app for make-to-order product and available in parent_item_id in /select
   [^3]: billing object timestamps (created_at, updated_at) have to be the same as in /init
   [^4]: optional, same as provided in /init
   [^5]: optional

@@ -194,7 +194,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG1
+                      value: CG1 [^1]
           - "@ondc/org/item_id": C7
             "@ondc/org/item_quantity":
               count: 1
@@ -221,7 +221,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG2
+                      value: CG2 [^2]
           - "@ondc/org/item_id": C14
             "@ondc/org/item_quantity":
               count: 1
@@ -248,7 +248,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG3
+                      value: CG3 [^3]
           - "@ondc/org/item_id": C16
             "@ondc/org/item_quantity":
               count: 1
@@ -275,7 +275,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG3
+                      value: CG3 [^4]
           - "@ondc/org/item_id": I1
             "@ondc/org/item_quantity":
               count: 1
@@ -325,7 +325,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG1
+                      value: CG1 [^5]
           - "@ondc/org/item_id": C7
             "@ondc/org/item_quantity":
               count: 1
@@ -352,7 +352,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG2
+                      value: CG2 [^6]
           - "@ondc/org/item_id": C14
             "@ondc/org/item_quantity":
               count: 1
@@ -379,7 +379,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG3
+                      value: CG3 [^7]
           - "@ondc/org/item_id": C15
             "@ondc/org/item_quantity":
               count: 1
@@ -588,7 +588,7 @@ value:
               currency: INR
               value: "10.00"
         ttl: PT1H
-  error:
+  error [^8]:
     type: DOMAIN-ERROR
     code: "40002"
     message: stringified json formatted as in point 7 below
