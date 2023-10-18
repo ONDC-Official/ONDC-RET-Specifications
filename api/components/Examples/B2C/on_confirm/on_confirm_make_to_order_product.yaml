@@ -17,7 +17,7 @@ value:
   message:
     order:
       id: O1
-      state: Accepted
+      state: Accepted [^1]
       provider:
         id: P1
         locations:
@@ -165,10 +165,10 @@ value:
           state: Karnataka
           country: IND
           area_code: "560037"
-        email: nobody@nomail.com
+        email [^3]: nobody@nomail.com
         phone: "9886098860"
-        created_at: "2023-06-03T09:00:00.000Z"
-        updated_at: "2023-06-03T09:00:00.000Z"
+        created_at [^4]: "2023-06-03T09:00:00.000Z"
+        updated_at [^5]: "2023-06-03T09:00:00.000Z"
       fulfillments:
         - id: F1
           "@ondc/org/provider_name": LSP or Provider Name
@@ -176,26 +176,26 @@ value:
             descriptor:
               code: Pending
           type: Delivery
-          tracking: true
+          tracking: true [^6]
           start:
             location:
               id: L1
               descriptor:
                 name: ABC Store
               gps: 12.956399,77.636803
-              address:
+              address [^8]:
                 locality: Jayanagar
                 city: Bengaluru
                 area_code: "560076"
                 state: KA
-            time:
+            time [^9]:
               range:
                 start: "2023-06-03T10:00:00.000Z"
                 end: "2023-06-03T10:30:00.000Z"
-            instructions:
-              code: "2"
+            instructions [^10]:
+              code: "2 [^11]"
               name: ONDC order
-              short_desc: value of PCC
+              short_desc: value of PCC [^13]
               long_desc: additional instructions such as register or counter no for self-pickup
             contact:
               phone: "9886098860"
@@ -211,7 +211,7 @@ value:
                 state: Karnataka
                 country: IND
                 area_code: "560037"
-            time:
+            time [^13]:
               range:
                 start: "2023-06-03T11:00:00.000Z"
                 end: "2023-06-03T11:30:00.000Z"
@@ -219,7 +219,7 @@ value:
               name: name_of_person
             contact:
               phone: "9886098860"
-              email: nobody@nomail.com
+              email [^14]: nobody@nomail.com
       quote:
         price:
           currency: INR
@@ -264,7 +264,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG1
+                      value: CG1 [^16]
           - "@ondc/org/item_id": C7
             "@ondc/org/item_quantity":
               count: 1
@@ -286,7 +286,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG2
+                      value: CG2 [^17]
           - "@ondc/org/item_id": C14
             "@ondc/org/item_quantity":
               count: 1
@@ -308,7 +308,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG3
+                      value: CG3 [^18]
           - "@ondc/org/item_id": C16
             "@ondc/org/item_quantity":
               count: 1
@@ -330,7 +330,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG3
+                      value: CG3 [^19]
           - "@ondc/org/item_id": I1
             "@ondc/org/item_quantity":
               count: 1
@@ -370,7 +370,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG1
+                      value: CG1 [^20]
           - "@ondc/org/item_id": C7
             "@ondc/org/item_quantity":
               count: 1
@@ -392,7 +392,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG2
+                      value: CG2 [^21]
           - "@ondc/org/item_id": C14
             "@ondc/org/item_quantity":
               count: 1
@@ -414,7 +414,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG3
+                      value: CG3 [^22]
           - "@ondc/org/item_id": C15
             "@ondc/org/item_quantity":
               count: 1
@@ -618,9 +618,9 @@ value:
               currency: INR
               value: "10.00"
         ttl: PT1H
-      payment:
-        uri: https://ondc.transaction.com/payment
-        tl_method: http/get
+      payment [^23]:
+        uri [^24]: https://ondc.transaction.com/payment
+        tl_method [^25]: http/get
         params:
           currency: INR
           transaction_id: "3937"
@@ -652,5 +652,5 @@ value:
           list:
             - code: tax_number
               value: gst_number_of_buyerNP
-      created_at: "2023-06-03T09:30:00.000Z"
-      updated_at: "2023-06-03T09:31:30.000Z"
+      created_at [^29]: "2023-06-03T09:30:00.000Z"
+      updated_at [^30]: "2023-06-03T09:31:30.000Z"
