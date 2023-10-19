@@ -11164,8 +11164,8 @@ x-flows:
             message:
               order:
                 id: O1
-                state: Completed
-                cancellation:
+                state: Completed [^1]
+                cancellation [^2]:
                   cancelled_by: buyerNP.com
                   reason:
                     id: '004'
@@ -11316,9 +11316,9 @@ x-flows:
                     state: Karnataka
                     country: IND
                     area_code: '560037'
-                  email: nobody@nomail.com
+                  email [^4]: nobody@nomail.com
                   phone: '9886098860'
-                  created_at: '2023-06-03T09:00:00.000Z'
+                  created_at [^5]: '2023-06-03T09:00:00.000Z'
                   updated_at: '2023-06-03T09:00:00.000Z'
                 fulfillments:
                   - id: F1
@@ -11328,7 +11328,7 @@ x-flows:
                     '@ondc/org/TAT': PT60M
                     state:
                       descriptor:
-                        code: Order-delivered
+                        code: Order-delivered [^6]
                     start:
                       location:
                         descriptor:
@@ -11343,15 +11343,15 @@ x-flows:
                         range:
                           start: '2023-06-03T10:00:00.000Z'
                           end: '2023-06-03T10:30:00.000Z'
-                        timestamp: '2023-06-03T10:25:00.000Z'
-                      instructions:
-                        code: '1'
+                        timestamp [^7]: '2023-06-03T10:25:00.000Z'
+                      instructions [^10]:
+                        code: 1 [^8]
                         name: ONDC Order
-                        short_desc: value of PCC
+                        short_desc: value of PCC [^9]
                         long_desc: additional instructions for pickup
                       contact:
                         phone: '9886098860'
-                        email: nobody@nomail.com
+                        email [^13]: nobody@nomail.com
                     end:
                       location:
                         gps: 12.453544,77.928379
@@ -11367,18 +11367,18 @@ x-flows:
                         range:
                           start: '2023-06-03T11:00:00.000Z'
                           end: '2023-06-03T11:30:00.000Z'
-                        timestamp: '2023-06-03T11:35:00.000Z'
+                        timestamp [^14]: '2023-06-03T11:35:00.000Z'
                       instructions:
-                        code: '2'
+                        code: 2 [^15]
                         name: ONDC Order
-                        short_desc: value of DCC
+                        short_desc: value of DCC [^16]
                         long_desc: additional instructions for delivery
                       contact:
                         phone: '9886098860'
-                    agent:
+                    agent [^20]:
                       name: agent_name
                       phone: '9886098860'
-                    vehicle:
+                    vehicle [^21]:
                       category: mini-truck
                       size: small
                       registration: 3LVJ945
@@ -11426,7 +11426,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG1
+                                value: CG1 [^22]
                     - '@ondc/org/item_id': C7
                       '@ondc/org/item_quantity':
                         count: 1
@@ -11448,7 +11448,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG2
+                                value: CG2 [^23]
                     - '@ondc/org/item_id': C14
                       '@ondc/org/item_quantity':
                         count: 1
@@ -11470,7 +11470,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG3
+                                value: CG3 [^24]
                     - '@ondc/org/item_id': C16
                       '@ondc/org/item_quantity':
                         count: 1
@@ -11492,7 +11492,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG3
+                                value: CG3 [^25]
                     - '@ondc/org/item_id': I1
                       '@ondc/org/item_quantity':
                         count: 1
@@ -11532,7 +11532,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG1
+                                value: CG1 [^26]
                     - '@ondc/org/item_id': C7
                       '@ondc/org/item_quantity':
                         count: 1
@@ -11554,7 +11554,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG2
+                                value: CG2 [^27]
                     - '@ondc/org/item_id': C14
                       '@ondc/org/item_quantity':
                         count: 1
@@ -11576,7 +11576,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG3
+                                value: CG3 [^28]
                     - '@ondc/org/item_id': C15
                       '@ondc/org/item_quantity':
                         count: 1
@@ -11780,7 +11780,7 @@ x-flows:
                         currency: INR
                         value: '10.00'
                   ttl: PT1H
-                payment:
+                payment [^29]:
                   uri: https://ondc.transaction.com/payment
                   tl_method: http/get
                   params:
@@ -11813,7 +11813,7 @@ x-flows:
                       settlement_type: upi
                       settlement_amount: '1000'
                       settlement_timestamp: '2023-02-04T18:00:00.000Z'
-                documents:
+                documents [^30]:
                   - url: https://invoice_url
                     label: Invoice
                 created_at: '2023-06-03T09:30:00.000Z'
@@ -11822,9 +11822,6 @@ x-flows:
           value:
             ^1: enum - "Created","Accepted","In-progress","Completed","Cancelled"
             ^2: required if order state is "Cancelled"
-            ^3: >-
-              id for dynamic item created by buyer app for make-to-order product
-              and available in parent_item_id in /select
             ^4: optional
             ^5: same as in /init where billing object is created
             ^6: >-
@@ -11845,18 +11842,7 @@ x-flows:
               value of PCC (required when order is "Packed") - contact no - 10
               digits; merchant order no - max 6 digits; other pickup
               confirmation code - max 6 digits; OTP - max 6 digits
-            ^10: >-
-              optional, may be provided at the time of order pickup
-              ("Order-picked-up") & includes pickup image, rider pickup
-              coordinates
-            ^11: >-
-              optional, only for authorization of buyer self pickup;
-              authorization code will be generated by seller NP & sent along
-              with expiry info. If authorization is enabled by seller NP, buyer
-              needs to provide authorization type & code for pickup, which will
-              be verified by seller NP and for expired authorization, resend the
-              authorization details
-            ^12: enum - "OTP", others TBD
+            ^10: only for buyer self pickup
             ^13: optional
             ^14: required if state is "Order-delivered"
             ^15: >-
@@ -11866,17 +11852,6 @@ x-flows:
             ^16: >-
               value of DCC (required for code 1 & 2) - other DCC - max 6 digits;
               OTP - max 6 digits
-            ^17: >-
-              to be provided at the time of delivery ("Order-delivered") &
-              includes delivery image, rider delivery coordinates
-            ^18: >-
-              optional, only for delivery authorization; authorization code will
-              be generated by seller NP & sent along with expiry info. If
-              authorization is enabled by seller NP, buyer needs to provide
-              authorization type & code for delivery, which will be verified by
-              seller NP and for expired authorization, resend the authorization
-              details
-            ^19: enum - "OTP", others TBD
             ^20: >-
               optional, may be provided for last-mile delivery in intercity
               shipments
@@ -11889,10 +11864,7 @@ x-flows:
             ^27: id of customization group for the customization
             ^28: id of customization group for the customization
             ^29: optional keys here as defined in /confirm
-            ^30: >-
-              required for payment on delivery orders when order state is
-              "Completed"
-            ^31: required from fulfillment.state = "Order-picked-up" and thereafter
+            ^30: required from fulfillment.state = "Order-picked-up" and thereafter
   - summary: Retail 1.2.0 (On cancel RTO flow)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -30481,7 +30453,7 @@ x-examples:
               message:
                 order:
                   id: O1
-                  state: Cancelled [^1]
+                  state: Completed [^1]
                   cancellation [^2]:
                     cancelled_by: buyerNP.com
                     reason:
@@ -30491,16 +30463,144 @@ x-examples:
                     locations:
                       - id: L1
                   items:
-                    - fulfillment_id: F1
-                      id: DI1 [^3]
-                    - fulfillment_id: F1
-                      id: DI2
+                    - id: I1
+                      fulfillment_id: F1
+                      quantity:
+                        count: 1
+                      parent_item_id: DI1
+                      tags:
+                        - code: type
+                          list:
+                            - code: type
+                              value: item
+                    - id: C1
+                      fulfillment_id: F1
+                      quantity:
+                        count: 1
+                      parent_item_id: DI1
+                      tags:
+                        - code: type
+                          list:
+                            - code: type
+                              value: customization
+                        - code: parent
+                          list:
+                            - code: id
+                              value: CG1
+                    - id: C7
+                      fulfillment_id: F1
+                      quantity:
+                        count: 1
+                      parent_item_id: DI1
+                      tags:
+                        - code: type
+                          list:
+                            - code: type
+                              value: customization
+                        - code: parent
+                          list:
+                            - code: id
+                              value: CG2
+                    - id: C14
+                      fulfillment_id: F1
+                      quantity:
+                        count: 1
+                      parent_item_id: DI1
+                      tags:
+                        - code: type
+                          list:
+                            - code: type
+                              value: customization
+                        - code: parent
+                          list:
+                            - code: id
+                              value: CG3
+                    - id: C16
+                      fulfillment_id: F1
+                      quantity:
+                        count: 1
+                      parent_item_id: DI1
+                      tags:
+                        - code: type
+                          list:
+                            - code: type
+                              value: customization
+                        - code: parent
+                          list:
+                            - code: id
+                              value: CG3
+                    - id: I1
+                      fulfillment_id: F1
+                      quantity:
+                        count: 1
+                      parent_item_id: DI2
+                      tags:
+                        - code: type
+                          list:
+                            - code: type
+                              value: item
+                    - id: C2
+                      fulfillment_id: F1
+                      quantity:
+                        count: 1
+                      parent_item_id: DI2
+                      tags:
+                        - code: type
+                          list:
+                            - code: type
+                              value: customization
+                        - code: parent
+                          list:
+                            - code: id
+                              value: CG1
+                    - id: C7
+                      fulfillment_id: F1
+                      quantity:
+                        count: 1
+                      parent_item_id: DI2
+                      tags:
+                        - code: type
+                          list:
+                            - code: type
+                              value: customization
+                        - code: parent
+                          list:
+                            - code: id
+                              value: CG2
+                    - id: C14
+                      fulfillment_id: F1
+                      quantity:
+                        count: 1
+                      parent_item_id: DI2
+                      tags:
+                        - code: type
+                          list:
+                            - code: type
+                              value: customization
+                        - code: parent
+                          list:
+                            - code: id
+                              value: CG3
+                    - id: C15
+                      fulfillment_id: F1
+                      quantity:
+                        count: 1
+                      parent_item_id: DI2
+                      tags:
+                        - code: type
+                          list:
+                            - code: type
+                              value: customization
+                        - code: parent
+                          list:
+                            - code: id
+                              value: CG3
                   billing:
                     name: ONDC buyer
                     address:
-                      name: 'My house #'
-                      building: My building name
-                      locality: My street name
+                      name: 'my house or door or floor #'
+                      building: 'my building name or house #'
+                      locality: my street name
                       city: Bengaluru
                       state: Karnataka
                       country: IND
@@ -30517,13 +30617,11 @@ x-examples:
                       '@ondc/org/TAT': PT60M
                       state:
                         descriptor:
-                          code: Cancelled [^6]
+                          code: Order-delivered [^6]
                       start:
                         location:
                           descriptor:
                             name: ABC Store
-                            images:
-                              - https://gf-integration/images/5.png
                           gps: 12.967555,77.749666
                           address:
                             locality: Jayanagar
@@ -30535,19 +30633,11 @@ x-examples:
                             start: '2023-06-03T10:00:00.000Z'
                             end: '2023-06-03T10:30:00.000Z'
                           timestamp [^7]: '2023-06-03T10:25:00.000Z'
-                        instructions:
+                        instructions [^10]:
                           code: 1 [^8]
                           name: ONDC Order
                           short_desc: value of PCC [^9]
                           long_desc: additional instructions for pickup
-                          images [^10]:
-                            - https://lsp.com/pickup_image.png
-                            - https://lsp.com/rider_location.png
-                        authorization [^11]:
-                          type: OTP [^12]
-                          token: OTP code
-                          valid_from: '2023-06-03T12:00:00.000Z'
-                          valid_to: '2023-06-03T14:00:00.000Z'
                         contact:
                           phone: '9886098860'
                           email [^13]: nobody@nomail.com
@@ -30555,9 +30645,9 @@ x-examples:
                         location:
                           gps: 12.453544,77.928379
                           address:
-                            name: 'My house #'
-                            building: My building name
-                            locality: My street name
+                            name: 'my house or door or floor #'
+                            building: 'my building name or house #'
+                            locality: my street name
                             city: Bengaluru
                             state: Karnataka
                             country: IND
@@ -30568,26 +30658,18 @@ x-examples:
                             end: '2023-06-03T11:30:00.000Z'
                           timestamp [^14]: '2023-06-03T11:35:00.000Z'
                         instructions:
-                          code: 3 [^15]
+                          code: 2 [^15]
                           name: ONDC Order
                           short_desc: value of DCC [^16]
-                          Long_desc: additional instructions for delivery
-                          images [^17]:
-                            - https://lsp.com/delivery_image.png
-                            - https://lsp.com/rider_location.png
-                        authorization [^18]:
-                          type: OTP [^19]
-                          token: OTP code
-                          valid_from: '2023-06-03T18:00:00.000Z'
-                          valid_to: '2023-06-03T22:00:00.000Z'
-                        person:
-                          name: name_of_person
+                          long_desc: additional instructions for delivery
                         contact:
                           phone: '9886098860'
                       agent [^20]:
                         name: agent_name
                         phone: '9886098860'
                       vehicle [^21]:
+                        category: mini-truck
+                        size: small
                         registration: 3LVJ945
                   quote:
                     price:
@@ -30604,11 +30686,6 @@ x-examples:
                           value: '269.00'
                         item:
                           parent_item_id: DI1
-                          quantity:
-                            available:
-                              count: '99'
-                            maximum:
-                              count: '99'
                           price:
                             currency: INR
                             value: '269.00'
@@ -30627,11 +30704,6 @@ x-examples:
                           value: '0.00'
                         item:
                           parent_item_id: DI1
-                          quantity:
-                            available:
-                              count: '99'
-                            maximum:
-                              count: '99'
                           price:
                             currency: INR
                             value: '0.00'
@@ -30654,11 +30726,6 @@ x-examples:
                           value: '450.00'
                         item:
                           parent_item_id: DI1
-                          quantity:
-                            available:
-                              count: '99'
-                            maximum:
-                              count: '99'
                           price:
                             currency: INR
                             value: '450.00'
@@ -30681,11 +30748,6 @@ x-examples:
                           value: '80.00'
                         item:
                           parent_item_id: DI1
-                          quantity:
-                            available:
-                              count: '99'
-                            maximum:
-                              count: '99'
                           price:
                             currency: INR
                             value: '80.00'
@@ -30708,11 +30770,6 @@ x-examples:
                           value: '95.00'
                         item:
                           parent_item_id: DI1
-                          quantity:
-                            available:
-                              count: '99'
-                            maximum:
-                              count: '99'
                           price:
                             currency: INR
                             value: '95.00'
@@ -30735,11 +30792,6 @@ x-examples:
                           value: '269.00'
                         item:
                           parent_item_id: DI2
-                          quantity:
-                            available:
-                              count: '99'
-                            maximum:
-                              count: '99'
                           price:
                             currency: INR
                             value: '269.00'
@@ -30758,11 +30810,6 @@ x-examples:
                           value: '0.00'
                         item:
                           parent_item_id: DI2
-                          quantity:
-                            available:
-                              count: '99'
-                            maximum:
-                              count: '99'
                           price:
                             currency: INR
                             value: '0.00'
@@ -30785,11 +30832,6 @@ x-examples:
                           value: '450.00'
                         item:
                           parent_item_id: DI2
-                          quantity:
-                            available:
-                              count: '99'
-                            maximum:
-                              count: '99'
                           price:
                             currency: INR
                             value: '450.00'
@@ -30812,38 +30854,6 @@ x-examples:
                           value: '80.00'
                         item:
                           parent_item_id: DI2
-                          quantity:
-                            available:
-                              count: '99'
-                            maximum:
-                              count: '99'
-                          price:
-                            currency: INR
-                            value: '80.00'
-                          tags:
-                            - code: type
-                              list:
-                                - code: type
-                                  value: customization
-                            - code: parent
-                              list:
-                                - code: id
-                                  value: CG3
-                      - '@ondc/org/item_id': C15
-                        '@ondc/org/item_quantity':
-                          count: 1
-                        title: Fresh Tomato
-                        '@ondc/org/title_type': item
-                        price:
-                          currency: INR
-                          value: '80.00'
-                        item:
-                          parent_item_id: DI2
-                          quantity:
-                            available:
-                              count: '99'
-                            maximum:
-                              count: '99'
                           price:
                             currency: INR
                             value: '80.00'
@@ -30856,6 +30866,28 @@ x-examples:
                               list:
                                 - code: id
                                   value: CG3 [^28]
+                      - '@ondc/org/item_id': C15
+                        '@ondc/org/item_quantity':
+                          count: 1
+                        title: Fresh Tomato
+                        '@ondc/org/title_type': item
+                        price:
+                          currency: INR
+                          value: '80.00'
+                        item:
+                          parent_item_id: DI2
+                          price:
+                            currency: INR
+                            value: '80.00'
+                          tags:
+                            - code: type
+                              list:
+                                - code: type
+                                  value: customization
+                            - code: parent
+                              list:
+                                - code: id
+                                  value: CG3
                       - '@ondc/org/item_id': I1
                         title: Tax
                         '@ondc/org/title_type': tax
@@ -31047,8 +31079,6 @@ x-examples:
                     status: PAID
                     type: ON-ORDER
                     collected_by: BAP
-                    time [^30]:
-                      timestamp: '2023-06-04T10:00:00.000Z'
                     '@ondc/org/buyer_app_finder_fee_type': percent
                     '@ondc/org/buyer_app_finder_fee_amount': '3'
                     '@ondc/org/settlement_basis': delivery
@@ -31072,685 +31102,7 @@ x-examples:
                         settlement_type: upi
                         settlement_amount: '1000'
                         settlement_timestamp: '2023-02-04T18:00:00.000Z'
-                  documents [^31]:
-                    - url: https://invoice_url
-                      label: Invoice
-                  created_at: '2023-06-03T09:30:00.000Z'
-                  updated_at: '2023-06-03T10:00:30.201Z'
-          - summary: >-
-              Seller updates the order status and shares Invoice for make to
-              order products
-            description: >-
-              Seller updates the order status and shares Invoice for make to
-              order products
-            value:
-              context:
-                domain: ONDC:RET10
-                action: on_status
-                core_version: 1.2.0
-                bap_id: buyerNP.com
-                bap_uri: https://buyerNP.com/ondc
-                bpp_id: sellerNP.com
-                bpp_uri: https://sellerNP.com/ondc
-                transaction_id: T2
-                message_id: M12
-                city: std:080
-                country: IND
-                timestamp: '2023-06-04T10:00:30.000Z'
-                ttl: PT30S
-              message:
-                order:
-                  id: O1
-                  state: Completed
-                  cancellation:
-                    cancelled_by: buyerNP.com
-                    reason:
-                      id: '004'
-                  provider:
-                    id: P1
-                    locations:
-                      - id: L1
-                  items:
-                    - id: I1
-                      fulfillment_id: F1
-                      quantity:
-                        count: 1
-                      parent_item_id: DI1
-                      tags:
-                        - code: type
-                          list:
-                            - code: type
-                              value: item
-                    - id: C1
-                      fulfillment_id: F1
-                      quantity:
-                        count: 1
-                      parent_item_id: DI1
-                      tags:
-                        - code: type
-                          list:
-                            - code: type
-                              value: customization
-                        - code: parent
-                          list:
-                            - code: id
-                              value: CG1
-                    - id: C7
-                      fulfillment_id: F1
-                      quantity:
-                        count: 1
-                      parent_item_id: DI1
-                      tags:
-                        - code: type
-                          list:
-                            - code: type
-                              value: customization
-                        - code: parent
-                          list:
-                            - code: id
-                              value: CG2
-                    - id: C14
-                      fulfillment_id: F1
-                      quantity:
-                        count: 1
-                      parent_item_id: DI1
-                      tags:
-                        - code: type
-                          list:
-                            - code: type
-                              value: customization
-                        - code: parent
-                          list:
-                            - code: id
-                              value: CG3
-                    - id: C16
-                      fulfillment_id: F1
-                      quantity:
-                        count: 1
-                      parent_item_id: DI1
-                      tags:
-                        - code: type
-                          list:
-                            - code: type
-                              value: customization
-                        - code: parent
-                          list:
-                            - code: id
-                              value: CG3
-                    - id: I1
-                      fulfillment_id: F1
-                      quantity:
-                        count: 1
-                      parent_item_id: DI2
-                      tags:
-                        - code: type
-                          list:
-                            - code: type
-                              value: item
-                    - id: C2
-                      fulfillment_id: F1
-                      quantity:
-                        count: 1
-                      parent_item_id: DI2
-                      tags:
-                        - code: type
-                          list:
-                            - code: type
-                              value: customization
-                        - code: parent
-                          list:
-                            - code: id
-                              value: CG1
-                    - id: C7
-                      fulfillment_id: F1
-                      quantity:
-                        count: 1
-                      parent_item_id: DI2
-                      tags:
-                        - code: type
-                          list:
-                            - code: type
-                              value: customization
-                        - code: parent
-                          list:
-                            - code: id
-                              value: CG2
-                    - id: C14
-                      fulfillment_id: F1
-                      quantity:
-                        count: 1
-                      parent_item_id: DI2
-                      tags:
-                        - code: type
-                          list:
-                            - code: type
-                              value: customization
-                        - code: parent
-                          list:
-                            - code: id
-                              value: CG3
-                    - id: C15
-                      fulfillment_id: F1
-                      quantity:
-                        count: 1
-                      parent_item_id: DI2
-                      tags:
-                        - code: type
-                          list:
-                            - code: type
-                              value: customization
-                        - code: parent
-                          list:
-                            - code: id
-                              value: CG3
-                  billing:
-                    name: ONDC buyer
-                    address:
-                      name: 'my house or door or floor #'
-                      building: 'my building name or house #'
-                      locality: my street name
-                      city: Bengaluru
-                      state: Karnataka
-                      country: IND
-                      area_code: '560037'
-                    email: nobody@nomail.com
-                    phone: '9886098860'
-                    created_at: '2023-06-03T09:00:00.000Z'
-                    updated_at: '2023-06-03T09:00:00.000Z'
-                  fulfillments:
-                    - id: F1
-                      '@ondc/org/provider_name': LSP or Provider name
-                      type: Delivery
-                      tracking: false
-                      '@ondc/org/TAT': PT60M
-                      state:
-                        descriptor:
-                          code: Order-delivered
-                      start:
-                        location:
-                          descriptor:
-                            name: ABC Store
-                          gps: 12.967555,77.749666
-                          address:
-                            locality: Jayanagar
-                            city: Bengaluru
-                            area_code: '560076'
-                            state: KA
-                        time:
-                          range:
-                            start: '2023-06-03T10:00:00.000Z'
-                            end: '2023-06-03T10:30:00.000Z'
-                          timestamp: '2023-06-03T10:25:00.000Z'
-                        instructions:
-                          code: '1'
-                          name: ONDC Order
-                          short_desc: value of PCC
-                          long_desc: additional instructions for pickup
-                        contact:
-                          phone: '9886098860'
-                          email: nobody@nomail.com
-                      end:
-                        location:
-                          gps: 12.453544,77.928379
-                          address:
-                            name: 'my house or door or floor #'
-                            building: 'my building name or house #'
-                            locality: my street name
-                            city: Bengaluru
-                            state: Karnataka
-                            country: IND
-                            area_code: '560037'
-                        time:
-                          range:
-                            start: '2023-06-03T11:00:00.000Z'
-                            end: '2023-06-03T11:30:00.000Z'
-                          timestamp: '2023-06-03T11:35:00.000Z'
-                        instructions:
-                          code: '2'
-                          name: ONDC Order
-                          short_desc: value of DCC
-                          long_desc: additional instructions for delivery
-                        contact:
-                          phone: '9886098860'
-                      agent:
-                        name: agent_name
-                        phone: '9886098860'
-                      vehicle:
-                        category: mini-truck
-                        size: small
-                        registration: 3LVJ945
-                  quote:
-                    price:
-                      currency: INR
-                      value: '1946.65'
-                    breakup:
-                      - '@ondc/org/item_id': I1
-                        '@ondc/org/item_quantity':
-                          count: 1
-                        title: Farm House Pizza
-                        '@ondc/org/title_type': item
-                        price:
-                          currency: INR
-                          value: '269.00'
-                        item:
-                          parent_item_id: DI1
-                          price:
-                            currency: INR
-                            value: '269.00'
-                          tags:
-                            - code: type
-                              list:
-                                - code: type
-                                  value: item
-                      - '@ondc/org/item_id': C1
-                        '@ondc/org/item_quantity':
-                          count: 1
-                        title: New Hand Tossed
-                        '@ondc/org/title_type': item
-                        price:
-                          currency: INR
-                          value: '0.00'
-                        item:
-                          parent_item_id: DI1
-                          price:
-                            currency: INR
-                            value: '0.00'
-                          tags:
-                            - code: type
-                              list:
-                                - code: type
-                                  value: customization
-                            - code: parent
-                              list:
-                                - code: id
-                                  value: CG1
-                      - '@ondc/org/item_id': C7
-                        '@ondc/org/item_quantity':
-                          count: 1
-                        title: Large
-                        '@ondc/org/title_type': item
-                        price:
-                          currency: INR
-                          value: '450.00'
-                        item:
-                          parent_item_id: DI1
-                          price:
-                            currency: INR
-                            value: '450.00'
-                          tags:
-                            - code: type
-                              list:
-                                - code: type
-                                  value: customization
-                            - code: parent
-                              list:
-                                - code: id
-                                  value: CG2
-                      - '@ondc/org/item_id': C14
-                        '@ondc/org/item_quantity':
-                          count: 1
-                        title: Grilled Mushrooms
-                        '@ondc/org/title_type': item
-                        price:
-                          currency: INR
-                          value: '80.00'
-                        item:
-                          parent_item_id: DI1
-                          price:
-                            currency: INR
-                            value: '80.00'
-                          tags:
-                            - code: type
-                              list:
-                                - code: type
-                                  value: customization
-                            - code: parent
-                              list:
-                                - code: id
-                                  value: CG3
-                      - '@ondc/org/item_id': C16
-                        '@ondc/org/item_quantity':
-                          count: 1
-                        title: Pepper Barbeque Chicken
-                        '@ondc/org/title_type': item
-                        price:
-                          currency: INR
-                          value: '95.00'
-                        item:
-                          parent_item_id: DI1
-                          price:
-                            currency: INR
-                            value: '95.00'
-                          tags:
-                            - code: type
-                              list:
-                                - code: type
-                                  value: customization
-                            - code: parent
-                              list:
-                                - code: id
-                                  value: CG3
-                      - '@ondc/org/item_id': I1
-                        '@ondc/org/item_quantity':
-                          count: 1
-                        title: Farm House Pizza
-                        '@ondc/org/title_type': item
-                        price:
-                          currency: INR
-                          value: '269.00'
-                        item:
-                          parent_item_id: DI2
-                          price:
-                            currency: INR
-                            value: '269.00'
-                          tags:
-                            - code: type
-                              list:
-                                - code: type
-                                  value: item
-                      - '@ondc/org/item_id': C2
-                        '@ondc/org/item_quantity':
-                          count: 1
-                        title: 100% Wheat Thin Crust
-                        '@ondc/org/title_type': item
-                        price:
-                          currency: INR
-                          value: '0.00'
-                        item:
-                          parent_item_id: DI2
-                          price:
-                            currency: INR
-                            value: '0.00'
-                          tags:
-                            - code: type
-                              list:
-                                - code: type
-                                  value: customization
-                            - code: parent
-                              list:
-                                - code: id
-                                  value: CG1
-                      - '@ondc/org/item_id': C7
-                        '@ondc/org/item_quantity':
-                          count: 1
-                        title: Large
-                        '@ondc/org/title_type': item
-                        price:
-                          currency: INR
-                          value: '450.00'
-                        item:
-                          parent_item_id: DI2
-                          price:
-                            currency: INR
-                            value: '450.00'
-                          tags:
-                            - code: type
-                              list:
-                                - code: type
-                                  value: customization
-                            - code: parent
-                              list:
-                                - code: id
-                                  value: CG2
-                      - '@ondc/org/item_id': C14
-                        '@ondc/org/item_quantity':
-                          count: 1
-                        title: Grilled Mushrooms
-                        '@ondc/org/title_type': item
-                        price:
-                          currency: INR
-                          value: '80.00'
-                        item:
-                          parent_item_id: DI2
-                          price:
-                            currency: INR
-                            value: '80.00'
-                          tags:
-                            - code: type
-                              list:
-                                - code: type
-                                  value: customization
-                            - code: parent
-                              list:
-                                - code: id
-                                  value: CG3
-                      - '@ondc/org/item_id': C15
-                        '@ondc/org/item_quantity':
-                          count: 1
-                        title: Fresh Tomato
-                        '@ondc/org/title_type': item
-                        price:
-                          currency: INR
-                          value: '80.00'
-                        item:
-                          parent_item_id: DI2
-                          price:
-                            currency: INR
-                            value: '80.00'
-                          tags:
-                            - code: type
-                              list:
-                                - code: type
-                                  value: customization
-                            - code: parent
-                              list:
-                                - code: id
-                                  value: CG3
-                      - '@ondc/org/item_id': I1
-                        title: Tax
-                        '@ondc/org/title_type': tax
-                        price:
-                          currency: INR
-                          value: '13.45'
-                        item:
-                          parent_item_id: DI1
-                          tags:
-                            - code: type
-                              list:
-                                - code: type
-                                  value: item
-                      - '@ondc/org/item_id': C1
-                        title: Tax
-                        '@ondc/org/title_type': tax
-                        price:
-                          currency: INR
-                          value: '0.00'
-                        item:
-                          parent_item_id: DI1
-                          tags:
-                            - code: type
-                              list:
-                                - code: type
-                                  value: customization
-                            - code: parent
-                              list:
-                                - code: id
-                                  value: CG1
-                      - '@ondc/org/item_id': C7
-                        title: Tax
-                        '@ondc/org/title_type': tax
-                        price:
-                          currency: INR
-                          value: '22.50'
-                        item:
-                          parent_item_id: DI1
-                          tags:
-                            - code: type
-                              list:
-                                - code: type
-                                  value: customization
-                            - code: parent
-                              list:
-                                - code: id
-                                  value: CG2
-                      - '@ondc/org/item_id': C14
-                        title: Tax
-                        '@ondc/org/title_type': tax
-                        price:
-                          currency: INR
-                          value: '4.00'
-                        item:
-                          parent_item_id: DI1
-                          tags:
-                            - code: type
-                              list:
-                                - code: type
-                                  value: customization
-                            - code: parent
-                              list:
-                                - code: id
-                                  value: CG3
-                      - '@ondc/org/item_id': C16
-                        title: Tax
-                        '@ondc/org/title_type': tax
-                        price:
-                          currency: INR
-                          value: '4.75'
-                        item:
-                          parent_item_id: DI1
-                          tags:
-                            - code: type
-                              list:
-                                - code: type
-                                  value: customization
-                            - code: parent
-                              list:
-                                - code: id
-                                  value: CG1
-                      - '@ondc/org/item_id': I1
-                        title: Tax
-                        '@ondc/org/title_type': tax
-                        price:
-                          currency: INR
-                          value: '13.45'
-                        item:
-                          parent_item_id: DI2
-                          tags:
-                            - code: type
-                              list:
-                                - code: type
-                                  value: item
-                      - '@ondc/org/item_id': C2
-                        title: Tax
-                        '@ondc/org/title_type': tax
-                        price:
-                          currency: INR
-                          value: '22.50'
-                        item:
-                          parent_item_id: DI2
-                          tags:
-                            - code: type
-                              list:
-                                - code: type
-                                  value: customization
-                            - code: parent
-                              list:
-                                - code: id
-                                  value: CG1
-                      - '@ondc/org/item_id': C7
-                        title: Tax
-                        '@ondc/org/title_type': tax
-                        price:
-                          currency: INR
-                          value: '22.50'
-                        item:
-                          parent_item_id: DI2
-                          tags:
-                            - code: type
-                              list:
-                                - code: type
-                                  value: customization
-                            - code: parent
-                              list:
-                                - code: id
-                                  value: CG2
-                      - '@ondc/org/item_id': C14
-                        title: Tax
-                        '@ondc/org/title_type': tax
-                        price:
-                          currency: INR
-                          value: '4.00'
-                        item:
-                          parent_item_id: DI2
-                          tags:
-                            - code: type
-                              list:
-                                - code: type
-                                  value: customization
-                            - code: parent
-                              list:
-                                - code: id
-                                  value: CG3
-                      - '@ondc/org/item_id': C15
-                        title: Tax
-                        '@ondc/org/title_type': tax
-                        price:
-                          currency: INR
-                          value: '4.00'
-                        item:
-                          parent_item_id: DI2
-                          tags:
-                            - code: type
-                              list:
-                                - code: type
-                                  value: customization
-                            - code: parent
-                              list:
-                                - code: id
-                                  value: CG3
-                      - '@ondc/org/item_id': F1
-                        title: Delivery charges
-                        '@ondc/org/title_type': delivery
-                        price:
-                          currency: INR
-                          value: '50.00'
-                      - '@ondc/org/item_id': F1
-                        title: Packing charges
-                        '@ondc/org/title_type': packing
-                        price:
-                          currency: INR
-                          value: '25.00'
-                      - '@ondc/org/item_id': F1
-                        title: Convenience Fee
-                        '@ondc/org/title_type': misc
-                        price:
-                          currency: INR
-                          value: '10.00'
-                    ttl: PT1H
-                  payment:
-                    uri: https://ondc.transaction.com/payment
-                    tl_method: http/get
-                    params:
-                      currency: INR
-                      transaction_id: '3937'
-                      amount: '245'
-                    status: PAID
-                    type: ON-ORDER
-                    collected_by: BAP
-                    '@ondc/org/buyer_app_finder_fee_type': percent
-                    '@ondc/org/buyer_app_finder_fee_amount': '3'
-                    '@ondc/org/settlement_basis': delivery
-                    '@ondc/org/settlement_window': P1D
-                    '@ondc/org/withholding_amount': '10.00'
-                    '@ondc/org/settlement_details':
-                      - settlement_counterparty: seller-app
-                        settlement_phase: sale-amount
-                        beneficiary_name: xxxxx
-                        settlement_reference: XXXX
-                        settlement_status: PAID
-                        settlement_timestamp: '2023-02-04T10:00:00.000Z'
-                        settlement_type: upi
-                        upi_address: gft@oksbi
-                        settlement_bank_account_no: XXXXXXXXXX
-                        settlement_ifsc_code: XXXXXXXXX
-                        bank_name: xxxx
-                        branch_name: xxxx
-                      - settlement_counterparty: buyer
-                        settlement_phase: refund
-                        settlement_type: upi
-                        settlement_amount: '1000'
-                        settlement_timestamp: '2023-02-04T18:00:00.000Z'
-                  documents:
+                  documents [^30]:
                     - url: https://invoice_url
                       label: Invoice
                   created_at: '2023-06-03T09:30:00.000Z'
@@ -32223,8 +31575,8 @@ x-examples:
               message:
                 order:
                   id: O1
-                  state: Completed
-                  cancellation:
+                  state: Completed [^1]
+                  cancellation [^2]:
                     cancelled_by: buyerNP.com
                     reason:
                       id: '004'
@@ -32237,7 +31589,7 @@ x-examples:
                       fulfillment_id: F1
                       quantity:
                         count: 1
-                    - id: I1
+                    - id [^3]: I1
                       fulfillment_id: R1
                       quantity:
                         count: 1
@@ -32251,9 +31603,9 @@ x-examples:
                       state: Karnataka
                       country: IND
                       area_code: '560037'
-                    email: nobody@nomail.com
+                    email [^4]: nobody@nomail.com
                     phone: '9886098860'
-                    created_at: '2023-06-03T09:00:00.000Z'
+                    created_at [^5]: '2023-06-03T09:00:00.000Z'
                     updated_at: '2023-06-03T09:00:00.000Z'
                   fulfillments:
                     - id: F1
@@ -32263,7 +31615,7 @@ x-examples:
                       '@ondc/org/TAT': PT60M
                       state:
                         descriptor:
-                          code: Order-delivered
+                          code: Order-delivered [^6]
                       start:
                         location:
                           descriptor:
@@ -32278,15 +31630,15 @@ x-examples:
                           range:
                             start: '2023-06-03T10:00:00.000Z'
                             end: '2023-06-03T10:30:00.000Z'
-                          timestamp: '2023-06-03T10:25:00.000Z'
-                        instructions:
-                          code: '1'
+                          timestamp [^7]: '2023-06-03T10:25:00.000Z'
+                        instructions [^8]:
+                          code: 1 [^9]
                           name: ONDC Order
-                          short_desc: value of PCC
+                          short_desc: value of PCC [^10]
                           long_desc: additional instructions for pickup
                         contact:
                           phone: '9886098860'
-                          email: nobody@nomail.com
+                          email [^11]: nobody@nomail.com
                       end:
                         location:
                           gps: 12.453544,77.928379
@@ -32302,18 +31654,18 @@ x-examples:
                           range:
                             start: '2023-06-03T11:00:00.000Z'
                             end: '2023-06-03T11:30:00.000Z'
-                          timestamp: '2023-06-03T11:35:00.000Z'
+                          timestamp [^12]: '2023-06-03T11:35:00.000Z'
                         instructions:
-                          code: '2'
+                          code: 2 [^13]
                           name: ONDC Order
-                          short_desc: value of DCC
+                          short_desc: value of DCC [^14]
                           long_desc: additional instructions for delivery
                         contact:
                           phone: '9886098860'
-                      agent:
+                      agent [^15]:
                         name: agent_name
                         phone: '9886098860'
-                      vehicle:
+                      vehicle [^16]:
                         category: mini-truck
                         size: small
                         registration: 3LVJ945
@@ -32365,7 +31717,7 @@ x-examples:
                           currency: INR
                           value: '10'
                     ttl: P1D
-                  payment:
+                  payment [^17]:
                     uri: https://ondc.transaction.com/payment
                     tl_method: http/get
                     params:
@@ -32398,7 +31750,7 @@ x-examples:
                         settlement_type: upi
                         settlement_amount: '1000'
                         settlement_timestamp: '2023-02-04T18:00:00.000Z'
-                  documents:
+                  documents [^18]:
                     - url: https://invoice_url
                       label: Invoice
                   created_at: '2023-06-03T09:30:00.000Z'

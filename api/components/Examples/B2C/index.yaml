@@ -81,7 +81,6 @@ on_track:
     - $ref: ./on_track/on_track.yaml
 on_status:
   examples:
-    - $ref: ./on_status/on_status_make_to_order_product_order_cancelled.yaml
     - $ref: ./on_status/on_status_make_to_order_product_order_delivered.yaml
     - $ref: ./on_status/on_status_other_product_order_pickup.yaml
     - $ref: ./on_status/on_status_other_product_out_for_delivery.yaml
