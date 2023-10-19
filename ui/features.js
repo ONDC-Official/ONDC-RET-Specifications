@@ -44,8 +44,6 @@ async function getFeatures(branchName) {
       option.text = feature_name;
       selectedOption.add(option);
     });
-
-    console.log(featureMap);
     return featureMap;
   } catch (error) {
     console.log("Error fetching contract", error?.message || error);
@@ -56,16 +54,16 @@ async function getFeatures(branchName) {
 function loadFeatures(data) {
   features = data;
 
-  const firstKey = features.keys().next().value;
-  console.log(firstKey);
-  markdownConverter(firstKey);
+  let firstKey = features.keys().next().value;
+  const splitArr = firstKey.split(".");
+  markdownConverter(splitArr[0]);
 }
 
- function updateFeature() {
+function updateFeature() {
   var selectedOption = document.getElementById("feature-sets-dropdown").value;
   markdownConverter(selectedOption);
 }
- function markdownConverter(selectedOption) {
+function markdownConverter(selectedOption) {
   let download_url;
 
   selectedOption = toUnderscoreCase(selectedOption);
@@ -78,7 +76,6 @@ function loadFeatures(data) {
 
   fetch(filePath)
     .then((response) => {
-      console.log(response);
       if (response.ok) {
         return response.text(); // Get the text content of the file
       }
