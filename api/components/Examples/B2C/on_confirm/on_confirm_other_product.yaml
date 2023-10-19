@@ -168,79 +168,13 @@ value:
             settlement_ifsc_code: XXXXXXXXX
             bank_name: xxxx
             branch_name: xxxx
-      cancellation_terms [^18]:
-        - fulfillment_state:
-            descriptor:
-              code: Pending
-              short_desc: ''
-          refund_eligible: true
-          reason_required: false
-          cancellation_fee:
-            amount:
-              currency: INR
-              value: '0.00'
-        - fulfillment_state:
-            descriptor:
-              code: Packed
-              short_desc: 001,003
-          refund_eligible: true
-          reason_required: true
-          cancellation_fee:
-            amount:
-              currency: INR
-              value: '50.00'
-        - fulfillment_state:
-            descriptor:
-              code: Order-picked-up
-              short_desc: 001,003
-          refund_eligible: true
-          reason_required: true
-          cancellation_fee:
-            amount:
-              currency: INR
-              value: '50.00'
-        - fulfillment_state:
-            descriptor:
-              code: Out-for-delivery
-              short_desc: '009'
-          refund_eligible: true
-          reason_required: true
-          cancellation_fee:
-            amount:
-              currency: INR
-              value: '0.00'
-        - fulfillment_state:
-            descriptor:
-              code: Out-for-delivery
-              short_desc: 011,012,013,014,015
-          refund_eligible: true
-          reason_required: true
-          cancellation_fee:
-            amount:
-              currency: INR
-              value: '100.00'
       tags [^19]:
         - code: bpp_terms
           list:
-            - code: max_liability_cap
-              value: '10000.00'
-            - code: max_liability
-              value: '2'
-            - code: mandatory_arbitration
-              value: 'false'
-            - code: court_jurisdiction
-              value: Bengaluru
-            - code: delay_interest
-              value: '1000.00'
             - code: tax_number
               value: gst_number_of_sellerNP
-            - code: accept_bap_terms [^20]
-              value: 'Y'
         - code: bap_terms
           list:
-            - code: fixed_terms
-              value: >-
-                https://github.com/ONDC-Official/protocol-network-extension/discussions/79
             - code: tax_number
               value: gst_number_of_buyerNP
       created_at [^21]: '2023-06-03T09:30:00.000Z'

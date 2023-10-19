@@ -18,14 +18,11 @@ value:
     order:
       provider:
         id: P1
-        locations:
-          - id: L1 [^1]
       items:
         - fulfillment_id: F1
           id: I1
       fulfillments:
         - id: F1
-          type: Delivery
           '@ondc/org/provider_name': LSP or Provider Name
           tracking: false
           '@ondc/org/category': ''

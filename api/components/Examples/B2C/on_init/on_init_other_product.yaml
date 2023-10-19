@@ -18,7 +18,7 @@ value:
     order:
       provider:
         id: P1
-        locations:
+        provider_location:
           - id: L1 [^1]
       items:
         - id: I1
@@ -125,74 +125,8 @@ value:
             settlement_ifsc_code: XXXXXXXXX
             bank_name: xxxx
             branch_name: xxxx
-      cancellation_terms:
-        - fulfillment_state:
-            descriptor:
-              code: Pending [^14]
-              short_desc [^15]: ''
-          refund_eligible [^16]: true
-          reason_required [^17]: false
-          cancellation_fee [^18]:
-            percentage: '0.00'
-            amount:
-              currency: INR
-              value: '0.00'
-        - fulfillment_state:
-            descriptor:
-              code: Packed
-              short_desc: 001,003
-          refund_eligible: true [^19]
-          reason_required: true
-          cancellation_fee [^20]:
-            percentage: '10.00'
-            amount:
-              currency: INR
-              value: '50.00'
-        - fulfillment_state:
-            descriptor:
-              code: Order-picked-up
-              short_desc: 001,003
-          refund_eligible: true
-          reason_required: true
-          cancellation_fee:
-            percentage: '10.00'
-            amount:
-              currency: INR
-              value: '50.00'
-        - fulfillment_state:
-            descriptor:
-              code: Out-for-delivery
-              short_desc: '009'
-          refund_eligible: true
-          reason_required: true
-          cancellation_fee [^21]:
-            percentage: '0.00'
-            amount:
-              currency: INR
-              value: '0.00'
-        - fulfillment_state:
-            descriptor:
-              code: Out-for-delivery
-              short_desc: 010,011,012,013,014,015 [^22]
-          refund_eligible: true
-          reason_required: true
-          cancellation_fee [^23]:
-            percentage: '20.00'
-            amount:
-              currency: INR
-              value: '100.00'
       tags:
         - code: bpp_terms [^24]
           list:
-            - code: max_liability
-              value: '2'
-            - code: max_liability_cap
-              value: '10000.00'
-            - code: mandatory_arbitration
-              value: 'false'
-            - code: court_jurisdiction
-              value: Bengaluru
-            - code: delay_interest
-              value: '1000.00'
             - code: tax_number [^25]
               value: gst_number_of_sellerNP
