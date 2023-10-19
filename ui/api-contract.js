@@ -1,3 +1,4 @@
+// const {getFeatures} = require("./features")
 function getStringAfterEquals(inputString) {
   const index = inputString.indexOf("=");
   if (index !== -1) {
@@ -10,7 +11,8 @@ function getStringAfterEquals(inputString) {
 async function readBuildFile(branchName) {
   if (!branchName) return;
   const url = `https://api.github.com/repos/ondc-official/ONDC-RET-Specifications/contents/ui/build.js?ref=${branchName}`;
-
+  const features = await getFeatures(branchName)
+ 
   try {
     const response = await fetch(url, {
       headers: {
@@ -18,9 +20,25 @@ async function readBuildFile(branchName) {
       },
     });
     const formattedResponse = await response?.json();
-    let splitedText = atob(formattedResponse?.content);
-    build_spec = JSON.parse(getStringAfterEquals(splitedText));
-    onFirstLoad(build_spec);
+    // reading data using github raw apis.
+    if(formattedResponse?.download_url){
+      setTimeout(async ()=>{
+        const rawResponse = await fetch(formattedResponse.download_url, {
+          // headers: {
+          //   Authorization: "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",
+          // },
+        });
+        const formattedrawResponse = await rawResponse?.text();
+        build_spec = JSON.parse(getStringAfterEquals(formattedrawResponse));
+        
+        onFirstLoad(build_spec,features);
+      },1200)
+    }
+   
+    // let splitedText = atob(formattedResponse?.content);
+    // build_spec = JSON.parse(getStringAfterEquals(splitedText));
+    // onFirstLoad(build_spec);
+    
   } catch (error) {
     console.log("Error fetching contract", error?.message || error);
     //alert('Something went wrong, Please try again later')
@@ -63,6 +81,7 @@ function upadteContract() {
   const selectedOption = document.getElementById("contract-dropdown")?.value;
   readBuildFile(selectedOption);
 }
+
 
 window.onload = function () {
   loadContracts()
