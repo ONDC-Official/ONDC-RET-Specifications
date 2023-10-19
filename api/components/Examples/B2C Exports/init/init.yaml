@@ -2,14 +2,14 @@ summary: Send buyer and delivery terms for other products
 description: Send buyer and delivery terms for other products
 value:
   context:
-    domain: ONDC:RET10
+    domain: ONDC:RET12
     action: init
     core_version: 1.2.0
     bap_id: buyerNP.com
     bap_uri: https://buyerNP.com/ondc
     bpp_id: sellerNP.com
     bpp_uri: https://sellerNP.com/ondc
-    transaction_id: T2
+    transaction_id: T1
     message_id: M3
     city: IATA:SIN
     country: SGP

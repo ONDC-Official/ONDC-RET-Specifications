@@ -13,3 +13,13 @@
 - $ref: "./B2C/return_with_reverse_qc_reschedule.yaml"
 - $ref: "./B2C/incremental_catalog_one_time_push.yaml"
 - $ref: "./B2C/incremental_catalog_regular_push.yaml"
+
+
+- $ref: "./B2C_Exports/return_with_liquidation_other_product.yaml"
+- $ref: "./B2C_Exports/merchant_cancels_non_customized_product.yaml"
+- $ref: "./B2C_Exports/cancel_order.yaml"
+- $ref: "./B2C_Exports/item_not_in_stock.yaml"
+- $ref: "./B2C_Exports/location_not_serviceable.yaml"
+- $ref: "./B2C_Exports/return_with_liquidation_reject_request.yaml" # TODO: Modifications Needed
+- $ref: "./B2C_Exports/incremental_catalog_one_time_push.yaml" # TODO: Modifications Needed
+- $ref: "./B2C_Exports/incremental_catalog_regular_push.yaml" # TODO: Modifications Needed

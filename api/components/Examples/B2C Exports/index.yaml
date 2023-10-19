@@ -1,0 +1,49 @@
+search:
+  examples:
+    - $ref: ./search/search_by_country.yaml
+    - $ref: ./search/search_by_item.yaml
+    - $ref: ./search/search_by_fulfillment_end_loc.yaml
+    - $ref: ./search/incremental_catalog_refresh_one_time_push.yaml
+    - $ref: ./search/incremental_catalog_refresh_regular_push.yaml
+    - $ref: ./search/stop_incremental_refresh.yaml
+select:
+  examples:
+    - $ref: ./select/select.yaml
+init:
+  examples:
+    - $ref: ./init/init.yaml
+confirm:
+  examples:
+    - $ref: ./confirm/confirm.yaml
+update:
+  examples:
+    - $ref: ./update/update_settlement_trail_part_cancel_by_merchant.yaml
+cancel:
+  examples:
+    - $ref: ./cancel/cancel.yaml
+status:
+  examples:
+    - $ref: ./status/status.yaml
+on_search:
+  examples:
+    - $ref: ./on_search/on_search_Fashion.yaml
+    - $ref: ./on_search/on_search_Grocery.yaml
+on_select:
+  examples:
+    - $ref: ./on_select/on_select_item_in_stock.yaml
+on_init:
+  examples:
+    - $ref: ./on_init/on_init.yaml
+on_confirm:
+  examples:
+    - $ref: ./on_confirm/on_confirm.yaml
+on_update:
+  examples:
+    - $ref: ./on_update/on_update_merchant_part_cancels_non_customized.yaml
+on_cancel:
+  examples:
+    - $ref: ./on_cancel/on_cancel.yaml
+on_status:
+  examples:
+    - $ref: ./on_status/on_status_make_to_order_product_order_status.yaml
+    - $ref: ./on_status/on_status_make_to_order_product_order_delivered.yaml
