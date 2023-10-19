@@ -4,9 +4,7 @@ value:
   [^3]: optional
   [^4]: same as in /init
   [^5]: same as in /init
-  [^6]: same as what is proposed in /on_select; If TAT is different from what was originally quoted in /on_select, seller NP can NACK the request with error code 30013
   [^7]: optional
-  [^8]: only for type "Self-Pickup", category "Kerbside"
   [^9]: id of customization group for the customization
   [^10]: id of customization group for the customization
   [^11]: id of customization group for the customization
@@ -26,8 +24,6 @@ value:
   [^25]: withholding amount as % of total order value (valid values between "0.00" and "100.00")
   [^26]: optional (buyer NP provides their details for CoD / seller NP collecting prepaid; otherwise, includes the settlement details provided by seller NP)
   [^27]: buyer-app for payment on delivery
-  [^28]: buyer NP must accept bpp terms. If not accepted, seller NP can NACK /confirm with error code 50006
-  [^29]: URL for fixed terms of buyer NP. If seller NP doesn’t accept, they should NACK /confirm with error code 50005
-  [^30]: GST no for buyer NP for TDS deduction at seller NP
-  [^31]: can’t be future dated timestamp
-  [^32]: can’t be future dated timestamp
+  [^28]: GST no for buyer NP for TDS deduction at seller NP
+  [^29]: can’t be future dated timestamp
+  [^30]: can’t be future dated timestamp

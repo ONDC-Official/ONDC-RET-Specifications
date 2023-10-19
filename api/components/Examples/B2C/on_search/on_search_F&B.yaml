@@ -60,9 +60,17 @@ value:
               time:
                 label: enable [^14]
                 timestamp: '2023-06-03T07:30:30.000Z [^15]'
+                days: "1,2,3,4,5,6,7"
                 schedule:
                   holidays [^16]:
                     - '2023-08-15'
+                  frequency: "PT4H"
+                  times:
+                    - "1100"
+                    - "1900"
+                  range:
+                    start: "1100"
+                    end: "2100"
               gps: 12.967555,77.749666
               address:
                 locality [^17]: Jayanagar
@@ -70,6 +78,11 @@ value:
                 city: Bengaluru
                 area_code: '560076'
                 state: KA
+              circle:
+                gps: 12.967555,77.749666
+                radius:
+                  unit: "km"
+                  value: "3"
           categories [^18]:
             - id: '5 [^19]' 
               parent_category_id: ''

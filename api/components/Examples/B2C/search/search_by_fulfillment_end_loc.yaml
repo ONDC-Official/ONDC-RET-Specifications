@@ -1,5 +1,5 @@
 summary: search_by_fulfillment_end_loc
-description: Search By Fulfilment End Loc
+description: Search request for catalog from sellers that provide fulfillment at the specified drop location (gps coordinates, area code); optional for both buyer & seller NPs - if buyer NP sends this request which a seller NP does not support, they may not respond or NACK with error 30000
 value:
   context:
     domain: ONDC:RET10 [^1]

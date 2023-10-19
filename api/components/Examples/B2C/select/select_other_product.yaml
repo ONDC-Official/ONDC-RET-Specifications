@@ -24,13 +24,9 @@ value:
       items:
         - id: I1
           location_id: L1
-      offers [^1]:
-        - id: BUY2GET3 [^2]
       fulfillments:
         - end [^3]:
             location:
               gps [^4]: 12.453544,77.928379
               address:
                 area_code: '560001'
-      payment [^5]:
-        type: ON-FULFILLMENT [^6]

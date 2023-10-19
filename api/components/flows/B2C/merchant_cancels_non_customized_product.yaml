@@ -79,4 +79,4 @@ steps:
     description:
     reference: if any
     example:
-      $ref: "../../Examples/B2C/update/update_settlement_trail_cancel_by_merchant.yaml"                                                  
+      $ref: "../../Examples/B2C/update/update_settlement_trail_for_refund_initiation.yaml"                                                  

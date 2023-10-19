@@ -1,0 +1,32 @@
+value:
+  [^1]: enum - "Created","Accepted","In-progress","Completed","Cancelled"
+  [^2]: required if order state is "Cancelled"
+  [^3]:
+    only if item(s) have been returned / cancelled including RTO (should have the same structure as in /on_update including assignment of item(s) to fulfillment created for return / cancel and the corresponding fulfillment definition)
+  [^4]: optional
+  [^5]: same as in /init where billing object is created
+  [^6]:
+    enum for fulfillment state & mapping to order state for hyperlocal & inter-city is defined here (assuming 1 fulfillment per order, but mapping will remain same for all states except "Order-delivered" where order state will depend on the states of other fulfillment); enum for RTO - "RTO-Initiated", "RTO-Delivered", "RTO-Disposed"
+  [^7]:
+    required if state is "Order-picked-up", "Out-for-delivery", "Order-delivered"
+  [^8]: only for buyer self pickup
+  [^9]:
+    type of pickup confirmation code (PCC), enum - "1" (buyer contact no (for self-pickup)), "2" (merchant order no), "3" (other pickup confirmation code), "4" (OTP); required when order is "Packed"
+  [^10]: >-
+    value of PCC (required when order is "Packed"):
+    contact no - 10 digits;
+    merchant order no - max 6 digits;
+    other pickup confirmation code - max 6 digits;
+    OTP - max 6 digits
+  [^11]: optional
+  [^12]: required if state is "Order-delivered"
+  [^13]: >-
+    optional - type of code for order delivery: enum - "1" - OTP, "2" - other DCC, "3" - no delivery code; may be generated when order is "Out-for-delivery"
+  [^14]: >-
+    value of DCC (required for code 1 & 2):
+    other DCC - max 6 digits;
+    OTP - max 6 digits
+  [^15]: optional, may be provided for last-mile delivery in intercity shipments
+  [^16]: optional, may be provided for kerb-side pickup (in self pickup)
+  [^17]: optional keys here as defined in /confirm
+  [^18]: required from fulfillment.state = "Order-picked-up" and thereafter

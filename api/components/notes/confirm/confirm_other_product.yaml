@@ -3,9 +3,7 @@ value:
   [^2]: optional
   [^3]: same as in /init
   [^4]: same as in /init
-  [^5]: same as what is proposed in /on_select; If TAT is different from what was originally quoted in /on_select, seller NP can NACK the request with error code 30013
   [^6]: optional
-  [^7]: only for type "Self-Pickup", category "Kerbside"
   [^8]: optional
   [^9]: optional
   [^10]: transaction id if prepaid payment collected by buyer NP, not required for payment on delivery
@@ -18,8 +16,6 @@ value:
   [^17]: withholding amount as % of total order value (valid values between "0.00" and "100.00")
   [^18]: optional
   [^19]: buyer-app for payment on delivery
-  [^20]: buyer NP must accept bpp terms. If not accepted, seller NP can NACK /confirm with error code 50006
-  [^21]: URL for fixed terms of buyer NP. If seller NP doesn’t accept, they should NACK /confirm with error code 50005
-  [^22]: GST no for buyer NP for TDS deduction at seller NP
-  [^23]: can’t be future dated timestamp
-  [^24]: can’t be future dated timestamp
+  [^20]: GST no for buyer NP for TDS deduction at seller NP
+  [^21]: can’t be future dated timestamp
+  [^22]: can’t be future dated timestamp
