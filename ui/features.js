@@ -11,8 +11,13 @@ function formatText(inputText) {
 function toUnderscoreCase(inputText) {
   const words = inputText.split(" ");
   const lowerCaseWords = words.map((word) => word.toLowerCase());
-  const underscoreText = lowerCaseWords.join("_") + ".md";
-  return underscoreText;
+  if (words.length > 1) {
+    // If it's a phrase with multiple words, add underscores and ".md" extension
+    return lowerCaseWords.join("_") + ".md";
+  } else {
+    // If it's a single word, just add ".md" extension
+    return lowerCaseWords[0] + ".md";
+  }
 }
 async function getFeatures(branchName) {
   if (!branchName) return;
@@ -39,8 +44,6 @@ async function getFeatures(branchName) {
       option.text = feature_name;
       selectedOption.add(option);
     });
-
-    console.log(featureMap);
     return featureMap;
   } catch (error) {
     console.log("Error fetching contract", error?.message || error);
@@ -50,12 +53,15 @@ async function getFeatures(branchName) {
 
 function loadFeatures(data) {
   features = data;
-  markdownConverter(features[0]);
+
+  let firstKey = features.keys().next().value;
+  const splitArr = firstKey.split(".");
+  markdownConverter(splitArr[0]);
 }
 
-function updateFeature(){
+function updateFeature() {
   var selectedOption = document.getElementById("feature-sets-dropdown").value;
-  markdownConverter(selectedOption)
+  markdownConverter(selectedOption);
 }
 function markdownConverter(selectedOption) {
   let download_url;
