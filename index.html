@@ -188,7 +188,7 @@
               <tr>
                 <td><b>Feature Set</b></td>
                 <td>
-                  <select id="feature-sets-dropdown" class="form-select" onchange="markdownConverter()">
+                  <select id="feature-sets-dropdown" class="form-select" onchange="updateFeature()">
                     <option>Full Catalog Refresh</option>
                   </select>
                 </td>
@@ -301,40 +301,7 @@
   <script src="ui/attribute.js"></script>
   <script src="ui/features.js"></script>
 
-  <!-- Your existing scripts here -->
 
-  <!-- <script type="text/javascript">
-
-    $(document).ready(function () {
-      markdownConverter();
-    });
-    function markdownConverter() {
-      const selectedOption = document.getElementById("feature-sets-dropdown").value.toLowerCase();
-      const arrayWords = selectedOption.split(' ');
-      let fileNameLatest = '';
-      let fileName
-      for (let i = 0; i < arrayWords.length - 1; i++) {
-        fileName = arrayWords[i] + '_';
-        fileNameLatest = fileNameLatest + fileName;
-      }
-
-      const fileNameFinal = fileNameLatest + arrayWords[arrayWords.length - 1] + '.md';
-      const filePath = 'api/docs/' + fileNameFinal;
-      const xhr = new XMLHttpRequest();
-      xhr.open("GET", filePath, true);
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-          const textData = xhr.responseText
-          const converter = new showdown.Converter({ simpleLineBreaks: true, tables: true, openLinksInNewWindow: true, simplifiedAutoLink: true });
-          converter.setFlavor('github');
-          const convertedHtmlData = converter.makeHtml(textData);
-          document.getElementById("featureDiv").innerHTML = convertedHtmlData;
-        }
-      };
-      xhr.send();
-    }
-  </script> -->
-  <!-- <script src="ui/features.js"></script>
 </body>
 
 </html>

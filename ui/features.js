@@ -50,14 +50,17 @@ async function getFeatures(branchName) {
 
 function loadFeatures(data) {
   features = data;
-  markdownConverter();
+  markdownConverter(features[0]);
 }
-function markdownConverter() {
-  let download_url;
+
+function updateFeature(){
   var selectedOption = document.getElementById("feature-sets-dropdown").value;
-  //   const arrayWords = selectedOption.split(" ");
+  markdownConverter(selectedOption)
+}
+function markdownConverter(selectedOption) {
+  let download_url;
+
   selectedOption = toUnderscoreCase(selectedOption);
-  console.log(selectedOption);
   features.forEach((url, name) => {
     if (name === selectedOption) {
       download_url = url;
