@@ -2,7 +2,7 @@
 * Variants may be used by buyer NPs to group multiple items for display;
 * Even though the examples here show customizations & variants for specific categories, it can be used for other categories such as electronics, fashion, grocery, pharma, home & kitchen, etc.;
 
-Please refer to Fashion example for [this](https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-1.x/api/components/Examples/B2C/on_search/on_search_Fashion.yaml)
+Please refer to Fashion example for [this](https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-1.x/api/components/Examples/B2C Exports/on_search/on_search_Fashion.yaml)
 
 <table>
   <tbody>

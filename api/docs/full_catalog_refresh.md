@@ -9,7 +9,7 @@
     * Distributed search i.e. by category will also allow differential buyer finder fee for different sub-categories in a domain;
 * Option for buyer NP to specify whether search response should be in the form of inline response in /on_search (as of now) or as an authorized link (with limited time validity) for the buyer NP to download & ingest
 
-Please refer to search example for [this](https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-1.x/api/components/Examples/B2C/search/search_by_city.yaml)
+Please refer to search example for [this](https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-1.x/api/components/Examples/B2C Exports/search/search_by_city.yaml)
 
 ### <ins>Full catalog refresh</ins> <h5>(On_Search - Seller Np will respond to full catalog refresh)</h5>
 * Full catalog refresh includes the complete catalog, per provider, for a seller NP at a point in time (as identified by Context.timestamp). If a buyer NP is caching the catalog, the list of items for a provider will be overwritten with the list of items in the catalog refresh, i.e. existing items in the buyer NP cache which aren’t in the catalog refresh will be disabled;
@@ -53,7 +53,7 @@ Please refer to search example for [this](https://github.com/ONDC-Official/ONDC-
         * Provider level credentials, such as certifications, awards, export/import licences etc;
         * Enhanced store timings
 
-Please refer to on_search example for [this](https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-1.x/api/components/Examples/B2C/on_search/on_search_Grocery.yaml)
+Please refer to on_search example for [this](https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-1.x/api/components/Examples/B2C Exports/on_search/on_search_Grocery.yaml)
 
 
 
