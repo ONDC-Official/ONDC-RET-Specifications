@@ -7,4 +7,4 @@
     * Scenario B - Return rejected:
         * Return_Initiated -> Return_Rejected
 
-Please refer to update/on_update example for [this](https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-1.x/api/components/Examples/B2C/update/update_buyer_initiated_return_with_liquidation.yaml)
+Please refer to update/on_update example for [this](https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-1.x/api/components/Examples/B2C Exports/update/update_buyer_initiated_return_with_liquidation.yaml)

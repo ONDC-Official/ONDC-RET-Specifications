@@ -18,7 +18,7 @@
 | 4 | FREEBIE | Freebie | ₹598  | | ₹0 | | 1  | sku_id  |  ₹200 |
 
 </br>
-Please refer to on_select Disc60 example for [this](https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-1.x/api/components/Examples/B2C/on_select/on_select_DISCP60_applied.yaml)
+Please refer to on_select Disc60 example for [this](https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-1.x/api/components/Examples/B2C Exports/on_select/on_select_DISCP60_applied.yaml)
 
 In the offer template above:
 * **Offer id** - unique offer code from provider;

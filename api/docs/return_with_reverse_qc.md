@@ -12,4 +12,4 @@
 * It is assumed that the LSP assigned for return pickup will have a certain no of pickup attempts and will trigger scenario B after all pickup attempts failed;
 
 
-Please refer to update/on_update example for [this](https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-1.x/api/components/Examples/B2C/update/update_buyer_initiated_return_with_reverse_qc_request.yaml)
+Please refer to update/on_update example for [this](https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-1.x/api/components/Examples/B2C Exports/update/update_buyer_initiated_return_with_reverse_qc_request.yaml)

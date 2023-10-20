@@ -5,7 +5,7 @@
     * Food preparation ("less spicy", "less salt", etc.);
     * Packaging related instructions (card for "Happy Birthday", etc.);
 
-Please refer to F&B_Pizza example for [this](https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-1.x/api/components/Examples/B2C/on_search/on_search_F%26B_Pizza.yaml)</br>
+Please refer to F&B_Pizza example for [this](https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-1.x/api/components/Examples/B2C Exports/on_search/on_search_F%26B_Pizza.yaml)</br>
 
 | Crust (any 1 option) *      | Size (any 1 option) *  | Toppings (up to 2 options)        |
 | -------------------------   | ------------------     | --------------------------------- | 

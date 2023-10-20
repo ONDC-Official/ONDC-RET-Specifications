@@ -28,7 +28,7 @@
     * Buyer NPs can process full & incremental refresh in sequence and use the timestamp to decide which incremental refresh updates to persist;
 * To handle error conditions, i.e. buyer NP not responding or responding with a NACK, the seller NP should push catalog updates in multiple incremental refresh until ACK is received from all buyer NPs.
 
-Please refer to search example for [this](https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-1.x/api/components/Examples/B2C/search/incremental_catalog_refresh_one_time_push.yaml) 
+Please refer to search example for [this](https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-1.x/api/components/Examples/B2C Exports/search/incremental_catalog_refresh_one_time_push.yaml) 
 
 ### <ins>Incremental catalog refresh</ins> <h5>(On_Search - Seller Np would send incremental catalog)</h5>
 * Incremental refresh will only include the following:
@@ -47,5 +47,5 @@ Please refer to search example for [this](https://github.com/ONDC-Official/ONDC-
 * No new provider(s) / location(s) will be a part of incremental refresh;
 * In the sync ACK/NACK response to incremental catalog refresh, buyer NP can communicate whether the refresh was successfully ingested or not.
 
-Please refer to on_search example for [this](https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-1.x/api/components/Examples/B2C/on_search/incremental_catalog_refresh_item_changes.yaml) 
+Please refer to on_search example for [this](https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-1.x/api/components/Examples/B2C Exports/on_search/incremental_catalog_refresh_item_changes.yaml) 
 
