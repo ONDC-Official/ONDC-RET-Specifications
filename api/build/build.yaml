@@ -7345,7 +7345,7 @@ x-flows:
                     list:
                       - code: mode
                         value: stop
-  - summary: Retail 1.2.0  Exports (Merchant cancels non customized product)
+  - summary: Retail 1.2.0  Exports (Merchant cancels)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to order fashion item and merchant part cancels
