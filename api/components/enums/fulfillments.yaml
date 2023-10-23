@@ -51,31 +51,46 @@ fulfillments:
       - code: Packed
         description: about the enum
         reference: <PR/Issue/Discussion Links md format text>
-      - code: Agent-assigned
+      - code: Pickup-approved
         description: about the enum
         reference: <PR/Issue/Discussion Links md format text>
-      - code: Out-for-pickup
+      - code: Pickup-rejected
         description: about the enum
         reference: <PR/Issue/Discussion Links md format text>
       - code: Order-picked-up
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: In-transit
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: At-domestic-hub
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: Custom-cleared-domestic
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: Custom-rejected-domestic
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: Shipped
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: Reached-destination-country
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: Custom-cleared-destination
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: Custom-rejected-destination
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: At-destination-hub
         description: about the enum
         reference: <PR/Issue/Discussion Links md format text>
       - code: Out-for-delivery
         description: about the enum
         reference: <PR/Issue/Discussion Links md format text>
       - code: Order-delivered
-        description: about the enum
-        reference: <PR/Issue/Discussion Links md format text>
-      - code: Cancelled
-        description: about the enum
-        reference: <PR/Issue/Discussion Links md format text>
-      - code: Pickup-failed
-        description: about the enum
-        reference: <PR/Issue/Discussion Links md format text>
-      - code: In-transit
-        description: about the enum
-        reference: <PR/Issue/Discussion Links md format text>
-      - code: At-destination-hub
         description: about the enum
         reference: <PR/Issue/Discussion Links md format text>
       - code: Delivery-failed

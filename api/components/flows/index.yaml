@@ -1,3 +1,4 @@
+- $ref: "./B2C_Exports/Order_delivered.yaml"
 - $ref: "./B2C_Exports/merchant_cancels.yaml"
 - $ref: "./B2C_Exports/cancel_order.yaml"
 - $ref: "./B2C_Exports/incremental_catalog_one_time_push.yaml"
