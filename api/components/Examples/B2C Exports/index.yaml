@@ -45,4 +45,9 @@ on_cancel:
     - $ref: ./on_cancel/on_cancel.yaml
 on_status:
   examples:
-    - $ref: ./on_status/on_status.yaml
+    - $ref: ./on_status/on_status_pickup_approved.yaml
+    - $ref: ./on_status/on_status_picked_up.yaml
+    - $ref: ./on_status/on_status_custom_cleared.yaml
+    - $ref: ./on_status/on_status_destination_hub.yaml
+    - $ref: ./on_status/on_status_delivered.yaml
+    - $ref: ./on_status/on_status_cancelled.yaml

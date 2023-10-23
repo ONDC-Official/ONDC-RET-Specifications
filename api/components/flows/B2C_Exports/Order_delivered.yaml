@@ -50,37 +50,37 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/B2C Exports/on_confirm/on_confirm.yaml"
-  - summary: Status Updates
+  - summary: Status Updates - Order Pickup Approved
     api: on_status
     description:
     reference: if any
     example:
       $ref: "../../Examples/B2C Exports/on_status/on_status_pickup_approved.yaml"
-  - summary: Status Updates
+  - summary: Status Updates - Order Picked up
     api: on_status
     description:
     reference: if any
     example:
       $ref: "../../Examples/B2C Exports/on_status/on_status_picked_up.yaml"
-  - summary: Status Updates
+  - summary: Status Updates - Domestic Custom Cleared
     api: on_status
     description:
     reference: if any
     example:
       $ref: "../../Examples/B2C Exports/on_status/on_status_custom_cleared.yaml"
-  - summary: Status Updates
-    api: on_status
-    description:
-    reference: if any
-    example:
-      $ref: "../../Examples/B2C Exports/on_status/on_status_destination_hub.yaml"
-  - summary: Status Updates
+  - summary: Buyer requests for order status
     api: status
     description:
     reference: if any
     example:
       $ref: "../../Examples/B2C Exports/status/status.yaml"
-  - summary: Status Updates
+  - summary: Status Updates - Reached Destination Hub
+    api: on_status
+    description:
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C Exports/on_status/on_status_destination_hub.yaml"
+  - summary: Status Updates - Order Delivered
     api: on_status
     description:
     reference: if any
