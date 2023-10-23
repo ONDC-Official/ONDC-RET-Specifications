@@ -8,16 +8,12 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/B2C Exports/search/search_by_country.yaml"
-    notes:
-      $ref: "../../notes/search/search_by_city.yaml"
   - summary: Returns the item or catalog (Fashion)
     api: on_search
     description:  
     reference: if any
     example:
       $ref: "../../Examples/B2C Exports/on_search/on_search_Fashion.yaml"
-    notes:
-      $ref: "../../notes/on_search/on_search_Fashion.yaml"
   - summary: Search by incremental regular push catalog refresh
     api: search
     description:  Search by incremental regular push catalog refresh
