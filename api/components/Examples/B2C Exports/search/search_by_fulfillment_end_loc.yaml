@@ -3,7 +3,7 @@ description: Search By Fulfilment End Loc
 value:
   context:
     domain: ONDC:RET12 [^1]
-    city: IATA:SIN
+    city: UN:SIN
     country: SGP
     action: search
     core_version: 1.2.0

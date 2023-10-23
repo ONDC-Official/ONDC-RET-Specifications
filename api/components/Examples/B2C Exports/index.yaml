@@ -39,11 +39,10 @@ on_confirm:
     - $ref: ./on_confirm/on_confirm.yaml
 on_update:
   examples:
-    - $ref: ./on_update/on_update_merchant_part_cancels_non_customized.yaml
+    - $ref: ./on_update/on_update_merchant_part_cancels.yaml
 on_cancel:
   examples:
     - $ref: ./on_cancel/on_cancel.yaml
 on_status:
   examples:
-    - $ref: ./on_status/on_status_make_to_order_product_order_status.yaml
-    - $ref: ./on_status/on_status_make_to_order_product_order_delivered.yaml
+    - $ref: ./on_status/on_status.yaml

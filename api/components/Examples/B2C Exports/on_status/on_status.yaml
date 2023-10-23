@@ -11,14 +11,14 @@ value:
     bpp_uri: https://sellerNP.com/ondc
     transaction_id: T2
     message_id: M12
-    city: IATA:SIN
+    city: UN:SIN
     country: SGP
     timestamp: '2023-06-04T10:00:30.000Z'
     ttl: PT30S
   message:
     order:
       id: O1
-      state: Completed [^1]
+      state: Cancelled [^1]
       cancellation [^2]:
         cancelled_by: buyerNP.com
         reason:
@@ -28,10 +28,10 @@ value:
         locations:
           - id: L1
       items:
-        - fulfillment_id: F1
-          id: DI1 [^3]
-        - fulfillment_id: F1
-          id: DI2
+        - id: I1
+          fulfillment_id: F1
+          quantity:
+            count: 2
       billing:
         name: ONDC buyer
         address:
@@ -79,12 +79,6 @@ value:
               long_desc: additional instructions for pickup
               images [^10]:
                 - https://lsp.com/pickup_image.png
-                - https://lsp.com/rider_location.png
-            authorization [^11]:
-              type: OTP [^12]
-              token: OTP code
-              valid_from: '2023-06-03T12:00:00.000Z'
-              valid_to: '2023-06-03T14:00:00.000Z'
             contact:
               phone: '9886098860'
               email [^13]: nobody@nomail.com
@@ -112,11 +106,6 @@ value:
               images [^17]:
                 - https://lsp.com/delivery_image.png
                 - https://lsp.com/rider_location.png
-            authorization [^18]:
-              type: OTP [^19]
-              token: OTP code
-              valid_from: '2023-06-03T18:00:00.000Z'
-              valid_to: '2023-06-03T22:00:00.000Z'
             person:
               name: name_of_person
             contact:
@@ -129,7 +118,7 @@ value:
       quote:
         price:
           currency: USD
-          value: '12'
+          value: '17'
         breakup:
           - '@ondc/org/item_id [^9]': I1
             '@ondc/org/item_quantity':
@@ -154,12 +143,6 @@ value:
             price:
               currency: USD
               value: '2.00'
-          - '@ondc/org/item_id': F1
-            title: Discount
-            '@ondc/org/title_type': discount_f [^14]
-            price:
-              currency: USD
-              value: '-5.00'
           - '@ondc/org/item_id': F1
             title: Tax
             '@ondc/org/title_type': tax_f [^15]
@@ -197,12 +180,12 @@ value:
         params:
           currency: USD
           transaction_id: '3937'
-          amount: '12.00'
+          amount: '17.00'
           bank_code: xxxxxxxxx,
           bank_account_number: xxxxxxxxxxxx
         status: PAID
         type: ON-ORDER
-        collected_by: BAP
+        collected_by: SOR
         time [^30]:
           timestamp: '2023-06-04T10:00:00.000Z'
         '@ondc/org/buyer_app_finder_fee_type': percent
@@ -226,7 +209,7 @@ value:
           - settlement_counterparty: buyer
             settlement_phase: refund
             settlement_type: upi
-            settlement_amount: '1000'
+            settlement_amount: '12'
             settlement_timestamp: '2023-02-04T18:00:00.000Z'
       documents [^31]:
         - url: https://invoice_url

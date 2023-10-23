@@ -4,7 +4,7 @@ value:
   context:
     domain: ONDC:RET10 [^1]
     country: SGP
-    city: IATA:SIN
+    city: UN:SIN
     action: on_search
     core_version: 1.2.0
     bap_id: buyerNP.com

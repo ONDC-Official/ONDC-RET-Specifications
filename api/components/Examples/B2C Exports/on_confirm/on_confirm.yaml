@@ -11,7 +11,7 @@ value:
     bpp_uri: https://sellerNP.com/ondc
     transaction_id: T1
     message_id: M4
-    city: IATA:SIN
+    city: UN:SIN
     country: SGP
     timestamp: '2023-06-03T09:30:30.000Z'
   message:
@@ -96,7 +96,7 @@ value:
       quote:
         price:
           currency: USD
-          value: '12'
+          value: '17'
         breakup:
           - '@ondc/org/item_id [^9]': I1
             '@ondc/org/item_quantity':
@@ -121,12 +121,6 @@ value:
             price:
               currency: USD
               value: '2.00'
-          - '@ondc/org/item_id': F1
-            title: Discount
-            '@ondc/org/title_type': discount_f [^14]
-            price:
-              currency: USD
-              value: '-5.00'
           - '@ondc/org/item_id': F1
             title: Tax
             '@ondc/org/title_type': tax_f [^15]
@@ -164,7 +158,7 @@ value:
         params:
           currency: USD
           transaction_id: '3937'
-          amount: '12.00'
+          amount: '17.00'
           bank_code: xxxxxxxxx,
           bank_account_number: xxxxxxxxxxxx
         status: PAID

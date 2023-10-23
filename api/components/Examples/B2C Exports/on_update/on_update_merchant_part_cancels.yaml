@@ -1,37 +1,36 @@
-summary: Seller updates the order status and shares Invoice for make to order products
-description: Seller updates the order status and shares Invoice for make to order products
+summary: Cancel Non Customised status updated by Seller
+description: Cancel Non Customised status updated by Seller
 value:
   context:
-    domain: ONDC:RET10
-    action: on_status
+    domain: ONDC:RET11
+    action: on_update
     core_version: 1.2.0
     bap_id: buyerNP.com
     bap_uri: https://buyerNP.com/ondc
     bpp_id: sellerNP.com
     bpp_uri: https://sellerNP.com/ondc
     transaction_id: T2
-    message_id: M12
-    city: IATA:SIN
+    message_id: M5
+    city: UN:SIN
     country: SGP
-    timestamp: '2023-06-04T10:00:30.000Z'
-    ttl: PT30S
+    timestamp: '2023-06-03T10:30:30.000Z'
   message:
-    order:
+    order [^1]:
       id: O1
-      state: Completed [^1]
-      cancellation [^2]:
-        cancelled_by: buyerNP.com
-        reason:
-          id: '004'
+      state: Accepted
       provider:
         id: P1
         locations:
           - id: L1
       items:
-        - fulfillment_id: F1
-          id: DI1 [^3]
-        - fulfillment_id: F1
-          id: DI2
+        - id: I1
+          fulfillment_id: F1 [^2]
+          quantity:
+            count: 1 [^3]
+        - id: I1
+          fulfillment_id: C1 [^4]
+          quantity:
+            count: 1 [^5]
       billing:
         name: ONDC buyer
         address:
@@ -42,26 +41,25 @@ value:
           state: Jurong East
           country: SGP
           area_code: '6802308'
-        email [^4]: nobody@nomail.com
+        email: nobody@nomail.com
         phone: '9886098860'
-        created_at [^5]: '2023-06-03T09:00:00.000Z'
+        created_at: '2023-06-03T09:00:00.000Z'
         updated_at: '2023-06-03T09:00:00.000Z'
       fulfillments:
         - id: F1
-          '@ondc/org/provider_name': LSP or Provider name
+          '@ondc/org/provider_name': LSP or Provider Name
           type: Delivery
-          tracking: false
-          '@ondc/org/TAT': P1D
+          tracking: true
+          '@ondc/org/TAT': PT60M
           state:
             descriptor:
-              code: Order-delivered [^6]
+              code: Pending
           start:
             location:
+              id: L1
               descriptor:
                 name: ABC Store
-                images:
-                  - https://gf-integration/images/5.png
-              gps: 12.967555,77.749666
+              gps: 12.956399,77.636803
               address:
                 locality: Jayanagar
                 city: Bengaluru
@@ -71,26 +69,12 @@ value:
               range:
                 start: '2023-06-03T10:00:00.000Z'
                 end: '2023-06-03T10:30:00.000Z'
-              timestamp [^7]: '2023-06-03T10:25:00.000Z'
-            instructions:
-              code: '1 [^8]'
-              name: ONDC Order
-              short_desc: value of PCC [^9]
-              long_desc: additional instructions for pickup
-              images [^10]:
-                - https://lsp.com/pickup_image.png
-                - https://lsp.com/rider_location.png
-            authorization [^11]:
-              type: OTP [^12]
-              token: OTP code
-              valid_from: '2023-06-03T12:00:00.000Z'
-              valid_to: '2023-06-03T14:00:00.000Z'
             contact:
               phone: '9886098860'
-              email [^13]: nobody@nomail.com
+              email: nobody@nomail.com
           end:
             location:
-              gps: 12.453544,77.928379
+              gps: 1.380621, 103.746364
               address:
                 name: 'My house #'
                 building: My building name
@@ -103,33 +87,47 @@ value:
               range:
                 start: '2023-06-03T11:00:00.000Z'
                 end: '2023-06-03T11:30:00.000Z'
-              timestamp [^14]: '2023-06-03T11:35:00.000Z'
-            instructions:
-              code: '3 [^15]'
-              name: ONDC Order
-              short_desc: value of DCC [^16]
-              Long_desc: additional instructions for delivery
-              images [^17]:
-                - https://lsp.com/delivery_image.png
-                - https://lsp.com/rider_location.png
-            authorization [^18]:
-              type: OTP [^19]
-              token: OTP code
-              valid_from: '2023-06-03T18:00:00.000Z'
-              valid_to: '2023-06-03T22:00:00.000Z'
             person:
               name: name_of_person
             contact:
               phone: '9886098860'
-          agent [^20]:
-            name: agent_name
-            phone: '9886098860'
-          vehicle [^21]:
-            registration: 3LVJ945
+              email: nobody@nomail.com
+        - id: C1
+          type: Cancel
+          state:
+            descriptor:
+              code: Cancelled
+          tags:
+            - code: cancel_request
+              list:
+                - code: reason_id
+                  value: '002 [^6]'
+                - code: initiated_by
+                  value: sellerNP.com [^7]
+            - code: quote_trail
+              list:
+                - code: type [^8]
+                  value: item
+                - code: id [^9]
+                  value: I1
+                - code: currency
+                  value: USD
+                - code: value [^10]
+                  value: '-12.00'
+            - code: quote_trail
+              list:
+                - code: type
+                  value: tax
+                - code: id
+                  value: I1
+                - code: currency
+                  value: USD
+                - code: value
+                  value: '0.00'
       quote:
         price:
           currency: USD
-          value: '12'
+          value: '17'
         breakup:
           - '@ondc/org/item_id [^9]': I1
             '@ondc/org/item_quantity':
@@ -155,12 +153,6 @@ value:
               currency: USD
               value: '2.00'
           - '@ondc/org/item_id': F1
-            title: Discount
-            '@ondc/org/title_type': discount_f [^14]
-            price:
-              currency: USD
-              value: '-5.00'
-          - '@ondc/org/item_id': F1
             title: Tax
             '@ondc/org/title_type': tax_f [^15]
             price:
@@ -176,7 +168,7 @@ value:
             title: Tax
             '@ondc/org/title_type [^17]': tax
             price:
-              currency: INR
+              currency: USD
               value: '0.00'
           - '@ondc/org/item_id': I1
             title: Discount
@@ -190,46 +182,36 @@ value:
             price:
               currency: USD
               value: '1.00'
-        ttl: PT1H
-      payment [^29]:
+        ttl: P1D
+      payment [^13]:
         uri: https://ondc.transaction.com/payment
-        tl_method: http/get
         params:
           currency: USD
           transaction_id: '3937'
-          amount: '12.00'
+          amount: '17.00'
           bank_code: xxxxxxxxx,
           bank_account_number: xxxxxxxxxxxx
         status: PAID
         type: ON-ORDER
-        collected_by: BAP
-        time [^30]:
-          timestamp: '2023-06-04T10:00:00.000Z'
+        collected_by: SOR
         '@ondc/org/buyer_app_finder_fee_type': percent
         '@ondc/org/buyer_app_finder_fee_amount': '3'
-        '@ondc/org/settlement_basis': delivery
-        '@ondc/org/settlement_window': P1D
-        '@ondc/org/withholding_amount': '1.00'
         '@ondc/org/settlement_details':
           - settlement_counterparty: seller-app
             settlement_phase: sale-amount
             beneficiary_name: xxxxx
-            settlement_reference: XXXX
-            settlement_status: PAID
-            settlement_timestamp: '2023-02-04T10:00:00.000Z'
             settlement_type: upi
             upi_address: gft@oksbi
             settlement_bank_account_no: XXXXXXXXXX
             settlement_ifsc_code: XXXXXXXXX
             bank_name: xxxx
             branch_name: xxxx
-          - settlement_counterparty: buyer
-            settlement_phase: refund
-            settlement_type: upi
-            settlement_amount: '1000'
-            settlement_timestamp: '2023-02-04T18:00:00.000Z'
-      documents [^31]:
-        - url: https://invoice_url
-          label: Invoice
+        tags:
+          - code: payment_terms
+            list:
+              - code: payment_type
+                value: OPGSP
+              - code: payment_provider
+                value: abcd
       created_at: '2023-06-03T09:30:00.000Z'
-      updated_at: '2023-06-03T10:00:30.201Z'
+      updated_at: '2023-06-03T10:31:30.000Z'

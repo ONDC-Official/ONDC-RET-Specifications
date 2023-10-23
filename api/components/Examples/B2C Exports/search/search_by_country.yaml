@@ -5,7 +5,7 @@ value:
     domain: ONDC:RET12 [^1]
     action: search
     country: SGP
-    city: IATA:SIN [^2]
+    city: UN:SIN [^2]
     core_version: 1.2.0
     bap_id [^3]: buyerNP.com
     bap_uri [^4]: https://buyerNP.com/ondc

@@ -4,7 +4,7 @@ value:
   context:
     domain: ONDC:RET12
     country: SGP
-    city: IATA:SIN
+    city: UN:SIN
     action: on_cancel
     core_version: 1.2.0
     bap_id: buyerNP.com
@@ -103,7 +103,7 @@ value:
       quote:
         price [^4]:
           currency: USD
-          value: '75.00'
+          value: '17.00'
         breakup:
           - '@ondc/org/item_id': I1
             '@ondc/org/item_quantity':
@@ -154,7 +154,7 @@ value:
         params:
           currency: USD
           transaction_id: '3937'
-          amount: '12.00'
+          amount: '17.00'
           bank_code: xxxxxxxxx,
           bank_account_number: xxxxxxxxxxxx
         status: PAID
