@@ -6430,7 +6430,7 @@ x-flows:
         api: search
         description: Buyer search for an item
         reference: if any
-        example: &ref_36
+        example: &ref_28
           summary: search_by_item
           description: Search By Item
           value:
@@ -6461,16 +6461,6 @@ x-flows:
                 payment:
                   '@ondc/org/buyer_app_finder_fee_type': percent
                   '@ondc/org/buyer_app_finder_fee_amount': '3'
-        notes: &ref_37
-          value:
-            context.domain: >-
-              updated domains defined -
-              https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
-            message.intent.fulfillment.type: >-
-              optional, when not specified, all fulfillment types supported by
-              provider should be returned in response
-            message.intent.fulfillment.end.location.gps: minimum 6 digit decimal precision for gps coordinates
-            message.intent.fulfillment.end.location.address: optional
       - summary: Returns the item or catalog (Fashion)
         api: on_search
         description: null
@@ -7117,132 +7107,11 @@ x-flows:
                             value: IND
                           - code: unit
                             value: country
-        notes: &ref_21
-          value:
-            ^1: >-
-              timestamp when the snapshot for this provider (including provider
-              details, items) was generated, must be <= Context.timestamp. Buyer
-              NPs can use this to determine from when to start incremental
-              refresh
-            ^2: >-
-              enum - "enable" (default), "disable" (soft delete of provider
-              location, i.e. warehouse or store, from buyer NP cache - in this
-              case, serviceability for the store should not be a part of the
-              catalog), "close" (temporary closure of store with the same format
-              for time.range as specified, for incremental refresh, here -
-              https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.ar4y0zvk65s4
-              only if this event is available at the time of generating the full
-              catalog snapshot)
-            ^3: >-
-              timestamp when the snapshot for location was generated, must be <=
-              Context.timestamp
-            ^4: enum - "enable", "disable"
-            ^5: timestamp for item event
-            ^6: >-
-              if variant grouping defined for provider above, this matches id
-              for variant_group definition; if not defined or id is invalid,
-              buyer NPs may choose to display as normal SKU item
-            ^7: >-
-              optional; network-wide unique code for item which will be in this
-              format - "type:code" where type is 1 - EAN, 2 - ISBN, 3 - GTIN, 4
-              - HSN, 5 - UPC, 6 - others
-            ^8: >-
-              list of fashion categories is
-              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=623321892
-            ^9: >-
-              mapping of category to attribute key is defined
-              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
-            ^10: date first available
-            ^11: >-
-              item attributes - populating with valid values will enable better
-              discoverability on buyer NPs
-            ^12: >-
-              suggestive enum is
-              https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/fashion/RET12-colour.json
-            ^13: >-
-              suggestive enum is
-              https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/fashion/RET12-colour.json
-            ^14: >-
-              suggestive enum is
-              https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/fashion/RET12-colour.json
-            ^15: >-
-              suggestive enum is
-              https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/fashion/RET12-colour.json
-            ^16: >-
-              suggestive enum is
-              https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/fashion/RET12-colour.json
-            ^17: >-
-              suggestive enum is
-              https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/fashion/RET12-colour.json
-            ^18: >-
-              suggestive enum is
-              https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/fashion/RET12-colour.json
-            ^19: >-
-              suggestive enum is
-              https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/fashion/RET12-colour.json
-            ^20: >-
-              suggestive enum is
-              https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/fashion/RET12-colour.json
-            ^21: >-
-              suggestive enum is
-              https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/fashion/RET12-colour.json
-            ^22: >-
-              if variant grouping defined for provider above, this matches id
-              for variant_group definition; if not defined or id is invalid,
-              buyer NPs may choose to display as normal SKU item
-            ^23: >-
-              mapping of category to attribute key is defined
-              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
-            ^24: date first available
-            ^25: >-
-              if variant grouping defined for provider above, this matches id
-              for variant_group definition; if not defined or id is invalid,
-              buyer NPs may choose to display as normal SKU item
-            ^26: >-
-              mapping of category to attribute key is defined
-              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
-            ^27: date first available
-            ^28: >-
-              if variant grouping defined for provider above, this matches id
-              for variant_group definition; if not defined or id is invalid,
-              buyer NPs may choose to display as normal SKU item
-            ^29: >-
-              mapping of category to attribute key is defined
-              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
-            ^30: date first available
-            ^31: >-
-              if variant grouping defined for provider above, this matches id
-              for variant_group definition; if not defined or id is invalid,
-              buyer NPs may choose to display as normal SKU item
-            ^32: >-
-              mapping of category to attribute key is defined
-              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
-            ^33: date first available
-            ^34: >-
-              if variant grouping defined for provider above, this matches id
-              for variant_group definition; if not defined or id is invalid,
-              buyer NPs may choose to display as normal SKU item
-            ^35: >-
-              mapping of category to attribute key is defined
-              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
-            ^36: date first available
-            ^37: >-
-              if variant grouping defined for provider above, this matches id
-              for variant_group definition; if not defined or id is invalid,
-              buyer NPs may choose to display as normal SKU item
-            ^38: >-
-              mapping of category to attribute key is defined
-              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
-            ^39: date first available
-            ^40: optional
-            ^41: >-
-              means same timings for online order processing, shipment,
-              self-pickup (as applicable)
       - summary: Select the item
         api: select
         description: null
         reference: if any
-        example: &ref_22
+        example: &ref_21
           summary: Get quote for specific item
           description: Get quote for specific item for other products
           value:
@@ -7279,25 +7148,11 @@ x-flows:
                           area_code: '6802308'
                 payment [^5]:
                   type: ON-FULFILLMENT [^6]
-        notes: &ref_23
-          value:
-            ^1: optional, only if buyer selects offer code
-            ^2: >-
-              if offer code is not valid, seller NP can NACK /select with error
-              code 30006
-            ^3: fulfillment end location, i.e. delivery location for buyer
-            ^4: >-
-              GPS coordinates & precision for fulfillment end location has to be
-              same in /confirm
-            ^5: optional
-            ^6: >-
-              enum - "ON-ORDER" (prepaid), "ON-FULFILLMENT" (on delivery),
-              "POST-FULFILLMENT" (after delivery)
       - summary: Returns item breakup when item is in stock
         api: on_select
         description: null
         reference: if any
-        example: &ref_24
+        example: &ref_22
           summary: Send quote and breakup
           description: Send quote and breakup for items in stock
           value:
@@ -7398,66 +7253,11 @@ x-flows:
                         currency: USD
                         value: '1.00'
                   ttl: P1D [^20]
-        notes: &ref_25
-          value:
-            ^1: >-
-              may be the same location as selected by the buyer or a different
-              location
-            ^2: >-
-              order can have multiple fulfillments; in this case, unique
-              fulfillment id (for provider & order) needs to be assigned by
-              seller NP for each fulfillment & mapped to item(s) that are a part
-              of that fulfillment
-            ^3: >-
-              unique fulfillment id assigned by seller NP here & mapped to item
-              and will be persisted right through order confirm
-            ^4: maps to logistics category as defined in Logistics API contract
-            ^5: should only be used where O2D TAT <= 2 hrs
-            ^6: >-
-              Order-to-delivery (O2D) TAT shown = max(time_to_ship for items in
-              the fulfillment) + ship-to-delivery (S2D) time provided by LSP in
-              TAT
-            ^7: >-
-              Seller NP performs serviceability check based on end location in
-              /select. If non serviceable, seller app has to return the
-              appropriate error code along with a valid /on_select response
-            ^8: enum - "Serviceable", "Non-serviceable"
-            ^9: >-
-              item_id should match either item.id or fulfillment.id based on how
-              the line item (as defined by "title_type") is assigned, i.e.
-              "delivery", "discount_f", "tax_f", "packing", "misc" are at
-              fulfillment level while "item", "tax", "discount" are at item
-              level
-            ^10: >-
-              if required quantity (as selected by buyer) is not in stock,
-              seller app should show the quantity available in stock (or 0 if
-              completely out-of-stock) and show the appropriate error code
-              (40002) in the /on_select response
-            ^11: >-
-              defines the type of line item; enum - "item" (product cost),
-              "delivery" (shipping charges), "packing", "tax", "misc"
-              (convenience fees), "discount", discount_f, tax_f. Title text can
-              be customized by buyer NP
-            ^12: >-
-              item price should be either inclusive or exclusive of taxes,
-              exactly as defined in the catalog
-            ^13: >-
-              delivery charge to be included only if fulfillment state code is
-              "Serviceable"
-            ^14: discount on delivery charge, to be included only if not 0
-            ^15: >-
-              tax on fulfillment level charges, to be included only if not 0
-              (i.e. seller NP provides tax inclusive fulfillment level charges)
-            ^16: packing charge to be included only if not 0
-            ^17: tax breakup to be included only if tax is not 0
-            ^18: discount to be included only if not 0
-            ^19: misc to be included only if not 0
-            ^20: validity of quote
       - summary: Buyer initiate the product and send the updated fulfillment id
         api: init
         description: null
         reference: if any
-        example: &ref_26
+        example: &ref_23
           summary: Send buyer and delivery terms for other products
           description: Send buyer and delivery terms for other products
           value:
@@ -7517,25 +7317,11 @@ x-flows:
                           area_code: '6802308'
                       contact:
                         phone: '9886098860'
-        notes: &ref_27
-          value:
-            ^1: >-
-              house no (for independent dwellings) or door no (for apartments or
-              community dwellings) if name is house no, building is optional
-            ^2: street name
-            ^3: optional, may be required for B2B
-            ^4: optional
-            ^5: timestamp for creation of billing object
-            ^6: same as created_at
-            ^7: name + building + locality < 190 chars, name != locality
-            ^8: >-
-              house no (for independent dwellings) or door no (for apartments or
-              community dwellings) if name is house no, building is optional
       - summary: Respond to init
         api: on_init
         description: null
         reference: if any
-        example: &ref_28
+        example: &ref_24
           summary: Respond to init call for other products
           description: Respond to init call for other products
           value:
@@ -7697,84 +7483,11 @@ x-flows:
                     list:
                       - code: tax_number [^25]
                         value: gst_number_of_sellerNP
-        notes: &ref_29
-          value:
-            ^1: >-
-              may be the same location as selected by the buyer or a different
-              location
-            ^2: >-
-              billing object timestamps (created_at, updated_at) have to be the
-              same as in /init
-            ^3: optional, same as provided in /init
-            ^4: optional
-            ^5: same as in /init
-            ^6: same as in /init
-            ^7: >-
-              if seller NP is collecting pre-paid payment (for categories like
-              electronics), they may provide the following - type, collected_by,
-              uri (payment link), status, settlement_basis, settlement_window,
-              withholding_amount
-            ^8: enum - "PAID", "NOT-PAID"
-            ^9: >-
-              indicates from when settlement window starts, enum - "delivery"
-              (from delivery), "shipment" (from shipment),
-              "return_window_expiry" (from expiry of return window)
-            ^10: >-
-              settlement window, as per settlement basis, in ISO8601 Duration
-              format
-            ^11: >-
-              withholding amount as % of total order value (valid values between
-              "0.00" and "100.00")
-            ^12: >-
-              optional (may be provided by seller NP if they are not collecting
-              payment or not CoD payment)
-            ^13: >-
-              enum - "upi", "neft", "rtgs"; for "upi", upi_address needs to be
-              entered & for the other settlement_type,
-              ("settlement_bank_account_no", "settlement_ifsc_code",
-              "bank_name", "branch_name") should be entered
-            ^14: fulfillment state
-            ^15: >-
-              reason code (list
-              https://docs.google.com/document/d/1M-lZSduYMFKIk1V6d8QLt-j-16-rVzYVdPn0pmbkclk/edit#heading=h.lq5jsehzritb),
-              mandatory if reason_required is "true"
-            ^16: whether cancellation in this state is eligible for refund
-            ^17: whether cancellation reason code is required
-            ^18: >-
-              cancellation fee, if any, for this state & reason code - either
-              percentage (of order value, in the above format between "0.00" and
-              "100.00") or amount needs to be provided (if both provided,
-              minimum should be considered by buyer NP); seller NP can calculate
-              based on what needs to be deducted e.g. packaging charges /
-              convenience fee / product cost, etc
-            ^19: could be false for make-to-order items (F&B)
-            ^20: >-
-              cancellation fee, if any of this state & reason code could include
-              packing charge - either percentage (of order value) or amount
-              needs to be provided (if both provided, minimum should be
-              considered by buyer NP)
-            ^21: >-
-              in case of RTO where buyer is responsible, the forward & reverse
-              shipment costs could be deducted as cancellation fees
-            ^22: >-
-              list of reason codes delimited by "," (above shows RTO reason
-              codes where buyer is not available)
-            ^23: >-
-              in case of RTO where buyer is responsible, the forward & reverse
-              shipment costs could be deducted as cancellation fees
-            ^24: >-
-              buyer NP has to accept bpp terms in /confirm. If buyer NP doesn’t
-              accept these terms, they should NACK /on_init with error code
-              27501
-            ^25: >-
-              GST no for ISN/MSN for TDS/TCS deduction / input credit, KYC
-              verification. For MSN/ISN with stores located in multiple states,
-              the GST no for HQ for the provider legal entity should be provided
       - summary: Buyer confirms product
         api: confirm
         description: null
         reference: if any
-        example: &ref_30
+        example: &ref_25
           summary: Confirmation by Buyer for other products
           description: Confirmation by Buyer for other products
           value:
@@ -7950,53 +7663,11 @@ x-flows:
                         value: gst_number_of_buyerNP
                 created_at [^23]: '2023-06-03T09:30:00.000Z'
                 updated_at [^24]: '2023-06-03T09:30:00.000Z'
-        notes: &ref_31
-          value:
-            ^1: alphanumeric, up to 32 characters
-            ^2: optional
-            ^3: same as in /init
-            ^4: same as in /init
-            ^5: >-
-              same as what is proposed in /on_select; If TAT is different from
-              what was originally quoted in /on_select, seller NP can NACK the
-              request with error code 30013
-            ^6: optional
-            ^7: only for type "Self-Pickup", category "Kerbside"
-            ^8: optional
-            ^9: optional
-            ^10: >-
-              transaction id if prepaid payment collected by buyer NP, not
-              required for payment on delivery
-            ^11: amount collected should match the order value
-            ^12: NOT-PAID for payment on delivery
-            ^13: ON-FULFILLMENT for payment on delivery
-            ^14: BPP for payment on delivery
-            ^15: >-
-              indicates from when settlement window starts, enum - "delivery"
-              (from delivery), "shipment" (from shipment),
-              "return_window_expiry" (from expiry of return window)
-            ^16: >-
-              settlement window, as per settlement basis, in ISO8601 Duration
-              format
-            ^17: >-
-              withholding amount as % of total order value (valid values between
-              "0.00" and "100.00")
-            ^18: optional
-            ^19: buyer-app for payment on delivery
-            ^20: >-
-              buyer NP must accept bpp terms. If not accepted, seller NP can
-              NACK /confirm with error code 50006
-            ^21: >-
-              URL for fixed terms of buyer NP. If seller NP doesn’t accept, they
-              should NACK /confirm with error code 50005
-            ^22: GST no for buyer NP for TDS deduction at seller NP
-            ^23: can’t be future dated timestamp
-            ^24: can’t be future dated timestamp
       - summary: Seller Accepts confirmation
         api: on_confirm
         description: null
         reference: if any
-        example: &ref_32
+        example: &ref_26
           summary: Acceptance by Seller
           description: Acceptance by Seller for other products
           value:
@@ -8202,50 +7873,11 @@ x-flows:
                         value: gst_number_of_buyerNP
                 created_at [^21]: '2023-06-03T09:30:00.000Z'
                 updated_at [^22]: '2023-06-03T09:31:30.000Z'
-        notes: &ref_33
-          value:
-            ^1: enum - "Created", "Accepted", "Cancelled"
-            ^2: optional
-            ^3: same as in /init
-            ^4: same as in /init
-            ^5: true if tracking enabled through /on_track
-            ^6: >-
-              if TAT is different from what was originally quoted in /on_select,
-              buyer NP can NACK the request with error code 22504
-            ^7: store address
-            ^8: optional, pickup time range may be provided if available
-            ^9: optional
-            ^10: >-
-              type of pickup confirmation code (PCC), enum - "1" (buyer contact
-              no (for self-pickup)), "2" (merchant order no), "3" (other pickup
-              confirmation code), "4" (OTP); required when order is "Packed"
-            ^11: >-
-              value of PCC (required when order is "Packed") - contact no - 10
-              digits;merchant order no - max 6 digits;other pickup confirmation
-              code - max 6 digits;OTP - max 6 digits
-            ^12: optional
-            ^13: optional, pickup time range may be provided if available
-            ^14: optional
-            ^15: same values as in /confirm
-            ^16: optional
-            ^17: optional
-            ^18: >-
-              if cancellation terms are different from what was quoted earlier,
-              buyer NP can NACK /on_confirm with error code 22505
-            ^19: >-
-              if terms & conditions different from what was quoted earlier,
-              buyer NP can NACK /on_confirm with error code 22506
-            ^20: >-
-              seller NP must accept proposed bap terms & conditions (if
-              proposed). If not accepted, buyer NP can NACK /on_confirm with
-              error code 27502
-            ^21: same as in /confirm
-            ^22: can’t be a future date
       - summary: Buyer initiated the return with liquidation
         api: update
         description: null
         reference: if any
-        example: &ref_38
+        example: &ref_29
           summary: Return with liquidation updated by buyer
           description: Return with liquidation updated by buyer
           value:
@@ -8289,25 +7921,11 @@ x-flows:
                             value: PT24H
                           - code: ttl_reverseqc [^6]
                             value: P3D
-        notes: &ref_39
-          value:
-            ^1: >-
-              new fulfillment of type "Return" created, with return request
-              initiated from buyer NP
-            ^2: unique id for each return request
-            ^3: optional - only to be used for make-to-order items
-            ^4: >-
-              valid return reason codes are
-              https://docs.google.com/document/d/1M-lZSduYMFKIk1V6d8QLt-j-16-rVzYVdPn0pmbkclk/edit#heading=h.lnyp7qt40f7f
-            ^5: ttl for either approving or rejecting the return request;
-            ^6: >-
-              ttl for initiating reverse qc, reverse qc (if required) should be
-              completed within the return window
       - summary: Seller send the interim status request
         api: on_update
         description: null
         reference: if any
-        example: &ref_40
+        example: &ref_30
           summary: Seller send interim status for liquidation request
           description: Seller send interim status for liquidation request
           value:
@@ -8522,36 +8140,6 @@ x-flows:
                       branch_name: xxxx
                 created_at: '2023-06-03T09:30:00.000Z'
                 updated_at: '2023-06-03T10:31:30.000Z'
-        notes: &ref_41
-          value:
-            ^1: >-
-              shows the current state of order with the new fulfillment for part
-              cancel by merchant
-            ^2: forward shipment fulfillment
-            ^3: pickup time
-            ^4: PCC, proof of pickup
-            ^5: pickup authorization (optional)
-            ^6: delivery time
-            ^7: DCC, proof of delivery
-            ^8: delivery authorization (optional)
-            ^9: agent details (optional)
-            ^10: >-
-              vehicle details (for rider) or buyer (for kerbside pickup) -
-              optional
-            ^11: >-
-              new fulfillment created with the same id as return request with
-              status code "Return_Initiated". If return is approved
-              ("Return_Approved" or "Liquidated"), the items will be assigned to
-              this fulfillment, else, the status code will change to
-              "Return_Rejected"
-            ^12: >-
-              valid return reason codes are
-              https://docs.google.com/document/d/1M-lZSduYMFKIk1V6d8QLt-j-16-rVzYVdPn0pmbkclk/edit#heading=h.lnyp7qt40f7f
-            ^13: ttl for either approving or rejecting the return request
-            ^14: >-
-              ttl for initiating reverse qc, reverse qc (if required) should be
-              completed within the return window
-            ^15: optional keys here as defined in /confirm
       - summary: seller approves the liquidation request
         api: on_update
         description: null
@@ -8796,26 +8384,6 @@ x-flows:
                       branch_name: xxxx
                 created_at: '2023-06-03T09:30:00.000Z'
                 updated_at: '2023-06-03T13:30:00.000Z'
-        notes:
-          value:
-            ^1: pickup time
-            ^2: PCC, proof of pickup
-            ^3: pickup authorization (optional)
-            ^4: delivery time
-            ^5: DCC, proof of delivery
-            ^6: delivery authorization (optional)
-            ^7: agent details (optional)
-            ^8: >-
-              vehicle details (for rider) or buyer (for kerbside pickup) -
-              optional
-            ^9: >-
-              valid return reason codes are
-              https://docs.google.com/document/d/1M-lZSduYMFKIk1V6d8QLt-j-16-rVzYVdPn0pmbkclk/edit#heading=h.lnyp7qt40f7f
-            ^10: ttl for either approving or rejecting the return request
-            ^11: >-
-              ttl for initiating reverse qc, reverse qc (if required) should be
-              completed within the return window
-            ^12: optional keys here as defined in /confirm
   - summary: Retail 1.2.0  Exports (Merchant cancels non customized product)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -8827,7 +8395,7 @@ x-flows:
         api: search
         description: Buyer search by fulfillment end location
         reference: if any
-        example: &ref_34
+        example: &ref_27
           summary: search_by_fulfillment_end_loc
           description: Search By Fulfilment End Loc
           value:
@@ -8855,57 +8423,41 @@ x-flows:
                 payment:
                   '@ondc/org/buyer_app_finder_fee_type': percent
                   '@ondc/org/buyer_app_finder_fee_amount': 3
-        notes: &ref_35
-          value:
-            ^1: >-
-              updated domains defined -
-              https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
-            ^2: >-
-              optional, when not specified, all fulfillment types supported by
-              provider should be returned in response
-            ^3: minimum 6 digit decimal precision for gps coordinates
       - summary: Returns the item or catalog (Fashion)
         api: on_search
         description: null
         reference: if any
         example: *ref_20
-        notes: *ref_21
       - summary: Select the item
         api: select
         description: null
         reference: if any
-        example: *ref_22
-        notes: *ref_23
+        example: *ref_21
       - summary: Returns item breakup when item is in stock and offer applied
         api: on_select
         description: null
         reference: if any
-        example: *ref_24
-        notes: *ref_25
+        example: *ref_22
       - summary: Buyer initiate the product and send the updated fulfillment id
         api: init
         description: null
         reference: if any
-        example: *ref_26
-        notes: *ref_27
+        example: *ref_23
       - summary: Respond to init
         api: on_init
         description: null
         reference: if any
-        example: *ref_28
-        notes: *ref_29
+        example: *ref_24
       - summary: Buyer confirms product
         api: confirm
         description: null
         reference: if any
-        example: *ref_30
-        notes: *ref_31
+        example: *ref_25
       - summary: Seller Accepts confirmation
         api: on_confirm
         description: null
         reference: if any
-        example: *ref_32
-        notes: *ref_33
+        example: *ref_26
       - summary: seller cancels non customized product
         api: on_update
         description: null
@@ -9125,42 +8677,6 @@ x-flows:
                       branch_name: xxxx
                 created_at: '2023-06-03T09:30:00.000Z'
                 updated_at: '2023-06-03T10:31:30.000Z'
-        notes:
-          value:
-            ^1: >-
-              shows the current state of order with the new fulfillment for part
-              cancel by merchant
-            ^2: forward shipment fulfillment id
-            ^3: >-
-              quantity changed from 2 to 1 as seller NP initiated cancel for 1
-              quantity
-            ^4: >-
-              new fulfillment id for cancel request, must be unique for each
-              cancellation / cancellation request
-            ^5: >-
-              quantity for which cancel initiated, i.e. for this specific
-              cancellation identified by unique fulfillment id "C1"
-            ^6: >-
-              valid reason code from
-              https://docs.google.com/document/d/1M-lZSduYMFKIk1V6d8QLt-j-16-rVzYVdPn0pmbkclk/edit#heading=h.lq5jsehzritb
-              for part cancel
-            ^7: >-
-              bpp id of seller NP or source from which request initiated,
-              details of this id can be verified using registry lookup
-            ^8: matches order.quote.breakup[].title_type
-            ^9: >-
-              id for title_type e.g. item id for "item" / "tax", fulfillment id
-              for "delivery" / "packing" / "misc"
-            ^10: >-
-              value by which order quote for title_type is adjusted, will always
-              be negative
-            ^11: >-
-              updated order value after deducting amount for item being
-              cancelled
-            ^12: >-
-              updated quantity of item remaining after merchant part cancel (if
-              entire item is cancelled, this will be 0)
-            ^13: optional keys here as defined in /confirm
       - summary: Settlement trail for refund initiation
         api: update
         description: null
@@ -9206,50 +8722,42 @@ x-flows:
         api: search
         description: Buyer search by fulfillment end location
         reference: if any
-        example: *ref_34
-        notes: *ref_35
+        example: *ref_27
       - summary: Returns the item or catalog (Fashion)
         api: on_search
         description: null
         reference: if any
         example: *ref_20
-        notes: *ref_21
       - summary: Select the item
         api: select
         description: null
         reference: if any
-        example: *ref_22
-        notes: *ref_23
+        example: *ref_21
       - summary: Returns item breakup when item is in stock
         api: on_select
         description: null
         reference: if any
-        example: *ref_24
-        notes: *ref_25
+        example: *ref_22
       - summary: Buyer initiate the product and send the updated fulfillment id
         api: init
         description: null
         reference: if any
-        example: *ref_26
-        notes: *ref_27
+        example: *ref_23
       - summary: Respond to init
         api: on_init
         description: null
         reference: if any
-        example: *ref_28
-        notes: *ref_29
+        example: *ref_24
       - summary: Buyer confirms product
         api: confirm
         description: null
         reference: if any
-        example: *ref_30
-        notes: *ref_31
+        example: *ref_25
       - summary: Seller Accepts confirmation
         api: on_confirm
         description: null
         reference: if any
-        example: *ref_32
-        notes: *ref_33
+        example: *ref_26
       - summary: Buyer cancels the product
         api: cancel
         description: null
@@ -9278,13 +8786,6 @@ x-flows:
               descriptor [^2]:
                 name: fulfillment
                 short_desc: F1 [^3]
-        notes:
-          value:
-            ^1: >-
-              cancellation reason codes are defined here, use "006" for
-              cancellation of fulfillment for TAT breach
-            ^2: optional, only if fulfillment is being cancelled
-            ^3: fulfillment id for cancellation of fulfillment for TAT breach
       - summary: Seller accepts the cancellation and responds to it
         api: on_cancel
         description: null
@@ -9473,16 +8974,6 @@ x-flows:
                           value: abcd
                 created_at: '2023-06-03T09:30:00.000Z'
                 updated_at: '2023-06-03T11:00:30.000Z'
-        notes:
-          value:
-            ^1: >-
-              order state will be updated to "Cancelled" if the order is
-              cancelled
-            ^2: to be used only if order is cancelled
-            ^3: only if fulfillment is cancelled
-            ^4: >-
-              updated order value including cancellation charges (delivery +
-              packing charges)
   - summary: Retail 1.2.0 Exports (Item not in stock)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -9494,20 +8985,17 @@ x-flows:
         api: search
         description: Buyer search by fulfillment end location
         reference: if any
-        example: *ref_34
-        notes: *ref_35
+        example: *ref_27
       - summary: Returns the item or catalog (Fashion)
         api: on_search
         description: null
         reference: if any
         example: *ref_20
-        notes: *ref_21
       - summary: Select the item
         api: select
         description: null
         reference: if any
-        example: *ref_22
-        notes: *ref_23
+        example: *ref_21
       - summary: Returns that item is not in stock
         api: on_select
         description: null
@@ -9581,21 +9069,6 @@ x-flows:
               type: DOMAIN-ERROR
               code: '40002'
               message: M1 [^4]
-        notes:
-          value:
-            ^1: >-
-              may be the same location as selected by the buyer or a different
-              location
-            ^2: >-
-              can be 0 (completely out of stock) or the reduced quantity in
-              stock
-            ^3: >-
-              delivery charge to be included only if fulfillment state code is
-              "Serviceable"
-            ^4: >-
-              comma delimited item ids, for items out of stock, should be here,
-              e.g. "I1,I2,I3" means items (with id) "I1", "I2", "I3" are out of
-              stock
   - summary: Retail 1.2.0 Exports (Location not serviceable)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -9607,20 +9080,17 @@ x-flows:
         api: search
         description: Buyer search for an item
         reference: if any
-        example: *ref_36
-        notes: *ref_37
+        example: *ref_28
       - summary: Returns the item or catalog (Fashion)
         api: on_search
         description: null
         reference: if any
         example: *ref_20
-        notes: *ref_21
       - summary: Select the item
         api: select
         description: null
         reference: if any
-        example: *ref_22
-        notes: *ref_23
+        example: *ref_21
       - summary: Returns that location is not serviceable
         api: on_select
         description: null
@@ -9687,12 +9157,6 @@ x-flows:
             error:
               type: DOMAIN-ERROR
               code: 30009 [^2]
-        notes:
-          value:
-            ^1: >-
-              may be the same location as selected by the buyer or a different
-              location
-            ^2: if merchant not available, use error code 30017
   - summary: Retail 1.2.0 Exports (Return with liquidation - NP reject request)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -9704,208 +9168,47 @@ x-flows:
         api: search
         description: Buyer search for an item
         reference: if any
-        example: *ref_36
-        notes: *ref_37
+        example: *ref_28
       - summary: Returns the item or catalog (Fashion)
         api: on_search
         description: null
         reference: if any
         example: *ref_20
-        notes: *ref_21
       - summary: Select the item
         api: select
         description: null
         reference: if any
-        example: *ref_22
-        notes:
-          value:
-            ^1: >-
-              dynamic item id created by buyer NP for make-to-order product;
-              alphanumeric & up to 12 characters
-            ^2: parent for customization, i.e. customization group
-            ^3: dynamic item id
-            ^4: optional, only if buyer selects offer code
-            ^5: >-
-              if offer code is not valid, seller NP can NACK /select with error
-              code 30006
-            ^6: optional
-            ^7: >-
-              enum - "ON-ORDER" (prepaid), "ON-FULFILLMENT" (on delivery),
-              "POST-FULFILLMENT" (after delivery)
+        example: *ref_21
       - summary: Returns item breakup for a product with customization
         api: on_select
         description: null
         reference: if any
-        example: *ref_24
-        notes: *ref_25
+        example: *ref_22
       - summary: Buyer initiate the product and send the updated fulfillment id
         api: init
         description: null
         reference: if any
-        example: *ref_26
-        notes:
-          value:
-            ^1: >-
-              id for dynamic item created by buyer app for make-to-order product
-              and available in parent_item_id in /select
-            ^2: >-
-              house no (for independent dwellings) or door no (for apartments or
-              community dwellings) if name is house no, building is optional
-            ^3: street name
-            ^4: optional, may be required for B2B
-            ^5: optional
-            ^6: timestamp for creation of billing object
-            ^7: same as created_at
-            ^8: name + building + locality < 190 chars, name != locality
-            ^9: >-
-              house no (for independent dwellings) or door no (for apartments or
-              community dwellings) if name is house no, building is optional
+        example: *ref_23
       - summary: Respond to init
         api: on_init
         description: null
         reference: if any
-        example: *ref_28
-        notes:
-          value:
-            ^1: >-
-              may be the same location as selected by the buyer or a different
-              location
-            ^2: >-
-              id for dynamic item created by buyer app for make-to-order product
-              and available in parent_item_id in /select
-            ^3: >-
-              billing object timestamps (created_at, updated_at) have to be the
-              same as in /init
-            ^4: optional, same as provided in /init
-            ^5: optional
-            ^6: same as in /init
-            ^7: same as in /init
-            ^8: id of customization group for the customization
-            ^9: id of customization group for the customization
-            ^10: id of customization group for the customization
-            ^11: id of customization group for the customization
-            ^12: id of customization group for the customization
-            ^13: id of customization group for the customization
-            ^14: id of customization group for the customization
-            ^15: for CoD, buyer NP may send their settlement details in /confirm
-            ^16: optional
-            ^17: >-
-              enum - "upi", "neft", "rtgs"; for "upi", upi_address needs to be
-              entered & for the other settlement_type,
-              ("settlement_bank_account_no", "settlement_ifsc_code",
-              "bank_name", "branch_name") should be entered
-            ^18: fulfillment state
-            ^19: >-
-              reason code (list
-              https://docs.google.com/document/d/1M-lZSduYMFKIk1V6d8QLt-j-16-rVzYVdPn0pmbkclk/edit#heading=h.lq5jsehzritb),
-              mandatory if reason_required is "true"
-            ^20: whether cancellation in this state is eligible for refund
-            ^21: whether cancellation reason code is required
-            ^22: >-
-              cancellation fee, if any, for this state & reason code - either
-              percentage (of order value, in the above format between "0.00" and
-              "100.00") or amount needs to be provided (if both provided,
-              minimum should be considered by buyer NP); seller NP can calculate
-              based on what needs to be deducted e.g. packaging charges /
-              convenience fee / product cost, etc
-            ^23: could be false for make-to-order items (F&B)
-            ^24: >-
-              cancellation fee, if any of this state & reason code could include
-              packing charge - either percentage (of order value) or amount
-              needs to be provided (if both provided, minimum should be
-              considered by buyer NP)
-            ^25: >-
-              in case of RTO where buyer is responsible, the forward & reverse
-              shipment costs could be deducted as cancellation fees
-            ^26: >-
-              list of reason codes delimited by "," (above shows RTO reason
-              codes where buyer is not available)
-            ^27: >-
-              in case of RTO where buyer is responsible, the forward & reverse
-              shipment costs could be deducted as cancellation fees
-            ^28: >-
-              buyer NP has to accept bpp terms in /confirm. If buyer NP doesn’t
-              accept these terms, they should NACK /on_init with error code
-              27501
-            ^29: >-
-              GST no for ISN/MSN for TDS/TCS deduction / input credit, KYC
-              verification. For MSN/ISN with stores located in multiple states,
-              the GST no for HQ for the provider legal entity should be provided
+        example: *ref_24
       - summary: Buyer confirms product
         api: confirm
         description: null
         reference: if any
-        example: *ref_30
-        notes:
-          value:
-            ^1: alphanumeric, up to 32 characters
-            ^2: >-
-              id for dynamic item created by buyer app for make-to-order product
-              and available in parent_item_id in /select
-            ^3: optional
-            ^4: same as in /init
-            ^5: same as in /init
-            ^6: >-
-              same as what is proposed in /on_select; If TAT is different from
-              what was originally quoted in /on_select, seller NP can NACK the
-              request with error code 30013
-            ^7: optional
-            ^8: only for type "Self-Pickup", category "Kerbside"
-            ^9: id of customization group for the customization
-            ^10: id of customization group for the customization
-            ^11: id of customization group for the customization
-            ^12: id of customization group for the customization
-            ^13: id of customization group for the customization
-            ^14: id of customization group for the customization
-            ^15: id of customization group for the customization
-            ^16: >-
-              if buyer NP is collecting payment, they may also provide the
-              following details - settlement_basis, settlement_window,
-              withholding_amount
-            ^17: optional
-            ^18: >-
-              transaction id if prepaid payment collected by buyer NP, not
-              required for payment on delivery
-            ^19: amount collected should match the order value
-            ^20: NOT-PAID for payment on delivery
-            ^21: ON-FULFILLMENT for payment on delivery
-            ^22: BPP for payment on delivery
-            ^23: >-
-              indicates from when settlement window starts, enum - "delivery"
-              (from delivery), "shipment" (from shipment),
-              "return_window_expiry" (from expiry of return window)
-            ^24: >-
-              settlement window, as per settlement basis, in ISO8601 Duration
-              format
-            ^25: >-
-              withholding amount as % of total order value (valid values between
-              "0.00" and "100.00")
-            ^26: >-
-              optional (buyer NP provides their details for CoD / seller NP
-              collecting prepaid; otherwise, includes the settlement details
-              provided by seller NP)
-            ^27: buyer-app for payment on delivery
-            ^28: >-
-              buyer NP must accept bpp terms. If not accepted, seller NP can
-              NACK /confirm with error code 50006
-            ^29: >-
-              URL for fixed terms of buyer NP. If seller NP doesn’t accept, they
-              should NACK /confirm with error code 50005
-            ^30: GST no for buyer NP for TDS deduction at seller NP
-            ^31: can’t be future dated timestamp
-            ^32: can’t be future dated timestamp
+        example: *ref_25
       - summary: Buyer initiated the return with liquidation
         api: update
         description: null
         reference: if any
-        example: *ref_38
-        notes: *ref_39
+        example: *ref_29
       - summary: Seller send the interim status request
         api: on_update
         description: null
         reference: if any
-        example: *ref_40
-        notes: *ref_41
+        example: *ref_30
       - summary: seller rejects the liquidation request
         api: on_update
         description: null
@@ -10131,28 +9434,6 @@ x-flows:
                       branch_name: xxxx
                 created_at: '2023-06-03T09:30:00.000Z'
                 updated_at: '2023-06-03T13:30:00.000Z'
-        notes:
-          value:
-            ^1: pickup time
-            ^2: PCC, proof of pickup
-            ^3: pickup authorization (optional)
-            ^4: delivery time
-            ^5: DCC, proof of delivery
-            ^6: delivery authorization (optional)
-            ^7: pickup time
-            ^8: >-
-              vehicle details (for rider) or buyer (for kerbside pickup) -
-              optional
-            ^9: >-
-              valid return rejection reason codes are
-              https://docs.google.com/document/d/1M-lZSduYMFKIk1V6d8QLt-j-16-rVzYVdPn0pmbkclk/edit#heading=h.urm96q1ruugy
-            ^10: >-
-              valid return reason codes are
-              https://docs.google.com/document/d/1M-lZSduYMFKIk1V6d8QLt-j-16-rVzYVdPn0pmbkclk/edit#heading=h.lnyp7qt40f7f
-            ^11: ttl for either approving or rejecting the return request
-            ^12: >-
-              ttl for initiating reverse qc, reverse qc (if required) should be
-              completed within the return window
   - summary: Retail 1.2.0 Exports (Incremental One Time Push)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -10164,7 +9445,7 @@ x-flows:
         api: search
         description: Search by city
         reference: if any
-        example: &ref_42
+        example: &ref_31
           summary: search_by_city
           description: search request for all sellers in the city identified in Context
           value:
@@ -10189,35 +9470,11 @@ x-flows:
                 payment:
                   '@ondc/org/buyer_app_finder_fee_type': percent
                   '@ondc/org/buyer_app_finder_fee_amount [^10]': '3'
-        notes: &ref_43
-          value:
-            ^1: >-
-              updated domain namespace defined here -
-              https://docs.google.com/document/d/brvcltG_DagZ3kGrZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
-            ^2: >-
-              city code for search that identifies the cities where sellers have
-              stores. List of city codes, with pincode mapping, are here -
-              https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=1474472733
-            ^3: subscriber id for buyer app
-            ^4: subscriber URI for buyer app
-            ^5: RFC3339 compliant timestamp
-            ^6: validity of message
-            ^7: optional
-            ^8: >-
-              category id will be from this list -
-              https://docs.google.com/spreadsheets/d/APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
-            ^9: >-
-              optional, when not specified, all fulfillment types supported by
-              provider should be returned in response
-            ^10: >-
-              buyer NP finder fee calculations are detailed -
-              https://docs.google.com/document/d/iqLdayk488ekEzKrEs-yn6gVrevbxBkILBe5j4oIxMY/edit
       - summary: Returns the item or catalog (Fashion)
         api: on_search
         description: null
         reference: if any
         example: *ref_20
-        notes: *ref_21
       - summary: Search by incremental one time push catalog refresh
         api: search
         description: Search by incremental one time push catalog refresh
@@ -10250,11 +9507,6 @@ x-flows:
                         value: '2023-06-03T08:00:00.000Z'
                       - code: end_time
                         value: '2023-06-03T09:00:00.000Z'
-        notes:
-          value:
-            ^1: >-
-              start_time < Context.timestamp, end_time <= Context.timestamp,
-              end_time > start_time
       - summary: Returns the item or catalog
         api: on_search
         description: null
@@ -10356,12 +9608,6 @@ x-flows:
                                 value: embossed [^21]
                               - code: size_chart
                                 value: https://sellerNP.com/images/i1_size_chart.png
-        notes:
-          value:
-            ^1: enum - "enable", "disable"
-            ^2: timestamp for item event
-            ^3: optional
-            ^4: optional
   - summary: Retail 1.2.0 Exports (Incremental Regular Push)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -10373,14 +9619,12 @@ x-flows:
         api: search
         description: Search by country
         reference: if any
-        example: *ref_42
-        notes: *ref_43
+        example: *ref_31
       - summary: Returns the item or catalog (Fashion)
         api: on_search
         description: null
         reference: if any
         example: *ref_20
-        notes: *ref_21
       - summary: Search by incremental regular push catalog refresh
         api: search
         description: Search by incremental regular push catalog refresh
@@ -10445,9 +9689,6 @@ x-flows:
                           range [^1]:
                             start: '2023-06-03T16:00:00.000Z'
                             end: '2023-06-03T23:59:00.000Z'
-        notes:
-          value:
-            ^1: means store is closed from 4PM till rest of the day
       - summary: Stop incremental refresh
         api: search
         description: Stop incremental refresh

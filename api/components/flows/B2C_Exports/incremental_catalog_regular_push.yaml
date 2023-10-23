@@ -26,8 +26,8 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/B2C Exports/on_search/incremental_catalog_refresh_store_closed_temporarily.yaml"
-    notes:
-      $ref: "../../notes/on_search/incremental_catalog_refresh_store_closed_temporarily.yaml"   
+    # notes:
+    #   $ref: "../../notes/on_search/incremental_catalog_refresh_store_closed_temporarily.yaml"   
   - summary: Stop incremental refresh
     api: search
     description:  Stop incremental refresh
