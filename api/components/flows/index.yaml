@@ -1,6 +1,6 @@
-- $ref: "./B2C_Exports/incremental_catalog_one_time_push.yaml"
-- $ref: "./B2C_Exports/incremental_catalog_regular_push.yaml"
 - $ref: "./B2C_Exports/merchant_cancels.yaml"
 - $ref: "./B2C_Exports/cancel_order.yaml"
+- $ref: "./B2C_Exports/incremental_catalog_one_time_push.yaml"
+- $ref: "./B2C_Exports/incremental_catalog_regular_push.yaml"
 - $ref: "./B2C_Exports/item_not_in_stock.yaml"
 - $ref: "./B2C_Exports/location_not_serviceable.yaml"
