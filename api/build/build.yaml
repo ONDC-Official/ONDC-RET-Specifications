@@ -6435,10 +6435,10 @@ x-flows:
           description: Search By Item
           value:
             context:
-              domain: ONDC:RET12 [^1]
+              domain: ONDC:RET12
               action: search
               country: SGP
-              city: IATA:SIN
+              city: UN:SIN
               core_version: 1.2.0
               bap_id: buyerNP.com
               bap_uri: https://buyerNP.com/ondc
@@ -6452,25 +6452,25 @@ x-flows:
                   descriptor:
                     name: T-shirt
                 fulfillment:
-                  type [^2]: Delivery
+                  type: Delivery
                   end:
                     location:
-                      gps [^3]: 1.380621, 103.746364
-                      address [^4]:
+                      gps: 1.380621, 103.746364
+                      address:
                         area_code: '6802308'
                 payment:
                   '@ondc/org/buyer_app_finder_fee_type': percent
                   '@ondc/org/buyer_app_finder_fee_amount': '3'
         notes: &ref_37
           value:
-            ^1: >-
+            context.domain: >-
               updated domains defined -
               https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
-            ^2: >-
+            message.intent.fulfillment.type: >-
               optional, when not specified, all fulfillment types supported by
               provider should be returned in response
-            ^3: minimum 6 digit decimal precision for gps coordinates
-            ^4: optional
+            message.intent.fulfillment.end.location.gps: minimum 6 digit decimal precision for gps coordinates
+            message.intent.fulfillment.end.location.address: optional
       - summary: Returns the item or catalog (Fashion)
         api: on_search
         description: null
@@ -10519,10 +10519,10 @@ x-examples:
             description: Search By Item
             value:
               context:
-                domain: ONDC:RET12 [^1]
+                domain: ONDC:RET12
                 action: search
                 country: SGP
-                city: IATA:SIN
+                city: UN:SIN
                 core_version: 1.2.0
                 bap_id: buyerNP.com
                 bap_uri: https://buyerNP.com/ondc
@@ -10536,11 +10536,11 @@ x-examples:
                     descriptor:
                       name: T-shirt
                   fulfillment:
-                    type [^2]: Delivery
+                    type: Delivery
                     end:
                       location:
-                        gps [^3]: 1.380621, 103.746364
-                        address [^4]:
+                        gps: 1.380621, 103.746364
+                        address:
                           area_code: '6802308'
                   payment:
                     '@ondc/org/buyer_app_finder_fee_type': percent
