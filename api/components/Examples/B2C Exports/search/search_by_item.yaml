@@ -2,10 +2,10 @@ summary: search_by_item
 description: Search By Item
 value:
   context:
-    domain: ONDC:RET12 [^1]
+    domain: ONDC:RET12
     action: search
     country: SGP
-    city: IATA:SIN
+    city: UN:SIN
     core_version: 1.2.0
     bap_id: buyerNP.com
     bap_uri: https://buyerNP.com/ondc
@@ -19,11 +19,11 @@ value:
         descriptor:
           name: T-shirt
       fulfillment:
-        type [^2]: Delivery
+        type: Delivery
         end:
           location:
-            gps [^3]: 1.380621, 103.746364
-            address [^4]:
+            gps: 1.380621, 103.746364
+            address:
               area_code: '6802308'
       payment:
         '@ondc/org/buyer_app_finder_fee_type': percent
