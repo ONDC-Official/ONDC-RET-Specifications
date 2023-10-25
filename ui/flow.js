@@ -109,7 +109,7 @@ async function loadFlow(flowName) {
     if (obj["summary"] === flowName) return obj;
   });
   flowSummary.textContent = selectedFlow["summary"];
-  // flowDescription.textContent = selectedFlow["details"]
+  flowDescription.textContent = selectedFlow["description"]
   var mermaidDiv = document.createElement("description-div");
   if (selectedFlow?.["details"]) {
     for (const [index, detail] of selectedFlow["details"].entries()) {
@@ -126,7 +126,7 @@ async function loadFlow(flowName) {
 
       mermaidDiv.appendChild(mermaidPane);
     }
-    //flowDescription.textContent.appendChild(mermaidDiv)
+    flowDescription.textContent.appendChild(mermaidDiv)
   }
   flowDescription.append(mermaidDiv);
   loadSteps(selectedFlow["steps"]);
