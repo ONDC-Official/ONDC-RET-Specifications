@@ -11,13 +11,10 @@ payment:
       reference: <PR/Issue/Discussion Links md format text>
   "@ondc/org/settlement_details":
     settlement_type:
-      - code: upi
+      - code: SWIFT
         description: about the enum
         reference: <PR/Issue/Discussion Links md format text>
-      - code: neft
-        description: about the enum
-        reference: <PR/Issue/Discussion Links md format text>
-      - code: rtgs
+      - code: OPGSP
         description: about the enum
         reference: <PR/Issue/Discussion Links md format text>
   collected_by:

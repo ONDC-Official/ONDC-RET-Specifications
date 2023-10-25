@@ -3464,13 +3464,10 @@ x-enum:
             type: *ref_7
             '@ondc/org/settlement_details':
               settlement_type:
-                - code: upi
+                - code: SWIFT
                   description: about the enum
                   reference: <PR/Issue/Discussion Links md format text>
-                - code: neft
-                  description: about the enum
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: rtgs
+                - code: OPGSP
                   description: about the enum
                   reference: <PR/Issue/Discussion Links md format text>
             collected_by:
@@ -7462,10 +7459,10 @@ x-flows:
                   '@ondc/org/withholding_amount': 10.00 [^11]
                   '@ondc/org/settlement_details [^12]':
                     - settlement_counterparty: buyer-app
-                      settlement_phase: sale-amount
-                      settlement_type: upi [^13]
+                      settlement_phase: finder-fee
+                      settlement_type: OPGSP [^13]
                       beneficiary_name: xxxxx
-                      upi_address: gft@oksbi
+                      opgsp_address: gft@oksbi
                       settlement_bank_account_no: XXXXXXXXXX
                       settlement_ifsc_code: XXXXXXXXX
                       bank_name: xxxx
@@ -7630,9 +7627,9 @@ x-flows:
                   '@ondc/org/withholding_amount': 1.00 [^17]
                   '@ondc/org/settlement_details [^18]':
                     - settlement_counterparty: buyer-app [^19]
-                      settlement_phase: sale-amount
-                      settlement_type: upi
-                      upi_address: gft@oksbi
+                      settlement_phase: finder-fee
+                      settlement_type: OPGSP
+                      opgsp_address: gft@oksbi
                       settlement_bank_account_no: XXXXXXXXXX
                       settlement_ifsc_code: XXXXXXXXX
                       beneficiary_name: xxxxx
@@ -7834,10 +7831,10 @@ x-flows:
                   '@ondc/org/withholding_amount': '1.00'
                   '@ondc/org/settlement_details':
                     - settlement_counterparty: buyer-app
-                      settlement_phase: sale-amount
+                      settlement_phase: finder-fee
                       beneficiary_name: xxxxx
-                      settlement_type: upi
-                      upi_address: gft@oksbi
+                      settlement_type: OPGSP
+                      opgsp_address: gft@oksbi
                       settlement_bank_account_no: XXXXXXXXXX
                       settlement_ifsc_code: XXXXXXXXX
                       bank_name: xxxx
@@ -8062,20 +8059,20 @@ x-flows:
                   '@ondc/org/withholding_amount': '1.00'
                   '@ondc/org/settlement_details':
                     - settlement_counterparty: buyer-app
-                      settlement_phase: sale-amount
+                      settlement_phase: finder-fee
                       beneficiary_name: xxxxx
                       settlement_reference: XXXX
                       settlement_status: PAID
                       settlement_timestamp: '2023-02-04T10:00:00.000Z'
-                      settlement_type: upi
-                      upi_address: gft@oksbi
+                      settlement_type: OPGSP
+                      opgsp_address: gft@oksbi
                       settlement_bank_account_no: XXXXXXXXXX
                       settlement_ifsc_code: XXXXXXXXX
                       bank_name: xxxx
                       branch_name: xxxx
                     - settlement_counterparty: buyer
                       settlement_phase: refund
-                      settlement_type: upi
+                      settlement_type: OPGSP
                       settlement_amount: '12'
                       settlement_timestamp: '2023-02-04T18:00:00.000Z'
                 documents [^31]:
@@ -8285,20 +8282,20 @@ x-flows:
                   '@ondc/org/withholding_amount': '1.00'
                   '@ondc/org/settlement_details':
                     - settlement_counterparty: buyer-app
-                      settlement_phase: sale-amount
+                      settlement_phase: finder-fee
                       beneficiary_name: xxxxx
                       settlement_reference: XXXX
                       settlement_status: PAID
                       settlement_timestamp: '2023-02-04T10:00:00.000Z'
-                      settlement_type: upi
-                      upi_address: gft@oksbi
+                      settlement_type: OPGSP
+                      opgsp_address: gft@oksbi
                       settlement_bank_account_no: XXXXXXXXXX
                       settlement_ifsc_code: XXXXXXXXX
                       bank_name: xxxx
                       branch_name: xxxx
                     - settlement_counterparty: buyer
                       settlement_phase: refund
-                      settlement_type: upi
+                      settlement_type: OPGSP
                       settlement_amount: '12'
                       settlement_timestamp: '2023-02-04T18:00:00.000Z'
                 documents [^31]:
@@ -8508,20 +8505,20 @@ x-flows:
                   '@ondc/org/withholding_amount': '1.00'
                   '@ondc/org/settlement_details':
                     - settlement_counterparty: buyer-app
-                      settlement_phase: sale-amount
+                      settlement_phase: finder-fee
                       beneficiary_name: xxxxx
                       settlement_reference: XXXX
                       settlement_status: PAID
                       settlement_timestamp: '2023-02-04T10:00:00.000Z'
-                      settlement_type: upi
-                      upi_address: gft@oksbi
+                      settlement_type: OPGSP
+                      opgsp_address: gft@oksbi
                       settlement_bank_account_no: XXXXXXXXXX
                       settlement_ifsc_code: XXXXXXXXX
                       bank_name: xxxx
                       branch_name: xxxx
                     - settlement_counterparty: buyer
                       settlement_phase: refund
-                      settlement_type: upi
+                      settlement_type: OPGSP
                       settlement_amount: '12'
                       settlement_timestamp: '2023-02-04T18:00:00.000Z'
                 documents [^31]:
@@ -8755,20 +8752,20 @@ x-flows:
                   '@ondc/org/withholding_amount': '1.00'
                   '@ondc/org/settlement_details':
                     - settlement_counterparty: buyer-app
-                      settlement_phase: sale-amount
+                      settlement_phase: finder-fee
                       beneficiary_name: xxxxx
                       settlement_reference: XXXX
                       settlement_status: PAID
                       settlement_timestamp: '2023-02-04T10:00:00.000Z'
-                      settlement_type: upi
-                      upi_address: gft@oksbi
+                      settlement_type: OPGSP
+                      opgsp_address: gft@oksbi
                       settlement_bank_account_no: XXXXXXXXXX
                       settlement_ifsc_code: XXXXXXXXX
                       bank_name: xxxx
                       branch_name: xxxx
                     - settlement_counterparty: buyer
                       settlement_phase: refund
-                      settlement_type: upi
+                      settlement_type: OPGSP
                       settlement_amount: '12'
                       settlement_timestamp: '2023-02-04T18:00:00.000Z'
                 documents [^31]:
@@ -8978,20 +8975,20 @@ x-flows:
                   '@ondc/org/withholding_amount': '1.00'
                   '@ondc/org/settlement_details':
                     - settlement_counterparty: buyer-app
-                      settlement_phase: sale-amount
+                      settlement_phase: finder-fee
                       beneficiary_name: xxxxx
                       settlement_reference: XXXX
                       settlement_status: PAID
                       settlement_timestamp: '2023-02-04T10:00:00.000Z'
-                      settlement_type: upi
-                      upi_address: gft@oksbi
+                      settlement_type: OPGSP
+                      opgsp_address: gft@oksbi
                       settlement_bank_account_no: XXXXXXXXXX
                       settlement_ifsc_code: XXXXXXXXX
                       bank_name: xxxx
                       branch_name: xxxx
                     - settlement_counterparty: buyer
                       settlement_phase: refund
-                      settlement_type: upi
+                      settlement_type: OPGSP
                       settlement_amount: '12'
                       settlement_timestamp: '2023-02-04T18:00:00.000Z'
                 documents [^31]:
@@ -9251,10 +9248,10 @@ x-flows:
                   '@ondc/org/buyer_app_finder_fee_amount': '3'
                   '@ondc/org/settlement_details':
                     - settlement_counterparty: buyer-app
-                      settlement_phase: sale-amount
+                      settlement_phase: finder-fee
                       beneficiary_name: xxxxx
-                      settlement_type: upi
-                      upi_address: gft@oksbi
+                      settlement_type: OPGSP
+                      opgsp_address: gft@oksbi
                       settlement_bank_account_no: XXXXXXXXXX
                       settlement_ifsc_code: XXXXXXXXX
                       bank_name: xxxx
@@ -10478,9 +10475,9 @@ x-examples:
                     '@ondc/org/withholding_amount': 1.00 [^17]
                     '@ondc/org/settlement_details [^18]':
                       - settlement_counterparty: buyer-app [^19]
-                        settlement_phase: sale-amount
-                        settlement_type: upi
-                        upi_address: gft@oksbi
+                        settlement_phase: finder-fee
+                        settlement_type: OPGSP
+                        opgsp_address: gft@oksbi
                         settlement_bank_account_no: XXXXXXXXXX
                         settlement_ifsc_code: XXXXXXXXX
                         beneficiary_name: xxxxx
@@ -11938,10 +11935,10 @@ x-examples:
                     '@ondc/org/withholding_amount': 10.00 [^11]
                     '@ondc/org/settlement_details [^12]':
                       - settlement_counterparty: buyer-app
-                        settlement_phase: sale-amount
-                        settlement_type: upi [^13]
+                        settlement_phase: finder-fee
+                        settlement_type: OPGSP [^13]
                         beneficiary_name: xxxxx
-                        upi_address: gft@oksbi
+                        opgsp_address: gft@oksbi
                         settlement_bank_account_no: XXXXXXXXXX
                         settlement_ifsc_code: XXXXXXXXX
                         bank_name: xxxx
@@ -12133,10 +12130,10 @@ x-examples:
                     '@ondc/org/withholding_amount': '1.00'
                     '@ondc/org/settlement_details':
                       - settlement_counterparty: buyer-app
-                        settlement_phase: sale-amount
+                        settlement_phase: finder-fee
                         beneficiary_name: xxxxx
-                        settlement_type: upi
-                        upi_address: gft@oksbi
+                        settlement_type: OPGSP
+                        opgsp_address: gft@oksbi
                         settlement_bank_account_no: XXXXXXXXXX
                         settlement_ifsc_code: XXXXXXXXX
                         bank_name: xxxx
@@ -12361,10 +12358,10 @@ x-examples:
                     '@ondc/org/buyer_app_finder_fee_amount': '3'
                     '@ondc/org/settlement_details':
                       - settlement_counterparty: buyer-app
-                        settlement_phase: sale-amount
+                        settlement_phase: finder-fee
                         beneficiary_name: xxxxx
-                        settlement_type: upi
-                        upi_address: gft@oksbi
+                        settlement_type: OPGSP
+                        opgsp_address: gft@oksbi
                         settlement_bank_account_no: XXXXXXXXXX
                         settlement_ifsc_code: XXXXXXXXX
                         bank_name: xxxx
@@ -12762,20 +12759,20 @@ x-examples:
                     '@ondc/org/withholding_amount': '1.00'
                     '@ondc/org/settlement_details':
                       - settlement_counterparty: buyer-app
-                        settlement_phase: sale-amount
+                        settlement_phase: finder-fee
                         beneficiary_name: xxxxx
                         settlement_reference: XXXX
                         settlement_status: PAID
                         settlement_timestamp: '2023-02-04T10:00:00.000Z'
-                        settlement_type: upi
-                        upi_address: gft@oksbi
+                        settlement_type: OPGSP
+                        opgsp_address: gft@oksbi
                         settlement_bank_account_no: XXXXXXXXXX
                         settlement_ifsc_code: XXXXXXXXX
                         bank_name: xxxx
                         branch_name: xxxx
                       - settlement_counterparty: buyer
                         settlement_phase: refund
-                        settlement_type: upi
+                        settlement_type: OPGSP
                         settlement_amount: '12'
                         settlement_timestamp: '2023-02-04T18:00:00.000Z'
                   documents [^31]:
@@ -12980,20 +12977,20 @@ x-examples:
                     '@ondc/org/withholding_amount': '1.00'
                     '@ondc/org/settlement_details':
                       - settlement_counterparty: buyer-app
-                        settlement_phase: sale-amount
+                        settlement_phase: finder-fee
                         beneficiary_name: xxxxx
                         settlement_reference: XXXX
                         settlement_status: PAID
                         settlement_timestamp: '2023-02-04T10:00:00.000Z'
-                        settlement_type: upi
-                        upi_address: gft@oksbi
+                        settlement_type: OPGSP
+                        opgsp_address: gft@oksbi
                         settlement_bank_account_no: XXXXXXXXXX
                         settlement_ifsc_code: XXXXXXXXX
                         bank_name: xxxx
                         branch_name: xxxx
                       - settlement_counterparty: buyer
                         settlement_phase: refund
-                        settlement_type: upi
+                        settlement_type: OPGSP
                         settlement_amount: '12'
                         settlement_timestamp: '2023-02-04T18:00:00.000Z'
                   documents [^31]:
@@ -13198,20 +13195,20 @@ x-examples:
                     '@ondc/org/withholding_amount': '1.00'
                     '@ondc/org/settlement_details':
                       - settlement_counterparty: buyer-app
-                        settlement_phase: sale-amount
+                        settlement_phase: finder-fee
                         beneficiary_name: xxxxx
                         settlement_reference: XXXX
                         settlement_status: PAID
                         settlement_timestamp: '2023-02-04T10:00:00.000Z'
-                        settlement_type: upi
-                        upi_address: gft@oksbi
+                        settlement_type: OPGSP
+                        opgsp_address: gft@oksbi
                         settlement_bank_account_no: XXXXXXXXXX
                         settlement_ifsc_code: XXXXXXXXX
                         bank_name: xxxx
                         branch_name: xxxx
                       - settlement_counterparty: buyer
                         settlement_phase: refund
-                        settlement_type: upi
+                        settlement_type: OPGSP
                         settlement_amount: '12'
                         settlement_timestamp: '2023-02-04T18:00:00.000Z'
                   documents [^31]:
@@ -13416,20 +13413,20 @@ x-examples:
                     '@ondc/org/withholding_amount': '1.00'
                     '@ondc/org/settlement_details':
                       - settlement_counterparty: buyer-app
-                        settlement_phase: sale-amount
+                        settlement_phase: finder-fee
                         beneficiary_name: xxxxx
                         settlement_reference: XXXX
                         settlement_status: PAID
                         settlement_timestamp: '2023-02-04T10:00:00.000Z'
-                        settlement_type: upi
-                        upi_address: gft@oksbi
+                        settlement_type: OPGSP
+                        opgsp_address: gft@oksbi
                         settlement_bank_account_no: XXXXXXXXXX
                         settlement_ifsc_code: XXXXXXXXX
                         bank_name: xxxx
                         branch_name: xxxx
                       - settlement_counterparty: buyer
                         settlement_phase: refund
-                        settlement_type: upi
+                        settlement_type: OPGSP
                         settlement_amount: '12'
                         settlement_timestamp: '2023-02-04T18:00:00.000Z'
                   documents [^31]:
@@ -13634,20 +13631,20 @@ x-examples:
                     '@ondc/org/withholding_amount': '1.00'
                     '@ondc/org/settlement_details':
                       - settlement_counterparty: buyer-app
-                        settlement_phase: sale-amount
+                        settlement_phase: finder-fee
                         beneficiary_name: xxxxx
                         settlement_reference: XXXX
                         settlement_status: PAID
                         settlement_timestamp: '2023-02-04T10:00:00.000Z'
-                        settlement_type: upi
-                        upi_address: gft@oksbi
+                        settlement_type: OPGSP
+                        opgsp_address: gft@oksbi
                         settlement_bank_account_no: XXXXXXXXXX
                         settlement_ifsc_code: XXXXXXXXX
                         bank_name: xxxx
                         branch_name: xxxx
                       - settlement_counterparty: buyer
                         settlement_phase: refund
-                        settlement_type: upi
+                        settlement_type: OPGSP
                         settlement_amount: '12'
                         settlement_timestamp: '2023-02-04T18:00:00.000Z'
                   documents [^31]:
@@ -13856,20 +13853,20 @@ x-examples:
                     '@ondc/org/withholding_amount': '1.00'
                     '@ondc/org/settlement_details':
                       - settlement_counterparty: buyer-app
-                        settlement_phase: sale-amount
+                        settlement_phase: finder-fee
                         beneficiary_name: xxxxx
                         settlement_reference: XXXX
                         settlement_status: PAID
                         settlement_timestamp: '2023-02-04T10:00:00.000Z'
-                        settlement_type: upi
-                        upi_address: gft@oksbi
+                        settlement_type: OPGSP
+                        opgsp_address: gft@oksbi
                         settlement_bank_account_no: XXXXXXXXXX
                         settlement_ifsc_code: XXXXXXXXX
                         bank_name: xxxx
                         branch_name: xxxx
                       - settlement_counterparty: buyer
                         settlement_phase: refund
-                        settlement_type: upi
+                        settlement_type: OPGSP
                         settlement_amount: '12'
                         settlement_timestamp: '2023-02-04T18:00:00.000Z'
                   documents [^31]:
