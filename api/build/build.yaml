@@ -6434,7 +6434,7 @@ x-tags:
     message:
       order: *ref_19
 x-flows:
-  - summary: Retail 1.2.0  Exports (Order Delivered)
+  - summary: Retail 1.2.0 Exports (Order Delivered)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to order fashion item and gets delivered
@@ -8999,7 +8999,7 @@ x-flows:
                     label: Invoice
                 created_at: '2023-06-03T09:30:00.000Z'
                 updated_at: '2023-06-03T10:00:30.201Z'
-  - summary: Retail 1.2.0  Exports (Merchant cancels)
+  - summary: Retail 1.2.0 Exports (Merchant cancels)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to order fashion item and merchant part cancels
@@ -9303,7 +9303,7 @@ x-flows:
                       settlement_type: OPGSP
                       settlement_amount: '17.00'
                       settlement_timestamp: '2023-06-03T11:00:00.000Z'
-  - summary: Retail 1.2.0  Exports (Merchant cancels full order)
+  - summary: Retail 1.2.0 Exports (Merchant cancels full order)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to import fashion item and then cancels it
@@ -9632,7 +9632,7 @@ x-flows:
                   '@ondc/org/buyer_app_finder_fee_type': percent
                   '@ondc/org/buyer_app_finder_fee_amount': '3'
                 tags:
-                  - code: catalog_inc [^1]
+                  - code: catalog_inc
                     list:
                       - code: start_time
                         value: '2023-06-03T08:00:00.000Z'
@@ -10178,7 +10178,7 @@ x-examples:
                     '@ondc/org/buyer_app_finder_fee_type': percent
                     '@ondc/org/buyer_app_finder_fee_amount': '3'
                   tags:
-                    - code: catalog_inc [^1]
+                    - code: catalog_inc
                       list:
                         - code: start_time
                           value: '2023-06-03T08:00:00.000Z'
