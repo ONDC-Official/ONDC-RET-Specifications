@@ -108,6 +108,7 @@ async function loadFlow(flowName) {
   let selectedFlow = flows.find((obj) => {
     if (obj["summary"] === flowName) return obj;
   });
+  console.log("Selected Flow", selectedFlow)
   flowSummary.textContent = selectedFlow["summary"];
   // flowDescription.textContent = selectedFlow["details"]
   var mermaidDiv = document.createElement("description-div");

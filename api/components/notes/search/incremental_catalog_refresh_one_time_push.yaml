@@ -1,2 +1,2 @@
 value:
-  [^1]: start_time < Context.timestamp, end_time <= Context.timestamp, end_time > start_time
+  message.intent.tags[<index>].code: start_time < Context.timestamp, end_time <= Context.timestamp, end_time > start_time
