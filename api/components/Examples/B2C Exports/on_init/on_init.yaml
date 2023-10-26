@@ -122,9 +122,9 @@ value:
         uri: https://snp.com/pg
         status: NOT-PAID [^8]
         params:
-          currency: USD,
+          currency: USD
           amount: '12.00'
-          bank_code: xxxxxxxxx,
+          bank_code: xxxxxxxxx
           bank_account_number: xxxxxxxxxxxx
         '@ondc/org/buyer_app_finder_fee_type': percent
         '@ondc/org/buyer_app_finder_fee_amount': '3'

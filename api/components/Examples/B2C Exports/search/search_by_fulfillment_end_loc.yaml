@@ -2,7 +2,7 @@ summary: search_by_fulfillment_end_loc
 description: Search By Fulfilment End Loc
 value:
   context:
-    domain: ONDC:RET12 [^1]
+    domain: ONDC:RET12
     city: UN:SIN
     country: SGP
     action: search
@@ -16,10 +16,10 @@ value:
   message:
     intent:
       fulfillment:
-        type [^2]: Delivery
+        type: Delivery
         end:
           location:
-            gps [^3]: 1.380621, 103.746364
+            gps: 1.380621, 103.746364
             address:
               - area_code: "6802308"
       payment:

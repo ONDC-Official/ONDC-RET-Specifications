@@ -50,6 +50,9 @@ async function loadSteps(steps) {
         mermaidDiv.appendChild(mermaidPane);
       }
     }
+    if(!details && step.description) {
+      mermaidDiv.innerHTML= "<p>" + step.description + "</p>"
+    }
     // yamlDiv.innerHTML =
     //   '<pre class="yaml-content">' +
     //   JSON.stringify(step.example.value, null, 2) +

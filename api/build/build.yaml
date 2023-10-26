@@ -6449,7 +6449,7 @@ x-flows:
           description: Search By Fulfilment End Loc
           value:
             context:
-              domain: ONDC:RET12 [^1]
+              domain: ONDC:RET12
               city: UN:SIN
               country: SGP
               action: search
@@ -6463,10 +6463,10 @@ x-flows:
             message:
               intent:
                 fulfillment:
-                  type [^2]: Delivery
+                  type: Delivery
                   end:
                     location:
-                      gps [^3]: 1.380621, 103.746364
+                      gps: 1.380621, 103.746364
                       address:
                         - area_code: '6802308'
                 payment:
@@ -6506,7 +6506,7 @@ x-flows:
                   - id: P1
                     time:
                       label: enable
-                      timestamp: 2023-06-03T08:00:30.000Z [^1]
+                      timestamp: '2023-06-03T08:00:30.000Z'
                     fulfillments:
                       - id: F1
                         type: Delivery
@@ -6524,8 +6524,8 @@ x-flows:
                     locations:
                       - id: L1
                         time:
-                          label: enable [^2]
-                          timestamp: 2023-06-03T07:30:30.000Z [^3]
+                          label: enable
+                          timestamp: '2023-06-03T07:30:30.000Z'
                           schedule:
                             holidays:
                               - '2023-08-15'
@@ -6560,12 +6560,12 @@ x-flows:
                     items:
                       - id: I1
                         time:
-                          label: enable [^4]
-                          timestamp: 2023-06-03T07:30:00.000Z [^5]
-                        parent_item_id: V1 [^6]
+                          label: enable
+                          timestamp: '2023-06-03T07:30:00.000Z'
+                        parent_item_id: V1
                         descriptor:
                           name: Allen Solly Men T-shirt
-                          code [^7]: 1:XXXXXXXXXXXXX
+                          code: 1:XXXXXXXXXXXXX
                           symbol: https://sellerNP.com/images/i1.png
                           short_desc: Allen Solly Men T-shirt
                           long_desc: Allen Solly Men T-shirt
@@ -6584,7 +6584,7 @@ x-flows:
                           currency: USD
                           value: '10.00'
                           maximum_value: '12.0'
-                        category_id: Men's Topwear [^8]
+                        category_id: Men's Topwear
                         fulfillment_id: F1
                         location_id: L1
                         '@ondc/org/returnable': true
@@ -6594,46 +6594,46 @@ x-flows:
                         '@ondc/org/time_to_ship': P1D
                         '@ondc/org/available_on_cod': false
                         '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
-                        '@ondc/org/statutory_reqs_packaged_commodities [^9]':
+                        '@ondc/org/statutory_reqs_packaged_commodities':
                           manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
                           manufacturer_or_packer_address: >-
                             Building 2, Divyasree Technopolis, Off HAL Airport
                             Road, Bengaluru-560037
                           common_or_generic_name_of_commodity: Polo
-                          month_year_of_manufacture_packing_import: 01/2017 [^10]
+                          month_year_of_manufacture_packing_import: 01/2017
                         tags:
                           - code: origin
                             list:
                               - code: country
                                 value: IND
-                          - code: attribute [^11]
+                          - code: attribute
                             list:
                               - code: brand
                                 value: Allen Solly
                               - code: colour
-                                value: coral [^12]
+                                value: coral
                               - code: size
-                                value: S [^13]
+                                value: S
                               - code: gender
-                                value: male [^14]
+                                value: male
                               - code: pattern
-                                value: striped [^15]
+                                value: striped
                               - code: material
-                                value: cotton [^16]
+                                value: cotton
                               - code: occasion
-                                value: casual [^17]
+                                value: casual
                               - code: season
-                                value: summer [^18]
+                                value: summer
                               - code: trend
-                                value: tribal [^19]
+                                value: tribal
                               - code: features
-                                value: alpha [^20]
+                                value: alpha
                               - code: material_finish
-                                value: embossed [^21]
+                                value: embossed
                               - code: size_chart
                                 value: https://sellerNP.com/images/i1_size_chart.png
                       - id: I2
-                        parent_item_id: V1 [^22]
+                        parent_item_id: V1
                         descriptor:
                           name: Allen Solly Men T-shirt
                           code: 1:XXXXXXXXXXXXX
@@ -6665,13 +6665,13 @@ x-flows:
                         '@ondc/org/time_to_ship': P1D
                         '@ondc/org/available_on_cod': false
                         '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
-                        '@ondc/org/statutory_reqs_packaged_commodities [^23]':
+                        '@ondc/org/statutory_reqs_packaged_commodities':
                           manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
                           manufacturer_or_packer_address: >-
                             Building 2, Divyasree Technopolis, Off HAL Airport
                             Road, Bengaluru-560037
                           common_or_generic_name_of_commodity: Polo
-                          month_year_of_manufacture_packing_import: 01/2017 [^24]
+                          month_year_of_manufacture_packing_import: 01/2017
                         tags:
                           - code: origin
                             list:
@@ -6704,7 +6704,7 @@ x-flows:
                               - code: size_chart
                                 value: https://sellerNP.com/images/i1_size_chart.png
                       - id: I3
-                        parent_item_id: V1 [^25]
+                        parent_item_id: V1
                         descriptor:
                           name: Allen Solly Men T-shirt
                           code: 1:XXXXXXXXXXXXX
@@ -6736,13 +6736,13 @@ x-flows:
                         '@ondc/org/time_to_ship': P1D
                         '@ondc/org/available_on_cod': false
                         '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
-                        '@ondc/org/statutory_reqs_packaged_commodities [^26]':
+                        '@ondc/org/statutory_reqs_packaged_commodities':
                           manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
                           manufacturer_or_packer_address: >-
                             Building 2, Divyasree Technopolis, Off HAL Airport
                             Road, Bengaluru-560037
                           common_or_generic_name_of_commodity: Polo
-                          month_year_of_manufacture_packing_import: 01/2017 [^27]
+                          month_year_of_manufacture_packing_import: 01/2017
                         tags:
                           - code: origin
                             list:
@@ -6775,7 +6775,7 @@ x-flows:
                               - code: size_chart
                                 value: https://sellerNP.com/images/i1_size_chart.png
                       - id: I4
-                        parent_item_id: V1 [^28]
+                        parent_item_id: V1
                         descriptor:
                           name: Allen Solly Men T-shirt
                           code: 1:XXXXXXXXXXXXX
@@ -6807,13 +6807,13 @@ x-flows:
                         '@ondc/org/time_to_ship': P1D
                         '@ondc/org/available_on_cod': false
                         '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
-                        '@ondc/org/statutory_reqs_packaged_commodities [^29]':
+                        '@ondc/org/statutory_reqs_packaged_commodities':
                           manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
                           manufacturer_or_packer_address: >-
                             Building 2, Divyasree Technopolis, Off HAL Airport
                             Road, Bengaluru-560037
                           common_or_generic_name_of_commodity: Polo
-                          month_year_of_manufacture_packing_import: 01/2017 [^30]
+                          month_year_of_manufacture_packing_import: 01/2017
                         tags:
                           - code: origin
                             list:
@@ -6846,7 +6846,7 @@ x-flows:
                               - code: size_chart
                                 value: https://sellerNP.com/images/i1_size_chart.png
                       - id: I5
-                        parent_item_id: V1 [^31]
+                        parent_item_id: V1
                         descriptor:
                           name: Allen Solly Men T-shirt
                           code: 1:XXXXXXXXXXXXX
@@ -6878,13 +6878,13 @@ x-flows:
                         '@ondc/org/time_to_ship': P1D
                         '@ondc/org/available_on_cod': false
                         '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
-                        '@ondc/org/statutory_reqs_packaged_commodities [^32]':
+                        '@ondc/org/statutory_reqs_packaged_commodities':
                           manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
                           manufacturer_or_packer_address: >-
                             Building 2, Divyasree Technopolis, Off HAL Airport
                             Road, Bengaluru-560037
                           common_or_generic_name_of_commodity: Polo
-                          month_year_of_manufacture_packing_import: 01/2017 [^33]
+                          month_year_of_manufacture_packing_import: 01/2017
                         tags:
                           - code: origin
                             list:
@@ -6917,7 +6917,7 @@ x-flows:
                               - code: size_chart
                                 value: https://sellerNP.com/images/i1_size_chart.png
                       - id: I6
-                        parent_item_id: V1 [^34]
+                        parent_item_id: V1
                         descriptor:
                           name: Allen Solly Men T-shirt
                           code: 1:XXXXXXXXXXXXX
@@ -6949,13 +6949,13 @@ x-flows:
                         '@ondc/org/time_to_ship': P1D
                         '@ondc/org/available_on_cod': false
                         '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
-                        '@ondc/org/statutory_reqs_packaged_commodities [^35]':
+                        '@ondc/org/statutory_reqs_packaged_commodities':
                           manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
                           manufacturer_or_packer_address: >-
                             Building 2, Divyasree Technopolis, Off HAL Airport
                             Road, Bengaluru-560037
                           common_or_generic_name_of_commodity: Polo
-                          month_year_of_manufacture_packing_import: 01/2017 [^36]
+                          month_year_of_manufacture_packing_import: 01/2017
                         tags:
                           - code: origin
                             list:
@@ -6988,7 +6988,7 @@ x-flows:
                               - code: size_chart
                                 value: https://sellerNP.com/images/i1_size_chart.png
                       - id: I7
-                        parent_item_id: V1 [^37]
+                        parent_item_id: V1
                         descriptor:
                           name: Allen Solly Men T-shirt
                           code: 1:XXXXXXXXXXXXX
@@ -7020,13 +7020,13 @@ x-flows:
                         '@ondc/org/time_to_ship': P1D
                         '@ondc/org/available_on_cod': false
                         '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
-                        '@ondc/org/statutory_reqs_packaged_commodities [^38]':
+                        '@ondc/org/statutory_reqs_packaged_commodities':
                           manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
                           manufacturer_or_packer_address: >-
                             Building 2, Divyasree Technopolis, Off HAL Airport
                             Road, Bengaluru-560037
                           common_or_generic_name_of_commodity: Polo
-                          month_year_of_manufacture_packing_import: 01/2017 [^39]
+                          month_year_of_manufacture_packing_import: 01/2017
                         tags:
                           - code: origin
                             list:
@@ -7058,7 +7058,7 @@ x-flows:
                                 value: embossed
                               - code: size_chart
                                 value: https://sellerNP.com/images/i1_size_chart.png
-                    creds [^40]:
+                    creds:
                       - id: ESG-12345678
                         descriptor:
                           code: ESG-12345678
@@ -7451,9 +7451,9 @@ x-flows:
                   uri: https://snp.com/pg
                   status: NOT-PAID [^8]
                   params:
-                    currency: USD,
+                    currency: USD
                     amount: '12.00'
-                    bank_code: xxxxxxxxx,
+                    bank_code: xxxxxxxxx
                     bank_account_number: xxxxxxxxxxxx
                   '@ondc/org/buyer_app_finder_fee_type': percent
                   '@ondc/org/buyer_app_finder_fee_amount': '3'
@@ -9314,41 +9314,334 @@ x-flows:
         description: Buyer search by fulfillment end location
         reference: if any
         example: *ref_20
+        notes:
+          value:
+            context.domain: >-
+              updated domains defined -
+              https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
+            message.intent.fulfillment.type: >-
+              optional, when not specified, all fulfillment types supported by
+              provider should be returned in response
+            message.intent.fulfillment.end.location.gps: minimum 6 digit decimal precision for gps coordinates
       - summary: Returns the item or catalog (Fashion)
         api: on_search
         description: null
         reference: if any
         example: *ref_21
+        notes:
+          value:
+            message.catalog.bpp/providers[<index>].time.timestamp: >-
+              timestamp when the snapshot for this provider (including provider
+              details, items) was generated, must be <= Context.timestamp. Buyer
+              NPs can use this to determine from when to start incremental
+              refresh
+            message.catalog.bpp/providers[<index>].locations[<index>].time.label: >-
+              enum - "enable" (default), "disable" (soft delete of provider
+              location, i.e. warehouse or store, from buyer NP cache - in this
+              case, serviceability for the store should not be a part of the
+              catalog), "close" (temporary closure of store with the same format
+              for time.range as specified, for incremental refresh, here -
+              https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.ar4y0zvk65s4
+              only if this event is available at the time of generating the full
+              catalog snapshot)
+            message.catalog.bpp/providers[<index>].locations[<index>].time.timestamp: >-
+              timestamp when the snapshot for location was generated, must be <=
+              Context.timestamp
+            message.catalog.bpp/providers[<index>].items[<index>].time.label: enum - "enable", "disable"
+            message.catalog.bpp/providers[<index>].items[<index>].time.timestamp: timestamp for item event
+            message.catalog.bpp/providers[<index>].items[<index>].parent_item_id: >-
+              if variant grouping defined for provider above, this matches id
+              for variant_group definition; if not defined or id is invalid,
+              buyer NPs may choose to display as normal SKU item
+            message.catalog.bpp/providers[<index>].items[<index>].descriptor.code: >-
+              optional; network-wide unique code for item which will be in this
+              format - "type:code" where type is 1 - EAN, 2 - ISBN, 3 - GTIN, 4
+              - HSN, 5 - UPC, 6 - others
+            message.catalog.bpp/providers[<index>].items[<index>].category_id: >-
+              list of fashion categories is
+              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=623321892
+            message.catalog.bpp/providers[<index>].items[<index>].'@ondc/org/statutory_reqs_packaged_commodities': >-
+              mapping of category to attribute key is defined
+              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+            message.catalog.bpp/providers[<index>].items[<index>].'@ondc/org/statutory_reqs_packaged_commodities'.month_year_of_manufacture_packing_import: date first available
+            message.catalog.bpp/providers[<index>].items[<index>].tags[<index>].code: >-
+              if `code` is "attributes" then item attributes- populating with
+              valid values will enable better discoverability on buyer NPs
+            message.catalog.bpp/providers[<index>].items[<index>].tags[<index>].list.value: >-
+              if `code` is "attributes", suggestive enum is
+              https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/fashion/RET12-colour.json
+            message.catalog.bpp/providers[<index>].creds: optional
+            message.catalog.bpp/providers[<index>].tags[<index>].list[<index>].value: >-
+              if `tags>code` is "timing" and `tags>code>list[<index>]>code` is
+              "type", then it means same timings for online order processing,
+              shipment, self-pickup (as applicable)
       - summary: Select the item
         api: select
         description: null
         reference: if any
         example: *ref_22
+        notes:
+          value:
+            ^1: optional, only if buyer selects offer code
+            ^2: >-
+              if offer code is not valid, seller NP can NACK /select with error
+              code 30006
+            ^3: fulfillment end location, i.e. delivery location for buyer
+            ^4: >-
+              GPS coordinates & precision for fulfillment end location has to be
+              same in /confirm
+            ^5: optional
+            ^6: >-
+              enum - "ON-ORDER" (prepaid), "ON-FULFILLMENT" (on delivery),
+              "POST-FULFILLMENT" (after delivery)
       - summary: Returns item breakup when item is in stock
         api: on_select
         description: null
         reference: if any
         example: *ref_23
+        notes:
+          value:
+            ^1: >-
+              may be the same location as selected by the buyer or a different
+              location
+            ^2: >-
+              order can have multiple fulfillments; in this case, unique
+              fulfillment id (for provider & order) needs to be assigned by
+              seller NP for each fulfillment & mapped to item(s) that are a part
+              of that fulfillment
+            ^3: >-
+              unique fulfillment id assigned by seller NP here & mapped to item
+              and will be persisted right through order confirm
+            ^4: maps to logistics category as defined in Logistics API contract
+            ^5: should only be used where O2D TAT <= 2 hrs
+            ^6: >-
+              Order-to-delivery (O2D) TAT shown = max(time_to_ship for items in
+              the fulfillment) + ship-to-delivery (S2D) time provided by LSP in
+              TAT
+            ^7: >-
+              Seller NP performs serviceability check based on end location in
+              /select. If non serviceable, seller app has to return the
+              appropriate error code along with a valid /on_select response
+            ^8: enum - "Serviceable", "Non-serviceable"
+            ^9: >-
+              item_id should match either item.id or fulfillment.id based on how
+              the line item (as defined by "title_type") is assigned, i.e.
+              "delivery", "discount_f", "tax_f", "packing", "misc" are at
+              fulfillment level while "item", "tax", "discount" are at item
+              level
+            ^10: >-
+              if required quantity (as selected by buyer) is not in stock,
+              seller app should show the quantity available in stock (or 0 if
+              completely out-of-stock) and show the appropriate error code
+              (40002) in the /on_select response
+            ^11: >-
+              defines the type of line item; enum - "item" (product cost),
+              "delivery" (shipping charges), "packing", "tax", "misc"
+              (convenience fees), "discount", discount_f, tax_f. Title text can
+              be customized by buyer NP
+            ^12: >-
+              item price should be either inclusive or exclusive of taxes,
+              exactly as defined in the catalog
+            ^13: >-
+              delivery charge to be included only if fulfillment state code is
+              "Serviceable"
+            ^14: discount on delivery charge, to be included only if not 0
+            ^15: >-
+              tax on fulfillment level charges, to be included only if not 0
+              (i.e. seller NP provides tax inclusive fulfillment level charges)
+            ^16: packing charge to be included only if not 0
+            ^17: tax breakup to be included only if tax is not 0
+            ^18: discount to be included only if not 0
+            ^19: misc to be included only if not 0
+            ^20: validity of quote
       - summary: Buyer initiate the product and send the updated fulfillment id
         api: init
         description: null
         reference: if any
         example: *ref_24
+        notes:
+          value:
+            ^1: >-
+              house no (for independent dwellings) or door no (for apartments or
+              community dwellings) if name is house no, building is optional
+            ^2: street name
+            ^3: optional, may be required for B2B
+            ^4: optional
+            ^5: timestamp for creation of billing object
+            ^6: same as created_at
+            ^7: name + building + locality < 190 chars, name != locality
+            ^8: >-
+              house no (for independent dwellings) or door no (for apartments or
+              community dwellings) if name is house no, building is optional
       - summary: Respond to init
         api: on_init
         description: null
         reference: if any
         example: *ref_25
+        notes:
+          value:
+            ^1: >-
+              may be the same location as selected by the buyer or a different
+              location
+            ^2: >-
+              billing object timestamps (created_at, updated_at) have to be the
+              same as in /init
+            ^3: optional, same as provided in /init
+            ^4: optional
+            ^5: same as in /init
+            ^6: same as in /init
+            ^7: >-
+              if seller NP is collecting pre-paid payment (for categories like
+              electronics), they may provide the following - type, collected_by,
+              uri (payment link), status, settlement_basis, settlement_window,
+              withholding_amount
+            ^8: enum - "PAID", "NOT-PAID"
+            ^9: >-
+              indicates from when settlement window starts, enum - "delivery"
+              (from delivery), "shipment" (from shipment),
+              "return_window_expiry" (from expiry of return window)
+            ^10: >-
+              settlement window, as per settlement basis, in ISO8601 Duration
+              format
+            ^11: >-
+              withholding amount as % of total order value (valid values between
+              "0.00" and "100.00")
+            ^12: >-
+              optional (may be provided by seller NP if they are not collecting
+              payment or not CoD payment)
+            ^13: >-
+              enum - "upi", "neft", "rtgs"; for "upi", upi_address needs to be
+              entered & for the other settlement_type,
+              ("settlement_bank_account_no", "settlement_ifsc_code",
+              "bank_name", "branch_name") should be entered
+            ^14: fulfillment state
+            ^15: >-
+              reason code (list
+              https://docs.google.com/document/d/1M-lZSduYMFKIk1V6d8QLt-j-16-rVzYVdPn0pmbkclk/edit#heading=h.lq5jsehzritb),
+              mandatory if reason_required is "true"
+            ^16: whether cancellation in this state is eligible for refund
+            ^17: whether cancellation reason code is required
+            ^18: >-
+              cancellation fee, if any, for this state & reason code - either
+              percentage (of order value, in the above format between "0.00" and
+              "100.00") or amount needs to be provided (if both provided,
+              minimum should be considered by buyer NP); seller NP can calculate
+              based on what needs to be deducted e.g. packaging charges /
+              convenience fee / product cost, etc
+            ^19: could be false for make-to-order items (F&B)
+            ^20: >-
+              cancellation fee, if any of this state & reason code could include
+              packing charge - either percentage (of order value) or amount
+              needs to be provided (if both provided, minimum should be
+              considered by buyer NP)
+            ^21: >-
+              in case of RTO where buyer is responsible, the forward & reverse
+              shipment costs could be deducted as cancellation fees
+            ^22: >-
+              list of reason codes delimited by "," (above shows RTO reason
+              codes where buyer is not available)
+            ^23: >-
+              in case of RTO where buyer is responsible, the forward & reverse
+              shipment costs could be deducted as cancellation fees
+            ^24: >-
+              buyer NP has to accept bpp terms in /confirm. If buyer NP doesn’t
+              accept these terms, they should NACK /on_init with error code
+              27501
+            ^25: >-
+              GST no for ISN/MSN for TDS/TCS deduction / input credit, KYC
+              verification. For MSN/ISN with stores located in multiple states,
+              the GST no for HQ for the provider legal entity should be provided
       - summary: Buyer confirms product
         api: confirm
         description: null
         reference: if any
         example: *ref_26
+        notes:
+          value:
+            ^1: alphanumeric, up to 32 characters
+            ^2: optional
+            ^3: same as in /init
+            ^4: same as in /init
+            ^5: >-
+              same as what is proposed in /on_select; If TAT is different from
+              what was originally quoted in /on_select, seller NP can NACK the
+              request with error code 30013
+            ^6: optional
+            ^7: only for type "Self-Pickup", category "Kerbside"
+            ^8: optional
+            ^9: optional
+            ^10: >-
+              transaction id if prepaid payment collected by buyer NP, not
+              required for payment on delivery
+            ^11: amount collected should match the order value
+            ^12: NOT-PAID for payment on delivery
+            ^13: ON-FULFILLMENT for payment on delivery
+            ^14: BPP for payment on delivery
+            ^15: >-
+              indicates from when settlement window starts, enum - "delivery"
+              (from delivery), "shipment" (from shipment),
+              "return_window_expiry" (from expiry of return window)
+            ^16: >-
+              settlement window, as per settlement basis, in ISO8601 Duration
+              format
+            ^17: >-
+              withholding amount as % of total order value (valid values between
+              "0.00" and "100.00")
+            ^18: optional
+            ^19: buyer-app for payment on delivery
+            ^20: >-
+              buyer NP must accept bpp terms. If not accepted, seller NP can
+              NACK /confirm with error code 50006
+            ^21: >-
+              URL for fixed terms of buyer NP. If seller NP doesn’t accept, they
+              should NACK /confirm with error code 50005
+            ^22: GST no for buyer NP for TDS deduction at seller NP
+            ^23: can’t be future dated timestamp
+            ^24: can’t be future dated timestamp
       - summary: Seller Accepts confirmation
         api: on_confirm
         description: null
         reference: if any
         example: *ref_27
+        notes:
+          value:
+            ^1: enum - "Created", "Accepted", "Cancelled"
+            ^2: optional
+            ^3: same as in /init
+            ^4: same as in /init
+            ^5: true if tracking enabled through /on_track
+            ^6: >-
+              if TAT is different from what was originally quoted in /on_select,
+              buyer NP can NACK the request with error code 22504
+            ^7: store address
+            ^8: optional, pickup time range may be provided if available
+            ^9: optional
+            ^10: >-
+              type of pickup confirmation code (PCC), enum - "1" (buyer contact
+              no (for self-pickup)), "2" (merchant order no), "3" (other pickup
+              confirmation code), "4" (OTP); required when order is "Packed"
+            ^11: >-
+              value of PCC (required when order is "Packed") - contact no - 10
+              digits;merchant order no - max 6 digits;other pickup confirmation
+              code - max 6 digits;OTP - max 6 digits
+            ^12: optional
+            ^13: optional, pickup time range may be provided if available
+            ^14: optional
+            ^15: same values as in /confirm
+            ^16: optional
+            ^17: optional
+            ^18: >-
+              if cancellation terms are different from what was quoted earlier,
+              buyer NP can NACK /on_confirm with error code 22505
+            ^19: >-
+              if terms & conditions different from what was quoted earlier,
+              buyer NP can NACK /on_confirm with error code 22506
+            ^20: >-
+              seller NP must accept proposed bap terms & conditions (if
+              proposed). If not accepted, buyer NP can NACK /on_confirm with
+              error code 27502
+            ^21: same as in /confirm
+            ^22: can’t be a future date
       - summary: Buyer cancels the product
         api: cancel
         description: null
@@ -9377,6 +9670,13 @@ x-flows:
               descriptor [^2]:
                 name: fulfillment
                 short_desc: F1 [^3]
+        notes:
+          value:
+            ^1: >-
+              cancellation reason codes are defined here, use "006" for
+              cancellation of fulfillment for TAT breach
+            ^2: optional, only if fulfillment is being cancelled
+            ^3: fulfillment id for cancellation of fulfillment for TAT breach
       - summary: Seller accepts the cancellation and responds to it
         api: on_cancel
         description: null
@@ -9565,6 +9865,16 @@ x-flows:
                           value: abcd
                 created_at: '2023-06-03T09:30:00.000Z'
                 updated_at: '2023-06-03T11:00:30.000Z'
+        notes:
+          value:
+            ^1: >-
+              order state will be updated to "Cancelled" if the order is
+              cancelled
+            ^2: to be used only if order is cancelled
+            ^3: only if fulfillment is cancelled
+            ^4: >-
+              updated order value including cancellation charges (delivery +
+              packing charges)
   - summary: Retail 1.2.0 Exports (Incremental One Time Push)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -9817,7 +10127,7 @@ x-flows:
                         time:
                           label: close
                           timestamp: '2023-06-03T10:20:00.000Z'
-                          range [^1]:
+                          range:
                             start: '2023-06-03T16:00:00.000Z'
                             end: '2023-06-03T23:59:00.000Z'
       - summary: Stop incremental refresh
@@ -10134,7 +10444,7 @@ x-examples:
             description: Search By Fulfilment End Loc
             value:
               context:
-                domain: ONDC:RET12 [^1]
+                domain: ONDC:RET12
                 city: UN:SIN
                 country: SGP
                 action: search
@@ -10148,10 +10458,10 @@ x-examples:
               message:
                 intent:
                   fulfillment:
-                    type [^2]: Delivery
+                    type: Delivery
                     end:
                       location:
-                        gps [^3]: 1.380621, 103.746364
+                        gps: 1.380621, 103.746364
                         address:
                           - area_code: '6802308'
                   payment:
@@ -10613,7 +10923,7 @@ x-examples:
                     - id: P1
                       time:
                         label: enable
-                        timestamp: 2023-06-03T08:00:30.000Z [^1]
+                        timestamp: '2023-06-03T08:00:30.000Z'
                       fulfillments:
                         - id: F1
                           type: Delivery
@@ -10631,8 +10941,8 @@ x-examples:
                       locations:
                         - id: L1
                           time:
-                            label: enable [^2]
-                            timestamp: 2023-06-03T07:30:30.000Z [^3]
+                            label: enable
+                            timestamp: '2023-06-03T07:30:30.000Z'
                             schedule:
                               holidays:
                                 - '2023-08-15'
@@ -10667,12 +10977,12 @@ x-examples:
                       items:
                         - id: I1
                           time:
-                            label: enable [^4]
-                            timestamp: 2023-06-03T07:30:00.000Z [^5]
-                          parent_item_id: V1 [^6]
+                            label: enable
+                            timestamp: '2023-06-03T07:30:00.000Z'
+                          parent_item_id: V1
                           descriptor:
                             name: Allen Solly Men T-shirt
-                            code [^7]: 1:XXXXXXXXXXXXX
+                            code: 1:XXXXXXXXXXXXX
                             symbol: https://sellerNP.com/images/i1.png
                             short_desc: Allen Solly Men T-shirt
                             long_desc: Allen Solly Men T-shirt
@@ -10691,7 +11001,7 @@ x-examples:
                             currency: USD
                             value: '10.00'
                             maximum_value: '12.0'
-                          category_id: Men's Topwear [^8]
+                          category_id: Men's Topwear
                           fulfillment_id: F1
                           location_id: L1
                           '@ondc/org/returnable': true
@@ -10701,47 +11011,47 @@ x-examples:
                           '@ondc/org/time_to_ship': P1D
                           '@ondc/org/available_on_cod': false
                           '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
-                          '@ondc/org/statutory_reqs_packaged_commodities [^9]':
+                          '@ondc/org/statutory_reqs_packaged_commodities':
                             manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
                             manufacturer_or_packer_address: >-
                               Building 2, Divyasree Technopolis, Off HAL Airport
                               Road, Bengaluru-560037
                             common_or_generic_name_of_commodity: Polo
-                            month_year_of_manufacture_packing_import: 01/2017 [^10]
+                            month_year_of_manufacture_packing_import: 01/2017
                           tags:
                             - code: origin
                               list:
                                 - code: country
                                   value: IND
-                            - code: attribute [^11]
+                            - code: attribute
                               list:
                                 - code: brand
                                   value: Allen Solly
                                 - code: colour
-                                  value: coral [^12]
+                                  value: coral
                                 - code: size
-                                  value: S [^13]
+                                  value: S
                                 - code: gender
-                                  value: male [^14]
+                                  value: male
                                 - code: pattern
-                                  value: striped [^15]
+                                  value: striped
                                 - code: material
-                                  value: cotton [^16]
+                                  value: cotton
                                 - code: occasion
-                                  value: casual [^17]
+                                  value: casual
                                 - code: season
-                                  value: summer [^18]
+                                  value: summer
                                 - code: trend
-                                  value: tribal [^19]
+                                  value: tribal
                                 - code: features
-                                  value: alpha [^20]
+                                  value: alpha
                                 - code: material_finish
-                                  value: embossed [^21]
+                                  value: embossed
                                 - code: size_chart
                                   value: >-
                                     https://sellerNP.com/images/i1_size_chart.png
                         - id: I2
-                          parent_item_id: V1 [^22]
+                          parent_item_id: V1
                           descriptor:
                             name: Allen Solly Men T-shirt
                             code: 1:XXXXXXXXXXXXX
@@ -10773,13 +11083,13 @@ x-examples:
                           '@ondc/org/time_to_ship': P1D
                           '@ondc/org/available_on_cod': false
                           '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
-                          '@ondc/org/statutory_reqs_packaged_commodities [^23]':
+                          '@ondc/org/statutory_reqs_packaged_commodities':
                             manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
                             manufacturer_or_packer_address: >-
                               Building 2, Divyasree Technopolis, Off HAL Airport
                               Road, Bengaluru-560037
                             common_or_generic_name_of_commodity: Polo
-                            month_year_of_manufacture_packing_import: 01/2017 [^24]
+                            month_year_of_manufacture_packing_import: 01/2017
                           tags:
                             - code: origin
                               list:
@@ -10813,7 +11123,7 @@ x-examples:
                                   value: >-
                                     https://sellerNP.com/images/i1_size_chart.png
                         - id: I3
-                          parent_item_id: V1 [^25]
+                          parent_item_id: V1
                           descriptor:
                             name: Allen Solly Men T-shirt
                             code: 1:XXXXXXXXXXXXX
@@ -10845,13 +11155,13 @@ x-examples:
                           '@ondc/org/time_to_ship': P1D
                           '@ondc/org/available_on_cod': false
                           '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
-                          '@ondc/org/statutory_reqs_packaged_commodities [^26]':
+                          '@ondc/org/statutory_reqs_packaged_commodities':
                             manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
                             manufacturer_or_packer_address: >-
                               Building 2, Divyasree Technopolis, Off HAL Airport
                               Road, Bengaluru-560037
                             common_or_generic_name_of_commodity: Polo
-                            month_year_of_manufacture_packing_import: 01/2017 [^27]
+                            month_year_of_manufacture_packing_import: 01/2017
                           tags:
                             - code: origin
                               list:
@@ -10885,7 +11195,7 @@ x-examples:
                                   value: >-
                                     https://sellerNP.com/images/i1_size_chart.png
                         - id: I4
-                          parent_item_id: V1 [^28]
+                          parent_item_id: V1
                           descriptor:
                             name: Allen Solly Men T-shirt
                             code: 1:XXXXXXXXXXXXX
@@ -10917,13 +11227,13 @@ x-examples:
                           '@ondc/org/time_to_ship': P1D
                           '@ondc/org/available_on_cod': false
                           '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
-                          '@ondc/org/statutory_reqs_packaged_commodities [^29]':
+                          '@ondc/org/statutory_reqs_packaged_commodities':
                             manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
                             manufacturer_or_packer_address: >-
                               Building 2, Divyasree Technopolis, Off HAL Airport
                               Road, Bengaluru-560037
                             common_or_generic_name_of_commodity: Polo
-                            month_year_of_manufacture_packing_import: 01/2017 [^30]
+                            month_year_of_manufacture_packing_import: 01/2017
                           tags:
                             - code: origin
                               list:
@@ -10957,7 +11267,7 @@ x-examples:
                                   value: >-
                                     https://sellerNP.com/images/i1_size_chart.png
                         - id: I5
-                          parent_item_id: V1 [^31]
+                          parent_item_id: V1
                           descriptor:
                             name: Allen Solly Men T-shirt
                             code: 1:XXXXXXXXXXXXX
@@ -10989,13 +11299,13 @@ x-examples:
                           '@ondc/org/time_to_ship': P1D
                           '@ondc/org/available_on_cod': false
                           '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
-                          '@ondc/org/statutory_reqs_packaged_commodities [^32]':
+                          '@ondc/org/statutory_reqs_packaged_commodities':
                             manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
                             manufacturer_or_packer_address: >-
                               Building 2, Divyasree Technopolis, Off HAL Airport
                               Road, Bengaluru-560037
                             common_or_generic_name_of_commodity: Polo
-                            month_year_of_manufacture_packing_import: 01/2017 [^33]
+                            month_year_of_manufacture_packing_import: 01/2017
                           tags:
                             - code: origin
                               list:
@@ -11029,7 +11339,7 @@ x-examples:
                                   value: >-
                                     https://sellerNP.com/images/i1_size_chart.png
                         - id: I6
-                          parent_item_id: V1 [^34]
+                          parent_item_id: V1
                           descriptor:
                             name: Allen Solly Men T-shirt
                             code: 1:XXXXXXXXXXXXX
@@ -11061,13 +11371,13 @@ x-examples:
                           '@ondc/org/time_to_ship': P1D
                           '@ondc/org/available_on_cod': false
                           '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
-                          '@ondc/org/statutory_reqs_packaged_commodities [^35]':
+                          '@ondc/org/statutory_reqs_packaged_commodities':
                             manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
                             manufacturer_or_packer_address: >-
                               Building 2, Divyasree Technopolis, Off HAL Airport
                               Road, Bengaluru-560037
                             common_or_generic_name_of_commodity: Polo
-                            month_year_of_manufacture_packing_import: 01/2017 [^36]
+                            month_year_of_manufacture_packing_import: 01/2017
                           tags:
                             - code: origin
                               list:
@@ -11101,7 +11411,7 @@ x-examples:
                                   value: >-
                                     https://sellerNP.com/images/i1_size_chart.png
                         - id: I7
-                          parent_item_id: V1 [^37]
+                          parent_item_id: V1
                           descriptor:
                             name: Allen Solly Men T-shirt
                             code: 1:XXXXXXXXXXXXX
@@ -11133,13 +11443,13 @@ x-examples:
                           '@ondc/org/time_to_ship': P1D
                           '@ondc/org/available_on_cod': false
                           '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
-                          '@ondc/org/statutory_reqs_packaged_commodities [^38]':
+                          '@ondc/org/statutory_reqs_packaged_commodities':
                             manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
                             manufacturer_or_packer_address: >-
                               Building 2, Divyasree Technopolis, Off HAL Airport
                               Road, Bengaluru-560037
                             common_or_generic_name_of_commodity: Polo
-                            month_year_of_manufacture_packing_import: 01/2017 [^39]
+                            month_year_of_manufacture_packing_import: 01/2017
                           tags:
                             - code: origin
                               list:
@@ -11172,7 +11482,7 @@ x-examples:
                                 - code: size_chart
                                   value: >-
                                     https://sellerNP.com/images/i1_size_chart.png
-                      creds [^40]:
+                      creds:
                         - id: ESG-12345678
                           descriptor:
                             code: ESG-12345678
@@ -11238,7 +11548,7 @@ x-examples:
             description: Return the catalog for Grocery products
             value:
               context:
-                domain: ONDC:RET10 [^1]
+                domain: ONDC:RET10
                 country: SGP
                 city: UN:SIN
                 action: on_search
@@ -11252,24 +11562,24 @@ x-examples:
                 timestamp: '2023-06-03T08:00:30.000Z'
               message:
                 catalog:
-                  bpp/descriptor [^2]:
+                  bpp/descriptor:
                     name: Seller NP
-                    symbol [^3]: https://sellerNP.com/images/np.png
+                    symbol: https://sellerNP.com/images/np.png
                     short_desc: Seller Marketplace
                     long_desc: Seller Marketplace
                     images:
                       - https://sellerNP.com/images/np.png
-                  bpp/providers [^4]:
-                    - id: P1 [^5]
+                  bpp/providers:
+                    - id: P1
                       time:
-                        label: enable [^6]
-                        timestamp: 2023-06-03T07:00:30.000Z [^7]
-                      fulfillments [^8]:
+                        label: enable
+                        timestamp: '2023-06-03T07:00:30.000Z'
+                      fulfillments:
                         - id: F1
                           type: Delivery
-                          contact [^9]:
-                            phone: 9886098860 [^10]
-                            email [^11]: abc@xyz.com
+                          contact:
+                            phone: '9886098860'
+                            email: abc@xyz.com
                         - id: F2
                           type: Self-Pickup
                           contact:
@@ -11282,18 +11592,18 @@ x-examples:
                         long_desc: Store 1
                         images:
                           - https://sellerNP.com/images/store1.png
-                      ttl: P1D [^12]
-                      locations [^13]:
+                      ttl: P1D
+                      locations:
                         - id: L1
                           time:
-                            label: enable [^14]
-                            timestamp: 2023-06-03T07:30:30.000Z [^15]
+                            label: enable
+                            timestamp: '2023-06-03T07:30:30.000Z'
                             schedule:
-                              holidays [^16]:
+                              holidays:
                                 - '2023-08-15'
                           gps: 12.967555,77.749666
                           address:
-                            locality [^17]: Jayanagar
+                            locality: Jayanagar
                             street: Jayanagar 4th Block
                             city: Bengaluru
                             area_code: '560076'
@@ -11307,57 +11617,57 @@ x-examples:
                               list:
                                 - code: type
                                   value: variant_group
-                            - code: attr [^18]
+                            - code: attr
                               list:
-                                - code: name [^19]
-                                  value: item.quantity.unitized.measure [^20]
+                                - code: name
+                                  value: item.quantity.unitized.measure
                                 - code: seq
                                   value: '1'
                       items:
                         - id: I1
                           time:
-                            label: enable [^21]
-                            timestamp: 2023-06-03T07:30:00.000Z [^22]
-                          parent_item_id: V1 [^23]
+                            label: enable
+                            timestamp: '2023-06-03T07:30:00.000Z'
+                          parent_item_id: V1
                           descriptor:
                             name: Plain Atta
-                            code [^24]: 1:XXXXXXXXXXXXX
+                            code: 1:XXXXXXXXXXXXX
                             symbol: https://sellerNP.com/images/i1.png
                             short_desc: Plain Atta
                             long_desc: Plain Atta
-                            images [^25]:
+                            images:
                               - https://sellerNP.com/images/i1.png
                           quantity:
                             unitized:
                               measure:
-                                unit: kilogram [^26]
+                                unit: kilogram
                                 value: '1'
                             available:
-                              count [^27]: '99'
+                              count: '99'
                             maximum:
-                              count [^28]: '99'
+                              count: '99'
                           price:
                             currency: INR
                             value: '65.00'
                             maximum_value: '65.0'
-                          category_id: Foodgrains [^29]
+                          category_id: Foodgrains
                           fulfillment_id: F1
                           location_id: L1
-                          '@ondc/org/returnable': true [^30]
-                          '@ondc/org/cancellable': true [^31]
+                          '@ondc/org/returnable': true
+                          '@ondc/org/cancellable': true
                           '@ondc/org/return_window': PT1H
-                          '@ondc/org/seller_pickup_return [^32]': true
+                          '@ondc/org/seller_pickup_return': true
                           '@ondc/org/time_to_ship': PT45M
                           '@ondc/org/available_on_cod': false
-                          '@ondc/org/contact_details_consumer_care [^33]': Ramesh,ramesh@abc.com,18004254444
-                          '@ondc/org/statutory_reqs_packaged_commodities [^34]':
+                          '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
+                          '@ondc/org/statutory_reqs_packaged_commodities':
                             manufacturer_or_packer_name: ITC
                             manufacturer_or_packer_address: >-
                               ITC Quality Care Cell,P.O Box
                               No.592,Bangalore-560005
                             common_or_generic_name_of_commodity: Ashirwad Atta
                             month_year_of_manufacture_packing_import: 01/2023
-                          '@ondc/org/statutory_reqs_prepackaged_food [^35]':
+                          '@ondc/org/statutory_reqs_prepackaged_food':
                             nutritional_info: >-
                               Energy(KCal)-(per 100kg) 420,(per serving
                               50g)250;Protein(g)-(per 100kg) 12,(per serving
@@ -11383,7 +11693,7 @@ x-examples:
                                 - code: veg [^40]
                                   value: 'yes'
                         - id: I2
-                          parent_item_id [^41]: V1
+                          parent_item_id: V1
                           descriptor:
                             name: Plain Atta
                             code [^42]: 1:XXXXXXXXXXXXX
@@ -11441,7 +11751,7 @@ x-examples:
                                 - code: veg [^51]
                                   value: 'yes'
                         - id: I3
-                          parent_item_id: V1 [^52]
+                          parent_item_id: V1
                           descriptor:
                             name: Plain Atta
                             code [^53]: 1:XXXXXXXXXXXXX
@@ -11927,9 +12237,9 @@ x-examples:
                     uri: https://snp.com/pg
                     status: NOT-PAID [^8]
                     params:
-                      currency: USD,
+                      currency: USD
                       amount: '12.00'
-                      bank_code: xxxxxxxxx,
+                      bank_code: xxxxxxxxx
                       bank_account_number: xxxxxxxxxxxx
                     '@ondc/org/buyer_app_finder_fee_type': percent
                     '@ondc/org/buyer_app_finder_fee_amount': '3'

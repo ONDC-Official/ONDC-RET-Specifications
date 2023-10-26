@@ -1,2 +1,2 @@
 value:
-  [^1]: means store is closed from 4PM till rest of the day
+  message.catalog.bpp/providers[<index>].locations[<index>].time.range: means store is closed from 4PM till rest of the day

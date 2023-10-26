@@ -2,7 +2,7 @@ summary: Return the catalog for Grocery products
 description: Return the catalog for Grocery products
 value:
   context:
-    domain: ONDC:RET10 [^1]
+    domain: ONDC:RET10
     country: SGP
     city: UN:SIN
     action: on_search
@@ -16,24 +16,24 @@ value:
     timestamp: '2023-06-03T08:00:30.000Z'
   message:
     catalog:
-      bpp/descriptor [^2]:
+      bpp/descriptor:
         name: Seller NP
-        symbol [^3]: https://sellerNP.com/images/np.png
+        symbol: https://sellerNP.com/images/np.png
         short_desc: Seller Marketplace
         long_desc: Seller Marketplace
         images:
           - https://sellerNP.com/images/np.png
-      bpp/providers [^4]:
-        - id: P1 [^5]
+      bpp/providers:
+        - id: P1
           time:
-            label: enable [^6]
-            timestamp: '2023-06-03T07:00:30.000Z [^7]' 
-          fulfillments [^8]:
+            label: enable
+            timestamp: '2023-06-03T07:00:30.000Z' 
+          fulfillments:
             - id: F1
               type: Delivery
-              contact [^9]:
-                phone: '9886098860 [^10]' 
-                email [^11]: abc@xyz.com
+              contact:
+                phone: '9886098860' 
+                email: abc@xyz.com
             - id: F2
               type: Self-Pickup
               contact:
@@ -46,18 +46,18 @@ value:
             long_desc: Store 1
             images:
               - https://sellerNP.com/images/store1.png
-          ttl: P1D [^12]
-          locations [^13]:
+          ttl: P1D
+          locations:
             - id: L1
               time:
-                label: enable [^14]
-                timestamp: '2023-06-03T07:30:30.000Z [^15]'
+                label: enable
+                timestamp: '2023-06-03T07:30:30.000Z'
                 schedule:
-                  holidays [^16]:
+                  holidays:
                     - '2023-08-15'
               gps: 12.967555,77.749666
               address:
-                locality [^17]: Jayanagar
+                locality: Jayanagar
                 street: Jayanagar 4th Block
                 city: Bengaluru
                 area_code: '560076'
@@ -71,55 +71,55 @@ value:
                   list:
                     - code: type
                       value: variant_group
-                - code: attr [^18]
+                - code: attr
                   list:
-                    - code: name [^19]
-                      value: item.quantity.unitized.measure [^20]
+                    - code: name
+                      value: item.quantity.unitized.measure
                     - code: seq
                       value: '1'
           items:
             - id: I1
               time:
-                label: enable [^21]
-                timestamp: '2023-06-03T07:30:00.000Z [^22]' 
-              parent_item_id: V1 [^23]
+                label: enable
+                timestamp: '2023-06-03T07:30:00.000Z' 
+              parent_item_id: V1
               descriptor:
                 name: Plain Atta
-                code [^24]: 1:XXXXXXXXXXXXX
+                code: 1:XXXXXXXXXXXXX
                 symbol: https://sellerNP.com/images/i1.png
                 short_desc: Plain Atta
                 long_desc: Plain Atta
-                images [^25]:
+                images:
                   - https://sellerNP.com/images/i1.png
               quantity:
                 unitized:
                   measure:
-                    unit: kilogram [^26]
+                    unit: kilogram
                     value: '1'
                 available:
-                  count [^27]: '99'
+                  count: '99'
                 maximum:
-                  count [^28]: '99'
+                  count: '99'
               price:
                 currency: INR
                 value: '65.00'
                 maximum_value: '65.0'
-              category_id: Foodgrains [^29]
+              category_id: Foodgrains
               fulfillment_id: F1
               location_id: L1
-              '@ondc/org/returnable': true [^30]
-              '@ondc/org/cancellable': true [^31]
+              '@ondc/org/returnable': true
+              '@ondc/org/cancellable': true
               '@ondc/org/return_window': PT1H
-              '@ondc/org/seller_pickup_return [^32]': true
+              '@ondc/org/seller_pickup_return': true
               '@ondc/org/time_to_ship': PT45M
               '@ondc/org/available_on_cod': false
-              '@ondc/org/contact_details_consumer_care [^33]': Ramesh,ramesh@abc.com,18004254444
-              '@ondc/org/statutory_reqs_packaged_commodities [^34]':
+              '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
+              '@ondc/org/statutory_reqs_packaged_commodities':
                 manufacturer_or_packer_name: ITC
                 manufacturer_or_packer_address: ITC Quality Care Cell,P.O Box No.592,Bangalore-560005
                 common_or_generic_name_of_commodity: Ashirwad Atta
                 month_year_of_manufacture_packing_import: 01/2023
-              '@ondc/org/statutory_reqs_prepackaged_food [^35]':
+              '@ondc/org/statutory_reqs_prepackaged_food':
                 nutritional_info: >-
                   Energy(KCal)-(per 100kg) 420,(per serving
                   50g)250;Protein(g)-(per 100kg) 12,(per serving 50g) 6
@@ -143,7 +143,7 @@ value:
                     - code: veg [^40]
                       value: 'yes'
             - id: I2
-              parent_item_id [^41]: V1
+              parent_item_id: V1
               descriptor:
                 name: Plain Atta
                 code [^42]: 1:XXXXXXXXXXXXX
@@ -198,7 +198,7 @@ value:
                     - code: veg [^51]
                       value: 'yes'
             - id: I3
-              parent_item_id: V1 [^52]
+              parent_item_id: V1
               descriptor:
                 name: Plain Atta
                 code [^53]: 1:XXXXXXXXXXXXX

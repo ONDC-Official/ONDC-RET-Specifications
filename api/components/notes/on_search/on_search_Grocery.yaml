@@ -1,45 +1,44 @@
 value:
-  [^1]: updated domain namespace is https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
-  [^2]: descriptor for seller NP
-  [^3]: logo or image for seller NP
-  [^4]: descriptor for seller (merchant) that processes & fulfills orders
-  [^5]: unique id for provider, must be same as bpp_id for ISN seller apps. Use of same provider id for distinct legal entities will cause an MSN being regarded as ISN and use of different provider id for same legal entity will cause an ISN being regarded as MSN, thus resulting in tax non-compliance
-  [^6]: enum - "enable" (default), "disable" (soft delete of provider from buyer NP cache)
-  [^7]: timestamp when the snapshot for this provider (including provider details, items) was generated, must be <= Context.timestamp. Buyer NPs can use this to determine from when to start incremental refresh
-  [^8]: provider level fulfillment options
-  [^9]: contact details for merchant - if merchant is in multiple locations, this will be the contact detail for merchant and contact detail for the storefront (specific location) will be in fulfillment.start
-  [^10]: valid 10 digit (mobile no) or 11 digit no
-  [^11]: email id of merchant or seller NP
-  [^12]: ISO8601 duration format for validity of provider catalog
-  [^13]: locations for provider with unique id for each location
-  [^14]: enum - "enable" (default), "disable" (soft delete of provider location, i.e. warehouse or store, from buyer NP cache - in this case, serviceability for the store should not be a part of the catalog), "close" (temporary closure of store with the same format for time.range as specified, for incremental refresh, here - https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.ar4y0zvk65s4 only if this event is available at the time of generating the full catalog snapshot)
-  [^15]: timestamp when the snapshot for location was generated, must be <= Context.timestamp
-  [^16]: list of future dated holidays, to be used as per holiday calendar; if no holidays, empty array needs to be passed
-  [^17]: locality name
-  [^18]: defines variant attributes i.e. attribute & sequence; multiple variant attributes can be defined in multiple attr blocks
-  [^19]: namespaced attribute, above example means attribute(s) in "quantity.unitized" for an item
-  [^20]: means concatenation of item.quantity.unitized.measure.value and item.quantity.unitized.measure.unit e.g. "1 kilogram", "2 kilogram", "5 kilogram"
-  [^21]: enum - "enable", "disable"
-  [^22]: timestamp for item event
-  [^23]: if variant grouping defined for provider above, this matches id for variant_group definition; if not defined or id is invalid, buyer NPs may choose to display as normal SKU item
-  [^24]: optional; unique code for item which will be in this format - "type:code" where type is 1 - EAN, 2 - ISBN, 3 - GTIN, 4 - HSN, 5 - UPC, 6 - others
-  [^25]: while item images ensures better discoverability & enhances user experience, if no image is available, seller NPs shouldn’t send image (instead of sending placeholder image)
-  [^26]: enum - "unit", "dozen", "kilogram", "tonne", "litre", "millilitre" (https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/grocery/RET10-UOM.json)
-  [^27]: stringified integer value - default value for item in stock
-  [^28]: stringified integer value - cap per order (if exists) or default value
-  [^29]: enum from https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
-  [^30]: should default to true except for specific make-to-order items
-  [^31]: should default to true except for specific make-to-order items
-  [^32]: whether seller is responsible for pick up of item for return
-  [^33]: valid contact details exactly in this format - name, email, contact no
-  [^34]: mapping of category to attribute key is defined https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
-  [^35]: mapping of category to attribute key is defined https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+  context.domain: updated domain namespace is https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
+  message.catalog.bpp/descriptor: descriptor for seller NP
+  message.catalog.bpp/descriptor.symbol: logo or image for seller NP
+  message.catalog.bpp/providers: descriptor for seller (merchant) that processes & fulfills orders
+  message.catalog.bpp/providers[<index>].id: unique id for provider, must be same as bpp_id for ISN seller apps. Use of same provider id for distinct legal entities will cause an MSN being regarded as ISN and use of different provider id for same legal entity will cause an ISN being regarded as MSN, thus resulting in tax non-compliance
+  message.catalog.bpp/providers[<index>].time.label: enum - "enable" (default), "disable" (soft delete of provider from buyer NP cache)
+  message.catalog.bpp/providers[<index>].time.timestamp: timestamp when the snapshot for this provider (including provider details, items) was generated, must be <= Context.timestamp. Buyer NPs can use this to determine from when to start incremental refresh
+  message.catalog.bpp/providers[<index>].fulfillments: provider level fulfillment options
+  message.catalog.bpp/providers[<index>].fulfillments[<index>].contact: contact details for merchant - if merchant is in multiple locations, this will be the contact detail for merchant and contact detail for the storefront (specific location) will be in fulfillment.start
+  message.catalog.bpp/providers[<index>].fulfillments[<index>].contact.phone: valid 10 digit (mobile no) or 11 digit no
+  message.catalog.bpp/providers[<index>].fulfillments[<index>].contact.email: email id of merchant or seller NP
+  message.catalog.bpp/providers[<index>].ttl: ISO8601 duration format for validity of provider catalog
+  message.catalog.bpp/providers[<index>].locations: locations for provider with unique id for each location
+  message.catalog.bpp/providers[<index>].locations[<index>].time.label: enum - "enable" (default), "disable" (soft delete of provider location, i.e. warehouse or store, from buyer NP cache - in this case, serviceability for the store should not be a part of the catalog), "close" (temporary closure of store with the same format for time.range as specified, for incremental refresh, here - https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.ar4y0zvk65s4 only if this event is available at the time of generating the full catalog snapshot)
+  message.catalog.bpp/providers[<index>].locations[<index>].time.timestamp: timestamp when the snapshot for location was generated, must be <= Context.timestamp
+  message.catalog.bpp/providers[<index>].locations[<index>].time.schedule.holidays: list of future dated holidays, to be used as per holiday calendar; if no holidays, empty array needs to be passed
+  message.catalog.bpp/providers[<index>].locations[<index>].address.locality: locality name
+  message.catalog.bpp/providers[<index>].categories[<index>].tags[<index>].code: if `code` is "attr", then it defines variant attributes i.e. attribute & sequence; multiple variant attributes can be defined in multiple attr blocks
+  message.catalog.bpp/providers[<index>].categories[<index>].tags[<index>].list[<index>].code: if `tags>code` is "attr", then namespaced attribute, above example means attribute(s) in "quantity.unitized" for an item
+  message.catalog.bpp/providers[<index>].categories[<index>].tags[<index>].list[<index>].value: if `tags>code` is "attr" and `tags>list>code` is "name", then it's corresponding `value` means concatenation of item.quantity.unitized.measure.value and item.quantity.unitized.measure.unit e.g. "1 kilogram", "2 kilogram", "5 kilogram"
+  message.catalog.bpp/providers[<index>].items[<index>].time.label: enum - "enable", "disable"
+  message.catalog.bpp/providers[<index>].items[<index>].time.timestamp: timestamp for item event
+  message.catalog.bpp/providers[<index>].items[<index>].parent_item_id: if variant grouping defined for provider above, this matches id for variant_group definition; if not defined or id is invalid, buyer NPs may choose to display as normal SKU item
+  message.catalog.bpp/providers[<index>].items[<index>].descriptor.code: optional; unique code for item which will be in this format - "type:code" where type is 1 - EAN, 2 - ISBN, 3 - GTIN, 4 - HSN, 5 - UPC, 6 - others
+  message.catalog.bpp/providers[<index>].items[<index>].descriptor.images: while item images ensures better discoverability & enhances user experience, if no image is available, seller NPs shouldn’t send image (instead of sending placeholder image)
+  message.catalog.bpp/providers[<index>].items[<index>].quantity.unitized.measure.unit: enum - "unit", "dozen", "kilogram", "tonne", "litre", "millilitre" (https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/grocery/RET10-UOM.json)
+  message.catalog.bpp/providers[<index>].items[<index>].quantity.available.count: stringified integer value - default value for item in stock
+  message.catalog.bpp/providers[<index>].items[<index>].quantity.maximum.count: stringified integer value - cap per order (if exists) or default value
+  message.catalog.bpp/providers[<index>].items[<index>].category_id: enum from https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+  message.catalog.bpp/providers[<index>].items[<index>].'@ondc/org/returnable': should default to true except for specific make-to-order items
+  message.catalog.bpp/providers[<index>].items[<index>].'@ondc/org/cancellable': should default to true except for specific make-to-order items
+  message.catalog.bpp/providers[<index>].items[<index>].'@ondc/org/seller_pickup_return': whether seller is responsible for pick up of item for return
+  message.catalog.bpp/providers[<index>].items[<index>].'@ondc/org/contact_details_consumer_care': valid contact details exactly in this format - name, email, contact no
+  message.catalog.bpp/providers[<index>].items[<index>].'@ondc/org/statutory_reqs_packaged_commodities': mapping of category to attribute key is defined https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+  message.catalog.bpp/providers[<index>].items[<index>].'@ondc/org/statutory_reqs_prepackaged_food': mapping of category to attribute key is defined https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
   [^36]: identifies origin of item i.e. country, state, etc
   [^37]: ISO 3166-1 alpha-3 code
   [^38]: images for statutory requirements - optional
   [^39]: optional, only as applicable
   [^40]: enum - "veg", "non_veg"
-  [^41]: if variant grouping defined for provider above, this matches id for variant_group definition; if not defined or id is invalid, buyer NPs may choose to display as normal SKU item
   [^42]: optional; unique code for item which will be in this format - "type:code" where type is 1 - EAN, 2 - ISBN, 3 - GTIN, 4 - HSN, 5 - Others
   [^43]:  enum - "unit", "dozen", "kilogram", "tonne", "litre", "millilitre" https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/grocery/RET10-UOM.json
   [^44]: enum from https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
@@ -50,7 +49,6 @@ value:
   [^49]:  ISO 3166-1 alpha-3 code
   [^50]: optional, only as applicable
   [^51]: enum - "veg", "non_veg", "egg"
-  [^52]: if variant grouping defined for provider above, this matches id for variant_group definition; if not defined or id is invalid, buyer NPs may choose to display as normal SKU item
   [^53]: optional; unique code for item which will be in this format - "type:code" where type is 1 - EAN, 2 - ISBN, 3 - GTIN, 4 - HSN, 5 - Others
   [^54]: enum - "unit", "dozen", "kilogram", "tonne", "litre", "millilitre" https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/grocery/RET10-UOM.json
   [^55]: enum from https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
