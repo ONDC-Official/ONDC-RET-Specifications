@@ -1,0 +1,3 @@
+B2C Exports:
+  attribute_set:
+    $ref: './B2C Exports/index.yaml'

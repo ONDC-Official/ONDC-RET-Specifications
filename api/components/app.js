@@ -297,6 +297,7 @@ function addEnumTag(base, layer) {
   base["x-tags"] = layer["tags"];
   base["x-flows"] = layer["flows"];
   base["x-examples"] = layer["examples"];
+  base["x-attributes"] = layer["attributes"];
 }
 
 function GenerateYaml(base, layer, output_yaml) {
