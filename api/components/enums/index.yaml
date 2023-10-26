@@ -4,7 +4,8 @@ search:
   message:
     intent:
       fulfillment: &fulfillment
-        $ref: "./fulfillments.yaml"
+        type:
+          $ref: "./fulfillments.yaml#/type"
 on_search:
   message:
     catalog:
@@ -18,13 +19,17 @@ on_search:
 select:
   context: *context
   message:
-    order: &order
+    order:
       status: "./orderstatus.yaml"
       fulfillments: *fulfillment
 on_select:
   context: *context
   message:
-    order: *order
+    order:
+      quote: &quote
+       breakup: 
+        "@ondc/org/title_type":
+           $ref: "./quote.yaml"
 init:
   context: *context
   message:
@@ -46,7 +51,10 @@ status:
 on_status:
   context: *context
   message:
-    order: *order
+    order: 
+      fulfillments:
+        state: 
+           $ref: "./fulfillments.yaml#/state"
 cancel:
   context: *context
 on_cancel:
