@@ -14191,10 +14191,15 @@ x-attributes:
   B2C Exports:
     attribute_set:
       search:
+        parent: true
         message:
+          parent: true
           intent:
+            parent: true
             fulfillment:
+              parent: true
               location:
+                parent: true
                 area_code:
                   required: optional
                   reference: if any
@@ -14211,12 +14216,14 @@ x-attributes:
                 usage: Delivery
                 description: Type of fulfillment
             item:
+              parent: true
               category:
                 required: optional
                 reference: if any
                 usage: Foodgrains
                 description: Category of item
             tags:
+              parent: true
               buyer_id:
                 required: mandatory
                 reference: if any
@@ -14459,3 +14466,25 @@ x-attributes:
               id: *ref_30
             items:
               id: *ref_30
+      cancel:
+        parent: true
+        message:
+          parent: true
+          cancellation_reason_id:
+            required: mandatory
+            description: >-
+              cancellation reason codes are defined here, use "006" for
+              cancellation of fulfillment for TAT breach
+            reference: if any
+            usage: 6
+          descriptor:
+            required: optional
+            description: required only if fulfillment is being cancelled
+            reference: if any
+            usage: '-'
+            parent: true
+            short_desc:
+              required: mandatory
+              description: fulfillment id for cancellation of fulfillment for TAT breach
+              reference: if any
+              usage: F1
