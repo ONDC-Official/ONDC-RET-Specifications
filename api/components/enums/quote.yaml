@@ -1,4 +1,4 @@
-"@ondc/org/title_type":
+title_type:
       - code: item
         description: about the enum
         reference: <PR/Issue/Discussion Links md format text>

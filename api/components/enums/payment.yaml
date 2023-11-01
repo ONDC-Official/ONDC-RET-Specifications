@@ -1,0 +1,10 @@
+type:
+    - code: ON-FULFILLMENT
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: PRE-FULFILLMENT
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: POST-FULFILLMENT
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>

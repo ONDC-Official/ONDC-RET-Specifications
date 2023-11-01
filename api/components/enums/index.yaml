@@ -3,24 +3,27 @@ search:
     $ref: "./context.yaml"
   message:
     intent:
-      fulfillment: &fulfillment
+     payment: &payment
+        type: 
+          $ref: "./payment.yaml#/type"
+    fulfillment: &fulfillment
         type:
-          $ref: "./fulfillments.yaml#/type"
+          $ref: "./fulfillments.yaml#/fulfillments/type"
 on_search:
   message:
     catalog:
         providers:
           items:
             category_ids: &category_ids
-              $ref: "./category.yaml"
+              $ref: "./category.yaml#/category_ids"
         fulfillments: *fulfillment
         offers:
           $ref: "./offers.yaml#/offers"
 select:
   context: *context
   message:
-    order:
-      status: "./orderstatus.yaml"
+    order: &order
+      payment: *payment
       fulfillments: *fulfillment
 on_select:
   context: *context
@@ -29,7 +32,7 @@ on_select:
       quote: &quote
        breakup: 
         "@ondc/org/title_type":
-           $ref: "./quote.yaml"
+           $ref: "./quote.yaml#/title_type"
 init:
   context: *context
   message:
@@ -42,6 +45,7 @@ confirm:
   context: *context
   message:
     order: *order
+    state: "./orderstatus.yaml#/order_status"
 on_confirm:
   context: *context
   message:
@@ -54,7 +58,7 @@ on_status:
     order: 
       fulfillments:
         state: 
-           $ref: "./fulfillments.yaml#/state"
+           $ref: "./fulfillments.yaml#/fulfillments/state"
 cancel:
   context: *context
 on_cancel:

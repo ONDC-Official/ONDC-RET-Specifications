@@ -2613,310 +2613,319 @@ x-enum:
             reference: <PR/Issue/Discussion Links md format text>
     message:
       intent:
-        fulfillment: &ref_0
-          fulfillments:
-            type:
-              - code: Delivery
-                description: about the enum
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: Self-Pickup
-                description: about the enum
-                reference: <PR/Issue/Discussion Links md format text>
+        payment: &ref_2
+          type:
+            - code: ON-FULFILLMENT
+              description: about the enum
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: PRE-FULFILLMENT
+              description: about the enum
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: POST-FULFILLMENT
+              description: about the enum
+              reference: <PR/Issue/Discussion Links md format text>
+      fulfillment: &ref_0
+        type:
+          - code: Delivery
+            description: about the enum
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: Self-Pickup
+            description: about the enum
+            reference: <PR/Issue/Discussion Links md format text>
   on_search:
     message:
       catalog:
         providers:
           items:
             category_ids:
-              category_ids:
-                - code: RET10-1000
-                  description: Diapers & Wipes
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1001
-                  description: Baby Food & Formula
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1002
-                  description: Baby Bath & Hygiene
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1003
-                  description: Bread & Buns
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1004
-                  description: Bakery Snacks
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1005
-                  description: Cakes & Pastries
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1006
-                  description: Dairy Products
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1007
-                  description: Ice Creams & Desserts
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1008
-                  description: Plant Based Alternatives
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1009
-                  description: Oral Care
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-100A
-                  description: Fragrances & Deodorants
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-100B
-                  description: Hair Care
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-100C
-                  description: Hair Tools & Accessories
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-100D
-                  description: Bath & Hand Wash
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-100E
-                  description: Bathing Accessories
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-100F
-                  description: Bath Additives
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1010
-                  description: Feminine Hygiene
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1011
-                  description: Intimate Wash & Care
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1012
-                  description: Men's Grooming
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1013
-                  description: Health & Medicine
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1014
-                  description: Skin Care
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1015
-                  description: Cosmetics
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1016
-                  description: Carbonated Drinks
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1017
-                  description: Water
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1018
-                  description: Juices
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1019
-                  description: Liquid Drink Concentrates
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-101A
-                  description: Powdered Drink Concentrates
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-101B
-                  description: Sports & Energy Drinks
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-101C
-                  description: Health Drinks
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-101D
-                  description: Cocktail Mixes
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-101E
-                  description: Coffee
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-101F
-                  description: Tea
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1020
-                  description: Detergents & Dishwash
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1021
-                  description: Disinfectant & Cleaners
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1022
-                  description: Garbage & Disposable bags
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1023
-                  description: Cleaning Tools
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1024
-                  description: Car & Shoe Care
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1025
-                  description: Pest Control & Repellents
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1026
-                  description: Tissue Paper & Napkins
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1027
-                  description: Bins & Bathroom Ware
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1028
-                  description: Pooja Supplies
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1029
-                  description: Air Fresheners
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-102A
-                  description: Eggs
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-102B
-                  description: Animal Meat
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-102C
-                  description: Plant Based Meat
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-102D
-                  description: Fish
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-102E
-                  description: Plant Based Fish
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-102F
-                  description: Ready To Cook
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1030
-                  description: Flour & Grains
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1031
-                  description: Rice
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1032
-                  description: Dals & Pulses
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1033
-                  description: Vegetables
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1034
-                  description: Fruits
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1035
-                  description: Sprouts
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1036
-                  description: Oils & Vinegar
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1037
-                  description: Dairy & Cheese
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1038
-                  description: Dry Fruits & Nuts
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1039
-                  description: Pasta, Soup,Noodles & Vermicilli
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-103A
-                  description: Cereals & Breakfast
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-103B
-                  description: Sauces, Spreads & Dips
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-103C
-                  description: Cooking & Baking Needs
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-103D
-                  description: Tinned & Processed Food
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-103E
-                  description: Utensils & Cookware
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-103F
-                  description: Kitchen Tools & Accessories
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1040
-                  description: Spices & Masala
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1041
-                  description: Salt & Sugar
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1042
-                  description: Oils
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1043
-                  description: Ghee
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1044
-                  description: Frozen Snacks
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1045
-                  description: Biscuits & Cookies
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1046
-                  description: Snacks & Namkeen
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1047
-                  description: Chocolates & Candies
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1048
-                  description: Pickles & Chutney
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1049
-                  description: Indian Sweets
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-104A
-                  description: Ready To Cook & Eat
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-104B
-                  description: Cooking Essentials
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-104C
-                  description: Others
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-104D
-                  description: Art & Craft Supplies
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-104E
-                  description: Bags & Backpacks
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-104F
-                  description: Calculators
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1050
-                  description: Colors & Paints
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1051
-                  description: Lab Equipment
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1052
-                  description: Painting Accessories
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1053
-                  description: Pens & Markers
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1054
-                  description: Posters, Gifts & Greeting Cards
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1055
-                  description: School Bags & Supplies
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1056
-                  description: Other Supplies
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1057
-                  description: Bird Supplies
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1058
-                  description: Cat Supplies
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1059
-                  description: Dog Supplies
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-105A
-                  description: Fish Supplies
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-105B
-                  description: Pet Grooming Supplies
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-105C
-                  description: Other Supplies
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-105D
-                  description: Pet Biometric Monitors
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-105E
-                  description: Pet Training Aids
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-105F
-                  description: Other Equipment
-                  reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1000
+                description: Diapers & Wipes
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1001
+                description: Baby Food & Formula
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1002
+                description: Baby Bath & Hygiene
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1003
+                description: Bread & Buns
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1004
+                description: Bakery Snacks
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1005
+                description: Cakes & Pastries
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1006
+                description: Dairy Products
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1007
+                description: Ice Creams & Desserts
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1008
+                description: Plant Based Alternatives
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1009
+                description: Oral Care
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-100A
+                description: Fragrances & Deodorants
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-100B
+                description: Hair Care
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-100C
+                description: Hair Tools & Accessories
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-100D
+                description: Bath & Hand Wash
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-100E
+                description: Bathing Accessories
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-100F
+                description: Bath Additives
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1010
+                description: Feminine Hygiene
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1011
+                description: Intimate Wash & Care
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1012
+                description: Men's Grooming
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1013
+                description: Health & Medicine
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1014
+                description: Skin Care
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1015
+                description: Cosmetics
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1016
+                description: Carbonated Drinks
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1017
+                description: Water
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1018
+                description: Juices
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1019
+                description: Liquid Drink Concentrates
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-101A
+                description: Powdered Drink Concentrates
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-101B
+                description: Sports & Energy Drinks
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-101C
+                description: Health Drinks
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-101D
+                description: Cocktail Mixes
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-101E
+                description: Coffee
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-101F
+                description: Tea
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1020
+                description: Detergents & Dishwash
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1021
+                description: Disinfectant & Cleaners
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1022
+                description: Garbage & Disposable bags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1023
+                description: Cleaning Tools
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1024
+                description: Car & Shoe Care
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1025
+                description: Pest Control & Repellents
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1026
+                description: Tissue Paper & Napkins
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1027
+                description: Bins & Bathroom Ware
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1028
+                description: Pooja Supplies
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1029
+                description: Air Fresheners
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-102A
+                description: Eggs
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-102B
+                description: Animal Meat
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-102C
+                description: Plant Based Meat
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-102D
+                description: Fish
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-102E
+                description: Plant Based Fish
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-102F
+                description: Ready To Cook
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1030
+                description: Flour & Grains
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1031
+                description: Rice
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1032
+                description: Dals & Pulses
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1033
+                description: Vegetables
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1034
+                description: Fruits
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1035
+                description: Sprouts
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1036
+                description: Oils & Vinegar
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1037
+                description: Dairy & Cheese
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1038
+                description: Dry Fruits & Nuts
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1039
+                description: Pasta, Soup,Noodles & Vermicilli
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-103A
+                description: Cereals & Breakfast
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-103B
+                description: Sauces, Spreads & Dips
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-103C
+                description: Cooking & Baking Needs
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-103D
+                description: Tinned & Processed Food
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-103E
+                description: Utensils & Cookware
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-103F
+                description: Kitchen Tools & Accessories
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1040
+                description: Spices & Masala
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1041
+                description: Salt & Sugar
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1042
+                description: Oils
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1043
+                description: Ghee
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1044
+                description: Frozen Snacks
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1045
+                description: Biscuits & Cookies
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1046
+                description: Snacks & Namkeen
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1047
+                description: Chocolates & Candies
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1048
+                description: Pickles & Chutney
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1049
+                description: Indian Sweets
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-104A
+                description: Ready To Cook & Eat
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-104B
+                description: Cooking Essentials
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-104C
+                description: Others
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-104D
+                description: Art & Craft Supplies
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-104E
+                description: Bags & Backpacks
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-104F
+                description: Calculators
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1050
+                description: Colors & Paints
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1051
+                description: Lab Equipment
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1052
+                description: Painting Accessories
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1053
+                description: Pens & Markers
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1054
+                description: Posters, Gifts & Greeting Cards
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1055
+                description: School Bags & Supplies
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1056
+                description: Other Supplies
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1057
+                description: Bird Supplies
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1058
+                description: Cat Supplies
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-1059
+                description: Dog Supplies
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-105A
+                description: Fish Supplies
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-105B
+                description: Pet Grooming Supplies
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-105C
+                description: Other Supplies
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-105D
+                description: Pet Biometric Monitors
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-105E
+                description: Pet Training Aids
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: RET10-105F
+                description: Other Equipment
+                reference: <PR/Issue/Discussion Links md format text>
         fulfillments: *ref_0
         offers:
           descriptor:
@@ -2936,41 +2945,84 @@ x-enum:
   select:
     context: *ref_1
     message:
-      order: &ref_2
-        status: ./orderstatus.yaml
+      order: &ref_3
+        payment: *ref_2
         fulfillments: *ref_0
   on_select:
     context: *ref_1
     message:
-      order: *ref_2
+      order:
+        quote:
+          breakup:
+            '@ondc/org/title_type':
+              - code: item
+                description: about the enum
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: discount
+                description: about the enum
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: tax
+                description: about the enum
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: delivery
+                description: about the enum
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: misc
+                description: about the enum
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: delivery
+                description: about the enum
+                reference: <PR/Issue/Discussion Links md format text>
   init:
     context: *ref_1
     message:
-      order: *ref_2
+      order: *ref_3
   on_init:
     context: *ref_1
     message:
-      order: *ref_2
+      order: *ref_3
   confirm:
     context: *ref_1
     message:
-      order: *ref_2
+      order: *ref_3
+      state: ./orderstatus.yaml#/order_status
   on_confirm:
     context: *ref_1
     message:
-      order: *ref_2
+      order: *ref_3
   status:
     context: *ref_1
   on_status:
     context: *ref_1
     message:
-      order: *ref_2
+      order:
+        fulfillments:
+          state:
+            descriptor:
+              - code: Agent-assigned
+                description: about the enum
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: Out-for-delivery
+                description: about the enum
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: Order-picked-up
+                description: about the enum
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: Searching-for-agent
+                description: about the enum
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: Pending
+                description: about the enum
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: Order-delivered
+                description: about the enum
+                reference: <PR/Issue/Discussion Links md format text>
   cancel:
     context: *ref_1
   on_cancel:
     context: *ref_1
     message:
-      order: *ref_2
+      order: *ref_3
   track:
     context: *ref_1
   on_track:
@@ -2991,7 +3043,7 @@ x-tags:
       - code: BUYER_ID
         description: Description about the tags
         reference: <PR/Issue/Discussion Links md format text>
-        list: &ref_3
+        list: &ref_4
           - code: BUYER_ID_CODE
             description: Description about the tags
             reference: <PR/Issue/Discussion Links md format text>
@@ -3236,7 +3288,7 @@ x-tags:
       - code: BUYER_ID
         description: Description about the tags
         reference: <PR/Issue/Discussion Links md format text>
-        list: *ref_3
+        list: *ref_4
       - code: COMM_CHANNEL
         description: Description about the tags
         reference: <PR/Issue/Discussion Links md format text>
@@ -3703,7 +3755,7 @@ x-flows:
         api: select
         description: Buyer selects an item
         reference: if any
-        example: &ref_7
+        example: &ref_8
           summary: Get quote for specific item
           description: Get quote for specific item with Buyer and Delivery terms
           value:
@@ -3761,7 +3813,7 @@ x-flows:
         api: on_select
         description: Seller app provides the quote for the selected items
         reference: if any
-        example: &ref_4
+        example: &ref_5
           summary: Send quote and breakup
           description: Send quote and breakup for items selected in select call.
           value:
@@ -3834,7 +3886,7 @@ x-flows:
           Buyer requests for quotation for the selected item with all the
           customizations and the quantity of items required
         reference: if any
-        example: &ref_8
+        example: &ref_9
           summary: Send buyer and delivery terms for RFQ
           description: Send buyer and delivery terms for RFQ
           value:
@@ -3926,7 +3978,7 @@ x-flows:
         api: on_init
         description: Seller provides the final quotation and breakup with logistics charges
         reference: if any
-        example: &ref_9
+        example: &ref_10
           summary: Respond to RFQ
           description: Respond to RFQ
           value:
@@ -4082,7 +4134,7 @@ x-flows:
           Buyer receives the quotation and once agreed to go ahead with the
           quotation received, creates a PO and sends the PO
         reference: if any
-        example: &ref_10
+        example: &ref_11
           summary: Raise PO
           description: PO raised by buyer based on the RFQ response received.
           value:
@@ -4250,7 +4302,7 @@ x-flows:
           Seller app sends an on_confirm call to the buyer app relaying the PO
           acceptance.
         reference: if any
-        example: &ref_11
+        example: &ref_12
           summary: Accept PO
           description: PO acceptance by Seller
           value:
@@ -4440,7 +4492,7 @@ x-flows:
         api: search
         description: Buyer outside India searches for a product
         reference: if any
-        example: &ref_5
+        example: &ref_6
           summary: search_by_item
           description: Search By Item
           value:
@@ -4538,7 +4590,7 @@ x-flows:
         api: on_search
         description: Seller responds with catalog + communication channel
         reference: if any
-        example: &ref_6
+        example: &ref_7
           summary: Return the catalog
           description: Return the catalog
           value:
@@ -4922,7 +4974,7 @@ x-flows:
         api: on_select
         description: Seller responds with quote breakup
         reference: if any
-        example: *ref_4
+        example: *ref_5
       - summary: Requests for Quotation
         api: init
         description: Buyer Requests for Quotation
@@ -5563,7 +5615,7 @@ x-flows:
         api: status
         description: Buyer requests for Shipment status
         reference: if any
-        example: &ref_12
+        example: &ref_13
           summary: Buyer asks for order status
           description: Buyer asks for order status
           value:
@@ -5592,7 +5644,7 @@ x-flows:
           Provider platform provides the updated order status to the consumer
           and sends invoice
         reference: if any
-        example: &ref_13
+        example: &ref_14
           summary: Seller updates the order status and shares Invoice
           description: Seller updates the order status and shares Invoice
           value:
@@ -5768,7 +5820,7 @@ x-flows:
         api: update
         description: Payment status is sent (If collected by BAP) + requests for Invoice
         reference: if any
-        example: &ref_14
+        example: &ref_15
           summary: Buyer updates payment status
           description: Buyer updates payment status (CollectedBy BAP)
           value:
@@ -5827,7 +5879,7 @@ x-flows:
         api: on_update
         description: seller updates fulfilments - Multiple fulfillments for Single PO
         reference: if any
-        example: &ref_15
+        example: &ref_16
           summary: Single PO - Multiple Fulfillment
           description: Single PO - Multiple Fulfillment
           value:
@@ -6013,7 +6065,7 @@ x-flows:
           Provider platform provides the updated order status to the consumer
           once the order is picked up
         reference: if any
-        example: &ref_16
+        example: &ref_17
           summary: Seller updates the order status and shares Invoice
           description: Seller updates the order status and shares Invoice
           value:
@@ -6198,7 +6250,7 @@ x-flows:
           Provider platform provides the updated order status to the consumer
           once the order is out for delivery
         reference: if any
-        example: &ref_17
+        example: &ref_18
           summary: Seller updates the order status and shares Invoice
           description: Seller updates the order status and shares Invoice
           value:
@@ -6383,7 +6435,7 @@ x-flows:
           Provider platform provides the updated order status to the consumer
           after the order is delivered
         reference: if any
-        example: &ref_18
+        example: &ref_19
           summary: Seller updates the order status and shares Invoice
           description: Seller updates the order status and shares Invoice
           value:
@@ -6576,83 +6628,83 @@ x-flows:
         api: search
         description: Buyer searches for an item
         reference: if any
-        example: *ref_5
+        example: *ref_6
       - summary: Returns item/ catalog
         api: on_search
         description: Seller responds back with the catalog
         reference: if any
-        example: *ref_6
+        example: *ref_7
       - summary: Select the item
         api: select
         description: Buyer selects an item
         reference: if any
-        example: *ref_7
+        example: *ref_8
       - summary: Returns item breakup
         api: on_select
         description: Seller responds with the quote breakup
         reference: if any
-        example: *ref_4
+        example: *ref_5
       - summary: Requests for Quotation
         api: init
         description: Buyer requests for quotation
         reference: if any
-        example: *ref_8
+        example: *ref_9
       - summary: Responds to Quotation
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: *ref_9
+        example: *ref_10
       - summary: Buyer raises PO
         api: confirm
         description: Buyer creates a Purchase Order
         reference: if any
-        example: *ref_10
+        example: *ref_11
       - summary: Seller Accepts PO
         api: on_confirm
         description: Seller accepts Purchase Order
         reference: if any
-        example: *ref_11
+        example: *ref_12
       - summary: Consumer platform requests for latest status
         api: status
         description: Buyer requests for Shipment status
         reference: if any
-        example: *ref_12
+        example: *ref_13
       - summary: Provider platform provides latest order status and sends invoice
         api: on_status
         description: Provider platform provides the updated order status to the consumer
         reference: if any
-        example: *ref_13
+        example: *ref_14
       - summary: Payment details are updated in case BAP collects the payment
         api: update
         description: Payment status is sent (If collected by BAP) + requests for Invoice
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: seller updates fulfilments - Multiple fulfillments for Single PO
         api: on_update
         description: seller updates fulfilments - Multiple fulfillments for Single PO
-        reference: if any
-        example: *ref_15
-      - summary: Provider platform provides latest order status
-        api: on_status
-        description: >-
-          Provider platform provides the updated order status to the consumer
-          once order is picked up
         reference: if any
         example: *ref_16
       - summary: Provider platform provides latest order status
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
-          when the order is out for delivery
+          once order is picked up
         reference: if any
         example: *ref_17
       - summary: Provider platform provides latest order status
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
-          after the order is delivered
+          when the order is out for delivery
         reference: if any
         example: *ref_18
+      - summary: Provider platform provides latest order status
+        api: on_status
+        description: >-
+          Provider platform provides the updated order status to the consumer
+          after the order is delivered
+        reference: if any
+        example: *ref_19
   - summary: B2B Prepaid BPP
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -6663,47 +6715,47 @@ x-flows:
         api: search
         description: Buyer searches for an item
         reference: if any
-        example: *ref_5
+        example: *ref_6
       - summary: Seller returns item/ catalog with communication channel
         api: on_search
         description: Seller responds back with the catalog
         reference: if any
-        example: *ref_6
+        example: *ref_7
       - summary: Buyer selects an item.
         api: select
         description: Buyer selects an item
         reference: if any
-        example: *ref_7
+        example: *ref_8
       - summary: Seller returns the breakup based on the price listed.
         api: on_select
         description: Seller responds with the quote breakup
         reference: if any
-        example: *ref_4
+        example: *ref_5
       - summary: Buyer Requests for Quotation
         api: init
         description: Buyer requests for quotation
         reference: if any
-        example: *ref_8
+        example: *ref_9
       - summary: Seller Responds to Quotation with delivery charges
         api: on_init
         description: Seller provides the final quotation with delivery charges
         reference: if any
-        example: *ref_9
+        example: *ref_10
       - summary: Buyer raises PO
         api: confirm
         description: Buyer creates a Purchase Order
         reference: if any
-        example: *ref_10
+        example: *ref_11
       - summary: Seller Accepts PO
         api: on_confirm
         description: Seller accepts Purchase Order
         reference: if any
-        example: *ref_11
+        example: *ref_12
       - summary: Seller sends proforma invoice.
         api: on_status
         description: Provider platform provides the updated order status to the consumer
         reference: if any
-        example: *ref_13
+        example: *ref_14
       - summary: Payment is collected by seller (Prepaid) and details are updated
         api: on_update
         description: Provider platform sends the payment details
@@ -6766,28 +6818,28 @@ x-flows:
         api: status
         description: Buyer requests for Shipment status
         reference: if any
-        example: *ref_12
+        example: *ref_13
       - summary: Provider platform updates the latest status - Order Picked up
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           once the order is picked up
         reference: if any
-        example: *ref_16
+        example: *ref_17
       - summary: Provider platform updates the latest status - Out for Delivery
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           once the order is out for delivery
         reference: if any
-        example: *ref_17
+        example: *ref_18
       - summary: Provider platform updates the latest status - Delivered
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           once the order is delivered
         reference: if any
-        example: *ref_18
+        example: *ref_19
   - summary: B2B Prepaid BAP
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -6798,78 +6850,78 @@ x-flows:
         api: search
         description: Buyer searches for an item
         reference: if any
-        example: *ref_5
+        example: *ref_6
       - summary: Seller returns item/ catalog with communication channel
         api: on_search
         description: Seller responds back with the catalog
         reference: if any
-        example: *ref_6
+        example: *ref_7
       - summary: Buyer selects an item.
         api: select
         description: Buyer selects an item
         reference: if any
-        example: *ref_7
+        example: *ref_8
       - summary: Seller returns the breakup based on the price listed.
         api: on_select
         description: Seller responds with the quote breakup
         reference: if any
-        example: *ref_4
+        example: *ref_5
       - summary: Buyer Requests for Quotation
         api: init
         description: Buyer requests for quotation
         reference: if any
-        example: *ref_8
+        example: *ref_9
       - summary: Seller Responds to Quotation
         api: on_init
         description: Seller provides the final quotation with delivery charges
         reference: if any
-        example: *ref_9
+        example: *ref_10
       - summary: Buyer raises PO
         api: confirm
         description: Buyer creates a Purchase Order
         reference: if any
-        example: *ref_10
+        example: *ref_11
       - summary: Seller Accepts PO
         api: on_confirm
         description: Seller accepts Purchase Order
         reference: if any
-        example: *ref_11
+        example: *ref_12
       - summary: Seller sends proforma invoice.
         api: on_status
         description: Provider platform provides the updated order status to the consumer
         reference: if any
-        example: *ref_13
+        example: *ref_14
       - summary: Payment is collected by buyer (Prepaid) and details are updated
         api: on_update
         description: Consumer platform sends the payment details
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Consumer platform requests for latest status
         api: status
         description: Buyer requests for Shipment status
         reference: if any
-        example: *ref_12
+        example: *ref_13
       - summary: Provider platform updates the latest status - Order Picked up
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           once the order is picked up
         reference: if any
-        example: *ref_16
+        example: *ref_17
       - summary: Provider platform updates the latest status - Out for Delivery
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           once the order is out for delivery
         reference: if any
-        example: *ref_17
+        example: *ref_18
       - summary: Provider platform updates the latest status - Delivered
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           once the order is delivered
         reference: if any
-        example: *ref_18
+        example: *ref_19
 x-examples:
   B2B:
     summary: B2B Use Case Specification
@@ -11289,7 +11341,7 @@ x-attributes:
       on_search:
         message:
           catalog:
-            descriptor: &ref_19
+            descriptor: &ref_20
               name:
                 required: mandatory
                 description: Physical description of name value for something.
@@ -11312,18 +11364,18 @@ x-attributes:
                   reference: if any
                   usage: https://abc.com/images/1-shop-img
             providers:
-              id: &ref_20
+              id: &ref_21
                 required: mandatory
                 description: Unique human readable ID.
                 reference: if any
                 usage: P1
-              descriptor: *ref_19
+              descriptor: *ref_20
               additional_desc:
                 required: optional
                 description: Additional description
                 reference: if any
                 usage: chat link
-              creds: &ref_21
+              creds: &ref_22
                 id:
                   required: optional
                   description: Human readable id
@@ -11370,7 +11422,7 @@ x-attributes:
         message:
           order:
             provider:
-              id: *ref_20
+              id: *ref_21
             payments:
               type:
                 required: optional
@@ -11381,21 +11433,21 @@ x-attributes:
         message:
           order:
             provider:
-              id: *ref_20
+              id: *ref_21
             items:
-              id: *ref_20
+              id: *ref_21
       init:
         message:
           order:
             provider:
-              id: *ref_20
+              id: *ref_21
               ttl:
                 required: optional
                 description: ttl
                 reference: if any
                 usage: P1D
             items:
-              id: *ref_20
+              id: *ref_21
               add-ons:
                 id:
                   required: optional
@@ -11411,14 +11463,14 @@ x-attributes:
             fulfillments:
               customer:
                 person:
-                  creds: *ref_21
+                  creds: *ref_22
               tags:
                 DELIVERY_TERMS:
                   required: optional
                   description: Tags info
                   reference: if any
                   usage: CIF
-            billing: &ref_22
+            billing: &ref_23
               phone:
                 required: mandatory
                 description: Describes the phone information of an entity
@@ -11443,9 +11495,9 @@ x-attributes:
         message:
           order:
             provider:
-              id: *ref_20
+              id: *ref_21
             items:
-              id: *ref_20
+              id: *ref_21
               add-ons:
                 id:
                   required: optional
@@ -11463,16 +11515,16 @@ x-attributes:
                   description: Tags info
                   reference: if any
                   usage: CIF
-            billing: *ref_22
+            billing: *ref_23
       confirm:
         message:
           order:
             provider:
-              id: *ref_20
+              id: *ref_21
             items:
-              id: *ref_20
-            billing: *ref_22
-            fulfillments: &ref_23
+              id: *ref_21
+            billing: *ref_23
+            fulfillments: &ref_24
               id:
                 required: mandatory
                 description: Unique human readable ID
@@ -11504,22 +11556,22 @@ x-attributes:
         message:
           order:
             provider:
-              id: *ref_20
+              id: *ref_21
             items:
-              id: *ref_20
-            billing: *ref_22
-            fulfillments: *ref_23
+              id: *ref_21
+            billing: *ref_23
+            fulfillments: *ref_24
       update:
         message:
           order:
             provider:
-              id: *ref_20
+              id: *ref_21
             items:
-              id: *ref_20
+              id: *ref_21
       on_update:
         message:
           order:
             provider:
-              id: *ref_20
+              id: *ref_21
             items:
-              id: *ref_20
+              id: *ref_21
