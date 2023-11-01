@@ -1,0 +1,89 @@
+message:
+  parent: true
+  order:
+    parent: true
+    provider:
+      parent: true
+      locations:
+        description: list of locations; may be the same location as selected by the buyer or a different location.
+        required: mandatory
+        usage: "-"
+        reference: if any
+    billing:
+      parent: true
+      description: billing object timestamps (created_at, updated_at) have to be the same as in /init
+      required: mandatory
+      usage: "-"
+      reference: if any
+      tax_number:
+        description: same as provided in /init
+        required: optional
+        usage: "-"
+        reference: if any
+      email:
+        description: email
+        required: optional
+        usage: nobody@nobody.com
+        reference: if any
+      created_at:
+        description: same as in /init
+        required: mandatory
+        usage: '2023-06-03T09:00:00.000Z'
+        reference: if any
+      updated_at:
+        description: same as in /init
+        required: mandatory
+        usage: '2023-06-03T09:00:00.000Z'
+        reference: if any
+    payment:
+      parent: true
+      description: if seller NP is collecting pre-paid payment (for categories like electronics), they may provide the following - type, collected_by, uri (payment link), status, settlement_basis, settlement_window, withholding_amount
+      required: mandatory
+      usage: "-"
+      reference: if any
+      status:
+        description: enum - "PAID", "NOT-PAID"
+        required: mandatory
+        usage: "PAID"
+        reference: if any
+      '@ondc/org/settlement_basis':
+        description: indicates from when settlement window starts, enum - "delivery" (from delivery), "shipment" (from shipment), "return_window_expiry" (from expiry of return window)
+        required: mandatory
+        usage: delivery
+        reference: if any
+      '@ondc/org/settlement_window':
+        description: settlement window, as per settlement basis, in ISO8601 Duration format
+        required: mandatory
+        usage: P1D
+        reference: if any
+      '@ondc/org/withholding_amount':
+        description: withholding amount as % of total order value (valid values between "0.00" and "100.00")
+        required: mandatory
+        usage: 10.00
+        reference: if any
+      '@ondc/org/settlement_details': 
+        parent: true
+        description: may be provided by seller NP if they are not collecting payment or not CoD payment
+        required: optional
+        usage: "-"
+        reference: if any
+        settlement_type:
+          description: enum - "upi", "neft", "rtgs"; for "upi", upi_address needs to be entered & for the other settlement_type, ("settlement_bank_account_no", "settlement_ifsc_code", "bank_name", "branch_name") should be entered
+          required: mandatory if parent is present
+          usage: upi
+          reference: if any
+    tags:
+      parent: true
+      bpp_terms:
+        parent: true
+        description: value for "code"; buyer NP has to accept bpp terms in /confirm. If buyer NP doesn’t accept these terms, they should NACK /on_init with error code 27501
+        required: mandatory
+        usage: "-"
+        reference: if any
+        list:
+          parent: true
+          tax_number: 
+            description: value for "code"; GST no for ISN/MSN for TDS/TCS deduction / input credit, KYC verification. For MSN/ISN with stores located in multiple states, the GST no for HQ for the provider legal entity should be provided
+            required: mandatory
+            usage: "<gst_number_of_sellerNP>"
+            reference: if any

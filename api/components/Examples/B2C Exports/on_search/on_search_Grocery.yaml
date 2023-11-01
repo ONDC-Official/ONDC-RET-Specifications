@@ -128,10 +128,10 @@ value:
                 other_FSSAI_license_no: '12345678901234'
                 importer_FSSAI_license_no: '12345678901234'
               tags:
-                - code: origin [^36]
+                - code: origin
                   list:
                     - code: country
-                      value: IND [^37]
+                      value: IND
                 - code: image [^38]
                   list:
                     - code: type

@@ -1,0 +1,5 @@
+value:
+  [^1]: enum - "enable", "disable"
+  [^2]: timestamp for item event
+  [^3]: optional
+  [^4]: optional

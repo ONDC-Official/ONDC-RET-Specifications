@@ -1,0 +1,59 @@
+context:
+  parent: true
+  domain:
+    description: updated domain namespace defined here - https://docs.google.com/document/d/brvcltG_DagZ3kGrZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
+    required: mandatory
+    usage: "ONDC:RET12"
+    reference: if any
+  city:
+    description: city code for search that identifies the cities where sellers have stores. List of city codes, with pincode mapping, are here - https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=1474472733
+    required: mandatory
+    usage: UN:SIN
+    reference: if any
+  bap_id:
+    description: subscriber id for buyer app
+    required: mandatory
+    usage: buyerNP.com
+    reference: if any
+  bap_uri:
+    description: subscriber URI for buyer app
+    required: mandatory
+    usage: https://buyerNP.com/ondc
+    reference: if any
+  timestamp:
+    description: RFC3339 compliant timestamp
+    required: mandatory
+    usage: '2023-06-03T08:00:00.000Z'
+    reference: if any
+  ttl:
+    description: validity of message
+    required: mandatory
+    usage: PT30S
+    reference: if any
+message:
+  parent: true
+  intent:
+    parent: true
+    category:
+      parent: true
+      description: Category of the search
+      required: optional
+      usage: "-"
+      reference: if any
+      id:
+        description: category id will be from this list - https://docs.google.com/spreadsheets/d/APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+        required: present if category is present
+        usage: "Shirts"
+        reference: if any
+    fulfillment:
+      description: when not specified, all fulfillment types supported by provider should be returned in response
+      required: optional
+      usage: "-"
+      reference: if any
+    payment:
+      parent: true
+      '@ondc/org/buyer_app_finder_fee_amount':
+        description: buyer NP finder fee calculations are detailed - https://docs.google.com/document/d/iqLdayk488ekEzKrEs-yn6gVrevbxBkILBe5j4oIxMY/edit
+        required: mandatory
+        usage: "3"
+        reference: if any

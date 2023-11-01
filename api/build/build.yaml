@@ -7294,26 +7294,26 @@ x-flows:
                 billing:
                   name: ONDC buyer
                   address:
-                    name: 'My House # [^1]'
+                    name: 'My House #'
                     building: My building name
-                    locality [^2]: My Street name
+                    locality: My Street name
                     city: Jurong East
                     state: Jurong East
                     country: SGP
                     area_code: '6802308'
-                  tax_number [^3]: XXXXXXXXXXXXXXX
-                  email [^4]: nobody@nomail.com
+                  tax_number: XXXXXXXXXXXXXXX
+                  email: nobody@nomail.com
                   phone: '9886098860'
-                  created_at [^5]: '2023-06-03T09:00:00.000Z'
-                  updated_at [^6]: '2023-06-03T09:00:00.000Z'
+                  created_at: '2023-06-03T09:00:00.000Z'
+                  updated_at: '2023-06-03T09:00:00.000Z'
                 fulfillments:
                   - id: F1
                     type: Delivery
                     end:
                       location:
                         gps: 1.380621, 103.746364
-                        address [^7]:
-                          name: 'My House # [^8]'
+                        address:
+                          name: 'My House #'
                           building: My building name
                           locality: My Street name
                           city: Jurong East
@@ -7506,7 +7506,7 @@ x-flows:
               ttl: PT30S
             message:
               order:
-                id: O1 [^1]
+                id: O1
                 state: Created
                 provider:
                   id: P1
@@ -7528,19 +7528,19 @@ x-flows:
                     country: SGP
                     area_code: '6802308'
                   phone: '9886098860'
-                  email [^2]: nobody@nomail.com
-                  created_at [^3]: '2023-02-03T09:00:00.000Z'
-                  updated_at [^4]: '2023-02-03T09:00:00.000Z'
+                  email: nobody@nomail.com
+                  created_at: '2023-02-03T09:00:00.000Z'
+                  updated_at: '2023-02-03T09:00:00.000Z'
                 fulfillments:
                   - id: F1
                     type: Delivery
-                    '@ondc/org/TAT': P1D [^5]
+                    '@ondc/org/TAT': P1D
                     tracking: false
                     end:
                       person:
                         name: name_of_person
                       contact:
-                        email [^6]: nobody@nomail.com
+                        email: nobody@nomail.com
                         phone: '9886098860'
                       location:
                         gps: 1.380621, 103.746364
@@ -9460,19 +9460,67 @@ x-flows:
         reference: if any
         example: *ref_24
         notes:
-          value:
-            ^1: >-
-              house no (for independent dwellings) or door no (for apartments or
-              community dwellings) if name is house no, building is optional
-            ^2: street name
-            ^3: optional, may be required for B2B
-            ^4: optional
-            ^5: timestamp for creation of billing object
-            ^6: same as created_at
-            ^7: name + building + locality < 190 chars, name != locality
-            ^8: >-
-              house no (for independent dwellings) or door no (for apartments or
-              community dwellings) if name is house no, building is optional
+          message:
+            parent: true
+            order:
+              parent: true
+              billing:
+                parent: true
+                address:
+                  parent: true
+                  name:
+                    description: >-
+                      house no (for independent dwellings) or door no (for
+                      apartments or community dwellings) if name is house no,
+                      building is optional
+                    reference: if any
+                    usage: Flat 2/A
+                    required: mandatory
+                  locality:
+                    description: street name
+                    reference: if any
+                    usage: Feng Shu Street
+                    required: mandatory
+                tax_number:
+                  description: Tax number
+                  reference: if any
+                  usage: '-'
+                  required: optional, may be required for B2B
+                email:
+                  description: Email
+                  reference: if any
+                  usage: nobody@nomail.com
+                  required: optional
+                created_at:
+                  description: timestamp for creation of billing object
+                  reference: if any
+                  usage: '2023-06-03T09:00:00.000Z'
+                  required: mandatory
+                updated_at:
+                  description: same as created_at
+                  reference: if any
+                  usage: '2023-06-03T09:00:00.000Z'
+                  required: mandatory
+              fulfillments:
+                parent: true
+                end:
+                  parent: true
+                  location:
+                    parent: true
+                    address:
+                      parent: true
+                      description: name + building + locality < 190 chars, name != locality
+                      reference: if any
+                      required: mandatory
+                      usage: '-'
+                      name:
+                        description: >-
+                          house no (for independent dwellings) or door no (for
+                          apartments or community dwellings) if name is house
+                          no, building is optional
+                        reference: if any
+                        required: mandatory
+                        usage: Flat 2/A
       - summary: Respond to init
         api: on_init
         description: null
@@ -10615,26 +10663,26 @@ x-examples:
                   billing:
                     name: ONDC buyer
                     address:
-                      name: 'My House # [^1]'
+                      name: 'My House #'
                       building: My building name
-                      locality [^2]: My Street name
+                      locality: My Street name
                       city: Jurong East
                       state: Jurong East
                       country: SGP
                       area_code: '6802308'
-                    tax_number [^3]: XXXXXXXXXXXXXXX
-                    email [^4]: nobody@nomail.com
+                    tax_number: XXXXXXXXXXXXXXX
+                    email: nobody@nomail.com
                     phone: '9886098860'
-                    created_at [^5]: '2023-06-03T09:00:00.000Z'
-                    updated_at [^6]: '2023-06-03T09:00:00.000Z'
+                    created_at: '2023-06-03T09:00:00.000Z'
+                    updated_at: '2023-06-03T09:00:00.000Z'
                   fulfillments:
                     - id: F1
                       type: Delivery
                       end:
                         location:
                           gps: 1.380621, 103.746364
-                          address [^7]:
-                            name: 'My House # [^8]'
+                          address:
+                            name: 'My House #'
                             building: My building name
                             locality: My Street name
                             city: Jurong East
@@ -10664,7 +10712,7 @@ x-examples:
                 ttl: PT30S
               message:
                 order:
-                  id: O1 [^1]
+                  id: O1
                   state: Created
                   provider:
                     id: P1
@@ -10686,19 +10734,19 @@ x-examples:
                       country: SGP
                       area_code: '6802308'
                     phone: '9886098860'
-                    email [^2]: nobody@nomail.com
-                    created_at [^3]: '2023-02-03T09:00:00.000Z'
-                    updated_at [^4]: '2023-02-03T09:00:00.000Z'
+                    email: nobody@nomail.com
+                    created_at: '2023-02-03T09:00:00.000Z'
+                    updated_at: '2023-02-03T09:00:00.000Z'
                   fulfillments:
                     - id: F1
                       type: Delivery
-                      '@ondc/org/TAT': P1D [^5]
+                      '@ondc/org/TAT': P1D
                       tracking: false
                       end:
                         person:
                           name: name_of_person
                         contact:
-                          email [^6]: nobody@nomail.com
+                          email: nobody@nomail.com
                           phone: '9886098860'
                         location:
                           gps: 1.380621, 103.746364
@@ -11677,10 +11725,10 @@ x-examples:
                             other_FSSAI_license_no: '12345678901234'
                             importer_FSSAI_license_no: '12345678901234'
                           tags:
-                            - code: origin [^36]
+                            - code: origin
                               list:
                                 - code: country
-                                  value: IND [^37]
+                                  value: IND
                             - code: image [^38]
                               list:
                                 - code: type
@@ -14190,282 +14238,1421 @@ x-examples:
 x-attributes:
   B2C Exports:
     attribute_set:
-      search:
+      search_by_country:
         parent: true
+        context:
+          parent: true
+          domain:
+            description: >-
+              updated domain namespace defined here -
+              https://docs.google.com/document/d/brvcltG_DagZ3kGrZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
+            required: mandatory
+            usage: ONDC:RET12
+            reference: if any
+          city:
+            description: >-
+              city code for search that identifies the cities where sellers have
+              stores. List of city codes, with pincode mapping, are here -
+              https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=1474472733
+            required: mandatory
+            usage: UN:SIN
+            reference: if any
+          bap_id:
+            description: subscriber id for buyer app
+            required: mandatory
+            usage: buyerNP.com
+            reference: if any
+          bap_uri:
+            description: subscriber URI for buyer app
+            required: mandatory
+            usage: https://buyerNP.com/ondc
+            reference: if any
+          timestamp:
+            description: RFC3339 compliant timestamp
+            required: mandatory
+            usage: '2023-06-03T08:00:00.000Z'
+            reference: if any
+          ttl:
+            description: validity of message
+            required: mandatory
+            usage: PT30S
+            reference: if any
+        message:
+          parent: true
+          intent:
+            parent: true
+            category:
+              parent: true
+              description: Category of the search
+              required: optional
+              usage: '-'
+              reference: if any
+              id:
+                description: >-
+                  category id will be from this list -
+                  https://docs.google.com/spreadsheets/d/APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+                required: present if category is present
+                usage: Shirts
+                reference: if any
+            fulfillment:
+              description: >-
+                when not specified, all fulfillment types supported by provider
+                should be returned in response
+              required: optional
+              usage: '-'
+              reference: if any
+            payment:
+              parent: true
+              '@ondc/org/buyer_app_finder_fee_amount':
+                description: >-
+                  buyer NP finder fee calculations are detailed -
+                  https://docs.google.com/document/d/iqLdayk488ekEzKrEs-yn6gVrevbxBkILBe5j4oIxMY/edit
+                required: mandatory
+                usage: '3'
+                reference: if any
+      search_by_item:
+        parent: true
+        context:
+          parent: true
+          domain:
+            description: >-
+              updated domains defined -
+              https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
+            required: mandatory
+            usage: ONDC:RET12
+            reference: if any
         message:
           parent: true
           intent:
             parent: true
             fulfillment:
               parent: true
-              location:
-                parent: true
-                area_code:
-                  required: optional
-                  reference: if any
-                  usage: 560001
-                  description: Area code
-                gps:
-                  required: mandatory
-                  reference: if any
-                  usage: 12.974002,77.613458
-                  description: Gps
               type:
+                description: >-
+                  when not specified, all fulfillment types supported by
+                  provider should be returned in response
                 required: optional
-                reference: if any
                 usage: Delivery
-                description: Type of fulfillment
-            item:
-              parent: true
-              category:
-                required: optional
                 reference: if any
-                usage: Foodgrains
-                description: Category of item
+              end:
+                parent: true
+                location:
+                  parent: true
+                  gps:
+                    description: minimum 6 digit decimal precision for gps coordinates
+                    required: mandatory
+                    usage: 1.380621, 103.746364
+                    reference: if any
+                  address:
+                    description: area_code and address details
+                    required: optional
+                    usage: '-'
+                    reference: if any
+      search_by_fulfillment_end_loc:
+        parent: true
+        context:
+          parent: true
+          domain:
+            description: >-
+              updated domains defined -
+              https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
+            required: mandatory
+            usage: ONDC:RET12
+            reference: if any
+        message:
+          parent: true
+          intent:
+            parent: true
+            fulfillment:
+              parent: true
+              type:
+                description: >-
+                  when not specified, all fulfillment types supported by
+                  provider should be returned in response
+                required: optional
+                usage: Delivery
+                reference: if any
+              end:
+                parent: true
+                location:
+                  parent: true
+                  gps:
+                    description: minimum 6 digit decimal precision for gps coordinates
+                    required: mandatory
+                    usage: 1.380621, 103.746364
+                    reference: if any
+      incremental_catalog_refresh_one_time_push:
+        parent: true
+        message:
+          parent: true
+          intent:
+            parent: true
             tags:
               parent: true
-              buyer_id:
+              code:
+                description: >-
+                  start_time < Context.timestamp, end_time <= Context.timestamp,
+                  end_time > start_time
                 required: mandatory
+                usage: '-'
                 reference: if any
-                usage: xxxxxxxxxxxxxxx
-                description: Category of item
-      on_search:
+      on_search_Fashion:
+        parent: true
         message:
+          parent: true
           catalog:
-            descriptor: &ref_29
-              name:
-                required: mandatory
-                description: Physical description of name value for something.
-                reference: if any
-                usage: ABC store
-              short_desc:
-                required: optional
-                description: Short description of value for something.
-                reference: if any
-                usage: Online eCommerce Store
-              long_desc:
-                required: optional
-                description: Long description of value for something.
-                reference: if any
-                usage: Online eCommerce Store
-              images:
-                url:
+            parent: true
+            bpp/providers:
+              parent: true
+              time:
+                parent: true
+                timestamp:
+                  description: >-
+                    timestamp when the snapshot for this provider (including
+                    provider details, items) was generated, must be <=
+                    Context.timestamp. Buyer NPs can use this to determine from
+                    when to start incremental refresh
                   required: mandatory
-                  description: Physical description of the item
+                  usage: '2023-06-03T07:30:00.000Z'
                   reference: if any
-                  usage: https://abc.com/images/1-shop-img
-            providers:
-              id: &ref_30
-                required: mandatory
-                description: Unique human readable ID.
-                reference: if any
-                usage: P1
-              descriptor: *ref_29
-              additional_desc:
+                label:
+                  description: >-
+                    enum - "enable" (default), "disable" (soft delete of
+                    provider location, i.e. warehouse or store, from buyer NP
+                    cache - in this case, serviceability for the store should
+                    not be a part of the catalog), "close" (temporary closure of
+                    store with the same format for time.range as specified, for
+                    incremental refresh, here -
+                    https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.ar4y0zvk65s4
+                    only if this event is available at the time of generating
+                    the full catalog snapshot)
+                  required: mandatory
+                  usage: enable
+                  reference: if any
+              items:
+                parent: true
+                time:
+                  parent: true
+                  label:
+                    description: enum - "enable", "disable"
+                    required: mandatory
+                    usage: disable
+                    reference: if any
+                  timestamp:
+                    description: timestamp for item event
+                    required: mandatory
+                    usage: '2023-06-03T07:30:00.000Z'
+                    reference: if any
+                parent_item_id:
+                  description: >-
+                    if variant grouping defined for provider above, this matches
+                    id for variant_group definition; if not defined or id is
+                    invalid, buyer NPs may choose to display as normal SKU item
+                  required: mandatory
+                  usage: parent_item_id
+                  reference: if any
+                descriptor:
+                  parent: true
+                  code:
+                    description: >-
+                      network-wide unique code for item which will be in this
+                      format - "type:code" where type is 1 - EAN, 2 - ISBN, 3 -
+                      GTIN, 4 - HSN, 5 - UPC, 6 - others
+                    required: optional
+                    usage: '-'
+                    reference: if any
+                category_id:
+                  description: >-
+                    list of fashion categories is
+                    https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=623321892
+                  required: mandatory
+                  usage: Foodgrains
+                  reference: if any
+                '@ondc/org/statutory_reqs_packaged_commodities':
+                  parent: true
+                  description: >-
+                    mapping of category to attribute key is defined
+                    https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+                  required: mandatory
+                  usage: '-'
+                  reference: if any
+                  month_year_of_manufacture_packing_import:
+                    description: date first available
+                    required: mandatory
+                    usage: 01/2017
+                    reference: if any
+                tags:
+                  parent: true
+                  attributes:
+                    parent: true
+                    description: >-
+                      value for "code"; populating with valid values will enable
+                      better discoverability on buyer NPs
+                    required: mandatory
+                    usage: '-'
+                    reference: if any
+                    list:
+                      parent: true
+                      value:
+                        description: >-
+                          if `code` is "attributes", suggestive enum is
+                          https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/fashion/RET12-colour.json
+                        required: mandatory
+                        usage: '-'
+                        reference: if any
+              creds:
+                description: Creds
                 required: optional
-                description: Additional description
+                usage: '-'
                 reference: if any
-                usage: chat link
-              creds: &ref_31
-                id:
-                  required: optional
-                  description: Human readable id
-                  reference: if any
-                  usage: ESG-12345678
-                type:
-                  required: optional
-                  description: Type of creds
-                  reference: if any
-                  usage: License
-                desc:
-                  required: optional
-                  description: Description of creds
-                  reference: if any
-                  usage: Export License No. ESG-12345678
-                url:
-                  required: optional
-                  description: Physical description
-                  reference: if any
-                  usage: https://abcd.cdn.com/images/license-img
-              offers:
-                required: optional
-                description: Offers info
-                reference: if any
-                usage: chat link
-            items:
               tags:
-                veg_nonveg:
-                  required: optional
-                  description: Tags info
-                  reference: if any
-                  usage: veg
-                image:
-                  required: optional
-                  description: Tags info
-                  reference: if any
-                  usage: veg
-                price_slab:
-                  required: optional
-                  description: Tags info
-                  reference: if any
-                  usage: 175
-      select:
+                parent: true
+                list:
+                  parent: true
+                  value:
+                    description: >-
+                      if `tags>code` is "timing" and
+                      `tags>code>list[<index>]>code` is "type", then it means
+                      same timings for online order processing, shipment,
+                      self-pickup (as applicable)
+                    required: mandatory
+                    usage: '-'
+                    reference: if any
+      on_search_Grocery:
+        parent: true
+        context:
+          parent: true
+          domain:
+            description: >-
+              updated domain namespace is
+              https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
+            required: mandatory
+            usage: ONDC:RET10
+            reference: if any
         message:
-          order:
-            provider:
-              id: *ref_30
-            payments:
-              type:
-                required: optional
-                description: type of the payment
+          parent: true
+          catalog:
+            parent: true
+            bpp/descriptor:
+              parent: true
+              description: descriptor for seller NP
+              required: mandatory
+              usage: '-'
+              reference: if any
+              symbol:
+                description: logo or image for seller NP
+                required: mandatory
+                usage: https://sellerNP.com/images/np.png
                 reference: if any
-                usage: ON-FULFILLMENT
-      on_select:
-        message:
-          order:
-            provider:
-              id: *ref_30
-            items:
-              id: *ref_30
-      init:
-        message:
-          order:
-            provider:
-              id: *ref_30
+            bpp/providers:
+              parent: true
+              description: >-
+                descriptor for seller (merchant) that processes & fulfills
+                orders
+              required: mandatory
+              usage: '-'
+              reference: if any
+              id:
+                description: >-
+                  unique id for provider, must be same as bpp_id for ISN seller
+                  apps. Use of same provider id for distinct legal entities will
+                  cause an MSN being regarded as ISN and use of different
+                  provider id for same legal entity will cause an ISN being
+                  regarded as MSN, thus resulting in tax non-compliance
+                required: mandatory
+                usage: F1
+                reference: if any
+              time:
+                parent: true
+                label:
+                  description: >-
+                    enum - "enable" (default), "disable" (soft delete of
+                    provider from buyer NP cache)
+                  required: mandatory
+                  usage: enable
+                  reference: if any
+                timestamp:
+                  description: >-
+                    timestamp when the snapshot for this provider (including
+                    provider details, items) was generated, must be <=
+                    Context.timestamp. Buyer NPs can use this to determine from
+                    when to start incremental refresh
+                  required: mandatory
+                  usage: '2023-06-03T07:00:30.000Z'
+                  reference: if any
+              fulfillments:
+                parent: true
+                description: provider level fulfillment options
+                required: mandatory
+                usage: '-'
+                reference: if any
+                contact:
+                  parent: true
+                  description: >-
+                    contact details for merchant - if merchant is in multiple
+                    locations, this will be the contact detail for merchant and
+                    contact detail for the storefront (specific location) will
+                    be in fulfillment.start
+                  required: mandatory
+                  usage: '-'
+                  reference: if any
+                  phone:
+                    description: valid 10 digit (mobile no) or 11 digit no
+                    required: mandatory
+                    usage: '9886098860'
+                    reference: if any
+                  email:
+                    description: email id of merchant or seller NP
+                    required: mandatory
+                    usage: abc@xyz.com
+                    reference: if any
               ttl:
-                required: optional
-                description: ttl
-                reference: if any
-                usage: P1D
-            items:
-              id: *ref_30
-              add-ons:
-                id:
-                  required: optional
-                  description: Id of add-ons
-                  reference: if any
-                  usage: 78787723
-              tags:
-                BUYER_TERMS:
-                  required: optional
-                  description: Tags info
-                  reference: if any
-                  usage: free text on Item Customization
-            fulfillments:
-              customer:
-                person:
-                  creds: *ref_31
-              tags:
-                DELIVERY_TERMS:
-                  required: optional
-                  description: Tags info
-                  reference: if any
-                  usage: CIF
-            billing: &ref_32
-              phone:
+                description: ISO8601 duration format for validity of provider catalog
                 required: mandatory
-                description: Describes the phone information of an entity
+                usage: P1D
                 reference: if any
-                usage: 9886098860
-              email:
+              locations:
+                parent: true
+                description: locations for provider with unique id for each location
+                required: mandatory
+                usage: '-'
+                reference: if any
+                time:
+                  parent: true
+                  label:
+                    description: >-
+                      enum - "enable" (default), "disable" (soft delete of
+                      provider location, i.e. warehouse or store, from buyer NP
+                      cache - in this case, serviceability for the store should
+                      not be a part of the catalog), "close" (temporary closure
+                      of store with the same format for time.range as specified,
+                      for incremental refresh, here -
+                      https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.ar4y0zvk65s4
+                      only if this event is available at the time of generating
+                      the full catalog snapshot)
+                    required: mandatory
+                    usage: disable
+                    reference: if any
+                  timestamp:
+                    description: >-
+                      timestamp when the snapshot for location was generated,
+                      must be <= Context.timestamp
+                    required: mandatory
+                    usage: '2023-06-03T07:30:30.000Z'
+                    reference: if any
+                  schedule:
+                    parent: true
+                    holidays:
+                      description: >-
+                        list of future dated holidays, to be used as per holiday
+                        calendar; if no holidays, empty array needs to be passed
+                      required: mandatory
+                      usage: '2023-08-15'
+                      reference: if any
+                address:
+                  parent: true
+                  locality:
+                    description: locality name
+                    required: mandatory
+                    usage: Kadma
+                    reference: if any
+              categories:
+                parent: true
+                tags:
+                  parent: true
+                  code:
+                    description: >-
+                      if code is "attr", then it defines variant attributes i.e.
+                      attribute & sequence; multiple variant attributes can be
+                      defined in multiple attr blocks
+                    required: mandatory
+                    usage: '-'
+                    reference: if any
+                  list:
+                    parent: true
+                    code:
+                      description: >-
+                        if "code" is "attr", then it is namespaced attribute,
+                        above example means attribute(s) in "quantity.unitized"
+                        for an item
+                      required: mandatory
+                      usage: '-'
+                      reference: if any
+                    value:
+                      description: >-
+                        if `tags>code` is "attr" and `tags>list>code` is "name",
+                        then it's corresponding `value` means concatenation of
+                        item.quantity.unitized.measure.value and
+                        item.quantity.unitized.measure.unit e.g. "1 kilogram",
+                        "2 kilogram", "5 kilogram"
+              items:
+                parent: true
+                time:
+                  parent: true
+                  label:
+                    description: enum - "enable", "disable"
+                    required: mandatory
+                    usage: enable
+                    reference: if any
+                  timestamp:
+                    description: timestamp for item event
+                    required: mandatory
+                    usage: '2023-06-03T07:30:00.000Z'
+                    reference: if any
+                parent_item_id:
+                  description: >-
+                    if variant grouping defined for provider above, this matches
+                    id for variant_group definition; if not defined or id is
+                    invalid, buyer NPs may choose to display as normal SKU item
+                  required: mandatory
+                  usage: V1
+                  reference: if any
+                descriptor:
+                  parent: true
+                  code:
+                    description: >-
+                      unique code for item which will be in this format -
+                      "type:code" where type is 1 - EAN, 2 - ISBN, 3 - GTIN, 4 -
+                      HSN, 5 - UPC, 6 - others
+                    required: optional
+                    usage: 2
+                    reference: if any
+                  images:
+                    description: >-
+                      while item images ensures better discoverability &
+                      enhances user experience, if no image is available, seller
+                      NPs shouldn’t send image (instead of sending placeholder
+                      image)
+                    required: mandatory
+                    usage: '-'
+                    reference: if any
+                quantity:
+                  parent: true
+                  unitized:
+                    parent: true
+                    measure:
+                      parent: true
+                      unit:
+                        description: >-
+                          enum - "unit", "dozen", "kilogram", "tonne", "litre",
+                          "millilitre"
+                          (https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/grocery/RET10-UOM.json)
+                        required: mandatory
+                        usage: unit
+                        reference: if any
+                  available:
+                    parent: true
+                    count:
+                      description: >-
+                        stringified integer value - default value for item in
+                        stock
+                      required: mandatory
+                      usage: '3'
+                      reference: if any
+                  maximum:
+                    parent: true
+                    count:
+                      description: >-
+                        stringified integer value - cap per order (if exists) or
+                        default value
+                      required: mandatory
+                      usage: '3'
+                      reference: if any
+                category_id:
+                  description: >-
+                    enum from
+                    https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+                  required: mandatory
+                  usage: Foodgrains
+                  reference: if any
+                '@ondc/org/returnable':
+                  description: >-
+                    should default to true except for specific make-to-order
+                    items
+                  required: mandatory
+                  usage: true
+                  reference: if any
+                '@ondc/org/cancellable':
+                  description: >-
+                    should default to true except for specific make-to-order
+                    items
+                  required: mandatory
+                  usage: true
+                  reference: if any
+                '@ondc/org/seller_pickup_return':
+                  description: whether seller is responsible for pick up of item for return
+                  required: mandatory
+                  usage: true
+                  reference: if any
+                '@ondc/org/contact_details_consumer_care':
+                  description: >-
+                    valid contact details exactly in this format - name, email,
+                    contact no
+                  required: mandatory
+                  usage: Ambani,ambani@abc.com,18004254444
+                  reference: if any
+                '@ondc/org/statutory_reqs_packaged_commodities':
+                  description: >-
+                    mapping of category to attribute key is defined
+                    https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+                  required: mandatory
+                  usage: '-'
+                  reference: if any
+                '@ondc/org/statutory_reqs_prepackaged_food':
+                  description: >-
+                    mapping of category to attribute key is defined
+                    https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+                  required: mandatory
+                  usage: '-'
+                  reference: if any
+                tags:
+                  parent: true
+                  origin:
+                    parent: true
+                    description: identifies origin of item i.e. country, state, etc
+                    required: mandatory
+                    usage: '-'
+                    reference: if any
+                    list:
+                      parent: true
+                      value:
+                        description: >-
+                          code in same level is "country" and value will be ISO
+                          3166-1 alpha-3 code
+                        required: mandatory
+                        usage: '-'
+                        reference: if any
+                  image:
+                    description: images for statutory requirements
+                    required: optional
+                    usage: '-'
+                    reference: if any
+                  veg_nonveg:
+                    parent: true
+                    description: only as applicable
+                    required: optional
+                    usage: '-'
+                    reference: if any
+                    list:
+                      parent: true
+                      code:
+                        description: enum - "veg", "non_veg"
+                        required: optional
+                        usage: veg
+                        reference: if any
+              creds:
+                parent: true
+                description: credentials for provider
                 required: optional
-                description: Email address of the contact
+                usage: '-'
+                reference: if any
+                id:
+                  description: >-
+                    globally identifiable identity or unique ID provided by
+                    seller app; mandatory if creds are provided
+                  required: mandatory
+                  usage: '-'
+                  reference: if any
+                url:
+                  description: display URL for credential
+                  required: optional
+                  usage: '-'
+                  reference: if any
+                tags:
+                  parent: true
+                  list:
+                    parent: true
+                    valid_to:
+                      description: possible value for "code". Valid Date and Time
+                      required: optional, only if available
+                      usage: '-'
+              offers:
+                description: offer definition as per the template defined above
+                required: mandatory
+                usage: '-'
+                reference: if any
+          ^67: for defining order value (e.g. min order value) for provider
+          ^68: minimum order value for provider (up to 2 decimals)
+          ^69: option for catalog response using link or inline (default)
+          ^70: >-
+            enum - "link" (link to zip file for items array for the provider),
+            "inline" (items array in inline response, which is the default
+            today)
+          ^71: >-
+            authorized link URL, required only if type = "link"; in this case,
+            items array won’t be a part of inline response
+          ^72: >-
+            authorized link validity from last_update, required only if type =
+            "link"
+          ^73: >-
+            timestamp for last update of link (RFC3339), required only if type =
+            "link"
+          ^74: >-
+            timing for fulfillment type, enum - "Order" (online order processing
+            timings), "Delivery" (order shipment timings, will be same as
+            delivery timings for hyperlocal), "Self-Pickup" (self-pickup
+            timings); example shows store open 24x7- Monday to Sunday (0000 -
+            2359)
+          ^75: location id for provider
+          ^76: valid value - day of week ("1" - Monday, "7" - Sunday)
+          ^77: >-
+            valid value - day of week ("1" - Monday, "7" - Sunday), day_to >=
+            day_from
+          ^78: valid value - 24hr format ("0000" to "2359")
+          ^79: valid value - 24hr format ("0000" to "2359"), time_to >= time_from
+          ^80: >-
+            serviceability construct is defined for (provider+location+category)
+            at either of these levels -  hyperlocal (radius) or intercity
+            (pincodes) or pan-India; every unique combination of
+            (provider+location+category) can have serviceability defined only at
+            one of these levels
+          ^81: maps to unique location for provider
+          ^82: enum - "10" (hyperlocal), "11" (intercity), "12" (pan-India)
+      incremental_catalog_refresh_item_changes:
+        parent: true
+        value:
+          ^1: enum - "enable", "disable"
+          ^2: timestamp for item event
+          ^3: optional
+          ^4: optional
+      incremental_catalog_refresh_store_closed_temporarily:
+        parent: true
+        message:
+          parent: true
+          catalog:
+            parent: true
+            bpp/providers:
+              parent: true
+              locations:
+                parent: true
+                time:
+                  parent: true
+                  range:
+                    description: means store is closed from 4PM till rest of the day
+                    required: mandatory
+                    usage: '-'
+                    reference: if any
+      select:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            offers:
+              parent: true
+              description: only if buyer selects offer code
+              required: optional
+              usage: '-'
+              reference: if any
+              id:
+                description: >-
+                  if offer code is not valid, seller NP can NACK /select with
+                  error code 30006
+                required: optional
+                usage: '-'
+                reference: if any
+            fulfillments:
+              parent: true
+              end:
+                parent: true
+                description: fulfillment end location, i.e. delivery location for buyer
+                required: mandatory
+                usage: '-'
+                reference: if any
+                location:
+                  parent: true
+                  gps:
+                    description: >-
+                      GPS coordinates & precision for fulfillment end location
+                      has to be same in /confirm
+                    required: mandatory
+                    usage: 1.380621, 103.746364
+                    reference: if any
+            payment:
+              parent: true
+              description: payment details
+              required: optional
+              usage: '-'
+              reference: if any
+              type:
+                description: >-
+                  enum - "ON-ORDER" (prepaid), "ON-FULFILLMENT" (on delivery),
+                  "POST-FULFILLMENT" (after delivery)
+                required: optional
+                usage: ON-FULFILLMENT
+                reference: if any
+      on_select_item_in_stock:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            provider:
+              parent: true
+              locations:
+                parent: true
+                id:
+                  description: >-
+                    may be the same location as selected by the buyer or a
+                    different location
+                  required: mandatory
+                  usage: '-'
+                  reference: if any
+            fulfillments:
+              parent: true
+              description: >-
+                order can have multiple fulfillments; in this case, unique
+                fulfillment id (for provider & order) needs to be assigned by
+                seller NP for each fulfillment & mapped to item(s) that are a
+                part of that fulfillment
+              required: mandatory
+              usage: '-'
+              reference: if any
+              id:
+                description: >-
+                  unique fulfillment id assigned by seller NP here & mapped to
+                  item and will be persisted right through order confirm
+                required: mandatory
+                usage: '-'
+                reference: if any
+              '@ondc/org/category':
+                description: >-
+                  Maps to logistics category as defined in Logistics API
+                  contract; Value "Express Delivery" should only be used where
+                  O2D TAT <= 2 hrs
+                required: mandatory
+                usage: Express Delivery
+                reference: if any
+              '@ondc/org/TAT':
+                description: >-
+                  Order-to-delivery (O2D) TAT shown = max(time_to_ship for items
+                  in the fulfillment) + ship-to-delivery (S2D) time provided by
+                  LSP in TAT
+                required: mandatory
+                usage: P1D
+                reference: if any
+              state:
+                parent: true
+                description: >-
+                  Seller NP performs serviceability check based on end location
+                  in /select. If non serviceable, seller app has to return the
+                  appropriate error code along with a valid /on_select response
+                required: mandatory
+                usage: '-'
+                reference: if any
+                descriptor:
+                  parent: true
+                  code:
+                    description: enum - "Serviceable", "Non-serviceable"
+                    required: mandatory
+                    usage: '-'
+                    reference: if any
+            quote:
+              parent: true
+              breakup:
+                parent: true
+                '@ondc/org/item_id':
+                  description: >-
+                    item_id should match either item.id or fulfillment.id based
+                    on how the line item (as defined by "title_type") is
+                    assigned, i.e. "delivery", "discount_f", "tax_f", "packing",
+                    "misc" are at fulfillment level while "item", "tax",
+                    "discount" are at item level
+                  required: mandatory
+                  usage: '-'
+                  reference: if any
+                '@ondc/org/item_quantity':
+                  parent: true
+                  count:
+                    description: >-
+                      if required quantity (as selected by buyer) is not in
+                      stock, seller app should show the quantity available in
+                      stock (or 0 if completely out-of-stock) and show the
+                      appropriate error code (40002) in the /on_select response
+                    required: mandatory
+                    usage: 2
+                    reference: if any
+                '@ondc/org/title_type':
+                  description: >-
+                    defines the type of line item; enum - "item" (product cost),
+                    "delivery" (shipping charges), "packing" ( packing charge to
+                    be included only if not 0), "tax" (tax breakup to be
+                    included only if tax is not 0), "misc" (convenience fees,
+                    misc to be included only if not 0), "discount" (discount to
+                    be included only if not 0), discount_f, tax_f (tax on
+                    fulfillment level charges, to be included only if not 0
+                    (i.e. seller NP provides tax inclusive fulfillment level
+                    charges)). Title text can be customized by buyer NP; if
+                    value is "delivery", then delivery charge to be included
+                    only if fulfillment state code is "Serviceable"
+                  required: mandatory
+                  usage: item
+                  reference: if any
+                price:
+                  parent: true
+                  value:
+                    description: >-
+                      item price should be either inclusive or exclusive of
+                      taxes, exactly as defined in the catalog
+                    required: mandatory
+                    usage: '10.00'
+                    reference: if any
+              ttl:
+                description: validity of quote
+                required: mandatory
+                usage: P1D
+                reference: if any
+      on_select_item_not_in_stock:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            provider:
+              parent: true
+              location:
+                parent: true
+                id:
+                  description: >-
+                    may be the same location as selected by the buyer or a
+                    different location
+                  required: mandatory
+                  usage: '-'
+                  reference: if any
+            quote:
+              parent: true
+              breakup:
+                parent: true
+                '@ondc/org/item_quantity':
+                  parent: true
+                  count:
+                    description: >-
+                      can be 0 (completely out of stock) or the reduced quantity
+                      in stock
+                    required: mandatory
+                    usage: 0
+                    reference: if any
+                '@ondc/org/title_type ':
+                  description: >-
+                    value will be "delivery" indicating delivery charge (to be
+                    included only if fulfillment state code is "Serviceable")
+        error:
+          parent: true
+          message:
+            description: >-
+              comma delimited item ids, for items out of stock, should be here,
+              e.g. "I1,I2,I3" means items (with id) "I1", "I2", "I3" are out of
+              stock
+            required: mandatory
+            usage: '-'
+            reference: if any
+      on_select_location_not_serviceable:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            provider:
+              parent: true
+              locations:
+                parent: true
+                id:
+                  description: >-
+                    may be the same location as selected by the buyer or a
+                    different location
+                  required: mandatory
+                  usage: '-'
+                  reference: if any
+        error:
+          parent: true
+          code:
+            description: if merchant not available, use error code 30017
+            required: mandatory
+            usage: '30017'
+            reference: if any
+      init:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            billing:
+              parent: true
+              address:
+                parent: true
+                name:
+                  description: >-
+                    house no (for independent dwellings) or door no (for
+                    apartments or community dwellings) if name is house no,
+                    building is optional
+                  reference: if any
+                  usage: Flat 2/A
+                  required: mandatory
+                locality:
+                  description: street name
+                  reference: if any
+                  usage: Feng Shu Street
+                  required: mandatory
+              tax_number:
+                description: Tax number
+                reference: if any
+                usage: '-'
+                required: optional, may be required for B2B
+              email:
+                description: Email
                 reference: if any
                 usage: nobody@nomail.com
-              name:
-                required: mandatory
-                description: Describes a person name as any individual
+                required: optional
+              created_at:
+                description: timestamp for creation of billing object
                 reference: if any
-                usage: ONDC buyer
-              tax_id:
+                usage: '2023-06-03T09:00:00.000Z'
                 required: mandatory
-                description: Describes tax id
+              updated_at:
+                description: same as created_at
                 reference: if any
-                usage: XXXXXXXXXXXXXXX
+                usage: '2023-06-03T09:00:00.000Z'
+                required: mandatory
+            fulfillments:
+              parent: true
+              end:
+                parent: true
+                location:
+                  parent: true
+                  address:
+                    parent: true
+                    description: name + building + locality < 190 chars, name != locality
+                    reference: if any
+                    required: mandatory
+                    usage: '-'
+                    name:
+                      description: >-
+                        house no (for independent dwellings) or door no (for
+                        apartments or community dwellings) if name is house no,
+                        building is optional
+                      reference: if any
+                      required: mandatory
+                      usage: Flat 2/A
       on_init:
+        parent: true
         message:
+          parent: true
           order:
+            parent: true
             provider:
-              id: *ref_30
-            items:
-              id: *ref_30
-              add-ons:
-                id:
-                  required: optional
-                  description: Id of add-ons
-                  reference: if any
-                  usage: 78787723
-              tags:
-                BUYER_TERMS:
-                  required: optional
-                  description: Tags info
-                  reference: if any
-                  usage: free text on Item Customization
-                DELIVERY_TERMS:
-                  required: optional
-                  description: Tags info
-                  reference: if any
-                  usage: CIF
-            billing: *ref_32
-      confirm:
-        message:
-          order:
-            provider:
-              id: *ref_30
-            items:
-              id: *ref_30
-            billing: *ref_32
-            fulfillments: &ref_33
-              id:
+              parent: true
+              locations:
+                description: >-
+                  list of locations; may be the same location as selected by the
+                  buyer or a different location.
                 required: mandatory
-                description: Unique human readable ID
+                usage: '-'
                 reference: if any
-                usage: F1
-              time:
+            billing:
+              parent: true
+              description: >-
+                billing object timestamps (created_at, updated_at) have to be
+                the same as in /init
+              required: mandatory
+              usage: '-'
+              reference: if any
+              tax_number:
+                description: same as provided in /init
                 required: optional
-                description: Describes the phone information of an entity
+                usage: '-'
                 reference: if any
-                usage: +91-9897867564
-              contact:
-                phone:
-                  required: mandatory
-                  description: Describes the phone information of an entity
-                  reference: if any
-                  usage: 919876543210
-                email:
-                  required: mandatory
-                  description: Email address of the contact
-                  reference: if any
-                  usage: alpha.manufacturing@gmail.com
-              instructions:
+              email:
+                description: email
                 required: optional
-                description: The URL of the file
+                usage: nobody@nobody.com
                 reference: if any
-                usage: >-
-                  https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bfd54f
+              created_at:
+                description: same as in /init
+                required: mandatory
+                usage: '2023-06-03T09:00:00.000Z'
+                reference: if any
+              updated_at:
+                description: same as in /init
+                required: mandatory
+                usage: '2023-06-03T09:00:00.000Z'
+                reference: if any
+            payment:
+              parent: true
+              description: >-
+                if seller NP is collecting pre-paid payment (for categories like
+                electronics), they may provide the following - type,
+                collected_by, uri (payment link), status, settlement_basis,
+                settlement_window, withholding_amount
+              required: mandatory
+              usage: '-'
+              reference: if any
+              status:
+                description: enum - "PAID", "NOT-PAID"
+                required: mandatory
+                usage: PAID
+                reference: if any
+              '@ondc/org/settlement_basis':
+                description: >-
+                  indicates from when settlement window starts, enum -
+                  "delivery" (from delivery), "shipment" (from shipment),
+                  "return_window_expiry" (from expiry of return window)
+                required: mandatory
+                usage: delivery
+                reference: if any
+              '@ondc/org/settlement_window':
+                description: >-
+                  settlement window, as per settlement basis, in ISO8601
+                  Duration format
+                required: mandatory
+                usage: P1D
+                reference: if any
+              '@ondc/org/withholding_amount':
+                description: >-
+                  withholding amount as % of total order value (valid values
+                  between "0.00" and "100.00")
+                required: mandatory
+                usage: 10
+                reference: if any
+              '@ondc/org/settlement_details':
+                parent: true
+                description: >-
+                  may be provided by seller NP if they are not collecting
+                  payment or not CoD payment
+                required: optional
+                usage: '-'
+                reference: if any
+                settlement_type:
+                  description: >-
+                    enum - "upi", "neft", "rtgs"; for "upi", upi_address needs
+                    to be entered & for the other settlement_type,
+                    ("settlement_bank_account_no", "settlement_ifsc_code",
+                    "bank_name", "branch_name") should be entered
+                  required: mandatory if parent is present
+                  usage: upi
+                  reference: if any
+            tags:
+              parent: true
+              bpp_terms:
+                parent: true
+                description: >-
+                  value for "code"; buyer NP has to accept bpp terms in
+                  /confirm. If buyer NP doesn’t accept these terms, they should
+                  NACK /on_init with error code 27501
+                required: mandatory
+                usage: '-'
+                reference: if any
+                list:
+                  parent: true
+                  tax_number:
+                    description: >-
+                      value for "code"; GST no for ISN/MSN for TDS/TCS deduction
+                      / input credit, KYC verification. For MSN/ISN with stores
+                      located in multiple states, the GST no for HQ for the
+                      provider legal entity should be provided
+                    required: mandatory
+                    usage: <gst_number_of_sellerNP>
+                    reference: if any
+      confirm:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            id:
+              description: alphanumeric, up to 32 characters
+              required: mandatory
+              usage: O1
+              reference: if any
+            billing:
+              parent: true
+              email:
+                description: Email
+                required: optional
+                usage: nobody@nomail.com
+                reference: if any
+              created_at:
+                description: same as in /init
+                required: mandatory
+                usage: '2023-02-03T09:00:00.000Z'
+                reference: if any
+              updated_at:
+                description: same as /init
+                required: mandatory
+                usage: '2023-02-03T09:00:00.000Z'
+                reference: if any
+            fulfillments:
+              parent: true
+              '@ondc/org/TAT':
+                description: >-
+                  same as what is proposed in /on_select; If TAT is different
+                  from what was originally quoted in /on_select, seller NP can
+                  NACK the request with error code 30013
+                usage: P1D
+                required: mandatory
+                reference: if any
+              end:
+                parent: true
+                contact:
+                  parent: true
+                  email:
+                    description: Email
+                    optional: optional
+                    usage: nobody@nomail.com
+                    reference: if any
+            quote:
+              parent: true
+              breakup:
+                parent: true
+                '@ondc/org/item_id':
+                  description: item ID in order
+                  optional: optional
+                  usage: I1
+                  reference: if any
+                '@ondc/org/item_quantity':
+                  parent: true
+                  count: null
+          ^9: optional
+          ^10: >-
+            transaction id if prepaid payment collected by buyer NP, not
+            required for payment on delivery
+          ^11: amount collected should match the order value
+          ^12: NOT-PAID for payment on delivery
+          ^13: ON-FULFILLMENT for payment on delivery
+          ^14: BPP for payment on delivery
+          ^15: >-
+            indicates from when settlement window starts, enum - "delivery"
+            (from delivery), "shipment" (from shipment), "return_window_expiry"
+            (from expiry of return window)
+          ^16: >-
+            settlement window, as per settlement basis, in ISO8601 Duration
+            format
+          ^17: >-
+            withholding amount as % of total order value (valid values between
+            "0.00" and "100.00")
+          ^18: optional
+          ^19: buyer-app for payment on delivery
+          ^20: >-
+            buyer NP must accept bpp terms. If not accepted, seller NP can NACK
+            /confirm with error code 50006
+          ^21: >-
+            URL for fixed terms of buyer NP. If seller NP doesn’t accept, they
+            should NACK /confirm with error code 50005
+          ^22: GST no for buyer NP for TDS deduction at seller NP
+          ^23: can’t be future dated timestamp
+          ^24: can’t be future dated timestamp
       on_confirm:
+        parent: true
         message:
+          parent: true
           order:
-            provider:
-              id: *ref_30
-            items:
-              id: *ref_30
-            billing: *ref_32
-            fulfillments: *ref_33
-      update:
-        message:
-          order:
-            provider:
-              id: *ref_30
-            items:
-              id: *ref_30
+            parent: true
+            state:
+              description: enum - "Created", "Accepted", "Cancelled"
+              required: mandatory
+              usage: Accepted
+              reference: if any
+            billing:
+              parent: true
+              email:
+                description: email
+                required: optional
+                usage: nobody@gmail.com
+                reference: if any
+              created_at:
+                description: same as in /init
+                required: mandatory
+                usage: '2023-06-03T09:00:00.000Z'
+                reference: if any
+              updated_at:
+                description: same as in /init
+                required: mandatory
+                usage: '2023-06-03T09:00:00.000Z'
+                reference: if any
+            fulfillments:
+              parent: true
+              tracking:
+                description: true if tracking enabled through /on_track
+                required: mandatory
+                usage: 'tracking: true'
+                reference: if any
+              '@ondc/org/TAT':
+                description: >-
+                  if TAT is different from what was originally quoted in
+                  /on_select, buyer NP can NACK the request with error code
+                  22504
+                usage: P1D
+                required: mandatory
+                reference: if any
+              start:
+                parent: true
+                location:
+                  parent: true
+                  address:
+                    description: store address
+                    usage: '-'
+                    required: mandatory
+                    reference: if any
+                time:
+                  description: pickup time range may be provided if available
+                  required: optional
+                  usage: '-'
+                  reference: if any
+                instructions:
+                  parent: true
+                  description: instructions for pickup
+                  required: optional
+                  usage: '-'
+                  reference: if any
+                  short_desc:
+                    description: >-
+                      type of pickup confirmation code (PCC), enum - "1" (buyer
+                      contact no (for self-pickup)), "2" (merchant order no),
+                      "3" (other pickup confirmation code), "4" (OTP); required
+                      when order is "Packed". Value of PCC (required when order
+                      is "Packed") - contact no - 10 digits;merchant order no -
+                      max 6 digits;other pickup confirmation code - max 6
+                      digits;OTP - max 6 digits
+                    required: mandatory
+                    usage: 3
+                    reference: if any
+                contact:
+                  parent: true
+                  email:
+                    description: email
+                    required: optional
+                    usage: '-'
+                    reference: if any
+              end:
+                parent: true
+                time:
+                  description: pickup time range may be provided if available
+                  required: optional
+                  usage: '-'
+                  reference: if any
+                contact:
+                  parent: true
+                  email:
+                    description: email
+                    required: optional
+                    usage: nobody@nobody.com
+                    reference: if any
+            payment:
+              parent: true
+              description: same values as in /confirm
+              required: mandatory
+              usage: '-'
+              reference: if any
+              uri:
+                description: URI
+                required: optional
+                usage: '-'
+                reference: if any
+              tl_method:
+                description: TL Method
+                required: optional
+                usage: '-'
+                reference: if any
+            tags:
+              description: >-
+                if terms & conditions different from what was quoted earlier,
+                buyer NP can NACK /on_confirm with error code 22506
+              required: mandatory
+              usage: '-'
+              reference: if any
+            created_at:
+              description: same as in /confirm
+              required: mandatory
+              usage: '2023-06-03T09:30:00.000Z'
+              reference: if any
+            updated_at:
+              description: can’t be a future date
+              required: mandatory
+              usage: '2023-06-03T09:30:00.000Z'
+              reference: if any
       on_update:
+        parent: true
         message:
+          parent: true
           order:
-            provider:
-              id: *ref_30
+            parent: true
+            description: >-
+              shows the current state of order with the new fulfillment for part
+              cancel by merchant
+            required: mandatory
+            usage: '-'
+            reference: if any
             items:
-              id: *ref_30
+              parent: true
+              fulfillment_id:
+                parent: true
+                description: >-
+                  forward shipment fulfillment id and new fulfillment id for
+                  cancel request, must be unique for each cancellation /
+                  cancellation request in consecutive list elements
+                required: mandatory
+                usage: '-'
+                reference: if any
+                quantity:
+                  parent: true
+                  count:
+                    description: >-
+                      for forward shipent, change in quantity (reduction) as
+                      initiated by seller NP; for new fulfillment list element,
+                      quantity for which cancel initiated, i.e. for this
+                      specific cancellation identified by unique fulfillment id
+                      "C1"
+            fulfillments:
+              parent: true
+              tags:
+                parent: true
+                cancel_request:
+                  parent: true
+                  reason_id:
+                    parent: true
+                    value:
+                      description: >-
+                        valid reason code from
+                        https://docs.google.com/document/d/1M-lZSduYMFKIk1V6d8QLt-j-16-rVzYVdPn0pmbkclk/edit#heading=h.lq5jsehzritb
+                        for part cancel
+                      required: mandatory
+                      usage: '002'
+                      reference: if any
+                  initiated_by:
+                    parent: true
+                    value:
+                      description: >-
+                        bpp id of seller NP or source from which request
+                        initiated, details of this id can be verified using
+                        registry lookup
+                      required: mandatory
+                      usage: sellerNP.com
+                      reference: if any
+                quote_trail:
+                  parent: true
+                  type:
+                    description: matches order.quote.breakup[].title_type
+                    required: mandatory
+                    usage: item
+                    reference: if any
+                  id:
+                    description: >-
+                      id for title_type e.g. item id for "item" / "tax",
+                      fulfillment id for "delivery" / "packing" / "misc"
+                    required: mandatory
+                    usage: '-'
+                    reference: if any
+                  value:
+                    description: >-
+                      value by which order quote for title_type is adjusted,
+                      will always be negative
+                    required: mandatory
+                    usage: '-12.00'
+                    reference: if any
+          ^11: updated order value after deducting amount for item being cancelled
+          ^12: >-
+            updated quantity of item remaining after merchant part cancel (if
+            entire item is cancelled, this will be 0)
+          ^13: optional keys here as defined in /confirm
       cancel:
         parent: true
         message:
@@ -14488,3 +15675,270 @@ x-attributes:
               description: fulfillment id for cancellation of fulfillment for TAT breach
               reference: if any
               usage: F1
+      on_cancel:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            state:
+              description: >-
+                order state will be updated to "Cancelled" if the order is
+                cancelled
+              usage: Cancelled
+              required: mandatory
+              reference: if any
+            cancellation:
+              description: to be used only if order is cancelled
+              usage: '-'
+              required: 'mandatory if state: "Cancelled"'
+              reference: if any
+            fulfillments:
+              parent: true
+              tags:
+                description: tags for defining the order
+                reference: if any
+                required: only if fulfillment is cancelled
+                usage: '-'
+            quote:
+              parent: true
+              price:
+                description: >-
+                  updated order value including cancellation charges (delivery +
+                  packing charges)
+                reference: if any
+                required: mandatory
+                usage: '-'
+      status:
+        parent: true
+        context:
+          parent: true
+          transaction_id:
+            description: >-
+              status for order can be queried using same transaction id used for
+              order /confirm
+            required: mandatory
+            usage: '-'
+            reference: if any
+      on_status_make_to_order_product_order_delivered:
+        parent: true
+        value:
+          ^1: enum - "Created","Accepted","In-progress","Completed","Cancelled"
+          ^2: required if order state is "Cancelled"
+          ^3: >-
+            id for dynamic item created by buyer app for make-to-order product
+            and available in parent_item_id in /select
+          ^4: optional
+          ^5: same as in /init where billing object is created
+          ^6: >-
+            enum for fulfillment state & mapping to order state for hyperlocal &
+            inter-city is defined here (assuming 1 fulfillment per order, but
+            mapping will remain same for all states except "Order-delivered"
+            where order state will depend on the states of other fulfillment)
+            enum for RTO - "RTO-Initiated", "RTO-Delivered", "RTO-Disposed"
+          ^7: >-
+            required if state is "Order-picked-up", "Out-for-delivery",
+            "Order-delivered"
+          ^8: >-
+            type of pickup confirmation code (PCC), enum - "1" (buyer contact no
+            (for self-pickup)), "2" (merchant order no), "3" (other pickup
+            confirmation code), "4" (OTP); required when order is "Packed"
+          ^9: >-
+            value of PCC (required when order is "Packed") - contact no - 10
+            digits; merchant order no - max 6 digits; other pickup confirmation
+            code - max 6 digits; OTP - max 6 digits
+          ^10: >-
+            optional, may be provided at the time of order pickup
+            ("Order-picked-up") & includes pickup image, rider pickup
+            coordinates
+          ^11: >-
+            optional, only for authorization of buyer self pickup; authorization
+            code will be generated by seller NP & sent along with expiry info.
+            If authorization is enabled by seller NP, buyer needs to provide
+            authorization type & code for pickup, which will be verified by
+            seller NP and for expired authorization, resend the authorization
+            details
+          ^12: enum - "OTP", others TBD
+          ^13: optional
+          ^14: required if state is "Order-delivered"
+          ^15: >-
+            optional - type of code for order delivery - enum - "1" - OTP, "2" -
+            no delivery code; may be generated when order is "Out-for-delivery"
+          ^16: >-
+            value of DCC (required for code 1 & 2) - other DCC - max 6 digits;
+            OTP - max 6 digits
+          ^17: >-
+            to be provided at the time of delivery ("Order-delivered") &
+            includes delivery image, rider delivery coordinates
+          ^18: >-
+            optional, only for delivery authorization; authorization code will
+            be generated by seller NP & sent along with expiry info. If
+            authorization is enabled by seller NP, buyer needs to provide
+            authorization type & code for delivery, which will be verified by
+            seller NP and for expired authorization, resend the authorization
+            details
+          ^19: enum - "OTP", others TBD
+          ^20: >-
+            optional, may be provided for last-mile delivery in intercity
+            shipments
+          ^21: optional, may be provided for kerb-side pickup (in self pickup)
+          ^22: id of customization group for the customization
+          ^23: id of customization group for the customization
+          ^24: id of customization group for the customization
+          ^25: id of customization group for the customization
+          ^26: id of customization group for the customization
+          ^27: id of customization group for the customization
+          ^28: id of customization group for the customization
+          ^29: optional keys here as defined in /confirm
+          ^30: >-
+            required for payment on delivery orders when order state is
+            "Completed"
+          ^31: required from fulfillment.state = "Order-picked-up" and thereafter
+      on_status_other_product_order_pickup:
+        parent: true
+        value:
+          ^1: enum - "Created","Accepted","In-progress","Completed","Cancelled"
+          ^2: required if order state is "Cancelled"
+          ^3: >-
+            only if item(s) have been returned / cancelled including RTO (should
+            have the same structure as in /on_update including assignment of
+            item(s) to fulfillment created for return / cancel and the
+            corresponding fulfillment definition)
+          ^4: optional
+          ^5: same as in /init where billing object is created
+          ^6: >-
+            enum for fulfillment state & mapping to order state for hyperlocal &
+            inter-city is defined here (assuming 1 fulfillment per order, but
+            mapping will remain same for all states except "Order-delivered"
+            where order state will depend on the states of other fulfillment);
+            enum for RTO - "RTO-Initiated", "RTO-Delivered", "RTO-Disposed"
+          ^7: >-
+            required if state is "Order-picked-up", "Out-for-delivery",
+            "Order-delivered"
+          ^8: >-
+            type of pickup confirmation code (PCC), enum - "1" (buyer contact no
+            (for self-pickup)), "2" (merchant order no), "3" (other pickup
+            confirmation code), "4" (OTP); required when order is "Packed"
+          ^9: >-
+            value of PCC (required when order is "Packed") -contact no - 10
+            digits;merchant order no - max 6 digits;other pickup confirmation
+            code - max 6 digits;OTP - max 6 digits
+          ^10: >-
+            optional, may be provided at the time of order pickup
+            ("Order-picked-up") & includes pickup image, rider pickup
+            coordinates
+          ^11: >-
+            optional, only for authorization of buyer self pickup; authorization
+            code will be generated by seller NP & sent along with expiry info.
+            If authorization is enabled by seller NP, buyer needs to provide
+            authorization type & code for pickup, which will be verified by
+            seller NP and for expired authorization, resend the authorization
+            details
+          ^12: enum - "OTP", others TBD
+          ^13: optional
+          ^14: required if state is "Order-delivered"
+          ^15: >-
+            optional - type of code for order delivery- enum - "1" - OTP, "2" -
+            no delivery code; may be generated when order is "Out-for-delivery"
+          ^16: >-
+            value of DCC (required for code 1 & 2)- other DCC - max 6 digits;OTP
+            - max 6 digits
+          ^17: >-
+            to be provided at the time of delivery ("Order-delivered") &
+            includes delivery image, rider delivery coordinatesoptional, only
+            for delivery authorization; authorization code will be generated by
+            seller NP & sent along with expiry info. If authorization is enabled
+            by seller NP, buyer needs to provide authorization type & code for
+            delivery, which will be verified by seller NP and for expired
+            authorization, resend the authorization details
+          ^18: >-
+            optional, only for delivery authorization; authorization code will
+            be generated by seller NP & sent along with expiry info. If
+            authorization is enabled by seller NP, buyer needs to provide
+            authorization type & code for delivery, which will be verified by
+            seller NP and for expired authorization, resend the authorization
+            details
+          ^19: enum - "OTP", others TBD
+          ^20: >-
+            optional, may be provided for last-mile delivery in intercity
+            shipments
+          ^21: optional, may be provided for kerb-side pickup (in self pickup)
+          ^22: optional keys here as defined in /confirm
+          ^23: >-
+            required for payment on delivery orders when order state is
+            "Completed"
+          ^24: required from fulfillment.state = "Order-picked-up" and thereafter
+      on_status_other_product_out_for_delivery:
+        parent: true
+        value:
+          ^1: enum - "Created","Accepted","In-progress","Completed","Cancelled"
+          ^2: required if order state is "Cancelled"
+          ^3: >-
+            only if item(s) have been returned / cancelled including RTO (should
+            have the same structure as in /on_update including assignment of
+            item(s) to fulfillment created for return / cancel and the
+            corresponding fulfillment definition)
+          ^4: optional
+          ^5: same as in /init where billing object is created
+          ^6: >-
+            enum for fulfillment state & mapping to order state for hyperlocal &
+            inter-city is defined here (assuming 1 fulfillment per order, but
+            mapping will remain same for all states except "Order-delivered"
+            where order state will depend on the states of other fulfillment);
+            enum for RTO - "RTO-Initiated", "RTO-Delivered", "RTO-Disposed"
+          ^7: >-
+            required if state is "Order-picked-up", "Out-for-delivery",
+            "Order-delivered"
+          ^8: >-
+            type of pickup confirmation code (PCC), enum - "1" (buyer contact no
+            (for self-pickup)), "2" (merchant order no), "3" (other pickup
+            confirmation code), "4" (OTP); required when order is "Packed"
+          ^9: >-
+            value of PCC (required when order is "Packed") -contact no - 10
+            digits;merchant order no - max 6 digits;other pickup confirmation
+            code - max 6 digits;OTP - max 6 digits
+          ^10: >-
+            optional, may be provided at the time of order pickup
+            ("Order-picked-up") & includes pickup image, rider pickup
+            coordinates
+          ^11: >-
+            optional, only for authorization of buyer self pickup; authorization
+            code will be generated by seller NP & sent along with expiry info.
+            If authorization is enabled by seller NP, buyer needs to provide
+            authorization type & code for pickup, which will be verified by
+            seller NP and for expired authorization, resend the authorization
+            details
+          ^12: enum - "OTP", others TBD
+          ^13: optional
+          ^14: required if state is "Order-delivered"
+          ^15: >-
+            optional - type of code for order delivery- enum - "1" - OTP, "2" -
+            no delivery code; may be generated when order is "Out-for-delivery"
+          ^16: >-
+            value of DCC (required for code 1 & 2)- other DCC - max 6 digits;OTP
+            - max 6 digits
+          ^17: >-
+            to be provided at the time of delivery ("Order-delivered") &
+            includes delivery image, rider delivery coordinatesoptional, only
+            for delivery authorization; authorization code will be generated by
+            seller NP & sent along with expiry info. If authorization is enabled
+            by seller NP, buyer needs to provide authorization type & code for
+            delivery, which will be verified by seller NP and for expired
+            authorization, resend the authorization details
+          ^18: >-
+            optional, only for delivery authorization; authorization code will
+            be generated by seller NP & sent along with expiry info. If
+            authorization is enabled by seller NP, buyer needs to provide
+            authorization type & code for delivery, which will be verified by
+            seller NP and for expired authorization, resend the authorization
+            details
+          ^19: enum - "OTP", others TBD
+          ^20: >-
+            optional, may be provided for last-mile delivery in intercity
+            shipments
+          ^21: optional, may be provided for kerb-side pickup (in self pickup)
+          ^22: optional keys here as defined in /confirm
+          ^23: >-
+            required for payment on delivery orders when order state is
+            "Completed"
+          ^24: required from fulfillment.state = "Order-picked-up" and thereafter

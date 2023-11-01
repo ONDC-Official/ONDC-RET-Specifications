@@ -17,7 +17,7 @@ value:
     ttl: PT30S
   message:
     order:
-      id: O1 [^1]
+      id: O1
       state: Created
       provider:
         id: P1
@@ -39,19 +39,19 @@ value:
           country: SGP
           area_code: '6802308'
         phone: '9886098860'
-        email [^2]: nobody@nomail.com
-        created_at [^3]: '2023-02-03T09:00:00.000Z'
-        updated_at [^4]: '2023-02-03T09:00:00.000Z'
+        email: nobody@nomail.com
+        created_at: '2023-02-03T09:00:00.000Z'
+        updated_at: '2023-02-03T09:00:00.000Z'
       fulfillments:
         - id: F1
           type: Delivery
-          '@ondc/org/TAT': P1D [^5]
+          '@ondc/org/TAT': P1D
           tracking: false
           end:
             person:
               name: name_of_person
             contact:
-              email [^6]: nobody@nomail.com
+              email: nobody@nomail.com
               phone: '9886098860'
             location:
               gps: 1.380621, 103.746364
