@@ -2,7 +2,7 @@ message:
   parent: true
   order:
     parent: true
-    id: 
+    id:
       description: alphanumeric, up to 32 characters
       required: mandatory
       usage: O1
@@ -17,16 +17,16 @@ message:
       created_at:
         description: same as in /init
         required: mandatory
-        usage: '2023-02-03T09:00:00.000Z'
+        usage: "2023-02-03T09:00:00.000Z"
         reference: if any
       updated_at:
         description: same as /init
         required: mandatory
-        usage: '2023-02-03T09:00:00.000Z'
+        usage: "2023-02-03T09:00:00.000Z"
         reference: if any
     fulfillments:
       parent: true
-      '@ondc/org/TAT': 
+      "@ondc/org/TAT":
         description: same as what is proposed in /on_select; If TAT is different from what was originally quoted in /on_select, seller NP can NACK the request with error code 30013
         usage: P1D
         required: mandatory
@@ -40,32 +40,78 @@ message:
             optional: optional
             usage: nobody@nomail.com
             reference: if any
-    quote:
+    payment:
       parent: true
-      breakup:
+      uri:
+        description: Payment URI
+        required: optional
+        usage: https://ondc.transaction.com/payment
+        reference: if any
+      tl_method:
+        description: TL Method
+        required: optional
+        usage: "http/get"
+        reference: if any
+      params:
         parent: true
-        '@ondc/org/item_id':
-          description: item ID in order
-          optional: optional
-          usage: I1
+        transaction_id:
+          description: transaction id if prepaid payment collected by buyer NP, not required for payment on delivery
+          required: optional
+          usage: "-"
           reference: if any
-        '@ondc/org/item_quantity':
-          parent: true
-          count:
-          
-  [^9]: optional
-  [^10]: transaction id if prepaid payment collected by buyer NP, not required for payment on delivery
-  [^11]: amount collected should match the order value
-  [^12]: NOT-PAID for payment on delivery
-  [^13]: ON-FULFILLMENT for payment on delivery
-  [^14]: BPP for payment on delivery
-  [^15]: indicates from when settlement window starts, enum - "delivery" (from delivery), "shipment" (from shipment), "return_window_expiry" (from expiry of return window)
-  [^16]: settlement window, as per settlement basis, in ISO8601 Duration format
-  [^17]: withholding amount as % of total order value (valid values between "0.00" and "100.00")
-  [^18]: optional
-  [^19]: buyer-app for payment on delivery
-  [^20]: buyer NP must accept bpp terms. If not accepted, seller NP can NACK /confirm with error code 50006
-  [^21]: URL for fixed terms of buyer NP. If seller NP doesn’t accept, they should NACK /confirm with error code 50005
-  [^22]: GST no for buyer NP for TDS deduction at seller NP
-  [^23]: can’t be future dated timestamp
-  [^24]: can’t be future dated timestamp
+        amount:
+          description: amount collected should match the order value
+          required: mandatory
+          usage: "-"
+          reference: if any
+      status:
+        description: NOT-PAID for payment on delivery
+        required: mandatory
+        usage: "-"
+        reference: if any
+      type:
+        description: ON-FULFILLMENT for payment on delivery
+        required: mandatory
+        usage: ON-ORDER
+        reference: if any
+      collected_by:
+        description: BPP for payment on delivery
+        required: mandatory
+        usage: SOR
+        reference: if any
+      "@ondc/org/settlement_basis":
+        description: indicates from when settlement window starts, enum - "delivery" (from delivery), "shipment" (from shipment), "return_window_expiry" (from expiry of return window)
+        required: mandatory
+        usage: delivery
+        reference: if any
+      "@ondc/org/settlement_window":
+        description: settlement window, as per settlement basis, in ISO8601 Duration format
+        required: mandatory
+        usage: P1D
+        reference: if any
+      "@ondc/org/withholding_amount":
+        description: withholding amount as % of total order value (valid values between "0.00" and "100.00")
+        required: mandatory
+        usage: 1.00
+        reference: if any
+      "@ondc/org/settlement_details":
+        parent: true
+        description: Settlement Details
+        required: optional
+        usage: "-"
+        reference: if any
+        settlement_counterparty:
+          description: buyer-app for payment on delivery
+          required: mandatory if parent is present
+          usage: buyer-app
+          reference: if any
+      created_at:
+        description: can’t be future dated timestamp
+        required: mandatory
+        usage: "2023-06-03T09:30:00.000Z"
+        reference: if any
+      updated_at:
+        description: can’t be future dated timestamp
+        required: mandatory
+        usage: "2023-06-03T09:30:00.000Z"
+        reference: if any

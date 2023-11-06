@@ -13,12 +13,12 @@ value:
     message_id: M12
     city: UN:SIN
     country: SGP
-    timestamp: '2023-06-04T10:00:30.000Z'
+    timestamp: "2023-06-04T10:00:30.000Z"
     ttl: PT30S
   message:
     order:
       id: O1
-      state: In-progress [^1]
+      state: In-progress
       provider:
         id: P1
         locations:
@@ -31,26 +31,26 @@ value:
       billing:
         name: ONDC buyer
         address:
-          name: 'My house #'
+          name: "My house #"
           building: My building name
           locality: My street name
           city: Jurong East
           state: Jurong East
           country: SGP
-          area_code: '6802308'
-        email [^4]: nobody@nomail.com
-        phone: '9886098860'
-        created_at [^5]: '2023-06-03T09:00:00.000Z'
-        updated_at: '2023-06-03T09:00:00.000Z'
+          area_code: "6802308"
+        email: nobody@nomail.com
+        phone: "9886098860"
+        created_at: "2023-06-03T09:00:00.000Z"
+        updated_at: "2023-06-03T09:00:00.000Z"
       fulfillments:
         - id: F1
-          '@ondc/org/provider_name': LSP or Provider name
+          "@ondc/org/provider_name": LSP or Provider name
           type: Delivery
           tracking: false
-          '@ondc/org/TAT': P1D
+          "@ondc/org/TAT": P1D
           state:
             descriptor:
-              code: Order-picked-up [^6]
+              code: Order-picked-up
           start:
             location:
               descriptor:
@@ -61,141 +61,141 @@ value:
               address:
                 locality: Jayanagar
                 city: Bengaluru
-                area_code: '560076'
+                area_code: "560076"
                 state: KA
             time:
               range:
-                start: '2023-06-03T10:00:00.000Z'
-                end: '2023-06-03T10:30:00.000Z'
-              timestamp [^7]: '2023-06-03T10:25:00.000Z'
+                start: "2023-06-03T10:00:00.000Z"
+                end: "2023-06-03T10:30:00.000Z"
+              timestamp: "2023-06-03T10:25:00.000Z"
             instructions:
-              code: '1 [^8]'
+              code: "1 "
               name: ONDC Order
-              short_desc: value of PCC [^9]
+              short_desc: value of PCC
               long_desc: additional instructions for pickup
-              images [^10]:
+              images:
                 - https://lsp.com/pickup_image.png
             contact:
-              phone: '9886098860'
-              email [^13]: nobody@nomail.com
+              phone: "9886098860"
+              email: nobody@nomail.com
           end:
             location:
               gps: 12.453544,77.928379
               address:
-                name: 'My house #'
+                name: "My house #"
                 building: My building name
                 locality: My street name
                 city: Jurong East
                 state: Jurong East
                 country: SGP
-                area_code: '6802308'
+                area_code: "6802308"
             time:
               range:
-                start: '2023-06-03T11:00:00.000Z'
-                end: '2023-06-03T11:30:00.000Z'
-              timestamp [^14]: '2023-06-03T11:35:00.000Z'
+                start: "2023-06-03T11:00:00.000Z"
+                end: "2023-06-03T11:30:00.000Z"
+              timestamp: "2023-06-03T11:35:00.000Z"
             instructions:
-              code: '3 [^15]'
+              code: "3 "
               name: ONDC Order
-              short_desc: value of DCC [^16]
+              short_desc: value of DCC
               Long_desc: additional instructions for delivery
-              images [^17]:
+              images:
                 - https://lsp.com/delivery_image.png
                 - https://lsp.com/rider_location.png
             person:
               name: name_of_person
             contact:
-              phone: '9886098860'
-          agent [^20]:
+              phone: "9886098860"
+          agent:
             name: agent_name
-            phone: '9886098860'
-          vehicle [^21]:
+            phone: "9886098860"
+          vehicle:
             registration: 3LVJ945
       quote:
         price:
           currency: USD
-          value: '17'
+          value: "17"
         breakup:
-          - '@ondc/org/item_id [^9]': I1
-            '@ondc/org/item_quantity':
-              count [^10]: 1
+          - "@ondc/org/item_id ": I1
+            "@ondc/org/item_quantity":
+              count: 1
             title: Allen Solly Men T-shirt
-            '@ondc/org/title_type [^11]': item
+            "@ondc/org/title_type ": item
             price:
               currency: USD
-              value: '10.00 [^12]'
+              value: "10.00 "
             item:
               quantity:
                 available:
-                  count: '99'
+                  count: "99"
                 maximum:
-                  count: '99'
+                  count: "99"
               price:
                 currency: USD
-                value: '10.00'
-          - '@ondc/org/item_id': F1
+                value: "10.00"
+          - "@ondc/org/item_id": F1
             title: Delivery charges
-            '@ondc/org/title_type [^13]': delivery
+            "@ondc/org/title_type ": delivery
             price:
               currency: USD
-              value: '2.00'
-          - '@ondc/org/item_id': F1
+              value: "2.00"
+          - "@ondc/org/item_id": F1
             title: Tax
-            '@ondc/org/title_type': tax_f [^15]
+            "@ondc/org/title_type": tax_f
             price:
               currency: USD
-              value: '0.00'
-          - '@ondc/org/item_id': F1
+              value: "0.00"
+          - "@ondc/org/item_id": F1
             title: Packing charges
-            '@ondc/org/title_type [^16]': packing
+            "@ondc/org/title_type ": packing
             price:
               currency: USD
-              value: '5.00'
-          - '@ondc/org/item_id': I1
+              value: "5.00"
+          - "@ondc/org/item_id": I1
             title: Tax
-            '@ondc/org/title_type [^17]': tax
+            "@ondc/org/title_type ": tax
             price:
               currency: INR
-              value: '0.00'
-          - '@ondc/org/item_id': I1
+              value: "0.00"
+          - "@ondc/org/item_id": I1
             title: Discount
-            '@ondc/org/title_type [^18]': discount
+            "@ondc/org/title_type ": discount
             price:
               currency: USD
-              value: '-1.00'
-          - '@ondc/org/item_id': F1
+              value: "-1.00"
+          - "@ondc/org/item_id": F1
             title: Convenience Fee
-            '@ondc/org/title_type [^19]': misc
+            "@ondc/org/title_type ": misc
             price:
               currency: USD
-              value: '1.00'
+              value: "1.00"
         ttl: PT1H
-      payment [^29]:
+      payment:
         uri: https://ondc.transaction.com/payment
         tl_method: http/get
         params:
           currency: USD
-          transaction_id: '3937'
-          amount: '17.00'
+          transaction_id: "3937"
+          amount: "17.00"
           bank_code: xxxxxxxxx,
           bank_account_number: xxxxxxxxxxxx
         status: PAID
         type: ON-ORDER
         collected_by: SOR
-        time [^30]:
-          timestamp: '2023-06-04T10:00:00.000Z'
-        '@ondc/org/buyer_app_finder_fee_type': percent
-        '@ondc/org/buyer_app_finder_fee_amount': '3'
-        '@ondc/org/settlement_basis': delivery
-        '@ondc/org/settlement_window': P1D
-        '@ondc/org/withholding_amount': '1.00'
-        '@ondc/org/settlement_details':
+        time:
+          timestamp: "2023-06-04T10:00:00.000Z"
+        "@ondc/org/buyer_app_finder_fee_type": percent
+        "@ondc/org/buyer_app_finder_fee_amount": "3"
+        "@ondc/org/settlement_basis": delivery
+        "@ondc/org/settlement_window": P1D
+        "@ondc/org/withholding_amount": "1.00"
+        "@ondc/org/settlement_details":
           - settlement_counterparty: buyer-app
             settlement_phase: sale-amount
             beneficiary_name: xxxxx
             settlement_reference: XXXX
             settlement_status: PAID
-            settlement_timestamp: '2023-02-04T10:00:00.000Z'
+            settlement_timestamp: "2023-02-04T10:00:00.000Z"
             settlement_type: upi
             upi_address: gft@oksbi
             settlement_bank_account_no: XXXXXXXXXX
@@ -205,10 +205,10 @@ value:
           - settlement_counterparty: buyer
             settlement_phase: refund
             settlement_type: upi
-            settlement_amount: '12'
-            settlement_timestamp: '2023-02-04T18:00:00.000Z'
-      documents [^31]:
+            settlement_amount: "12"
+            settlement_timestamp: "2023-02-04T18:00:00.000Z"
+      documents:
         - url: https://invoice_url
           label: Invoice
-      created_at: '2023-06-03T09:30:00.000Z'
-      updated_at: '2023-06-03T10:00:30.201Z'
+      created_at: "2023-06-03T09:30:00.000Z"
+      updated_at: "2023-06-03T10:00:30.201Z"

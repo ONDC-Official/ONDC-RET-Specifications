@@ -79,14 +79,6 @@ status:
   parent: true
   $ref: "./status/status.yaml"
 
-on_status_make_to_order_product_order_delivered:
+on_status:
   parent: true
-  $ref: "./on_status/on_status_make_to_order_product_order_delivered.yaml"
-
-on_status_other_product_order_pickup:
-  parent: true
-  $ref: "./on_status/on_status_other_product_order_pickup.yaml"
-  
-on_status_other_product_out_for_delivery:
-  parent: true
-  $ref: "./on_status/on_status_other_product_out_for_delivery.yaml"
+  $ref: "./on_status/on_status.yaml"

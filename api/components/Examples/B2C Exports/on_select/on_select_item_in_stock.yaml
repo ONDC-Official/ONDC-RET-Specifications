@@ -13,82 +13,82 @@ value:
     message_id: M2
     city: UN:SIN
     country: SGP
-    timestamp: '2023-06-03T08:30:30.000Z'
+    timestamp: "2023-06-03T08:30:30.000Z"
   message:
     order:
       provider:
         id: P1
         locations:
-          - id: L1 [^1]
+          - id: L1
       items:
         - fulfillment_id: F1
           id: I1
-      fulfillments [^2]:
-        - id: F1 [^3]
+      fulfillments:
+        - id: F1
           type: Delivery
-          '@ondc/org/provider_name': LSP or Provider Name
+          "@ondc/org/provider_name": LSP or Provider Name
           tracking: false
-          '@ondc/org/category [^4]': Express Delivery [^5]
-          '@ondc/org/TAT [^6]': P1D
-          state [^7]:
+          "@ondc/org/category ": Express Delivery
+          "@ondc/org/TAT ": P1D
+          state:
             descriptor:
-              code: Serviceable [^8]
+              code: Serviceable
       quote:
         price:
           currency: USD
-          value: '17'
+          value: "17"
         breakup:
-          - '@ondc/org/item_id [^9]': I1
-            '@ondc/org/item_quantity':
-              count [^10]: 1
+          - "@ondc/org/item_id ": I1
+            "@ondc/org/item_quantity":
+              count: 1
             title: Allen Solly Men T-shirt
-            '@ondc/org/title_type [^11]': item
+            "@ondc/org/title_type ": item
             price:
               currency: USD
-              value: '10.00 [^12]'
+              value: "10.00 "
             item:
               quantity:
                 available:
-                  count: '99'
+                  count: "99"
                 maximum:
-                  count: '99'
+                  count: "99"
               price:
                 currency: USD
-                value: '10.00'
-          - '@ondc/org/item_id': F1
+                value: "10.00"
+          - "@ondc/org/item_id": F1
             title: Delivery charges
-            '@ondc/org/title_type [^13]': delivery
+            "@ondc/org/title_type ": delivery
             price:
               currency: USD
-              value: '2.00'
-          - '@ondc/org/item_id': F1
+              value: "2.00"
+          - "@ondc/org/item_id": F1
             title: Tax
-            '@ondc/org/title_type': tax_f [^15]
+            "@ondc/org/title_type": tax_f
             price:
               currency: USD
-              value: '0.00'
-          - '@ondc/org/item_id': F1
+              value: "0.00"
+          - "@ondc/org/item_id": F1
             title: Packing charges
-            '@ondc/org/title_type [^16]': packing
+            "@ondc/org/title_type ": packing
             price:
               currency: USD
-              value: '5.00'
-          - '@ondc/org/item_id': I1
+              value: "5.00"
+          - "@ondc/org/item_id": I1
             title: Tax
-            '@ondc/org/title_type [^17]': tax
+            "@ondc/org/title_type ": tax
             price:
               currency: INR
-              value: '0.00'
-          - '@ondc/org/item_id': I1
+              value: "0.00"
+          - "@ondc/org/item_id": I1
             title: Discount
-            '@ondc/org/title_type [^18]': discount
+            "@ondc/org/title_type ": discount
             price:
               currency: USD
-              value: '-1.00'
-          - '@ondc/org/item_id': F1
+              value: "-1.00"
+          - "@ondc/org/item_id": F1
             title: Convenience Fee
-            '@ondc/org/title_type [^19]': misc
+            "@ondc/org/title_type ": misc
             price:
               currency: USD
-              value: '1.00'
-        ttl: P1D [^20]
+              value: "1.00"
+        ttl: P1D

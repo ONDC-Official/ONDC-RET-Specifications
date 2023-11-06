@@ -22,12 +22,12 @@ value:
           items:
             - id: I1
               time:
-                label: enable [^4]
-                timestamp: "2023-06-03T07:30:00.000Z [^5]"
-              parent_item_id: V1 [^6]
+                label: enable
+                timestamp: "2023-06-03T07:30:00.000Z"
+              parent_item_id: V1
               descriptor:
                 name: Allen Solly Men T-shirt
-                code [^7]: 1:XXXXXXXXXXXXX
+                code: 1:XXXXXXXXXXXXX
                 symbol: https://sellerNP.com/images/i1.png
                 short_desc: Allen Solly Men T-shirt
                 long_desc: Allen Solly Men T-shirt
@@ -46,7 +46,7 @@ value:
                 currency: USD
                 value: "10.00"
                 maximum_value: "12.0"
-              category_id: Men's Topwear [^8]
+              category_id: Men's Topwear
               fulfillment_id: F1
               location_id: L1
               "@ondc/org/returnable": true
@@ -56,41 +56,41 @@ value:
               "@ondc/org/time_to_ship": P1D
               "@ondc/org/available_on_cod": false
               "@ondc/org/contact_details_consumer_care": Ramesh,ramesh@abc.com,18004254444
-              "@ondc/org/statutory_reqs_packaged_commodities [^9]":
+              "@ondc/org/statutory_reqs_packaged_commodities ":
                 manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
                 manufacturer_or_packer_address: >-
                   Building 2, Divyasree Technopolis, Off HAL Airport Road,
                   Bengaluru-560037
                 common_or_generic_name_of_commodity: Polo
-                month_year_of_manufacture_packing_import: 01/2017 [^10]
+                month_year_of_manufacture_packing_import: 01/2017
               tags:
                 - code: origin
                   list:
                     - code: country
                       value: IND
-                - code: attribute [^11]
+                - code: attribute
                   list:
                     - code: brand
                       value: Allen Solly
                     - code: colour
-                      value: coral [^12]
+                      value: coral
                     - code: size
-                      value: S [^13]
+                      value: S
                     - code: gender
-                      value: male [^14]
+                      value: male
                     - code: pattern
-                      value: striped [^15]
+                      value: striped
                     - code: material
-                      value: cotton [^16]
+                      value: cotton
                     - code: occasion
-                      value: casual [^17]
+                      value: casual
                     - code: season
-                      value: summer [^18]
+                      value: summer
                     - code: trend
-                      value: tribal [^19]
+                      value: tribal
                     - code: features
-                      value: alpha [^20]
+                      value: alpha
                     - code: material_finish
-                      value: embossed [^21]
+                      value: embossed
                     - code: size_chart
                       value: https://sellerNP.com/images/i1_size_chart.png

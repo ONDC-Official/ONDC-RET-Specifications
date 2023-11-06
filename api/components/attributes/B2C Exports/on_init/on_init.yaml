@@ -75,15 +75,7 @@ message:
     tags:
       parent: true
       bpp_terms:
-        parent: true
         description: value for "code"; buyer NP has to accept bpp terms in /confirm. If buyer NP doesn’t accept these terms, they should NACK /on_init with error code 27501
         required: mandatory
         usage: "-"
         reference: if any
-        list:
-          parent: true
-          tax_number: 
-            description: value for "code"; GST no for ISN/MSN for TDS/TCS deduction / input credit, KYC verification. For MSN/ISN with stores located in multiple states, the GST no for HQ for the provider legal entity should be provided
-            required: mandatory
-            usage: "<gst_number_of_sellerNP>"
-            reference: if any

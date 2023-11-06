@@ -1,0 +1,122 @@
+message:
+  parent: true
+  order:
+    parent: true
+    state:
+      description: enum - "Created","Accepted","In-progress","Completed","Cancelled"
+      required: mandatory
+      usage: "Completed"
+      reference: if any
+    cancellation:
+      description: Contains Cancellation reason
+      required: required if order state is "Cancelled"
+      usage: "-"
+      reference: if any
+    billing:
+      parent: true
+      email:
+        description: "Email ID"
+        required: optional
+        usage: "nobody@nomail.com"
+        reference: if any
+      created_at:
+        description: same as in /init where billing object is created
+        required: mandatory
+        usage: '2023-06-03T09:00:00.000Z'
+        reference: if any
+    fulfillments:
+      parent: true
+      state:
+        parent: true
+        descriptor:
+          parent: true
+          code:
+            description: enum for fulfillment state & mapping to order state for hyperlocal & inter-city is defined here (assuming 1 fulfillment per order, but mapping will remain same for all states except "Order-delivered" where order state will depend on the states of other fulfillment) enum for RTO - "RTO-Initiated", "RTO-Delivered", "RTO-Disposed"
+            required: mandatory
+            usage: "Order-delivered"
+            reference: if any
+      start:
+        parent: true
+        time:
+          parent: true
+          timestamp:
+            description: Timestamp
+            required: required if state is "Order-picked-up", "Out-for-delivery", "Order-delivered"
+            usage: '2023-06-03T10:25:00.000Z'
+            reference: if any
+        instructions:
+          parent: true
+          code:
+            description: type of pickup confirmation code (PCC), enum - "1" (buyer contact no (for self-pickup)), "2" (merchant order no), "3" (other pickup confirmation code), "4" (OTP); required when order is "Packed"
+            required: mandatory
+            usage: '1'
+            reference: if any
+          short_desc:
+            description: value of PCC (required when order is "Packed") - contact no - 10 digits; merchant order no - max 6 digits; other pickup confirmation code - max 6 digits; OTP - max 6 digits
+            required: mandatory
+            usage: "-"
+            reference: if any
+          images:
+            description: may be provided at the time of order pickup ("Order-picked-up") & includes pickup image, rider pickup coordinates
+            required: optional
+            usage: "-"
+            reference: if any
+        contact:
+          parent: true
+          email:
+            description: email ID
+            required: optional
+            usage: "nobody@nomail.com"
+            reference: if any
+      end:
+        parent: true
+        time:
+          parent: true
+          timestamp:
+            description: timestamp
+            required: required if state is "Order-delivered"
+            usage: '2023-06-03T11:35:00.000Z'
+            reference: if any
+        instruction:
+          parent: true
+          code:
+            description: type of code for order delivery - enum - "1" - OTP, "2" - no delivery code; may be generated when order is "Out-for-delivery"
+            required: optional
+            usage: "3"
+            reference: if any
+          short_desc:
+            description: value of DCC  - other DCC - max 6 digits; OTP - max 6 digits
+            required: required for code 1 & 2
+            usage: "-"
+            reference: if any
+          images:
+            description: to be provided at the time of delivery ("Order-delivered") & includes delivery image, rider delivery coordinates
+            required: mandatory
+            usage: "-"
+            reference: if any
+      agent:
+        description: may be provided for last-mile delivery in intercity shipments
+        required: optional
+        usage: "-"
+        reference: if any
+      vehicle:
+        description: may be provided for kerb-side pickup (in self pickup)
+        required: optional
+        usage: "-"
+        reference: if any
+    payment:
+      parent: true
+      description: optional keys here as defined in /confirm
+      required: optional
+      usage: "-"
+      reference: if any
+      time:
+        description: required for payment on delivery orders when order state is "Completed"
+        required: mandatory
+        usage: "-"
+        reference: if any
+    documents:
+      description: required from fulfillment.state = "Order-picked-up" and thereafter
+      required: mandatory
+      usage: "-"
+      reference: if any

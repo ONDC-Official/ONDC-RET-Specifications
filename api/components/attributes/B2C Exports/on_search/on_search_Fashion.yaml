@@ -58,32 +58,8 @@ message:
             required: mandatory
             usage: "01/2017"
             reference: if any
-        tags:
-          parent: true
-          attributes:
-            parent: true
-            description: value for "code"; populating with valid values will enable better discoverability on buyer NPs
-            required: mandatory
-            usage: "-"
-            reference: if any
-            list:
-              parent: true
-              value:
-                description: if `code` is "attributes", suggestive enum is https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/fashion/RET12-colour.json
-                required: mandatory
-                usage: "-"
-                reference: if any
       creds:
         description: Creds
         required: optional
         usage: "-"
         reference: if any
-      tags: 
-        parent: true
-        list:
-            parent: true
-            value:
-              description: if `tags>code` is "timing" and `tags>code>list[<index>]>code` is "type", then it means same timings for online order processing, shipment, self-pickup (as applicable)
-              required: mandatory
-              usage: "-"
-              reference: if any

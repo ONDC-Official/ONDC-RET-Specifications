@@ -13,7 +13,7 @@ value:
     bpp_uri: https://sellerNP.com/ondc
     transaction_id: T1
     message_id: M1
-    timestamp: '2023-06-03T08:00:30.000Z'
+    timestamp: "2023-06-03T08:00:30.000Z"
   message:
     catalog:
       bpp/descriptor:
@@ -27,12 +27,12 @@ value:
         - id: P1
           time:
             label: enable
-            timestamp: '2023-06-03T08:00:30.000Z'
+            timestamp: "2023-06-03T08:00:30.000Z"
           fulfillments:
             - id: F1
               type: Delivery
               contact:
-                phone: '9886098860'
+                phone: "9886098860"
                 email: abc@xyz.com
           descriptor:
             name: Store 1
@@ -46,16 +46,16 @@ value:
             - id: L1
               time:
                 label: enable
-                timestamp: '2023-06-03T07:30:30.000Z'
+                timestamp: "2023-06-03T07:30:30.000Z"
                 schedule:
                   holidays:
-                    - '2023-08-15'
+                    - "2023-08-15"
               gps: 12.967555,77.749666
               address:
                 locality: Jayanagar
                 street: Jayanagar 4th Block
                 city: Bengaluru
-                area_code: '560076'
+                area_code: "560076"
                 state: KA
           categories:
             - id: V1
@@ -71,18 +71,18 @@ value:
                     - code: name
                       value: item.tags.attribute.colour
                     - code: seq
-                      value: '1'
+                      value: "1"
                 - code: attr
                   list:
                     - code: name
                       value: item.tags.attribute.size
                     - code: seq
-                      value: '2'
+                      value: "2"
           items:
             - id: I1
               time:
                 label: enable
-                timestamp: '2023-06-03T07:30:00.000Z'
+                timestamp: "2023-06-03T07:30:00.000Z"
               parent_item_id: V1
               descriptor:
                 name: Allen Solly Men T-shirt
@@ -96,26 +96,26 @@ value:
                 unitized:
                   measure:
                     unit: unit
-                    value: '1'
+                    value: "1"
                 available:
-                  count: '99'
+                  count: "99"
                 maximum:
-                  count: '99'
+                  count: "99"
               price:
                 currency: USD
-                value: '10.00'
-                maximum_value: '12.0'
+                value: "10.00"
+                maximum_value: "12.0"
               category_id: Men's Topwear
               fulfillment_id: F1
               location_id: L1
-              '@ondc/org/returnable': true
-              '@ondc/org/cancellable': true
-              '@ondc/org/return_window': P7D
-              '@ondc/org/seller_pickup_return': true
-              '@ondc/org/time_to_ship': P1D
-              '@ondc/org/available_on_cod': false
-              '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
-              '@ondc/org/statutory_reqs_packaged_commodities':
+              "@ondc/org/returnable": true
+              "@ondc/org/cancellable": true
+              "@ondc/org/return_window": P7D
+              "@ondc/org/seller_pickup_return": true
+              "@ondc/org/time_to_ship": P1D
+              "@ondc/org/available_on_cod": false
+              "@ondc/org/contact_details_consumer_care": Ramesh,ramesh@abc.com,18004254444
+              "@ondc/org/statutory_reqs_packaged_commodities":
                 manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
                 manufacturer_or_packer_address: >-
                   Building 2, Divyasree Technopolis, Off HAL Airport Road,
@@ -167,26 +167,26 @@ value:
                 unitized:
                   measure:
                     unit: unit
-                    value: '1'
+                    value: "1"
                 available:
-                  count: '99'
+                  count: "99"
                 maximum:
-                  count: '99'
+                  count: "99"
               price:
                 currency: USD
-                value: '10.00'
-                maximum_value: '12.0'
+                value: "10.00"
+                maximum_value: "12.0"
               category_id: Men's Topwear
               fulfillment_id: F1
               location_id: L1
-              '@ondc/org/returnable': true
-              '@ondc/org/cancellable': true
-              '@ondc/org/return_window': P7D
-              '@ondc/org/seller_pickup_return': true
-              '@ondc/org/time_to_ship': P1D
-              '@ondc/org/available_on_cod': false
-              '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
-              '@ondc/org/statutory_reqs_packaged_commodities':
+              "@ondc/org/returnable": true
+              "@ondc/org/cancellable": true
+              "@ondc/org/return_window": P7D
+              "@ondc/org/seller_pickup_return": true
+              "@ondc/org/time_to_ship": P1D
+              "@ondc/org/available_on_cod": false
+              "@ondc/org/contact_details_consumer_care": Ramesh,ramesh@abc.com,18004254444
+              "@ondc/org/statutory_reqs_packaged_commodities":
                 manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
                 manufacturer_or_packer_address: >-
                   Building 2, Divyasree Technopolis, Off HAL Airport Road,
@@ -238,26 +238,26 @@ value:
                 unitized:
                   measure:
                     unit: unit
-                    value: '1'
+                    value: "1"
                 available:
-                  count: '99'
+                  count: "99"
                 maximum:
-                  count: '99'
+                  count: "99"
               price:
                 currency: USD
-                value: '10.00'
-                maximum_value: '12.0'
+                value: "10.00"
+                maximum_value: "12.0"
               category_id: Men's Topwear
               fulfillment_id: F1
               location_id: L1
-              '@ondc/org/returnable': true
-              '@ondc/org/cancellable': true
-              '@ondc/org/return_window': P7D
-              '@ondc/org/seller_pickup_return': true
-              '@ondc/org/time_to_ship': P1D
-              '@ondc/org/available_on_cod': false
-              '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
-              '@ondc/org/statutory_reqs_packaged_commodities':
+              "@ondc/org/returnable": true
+              "@ondc/org/cancellable": true
+              "@ondc/org/return_window": P7D
+              "@ondc/org/seller_pickup_return": true
+              "@ondc/org/time_to_ship": P1D
+              "@ondc/org/available_on_cod": false
+              "@ondc/org/contact_details_consumer_care": Ramesh,ramesh@abc.com,18004254444
+              "@ondc/org/statutory_reqs_packaged_commodities":
                 manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
                 manufacturer_or_packer_address: >-
                   Building 2, Divyasree Technopolis, Off HAL Airport Road,
@@ -309,26 +309,26 @@ value:
                 unitized:
                   measure:
                     unit: unit
-                    value: '1'
+                    value: "1"
                 available:
-                  count: '99'
+                  count: "99"
                 maximum:
-                  count: '99'
+                  count: "99"
               price:
                 currency: USD
-                value: '10.0'
-                maximum_value: '12.0'
+                value: "10.0"
+                maximum_value: "12.0"
               category_id: Men's Topwear
               fulfillment_id: F1
               location_id: L1
-              '@ondc/org/returnable': true
-              '@ondc/org/cancellable': true
-              '@ondc/org/return_window': P7D
-              '@ondc/org/seller_pickup_return': true
-              '@ondc/org/time_to_ship': P1D
-              '@ondc/org/available_on_cod': false
-              '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
-              '@ondc/org/statutory_reqs_packaged_commodities':
+              "@ondc/org/returnable": true
+              "@ondc/org/cancellable": true
+              "@ondc/org/return_window": P7D
+              "@ondc/org/seller_pickup_return": true
+              "@ondc/org/time_to_ship": P1D
+              "@ondc/org/available_on_cod": false
+              "@ondc/org/contact_details_consumer_care": Ramesh,ramesh@abc.com,18004254444
+              "@ondc/org/statutory_reqs_packaged_commodities":
                 manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
                 manufacturer_or_packer_address: >-
                   Building 2, Divyasree Technopolis, Off HAL Airport Road,
@@ -380,26 +380,26 @@ value:
                 unitized:
                   measure:
                     unit: unit
-                    value: '1'
+                    value: "1"
                 available:
-                  count: '99'
+                  count: "99"
                 maximum:
-                  count: '99'
+                  count: "99"
               price:
                 currency: USD
-                value: '10.0'
-                maximum_value: '12.0'
+                value: "10.0"
+                maximum_value: "12.0"
               category_id: Men's Topwear
               fulfillment_id: F1
               location_id: L1
-              '@ondc/org/returnable': true
-              '@ondc/org/cancellable': true
-              '@ondc/org/return_window': P7D
-              '@ondc/org/seller_pickup_return': true
-              '@ondc/org/time_to_ship': P1D
-              '@ondc/org/available_on_cod': false
-              '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
-              '@ondc/org/statutory_reqs_packaged_commodities':
+              "@ondc/org/returnable": true
+              "@ondc/org/cancellable": true
+              "@ondc/org/return_window": P7D
+              "@ondc/org/seller_pickup_return": true
+              "@ondc/org/time_to_ship": P1D
+              "@ondc/org/available_on_cod": false
+              "@ondc/org/contact_details_consumer_care": Ramesh,ramesh@abc.com,18004254444
+              "@ondc/org/statutory_reqs_packaged_commodities":
                 manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
                 manufacturer_or_packer_address: >-
                   Building 2, Divyasree Technopolis, Off HAL Airport Road,
@@ -451,26 +451,26 @@ value:
                 unitized:
                   measure:
                     unit: unit
-                    value: '1'
+                    value: "1"
                 available:
-                  count: '99'
+                  count: "99"
                 maximum:
-                  count: '99'
+                  count: "99"
               price:
                 currency: USD
-                value: '10.0'
-                maximum_value: '12.0'
+                value: "10.0"
+                maximum_value: "12.0"
               category_id: Men's Topwear
               fulfillment_id: F1
               location_id: L1
-              '@ondc/org/returnable': true
-              '@ondc/org/cancellable': true
-              '@ondc/org/return_window': P7D
-              '@ondc/org/seller_pickup_return': true
-              '@ondc/org/time_to_ship': P1D
-              '@ondc/org/available_on_cod': false
-              '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
-              '@ondc/org/statutory_reqs_packaged_commodities':
+              "@ondc/org/returnable": true
+              "@ondc/org/cancellable": true
+              "@ondc/org/return_window": P7D
+              "@ondc/org/seller_pickup_return": true
+              "@ondc/org/time_to_ship": P1D
+              "@ondc/org/available_on_cod": false
+              "@ondc/org/contact_details_consumer_care": Ramesh,ramesh@abc.com,18004254444
+              "@ondc/org/statutory_reqs_packaged_commodities":
                 manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
                 manufacturer_or_packer_address: >-
                   Building 2, Divyasree Technopolis, Off HAL Airport Road,
@@ -522,26 +522,26 @@ value:
                 unitized:
                   measure:
                     unit: unit
-                    value: '1'
+                    value: "1"
                 available:
-                  count: '99'
+                  count: "99"
                 maximum:
-                  count: '99'
+                  count: "99"
               price:
                 currency: USD
-                value: '10.0'
-                maximum_value: '12.0'
+                value: "10.0"
+                maximum_value: "12.0"
               category_id: Men's Topwear
               fulfillment_id: F1
               location_id: L1
-              '@ondc/org/returnable': true
-              '@ondc/org/cancellable': true
-              '@ondc/org/return_window': P7D
-              '@ondc/org/seller_pickup_return': true
-              '@ondc/org/time_to_ship': P1D
-              '@ondc/org/available_on_cod': false
-              '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
-              '@ondc/org/statutory_reqs_packaged_commodities':
+              "@ondc/org/returnable": true
+              "@ondc/org/cancellable": true
+              "@ondc/org/return_window": P7D
+              "@ondc/org/seller_pickup_return": true
+              "@ondc/org/time_to_ship": P1D
+              "@ondc/org/available_on_cod": false
+              "@ondc/org/contact_details_consumer_care": Ramesh,ramesh@abc.com,18004254444
+              "@ondc/org/statutory_reqs_packaged_commodities":
                 manufacturer_or_packer_name: Aditya Birla Fashion & Retail Ltd
                 manufacturer_or_packer_address: >-
                   Building 2, Divyasree Technopolis, Off HAL Airport Road,
@@ -612,21 +612,21 @@ value:
             - code: order_value
               list:
                 - code: min_value
-                  value: '300.00'
+                  value: "300.00"
             - code: timing
               list:
                 - code: type
-                  value: All [^41]
+                  value: All
                 - code: location
                   value: L1
                 - code: day_from
-                  value: '1'
+                  value: "1"
                 - code: day_to
-                  value: '7'
+                  value: "7"
                 - code: time_from
-                  value: '0000'
+                  value: "0000"
                 - code: time_to
-                  value: '2359'
+                  value: "2359"
             - code: serviceability
               list:
                 - code: location
@@ -634,7 +634,7 @@ value:
                 - code: category
                   value: Men's Topwear
                 - code: type
-                  value: '12'
+                  value: "12"
                 - code: val
                   value: IND
                 - code: unit

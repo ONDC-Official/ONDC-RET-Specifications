@@ -1,5 +1,20 @@
-value:
-  [^1]: enum - "enable", "disable"
-  [^2]: timestamp for item event
-  [^3]: optional
-  [^4]: optional
+message:
+  parent: true
+  catalog:
+    parent: true
+    bpp/providers:
+      parent: true
+      items:
+        parent: true
+        time:
+          parent: true
+          label:
+            description: enum - "enable", "disable"
+            required: mandatory
+            usage: enable
+            reference: if any
+          timestamp:
+            description: timestamp for item event
+            required: mandatory
+            usage: "2023-06-03T07:30:00.000Z"
+            reference: if any
