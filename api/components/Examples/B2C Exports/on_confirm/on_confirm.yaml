@@ -171,10 +171,10 @@ value:
         "@ondc/org/withholding_amount": "1.00"
         "@ondc/org/settlement_details":
           - settlement_counterparty: buyer-app
-            settlement_phase: sale-amount
+            settlement_phase: finder-fee
             beneficiary_name: xxxxx
-            settlement_type: upi
-            upi_address: gft@oksbi
+            settlement_type: OPGSP
+            opgsp_address: gft@oksbi
             settlement_bank_account_no: XXXXXXXXXX
             settlement_ifsc_code: XXXXXXXXX
             bank_name: xxxx
