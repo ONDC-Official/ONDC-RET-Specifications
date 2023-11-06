@@ -4,7 +4,7 @@ message:
     parent: true
     tags:
       parent: true
-      code: 
+      catalog_inc: 
         description: start_time < Context.timestamp, end_time <= Context.timestamp, end_time > start_time
         required: mandatory
         usage: "-"

@@ -1,16 +1,8 @@
-search_by_country:
+search_full_catalog:
   parent: true
-  $ref: "./search/search_by_country.yaml"
+  $ref: "./search/search_full_catalog.yaml"
 
-search_by_item:
-  parent: true
-  $ref: "./search/search_by_item.yaml"
-
-search_by_fulfillment_end_loc:
-  parent: true
-  $ref: "./search/search_by_fulfillment_end_loc.yaml"
-
-incremental_catalog_refresh_one_time_push:
+search_incremental_one_time_push:
   parent: true
   $ref: "./search/incremental_catalog_refresh_one_time_push.yaml"
 
@@ -23,13 +15,9 @@ on_search_Grocery:
   parent: true
   $ref: "./on_search/on_search_Grocery.yaml"
 
-incremental_catalog_refresh_item_changes:
+on_search_incremental_catalog_refresh:
   parent: true
   $ref: "./on_search/incremental_catalog_refresh_item_changes.yaml"
-
-incremental_catalog_refresh_store_closed_temporarily:
-  parent: true
-  $ref: "./on_search/incremental_catalog_refresh_store_closed_temporarily.yaml"
 
 select:
   parent: true

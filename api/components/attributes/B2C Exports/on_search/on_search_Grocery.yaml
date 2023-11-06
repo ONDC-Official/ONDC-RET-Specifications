@@ -220,12 +220,12 @@ message:
         id:
           description: globally identifiable identity or unique ID provided by seller app; mandatory if creds are provided
           required: mandatory
-          usage: "-"
+          usage: EXP-12345678
           reference: if any
         url:
           description: display URL for credential
           required: optional
-          usage: "-"
+          usage: https://abcd.cdn.com/images/license-img
           reference: if any
       offers:
         description: offer definition as per the template defined above

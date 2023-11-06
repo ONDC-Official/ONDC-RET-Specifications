@@ -46,10 +46,30 @@ message:
         usage: "Shirts"
         reference: if any
     fulfillment:
+      parent: true
       description: when not specified, all fulfillment types supported by provider should be returned in response
       required: optional
       usage: "-"
       reference: if any
+      type:
+        description: when not specified, all fulfillment types supported by provider should be returned in response
+        required: optional
+        usage: Delivery
+        reference: if any
+      end:
+        parent: true
+        location:
+          parent: true
+          gps:
+            description: minimum 6 digit decimal precision for gps coordinates
+            required: mandatory
+            usage: "1.380621, 103.746364"
+            reference: if any
+          address:
+            description: area_code and address details
+            required: optional
+            usage: "-"
+            reference: if any
     payment:
       parent: true
       '@ondc/org/buyer_app_finder_fee_amount':
