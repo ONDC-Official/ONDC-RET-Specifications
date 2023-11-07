@@ -1,5 +1,5 @@
 summary: Send error
-description: Send error for item not in stock 
+description: Send error for item not in stock
 value:
   context:
     domain: ONDC:RET12
@@ -13,56 +13,56 @@ value:
     message_id: M2
     city: UN:SIN
     country: SGP
-    timestamp: '2023-06-03T08:30:30.000Z'
+    timestamp: "2023-06-03T08:30:30.000Z"
   message:
     order:
       provider:
         id: P1
         locations:
-          - id: L1 [^1]
+          - id: L1
       items:
         - fulfillment_id: F1
           id: I1
       fulfillments:
         - id: F1
           type: Delivery
-          '@ondc/org/provider_name': LSP or Provider Name
+          "@ondc/org/provider_name": LSP or Provider Name
           tracking: false
-          '@ondc/org/category': Immediate Delivery
-          '@ondc/org/TAT': PT60M
+          "@ondc/org/category": Immediate Delivery
+          "@ondc/org/TAT": PT60M
           state:
             descriptor:
               code: Serviceable
       quote:
         price:
           currency: USD
-          value: '0'
+          value: "0"
         breakup:
-          - '@ondc/org/item_id [^9]': I1
-            '@ondc/org/item_quantity':
-              count [^10]: 0
+          - "@ondc/org/item_id ": I1
+            "@ondc/org/item_quantity":
+              count: 0
             title: Allen Solly Men T-shirt
-            '@ondc/org/title_type [^11]': item
+            "@ondc/org/title_type ": item
             price:
               currency: USD
-              value: '0'
+              value: "0"
             item:
               quantity:
                 available:
-                  count: '0'
+                  count: "0"
                 maximum:
-                  count: '0'
+                  count: "0"
               price:
                 currency: USD
-                value: '0'
-          - '@ondc/org/item_id': F1
+                value: "0"
+          - "@ondc/org/item_id": F1
             title: Delivery charges
-            '@ondc/org/title_type [^13]': delivery
+            "@ondc/org/title_type ": delivery
             price:
               currency: USD
-              value: '0'
+              value: "0"
         ttl: P1D
   error:
     type: DOMAIN-ERROR
-    code: '40002'
-    message: M1 [^4]
+    code: "40002"
+    message: M1

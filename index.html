@@ -205,7 +205,7 @@
             <div class="tab-pane fade" id="attribute" role="tabpanel">
               <table class="table">
                 <tr>
-                  <td><b>Attribute Set</b></td>
+                  <td rowspan="2"><b>Attribute Set</b></td>
                   <td>
                     <select
                       id="attribute-sets-dropdown"
@@ -221,14 +221,23 @@
                     ></select>
                   </td>
                 </tr>
+                <tr>
+                  <td colspan="2">
+                    <select
+                      id="attribute-l1-dropdown"
+                      class="form-select"
+                      onchange="updateL1Attribute()"
+                    ></select>
+                  </td>
+                </tr>
               </table>
               <div class="table-wrapper">
                 <table id="tableset">
                   <tr>
                     <th>Attribute Path</th>
                     <th>Required</th>
-                    <th>Description</th>
                     <th>Sample Usage</th>
+                    <th>Description</th>
                   </tr>
                 </table>
               </div>

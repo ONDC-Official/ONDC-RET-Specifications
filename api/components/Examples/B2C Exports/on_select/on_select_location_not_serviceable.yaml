@@ -13,50 +13,50 @@ value:
     message_id: M2
     city: UN:SIN
     country: SGP
-    timestamp: '2023-06-03T08:30:30.000Z'
+    timestamp: "2023-06-03T08:30:30.000Z"
   message:
     order:
       provider:
         id: P1
         locations:
-          - id: L1 [^1]
+          - id: L1
       items:
         - fulfillment_id: F1
           id: I1
       fulfillments:
         - id: F1
           type: Delivery
-          '@ondc/org/provider_name': LSP or Provider Name
+          "@ondc/org/provider_name": LSP or Provider Name
           tracking: false
-          '@ondc/org/category': ''
-          '@ondc/org/TAT': ''
+          "@ondc/org/category": ""
+          "@ondc/org/TAT": ""
           state:
             descriptor:
               code: Non-serviceable
       quote:
         price:
           currency: USD
-          value: '10.00'
+          value: "10.00"
         breakup:
-          - '@ondc/org/item_id [^9]': I1
-            '@ondc/org/item_quantity':
-              count [^10]: 1
+          - "@ondc/org/item_id ": I1
+            "@ondc/org/item_quantity":
+              count: 1
             title: Allen Solly Men T-shirt
-            '@ondc/org/title_type': item
+            "@ondc/org/title_type": item
             price:
               currency: USD
-              value: '10.00'
+              value: "10.00"
             item:
               quantity:
                 available:
-                  count: '99'
+                  count: "99"
                 maximum:
-                  count: '99'
+                  count: "99"
               price:
                 currency: USD
-                value: '10.00'
+                value: "10.00"
 
         ttl: P1D
   error:
     type: DOMAIN-ERROR
-    code: '30009 [^2]'
+    code: "30009 "

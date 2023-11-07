@@ -11,7 +11,7 @@ value:
     bap_uri: https://buyerNP.com/ondc
     transaction_id: T1
     message_id: M1
-    timestamp: '2023-06-03T08:00:00.000Z'
+    timestamp: "2023-06-03T08:00:00.000Z"
     ttl: PT30S
   message:
     intent:
@@ -24,8 +24,7 @@ value:
           location:
             gps: 1.380621, 103.746364
             address:
-              area_code: '6802308'
+              area_code: "6802308"
       payment:
-        '@ondc/org/buyer_app_finder_fee_type': percent
-        '@ondc/org/buyer_app_finder_fee_amount': '3'
-  
+        "@ondc/org/buyer_app_finder_fee_type": percent
+        "@ondc/org/buyer_app_finder_fee_amount": "3"

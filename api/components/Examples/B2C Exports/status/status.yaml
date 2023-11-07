@@ -9,11 +9,11 @@ value:
     bap_uri: https://buyerNP.com/ondc
     bpp_id: sellerNP.com
     bpp_uri: https://sellerNP.com/ondc
-    transaction_id [^1]: T2
+    transaction_id: T2
     message_id: M12
     city: UN:SIN
     country: SGP
-    timestamp: '2023-06-04T10:00:00.000Z'
+    timestamp: "2023-06-04T10:00:00.000Z"
     ttl: PT30S
   message:
     order_id: O1

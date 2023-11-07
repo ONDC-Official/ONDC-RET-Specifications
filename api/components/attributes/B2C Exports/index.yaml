@@ -1,0 +1,72 @@
+search_full_catalog:
+  parent: true
+  $ref: "./search/search_full_catalog.yaml"
+
+search_incremental_one_time_push:
+  parent: true
+  $ref: "./search/incremental_catalog_refresh_one_time_push.yaml"
+
+
+on_search_Fashion:
+  parent: true
+  $ref: "./on_search/on_search_Fashion.yaml"
+
+on_search_Grocery:
+  parent: true
+  $ref: "./on_search/on_search_Grocery.yaml"
+
+on_search_incremental_catalog_refresh:
+  parent: true
+  $ref: "./on_search/incremental_catalog_refresh_item_changes.yaml"
+
+select:
+  parent: true
+  $ref: "./select/select.yaml"
+
+on_select_item_in_stock:
+  parent: true
+  $ref: "./on_select/on_select_item_in_stock.yaml"
+
+on_select_item_not_in_stock:
+  parent: true
+  $ref: "./on_select/on_select_item_not_in_stock.yaml"
+
+on_select_location_not_serviceable:
+  parent: true
+  $ref: "./on_select/on_select_location_not_serviceable.yaml"
+
+init: 
+  parent: true
+  $ref: "./init/init.yaml"
+
+on_init:
+  parent: true
+  $ref: "./on_init/on_init.yaml"
+
+confirm:
+  parent: true
+  $ref: "./confirm/confirm.yaml"
+
+on_confirm:
+  parent: true
+  $ref: "./on_confirm/on_confirm.yaml"
+
+on_update:
+  parent: true
+  $ref: "./on_update/on_update_merchant_part_cancels.yaml"
+
+cancel:
+  parent: true
+  $ref: "./cancel/cancel.yaml"
+
+on_cancel:
+  parent: true
+  $ref: "./on_cancel/on_cancel.yaml"
+
+status:
+  parent: true
+  $ref: "./status/status.yaml"
+
+on_status:
+  parent: true
+  $ref: "./on_status/on_status.yaml"

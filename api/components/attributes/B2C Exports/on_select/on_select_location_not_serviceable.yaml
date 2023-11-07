@@ -1,0 +1,20 @@
+message:
+  parent: true
+  order:
+    parent: true
+    provider:
+      parent: true
+      locations:
+        parent: true
+        id:
+          description: may be the same location as selected by the buyer or a different location
+          required: mandatory
+          usage: "-"
+          reference: if any
+error:
+  parent: true
+  code:
+    description: if merchant not available, use error code 30017
+    required: mandatory
+    usage: "30017"
+    reference: if any

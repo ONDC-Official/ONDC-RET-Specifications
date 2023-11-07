@@ -13,7 +13,7 @@ value:
     message_id: M2
     city: UN:SIN
     country: SGP
-    timestamp: '2023-06-03T08:30:00.000Z'
+    timestamp: "2023-06-03T08:30:00.000Z"
     ttl: PT30S
   message:
     order:
@@ -24,13 +24,13 @@ value:
       items:
         - id: I1
           location_id: L1
-      offers [^1]:
-        - id: BUY2GET3 [^2]
+      offers:
+        - id: BUY2GET3
       fulfillments:
-        - end [^3]:
+        - end:
             location:
-              gps [^4]: 1.380621, 103.746364
+              gps: 1.380621, 103.746364
               address:
-                area_code: '6802308'
-      payment [^5]:
-        type: ON-FULFILLMENT [^6]
+                area_code: "6802308"
+      payment:
+        type: ON-FULFILLMENT

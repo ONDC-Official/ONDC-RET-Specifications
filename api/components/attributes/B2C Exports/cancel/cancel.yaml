@@ -1,0 +1,18 @@
+message:
+  parent: true
+  cancellation_reason_id:
+    required: mandatory
+    description: cancellation reason codes are defined here, use "006" for cancellation of fulfillment for TAT breach
+    reference: if any
+    usage: 006
+  descriptor:
+    required: optional
+    description: required only if fulfillment is being cancelled
+    reference: if any
+    usage: "-"
+    parent: true
+    short_desc:
+      required: mandatory
+      description: fulfillment id for cancellation of fulfillment for TAT breach
+      reference: if any
+      usage: F1

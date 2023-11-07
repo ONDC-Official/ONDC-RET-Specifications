@@ -1,0 +1,25 @@
+message:
+  parent: true
+  order:
+    parent: true
+    description: shows the current state of order with the new fulfillment for part cancel by merchant
+    required: mandatory
+    usage: "-"
+    reference: if any
+    items:
+      parent: true
+      fulfillment_id:
+        parent: true
+        description: forward shipment fulfillment id and new fulfillment id for cancel request, must be unique for each cancellation / cancellation request in consecutive list elements
+        required: mandatory
+        usage: "-"
+        reference: if any
+        quantity:
+          parent: true
+          count:
+            description: for forward shipent, change in quantity (reduction) as initiated by seller NP; for new fulfillment list element, quantity for which cancel initiated, i.e. for this specific cancellation identified by unique fulfillment id "C1"
+    payment:
+      description: keys here as defined in /confirm
+      required: optional
+      usage: "-"
+      reference: if any

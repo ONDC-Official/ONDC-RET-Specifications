@@ -1,0 +1,234 @@
+context:
+  parent: true
+  domain:
+    description: updated domain namespace is https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
+    required: mandatory
+    usage: "ONDC:RET10"
+    reference: if any
+message:
+  parent: true
+  catalog:
+    parent: true
+    bpp/descriptor:
+      parent: true
+      description: descriptor for seller NP
+      required: mandatory
+      usage: "-"
+      reference: if any
+      symbol:
+        description: logo or image for seller NP
+        required: mandatory
+        usage: https://sellerNP.com/images/np.png
+        reference: if any
+    bpp/providers:
+      parent: true
+      description: descriptor for seller (merchant) that processes & fulfills orders
+      required: mandatory
+      usage: "-"
+      reference: if any
+      id:
+        description: unique id for provider, must be same as bpp_id for ISN seller apps. Use of same provider id for distinct legal entities will cause an MSN being regarded as ISN and use of different provider id for same legal entity will cause an ISN being regarded as MSN, thus resulting in tax non-compliance
+        required: mandatory
+        usage: F1
+        reference: if any
+      time:
+        parent: true
+        label:
+          description: enum - "enable" (default), "disable" (soft delete of provider from buyer NP cache)
+          required: mandatory
+          usage: enable
+          reference: if any
+        timestamp:
+          description: timestamp when the snapshot for this provider (including provider details, items) was generated, must be <= Context.timestamp. Buyer NPs can use this to determine from when to start incremental refresh
+          required: mandatory
+          usage: "2023-06-03T07:00:30.000Z"
+          reference: if any
+      fulfillments:
+        parent: true
+        description: provider level fulfillment options
+        required: mandatory
+        usage: "-"
+        reference: if any
+        contact:
+          parent: true
+          description: contact details for merchant - if merchant is in multiple locations, this will be the contact detail for merchant and contact detail for the storefront (specific location) will be in fulfillment.start
+          required: mandatory
+          usage: "-"
+          reference: if any
+          phone:
+            description: valid 10 digit (mobile no) or 11 digit no
+            required: mandatory
+            usage: "9886098860"
+            reference: if any
+          email:
+            description: email id of merchant or seller NP
+            required: mandatory
+            usage: abc@xyz.com
+            reference: if any
+      ttl:
+        description: ISO8601 duration format for validity of provider catalog
+        required: mandatory
+        usage: "P1D"
+        reference: if any
+      locations:
+        parent: true
+        description: locations for provider with unique id for each location
+        required: mandatory
+        usage: "-"
+        reference: if any
+        time:
+          parent: true
+          label:
+            description: enum - "enable" (default), "disable" (soft delete of provider location, i.e. warehouse or store, from buyer NP cache - in this case, serviceability for the store should not be a part of the catalog), "close" (temporary closure of store with the same format for time.range as specified, for incremental refresh, here - https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.ar4y0zvk65s4 only if this event is available at the time of generating the full catalog snapshot)
+            required: mandatory
+            usage: "disable"
+            reference: if any
+          timestamp:
+            description: timestamp when the snapshot for location was generated, must be <= Context.timestamp
+            required: mandatory
+            usage: "2023-06-03T07:30:30.000Z"
+            reference: if any
+          schedule:
+            parent: true
+            holidays:
+              description: list of future dated holidays, to be used as per holiday calendar; if no holidays, empty array needs to be passed
+              required: mandatory
+              usage: "2023-08-15"
+              reference: if any
+        address:
+          parent: true
+          locality:
+            description: locality name
+            required: mandatory
+            usage: "Kadma"
+            reference: if any
+      categories:
+        parent: true
+        tags:
+          parent: true
+          code:
+            description: if code is "attr", then it defines variant attributes i.e. attribute & sequence; multiple variant attributes can be defined in multiple attr blocks
+            required: mandatory
+            usage: "-"
+            reference: if any
+          list:
+            parent: true
+            code:
+              description: if "code" is "attr", then it is namespaced attribute, above example means attribute(s) in "quantity.unitized" for an item
+              required: mandatory
+              usage: "-"
+              reference: if any
+            value:
+              description: if `tags>code` is "attr" and `tags>list>code` is "name", then it's corresponding `value` means concatenation of item.quantity.unitized.measure.value and item.quantity.unitized.measure.unit e.g. "1 kilogram", "2 kilogram", "5 kilogram"
+      items:
+        parent: true
+        time:
+          parent: true
+          label:
+            description: enum - "enable", "disable"
+            required: mandatory
+            usage: enable
+            reference: if any
+          timestamp:
+            description: timestamp for item event
+            required: mandatory
+            usage: "2023-06-03T07:30:00.000Z"
+            reference: if any
+        parent_item_id:
+          description: if variant grouping defined for provider above, this matches id for variant_group definition; if not defined or id is invalid, buyer NPs may choose to display as normal SKU item
+          required: mandatory
+          usage: V1
+          reference: if any
+        descriptor:
+          parent: true
+          code:
+            description: unique code for item which will be in this format - "type:code" where type is 1 - EAN, 2 - ISBN, 3 - GTIN, 4 - HSN, 5 - others
+            required: optional
+            usage: 2
+            reference: if any
+          images:
+            description: while item images ensures better discoverability & enhances user experience, if no image is available, seller NPs shouldn’t send image (instead of sending placeholder image)
+            required: mandatory
+            usage: "-"
+            reference: if any
+        quantity:
+          parent: true
+          unitized:
+            parent: true
+            measure:
+              parent: true
+              unit:
+                description: enum - "unit", "dozen", "kilogram", "tonne", "litre", "millilitre" (https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/grocery/RET10-UOM.json)
+                required: mandatory
+                usage: unit
+                reference: if any
+          available:
+            parent: true
+            count:
+              description: stringified integer value - default value for item in stock
+              required: mandatory
+              usage: "3"
+              reference: if any
+          maximum:
+            parent: true
+            count:
+              description: stringified integer value - cap per order (if exists) or default value
+              required: mandatory
+              usage: "3"
+              reference: if any
+        category_id:
+          description: enum from https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+          required: mandatory
+          usage: Foodgrains
+          reference: if any
+        "@ondc/org/returnable":
+          description: should default to true except for specific make-to-order items
+          required: mandatory
+          usage: true
+          reference: if any
+        "@ondc/org/cancellable":
+          description: should default to true except for specific make-to-order items
+          required: mandatory
+          usage: true
+          reference: if any
+        "@ondc/org/seller_pickup_return":
+          description: whether seller is responsible for pick up of item for return
+          required: mandatory
+          usage: true
+          reference: if any
+        "@ondc/org/contact_details_consumer_care":
+          description: valid contact details exactly in this format - name, email, contact no
+          required: mandatory
+          usage: "Ambani,ambani@abc.com,18004254444"
+          reference: if any
+        "@ondc/org/statutory_reqs_packaged_commodities":
+          description: mapping of category to attribute key is defined https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+          required: mandatory
+          usage: "-"
+          reference: if any
+        "@ondc/org/statutory_reqs_prepackaged_food":
+          description: mapping of category to attribute key is defined https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+          required: mandatory
+          usage: "-"
+          reference: if any
+      creds:
+        parent: true
+        description: credentials for provider
+        required: optional
+        usage: "-"
+        reference: if any
+        id:
+          description: globally identifiable identity or unique ID provided by seller app; mandatory if creds are provided
+          required: mandatory
+          usage: EXP-12345678
+          reference: if any
+        url:
+          description: display URL for credential
+          required: optional
+          usage: https://abcd.cdn.com/images/license-img
+          reference: if any
+      offers:
+        description: offer definition as per the template defined above
+        required: mandatory
+        usage: "-"
+        reference: if any

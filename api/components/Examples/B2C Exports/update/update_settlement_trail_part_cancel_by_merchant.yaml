@@ -13,7 +13,7 @@ value:
     message_id: M6
     city: UN:SIN
     country: SGP
-    timestamp: '2023-06-03T11:00:00.000Z'
+    timestamp: "2023-06-03T11:00:00.000Z"
   message:
     update_target: payment
     order:
@@ -22,9 +22,9 @@ value:
         - id: C1
           type: Cancel
       payment:
-        '@ondc/org/settlement_details':
+        "@ondc/org/settlement_details":
           - settlement_counterparty: buyer
             settlement_phase: refund
             settlement_type: OPGSP
-            settlement_amount: '17.00'
-            settlement_timestamp: '2023-06-03T11:00:00.000Z'
+            settlement_amount: "17.00"
+            settlement_timestamp: "2023-06-03T11:00:00.000Z"

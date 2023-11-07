@@ -1,0 +1,28 @@
+message:
+  parent: true
+  order:
+    parent: true
+    state:
+      description: order state will be updated to "Cancelled" if the order is cancelled
+      usage: Cancelled
+      required: mandatory
+      reference: if any
+    cancellation:
+      description: to be used only if order is cancelled
+      usage: "-"
+      required: 'mandatory if state: "Cancelled"'
+      reference: if any
+    fulfillments:
+      parent: true
+      tags:
+        description: tags for defining the order
+        reference: if any
+        required: only if fulfillment is cancelled
+        usage: "-"
+    quote:
+      parent: true
+      price:
+        description: updated order value including cancellation charges (delivery + packing charges)
+        reference: if any
+        required: mandatory
+        usage: "-"

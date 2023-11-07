@@ -13,33 +13,33 @@ value:
     message_id: M3
     city: UN:SIN
     country: SGP
-    timestamp: '2023-06-03T09:00:30.000Z'
+    timestamp: "2023-06-03T09:00:30.000Z"
   message:
     order:
       provider:
         id: P1
         locations:
-          - id: L1 [^1]
+          - id: L1
       items:
         - id: I1
           fulfillment_id: F1
           quantity:
             count: 2
-      billing [^2]:
+      billing:
         name: ONDC buyer
         address:
-          name: 'My house #'
+          name: "My house #"
           building: My building name
           locality: My street name
           city: Jurong East
           state: Jurong East
           country: SGP
-          area_code: '6802308'
-        tax_number [^3]: XXXXXXXXXXXXXXX
-        email [^4]: nobody@nomail.com
-        phone: '9886098860'
-        created_at [^5]: '2023-06-03T09:00:00.000Z'
-        updated_at [^6]: '2023-06-03T09:00:00.000Z'
+          area_code: "6802308"
+        tax_number: XXXXXXXXXXXXXXX
+        email: nobody@nomail.com
+        phone: "9886098860"
+        created_at: "2023-06-03T09:00:00.000Z"
+        updated_at: "2023-06-03T09:00:00.000Z"
       fulfillments:
         - id: F1
           type: Delivery
@@ -48,93 +48,93 @@ value:
             location:
               gps: 1.380621, 103.746364
               address:
-                name: 'My house #'
+                name: "My house #"
                 building: My building name
                 locality: My street name
                 city: Jurong East
                 state: Jurong East
                 country: SGP
-                area_code: '6802308'
+                area_code: "6802308"
             contact:
-              phone: '9886098860'
+              phone: "9886098860"
       quote:
         price:
           currency: USD
-          value: '17'
+          value: "17"
         breakup:
-          - '@ondc/org/item_id [^9]': I1
-            '@ondc/org/item_quantity':
-              count [^10]: 1
+          - "@ondc/org/item_id ": I1
+            "@ondc/org/item_quantity":
+              count: 1
             title: Allen Solly Men T-shirt
-            '@ondc/org/title_type [^11]': item
+            "@ondc/org/title_type ": item
             price:
               currency: USD
-              value: '10.00 [^12]'
+              value: "10.00 "
             item:
               quantity:
                 available:
-                  count: '99'
+                  count: "99"
                 maximum:
-                  count: '99'
+                  count: "99"
               price:
                 currency: USD
-                value: '10.00'
-          - '@ondc/org/item_id': F1
+                value: "10.00"
+          - "@ondc/org/item_id": F1
             title: Delivery charges
-            '@ondc/org/title_type [^13]': delivery
+            "@ondc/org/title_type ": delivery
             price:
               currency: USD
-              value: '2.00'
-          - '@ondc/org/item_id': F1
+              value: "2.00"
+          - "@ondc/org/item_id": F1
             title: Tax
-            '@ondc/org/title_type': tax_f [^15]
+            "@ondc/org/title_type": tax_f
             price:
               currency: USD
-              value: '0.00'
-          - '@ondc/org/item_id': F1
+              value: "0.00"
+          - "@ondc/org/item_id": F1
             title: Packing charges
-            '@ondc/org/title_type [^16]': packing
+            "@ondc/org/title_type ": packing
             price:
               currency: USD
-              value: '5.00'
-          - '@ondc/org/item_id': I1
+              value: "5.00"
+          - "@ondc/org/item_id": I1
             title: Tax
-            '@ondc/org/title_type [^17]': tax
+            "@ondc/org/title_type ": tax
             price:
               currency: USD
-              value: '0.00'
-          - '@ondc/org/item_id': I1
+              value: "0.00"
+          - "@ondc/org/item_id": I1
             title: Discount
-            '@ondc/org/title_type [^18]': discount
+            "@ondc/org/title_type ": discount
             price:
               currency: USD
-              value: '-1.00'
-          - '@ondc/org/item_id': F1
+              value: "-1.00"
+          - "@ondc/org/item_id": F1
             title: Convenience Fee
-            '@ondc/org/title_type [^19]': misc
+            "@ondc/org/title_type ": misc
             price:
               currency: USD
-              value: '1.00'
-        ttl: P1D [^20]
-      payment [^7]:
+              value: "1.00"
+        ttl: P1D
+      payment:
         type: ON-ORDER
         collected_by: SOR
         uri: https://snp.com/pg
-        status: NOT-PAID [^8]
+        status: NOT-PAID
         params:
-          currency: USD,
-          amount: '12.00'
-          bank_code: xxxxxxxxx,
+          currency: USD
+          amount: "12.00"
+          bank_code: xxxxxxxxx
           bank_account_number: xxxxxxxxxxxx
-        '@ondc/org/buyer_app_finder_fee_type': percent
-        '@ondc/org/buyer_app_finder_fee_amount': '3'
-        '@ondc/org/settlement_basis': delivery [^9]
-        '@ondc/org/settlement_window': P1D [^10]
-        '@ondc/org/withholding_amount': '10.00 [^11]'
-        '@ondc/org/settlement_details [^12]':
+        "@ondc/org/buyer_app_finder_fee_type": percent
+        "@ondc/org/buyer_app_finder_fee_amount": "3"
+        "@ondc/org/settlement_basis": delivery
+        "@ondc/org/settlement_window": P1D
+        "@ondc/org/withholding_amount": "10.00 "
+        "@ondc/org/settlement_details ":
           - settlement_counterparty: buyer-app
             settlement_phase: finder-fee
-            settlement_type: OPGSP [^13]
+            settlement_type: OPGSP
             beneficiary_name: xxxxx
             opgsp_address: gft@oksbi
             settlement_bank_account_no: XXXXXXXXXX
@@ -149,7 +149,7 @@ value:
               - code: payment_provider
                 value: abcd
       tags:
-        - code: bpp_terms [^24]
+        - code: bpp_terms
           list:
-            - code: tax_number [^25]
+            - code: tax_number
               value: gst_number_of_sellerNP
