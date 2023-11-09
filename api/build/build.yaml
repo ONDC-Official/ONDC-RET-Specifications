@@ -11307,271 +11307,130 @@ x-attributes:
   B2B:
     attribute_set:
       search:
+        parent: true
+        context:
+          parent: true
+          domain:
+            description: >-
+              updated domain namespace defined here -
+              https://docs.google.com/document/d/brvcltG_DagZ3kGrZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
+            required: mandatory
+            usage: ONDC:RET12
+            reference: if any
+          city:
+            description: >-
+              city code for search that identifies the cities where sellers have
+              stores. List of city codes, with pincode mapping, are here -
+              https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=1474472733
+            required: mandatory
+            usage: std:080
+            reference: if any
+          bap_id:
+            description: subscriber id for buyer app
+            required: mandatory
+            usage: buyerNP.com
+            reference: if any
+          bap_uri:
+            description: subscriber URI for buyer app
+            required: mandatory
+            usage: https://buyerNP.com/ondc
+            reference: if any
+          timestamp:
+            description: RFC3339 compliant timestamp
+            required: mandatory
+            usage: '2023-06-03T08:00:00.000Z'
+            reference: if any
+          ttl:
+            description: validity of message
+            required: mandatory
+            usage: PT30S
+            reference: if any
         message:
+          parent: true
           intent:
-            fulfillment:
-              location:
-                area_code:
-                  required: optional
-                  reference: if any
-                  usage: 560001
-                  description: Area code
-                gps:
-                  required: mandatory
-                  reference: if any
-                  usage: 12.974002,77.613458
-                  description: Gps
-              type:
-                required: optional
-                reference: if any
-                usage: Delivery
-                description: Type of fulfillment
+            parent: true
             item:
-              category:
-                required: optional
-                reference: if any
-                usage: Foodgrains
-                description: Category of item
-            tags:
-              buyer_id:
-                required: mandatory
-                reference: if any
-                usage: xxxxxxxxxxxxxxx
-                description: Category of item
-      on_search:
-        message:
-          catalog:
-            descriptor: &ref_20
+              parent: true
+              description: item to be searched
+              required: optional
+              usage: '-'
+              reference: if any
               name:
-                required: mandatory
-                description: Physical description of name value for something.
+                description: item name to be searched
+                required: present if item is present
+                usage: oil
                 reference: if any
-                usage: ABC store
-              short_desc:
-                required: optional
-                description: Short description of value for something.
-                reference: if any
-                usage: Online eCommerce Store
-              long_desc:
-                required: optional
-                description: Long description of value for something.
-                reference: if any
-                usage: Online eCommerce Store
-              images:
-                url:
-                  required: mandatory
-                  description: Physical description of the item
-                  reference: if any
-                  usage: https://abc.com/images/1-shop-img
-            providers:
-              id: &ref_21
-                required: mandatory
-                description: Unique human readable ID.
-                reference: if any
-                usage: P1
-              descriptor: *ref_20
-              additional_desc:
-                required: optional
-                description: Additional description
-                reference: if any
-                usage: chat link
-              creds: &ref_22
-                id:
-                  required: optional
-                  description: Human readable id
-                  reference: if any
-                  usage: ESG-12345678
-                type:
-                  required: optional
-                  description: Type of creds
-                  reference: if any
-                  usage: License
-                desc:
-                  required: optional
-                  description: Description of creds
-                  reference: if any
-                  usage: Export License No. ESG-12345678
-                url:
-                  required: optional
-                  description: Physical description
-                  reference: if any
-                  usage: https://abcd.cdn.com/images/license-img
-              offers:
-                required: optional
-                description: Offers info
-                reference: if any
-                usage: chat link
-            items:
-              tags:
-                veg_nonveg:
-                  required: optional
-                  description: Tags info
-                  reference: if any
-                  usage: veg
-                image:
-                  required: optional
-                  description: Tags info
-                  reference: if any
-                  usage: veg
-                price_slab:
-                  required: optional
-                  description: Tags info
-                  reference: if any
-                  usage: 175
-      select:
-        message:
-          order:
-            provider:
-              id: *ref_21
-            payments:
-              type:
-                required: optional
-                description: type of the payment
-                reference: if any
-                usage: ON-FULFILLMENT
-      on_select:
-        message:
-          order:
-            provider:
-              id: *ref_21
-            items:
-              id: *ref_21
-      init:
-        message:
-          order:
-            provider:
-              id: *ref_21
-              ttl:
-                required: optional
-                description: ttl
-                reference: if any
-                usage: P1D
-            items:
-              id: *ref_21
-              add-ons:
-                id:
-                  required: optional
-                  description: Id of add-ons
-                  reference: if any
-                  usage: 78787723
-              tags:
-                BUYER_TERMS:
-                  required: optional
-                  description: Tags info
-                  reference: if any
-                  usage: free text on Item Customization
-            fulfillments:
-              customer:
-                person:
-                  creds: *ref_22
-              tags:
-                DELIVERY_TERMS:
-                  required: optional
-                  description: Tags info
-                  reference: if any
-                  usage: CIF
-            billing: &ref_23
-              phone:
-                required: mandatory
-                description: Describes the phone information of an entity
-                reference: if any
-                usage: 9886098860
-              email:
-                required: optional
-                description: Email address of the contact
-                reference: if any
-                usage: nobody@nomail.com
-              name:
-                required: mandatory
-                description: Describes a person name as any individual
-                reference: if any
-                usage: ONDC buyer
-              tax_id:
-                required: mandatory
-                description: Describes tax id
-                reference: if any
-                usage: XXXXXXXXXXXXXXX
-      on_init:
-        message:
-          order:
-            provider:
-              id: *ref_21
-            items:
-              id: *ref_21
-              add-ons:
-                id:
-                  required: optional
-                  description: Id of add-ons
-                  reference: if any
-                  usage: 78787723
-              tags:
-                BUYER_TERMS:
-                  required: optional
-                  description: Tags info
-                  reference: if any
-                  usage: free text on Item Customization
-                DELIVERY_TERMS:
-                  required: optional
-                  description: Tags info
-                  reference: if any
-                  usage: CIF
-            billing: *ref_23
-      confirm:
-        message:
-          order:
-            provider:
-              id: *ref_21
-            items:
-              id: *ref_21
-            billing: *ref_23
-            fulfillments: &ref_24
+            category:
+              parent: true
+              description: Category of the search
+              required: optional
+              usage: '-'
+              reference: if any
               id:
-                required: mandatory
-                description: Unique human readable ID
+                description: >-
+                  category id will be from this list -
+                  https://docs.google.com/spreadsheets/d/APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+                required: present if category is present
+                usage: RET10-*
                 reference: if any
-                usage: F1
-              time:
-                required: optional
-                description: Describes the phone information of an entity
+            fulfillment:
+              parent: true
+              type:
+                description: type of fulfillment mode buyer wants to avail
+                required: required
+                usage: Delivery
                 reference: if any
-                usage: +91-9897867564
-              contact:
-                phone:
-                  required: mandatory
-                  description: Describes the phone information of an entity
+              stops:
+                parent: true
+                type:
+                  description: location(s) where the buyer wants the delivery to be made
+                  required: required
+                  usage: end
                   reference: if any
-                  usage: 919876543210
-                email:
-                  required: mandatory
-                  description: Email address of the contact
-                  reference: if any
-                  usage: alpha.manufacturing@gmail.com
-              instructions:
-                required: optional
-                description: The URL of the file
+                location:
+                  parent: true
+                  gps:
+                    description: minimum 6 digit decimal precision for gps coordinates
+                    required: mandatory
+                    usage: 1.380621, 103.746364
+                    reference: if any
+                  area_code:
+                    description: area_code
+                    required: optional
+                    usage: '-'
+                    reference: if any
+            payment:
+              parent: true
+              required: required
+              type:
+                description: type of payment option buyer wants to avail
+                usage: ON-FULFILLMENT
                 reference: if any
-                usage: >-
-                  https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bfd54f
-      on_confirm:
-        message:
-          order:
-            provider:
-              id: *ref_21
-            items:
-              id: *ref_21
-            billing: *ref_23
-            fulfillments: *ref_24
-      update:
-        message:
-          order:
-            provider:
-              id: *ref_21
-            items:
-              id: *ref_21
-      on_update:
-        message:
-          order:
-            provider:
-              id: *ref_21
-            items:
-              id: *ref_21
+                required: required
+            tags:
+              parent: true
+              required: required
+              descriptor:
+                parent: true
+                required: required
+                code:
+                  description: buyer terms
+                  usage: bap_terms
+                  reference: if any
+                  required: required
+              list:
+                parent: true
+                required: required
+                descriptor:
+                  parent: true
+                  required: required
+                  code:
+                    description: buyer terms
+                    usage: finder_fee_type
+                    reference: if any
+                    required: required
+                value:
+                  description: value of finder_fee_type
+                  usage: percent
+                  reference: if any
+                  required: required

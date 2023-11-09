@@ -1,186 +1,72 @@
 search:
-  message:
-    intent:
-      fulfillment:
-        location:
-          area_code:
-            required: optional
-            reference: if any
-            usage: 560001
-            description: Area code
-          gps:
-            required: mandatory
-            reference: if any
-            usage: 12.974002,77.613458
-            description: Gps
-        type:
-          required: optional
-          reference: if any
-          usage: Delivery
-          description: Type of fulfillment
-      item:
-        category:
-          required: optional
-          reference: if any
-          usage: Foodgrains
-          description: Category of item
-      tags:
-        buyer_id:
-          required: mandatory
-          reference: if any
-          usage: xxxxxxxxxxxxxxx
-          description: Category of item
-on_search:
-  message:
-    catalog:
-      descriptor: &descriptor
-        $ref: './descriptor.yaml'
-      providers: 
-        id: &id
-          required: mandatory
-          description: Unique human readable ID.
-          reference: if any
-          usage: P1
-        descriptor: *descriptor
-        additional_desc:
-          required: optional
-          description: Additional description
-          reference: if any
-          usage: chat link
-        creds: &creds
-          $ref: './creds.yaml'
-        offers:
-          required: optional
-          description: Offers info
-          reference: if any
-          usage: chat link
-      items:
-        tags:
-          veg_nonveg:
-            required: optional
-            description: Tags info
-            reference: if any
-            usage: veg
-          image:
-            required: optional
-            description: Tags info
-            reference: if any
-            usage: veg
-          price_slab:
-            required: optional
-            description: Tags info
-            reference: if any
-            usage: 175
-select:
-  message:
-    order:
-      provider:
-        id: *id
-      payments: 
-        type: &type
-          required: optional
-          description: type of the payment
-          reference: if any
-          usage: ON-FULFILLMENT
-on_select:
-  message:
-    order:
-      provider:
-        id: *id
-      items:
-        id: *id
-init: 
-  message:
-    order:
-      provider:
-        id: *id 
-        ttl:
-          required: optional
-          description: ttl
-          reference: if any
-          usage: P1D 
-      items:
-        id: *id 
-        add-ons:
-          id: 
-            required: optional
-            description: Id of add-ons
-            reference: if any
-            usage: 78787723
-        tags:
-          BUYER_TERMS:
-            required: optional
-            description: Tags info
-            reference: if any
-            usage: free text on Item Customization
-      fulfillments:
-        customer:
-          person:
-            creds: *creds
-        tags:
-          DELIVERY_TERMS:
-            required: optional
-            description: Tags info
-            reference: if any
-            usage: CIF
-      billing: &billing
-        $ref: './billing.yaml'
+  parent: true
+  $ref: "./search/search.yaml"
 
-on_init:
-  message:
-    order:
-      provider:
-        id: *id 
-      items:
-        id: *id 
-        add-ons:
-          id: 
-            required: optional
-            description: Id of add-ons
-            reference: if any
-            usage: 78787723
-        tags:
-          BUYER_TERMS:
-            required: optional
-            description: Tags info
-            reference: if any
-            usage: free text on Item Customization
-          DELIVERY_TERMS:
-            required: optional
-            description: Tags info
-            reference: if any
-            usage: CIF
-      billing: *billing
-confirm:
-  message:
-    order:
-      provider:
-        id: *id
-      items:
-        id: *id
-      billing: *billing
-      fulfillments: &fulfillments
-        $ref: './fulfillments.yaml'    
-on_confirm:
-  message:
-    order:
-      provider:
-        id: *id
-      items:
-        id: *id
-      billing: *billing
-      fulfillments: *fulfillments
-update:
-  message:
-    order:
-      provider:
-        id: *id
-      items:
-        id: *id
-on_update:
-  message:
-    order:
-      provider:
-        id: *id
-      items:
-        id: *id
+# search_incremental_one_time_push:
+#   parent: true
+#   $ref: "./search/incremental_catalog_refresh_one_time_push.yaml"
+
+
+# on_search_Fashion:
+#   parent: true
+#   $ref: "./on_search/on_search_Fashion.yaml"
+
+# on_search_Grocery:
+#   parent: true
+#   $ref: "./on_search/on_search_Grocery.yaml"
+
+# on_search_incremental_catalog_refresh:
+#   parent: true
+#   $ref: "./on_search/incremental_catalog_refresh_item_changes.yaml"
+
+# select:
+#   parent: true
+#   $ref: "./select/select.yaml"
+
+# on_select_item_in_stock:
+#   parent: true
+#   $ref: "./on_select/on_select_item_in_stock.yaml"
+
+# on_select_item_not_in_stock:
+#   parent: true
+#   $ref: "./on_select/on_select_item_not_in_stock.yaml"
+
+# on_select_location_not_serviceable:
+#   parent: true
+#   $ref: "./on_select/on_select_location_not_serviceable.yaml"
+
+# init: 
+#   parent: true
+#   $ref: "./init/init.yaml"
+
+# on_init:
+#   parent: true
+#   $ref: "./on_init/on_init.yaml"
+
+# confirm:
+#   parent: true
+#   $ref: "./confirm/confirm.yaml"
+
+# on_confirm:
+#   parent: true
+#   $ref: "./on_confirm/on_confirm.yaml"
+
+# on_update:
+#   parent: true
+#   $ref: "./on_update/on_update_merchant_part_cancels.yaml"
+
+# cancel:
+#   parent: true
+#   $ref: "./cancel/cancel.yaml"
+
+# on_cancel:
+#   parent: true
+#   $ref: "./on_cancel/on_cancel.yaml"
+
+# status:
+#   parent: true
+#   $ref: "./status/status.yaml"
+
+# on_status:
+#   parent: true
+#   $ref: "./on_status/on_status.yaml"
