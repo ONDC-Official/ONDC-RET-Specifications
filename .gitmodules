@@ -1,0 +1,3 @@
+[submodule "beckn-core"]
+	path = beckn-core
+	url = https://github.com/beckn/protocol-specifications.git
