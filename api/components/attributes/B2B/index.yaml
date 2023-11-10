@@ -1,6 +1,9 @@
 search:
   parent: true
   $ref: "./search/search.yaml"
+on_search:
+  parent: true
+  $ref: "./on_search/on_search.yaml"
 
 # search_incremental_one_time_push:
 #   parent: true
