@@ -60,13 +60,13 @@ message:
       parent: true
       type:
         description: type of fulfillment mode buyer wants to avail
-        required: required
+        required: mandatory
         usage: Delivery
         reference: if any
       stops:
         type:
          description: location(s) where the buyer wants the delivery to be made
-         required: required
+         required: mandatory
          usage: end
          reference: if any
         location:
@@ -82,10 +82,10 @@ message:
             reference: if any
     payment:
       parent: true
-      required: required
+      required: mandatory
       type:
         description: type of payment option buyer wants to avail
         usage: "ON-FULFILLMENT"
         reference: if any
-        required: required
+        required: mandatory
   

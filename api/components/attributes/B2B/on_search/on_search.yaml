@@ -1,26 +1,44 @@
 context:
   parent: true
-  domain:
-    description: updated domain namespace is https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
+  bpp_id:
+    description: subscriber id for seller app
     required: mandatory
-    usage: "ONDC:RET10"
+    usage: sellerNP.com
+    reference: if any
+  bpp_uri:
+    description: subscriber URI for seller app
+    required: mandatory
+    usage: https://sellerNP.com/ondc
     reference: if any
 message:
   parent: true
   catalog:
     parent: true
-    bpp/descriptor:
+    descriptor:
       parent: true
       description: descriptor for seller NP
       required: mandatory
-      usage: "-"
-      reference: if any
-      symbol:
-        description: logo or image for seller NP
+      name:
+        description: name of seller NP
         required: mandatory
         usage: https://sellerNP.com/images/np.png
         reference: if any
-    bpp/providers:
+      short_desc:
+        description: short description for seller NP
+        required: mandatory
+        usage: eCommerce Store
+        reference: if any
+      long_desc:
+        description: long description for seller NP
+        required: mandatory
+        usage: Online eCommerce Store
+        reference: if any
+      images:
+        description: image for seller NP
+        required: mandatory
+        usage: https://sellerNP.com/images/np.png
+        reference: if any
+    providers:
       parent: true
       description: descriptor for seller (merchant) that processes & fulfills orders
       required: mandatory
@@ -232,3 +250,27 @@ message:
         required: mandatory
         usage: "-"
         reference: if any
+    fulfillments:
+       parent: true
+       id:
+          description: id for the supported fulfillment type
+          required: mandatory
+          usage: '1'
+          reference: if any
+       type:
+          description: type of fulfillments supported
+          required: mandatory
+          usage: 'Delivery'
+          reference: if any
+    payments:
+        parent: true
+        id:
+            description: id for the supported payment type
+            required: mandatory
+            usage: '1'
+            reference: if any
+        type:
+            description: type of payments supported
+            required: mandatory
+            usage: 'PRE-FULFILLMENT'
+            reference: if any
