@@ -64,14 +64,12 @@ message:
         usage: Delivery
         reference: if any
       stops:
-        parent: true
         type:
          description: location(s) where the buyer wants the delivery to be made
          required: required
          usage: end
          reference: if any
         location:
-          parent: true
           gps:
             description: minimum 6 digit decimal precision for gps coordinates
             required: mandatory

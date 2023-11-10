@@ -11381,14 +11381,12 @@ x-attributes:
                 usage: Delivery
                 reference: if any
               stops:
-                parent: true
                 type:
                   description: location(s) where the buyer wants the delivery to be made
                   required: required
                   usage: end
                   reference: if any
                 location:
-                  parent: true
                   gps:
                     description: minimum 6 digit decimal precision for gps coordinates
                     required: mandatory
@@ -11407,30 +11405,3 @@ x-attributes:
                 usage: ON-FULFILLMENT
                 reference: if any
                 required: required
-            tags:
-              parent: true
-              required: required
-              descriptor:
-                parent: true
-                required: required
-                code:
-                  description: buyer terms
-                  usage: bap_terms
-                  reference: if any
-                  required: required
-              list:
-                parent: true
-                required: required
-                descriptor:
-                  parent: true
-                  required: required
-                  code:
-                    description: buyer terms
-                    usage: finder_fee_type
-                    reference: if any
-                    required: required
-                value:
-                  description: value of finder_fee_type
-                  usage: percent
-                  reference: if any
-                  required: required
