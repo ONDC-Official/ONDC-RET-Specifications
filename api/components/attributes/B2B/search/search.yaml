@@ -1,7 +1,7 @@
 context:
   parent: true
   domain:
-    description: updated domain namespace defined here - https://docs.google.com/document/d/brvcltG_DagZ3kGrZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
+    description: updated domain namespace defined [here](https://docs.google.com/document/d/brvcltG_DagZ3kGrZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1)
     required: mandatory
     usage: "ONDC:RET12"
     reference: if any
@@ -77,7 +77,7 @@ message:
             reference: if any
           area_code:
             description: area_code 
-            required: optional
+            required: mandatory
             usage: "110030"
             reference: if any
     payment:
