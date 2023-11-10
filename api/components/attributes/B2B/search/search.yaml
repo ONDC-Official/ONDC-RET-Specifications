@@ -78,7 +78,7 @@ message:
           area_code:
             description: area_code 
             required: optional
-            usage: "-"
+            usage: "110030"
             reference: if any
     payment:
       parent: true
