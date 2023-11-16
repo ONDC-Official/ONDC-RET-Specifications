@@ -163,12 +163,29 @@
           <div class="tab-pane fade" id="attribute" role="tabpanel">
             <table class="table">
               <tr>
-                <td><b>Attribute Set</b></td>
+                <td rowspan="2"><b>Attribute Set</b></td>
                 <td>
-                  <select id="attribute-sets-dropdown" class="form-select" onchange="updateSetsAttribute()"></select>
+                  <select
+                    id="attribute-sets-dropdown"
+                    class="form-select"
+                    onchange="updateSetsAttribute()"
+                  ></select>
                 </td>
                 <td>
-                  <select id="attribute-dropdown" class="form-select" onchange="updateAttribute()"></select>
+                  <select
+                    id="attribute-dropdown"
+                    class="form-select"
+                    onchange="updateAttribute()"
+                  ></select>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <select
+                    id="attribute-l1-dropdown"
+                    class="form-select"
+                    onchange="updateL1Attribute()"
+                  ></select>
                 </td>
               </tr>
             </table>
