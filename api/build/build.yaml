@@ -11465,24 +11465,6 @@ x-attributes:
                 required: mandatory
                 usage: F1
                 reference: if any
-              time:
-                parent: true
-                label:
-                  description: >-
-                    enum - "enable" (default), "disable" (soft delete of
-                    provider from buyer NP cache)
-                  required: mandatory
-                  usage: enable
-                  reference: if any
-                timestamp:
-                  description: >-
-                    timestamp when the snapshot for this provider (including
-                    provider details, items) was generated, must be <=
-                    Context.timestamp. Buyer NPs can use this to determine from
-                    when to start incremental refresh
-                  required: mandatory
-                  usage: '2023-06-03T07:00:30.000Z'
-                  reference: if any
               fulfillments:
                 parent: true
                 description: provider level fulfillment options
@@ -11516,49 +11498,10 @@ x-attributes:
                 reference: if any
               locations:
                 parent: true
-                description: locations for provider with unique id for each location
+                description: locations of provider with unique id for each location
                 required: mandatory
                 usage: '-'
                 reference: if any
-                time:
-                  parent: true
-                  label:
-                    description: >-
-                      enum - "enable" (default), "disable" (soft delete of
-                      provider location, i.e. warehouse or store, from buyer NP
-                      cache - in this case, serviceability for the store should
-                      not be a part of the catalog), "close" (temporary closure
-                      of store with the same format for time.range as specified,
-                      for incremental refresh, here -
-                      https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.ar4y0zvk65s4
-                      only if this event is available at the time of generating
-                      the full catalog snapshot)
-                    required: mandatory
-                    usage: disable
-                    reference: if any
-                  timestamp:
-                    description: >-
-                      timestamp when the snapshot for location was generated,
-                      must be <= Context.timestamp
-                    required: mandatory
-                    usage: '2023-06-03T07:30:30.000Z'
-                    reference: if any
-                  schedule:
-                    parent: true
-                    holidays:
-                      description: >-
-                        list of future dated holidays, to be used as per holiday
-                        calendar; if no holidays, empty array needs to be passed
-                      required: mandatory
-                      usage: '2023-08-15'
-                      reference: if any
-                address:
-                  parent: true
-                  locality:
-                    description: locality name
-                    required: mandatory
-                    usage: Kadma
-                    reference: if any
               categories:
                 parent: true
                 tags:
@@ -11590,18 +11533,6 @@ x-attributes:
                         "2 kilogram", "5 kilogram"
               items:
                 parent: true
-                time:
-                  parent: true
-                  label:
-                    description: enum - "enable", "disable"
-                    required: mandatory
-                    usage: enable
-                    reference: if any
-                  timestamp:
-                    description: timestamp for item event
-                    required: mandatory
-                    usage: '2023-06-03T07:30:00.000Z'
-                    reference: if any
                 parent_item_id:
                   description: >-
                     if variant grouping defined for provider above, this matches
@@ -11629,6 +11560,50 @@ x-attributes:
                     required: mandatory
                     usage: '-'
                     reference: if any
+                creator:
+                  parent: true
+                  descriptor:
+                    parent: true
+                    description: Manufacturer details
+                    required: optional
+                    usage: '-'
+                    reference: if any
+                    name:
+                      description: Manufacturer name
+                      required: mandatory
+                      usage: Iphone
+                      reference: if any
+                    contact:
+                      parent: true
+                      description: Manufacturer contact details
+                      required: mandatory
+                      usage: '-'
+                      reference: if any
+                      name:
+                        description: name of the support person
+                        required: mandatory
+                        usage: '-'
+                        reference: if any
+                      address:
+                        description: address of the support person
+                        required: mandatory
+                        usage: '-'
+                        reference: if any
+                        full:
+                          description: full address
+                          required: mandatory
+                          usage: Iphone Ltd., Delhi
+                          reference: if any
+                      phone:
+                        description: phone number of the support person
+                        required: mandatory
+                        usage: '18001801018'
+                        reference: if any
+                      email:
+                        description: email of the support person
+                        required: mandatory
+                        usage: consumer.services@abc.com
+                        reference: if any
                 quantity:
                   parent: true
                   unitized:
@@ -11661,53 +11636,6 @@ x-attributes:
                       required: mandatory
                       usage: '3'
                       reference: if any
-                category_id:
-                  description: >-
-                    enum from
-                    https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
-                  required: mandatory
-                  usage: Foodgrains
-                  reference: if any
-                '@ondc/org/returnable':
-                  description: >-
-                    should default to true except for specific make-to-order
-                    items
-                  required: mandatory
-                  usage: true
-                  reference: if any
-                '@ondc/org/cancellable':
-                  description: >-
-                    should default to true except for specific make-to-order
-                    items
-                  required: mandatory
-                  usage: true
-                  reference: if any
-                '@ondc/org/seller_pickup_return':
-                  description: whether seller is responsible for pick up of item for return
-                  required: mandatory
-                  usage: true
-                  reference: if any
-                '@ondc/org/contact_details_consumer_care':
-                  description: >-
-                    valid contact details exactly in this format - name, email,
-                    contact no
-                  required: mandatory
-                  usage: Ambani,ambani@abc.com,18004254444
-                  reference: if any
-                '@ondc/org/statutory_reqs_packaged_commodities':
-                  description: >-
-                    mapping of category to attribute key is defined
-                    https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
-                  required: mandatory
-                  usage: '-'
-                  reference: if any
-                '@ondc/org/statutory_reqs_prepackaged_food':
-                  description: >-
-                    mapping of category to attribute key is defined
-                    https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
-                  required: mandatory
-                  usage: '-'
-                  reference: if any
               creds:
                 parent: true
                 description: credentials for provider
