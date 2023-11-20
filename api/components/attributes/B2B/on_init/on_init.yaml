@@ -10,7 +10,6 @@ message:
         usage: "-"
         reference: if any
       breakup:
-        parent: true
         description: Seller NP provides the the breakup of the quote
         required: required
         usage: "-"
@@ -31,7 +30,6 @@ message:
           usage: "Packing charges"
           reference: if any
     payments:
-      parent: true
       "@ondc/org/buyer_app_finder_fee_type": 
         description: buyer app finder fee type - percent,amount
         required: required

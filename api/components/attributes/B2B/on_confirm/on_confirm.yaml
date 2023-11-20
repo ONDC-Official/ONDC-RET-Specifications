@@ -5,6 +5,7 @@ message:
     fulfillments:
       parent: true
       stops:
+        parent : true
         description: describes the pickup and drop details
         required: mandatory
         time:
