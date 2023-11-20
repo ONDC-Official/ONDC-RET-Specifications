@@ -11803,6 +11803,7 @@ x-attributes:
                 usage: '-'
                 reference: if any
               breakup:
+                parent: true
                 breakup:
                   description: Seller NP provides the the breakup of the quote
                   required: required
