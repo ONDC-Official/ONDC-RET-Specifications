@@ -4,8 +4,12 @@ message:
     parent: true
     provider:
       parent: true
+      provider:
+        description: provider details
+        required: mandatory
+        usage: "-"
+        reference: if any
       locations:
-        parent: true
         id:
           description: may be the same location as selected by the buyer or a different location
           required: mandatory
@@ -13,10 +17,11 @@ message:
           reference: if any
     fulfillments:
       parent: true
-      description: order can have multiple fulfillments; in this case, unique fulfillment id (for provider & order) needs to be assigned by seller NP for each fulfillment & mapped to item(s) that are a part of that fulfillment
-      required: mandatory
-      usage: "-"
-      reference: if any
+      fulfillments:
+        description: order can have multiple fulfillments; in this case, unique fulfillment id (for provider & order) needs to be assigned by seller NP for each fulfillment & mapped to item(s) that are a part of that fulfillment
+        required: mandatory
+        usage: "-"
+        reference: if any
       id:
         description: unique fulfillment id assigned by seller NP here & mapped to item and will be persisted right through order confirm
         required: mandatory
@@ -33,13 +38,12 @@ message:
         usage: "P1D"
         reference: if any
       state:
-        parent: true
-        description: Seller NP performs serviceability check based on end location in /select. If non serviceable, seller app has to return the appropriate error code along with a valid /on_select response
-        required: mandatory
-        usage: "-"
-        reference: if any
+        state:
+          description: Seller NP performs serviceability check based on end location in /select. If non serviceable, seller app has to return the appropriate error code along with a valid /on_select response
+          required: mandatory
+          usage: "-"
+          reference: if any
         descriptor:
-          parent: true
           code:
             description: enum - "Serviceable", "Non-serviceable"
             required: mandatory
@@ -47,15 +51,18 @@ message:
             reference: if any
     quote:
       parent: true
+      ttl:
+        description:  validity of quote
+        required: mandatory
+        usage: "P1D"
+        reference: if any
       breakup:
-        parent: true
         '@ondc/org/item_id':
           description: item_id should match either item.id or fulfillment.id based on how the line item (as defined by "title_type") is assigned, i.e. "delivery", "discount_f", "tax_f", "packing", "misc" are at fulfillment level while "item", "tax", "discount" are at item level
           required: mandatory
           usage: "-"
           reference: if any
         '@ondc/org/item_quantity':
-          parent: true
           count:
             description: if required quantity (as selected by buyer) is not in stock, seller app should show the quantity available in stock (or 0 if completely out-of-stock) and show the appropriate error code (40002) in the /on_select response
             required: mandatory
@@ -67,14 +74,8 @@ message:
           usage: item
           reference: if any
         price:
-          parent: true
           value:
             description: item price should be either inclusive or exclusive of taxes, exactly as defined in the catalog
             required: mandatory
             usage: "10.00"
             reference: if any
-      ttl:
-        description:  validity of quote
-        required: mandatory
-        usage: "P1D"
-        reference: if any

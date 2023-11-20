@@ -4,10 +4,11 @@ message:
     parent: true
     offers:
       parent: true
-      description: only if buyer selects offer code
-      required: optional
-      usage: "-"
-      reference: if any
+      offers:
+        description: only if buyer selects offer code
+        required: optional
+        usage: "-"
+        reference: if any
       id:
         description: if offer code is not valid, seller NP can NACK /select with error code 30006
         required: optional
@@ -15,14 +16,18 @@ message:
         reference: if any
     fulfillments:
       parent: true
-      end:
-        parent: true
-        description: fulfillment end location, i.e. delivery location for buyer
+      fulfillments:
+        description: fulfillment details
         required: mandatory
         usage: "-"
         reference: if any
+      end:
+        end:
+          description: fulfillment end location, i.e. delivery location for buyer
+          required: mandatory
+          usage: "-"
+          reference: if any
         location:
-          parent: true
           gps:
             description: GPS coordinates & precision for fulfillment end location has to be same in /confirm
             required: mandatory
@@ -30,10 +35,11 @@ message:
             reference: if any
     payment:
       parent: true
-      description: payment details
-      required: optional
-      usage: "-"
-      reference: if any
+      payment:
+        description: payment details
+        required: optional
+        usage: "-"
+        reference: if any
       type:
         description: enum - "ON-ORDER" (prepaid), "ON-FULFILLMENT" (on delivery), "POST-FULFILLMENT" (after delivery)
         required: optional

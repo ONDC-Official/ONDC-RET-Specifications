@@ -5,7 +5,6 @@ message:
     bpp/providers:
       parent: true
       time:
-        parent: true
         timestamp: 
           description: timestamp when the snapshot for this provider (including provider details, items) was generated, must be <= Context.timestamp. Buyer NPs can use this to determine from when to start incremental refresh
           required: mandatory
@@ -17,9 +16,7 @@ message:
           usage: enable
           reference: if any
       items:
-        parent: true
         time:
-          parent: true
           label:
             description: enum - "enable", "disable"
             required: mandatory
@@ -36,7 +33,6 @@ message:
           usage: "parent_item_id"
           reference: if any
         descriptor:
-          parent: true
           code: 
             description: network-wide unique code for item which will be in this format - "type:code" where type is 1 - EAN, 2 - ISBN, 3 - GTIN, 4 - HSN, 5 - UPC, 6 - others
             required: optional
@@ -48,16 +44,15 @@ message:
           usage: Foodgrains
           reference: if any
         '@ondc/org/statutory_reqs_packaged_commodities':
-          parent: true
           description: mapping of category to attribute key is defined https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
           required: mandatory
           usage: '-'
           reference: if any
-          month_year_of_manufacture_packing_import:
-            description: date first available
-            required: mandatory
-            usage: "01/2017"
-            reference: if any
+        month_year_of_manufacture_packing_import:
+          description: date first available
+          required: mandatory
+          usage: "01/2017"
+          reference: if any
       creds:
         description: Creds
         required: optional

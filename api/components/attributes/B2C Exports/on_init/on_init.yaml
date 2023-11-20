@@ -11,10 +11,11 @@ message:
         reference: if any
     billing:
       parent: true
-      description: billing object timestamps (created_at, updated_at) have to be the same as in /init
-      required: mandatory
-      usage: "-"
-      reference: if any
+      billing:
+        description: billing object timestamps (created_at, updated_at) have to be the same as in /init
+        required: mandatory
+        usage: "-"
+        reference: if any
       tax_number:
         description: same as provided in /init
         required: optional
@@ -37,10 +38,11 @@ message:
         reference: if any
     payment:
       parent: true
-      description: if seller NP is collecting pre-paid payment (for categories like electronics), they may provide the following - type, collected_by, uri (payment link), status, settlement_basis, settlement_window, withholding_amount
-      required: mandatory
-      usage: "-"
-      reference: if any
+      payment:
+        description: if seller NP is collecting pre-paid payment (for categories like electronics), they may provide the following - type, collected_by, uri (payment link), status, settlement_basis, settlement_window, withholding_amount
+        required: mandatory
+        usage: "-"
+        reference: if any
       status:
         description: enum - "PAID", "NOT-PAID"
         required: mandatory
@@ -62,11 +64,11 @@ message:
         usage: 10.00
         reference: if any
       '@ondc/org/settlement_details': 
-        parent: true
-        description: may be provided by seller NP if they are not collecting payment or not CoD payment
-        required: optional
-        usage: "-"
-        reference: if any
+        '@ondc/org/settlement_details':
+          description: may be provided by seller NP if they are not collecting payment or not CoD payment
+          required: optional
+          usage: "-"
+          reference: if any
         settlement_type:
           description: enum - "upi", "neft", "rtgs"; for "upi", upi_address needs to be entered & for the other settlement_type, ("settlement_bank_account_no", "settlement_ifsc_code", "bank_name", "branch_name") should be entered
           required: mandatory if parent is present
