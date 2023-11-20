@@ -1,0 +1,26 @@
+message:
+  parent: true
+  order:
+    parent: true
+    billing:
+      description: billing details of the marketplace (MSN or ISN retail seller app) for invoicing;
+      required: required
+      usage: "-"
+      reference: if any
+    provider:
+      locations:
+        description: mandatory only if provider.locations was returned in /on_search
+        required: optional
+        usage: "-"
+        reference: if any
+      ttl:
+        description: time within buyer wants the quotation
+        required: mandatory
+        usage: "P1D"
+        reference: if any     
+    fulfillments:
+      id:
+        description: fulfillment_id from /on_search corresponding to appropriate type
+        required: required
+        usage: "-"
+        reference: if any
