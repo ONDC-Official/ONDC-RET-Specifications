@@ -7,6 +7,38 @@ message:
       required: required
       usage: "-"
       reference: if any
+      phone:
+        required: mandatory
+        description: Describes the phone information of an entity
+        reference: if any
+        usage: "9886098860"
+      email:
+        required: optional
+        description: Email address of the contact
+        reference: if any
+        usage: nobody@nomail.com
+      name:
+        required: mandatory
+        description: Describes a person name as any individual
+        reference: if any
+        usage: ONDC buyer  
+      tax_id:
+        required: mandatory
+        description: Describes tax id
+        reference: if any
+        usage: XXXXXXXXXXXXXXX 
+      state:
+        name:
+          required: mandatory
+          description: Describes the state information of an entity
+          reference: if any
+          usage: "Karnataka"
+      city:
+        name:
+          required: mandatory
+          description: Describes the city information of an entity
+          reference: if any
+          usage: "Bengaluru"
     provider:
       locations:
         description: mandatory only if provider.locations was returned in /on_search
@@ -14,13 +46,8 @@ message:
         usage: "-"
         reference: if any
       ttl:
-        description: time within buyer wants the quotation
+        description: provider ttl
         required: mandatory
         usage: "P1D"
         reference: if any     
-    fulfillments:
-      id:
-        description: fulfillment_id from /on_search corresponding to appropriate type
-        required: required
-        usage: "-"
-        reference: if any
+

@@ -195,15 +195,25 @@ message:
         usage: "-"
         reference: if any
         id:
-          description: globally identifiable identity or unique ID provided by seller app; mandatory if creds are provided
-          required: mandatory
-          usage: EXP-12345678
-          reference: if any
-        url:
-          description: display URL for credential
           required: optional
-          usage: https://abcd.cdn.com/images/license-img
+          description: Human readable id
           reference: if any
+          usage: ESG-12345678
+        type:
+          required: optional
+          description: Type of creds
+          reference: if any
+          usage: License
+        desc:
+          required: optional
+          description: Description of creds
+          reference: if any
+          usage: Export License No. ESG-12345678
+        url:
+          required: optional
+          description: Physical description
+          reference: if any
+          usage: https://abcd.cdn.com/images/license-img 
       offers:
         description: offer definition as per the template defined above
         required: mandatory
