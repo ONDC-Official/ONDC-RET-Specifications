@@ -11797,22 +11797,31 @@ x-attributes:
             parent: true
             quote:
               parent: true
-              quote:
-                description: quote to be sent from seller NP
+              price:
+                description: total price quoted from seller NP
                 required: required
                 usage: '-'
                 reference: if any
               breakup:
                 parent: true
-                breakup:
-                  description: Seller NP provides the the breakup of the quote
-                  required: required
-                  usage: '-'
-                  reference: if any
+                description: Seller NP provides the the breakup of the quote
+                required: required
+                usage: '-'
+                reference: if any
                 '@ondc/org/title_type':
                   description: type of charge - item, packing,discount,tax,misc,delivery
                   required: required
                   usage: delivery
+                  reference: if any
+                '@ondc/org/item_id':
+                  description: item id or fulfillment id based on type of charge
+                  required: required
+                  usage: F1
+                  reference: if any
+                title:
+                  description: type of charge - can be customized
+                  required: required
+                  usage: Packing charges
                   reference: if any
             payments:
               parent: true
