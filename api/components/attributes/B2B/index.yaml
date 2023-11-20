@@ -4,11 +4,9 @@ search:
 on_search:
   parent: true
   $ref: "./on_search/on_search.yaml"
-
 init:
   parent: true
   $ref: "./init/init.yaml"  
-
 on_init:
   parent: true
   $ref: "./on_init/on_init.yaml"
