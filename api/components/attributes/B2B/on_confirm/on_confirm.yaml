@@ -5,10 +5,10 @@ message:
     fulfillments:
       parent: true
       stops:
-        parent: true
+        description: describes the pickup and drop details
+        required: mandatory
         time:
           description: describes the pickup and delivery time ranges
-          parent: true
           required: optional
           range:
             required: optional
