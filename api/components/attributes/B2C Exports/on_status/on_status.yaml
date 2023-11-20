@@ -26,26 +26,26 @@ message:
         reference: if any
     fulfillments:
       parent: true
+      agent:
+        description: may be provided for last-mile delivery in intercity shipments
+        required: optional
+        usage: "-"
+        reference: if any
       state:
-        parent: true
         descriptor:
-          parent: true
           code:
             description: enum for fulfillment state & mapping to order state for hyperlocal & inter-city is defined here (assuming 1 fulfillment per order, but mapping will remain same for all states except "Order-delivered" where order state will depend on the states of other fulfillment) enum for RTO - "RTO-Initiated", "RTO-Delivered", "RTO-Disposed"
             required: mandatory
             usage: "Order-delivered"
             reference: if any
       start:
-        parent: true
         time:
-          parent: true
           timestamp:
             description: Timestamp
             required: required if state is "Order-picked-up", "Out-for-delivery", "Order-delivered"
             usage: '2023-06-03T10:25:00.000Z'
             reference: if any
         instructions:
-          parent: true
           code:
             description: type of pickup confirmation code (PCC), enum - "1" (buyer contact no (for self-pickup)), "2" (merchant order no), "3" (other pickup confirmation code), "4" (OTP); required when order is "Packed"
             required: mandatory
@@ -62,23 +62,19 @@ message:
             usage: "-"
             reference: if any
         contact:
-          parent: true
           email:
             description: email ID
             required: optional
             usage: "nobody@nomail.com"
             reference: if any
       end:
-        parent: true
         time:
-          parent: true
           timestamp:
             description: timestamp
             required: required if state is "Order-delivered"
             usage: '2023-06-03T11:35:00.000Z'
             reference: if any
         instruction:
-          parent: true
           code:
             description: type of code for order delivery - enum - "1" - OTP, "2" - no delivery code; may be generated when order is "Out-for-delivery"
             required: optional
@@ -94,11 +90,6 @@ message:
             required: mandatory
             usage: "-"
             reference: if any
-      agent:
-        description: may be provided for last-mile delivery in intercity shipments
-        required: optional
-        usage: "-"
-        reference: if any
       vehicle:
         description: may be provided for kerb-side pickup (in self pickup)
         required: optional

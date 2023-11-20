@@ -15402,9 +15402,7 @@ x-attributes:
                 required: mandatory
                 reference: if any
               start:
-                parent: true
                 location:
-                  parent: true
                   address:
                     description: store address
                     usage: '-'
@@ -15416,7 +15414,6 @@ x-attributes:
                   usage: '-'
                   reference: if any
                 instructions:
-                  parent: true
                   description: instructions for pickup
                   required: optional
                   usage: '-'
@@ -15434,21 +15431,18 @@ x-attributes:
                     usage: 3
                     reference: if any
                 contact:
-                  parent: true
                   email:
                     description: email
                     required: optional
                     usage: '-'
                     reference: if any
               end:
-                parent: true
                 time:
                   description: pickup time range may be provided if available
                   required: optional
                   usage: '-'
                   reference: if any
                 contact:
-                  parent: true
                   email:
                     description: email
                     required: optional
@@ -15623,10 +15617,13 @@ x-attributes:
                 reference: if any
             fulfillments:
               parent: true
+              agent:
+                description: may be provided for last-mile delivery in intercity shipments
+                required: optional
+                usage: '-'
+                reference: if any
               state:
-                parent: true
                 descriptor:
-                  parent: true
                   code:
                     description: >-
                       enum for fulfillment state & mapping to order state for
@@ -15639,9 +15636,7 @@ x-attributes:
                     usage: Order-delivered
                     reference: if any
               start:
-                parent: true
                 time:
-                  parent: true
                   timestamp:
                     description: Timestamp
                     required: >-
@@ -15650,7 +15645,6 @@ x-attributes:
                     usage: '2023-06-03T10:25:00.000Z'
                     reference: if any
                 instructions:
-                  parent: true
                   code:
                     description: >-
                       type of pickup confirmation code (PCC), enum - "1" (buyer
@@ -15678,23 +15672,19 @@ x-attributes:
                     usage: '-'
                     reference: if any
                 contact:
-                  parent: true
                   email:
                     description: email ID
                     required: optional
                     usage: nobody@nomail.com
                     reference: if any
               end:
-                parent: true
                 time:
-                  parent: true
                   timestamp:
                     description: timestamp
                     required: required if state is "Order-delivered"
                     usage: '2023-06-03T11:35:00.000Z'
                     reference: if any
                 instruction:
-                  parent: true
                   code:
                     description: >-
                       type of code for order delivery - enum - "1" - OTP, "2" -
@@ -15717,11 +15707,6 @@ x-attributes:
                     required: mandatory
                     usage: '-'
                     reference: if any
-              agent:
-                description: may be provided for last-mile delivery in intercity shipments
-                required: optional
-                usage: '-'
-                reference: if any
               vehicle:
                 description: may be provided for kerb-side pickup (in self pickup)
                 required: optional
