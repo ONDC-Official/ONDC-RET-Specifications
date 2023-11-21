@@ -21,7 +21,7 @@ async function loadSteps(steps) {
     const content = document.createElement("div");
     const noteContent = document.createElement("div");
     content.id = step.summary;
-    noteContent.id = 'test';
+    noteContent.id = "test";
     content.classList.add("step-content", "p-4");
     noteContent.classList.add("step-content", "p-4");
 
@@ -33,44 +33,69 @@ async function loadSteps(steps) {
       for (const [innerIndex, detail] of details.entries()) {
         var mermaidPane = document.createElement("description-mermaid");
         const { description, mermaid: mermaidGraph } = detail;
-        let result;
+        let svg = "";
         if (mermaidGraph) {
           let removeBacktick = mermaidGraph?.replace(/`/g, "");
-          result = await mermaid.render(`summary${index}`, removeBacktick);
+          svg = await mermaid.render(`summary${index}`, removeBacktick)?.svg;
         }
-        const {svg} = result || ''
+
         mermaidPane.innerHTML =
           "<p>" +
           `${innerIndex + 1}) ${description}` +
           "<p>" +
           "<p>" +
-          (svg || '') +
+          svg +
           "<p>";
 
         mermaidDiv.appendChild(mermaidPane);
       }
     }
+    if (!details && step.description) {
+      mermaidDiv.innerHTML = "<p>" + step.description + "</p>";
+    }
     // yamlDiv.innerHTML =
     //   '<pre class="yaml-content">' +
-    //   (step?.api === "form" ? step.example.value : JSON.stringify(step.example.value, null, 2)) +
+    //   JSON.stringify(step.example.value, null, 2) +
     //   "</pre>";
-    yamlDiv.innerHTML = step?.api === "form" ? '<div>'+'<pre class="yaml-content">'+'<xmp>'+step.example.value+'</xmp>'+'</pre>'+'<div class="flow-forms">'+step.example.value+'</div>'+'</div>'
-      :'<pre class="yaml-content">' +
-       JSON.stringify(step.example.value, null, 2) +
-      "</pre>";
+    yamlDiv.innerHTML =
+      step?.api === "form"
+        ? "<div>" +
+          '<pre class="yaml-content">' +
+          "<xmp>" +
+          step.example.value +
+          "</xmp>" +
+          "</pre>" +
+          '<div class="flow-forms">' +
+          step.example.value +
+          "</div>" +
+          "</div>"
+        : '<pre class="yaml-content">' +
+          JSON.stringify(step.example.value, null, 2) +
+          "</pre>";
     content.innerHTML = "<div>" + "<h3>" + step.summary + "</h3>" + "</div>";
-
     content.appendChild(mermaidDiv);
     content.appendChild(yamlDiv);
 
     if (step.notes) {
-        noteDiv.innerHTML = step?.api === "form" ? '<div>'+'<pre class="yaml-content">'+'<xmp>'+step.notes.value+'</xmp>'+'</pre>'+'<div class="flow-forms">'+step.notes.value+'</div>'+'</div>'
-        :'<pre class="yaml-content" style="color: #000000; background-color:lightgray;">' +
-         JSON.stringify(step.notes.value, null, 2) +
-        "</pre>";
-        noteContent.innerHTML = "<div><h3>Notes</h3></div>";
-        noteContent.appendChild(noteDiv);
-      }
+      noteDiv.innerHTML =
+        step?.api === "form"
+          ? "<div>" +
+            '<pre class="yaml-content">' +
+            "<xmp>" +
+            step.notes.value +
+            "</xmp>" +
+            "</pre>" +
+            '<div class="flow-forms">' +
+            step.notes.value +
+            "</div>" +
+            "</div>"
+          : '<pre class="yaml-content" style="color: #000000; background-color:lightgray;">' +
+            JSON.stringify(step.notes.value, null, 2) +
+            "</pre>";
+      noteContent.innerHTML = "<div><h3>Notes</h3></div>";
+      noteContent.appendChild(noteDiv);
+    }
+
     link.addEventListener("click", function (event) {
       event.preventDefault();
       document.querySelectorAll(".step-item").forEach(function (item) {
@@ -87,8 +112,8 @@ async function loadSteps(steps) {
     stepPane.appendChild(link);
     contentPane.appendChild(content);
     if (step.notes) {
-        contentPane.appendChild(noteContent);
-      }
+      contentPane.appendChild(noteContent);
+    }
   }
 }
 
@@ -107,24 +132,27 @@ async function loadFlow(flowName) {
     if (obj["summary"] === flowName) return obj;
   });
   flowSummary.textContent = selectedFlow["summary"];
-  // flowDescription.textContent = selectedFlow["details"]
+  flowDescription.textContent = selectedFlow["description"];
   var mermaidDiv = document.createElement("description-div");
-  if (selectedFlow?.["details"]) {
-    for (const [index, detail] of selectedFlow["details"].entries()) {
-      var mermaidPane = document.createElement("description-summary");
-      const { description, mermaid: mermaidGraph } = detail;
-      let result;
+  if (selectedFlow["details"]) {
+    var mermaidDiv = document.createElement("mermaid-div");
+    for (const [index, step] of selectedFlow["details"].entries()) {
+      var mermaidPane = document.createElement(`flow-mermaid-${index}`);
+      const { description, mermaidGraph } = step;
+      let svg = "";
       if (mermaidGraph) {
         let removeBacktick = mermaidGraph?.replace(/`/g, "");
-        result = await mermaid.render(`main-summary${index}`, removeBacktick);
+        svg = await mermaid.render(`flow-mermaid`, removeBacktick);
       }
-      const {svg} = result || ''
       mermaidPane.innerHTML =
-        "<p>" + `${index + 1}) ${description}` + "<p>" + "<p>" + (svg|| '') + "<p>";
-
+        "<p><b>" +
+        `${index + 1}. ${description}` +
+        "</b></p>" +
+        "<p>" +
+        svg.svg +
+        "</p>";
       mermaidDiv.appendChild(mermaidPane);
     }
-    //flowDescription.textContent.appendChild(mermaidDiv)
   }
   flowDescription.append(mermaidDiv);
   loadSteps(selectedFlow["steps"]);
