@@ -4,10 +4,6 @@ message:
     parent: true
     billing:
       parent: true
-      description: billing details of the marketplace (MSN or ISN retail seller app) for invoicing;
-      required: required
-      usage: "-"
-      reference: if any
       phone:
         required: mandatory
         description: Describes the phone information of an entity

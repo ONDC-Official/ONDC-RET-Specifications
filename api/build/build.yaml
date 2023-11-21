@@ -11654,12 +11654,6 @@ x-attributes:
             parent: true
             billing:
               parent: true
-              description: >-
-                billing details of the marketplace (MSN or ISN retail seller
-                app) for invoicing;
-              required: required
-              usage: '-'
-              reference: if any
               phone:
                 required: mandatory
                 description: Describes the phone information of an entity
@@ -11724,22 +11718,23 @@ x-attributes:
                 required: required
                 usage: '-'
                 reference: if any
-                '@ondc/org/title_type':
-                  description: type of charge - item, packing,discount,tax,misc,delivery
-                  required: required
-                  usage: delivery
-                  reference: if any
-                '@ondc/org/item_id':
-                  description: item id or fulfillment id based on type of charge
-                  required: required
-                  usage: F1
-                  reference: if any
-                title:
-                  description: type of charge - can be customized
-                  required: required
-                  usage: Packing charges
-                  reference: if any
+              breakup.@ondc/org/title_type:
+                description: type of charge - item, packing,discount,tax,misc,delivery
+                required: required
+                usage: delivery
+                reference: if any
+              breakup.@ondc/org/item_id:
+                description: item id or fulfillment id based on type of charge
+                required: required
+                usage: F1
+                reference: if any
+              breakup.title:
+                description: type of charge - can be customized
+                required: required
+                usage: Packing charges
+                reference: if any
             payments:
+              parent: true
               '@ondc/org/buyer_app_finder_fee_type':
                 description: buyer app finder fee type - percent,amount
                 required: required
@@ -11792,20 +11787,23 @@ x-attributes:
             fulfillments:
               parent: true
               stops:
-                description: describes the pickup and drop details
-                required: mandatory
                 time:
                   description: describes the pickup and delivery time ranges
                   required: optional
-                  range:
-                    required: optional
-                    start:
-                      description: time range when the order would be picked up
-                      required: optional
-                      usage: '2023-02-03T09:30:00.000Z'
-                      reference: if any
-                    end:
-                      description: time range when the order would be delivered
-                      required: optional
-                      usage: '2023-02-03T09:30:00.000Z'
-                      reference: if any
+                  usage: '-'
+                  reference: if any
+                time.range:
+                  description: time range when the order would be picked up/dropped
+                  required: optional
+                  usage: '-'
+                  reference: if any
+                time.range.start:
+                  description: time range when the order would be picked up
+                  required: optional
+                  usage: '2023-02-03T09:30:00.000Z'
+                  reference: if any
+                time.range.end:
+                  description: time range when the order would be delivered
+                  required: optional
+                  usage: '2023-02-03T09:30:00.000Z'
+                  reference: if any
