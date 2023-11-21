@@ -23,19 +23,19 @@ message:
         required: mandatory
         description: Describes tax id
         reference: if any
-        usage: XXXXXXXXXXXXXXX 
+        usage: 22AAAAA0000A1Z5 
       state:
         name:
           required: mandatory
           description: Describes the state information of an entity
           reference: if any
-          usage: "Karnataka"
+          usage: Karnataka
       city:
         name:
           required: mandatory
           description: Describes the city information of an entity
           reference: if any
-          usage: "Bengaluru"
+          usage: Bengaluru
     provider:
       parent: true
       locations:
@@ -46,6 +46,6 @@ message:
       ttl:
         description: provider ttl
         required: mandatory
-        usage: "P1D"
+        usage: P1D
         reference: if any     
 
