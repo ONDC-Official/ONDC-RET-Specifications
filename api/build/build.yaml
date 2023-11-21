@@ -6479,6 +6479,49 @@ x-flows:
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to order fashion item and gets delivered
+    details:
+      - description: Buyer Search & Quotation
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant B2C BAP
+            participant B2C Gateway
+            participant B2C BPP
+
+            B2C BAP->>B2C Gateway: **/search**  - Buyer search by fulfillment end location
+            B2C Gateway->>B2C BPP: **/search**  - Buyer search by fulfillment end location
+            B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog (Fashion)
+      - description: Product Selection and Confirmation
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant B2C BAP
+            participant B2C BPP
+
+            B2C BAP ->> B2C BPP: **/select** - Select the item(s)
+            B2C BPP ->> B2C BAP: **/on_select** - Returns item breakup when item is in stock and offer applied
+
+            B2C BAP ->> B2C BPP: **/init** - Buyer initiate the product and send the updated fulfillment id
+            B2C BPP ->> B2C BAP: **/on_init** - Respond to init
+            
+            B2C BAP ->> B2C BPP: **/confirm** - Buyer confirms product
+            B2C BPP ->> B2C BAP: **/on_confirm** - Seller Accepts confirmation
+            
+            B2C BPP ->> B2C BAP: **/on_update** - seller cancels non customized product
+            B2C BPP ->> B2C BAP: **/update** - Settlement trail for refund initiation
+      - description: Status updates till Product Delivery
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant B2C BAP
+            participant B2C BPP
+            
+            B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Pickup Approved
+            B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Picked up
+            B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Domestic Custom Cleared
+            B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Reached Destination Hub
+            B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Delivered
+            
     reference: if any
     steps:
       - summary: Search by fulfillment end location
@@ -9348,6 +9391,45 @@ x-flows:
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to import fashion item and then cancels it
+    details:
+      - description: Buyer Search & Quotation
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant B2C BAP
+            participant B2C Gateway
+            participant B2C BPP
+
+            B2C BAP->>B2C Gateway: **/search**  - Buyer search by fulfillment end location
+            B2C Gateway->>B2C BPP: **/search**  - Buyer search by fulfillment end location
+            B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog (Fashion)
+      - description: Product Selection and Confirmation
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant B2C BAP
+            participant B2C BPP
+
+            B2C BAP ->> B2C BPP: **/select** - Select the item(s)
+            B2C BPP ->> B2C BAP: **/on_select** - Returns item breakup when item is in stock and offer applied
+
+            B2C BAP ->> B2C BPP: **/init** - Buyer initiate the product and send the updated fulfillment id
+            B2C BPP ->> B2C BAP: **/on_init** - Respond to init
+            
+            B2C BAP ->> B2C BPP: **/confirm** - Buyer confirms product
+            B2C BPP ->> B2C BAP: **/on_confirm** - Seller Accepts confirmation
+            
+            B2C BPP ->> B2C BAP: **/on_update** - seller cancels non customized product
+            B2C BPP ->> B2C BAP: **/update** - Settlement trail for refund initiation
+      - description: Merchant Cancels Full Order
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant B2C BAP
+            participant B2C BPP
+            
+            B2C BAP ->> B2C BPP: **/cancel** - Buyer cancels the product
+            B2C BPP ->> B2C BAP: **/on_cancel** - Seller accepts the cancellation and responds to it
     reference: if any
     steps:
       - summary: Search by fulfillment end location
