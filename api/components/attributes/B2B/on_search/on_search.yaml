@@ -51,16 +51,16 @@ message:
           required: mandatory
           usage: "-"
           reference: if any
-          phone:
-            description: valid 10 digit (mobile no) or 11 digit no
-            required: mandatory
-            usage: "9886098860"
-            reference: if any
-          email:
-            description: email id of merchant or seller NP
-            required: mandatory
-            usage: abc@xyz.com
-            reference: if any
+        contact.phone:
+          description: valid 10 digit (mobile no) or 11 digit no
+          required: mandatory
+          usage: "9886098860"
+          reference: if any
+        contact.email:
+          description: email id of merchant or seller NP
+          required: mandatory
+          usage: abc@xyz.com
+          reference: if any
       ttl:
         description: ISO8601 duration format for validity of provider catalog
         required: mandatory
