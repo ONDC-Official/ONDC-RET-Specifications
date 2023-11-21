@@ -11646,6 +11646,53 @@ x-attributes:
                 required: mandatory
                 usage: PRE-FULFILLMENT
                 reference: if any
+      on_select:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            fulfillments:
+              parent: true
+              '@ondc/org/category':
+                description: type of delivery category
+                required: required
+                usage: '-'
+                reference: if any
+              '@ondc/org/TAT':
+                description: O2D (Order to delivery time)
+                required: required
+                usage: '-'
+                reference: if any
+              state:
+                descriptor.code:
+                  description: describes whether the location is serviceable or not
+                  required: required
+                  usage: Serviceable
+                  reference: if any
+            quote:
+              parent: true
+              price:
+                description: total price quoted from seller NP
+                required: required
+                usage: '-'
+                reference: if any
+              breakup:
+                '@ondc/org/title_type':
+                  description: type of charge - item,packing,discount,tax,misc,delivery
+                  required: required
+                  usage: delivery
+                  reference: if any
+                '@ondc/org/item_id':
+                  description: item id or fulfillment id based on type of charge
+                  required: required
+                  usage: F1
+                  reference: if any
+                title:
+                  description: type of charge - can be customized
+                  required: required
+                  usage: Packing charges
+                  reference: if any
       init:
         parent: true
         message:
@@ -11819,7 +11866,7 @@ x-attributes:
                   usage: Pickup Code
                   reference: if any
                 instructions.short_desc:
-                  description: null
+                  description: Pickup code value
                   required: optional
                   usage: '345234'
                   reference: if any

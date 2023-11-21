@@ -41,7 +41,7 @@ message:
           usage: Pickup Code
           reference: if any
         instructions.short_desc:
-          description:
+          description: Pickup code value
           required: optional
           usage: "345234"
           reference: if any
