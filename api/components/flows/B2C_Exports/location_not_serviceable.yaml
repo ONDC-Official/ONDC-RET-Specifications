@@ -1,6 +1,27 @@
 summary: Retail 1.2.0 Exports (Location not serviceable)
 description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order electronics item and location is not serviceable
 reference: if any
+details: 
+  - description: Search for an item
+    mermaidGraph: >-
+      sequenceDiagram
+
+        participant B2C BAP
+        participant B2C BPP
+
+        B2C BAP->>B2C BPP: **/search**  - Search for an item
+        B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog
+
+  - description: Selection of the item
+    mermaidGraph: >-
+      sequenceDiagram
+
+        participant B2C BAP
+        participant B2C BPP
+
+        B2C BAP->>B2C BPP: **/select**  - Selects the item
+        B2C BPP->>B2C BAP: **/on_select** - Returns that location is not serviceable
+
 steps:
   - summary: Search for an item
     api: search

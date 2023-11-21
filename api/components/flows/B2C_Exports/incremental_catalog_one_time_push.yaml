@@ -1,5 +1,26 @@
 summary: Retail 1.2.0 Exports (Incremental One Time Push)
 description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order customized item and it is delivered successfully and it is searched through incremental one time push
+details: 
+  - description: Search by city
+    mermaidGraph: >-
+      sequenceDiagram
+
+        participant B2C BAP
+        participant B2C BPP
+
+        B2C BAP->>B2C BPP: **/search**  - Search by city
+        B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog
+
+  - description: Search by incremental one time push catalog refresh
+    mermaidGraph: >-
+      sequenceDiagram
+
+        participant B2C BAP
+        participant B2C BPP
+
+        B2C BAP->>B2C BPP: **/search**  - Search by incremental one time push catalog refresh
+        B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog
+
 reference: if any
 steps:
   - summary: Search by city

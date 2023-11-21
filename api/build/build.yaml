@@ -9969,6 +9969,25 @@ x-flows:
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to order customized item and it is delivered
       successfully and it is searched through incremental one time push
+    details:
+      - description: Search by city
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant B2C BAP
+            participant B2C BPP
+
+            B2C BAP->>B2C BPP: **/search**  - Search by city
+            B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog
+      - description: Search by incremental one time push catalog refresh
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant B2C BAP
+            participant B2C BPP
+
+            B2C BAP->>B2C BPP: **/search**  - Search by incremental one time push catalog refresh
+            B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog
     reference: if any
     steps:
       - summary: Search by city
@@ -10144,6 +10163,26 @@ x-flows:
       where a buyer would like to order customized item and it is delivered
       successfully and it is searched through incremental regular push
     reference: if any
+    details:
+      - description: Search by country
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant B2C BAP
+            participant B2C BPP
+
+            B2C BAP->>B2C BPP: **/search**  - Search by country
+            B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog
+      - description: Search by incremental regular push catalog refresh
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant B2C BAP
+            participant B2C BPP
+
+            B2C BAP->>B2C BPP: **/search**  - Search by incremental regular push catalog refresh
+            B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog
+            B2C BAP->>B2C BPP: **/search**  - Stop the incremental regular push catalog refresh
     steps:
       - summary: Search by Country
         api: search
@@ -10255,6 +10294,25 @@ x-flows:
       where a buyer would like to order electronics item and item is not in
       stock
     reference: if any
+    details:
+      - description: Search by fulfillment end location
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant B2C BAP
+            participant B2C BPP
+
+            B2C BAP->>B2C BPP: **/search**  - Search by fulfillment end location 
+            B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog
+      - description: Selection of the item
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant B2C BAP
+            participant B2C BPP
+
+            B2C BAP->>B2C BPP: **/select**  - Selects the item
+            B2C BPP->>B2C BAP: **/on_select** - Returns that item is not in stock
     steps:
       - summary: Search by fulfillment end location
         api: search
@@ -10350,6 +10408,25 @@ x-flows:
       where a buyer would like to order electronics item and location is not
       serviceable
     reference: if any
+    details:
+      - description: Search for an item
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant B2C BAP
+            participant B2C BPP
+
+            B2C BAP->>B2C BPP: **/search**  - Search for an item
+            B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog
+      - description: Selection of the item
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant B2C BAP
+            participant B2C BPP
+
+            B2C BAP->>B2C BPP: **/select**  - Selects the item
+            B2C BPP->>B2C BAP: **/on_select** - Returns that location is not serviceable
     steps:
       - summary: Search for an item
         api: search
