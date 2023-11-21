@@ -11783,10 +11783,16 @@ x-attributes:
             fulfillments:
               parent: true
               stops:
-                description: describes the start and end points
-                required: mandatory
-                usage: '-'
-                reference: if any
+                type:
+                  description: type of stop (start point or end point)
+                  required: mandatory
+                  usage: end
+                  reference: if any
+                location.id:
+                  description: location id of the point
+                  required: mandatory
+                  usage: L1
+                  reference: if any
                 time.range:
                   description: time range when the order would be picked up/dropped
                   required: optional
@@ -11801,4 +11807,14 @@ x-attributes:
                   description: time range when the order would be delivered
                   required: optional
                   usage: '2023-02-03T09:30:00.000Z'
+                  reference: if any
+                instructions.name:
+                  description: Pickup instructions
+                  required: optional
+                  usage: Pickup Code
+                  reference: if any
+                instructions.short_desc:
+                  description: null
+                  required: optional
+                  usage: '345234'
                   reference: if any
