@@ -10,28 +10,24 @@ message:
         usage: "-"
         reference: if any
       breakup:
-        description: Seller NP provides the the breakup of the quote
-        required: required
-        usage: "-"
-        reference: if any
-      breakup.@ondc/org/title_type:
-        description: type of charge - item, packing,discount,tax,misc,delivery
-        required: required
-        usage: "delivery"
-        reference: if any
-      breakup.@ondc/org/item_id:
-        description: item id or fulfillment id based on type of charge
-        required: required
-        usage: "F1"
-        reference: if any
-      breakup.title:
-        description: type of charge - can be customized
-        required: required
-        usage: "Packing charges"
-        reference: if any
+        "@ondc/org/title_type":
+          description: type of charge - item,packing,discount,tax,misc,delivery
+          required: required
+          usage: "delivery"
+          reference: if any
+        "@ondc/org/item_id":
+          description: item id or fulfillment id based on type of charge
+          required: required
+          usage: "F1"
+          reference: if any
+        title:
+          description: type of charge - can be customized
+          required: required
+          usage: "Packing charges"
+          reference: if any
     payments:
       parent: true
-      "@ondc/org/buyer_app_finder_fee_type": 
+      "@ondc/org/buyer_app_finder_fee_type":
         description: buyer app finder fee type - percent,amount
         required: required
         usage: "percent"
@@ -45,4 +41,4 @@ message:
         description: Details of counter party for settling the money
         required: required
         usage: "-"
-        reference: if any 
+        reference: if any
