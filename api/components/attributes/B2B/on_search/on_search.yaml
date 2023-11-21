@@ -50,13 +50,11 @@ message:
         usage: F1
         reference: if any
       fulfillments:
-        parent: true
         description: provider level fulfillment options
         required: mandatory
         usage: "-"
         reference: if any
         contact:
-          parent: true
           description: contact details for merchant - if merchant is in multiple locations, this will be the contact detail for merchant and contact detail for the storefront (specific location) will be in fulfillment.start
           required: mandatory
           usage: "-"
@@ -77,7 +75,6 @@ message:
         usage: "P1D"
         reference: if any
       locations:
-        parent: true
         description: locations of provider with unique id for each location
         required: mandatory
         usage: "-"
@@ -119,18 +116,12 @@ message:
         creator:
           parent: true
           descriptor:
-            parent: true
-            description: Manufacturer details
-            required: optional
-            usage: "-"
-            reference: if any
             name:
               description: Manufacturer name
               required: mandatory
               usage: "Iphone"
               reference: if any
             contact:
-              parent: true
               description: Manufacturer contact details
               required: mandatory
               usage: "-"
