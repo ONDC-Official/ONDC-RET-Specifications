@@ -11513,6 +11513,9 @@ x-attributes:
                     item.quantity.unitized.measure.value and
                     item.quantity.unitized.measure.unit e.g. "1 kilogram", "2
                     kilogram", "5 kilogram"
+                  required: mandatory
+                  usage: '-'
+                  reference: if any
               items:
                 parent_item_id:
                   description: >-

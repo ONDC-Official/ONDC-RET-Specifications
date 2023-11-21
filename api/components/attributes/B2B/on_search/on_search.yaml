@@ -84,6 +84,9 @@ message:
               reference: if any
           tags.list.value:
               description: if `tags>code` is "attr" and `tags>list>code` is "name", then it's corresponding `value` means concatenation of item.quantity.unitized.measure.value and item.quantity.unitized.measure.unit e.g. "1 kilogram", "2 kilogram", "5 kilogram"
+              required: mandatory
+              usage: "-"
+              reference: if any
       items:
         parent_item_id:
           description: if variant grouping defined for provider above, this matches id for variant_group definition; if not defined or id is invalid, buyer NPs may choose to display as normal SKU item
