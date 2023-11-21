@@ -11505,7 +11505,6 @@ x-attributes:
               categories:
                 parent: true
                 tags:
-                  parent: true
                   code:
                     description: >-
                       if code is "attr", then it defines variant attributes i.e.
@@ -11515,7 +11514,6 @@ x-attributes:
                     usage: '-'
                     reference: if any
                   list:
-                    parent: true
                     code:
                       description: >-
                         if "code" is "attr", then it is namespaced attribute,
@@ -11542,7 +11540,6 @@ x-attributes:
                   usage: V1
                   reference: if any
                 descriptor:
-                  parent: true
                   code:
                     description: >-
                       unique code for item which will be in this format -
@@ -11563,7 +11560,6 @@ x-attributes:
                 creator:
                   parent: true
                   descriptor:
-                    parent: true
                     description: Manufacturer details
                     required: optional
                     usage: '-'
@@ -11574,7 +11570,6 @@ x-attributes:
                       usage: Iphone
                       reference: if any
                     contact:
-                      parent: true
                       description: Manufacturer contact details
                       required: mandatory
                       usage: '-'
@@ -11607,9 +11602,7 @@ x-attributes:
                 quantity:
                   parent: true
                   unitized:
-                    parent: true
                     measure:
-                      parent: true
                       unit:
                         description: >-
                           enum - "unit", "dozen", "kilogram", "tonne", "litre",
@@ -11619,7 +11612,6 @@ x-attributes:
                         usage: unit
                         reference: if any
                   available:
-                    parent: true
                     count:
                       description: >-
                         stringified integer value - default value for item in
@@ -11628,7 +11620,6 @@ x-attributes:
                       usage: '3'
                       reference: if any
                   maximum:
-                    parent: true
                     count:
                       description: >-
                         stringified integer value - cap per order (if exists) or
@@ -11698,6 +11689,7 @@ x-attributes:
           order:
             parent: true
             billing:
+              parent: true
               description: >-
                 billing details of the marketplace (MSN or ISN retail seller
                 app) for invoicing;
@@ -11737,6 +11729,7 @@ x-attributes:
                   reference: if any
                   usage: Bengaluru
             provider:
+              parent: true
               locations:
                 description: >-
                   mandatory only if provider.locations was returned in

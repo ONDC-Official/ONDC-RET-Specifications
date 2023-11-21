@@ -85,14 +85,12 @@ message:
       categories:
         parent: true
         tags:
-          parent: true
           code:
             description: if code is "attr", then it defines variant attributes i.e. attribute & sequence; multiple variant attributes can be defined in multiple attr blocks
             required: mandatory
             usage: "-"
             reference: if any
           list:
-            parent: true
             code:
               description: if "code" is "attr", then it is namespaced attribute, above example means attribute(s) in "quantity.unitized" for an item
               required: mandatory
@@ -108,7 +106,6 @@ message:
           usage: V1
           reference: if any
         descriptor:
-          parent: true
           code:
             description: unique code for item which will be in this format - "type:code" where type is 1 - EAN, 2 - ISBN, 3 - GTIN, 4 - HSN, 5 - others
             required: optional
@@ -122,7 +119,6 @@ message:
         creator:
           parent: true
           descriptor:
-            parent: true
             description: Manufacturer details
             required: optional
             usage: "-"
@@ -133,7 +129,6 @@ message:
               usage: "Iphone"
               reference: if any
             contact:
-              parent: true
               description: Manufacturer contact details
               required: mandatory
               usage: "-"
@@ -166,23 +161,19 @@ message:
         quantity:
           parent: true
           unitized:
-            parent: true
             measure:
-              parent: true
               unit:
                 description: enum - "unit", "dozen", "kilogram", "tonne", "litre", "millilitre" (https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/grocery/RET10-UOM.json)
                 required: mandatory
                 usage: unit
                 reference: if any
           available:
-            parent: true
             count:
               description: stringified integer value - default value for item in stock
               required: mandatory
               usage: "3"
               reference: if any
           maximum:
-            parent: true
             count:
               description: stringified integer value - cap per order (if exists) or default value
               required: mandatory

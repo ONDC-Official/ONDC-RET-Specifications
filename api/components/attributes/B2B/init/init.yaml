@@ -3,6 +3,7 @@ message:
   order:
     parent: true
     billing:
+      parent: true
       description: billing details of the marketplace (MSN or ISN retail seller app) for invoicing;
       required: required
       usage: "-"
@@ -40,6 +41,7 @@ message:
           reference: if any
           usage: "Bengaluru"
     provider:
+      parent: true
       locations:
         description: mandatory only if provider.locations was returned in /on_search
         required: optional
