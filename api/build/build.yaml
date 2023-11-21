@@ -11782,6 +11782,11 @@ x-attributes:
             parent: true
             fulfillments:
               parent: true
+              state.descriptor.code:
+                description: fulfillment state
+                required: mandatory
+                usage: Pending
+                reference: if any
               stops:
                 type:
                   description: type of stop (start point or end point)
