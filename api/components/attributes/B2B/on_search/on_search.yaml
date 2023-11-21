@@ -155,10 +155,6 @@ message:
           usage: "3"
           reference: if any
       creds:
-        description: credentials for provider
-        required: optional
-        usage: "-"
-        reference: if any
         id:
           required: optional
           description: Human readable id
