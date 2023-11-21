@@ -9,9 +9,11 @@ message:
         description: describes the pickup and drop details
         required: mandatory
         time:
+          parent: true
           description: describes the pickup and delivery time ranges
           required: optional
           range:
+            parent: true
             required: optional
             start:
               description: time range when the order would be picked up
