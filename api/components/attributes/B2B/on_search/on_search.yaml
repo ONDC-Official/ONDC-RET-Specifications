@@ -119,6 +119,7 @@ message:
         creator:
           parent: true
           descriptor:
+            parent: true
             description: Manufacturer details
             required: optional
             usage: "-"
@@ -129,6 +130,7 @@ message:
               usage: "Iphone"
               reference: if any
             contact:
+              parent: true
               description: Manufacturer contact details
               required: mandatory
               usage: "-"
@@ -139,6 +141,7 @@ message:
                 usage: "-"
                 reference: if any 
               address:
+                parent: true
                 description: address of the support person
                 required: mandatory
                 usage: "-"
