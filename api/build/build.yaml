@@ -11538,66 +11538,62 @@ x-attributes:
                   required: mandatory
                   usage: '-'
                   reference: if any
-                creator:
-                  descriptor.name:
-                    description: Manufacturer name
-                    required: mandatory
-                    usage: Iphone
-                    reference: if any
-                  descriptor.contact:
-                    description: Manufacturer contact details
-                    required: mandatory
-                    usage: '-'
-                    reference: if any
-                  descriptor.contact.name:
-                    description: name of the support person
-                    required: mandatory
-                    usage: '-'
-                    reference: if any
-                  descriptor.contact.address:
-                    parent: true
-                    description: address of the support person
-                    required: mandatory
-                    usage: '-'
-                    reference: if any
-                  descriptor.contact.address.full:
-                    description: full address
-                    required: mandatory
-                    usage: Iphone Ltd., Delhi
-                    reference: if any
-                  descriptor.contact.phone:
-                    description: phone number of the support person
-                    required: mandatory
-                    usage: '18001801018'
-                    reference: if any
-                  descriptor.contact.email:
-                    description: email of the support person
-                    required: mandatory
-                    usage: consumer.services@abc.com
-                    reference: if any
-                quantity:
-                  unitized.measure.unit:
-                    description: >-
-                      enum - "unit", "dozen", "kilogram", "tonne", "litre",
-                      "millilitre"
-                      (https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/grocery/RET10-UOM.json)
-                    required: mandatory
-                    usage: unit
-                    reference: if any
-                  available.count:
-                    description: >-
-                      stringified integer value - default value for item in
-                      stock
-                    required: mandatory
-                    usage: '3'
-                    reference: if any
-                  maximum.count:
-                    description: >-
-                      stringified integer value - cap per order (if exists) or
-                      default value
-                    required: mandatory
-                    usage: '3'
-                    reference: if any
+                creator.descriptor.name:
+                  description: Manufacturer name
+                  required: mandatory
+                  usage: Iphone
+                  reference: if any
+                creator.descriptor.contact:
+                  description: Manufacturer contact details
+                  required: mandatory
+                  usage: '-'
+                  reference: if any
+                creator.descriptor.contact.name:
+                  description: name of the support person
+                  required: mandatory
+                  usage: '-'
+                  reference: if any
+                creator.descriptor.contact.address:
+                  parent: true
+                  description: address of the support person
+                  required: mandatory
+                  usage: '-'
+                  reference: if any
+                creator.descriptor.contact.address.full:
+                  description: full address
+                  required: mandatory
+                  usage: Iphone Ltd., Delhi
+                  reference: if any
+                creator.descriptor.contact.phone:
+                  description: phone number of the support person
+                  required: mandatory
+                  usage: '18001801018'
+                  reference: if any
+                creator.descriptor.contact.email:
+                  description: email of the support person
+                  required: mandatory
+                  usage: consumer.services@abc.com
+                  reference: if any
+                quantity.unitized.measure.unit:
+                  description: >-
+                    enum - "unit", "dozen", "kilogram", "tonne", "litre",
+                    "millilitre"
+                    (https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/grocery/RET10-UOM.json)
+                  required: mandatory
+                  usage: unit
+                  reference: if any
+                quantity.available.count:
+                  description: stringified integer value - default value for item in stock
+                  required: mandatory
+                  usage: '3'
+                  reference: if any
+                quantity.maximum.count:
+                  description: >-
+                    stringified integer value - cap per order (if exists) or
+                    default value
+                  required: mandatory
+                  usage: '3'
+                  reference: if any
               creds:
                 description: credentials for provider
                 required: optional
