@@ -9969,6 +9969,25 @@ x-flows:
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to order customized item and it is delivered
       successfully and it is searched through incremental one time push
+    details:
+      - description: Search by city
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant B2C BAP
+            participant B2C BPP
+
+            B2C BAP->>B2C BPP: **/search**  - Search by city
+            B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog
+      - description: Search by incremental one time push catalog refresh
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant B2C BAP
+            participant B2C BPP
+
+            B2C BAP->>B2C BPP: **/search**  - Search by incremental one time push catalog refresh
+            B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog
     reference: if any
     steps:
       - summary: Search by city
@@ -10144,6 +10163,26 @@ x-flows:
       where a buyer would like to order customized item and it is delivered
       successfully and it is searched through incremental regular push
     reference: if any
+    details:
+      - description: Search by country
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant B2C BAP
+            participant B2C BPP
+
+            B2C BAP->>B2C BPP: **/search**  - Search by country
+            B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog
+      - description: Search by incremental regular push catalog refresh
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant B2C BAP
+            participant B2C BPP
+
+            B2C BAP->>B2C BPP: **/search**  - Search by incremental regular push catalog refresh
+            B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog
+            B2C BAP->>B2C BPP: **/search**  - Stop the incremental regular push catalog refresh
     steps:
       - summary: Search by Country
         api: search
@@ -10255,6 +10294,25 @@ x-flows:
       where a buyer would like to order electronics item and item is not in
       stock
     reference: if any
+    details:
+      - description: Search by fulfillment end location
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant B2C BAP
+            participant B2C BPP
+
+            B2C BAP->>B2C BPP: **/search**  - Search by fulfillment end location 
+            B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog
+      - description: Selection of the item
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant B2C BAP
+            participant B2C BPP
+
+            B2C BAP->>B2C BPP: **/select**  - Selects the item
+            B2C BPP->>B2C BAP: **/on_select** - Returns that item is not in stock
     steps:
       - summary: Search by fulfillment end location
         api: search
@@ -10350,6 +10408,25 @@ x-flows:
       where a buyer would like to order electronics item and location is not
       serviceable
     reference: if any
+    details:
+      - description: Search for an item
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant B2C BAP
+            participant B2C BPP
+
+            B2C BAP->>B2C BPP: **/search**  - Search for an item
+            B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog
+      - description: Selection of the item
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant B2C BAP
+            participant B2C BPP
+
+            B2C BAP->>B2C BPP: **/select**  - Selects the item
+            B2C BPP->>B2C BAP: **/on_select** - Returns that location is not serviceable
     steps:
       - summary: Search for an item
         api: search
@@ -14324,10 +14401,11 @@ x-attributes:
             parent: true
             category:
               parent: true
-              description: Category of the search
-              required: optional
-              usage: '-'
-              reference: if any
+              category:
+                description: Category of the search
+                required: optional
+                usage: '-'
+                reference: if any
               id:
                 description: >-
                   category id will be from this list -
@@ -14337,12 +14415,13 @@ x-attributes:
                 reference: if any
             fulfillment:
               parent: true
-              description: >-
-                when not specified, all fulfillment types supported by provider
-                should be returned in response
-              required: optional
-              usage: '-'
-              reference: if any
+              fulfillment:
+                description: >-
+                  when not specified, all fulfillment types supported by
+                  provider should be returned in response
+                required: optional
+                usage: '-'
+                reference: if any
               type:
                 description: >-
                   when not specified, all fulfillment types supported by
@@ -14351,9 +14430,7 @@ x-attributes:
                 usage: Delivery
                 reference: if any
               end:
-                parent: true
                 location:
-                  parent: true
                   gps:
                     description: minimum 6 digit decimal precision for gps coordinates
                     required: mandatory
@@ -14397,7 +14474,6 @@ x-attributes:
             bpp/providers:
               parent: true
               time:
-                parent: true
                 timestamp:
                   description: >-
                     timestamp when the snapshot for this provider (including
@@ -14422,9 +14498,7 @@ x-attributes:
                   usage: enable
                   reference: if any
               items:
-                parent: true
                 time:
-                  parent: true
                   label:
                     description: enum - "enable", "disable"
                     required: mandatory
@@ -14444,7 +14518,6 @@ x-attributes:
                   usage: parent_item_id
                   reference: if any
                 descriptor:
-                  parent: true
                   code:
                     description: >-
                       network-wide unique code for item which will be in this
@@ -14461,18 +14534,17 @@ x-attributes:
                   usage: Foodgrains
                   reference: if any
                 '@ondc/org/statutory_reqs_packaged_commodities':
-                  parent: true
                   description: >-
                     mapping of category to attribute key is defined
                     https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
                   required: mandatory
                   usage: '-'
                   reference: if any
-                  month_year_of_manufacture_packing_import:
-                    description: date first available
-                    required: mandatory
-                    usage: 01/2017
-                    reference: if any
+                month_year_of_manufacture_packing_import:
+                  description: date first available
+                  required: mandatory
+                  usage: 01/2017
+                  reference: if any
               creds:
                 description: Creds
                 required: optional
@@ -14495,10 +14567,11 @@ x-attributes:
             parent: true
             bpp/descriptor:
               parent: true
-              description: descriptor for seller NP
-              required: mandatory
-              usage: '-'
-              reference: if any
+              bpp/descriptor:
+                description: descriptor for seller NP
+                required: mandatory
+                usage: '-'
+                reference: if any
               symbol:
                 description: logo or image for seller NP
                 required: mandatory
@@ -14506,12 +14579,13 @@ x-attributes:
                 reference: if any
             bpp/providers:
               parent: true
-              description: >-
-                descriptor for seller (merchant) that processes & fulfills
-                orders
-              required: mandatory
-              usage: '-'
-              reference: if any
+              bpp/providers:
+                description: >-
+                  descriptor for seller (merchant) that processes & fulfills
+                  orders
+                required: mandatory
+                usage: '-'
+                reference: if any
               id:
                 description: >-
                   unique id for provider, must be same as bpp_id for ISN seller
@@ -14523,7 +14597,6 @@ x-attributes:
                 usage: F1
                 reference: if any
               time:
-                parent: true
                 label:
                   description: >-
                     enum - "enable" (default), "disable" (soft delete of
@@ -14541,21 +14614,21 @@ x-attributes:
                   usage: '2023-06-03T07:00:30.000Z'
                   reference: if any
               fulfillments:
-                parent: true
-                description: provider level fulfillment options
-                required: mandatory
-                usage: '-'
-                reference: if any
-                contact:
-                  parent: true
-                  description: >-
-                    contact details for merchant - if merchant is in multiple
-                    locations, this will be the contact detail for merchant and
-                    contact detail for the storefront (specific location) will
-                    be in fulfillment.start
+                fulfillments:
+                  description: provider level fulfillment options
                   required: mandatory
                   usage: '-'
                   reference: if any
+                contact:
+                  contact:
+                    description: >-
+                      contact details for merchant - if merchant is in multiple
+                      locations, this will be the contact detail for merchant
+                      and contact detail for the storefront (specific location)
+                      will be in fulfillment.start
+                    required: mandatory
+                    usage: '-'
+                    reference: if any
                   phone:
                     description: valid 10 digit (mobile no) or 11 digit no
                     required: mandatory
@@ -14572,13 +14645,12 @@ x-attributes:
                 usage: P1D
                 reference: if any
               locations:
-                parent: true
-                description: locations for provider with unique id for each location
-                required: mandatory
-                usage: '-'
-                reference: if any
+                locations:
+                  description: locations for provider with unique id for each location
+                  required: mandatory
+                  usage: '-'
+                  reference: if any
                 time:
-                  parent: true
                   label:
                     description: >-
                       enum - "enable" (default), "disable" (soft delete of
@@ -14601,7 +14673,6 @@ x-attributes:
                     usage: '2023-06-03T07:30:30.000Z'
                     reference: if any
                   schedule:
-                    parent: true
                     holidays:
                       description: >-
                         list of future dated holidays, to be used as per holiday
@@ -14610,16 +14681,13 @@ x-attributes:
                       usage: '2023-08-15'
                       reference: if any
                 address:
-                  parent: true
                   locality:
                     description: locality name
                     required: mandatory
                     usage: Kadma
                     reference: if any
               categories:
-                parent: true
                 tags:
-                  parent: true
                   code:
                     description: >-
                       if code is "attr", then it defines variant attributes i.e.
@@ -14629,7 +14697,6 @@ x-attributes:
                     usage: '-'
                     reference: if any
                   list:
-                    parent: true
                     code:
                       description: >-
                         if "code" is "attr", then it is namespaced attribute,
@@ -14645,10 +14712,19 @@ x-attributes:
                         item.quantity.unitized.measure.value and
                         item.quantity.unitized.measure.unit e.g. "1 kilogram",
                         "2 kilogram", "5 kilogram"
+                      required: mandatory
+                      usage: '-'
+                      reference: if any
               items:
-                parent: true
+                parent_item_id:
+                  description: >-
+                    if variant grouping defined for provider above, this matches
+                    id for variant_group definition; if not defined or id is
+                    invalid, buyer NPs may choose to display as normal SKU item
+                  required: mandatory
+                  usage: V1
+                  reference: if any
                 time:
-                  parent: true
                   label:
                     description: enum - "enable", "disable"
                     required: mandatory
@@ -14659,16 +14735,7 @@ x-attributes:
                     required: mandatory
                     usage: '2023-06-03T07:30:00.000Z'
                     reference: if any
-                parent_item_id:
-                  description: >-
-                    if variant grouping defined for provider above, this matches
-                    id for variant_group definition; if not defined or id is
-                    invalid, buyer NPs may choose to display as normal SKU item
-                  required: mandatory
-                  usage: V1
-                  reference: if any
                 descriptor:
-                  parent: true
                   code:
                     description: >-
                       unique code for item which will be in this format -
@@ -14687,11 +14754,8 @@ x-attributes:
                     usage: '-'
                     reference: if any
                 quantity:
-                  parent: true
                   unitized:
-                    parent: true
                     measure:
-                      parent: true
                       unit:
                         description: >-
                           enum - "unit", "dozen", "kilogram", "tonne", "litre",
@@ -14701,7 +14765,6 @@ x-attributes:
                         usage: unit
                         reference: if any
                   available:
-                    parent: true
                     count:
                       description: >-
                         stringified integer value - default value for item in
@@ -14710,7 +14773,6 @@ x-attributes:
                       usage: '3'
                       reference: if any
                   maximum:
-                    parent: true
                     count:
                       description: >-
                         stringified integer value - cap per order (if exists) or
@@ -14766,11 +14828,11 @@ x-attributes:
                   usage: '-'
                   reference: if any
               creds:
-                parent: true
-                description: credentials for provider
-                required: optional
-                usage: '-'
-                reference: if any
+                creds:
+                  description: credentials for provider
+                  required: optional
+                  usage: '-'
+                  reference: if any
                 id:
                   description: >-
                     globally identifiable identity or unique ID provided by
@@ -14796,10 +14858,15 @@ x-attributes:
             parent: true
             bpp/providers:
               parent: true
+              bpp/providers:
+                description: >-
+                  descriptor for seller (merchant) that processes & fulfills
+                  orders
+                required: mandatory
+                usage: '-'
+                reference: if any
               items:
-                parent: true
                 time:
-                  parent: true
                   label:
                     description: enum - "enable", "disable"
                     required: mandatory
@@ -14811,9 +14878,7 @@ x-attributes:
                     usage: '2023-06-03T07:30:00.000Z'
                     reference: if any
               locations:
-                parent: true
                 time:
-                  parent: true
                   range:
                     description: means store is closed from 4PM till rest of the day
                     required: mandatory
@@ -14827,10 +14892,11 @@ x-attributes:
             parent: true
             offers:
               parent: true
-              description: only if buyer selects offer code
-              required: optional
-              usage: '-'
-              reference: if any
+              offers:
+                description: only if buyer selects offer code
+                required: optional
+                usage: '-'
+                reference: if any
               id:
                 description: >-
                   if offer code is not valid, seller NP can NACK /select with
@@ -14840,14 +14906,18 @@ x-attributes:
                 reference: if any
             fulfillments:
               parent: true
-              end:
-                parent: true
-                description: fulfillment end location, i.e. delivery location for buyer
+              fulfillments:
+                description: fulfillment details
                 required: mandatory
                 usage: '-'
                 reference: if any
+              end:
+                end:
+                  description: fulfillment end location, i.e. delivery location for buyer
+                  required: mandatory
+                  usage: '-'
+                  reference: if any
                 location:
-                  parent: true
                   gps:
                     description: >-
                       GPS coordinates & precision for fulfillment end location
@@ -14857,10 +14927,11 @@ x-attributes:
                     reference: if any
             payment:
               parent: true
-              description: payment details
-              required: optional
-              usage: '-'
-              reference: if any
+              payment:
+                description: payment details
+                required: optional
+                usage: '-'
+                reference: if any
               type:
                 description: >-
                   enum - "ON-ORDER" (prepaid), "ON-FULFILLMENT" (on delivery),
@@ -14876,8 +14947,12 @@ x-attributes:
             parent: true
             provider:
               parent: true
+              provider:
+                description: provider details
+                required: mandatory
+                usage: '-'
+                reference: if any
               locations:
-                parent: true
                 id:
                   description: >-
                     may be the same location as selected by the buyer or a
@@ -14887,14 +14962,15 @@ x-attributes:
                   reference: if any
             fulfillments:
               parent: true
-              description: >-
-                order can have multiple fulfillments; in this case, unique
-                fulfillment id (for provider & order) needs to be assigned by
-                seller NP for each fulfillment & mapped to item(s) that are a
-                part of that fulfillment
-              required: mandatory
-              usage: '-'
-              reference: if any
+              fulfillments:
+                description: >-
+                  order can have multiple fulfillments; in this case, unique
+                  fulfillment id (for provider & order) needs to be assigned by
+                  seller NP for each fulfillment & mapped to item(s) that are a
+                  part of that fulfillment
+                required: mandatory
+                usage: '-'
+                reference: if any
               id:
                 description: >-
                   unique fulfillment id assigned by seller NP here & mapped to
@@ -14919,16 +14995,16 @@ x-attributes:
                 usage: P1D
                 reference: if any
               state:
-                parent: true
-                description: >-
-                  Seller NP performs serviceability check based on end location
-                  in /select. If non serviceable, seller app has to return the
-                  appropriate error code along with a valid /on_select response
-                required: mandatory
-                usage: '-'
-                reference: if any
+                state:
+                  description: >-
+                    Seller NP performs serviceability check based on end
+                    location in /select. If non serviceable, seller app has to
+                    return the appropriate error code along with a valid
+                    /on_select response
+                  required: mandatory
+                  usage: '-'
+                  reference: if any
                 descriptor:
-                  parent: true
                   code:
                     description: enum - "Serviceable", "Non-serviceable"
                     required: mandatory
@@ -14936,8 +15012,12 @@ x-attributes:
                     reference: if any
             quote:
               parent: true
+              ttl:
+                description: validity of quote
+                required: mandatory
+                usage: P1D
+                reference: if any
               breakup:
-                parent: true
                 '@ondc/org/item_id':
                   description: >-
                     item_id should match either item.id or fulfillment.id based
@@ -14949,7 +15029,6 @@ x-attributes:
                   usage: '-'
                   reference: if any
                 '@ondc/org/item_quantity':
-                  parent: true
                   count:
                     description: >-
                       if required quantity (as selected by buyer) is not in
@@ -14976,7 +15055,6 @@ x-attributes:
                   usage: item
                   reference: if any
                 price:
-                  parent: true
                   value:
                     description: >-
                       item price should be either inclusive or exclusive of
@@ -14984,11 +15062,6 @@ x-attributes:
                     required: mandatory
                     usage: '10.00'
                     reference: if any
-              ttl:
-                description: validity of quote
-                required: mandatory
-                usage: P1D
-                reference: if any
       on_select_item_not_in_stock:
         parent: true
         message:
@@ -14997,8 +15070,12 @@ x-attributes:
             parent: true
             provider:
               parent: true
+              provider:
+                description: provider details
+                required: mandatory
+                usage: '-'
+                reference: if any
               location:
-                parent: true
                 id:
                   description: >-
                     may be the same location as selected by the buyer or a
@@ -15008,10 +15085,13 @@ x-attributes:
                   reference: if any
             quote:
               parent: true
+              quote:
+                description: quote details
+                required: mandatory
+                usage: 0
+                reference: if any
               breakup:
-                parent: true
                 '@ondc/org/item_quantity':
-                  parent: true
                   count:
                     description: >-
                       can be 0 (completely out of stock) or the reduced quantity
@@ -15023,6 +15103,9 @@ x-attributes:
                   description: >-
                     value will be "delivery" indicating delivery charge (to be
                     included only if fulfillment state code is "Serviceable")
+                  required: mandatory
+                  usage: 0
+                  reference: if any
         error:
           parent: true
           message:
@@ -15041,8 +15124,12 @@ x-attributes:
             parent: true
             provider:
               parent: true
+              provider:
+                description: provider details
+                required: mandatory
+                usage: '-'
+                reference: if any
               locations:
-                parent: true
                 id:
                   description: >-
                     may be the same location as selected by the buyer or a
@@ -15065,8 +15152,12 @@ x-attributes:
             parent: true
             billing:
               parent: true
+              tax_number:
+                description: Tax number
+                reference: if any
+                usage: '-'
+                required: optional, may be required for B2B
               address:
-                parent: true
                 name:
                   description: >-
                     house no (for independent dwellings) or door no (for
@@ -15080,11 +15171,6 @@ x-attributes:
                   reference: if any
                   usage: Feng Shu Street
                   required: mandatory
-              tax_number:
-                description: Tax number
-                reference: if any
-                usage: '-'
-                required: optional, may be required for B2B
               email:
                 description: Email
                 reference: if any
@@ -15102,12 +15188,14 @@ x-attributes:
                 required: mandatory
             fulfillments:
               parent: true
+              fulfillments:
+                description: fullfillment details
+                reference: if any
+                usage: '-'
+                required: mandatory
               end:
-                parent: true
                 location:
-                  parent: true
                   address:
-                    parent: true
                     description: name + building + locality < 190 chars, name != locality
                     reference: if any
                     required: mandatory
@@ -15137,12 +15225,13 @@ x-attributes:
                 reference: if any
             billing:
               parent: true
-              description: >-
-                billing object timestamps (created_at, updated_at) have to be
-                the same as in /init
-              required: mandatory
-              usage: '-'
-              reference: if any
+              billing:
+                description: >-
+                  billing object timestamps (created_at, updated_at) have to be
+                  the same as in /init
+                required: mandatory
+                usage: '-'
+                reference: if any
               tax_number:
                 description: same as provided in /init
                 required: optional
@@ -15165,14 +15254,15 @@ x-attributes:
                 reference: if any
             payment:
               parent: true
-              description: >-
-                if seller NP is collecting pre-paid payment (for categories like
-                electronics), they may provide the following - type,
-                collected_by, uri (payment link), status, settlement_basis,
-                settlement_window, withholding_amount
-              required: mandatory
-              usage: '-'
-              reference: if any
+              payment:
+                description: >-
+                  if seller NP is collecting pre-paid payment (for categories
+                  like electronics), they may provide the following - type,
+                  collected_by, uri (payment link), status, settlement_basis,
+                  settlement_window, withholding_amount
+                required: mandatory
+                usage: '-'
+                reference: if any
               status:
                 description: enum - "PAID", "NOT-PAID"
                 required: mandatory
@@ -15201,13 +15291,13 @@ x-attributes:
                 usage: 10
                 reference: if any
               '@ondc/org/settlement_details':
-                parent: true
-                description: >-
-                  may be provided by seller NP if they are not collecting
-                  payment or not CoD payment
-                required: optional
-                usage: '-'
-                reference: if any
+                '@ondc/org/settlement_details':
+                  description: >-
+                    may be provided by seller NP if they are not collecting
+                    payment or not CoD payment
+                  required: optional
+                  usage: '-'
+                  reference: if any
                 settlement_type:
                   description: >-
                     enum - "upi", "neft", "rtgs"; for "upi", upi_address needs
@@ -15266,9 +15356,7 @@ x-attributes:
                 required: mandatory
                 reference: if any
               end:
-                parent: true
                 contact:
-                  parent: true
                   email:
                     description: Email
                     optional: optional
@@ -15287,7 +15375,6 @@ x-attributes:
                 usage: http/get
                 reference: if any
               params:
-                parent: true
                 transaction_id:
                   description: >-
                     transaction id if prepaid payment collected by buyer NP, not
@@ -15338,11 +15425,11 @@ x-attributes:
                 usage: 1
                 reference: if any
               '@ondc/org/settlement_details':
-                parent: true
-                description: Settlement Details
-                required: optional
-                usage: '-'
-                reference: if any
+                '@ondc/org/settlement_details':
+                  description: Settlement Details
+                  required: optional
+                  usage: '-'
+                  reference: if any
                 settlement_counterparty:
                   description: buyer-app for payment on delivery
                   required: mandatory if parent is present

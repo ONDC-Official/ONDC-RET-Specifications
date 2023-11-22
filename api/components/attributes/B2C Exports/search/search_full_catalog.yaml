@@ -36,10 +36,11 @@ message:
     parent: true
     category:
       parent: true
-      description: Category of the search
-      required: optional
-      usage: "-"
-      reference: if any
+      category:
+        description: Category of the search
+        required: optional
+        usage: "-"
+        reference: if any
       id:
         description: category id will be from this list - https://docs.google.com/spreadsheets/d/APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
         required: present if category is present
@@ -47,19 +48,18 @@ message:
         reference: if any
     fulfillment:
       parent: true
-      description: when not specified, all fulfillment types supported by provider should be returned in response
-      required: optional
-      usage: "-"
-      reference: if any
+      fulfillment:
+        description: when not specified, all fulfillment types supported by provider should be returned in response
+        required: optional
+        usage: "-"
+        reference: if any
       type:
         description: when not specified, all fulfillment types supported by provider should be returned in response
         required: optional
         usage: Delivery
         reference: if any
       end:
-        parent: true
         location:
-          parent: true
           gps:
             description: minimum 6 digit decimal precision for gps coordinates
             required: mandatory

@@ -4,10 +4,13 @@ message:
     parent: true
     bpp/providers:
       parent: true
+      bpp/providers:
+        description: descriptor for seller (merchant) that processes & fulfills orders
+        required: mandatory
+        usage: "-"
+        reference: if any   
       items:
-        parent: true
         time:
-          parent: true
           label:
             description: enum - "enable", "disable"
             required: mandatory
@@ -19,9 +22,7 @@ message:
             usage: "2023-06-03T07:30:00.000Z"
             reference: if any
       locations:
-        parent: true
         time:
-          parent: true
           range: 
             description: means store is closed from 4PM till rest of the day
             required: mandatory
