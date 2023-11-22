@@ -1,0 +1,13 @@
+message:
+  parent: true
+  order:
+    parent: true
+    documents:
+      parent: true
+      url: 
+        description: url of the invoice
+        required: mandatory when order has been picked up
+        usage: "https://invoice_url"
+        reference: if any
+
+      
