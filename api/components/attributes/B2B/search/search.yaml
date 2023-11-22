@@ -36,7 +36,6 @@ message:
     parent: true
     payment:
       parent: true
-      required: mandatory
       type:
         description: type of payment option buyer wants to avail
         usage: "ON-FULFILLMENT"
