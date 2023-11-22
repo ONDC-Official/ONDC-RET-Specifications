@@ -32,9 +32,7 @@ message:
         required: mandatory
         reference: if any
       end:
-        parent: true
         contact:
-          parent: true
           email:
             description: Email
             optional: optional
@@ -53,7 +51,6 @@ message:
         usage: "http/get"
         reference: if any
       params:
-        parent: true
         transaction_id:
           description: transaction id if prepaid payment collected by buyer NP, not required for payment on delivery
           required: optional
@@ -95,11 +92,11 @@ message:
         usage: 1.00
         reference: if any
       "@ondc/org/settlement_details":
-        parent: true
-        description: Settlement Details
-        required: optional
-        usage: "-"
-        reference: if any
+        "@ondc/org/settlement_details":
+          description: Settlement Details
+          required: optional
+          usage: "-"
+          reference: if any
         settlement_counterparty:
           description: buyer-app for payment on delivery
           required: mandatory if parent is present
