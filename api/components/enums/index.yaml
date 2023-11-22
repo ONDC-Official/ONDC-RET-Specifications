@@ -1,6 +1,7 @@
 search:
   context: &context
-    $ref: "./context.yaml#/context"
+    domain: 
+      $ref: "./context.yaml#/context/domain"
   message:
     intent:
      payment: &payment
