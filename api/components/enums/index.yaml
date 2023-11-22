@@ -1,6 +1,6 @@
 search:
   context: &context
-    $ref: "./context.yaml"
+    $ref: "./context.yaml#/context"
   message:
     intent:
      payment: &payment
@@ -14,7 +14,7 @@ on_search:
     catalog:
         providers:
           items:
-            category_ids: &category_ids
+            category_ids: 
               $ref: "./category.yaml#/category_ids"
         fulfillments: *fulfillment
         offers:
@@ -29,7 +29,10 @@ on_select:
   context: *context
   message:
     order:
-      quote: &quote
+      fulfillment:
+        state:
+          $ref: "./fulfillments.yaml#/fulfillments/pre_order_state"
+      quote: 
        breakup: 
         "@ondc/org/title_type":
            $ref: "./quote.yaml#/title_type"
