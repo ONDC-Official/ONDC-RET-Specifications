@@ -1,6 +1,6 @@
 search:
   context: &context
-    $ref: "./context.yaml"
+    $ref: "./context.yaml#/context"
   message:
     intent:
       fulfillments: &fulfillments
