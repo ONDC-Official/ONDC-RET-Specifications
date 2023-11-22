@@ -44,12 +44,18 @@ init:
 on_init:
   context: *context
   message:
-    order: *order
+    order:
+      payment: *payment
+      fulfillments: *fulfillment
+      quote: 
+        breakup: 
+        "@ondc/org/title_type":
+            $ref: "./quote.yaml#/title_type"
 confirm:
   context: *context
   message:
-    order: *order
-    state: "./orderstatus.yaml#/order_status"
+    order: 
+     state: "./orderstatus.yaml#/order_status"
 on_confirm:
   context: *context
   message:
