@@ -6478,7 +6478,9 @@ x-flows:
   - summary: Retail 1.2.0 Exports (Order Delivered)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
-      where a buyer would like to order fashion item and gets delivered
+      where a buyer from outside India would like to order item from a seller
+      from India. Considering this is an exports the payment will be directly
+      made from buyer to SOR through OPGSP. Ref Feature UI for more details.
     details:
       - description: Buyer Search & Quotation
         mermaidGraph: |-
@@ -6488,9 +6490,9 @@ x-flows:
             participant B2C Gateway
             participant B2C BPP
 
-            B2C BAP->>B2C Gateway: **/search**  - Buyer search by fulfillment end location
-            B2C Gateway->>B2C BPP: **/search**  - Buyer search by fulfillment end location
-            B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog (Fashion)
+            B2C BAP->>B2C Gateway: **/search**  - Buyer searchs from a location outside India
+            B2C Gateway->>B2C BPP: **/search**  - Buyer searchs from a location outside India
+            B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog for the specific domain
       - description: Product Selection and Confirmation
         mermaidGraph: |-
           sequenceDiagram
@@ -6498,17 +6500,14 @@ x-flows:
             participant B2C BAP
             participant B2C BPP
 
-            B2C BAP ->> B2C BPP: **/select** - Select the item(s)
-            B2C BPP ->> B2C BAP: **/on_select** - Returns item breakup when item is in stock and offer applied
+            B2C BAP ->> B2C BPP: **/select** - Buyer adds the item(s) to the card.
+            B2C BPP ->> B2C BAP: **/on_select** - Returns quote breakup (adding offers if any) when item is in stock 
 
-            B2C BAP ->> B2C BPP: **/init** - Buyer initiate the product and send the updated fulfillment id
-            B2C BPP ->> B2C BAP: **/on_init** - Respond to init
+            B2C BAP ->> B2C BPP: **/init** - Buyer initializes the order and proceeds to checkout.
+            B2C BPP ->> B2C BAP: **/on_init** - Seller app initializes order
             
-            B2C BAP ->> B2C BPP: **/confirm** - Buyer confirms product
-            B2C BPP ->> B2C BAP: **/on_confirm** - Seller Accepts confirmation
-            
-            B2C BPP ->> B2C BAP: **/on_update** - seller cancels non customized product
-            B2C BPP ->> B2C BAP: **/update** - Settlement trail for refund initiation
+            B2C BAP ->> B2C BPP: **/confirm** - Buyer confirms order
+            B2C BPP ->> B2C BAP: **/on_confirm** - Seller Accepts order
       - description: Status updates till Product Delivery
         mermaidGraph: |-
           sequenceDiagram
@@ -6516,6 +6515,8 @@ x-flows:
             participant B2C BAP
             participant B2C BPP
             
+            B2C BAP ->> B2C BPP: **/status** - Buyer requests for a Status update
+
             B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Pickup Approved
             B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Picked up
             B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Domestic Custom Cleared
@@ -9083,311 +9084,7 @@ x-flows:
                     label: Invoice
                 created_at: '2023-06-03T09:30:00.000Z'
                 updated_at: '2023-06-03T10:00:30.201Z'
-  - summary: Retail 1.2.0 Exports (Merchant cancels)
-    description: >-
-      The following is an illustrative flow to perform a transaction of a nature
-      where a buyer would like to order fashion item and merchant part cancels
-      it
-    reference: if any
-    steps:
-      - summary: Search by fulfillment end location
-        api: search
-        description: Buyer search by fulfillment end location
-        reference: if any
-        example: *ref_20
-      - summary: Returns the item or catalog (Fashion)
-        api: on_search
-        description: null
-        reference: if any
-        example: *ref_21
-      - summary: Select the item
-        api: select
-        description: null
-        reference: if any
-        example: *ref_22
-      - summary: Returns item breakup when item is in stock and offer applied
-        api: on_select
-        description: null
-        reference: if any
-        example: *ref_23
-      - summary: Buyer initiate the product and send the updated fulfillment id
-        api: init
-        description: null
-        reference: if any
-        example: *ref_24
-      - summary: Respond to init
-        api: on_init
-        description: null
-        reference: if any
-        example: *ref_25
-      - summary: Buyer confirms product
-        api: confirm
-        description: null
-        reference: if any
-        example: *ref_26
-      - summary: Seller Accepts confirmation
-        api: on_confirm
-        description: null
-        reference: if any
-        example: *ref_27
-      - summary: seller cancels non customized product
-        api: on_update
-        description: null
-        reference: if any
-        example:
-          summary: Cancel Non Customised status updated by Seller
-          description: Cancel Non Customised status updated by Seller
-          value:
-            context:
-              domain: ONDC:RET11
-              action: on_update
-              core_version: 1.2.0
-              bap_id: buyerNP.com
-              bap_uri: https://buyerNP.com/ondc
-              bpp_id: sellerNP.com
-              bpp_uri: https://sellerNP.com/ondc
-              transaction_id: T2
-              message_id: M5
-              city: UN:SIN
-              country: SGP
-              timestamp: '2023-06-03T10:30:30.000Z'
-            message:
-              order:
-                id: O1
-                state: Accepted
-                provider:
-                  id: P1
-                  locations:
-                    - id: L1
-                items:
-                  - id: I1
-                    fulfillment_id: F1
-                    quantity:
-                      count: 1
-                  - id: I1
-                    fulfillment_id: C1
-                    quantity:
-                      count: 1
-                billing:
-                  name: ONDC buyer
-                  address:
-                    name: 'My house #'
-                    building: My building name
-                    locality: My street name
-                    city: Jurong East
-                    state: Jurong East
-                    country: SGP
-                    area_code: '6802308'
-                  email: nobody@nomail.com
-                  phone: '9886098860'
-                  created_at: '2023-06-03T09:00:00.000Z'
-                  updated_at: '2023-06-03T09:00:00.000Z'
-                fulfillments:
-                  - id: F1
-                    '@ondc/org/provider_name': LSP or Provider Name
-                    type: Delivery
-                    tracking: true
-                    '@ondc/org/TAT': PT60M
-                    state:
-                      descriptor:
-                        code: Pending
-                    start:
-                      location:
-                        id: L1
-                        descriptor:
-                          name: ABC Store
-                        gps: 12.956399,77.636803
-                        address:
-                          locality: Jayanagar
-                          city: Bengaluru
-                          area_code: '560076'
-                          state: KA
-                      time:
-                        range:
-                          start: '2023-06-03T10:00:00.000Z'
-                          end: '2023-06-03T10:30:00.000Z'
-                      contact:
-                        phone: '9886098860'
-                        email: nobody@nomail.com
-                    end:
-                      location:
-                        gps: 1.380621, 103.746364
-                        address:
-                          name: 'My house #'
-                          building: My building name
-                          locality: My street name
-                          city: Jurong East
-                          state: Jurong East
-                          country: SGP
-                          area_code: '6802308'
-                      time:
-                        range:
-                          start: '2023-06-03T11:00:00.000Z'
-                          end: '2023-06-03T11:30:00.000Z'
-                      person:
-                        name: name_of_person
-                      contact:
-                        phone: '9886098860'
-                        email: nobody@nomail.com
-                  - id: C1
-                    type: Cancel
-                    state:
-                      descriptor:
-                        code: Cancelled
-                    tags:
-                      - code: cancel_request
-                        list:
-                          - code: reason_id
-                            value: '002 '
-                          - code: initiated_by
-                            value: sellerNP.com
-                      - code: quote_trail
-                        list:
-                          - code: type
-                            value: item
-                          - code: id
-                            value: I1
-                          - code: currency
-                            value: USD
-                          - code: value
-                            value: '-12.00'
-                      - code: quote_trail
-                        list:
-                          - code: type
-                            value: tax
-                          - code: id
-                            value: I1
-                          - code: currency
-                            value: USD
-                          - code: value
-                            value: '0.00'
-                quote:
-                  price:
-                    currency: USD
-                    value: '17'
-                  breakup:
-                    - '@ondc/org/item_id ': I1
-                      '@ondc/org/item_quantity':
-                        count: 1
-                      title: Allen Solly Men T-shirt
-                      '@ondc/org/title_type ': item
-                      price:
-                        currency: USD
-                        value: '10.00 '
-                      item:
-                        quantity:
-                          available:
-                            count: '99'
-                          maximum:
-                            count: '99'
-                        price:
-                          currency: USD
-                          value: '10.00'
-                    - '@ondc/org/item_id': F1
-                      title: Delivery charges
-                      '@ondc/org/title_type ': delivery
-                      price:
-                        currency: USD
-                        value: '2.00'
-                    - '@ondc/org/item_id': F1
-                      title: Tax
-                      '@ondc/org/title_type': tax_f
-                      price:
-                        currency: USD
-                        value: '0.00'
-                    - '@ondc/org/item_id': F1
-                      title: Packing charges
-                      '@ondc/org/title_type ': packing
-                      price:
-                        currency: USD
-                        value: '5.00'
-                    - '@ondc/org/item_id': I1
-                      title: Tax
-                      '@ondc/org/title_type ': tax
-                      price:
-                        currency: USD
-                        value: '0.00'
-                    - '@ondc/org/item_id': I1
-                      title: Discount
-                      '@ondc/org/title_type ': discount
-                      price:
-                        currency: USD
-                        value: '-1.00'
-                    - '@ondc/org/item_id': F1
-                      title: Convenience Fee
-                      '@ondc/org/title_type ': misc
-                      price:
-                        currency: USD
-                        value: '1.00'
-                  ttl: P1D
-                payment:
-                  uri: https://ondc.transaction.com/payment
-                  params:
-                    currency: USD
-                    transaction_id: '3937'
-                    amount: '17.00'
-                    bank_code: xxxxxxxxx,
-                    bank_account_number: xxxxxxxxxxxx
-                  status: PAID
-                  type: ON-ORDER
-                  collected_by: SOR
-                  '@ondc/org/buyer_app_finder_fee_type': percent
-                  '@ondc/org/buyer_app_finder_fee_amount': '3'
-                  '@ondc/org/settlement_details':
-                    - settlement_counterparty: buyer-app
-                      settlement_phase: finder-fee
-                      beneficiary_name: xxxxx
-                      settlement_type: OPGSP
-                      opgsp_address: gft@oksbi
-                      settlement_bank_account_no: XXXXXXXXXX
-                      settlement_ifsc_code: XXXXXXXXX
-                      bank_name: xxxx
-                      branch_name: xxxx
-                  tags:
-                    - code: payment_terms
-                      list:
-                        - code: payment_type
-                          value: OPGSP
-                        - code: payment_provider
-                          value: abcd
-                created_at: '2023-06-03T09:30:00.000Z'
-                updated_at: '2023-06-03T10:31:30.000Z'
-      - summary: Settlement trail for refund initiation
-        api: update
-        description: null
-        reference: if any
-        example:
-          summary: Settlement trail cancel updated by buyer
-          description: Settlement trail cancel updated by buyer
-          value:
-            context:
-              domain: ONDC:RET12
-              action: update
-              core_version: 1.2.0
-              bap_id: buyerNP.com
-              bap_uri: https://buyerNP.com/ondc
-              bpp_id: sellerNP.com
-              bpp_uri: https://sellerNP.com/ondc
-              transaction_id: T2
-              message_id: M6
-              city: UN:SIN
-              country: SGP
-              timestamp: '2023-06-03T11:00:00.000Z'
-            message:
-              update_target: payment
-              order:
-                id: O1
-                fulfillments:
-                  - id: C1
-                    type: Cancel
-                payment:
-                  '@ondc/org/settlement_details':
-                    - settlement_counterparty: buyer
-                      settlement_phase: refund
-                      settlement_type: OPGSP
-                      settlement_amount: '17.00'
-                      settlement_timestamp: '2023-06-03T11:00:00.000Z'
-  - summary: Retail 1.2.0 Exports (Merchant cancels full order)
+  - summary: Retail 1.2.0 Exports (Merchant Cancels Full Order before Order Picked-up)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to import fashion item and then cancels it
@@ -9400,9 +9097,9 @@ x-flows:
             participant B2C Gateway
             participant B2C BPP
 
-            B2C BAP->>B2C Gateway: **/search**  - Buyer search by fulfillment end location
-            B2C Gateway->>B2C BPP: **/search**  - Buyer search by fulfillment end location
-            B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog (Fashion)
+            B2C BAP->>B2C Gateway: **/search**  - Buyer searchs from a location outside India
+            B2C Gateway->>B2C BPP: **/search**  - Buyer searchs from a location outside India
+            B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog for the specific domain
       - description: Product Selection and Confirmation
         mermaidGraph: |-
           sequenceDiagram
@@ -9410,17 +9107,14 @@ x-flows:
             participant B2C BAP
             participant B2C BPP
 
-            B2C BAP ->> B2C BPP: **/select** - Select the item(s)
-            B2C BPP ->> B2C BAP: **/on_select** - Returns item breakup when item is in stock and offer applied
+            B2C BAP ->> B2C BPP: **/select** - Buyer adds the item(s) to the card.
+            B2C BPP ->> B2C BAP: **/on_select** - Returns quote breakup (adding offers if any) when item is in stock 
 
-            B2C BAP ->> B2C BPP: **/init** - Buyer initiate the product and send the updated fulfillment id
-            B2C BPP ->> B2C BAP: **/on_init** - Respond to init
+            B2C BAP ->> B2C BPP: **/init** - Buyer initializes the order and proceeds to checkout.
+            B2C BPP ->> B2C BAP: **/on_init** - Seller app initializes order
             
-            B2C BAP ->> B2C BPP: **/confirm** - Buyer confirms product
-            B2C BPP ->> B2C BAP: **/on_confirm** - Seller Accepts confirmation
-            
-            B2C BPP ->> B2C BAP: **/on_update** - seller cancels non customized product
-            B2C BPP ->> B2C BAP: **/update** - Settlement trail for refund initiation
+            B2C BAP ->> B2C BPP: **/confirm** - Buyer confirms order
+            B2C BPP ->> B2C BAP: **/on_confirm** - Seller Accepts order
       - description: Merchant Cancels Full Order
         mermaidGraph: |-
           sequenceDiagram
@@ -9428,8 +9122,7 @@ x-flows:
             participant B2C BAP
             participant B2C BPP
             
-            B2C BAP ->> B2C BPP: **/cancel** - Buyer cancels the product
-            B2C BPP ->> B2C BAP: **/on_cancel** - Seller accepts the cancellation and responds to it
+            B2C BPP ->> B2C BAP: **/on_cancel** - Seller cancels full order before order pick up
     reference: if any
     steps:
       - summary: Search by fulfillment end location
@@ -9437,7 +9130,7 @@ x-flows:
         description: Buyer search by fulfillment end location
         reference: if any
         example: *ref_20
-        notes:
+        notes: &ref_28
           value:
             context.domain: >-
               updated domains defined -
@@ -9451,7 +9144,7 @@ x-flows:
         description: null
         reference: if any
         example: *ref_21
-        notes:
+        notes: &ref_29
           value:
             message.catalog.bpp/providers[<index>].time.timestamp: >-
               timestamp when the snapshot for this provider (including provider
@@ -9503,7 +9196,7 @@ x-flows:
         description: null
         reference: if any
         example: *ref_22
-        notes:
+        notes: &ref_30
           value:
             ^1: optional, only if buyer selects offer code
             ^2: >-
@@ -9522,7 +9215,7 @@ x-flows:
         description: null
         reference: if any
         example: *ref_23
-        notes:
+        notes: &ref_31
           value:
             ^1: >-
               may be the same location as selected by the buyer or a different
@@ -9582,7 +9275,7 @@ x-flows:
         description: null
         reference: if any
         example: *ref_24
-        notes:
+        notes: &ref_32
           message:
             parent: true
             order:
@@ -9649,7 +9342,7 @@ x-flows:
         description: null
         reference: if any
         example: *ref_25
-        notes:
+        notes: &ref_33
           value:
             ^1: >-
               may be the same location as selected by the buyer or a different
@@ -9727,7 +9420,7 @@ x-flows:
         description: null
         reference: if any
         example: *ref_26
-        notes:
+        notes: &ref_34
           value:
             ^1: alphanumeric, up to 32 characters
             ^2: optional
@@ -9774,7 +9467,7 @@ x-flows:
         description: null
         reference: if any
         example: *ref_27
-        notes:
+        notes: &ref_35
           value:
             ^1: enum - "Created", "Accepted", "Cancelled"
             ^2: optional
@@ -9817,7 +9510,7 @@ x-flows:
         api: cancel
         description: null
         reference: if any
-        example:
+        example: &ref_36
           summary: Cancellation by Buyer
           description: Cancellation by Buyer
           value:
@@ -9841,7 +9534,7 @@ x-flows:
               descriptor:
                 name: fulfillment
                 short_desc: F1
-        notes:
+        notes: &ref_37
           value:
             ^1: >-
               cancellation reason codes are defined here, use "006" for
@@ -9852,7 +9545,7 @@ x-flows:
         api: on_cancel
         description: null
         reference: if any
-        example:
+        example: &ref_38
           summary: Cancellation acceptance by Seller
           description: Cancellation acceptance by Seller
           value:
@@ -10036,7 +9729,7 @@ x-flows:
                           value: abcd
                 created_at: '2023-06-03T09:30:00.000Z'
                 updated_at: '2023-06-03T11:00:30.000Z'
-        notes:
+        notes: &ref_39
           value:
             ^1: >-
               order state will be updated to "Cancelled" if the order is
@@ -10046,6 +9739,108 @@ x-flows:
             ^4: >-
               updated order value including cancellation charges (delivery +
               packing charges)
+  - summary: Retail 1.2.0 Exports (Buyer Cancels Full Order before Order Picked-up)
+    description: >-
+      The following is an illustrative flow to perform a transaction of a nature
+      where a buyer would like to import fashion item and then cancels it
+    details:
+      - description: Buyer Search & Quotation
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant B2C BAP
+            participant B2C Gateway
+            participant B2C BPP
+
+            B2C BAP->>B2C Gateway: **/search**  - Buyer searchs from a location outside India
+            B2C Gateway->>B2C BPP: **/search**  - Buyer searchs from a location outside India
+            B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog for the specific domain
+      - description: Product Selection and Confirmation
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant B2C BAP
+            participant B2C BPP
+
+            B2C BAP ->> B2C BPP: **/select** - Buyer adds the item(s) to the card.
+            B2C BPP ->> B2C BAP: **/on_select** - Returns quote breakup (adding offers if any) when item is in stock 
+
+            B2C BAP ->> B2C BPP: **/init** - Buyer initializes the order and proceeds to checkout.
+            B2C BPP ->> B2C BAP: **/on_init** - Seller app initializes order
+            
+            B2C BAP ->> B2C BPP: **/confirm** - Buyer confirms order
+            B2C BPP ->> B2C BAP: **/on_confirm** - Seller Accepts order
+      - description: Buyer Cancels Full Order
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant B2C BAP
+            participant B2C BPP
+            
+            B2C BAP ->> B2C BPP: **/cancel** - Buyer cancels full order before order pick up
+            B2C BPP ->> B2C BAP: **/on_cancel** - Seller accepts the cancellation and responds to it
+    reference: if any
+    steps:
+      - summary: Search by fulfillment end location
+        api: search
+        description: Buyer search by fulfillment end location
+        reference: if any
+        example: *ref_20
+        notes: *ref_28
+      - summary: Returns the item or catalog (Fashion)
+        api: on_search
+        description: null
+        reference: if any
+        example: *ref_21
+        notes: *ref_29
+      - summary: Select the item
+        api: select
+        description: null
+        reference: if any
+        example: *ref_22
+        notes: *ref_30
+      - summary: Returns item breakup when item is in stock
+        api: on_select
+        description: null
+        reference: if any
+        example: *ref_23
+        notes: *ref_31
+      - summary: Buyer initiate the product and send the updated fulfillment id
+        api: init
+        description: null
+        reference: if any
+        example: *ref_24
+        notes: *ref_32
+      - summary: Respond to init
+        api: on_init
+        description: null
+        reference: if any
+        example: *ref_25
+        notes: *ref_33
+      - summary: Buyer confirms product
+        api: confirm
+        description: null
+        reference: if any
+        example: *ref_26
+        notes: *ref_34
+      - summary: Seller Accepts confirmation
+        api: on_confirm
+        description: null
+        reference: if any
+        example: *ref_27
+        notes: *ref_35
+      - summary: Buyer cancels the product
+        api: cancel
+        description: null
+        reference: if any
+        example: *ref_36
+        notes: *ref_37
+      - summary: Seller accepts the cancellation and responds to it
+        api: on_cancel
+        description: null
+        reference: if any
+        example: *ref_38
+        notes: *ref_39
   - summary: Retail 1.2.0 Exports (Incremental One Time Push)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -10057,7 +9852,7 @@ x-flows:
         api: search
         description: Search by city
         reference: if any
-        example: &ref_28
+        example: &ref_40
           summary: search_by_city
           description: search request for all sellers in the city identified in Context
           value:
@@ -10231,7 +10026,7 @@ x-flows:
         api: search
         description: Search by country
         reference: if any
-        example: *ref_28
+        example: *ref_40
       - summary: Returns the item or catalog (Fashion)
         api: on_search
         description: null

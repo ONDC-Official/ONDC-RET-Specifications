@@ -1,5 +1,5 @@
 summary: Retail 1.2.0 Exports (Order Delivered)
-description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order fashion item and gets delivered
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer from outside India would like to order item from a seller from India. Considering this is an exports the payment will be directly made from buyer to SOR through OPGSP. Ref Feature UI for more details.
 details:
   - description: Buyer Search & Quotation
     mermaidGraph: >-
@@ -9,9 +9,9 @@ details:
         participant B2C Gateway
         participant B2C BPP
 
-        B2C BAP->>B2C Gateway: **/search**  - Buyer search by fulfillment end location
-        B2C Gateway->>B2C BPP: **/search**  - Buyer search by fulfillment end location
-        B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog (Fashion)
+        B2C BAP->>B2C Gateway: **/search**  - Buyer searchs from a location outside India
+        B2C Gateway->>B2C BPP: **/search**  - Buyer searchs from a location outside India
+        B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog for the specific domain
   - description: Product Selection and Confirmation
     mermaidGraph: >-
       sequenceDiagram
@@ -19,17 +19,14 @@ details:
         participant B2C BAP
         participant B2C BPP
 
-        B2C BAP ->> B2C BPP: **/select** - Select the item(s)
-        B2C BPP ->> B2C BAP: **/on_select** - Returns item breakup when item is in stock and offer applied
+        B2C BAP ->> B2C BPP: **/select** - Buyer adds the item(s) to the card.
+        B2C BPP ->> B2C BAP: **/on_select** - Returns quote breakup (adding offers if any) when item is in stock 
 
-        B2C BAP ->> B2C BPP: **/init** - Buyer initiate the product and send the updated fulfillment id
-        B2C BPP ->> B2C BAP: **/on_init** - Respond to init
+        B2C BAP ->> B2C BPP: **/init** - Buyer initializes the order and proceeds to checkout.
+        B2C BPP ->> B2C BAP: **/on_init** - Seller app initializes order
         
-        B2C BAP ->> B2C BPP: **/confirm** - Buyer confirms product
-        B2C BPP ->> B2C BAP: **/on_confirm** - Seller Accepts confirmation
-        
-        B2C BPP ->> B2C BAP: **/on_update** - seller cancels non customized product
-        B2C BPP ->> B2C BAP: **/update** - Settlement trail for refund initiation
+        B2C BAP ->> B2C BPP: **/confirm** - Buyer confirms order
+        B2C BPP ->> B2C BAP: **/on_confirm** - Seller Accepts order
   - description: Status updates till Product Delivery
     mermaidGraph: >-      
       sequenceDiagram
@@ -37,6 +34,8 @@ details:
         participant B2C BAP
         participant B2C BPP
         
+        B2C BAP ->> B2C BPP: **/status** - Buyer requests for a Status update
+
         B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Pickup Approved
         B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Picked up
         B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Domestic Custom Cleared
