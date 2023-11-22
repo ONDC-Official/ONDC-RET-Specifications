@@ -11349,12 +11349,16 @@ x-attributes:
           parent: true
           intent:
             parent: true
+            payment:
+              parent: true
+              required: mandatory
+              type:
+                description: type of payment option buyer wants to avail
+                usage: ON-FULFILLMENT
+                reference: if any
+                required: mandatory
             item:
               parent: true
-              description: item to be searched
-              required: optional
-              usage: '-'
-              reference: if any
               name:
                 description: item name to be searched
                 required: present if item is present
@@ -11397,14 +11401,6 @@ x-attributes:
                     required: mandatory
                     usage: '110030'
                     reference: if any
-            payment:
-              parent: true
-              required: mandatory
-              type:
-                description: type of payment option buyer wants to avail
-                usage: ON-FULFILLMENT
-                reference: if any
-                required: mandatory
       on_search:
         parent: true
         context:
