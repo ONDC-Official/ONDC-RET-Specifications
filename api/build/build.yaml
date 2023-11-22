@@ -11823,17 +11823,17 @@ x-attributes:
               reference: if any
             payments:
               parent: true
+              status:
+                description: status whether payment has been collected or not
+                required: mandatory
+                usage: PAID
+                reference: if any
               params:
                 transaction_id:
                   description: transaction id when the payment was collected
                   required: mandatory when payment status is PAID
                   usage: '3937'
                   reference: if any
-              status:
-                description: status whether payment has been collected or not
-                required: mandatory
-                usage: PAID
-                reference: if any
       on_confirm:
         parent: true
         message:
