@@ -11657,12 +11657,12 @@ x-attributes:
               '@ondc/org/category':
                 description: type of delivery category
                 required: required
-                usage: '-'
+                usage: Standard Delivery
                 reference: if any
               '@ondc/org/TAT':
                 description: O2D (Order to delivery time)
                 required: required
-                usage: '-'
+                usage: P7D
                 reference: if any
               state:
                 descriptor.code:
@@ -11808,19 +11808,32 @@ x-attributes:
               reference: if any
             state:
               description: order state
-              required: required
+              required: mandatory
               usage: Created
               reference: if any
             created_at:
               description: timestamp when the order was created
-              required: required
+              required: mandatory
               usage: '2023-02-03T09:30:00.000Z'
               reference: if any
             updated_at:
               description: timestamp when the order was updated
-              required: required
+              required: mandatory
               usage: '2023-02-03T09:30:00.000Z'
               reference: if any
+            payments:
+              parent: true
+              params:
+                transaction_id:
+                  description: transaction id when the payment was collected
+                  required: mandatory when payment status is PAID
+                  usage: '3937'
+                  reference: if any
+              status:
+                description: status whether payment has been collected or not
+                required: mandatory
+                usage: PAID
+                reference: if any
       on_confirm:
         parent: true
         message:
@@ -11876,3 +11889,16 @@ x-attributes:
                   required: mandatory
                   usage: Pending
                   reference: if any
+      on_status:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            documents:
+              parent: true
+              url:
+                description: url of the invoice
+                required: mandatory when order has been picked up
+                usage: https://invoice_url
+                reference: if any

@@ -9,17 +9,30 @@ message:
       reference: if any
     state:
       description: order state
-      required: required
+      required: mandatory
       usage: "Created"
       reference: if any
     created_at:
       description: timestamp when the order was created
-      required: required
+      required: mandatory
       usage: "2023-02-03T09:30:00.000Z"
       reference: if any
     updated_at:
       description: timestamp when the order was updated
-      required: required
+      required: mandatory
       usage: "2023-02-03T09:30:00.000Z"
       reference: if any
+    payments:
+      parent: true
+      params:
+         transaction_id:
+            description: transaction id when the payment was collected
+            required: mandatory when payment status is PAID
+            usage: "3937"
+            reference: if any
+      status:
+        description: status whether payment has been collected or not
+        required: mandatory
+        usage: PAID
+        reference: if any
       

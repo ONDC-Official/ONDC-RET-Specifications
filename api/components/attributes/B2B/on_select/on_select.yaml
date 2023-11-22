@@ -7,12 +7,12 @@ message:
       "@ondc/org/category":
         description: type of delivery category
         required: required
-        usage: "-"
+        usage: "Standard Delivery"
         reference: if any
       "@ondc/org/TAT":
         description: O2D (Order to delivery time)
         required: required
-        usage: "-"
+        usage: "P7D"
         reference: if any
       state:
        descriptor.code:
