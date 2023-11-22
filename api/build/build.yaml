@@ -2961,24 +2961,24 @@ x-enum:
               reference: <PR/Issue/Discussion Links md format text>
         quote:
           breakup:
-            '@ondc/org/title_type':
+            '@ondc/org/title_type': &ref_4
               - code: item
-                description: about the enum
+                description: price of the item
                 reference: <PR/Issue/Discussion Links md format text>
               - code: discount
-                description: about the enum
+                description: discount charges
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: packing
+                description: packing charges
                 reference: <PR/Issue/Discussion Links md format text>
               - code: tax
-                description: about the enum
+                description: tax applied
                 reference: <PR/Issue/Discussion Links md format text>
               - code: delivery
-                description: about the enum
+                description: delivery charges on fulfillment
                 reference: <PR/Issue/Discussion Links md format text>
               - code: misc
-                description: about the enum
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: delivery
-                description: about the enum
+                description: convenience charges
                 reference: <PR/Issue/Discussion Links md format text>
   init:
     context: *ref_1
@@ -2987,12 +2987,17 @@ x-enum:
   on_init:
     context: *ref_1
     message:
-      order: *ref_3
+      order:
+        payment: *ref_2
+        fulfillments: *ref_0
+        quote:
+          breakup: null
+          '@ondc/org/title_type': *ref_4
   confirm:
     context: *ref_1
     message:
-      order: *ref_3
-      state: ./orderstatus.yaml#/order_status
+      order:
+        state: ./orderstatus.yaml#/order_status
   on_confirm:
     context: *ref_1
     message:
@@ -3050,7 +3055,7 @@ x-tags:
       - code: BUYER_ID
         description: Description about the tags
         reference: <PR/Issue/Discussion Links md format text>
-        list: &ref_4
+        list: &ref_5
           - code: BUYER_ID_CODE
             description: Description about the tags
             reference: <PR/Issue/Discussion Links md format text>
@@ -3295,7 +3300,7 @@ x-tags:
       - code: BUYER_ID
         description: Description about the tags
         reference: <PR/Issue/Discussion Links md format text>
-        list: *ref_4
+        list: *ref_5
       - code: COMM_CHANNEL
         description: Description about the tags
         reference: <PR/Issue/Discussion Links md format text>
@@ -3762,7 +3767,7 @@ x-flows:
         api: select
         description: Buyer selects an item
         reference: if any
-        example: &ref_8
+        example: &ref_9
           summary: Get quote for specific item
           description: Get quote for specific item with Buyer and Delivery terms
           value:
@@ -3820,7 +3825,7 @@ x-flows:
         api: on_select
         description: Seller app provides the quote for the selected items
         reference: if any
-        example: &ref_5
+        example: &ref_6
           summary: Send quote and breakup
           description: Send quote and breakup for items selected in select call.
           value:
@@ -3893,7 +3898,7 @@ x-flows:
           Buyer requests for quotation for the selected item with all the
           customizations and the quantity of items required
         reference: if any
-        example: &ref_9
+        example: &ref_10
           summary: Send buyer and delivery terms for RFQ
           description: Send buyer and delivery terms for RFQ
           value:
@@ -3985,7 +3990,7 @@ x-flows:
         api: on_init
         description: Seller provides the final quotation and breakup with logistics charges
         reference: if any
-        example: &ref_10
+        example: &ref_11
           summary: Respond to RFQ
           description: Respond to RFQ
           value:
@@ -4141,7 +4146,7 @@ x-flows:
           Buyer receives the quotation and once agreed to go ahead with the
           quotation received, creates a PO and sends the PO
         reference: if any
-        example: &ref_11
+        example: &ref_12
           summary: Raise PO
           description: PO raised by buyer based on the RFQ response received.
           value:
@@ -4309,7 +4314,7 @@ x-flows:
           Seller app sends an on_confirm call to the buyer app relaying the PO
           acceptance.
         reference: if any
-        example: &ref_12
+        example: &ref_13
           summary: Accept PO
           description: PO acceptance by Seller
           value:
@@ -4499,7 +4504,7 @@ x-flows:
         api: search
         description: Buyer outside India searches for a product
         reference: if any
-        example: &ref_6
+        example: &ref_7
           summary: search_by_item
           description: Search By Item
           value:
@@ -4597,7 +4602,7 @@ x-flows:
         api: on_search
         description: Seller responds with catalog + communication channel
         reference: if any
-        example: &ref_7
+        example: &ref_8
           summary: Return the catalog
           description: Return the catalog
           value:
@@ -4981,7 +4986,7 @@ x-flows:
         api: on_select
         description: Seller responds with quote breakup
         reference: if any
-        example: *ref_5
+        example: *ref_6
       - summary: Requests for Quotation
         api: init
         description: Buyer Requests for Quotation
@@ -5622,7 +5627,7 @@ x-flows:
         api: status
         description: Buyer requests for Shipment status
         reference: if any
-        example: &ref_13
+        example: &ref_14
           summary: Buyer asks for order status
           description: Buyer asks for order status
           value:
@@ -5651,7 +5656,7 @@ x-flows:
           Provider platform provides the updated order status to the consumer
           and sends invoice
         reference: if any
-        example: &ref_14
+        example: &ref_15
           summary: Seller updates the order status and shares Invoice
           description: Seller updates the order status and shares Invoice
           value:
@@ -5827,7 +5832,7 @@ x-flows:
         api: update
         description: Payment status is sent (If collected by BAP) + requests for Invoice
         reference: if any
-        example: &ref_15
+        example: &ref_16
           summary: Buyer updates payment status
           description: Buyer updates payment status (CollectedBy BAP)
           value:
@@ -5886,7 +5891,7 @@ x-flows:
         api: on_update
         description: seller updates fulfilments - Multiple fulfillments for Single PO
         reference: if any
-        example: &ref_16
+        example: &ref_17
           summary: Single PO - Multiple Fulfillment
           description: Single PO - Multiple Fulfillment
           value:
@@ -6072,7 +6077,7 @@ x-flows:
           Provider platform provides the updated order status to the consumer
           once the order is picked up
         reference: if any
-        example: &ref_17
+        example: &ref_18
           summary: Seller updates the order status and shares Invoice
           description: Seller updates the order status and shares Invoice
           value:
@@ -6257,7 +6262,7 @@ x-flows:
           Provider platform provides the updated order status to the consumer
           once the order is out for delivery
         reference: if any
-        example: &ref_18
+        example: &ref_19
           summary: Seller updates the order status and shares Invoice
           description: Seller updates the order status and shares Invoice
           value:
@@ -6442,7 +6447,7 @@ x-flows:
           Provider platform provides the updated order status to the consumer
           after the order is delivered
         reference: if any
-        example: &ref_19
+        example: &ref_20
           summary: Seller updates the order status and shares Invoice
           description: Seller updates the order status and shares Invoice
           value:
@@ -6635,83 +6640,83 @@ x-flows:
         api: search
         description: Buyer searches for an item
         reference: if any
-        example: *ref_6
+        example: *ref_7
       - summary: Returns item/ catalog
         api: on_search
         description: Seller responds back with the catalog
         reference: if any
-        example: *ref_7
+        example: *ref_8
       - summary: Select the item
         api: select
         description: Buyer selects an item
         reference: if any
-        example: *ref_8
+        example: *ref_9
       - summary: Returns item breakup
         api: on_select
         description: Seller responds with the quote breakup
         reference: if any
-        example: *ref_5
+        example: *ref_6
       - summary: Requests for Quotation
         api: init
         description: Buyer requests for quotation
         reference: if any
-        example: *ref_9
+        example: *ref_10
       - summary: Responds to Quotation
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: *ref_10
+        example: *ref_11
       - summary: Buyer raises PO
         api: confirm
         description: Buyer creates a Purchase Order
         reference: if any
-        example: *ref_11
+        example: *ref_12
       - summary: Seller Accepts PO
         api: on_confirm
         description: Seller accepts Purchase Order
         reference: if any
-        example: *ref_12
+        example: *ref_13
       - summary: Consumer platform requests for latest status
         api: status
         description: Buyer requests for Shipment status
         reference: if any
-        example: *ref_13
+        example: *ref_14
       - summary: Provider platform provides latest order status and sends invoice
         api: on_status
         description: Provider platform provides the updated order status to the consumer
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Payment details are updated in case BAP collects the payment
         api: update
         description: Payment status is sent (If collected by BAP) + requests for Invoice
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: seller updates fulfilments - Multiple fulfillments for Single PO
         api: on_update
         description: seller updates fulfilments - Multiple fulfillments for Single PO
-        reference: if any
-        example: *ref_16
-      - summary: Provider platform provides latest order status
-        api: on_status
-        description: >-
-          Provider platform provides the updated order status to the consumer
-          once order is picked up
         reference: if any
         example: *ref_17
       - summary: Provider platform provides latest order status
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
-          when the order is out for delivery
+          once order is picked up
         reference: if any
         example: *ref_18
       - summary: Provider platform provides latest order status
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
-          after the order is delivered
+          when the order is out for delivery
         reference: if any
         example: *ref_19
+      - summary: Provider platform provides latest order status
+        api: on_status
+        description: >-
+          Provider platform provides the updated order status to the consumer
+          after the order is delivered
+        reference: if any
+        example: *ref_20
   - summary: B2B Prepaid BPP
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -6722,47 +6727,47 @@ x-flows:
         api: search
         description: Buyer searches for an item
         reference: if any
-        example: *ref_6
+        example: *ref_7
       - summary: Seller returns item/ catalog with communication channel
         api: on_search
         description: Seller responds back with the catalog
         reference: if any
-        example: *ref_7
+        example: *ref_8
       - summary: Buyer selects an item.
         api: select
         description: Buyer selects an item
         reference: if any
-        example: *ref_8
+        example: *ref_9
       - summary: Seller returns the breakup based on the price listed.
         api: on_select
         description: Seller responds with the quote breakup
         reference: if any
-        example: *ref_5
+        example: *ref_6
       - summary: Buyer Requests for Quotation
         api: init
         description: Buyer requests for quotation
         reference: if any
-        example: *ref_9
+        example: *ref_10
       - summary: Seller Responds to Quotation with delivery charges
         api: on_init
         description: Seller provides the final quotation with delivery charges
         reference: if any
-        example: *ref_10
+        example: *ref_11
       - summary: Buyer raises PO
         api: confirm
         description: Buyer creates a Purchase Order
         reference: if any
-        example: *ref_11
+        example: *ref_12
       - summary: Seller Accepts PO
         api: on_confirm
         description: Seller accepts Purchase Order
         reference: if any
-        example: *ref_12
+        example: *ref_13
       - summary: Seller sends proforma invoice.
         api: on_status
         description: Provider platform provides the updated order status to the consumer
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Payment is collected by seller (Prepaid) and details are updated
         api: on_update
         description: Provider platform sends the payment details
@@ -6825,28 +6830,28 @@ x-flows:
         api: status
         description: Buyer requests for Shipment status
         reference: if any
-        example: *ref_13
+        example: *ref_14
       - summary: Provider platform updates the latest status - Order Picked up
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           once the order is picked up
         reference: if any
-        example: *ref_17
+        example: *ref_18
       - summary: Provider platform updates the latest status - Out for Delivery
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           once the order is out for delivery
         reference: if any
-        example: *ref_18
+        example: *ref_19
       - summary: Provider platform updates the latest status - Delivered
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           once the order is delivered
         reference: if any
-        example: *ref_19
+        example: *ref_20
   - summary: B2B Prepaid BAP
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -6857,78 +6862,78 @@ x-flows:
         api: search
         description: Buyer searches for an item
         reference: if any
-        example: *ref_6
+        example: *ref_7
       - summary: Seller returns item/ catalog with communication channel
         api: on_search
         description: Seller responds back with the catalog
         reference: if any
-        example: *ref_7
+        example: *ref_8
       - summary: Buyer selects an item.
         api: select
         description: Buyer selects an item
         reference: if any
-        example: *ref_8
+        example: *ref_9
       - summary: Seller returns the breakup based on the price listed.
         api: on_select
         description: Seller responds with the quote breakup
         reference: if any
-        example: *ref_5
+        example: *ref_6
       - summary: Buyer Requests for Quotation
         api: init
         description: Buyer requests for quotation
         reference: if any
-        example: *ref_9
+        example: *ref_10
       - summary: Seller Responds to Quotation
         api: on_init
         description: Seller provides the final quotation with delivery charges
         reference: if any
-        example: *ref_10
+        example: *ref_11
       - summary: Buyer raises PO
         api: confirm
         description: Buyer creates a Purchase Order
         reference: if any
-        example: *ref_11
+        example: *ref_12
       - summary: Seller Accepts PO
         api: on_confirm
         description: Seller accepts Purchase Order
         reference: if any
-        example: *ref_12
+        example: *ref_13
       - summary: Seller sends proforma invoice.
         api: on_status
         description: Provider platform provides the updated order status to the consumer
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Payment is collected by buyer (Prepaid) and details are updated
         api: on_update
         description: Consumer platform sends the payment details
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: Consumer platform requests for latest status
         api: status
         description: Buyer requests for Shipment status
         reference: if any
-        example: *ref_13
+        example: *ref_14
       - summary: Provider platform updates the latest status - Order Picked up
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           once the order is picked up
         reference: if any
-        example: *ref_17
+        example: *ref_18
       - summary: Provider platform updates the latest status - Out for Delivery
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           once the order is out for delivery
         reference: if any
-        example: *ref_18
+        example: *ref_19
       - summary: Provider platform updates the latest status - Delivered
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           once the order is delivered
         reference: if any
-        example: *ref_19
+        example: *ref_20
 x-examples:
   B2B:
     summary: B2B Use Case Specification
