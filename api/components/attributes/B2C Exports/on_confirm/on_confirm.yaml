@@ -37,9 +37,7 @@ message:
         required: mandatory
         reference: if any
       start:
-        parent: true
         location:
-         parent: true
          address:
           description: store address
           usage: "-"
@@ -51,7 +49,6 @@ message:
           usage: "-"
           reference: if any
         instructions:
-          parent: true
           description: instructions for pickup
           required: optional
           usage: "-"
@@ -62,21 +59,18 @@ message:
             usage: 3
             reference: if any
         contact:
-          parent: true
           email:
             description: email
             required: optional
             usage: "-"
             reference: if any
       end:
-        parent: true
         time:
           description: pickup time range may be provided if available
           required: optional
           usage: "-"
           reference: if any
         contact:
-          parent: true
           email:
             description: email
             required: optional

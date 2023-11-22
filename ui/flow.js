@@ -64,8 +64,8 @@ async function loadFlow(flowName) {
     if (obj["summary"] === flowName) return obj;
   });
   flowSummary.textContent = selectedFlow["summary"];
-  flowDescription.innerHTML ="<p>" + selectedFlow["description"] + "</p> <br />";
-
+  flowDescription.textContent = selectedFlow["description"];
+  var mermaidDiv = document.createElement("description-div");
   if (selectedFlow["details"]) {
     var mermaidDiv = document.createElement("mermaid-div");
     for (const [index, step] of selectedFlow["details"].entries()) {
