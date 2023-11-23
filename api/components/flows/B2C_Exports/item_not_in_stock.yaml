@@ -1,6 +1,27 @@
 summary: Retail 1.2.0 Exports (Item not in stock)
 description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order electronics item and item is not in stock
 reference: if any
+details: 
+  - description: Search by fulfillment end location 
+    mermaidGraph: >-
+      sequenceDiagram
+
+        participant B2C BAP
+        participant B2C BPP
+
+        B2C BAP->>B2C BPP: **/search**  - Search by fulfillment end location 
+        B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog
+
+  - description: Selection of the item
+    mermaidGraph: >-
+      sequenceDiagram
+
+        participant B2C BAP
+        participant B2C BPP
+
+        B2C BAP->>B2C BPP: **/select**  - Selects the item
+        B2C BPP->>B2C BAP: **/on_select** - Returns that item is not in stock
+
 steps:
   - summary: Search by fulfillment end location 
     api: search

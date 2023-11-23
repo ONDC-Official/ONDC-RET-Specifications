@@ -4,8 +4,12 @@ message:
     parent: true
     billing:
       parent: true
+      tax_number:
+        description: Tax number
+        reference: if any
+        usage: "-"
+        required: optional, may be required for B2B
       address:
-        parent: true
         name:
           description: house no (for independent dwellings) or door no (for apartments or community dwellings) if name is house no, building is optional
           reference: if any
@@ -16,11 +20,6 @@ message:
           reference: if any
           usage: "Feng Shu Street"
           required: mandatory
-      tax_number:
-        description: Tax number
-        reference: if any
-        usage: "-"
-        required: optional, may be required for B2B
       email:
         description: Email
         reference: if any
@@ -38,12 +37,14 @@ message:
         required: mandatory
     fulfillments:
       parent: true
+      fulfillments:
+        description: fullfillment details
+        reference: if any
+        usage: "-"
+        required: mandatory
       end:
-        parent: true
         location:
-          parent: true
           address:
-            parent: true
             description: name + building + locality < 190 chars, name != locality
             reference: if any
             required: mandatory

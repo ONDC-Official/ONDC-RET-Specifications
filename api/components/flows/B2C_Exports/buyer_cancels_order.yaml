@@ -1,5 +1,5 @@
-summary: Retail 1.2.0 Exports (Order Delivered)
-description: The following is an illustrative flow to perform a transaction of a nature where a buyer from outside India would like to order item from a seller from India. Considering this is an exports the payment will be directly made from buyer to SOR through OPGSP. Ref Feature UI for more details.
+summary: Retail 1.2.0 Exports (Buyer Cancels Full Order before Order Picked-up)
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer from outside India would like to buy fashion item. The Buyer then cancels it.
 details:
   - description: Buyer Search & Quotation
     mermaidGraph: >-
@@ -27,22 +27,15 @@ details:
         
         B2C BAP ->> B2C BPP: **/confirm** - Buyer confirms order
         B2C BPP ->> B2C BAP: **/on_confirm** - Seller Accepts order
-  - description: Status updates till Product Delivery
-    mermaidGraph: >-      
+  - description: Buyer Cancels Full Order
+    mermaidGraph: >-
       sequenceDiagram
 
         participant B2C BAP
         participant B2C BPP
         
-        B2C BAP ->> B2C BPP: **/status** - Buyer requests for a Status update
-
-        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Pickup Approved
-        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Picked up
-        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Domestic Custom Cleared
-        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Reached Destination Hub
-        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Delivered
-        
-
+        B2C BAP ->> B2C BPP: **/cancel** - Buyer cancels full order before order pick up
+        B2C BPP ->> B2C BAP: **/on_cancel** - Seller accepts the cancellation and responds to it
 
 reference: if any
 steps:
@@ -52,81 +45,77 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/B2C Exports/search/search_by_fulfillment_end_loc.yaml"
+    notes:
+      $ref: "../../notes/search/search_by_fulfillment_end_loc.yaml"
   - summary: Returns the item or catalog (Fashion)
     api: on_search
     description:  
     reference: if any
     example:
       $ref: "../../Examples/B2C Exports/on_search/on_search_Fashion.yaml"
+    notes:
+      $ref: "../../notes/on_search/on_search_Fashion.yaml"
   - summary: Select the item
     api: select
     description: 
     reference: if any
     example:
       $ref: "../../Examples/B2C Exports/select/select.yaml"
-  - summary: Returns item breakup when item is in stock and offer applied
+    notes:
+      $ref: "../../notes/select/select_other_product.yaml"
+  - summary: Returns item breakup when item is in stock
     api: on_select
     description: 
     reference: if any
     example:
       $ref: "../../Examples/B2C Exports/on_select/on_select_item_in_stock.yaml"
+    notes:
+      $ref: "../../notes/on_select/on_select_item_in_stock.yaml"
   - summary: Buyer initiate the product and send the updated fulfillment id
     api: init
     description: 
     reference: if any
     example:
       $ref: "../../Examples/B2C Exports/init/init.yaml"
+    notes:
+      $ref: "../../notes/init/init_other_product.yaml"
   - summary: Respond to init
     api: on_init
     description: 
     reference: if any
     example:
       $ref: "../../Examples/B2C Exports/on_init/on_init.yaml"
+    notes:
+      $ref: "../../notes/on_init/on_init_other_product.yaml"
   - summary: Buyer confirms product
     api: confirm
     description: 
     reference: if any
     example:
       $ref: "../../Examples/B2C Exports/confirm/confirm.yaml"
+    notes:
+      $ref: "../../notes/confirm/confirm_other_product.yaml"
   - summary: Seller Accepts confirmation
     api: on_confirm
     description: 
     reference: if any
     example:
       $ref: "../../Examples/B2C Exports/on_confirm/on_confirm.yaml"
-  - summary: Status Updates - Order Pickup Approved
-    api: on_status
+    notes:
+      $ref: "../../notes/on_confirm/on_confirm_other_product.yaml"
+  - summary: Buyer cancels the product
+    api: cancel
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C Exports/cancel/cancel.yaml"
+    notes:
+      $ref: "../../notes/cancel/cancel.yaml"
+  - summary: Seller accepts the cancellation and responds to it
+    api: on_cancel
     description:
     reference: if any
     example:
-      $ref: "../../Examples/B2C Exports/on_status/on_status_pickup_approved.yaml"
-  - summary: Status Updates - Order Picked up
-    api: on_status
-    description:
-    reference: if any
-    example:
-      $ref: "../../Examples/B2C Exports/on_status/on_status_picked_up.yaml"
-  - summary: Status Updates - Domestic Custom Cleared
-    api: on_status
-    description:
-    reference: if any
-    example:
-      $ref: "../../Examples/B2C Exports/on_status/on_status_custom_cleared.yaml"
-  - summary: Buyer requests for order status
-    api: status
-    description:
-    reference: if any
-    example:
-      $ref: "../../Examples/B2C Exports/status/status.yaml"
-  - summary: Status Updates - Reached Destination Hub
-    api: on_status
-    description:
-    reference: if any
-    example:
-      $ref: "../../Examples/B2C Exports/on_status/on_status_destination_hub.yaml"
-  - summary: Status Updates - Order Delivered
-    api: on_status
-    description:
-    reference: if any
-    example:
-      $ref: "../../Examples/B2C Exports/on_status/on_status_delivered.yaml"                             
+      $ref: "../../Examples/B2C Exports/on_cancel/on_cancel.yaml"
+    notes:
+      $ref: "../../notes/on_cancel/on_cancel.yaml"                                          

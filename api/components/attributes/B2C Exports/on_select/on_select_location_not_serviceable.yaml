@@ -4,8 +4,12 @@ message:
     parent: true
     provider:
       parent: true
+      provider:
+        description: provider details
+        required: mandatory
+        usage: "-"
+        reference: if any
       locations:
-        parent: true
         id:
           description: may be the same location as selected by the buyer or a different location
           required: mandatory
