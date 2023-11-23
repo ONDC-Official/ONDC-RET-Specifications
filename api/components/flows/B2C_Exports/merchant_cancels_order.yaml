@@ -6,12 +6,12 @@ details:
       sequenceDiagram
 
         participant B2C BAP
-        participant B2C Gateway
+        participant Gateway
         participant B2C BPP
 
-        B2C BAP->>B2C Gateway: **/search**  - Buyer searchs from a location outside India
-        B2C Gateway->>B2C BPP: **/search**  - Buyer searchs from a location outside India
-        B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog for the specific domain
+        B2C BAP->>Gateway: **/search**  - Buyer searches from a location outside India
+        Gateway->>B2C BPP: **/search**  - Buyer searches from a location outside India
+        B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog for the specific domain and export license in creds
   - description: Product Selection and Confirmation
     mermaidGraph: >-
       sequenceDiagram
@@ -34,7 +34,7 @@ details:
         participant B2C BAP
         participant B2C BPP
         
-        B2C BPP ->> B2C BAP: **/on_cancel** - Seller cancels full order before order pick up
+        B2C BPP ->> B2C BAP: **/on_cancel** - Seller cancels full order before order pick up and updates the quote trail for refund
 
 reference: if any
 steps:
@@ -102,19 +102,19 @@ steps:
       $ref: "../../Examples/B2C Exports/on_confirm/on_confirm.yaml"
     notes:
       $ref: "../../notes/on_confirm/on_confirm_other_product.yaml"
-  - summary: Buyer cancels the product
-    api: cancel
-    description: 
-    reference: if any
-    example:
-      $ref: "../../Examples/B2C Exports/cancel/cancel.yaml"
-    notes:
-      $ref: "../../notes/cancel/cancel.yaml"
   - summary: Seller accepts the cancellation and responds to it
     api: on_cancel
     description:
     reference: if any
     example:
-      $ref: "../../Examples/B2C Exports/on_cancel/on_cancel.yaml"
+      $ref: "../../Examples/B2C Exports/on_cancel/on_cancel_seller.yaml"
     notes:
-      $ref: "../../notes/on_cancel/on_cancel.yaml"                                          
+      $ref: "../../notes/on_cancel/on_cancel.yaml"             
+  - summary: Buyer updates the refund amount through FYI update call
+    api: update
+    description:
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C Exports/update/update_settlement_trail_part_cancel_by_merchant.yaml"
+    notes:
+      $ref: "../../notes/update/update_buyer_initiated_return_with_liquidation.yaml"                                
