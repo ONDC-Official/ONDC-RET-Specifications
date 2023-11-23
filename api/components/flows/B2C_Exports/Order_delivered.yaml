@@ -1,17 +1,17 @@
 summary: Retail 1.2.0 Exports (Order Delivered)
-description: The following is an illustrative flow to perform a transaction of a nature where a buyer from outside India would like to order item from a seller from India. Considering this is an exports the payment will be directly made from buyer to SOR through OPGSP. Ref Feature UI for more details.
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer from outside India would like to order item from a seller within India. Considering this is an exports the payment will be directly made from buyer to SOR (Seller On Record) through OPGSP. Ref Feature UI (OPGSP Payment Flow) for more details.
 details:
   - description: Buyer Search & Quotation
     mermaidGraph: >-
       sequenceDiagram
 
         participant B2C BAP
-        participant B2C Gateway
+        participant Gateway
         participant B2C BPP
 
-        B2C BAP->>B2C Gateway: **/search**  - Buyer searchs from a location outside India
-        B2C Gateway->>B2C BPP: **/search**  - Buyer searchs from a location outside India
-        B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog for the specific domain
+        B2C BAP->>Gateway: **/search**  - Buyer searches from a location outside India
+        Gateway->>B2C BPP: **/search**  - Buyer searches from a location outside India
+        B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog for the specific domain and export license in creds
   - description: Product Selection and Confirmation
     mermaidGraph: >-
       sequenceDiagram
@@ -38,8 +38,12 @@ details:
 
         B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Pickup Approved
         B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Picked up
+        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - At Domestic Hub
         B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Domestic Custom Cleared
         B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Reached Destination Hub
+        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Destination Custom Cleared
+        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - At Destination Hub
+        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Out for Delivery
         B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Delivered
         
 
