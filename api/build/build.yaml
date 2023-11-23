@@ -15141,6 +15141,32 @@ x-attributes:
                 required: mandatory
                 usage: '-'
                 reference: if any
+              collected_by:
+                description: collected by Seller on record
+                required: mandatory
+                usage: SOR
+                reference: if any
+              url:
+                description: OPGSP link linked to the SOR
+                required: mandatory
+                usage: https://snp.com/pg
+                reference: if any
+              params:
+                currency:
+                  description: Currency of the transaction
+                  required: mandatory
+                  usage: USD
+                  reference: if any
+                bank_code:
+                  description: Bank code for the SOR
+                  required: mandatory
+                  usage: '-'
+                  reference: if any
+                bank_account_number:
+                  description: Bank Account number of the SOR
+                  required: mandatory
+                  usage: '-'
+                  reference: if any
               status:
                 description: enum - "PAID", "NOT-PAID"
                 required: mandatory
@@ -15170,21 +15196,27 @@ x-attributes:
                 reference: if any
               '@ondc/org/settlement_details':
                 '@ondc/org/settlement_details':
-                  description: >-
-                    may be provided by seller NP if they are not collecting
-                    payment or not CoD payment
+                  description: will contain the OPGSP details of the SOR
                   required: optional
                   usage: '-'
                   reference: if any
                 settlement_type:
-                  description: >-
-                    enum - "upi", "neft", "rtgs"; for "upi", upi_address needs
-                    to be entered & for the other settlement_type,
-                    ("settlement_bank_account_no", "settlement_ifsc_code",
-                    "bank_name", "branch_name") should be entered
+                  description: enum; will be OPGSP for B2C Exports
                   required: mandatory if parent is present
-                  usage: upi
+                  usage: OPGSP
                   reference: if any
+                tags:
+                  payment_terms:
+                    payment_type:
+                      description: When through SOR, OPGSP will be the payment type
+                      required: mandatory
+                      usage: OPGSP
+                      reference: if any
+                    payment_provider:
+                      description: Provider compliant with OPGSP
+                      required: mandatory
+                      usage: '-'
+                      reference: if any
             tags:
               parent: true
               bpp_terms:
