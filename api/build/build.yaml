@@ -9516,9 +9516,9 @@ x-flows:
         api: on_cancel
         description: null
         reference: if any
-        example: &ref_36
-          summary: Cancellation acceptance by Seller
-          description: Cancellation acceptance by Seller
+        example:
+          summary: Order cancellation by Seller
+          description: Order cancellation by Seller
           value:
             context:
               domain: ONDC:RET12
@@ -9562,9 +9562,9 @@ x-flows:
                   created_at: '2023-06-03T09:00:00.000Z'
                   updated_at: '2023-06-03T09:00:00.000Z'
                 cancellation:
-                  cancelled_by: buyerNP.com
+                  cancelled_by: sellerNP.com
                   reason:
-                    id: '004'
+                    id: '002'
                 fulfillments:
                   - id: F1
                     '@ondc/org/provider_name': LSP or Provider Name
@@ -9616,13 +9616,23 @@ x-flows:
                       - code: cancel_request
                         list:
                           - code: reason_id
-                            value: '013'
+                            value: '002'
                           - code: cancelled_by
-                            value: buyerNP.com
+                            value: sellerNP.com
+                      - code: quote_trail
+                        list:
+                          - code: type
+                            value: item
+                          - code: id
+                            value: I1
+                          - code: currency
+                            value: USD
+                          - code: value
+                            value: '-17.00'
                 quote:
                   price:
                     currency: USD
-                    value: '17.00'
+                    value: '5.00'
                   breakup:
                     - '@ondc/org/item_id': I1
                       '@ondc/org/item_quantity':
@@ -9641,7 +9651,7 @@ x-flows:
                       '@ondc/org/title_type': delivery
                       price:
                         currency: USD
-                        value: '2.00'
+                        value: '0.00'
                     - '@ondc/org/item_id': F1
                       title: Packing charges
                       '@ondc/org/title_type': packing
@@ -9700,7 +9710,7 @@ x-flows:
                           value: abcd
                 created_at: '2023-06-03T09:30:00.000Z'
                 updated_at: '2023-06-03T11:00:30.000Z'
-        notes: &ref_37
+        notes: &ref_36
           value:
             ^1: >-
               order state will be updated to "Cancelled" if the order is
@@ -9710,6 +9720,55 @@ x-flows:
             ^4: >-
               updated order value including cancellation charges (delivery +
               packing charges)
+      - summary: Buyer updates the refund amount through FYI update call
+        api: update
+        description: null
+        reference: if any
+        example: &ref_37
+          summary: Settlement trail cancel updated by buyer
+          description: Settlement trail cancel updated by buyer
+          value:
+            context:
+              domain: ONDC:RET12
+              action: update
+              core_version: 1.2.0
+              bap_id: buyerNP.com
+              bap_uri: https://buyerNP.com/ondc
+              bpp_id: sellerNP.com
+              bpp_uri: https://sellerNP.com/ondc
+              transaction_id: T2
+              message_id: M6
+              city: UN:SIN
+              country: SGP
+              timestamp: '2023-06-03T11:00:00.000Z'
+            message:
+              update_target: payment
+              order:
+                id: O1
+                fulfillments:
+                  - id: C1
+                    type: Cancel
+                payment:
+                  '@ondc/org/settlement_details':
+                    - settlement_counterparty: buyer
+                      settlement_phase: refund
+                      settlement_type: OPGSP
+                      settlement_amount: '17.00'
+                      settlement_timestamp: '2023-06-03T11:00:00.000Z'
+        notes: &ref_38
+          value:
+            ^1: >-
+              new fulfillment of type "Return" created, with return request
+              initiated from buyer NP
+            ^2: unique id for each return request
+            ^3: optional - only to be used for make-to-order items
+            ^4: >-
+              valid return reason codes are
+              https://docs.google.com/document/d/1M-lZSduYMFKIk1V6d8QLt-j-16-rVzYVdPn0pmbkclk/edit#heading=h.lnyp7qt40f7f
+            ^5: ttl for either approving or rejecting the return request;
+            ^6: >-
+              ttl for initiating reverse qc, reverse qc (if required) should be
+              completed within the return window
   - summary: Retail 1.2.0 Exports (Buyer Cancels Full Order before Order Picked-up)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -9840,8 +9899,207 @@ x-flows:
         api: on_cancel
         description: null
         reference: if any
-        example: *ref_36
-        notes: *ref_37
+        example:
+          summary: Cancellation acceptance by Seller
+          description: Cancellation acceptance by Seller
+          value:
+            context:
+              domain: ONDC:RET12
+              country: SGP
+              city: UN:SIN
+              action: on_cancel
+              core_version: 1.2.0
+              bap_id: buyerNP.com
+              bap_uri: https://buyerNP.com/ondc
+              bpp_id: sellerNP.com
+              bpp_uri: https://sellerNP.com/ondc
+              transaction_id: T2
+              message_id: M11
+              timestamp: '2023-06-03T11:00:30.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O1
+                state: Cancelled
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    fulfillment_id: F1
+                    quantity:
+                      count: 2
+                billing:
+                  name: ONDC buyer
+                  address:
+                    name: 'My house #'
+                    building: My building name
+                    locality: My street name
+                    city: Bengaluru
+                    state: Karnataka
+                    country: IND
+                    area_code: '560037'
+                  email: nobody@nomail.com
+                  phone: '9886098860'
+                  created_at: '2023-06-03T09:00:00.000Z'
+                  updated_at: '2023-06-03T09:00:00.000Z'
+                cancellation:
+                  cancelled_by: buyerNP.com
+                  reason:
+                    id: '004'
+                fulfillments:
+                  - id: F1
+                    '@ondc/org/provider_name': LSP or Provider Name
+                    state:
+                      descriptor:
+                        code: Cancelled
+                    type: Delivery
+                    tracking: true
+                    '@ondc/org/TAT': P1D
+                    start:
+                      location:
+                        id: L1
+                        descriptor:
+                          name: ABC Store
+                        gps: 12.956399,77.636803
+                        address:
+                          locality: Jayanagar
+                          city: Bengaluru
+                          area_code: '560076'
+                          state: KA
+                      time:
+                        range:
+                          start: '2023-06-03T10:00:00.000Z'
+                          end: '2023-06-03T10:30:00.000Z'
+                      contact:
+                        phone: '9886098860'
+                        email: nobody@nomail.com
+                    end:
+                      location:
+                        gps: 12.453544,77.928379
+                        address:
+                          name: 'My house #'
+                          building: My building name
+                          locality: My street name
+                          city: Jurong East
+                          state: Jurong East
+                          country: SGP
+                          area_code: '6802308'
+                      time:
+                        range:
+                          start: '2023-06-03T11:00:00.000Z'
+                          end: '2023-06-03T11:30:00.000Z'
+                      person:
+                        name: name_of_person
+                      contact:
+                        phone: '9886098860'
+                        email: nobody@nomail.com
+                    tags:
+                      - code: cancel_request
+                        list:
+                          - code: reason_id
+                            value: '013'
+                          - code: cancelled_by
+                            value: buyerNP.com
+                      - code: quote_trail
+                        list:
+                          - code: type
+                            value: item
+                          - code: id
+                            value: I1
+                          - code: currency
+                            value: USD
+                          - code: value
+                            value: '-17.00'
+                quote:
+                  price:
+                    currency: USD
+                    value: '5.00'
+                  breakup:
+                    - '@ondc/org/item_id': I1
+                      '@ondc/org/item_quantity':
+                        count: 0
+                      title: Allen Solly Men T-shirt
+                      '@ondc/org/title_type': item
+                      price:
+                        currency: USD
+                        value: '0.00'
+                      item:
+                        price:
+                          currency: USD
+                          value: '10.00'
+                    - '@ondc/org/item_id': F1
+                      title: Delivery charges
+                      '@ondc/org/title_type': delivery
+                      price:
+                        currency: USD
+                        value: '0.00'
+                    - '@ondc/org/item_id': F1
+                      title: Packing charges
+                      '@ondc/org/title_type': packing
+                      price:
+                        currency: USD
+                        value: '5.00'
+                    - '@ondc/org/item_id': I1
+                      title: Tax
+                      '@ondc/org/title_type': tax
+                      price:
+                        currency: USD
+                        value: '0.00'
+                    - '@ondc/org/item_id': I1
+                      title: Discount
+                      '@ondc/org/title_type ': discount
+                      price:
+                        currency: USD
+                        value: '-1.00'
+                    - '@ondc/org/item_id': F1
+                      title: Convenience Fee
+                      '@ondc/org/title_type ': misc
+                      price:
+                        currency: USD
+                        value: '1.00'
+                  ttl: P1D
+                payment:
+                  uri: https://ondc.transaction.com/payment
+                  tl_method: http/get
+                  params:
+                    currency: USD
+                    transaction_id: '3937'
+                    amount: '17.00'
+                    bank_code: xxxxxxxxx,
+                    bank_account_number: xxxxxxxxxxxx
+                  status: PAID
+                  type: ON-ORDER
+                  collected_by: BAP
+                  '@ondc/org/buyer_app_finder_fee_type': percent
+                  '@ondc/org/buyer_app_finder_fee_amount': '3'
+                  '@ondc/org/settlement_details':
+                    - settlement_counterparty: buyer-app
+                      settlement_phase: sale-amount
+                      beneficiary_name: xxxxx
+                      settlement_type: upi
+                      upi_address: gft@oksbi
+                      settlement_bank_account_no: XXXXXXXXXX
+                      settlement_ifsc_code: XXXXXXXXX
+                      bank_name: xxxx
+                      branch_name: xxxx
+                  tags:
+                    - code: payment_terms
+                      list:
+                        - code: payment_type
+                          value: OPGSP
+                        - code: payment_provider
+                          value: abcd
+                created_at: '2023-06-03T09:30:00.000Z'
+                updated_at: '2023-06-03T11:00:30.000Z'
+        notes: *ref_36
+      - summary: Buyer updates the refund amount through FYI update call
+        api: update
+        description: null
+        reference: if any
+        example: *ref_37
+        notes: *ref_38
   - summary: Retail 1.2.0 Exports (Incremental One Time Push)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -9872,7 +10130,7 @@ x-flows:
         api: search
         description: Search by city
         reference: if any
-        example: &ref_38
+        example: &ref_39
           summary: search_by_city
           description: search request for all sellers in the city identified in Context
           value:
@@ -10066,7 +10324,7 @@ x-flows:
         api: search
         description: Search by country
         reference: if any
-        example: *ref_38
+        example: *ref_39
       - summary: Returns the item or catalog (Fashion)
         api: on_search
         description: null
@@ -12836,10 +13094,20 @@ x-examples:
                               value: '013'
                             - code: cancelled_by
                               value: buyerNP.com
+                        - code: quote_trail
+                          list:
+                            - code: type
+                              value: item
+                            - code: id
+                              value: I1
+                            - code: currency
+                              value: USD
+                            - code: value
+                              value: '-17.00'
                   quote:
                     price:
                       currency: USD
-                      value: '17.00'
+                      value: '5.00'
                     breakup:
                       - '@ondc/org/item_id': I1
                         '@ondc/org/item_quantity':
@@ -12858,7 +13126,7 @@ x-examples:
                         '@ondc/org/title_type': delivery
                         price:
                           currency: USD
-                          value: '2.00'
+                          value: '0.00'
                       - '@ondc/org/item_id': F1
                         title: Packing charges
                         '@ondc/org/title_type': packing
