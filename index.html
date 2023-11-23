@@ -405,20 +405,17 @@
       });
 
       function markdownConverter(){
-        const selectedOption = document.getElementById("feature-sets-dropdown").value.toLowerCase();
-        const arrayWords = selectedOption.split(' ');
-        let fileNameLatest = '';
-        let fileName
-        for (let i=0; i<arrayWords.length-1; i++){
-          fileName = arrayWords[i] +'_';
-          fileNameLatest = fileNameLatest + fileName;
-        }
+        const selectedOption = document.getElementById("feature-sets-dropdown").value;
 
-        const fileNameFinal = fileNameLatest + arrayWords[arrayWords.length-1] + '.md';
+        // Takes the name, splits it with blank space, wraps any upper case word with %23 (escape encoding of #) and then rejoins with underscore to form the file name
+        const fileNameFinal = selectedOption.split(' ').map((word) => word === word.toUpperCase() ? `%23${word.toLowerCase()}%23` : word.toLowerCase()).join("_")+ ".md";
+
         const filePath = 'api/docs/' + fileNameFinal;
+        console.log("File to Show", filePath) ;
         const xhr = new XMLHttpRequest();            
         xhr.open("GET", filePath, true); 
         xhr.onreadystatechange = function () { 
+          console.log("XHR", xhr)
           if (xhr.readyState === 4 && xhr.status === 200) { 
             const textData =xhr.responseText  
             const converter = new showdown.Converter({simpleLineBreaks:true, tables:true, openLinksInNewWindow:true, simplifiedAutoLink:true});
