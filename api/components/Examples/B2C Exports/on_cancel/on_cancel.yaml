@@ -100,10 +100,20 @@ value:
                   value: "013"
                 - code: cancelled_by
                   value: buyerNP.com
+            - code: quote_trail
+              list:
+              - code: type
+                value: item
+              - code: id
+                value: I1
+              - code: currency
+                value: USD
+              - code: value
+                value: "-17.00"
       quote:
         price:
           currency: USD
-          value: "17.00"
+          value: "5.00"
         breakup:
           - "@ondc/org/item_id": I1
             "@ondc/org/item_quantity":
@@ -122,7 +132,7 @@ value:
             "@ondc/org/title_type": delivery
             price:
               currency: USD
-              value: "2.00"
+              value: "0.00"
           - "@ondc/org/item_id": F1
             title: Packing charges
             "@ondc/org/title_type": packing
