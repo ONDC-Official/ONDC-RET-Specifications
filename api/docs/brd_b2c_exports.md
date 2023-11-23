@@ -31,7 +31,7 @@ The buyer will follow the following steps to purchase an export item:
 13. Payment is made to seller on record not to Seller or Buyer App
 14. The seller app shares payment acknowledgement with the buyer app
 
-Payment Flow : Link here
+Payment Flow : Link [here](./opgsp_payment_flow.md)
 
 15. Buyer sees order confirmation on the buyer app
 Order fulfillment is initiated
@@ -55,10 +55,10 @@ Order fulfillment is initiated
     - Area/ Zip/ Pin Code
     - Country & its equivalent code, if any, being maintained at the backend
 
-## PAYMENT COLLECTION
-Payment flow doc available here
+#### PAYMENT COLLECTION
+Payment flow doc available [here](./opgsp_payment_flow.md)
 
-## ORDER FULFILLMENT 
+#### ORDER FULFILLMENT 
 
 - Seller App to provide minimum of following order updates and buyer app to display the same as well (a) ready to ship (b) shipped (c) delivered (d) cancellation related status updates 
     - (Status Communications from Logistics Seller to Seller app and Seller App to Buyer app:
@@ -74,7 +74,7 @@ Payment flow doc available here
         - Out for Delivery
         - Delivered
 
-## ADDITIONAL FEATURES 
+#### ADDITIONAL FEATURES 
 
 - Return & Cancellation 
     - Cancellation
