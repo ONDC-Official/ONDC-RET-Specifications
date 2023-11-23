@@ -107,6 +107,14 @@ steps:
     description:
     reference: if any
     example:
-      $ref: "../../Examples/B2C Exports/on_cancel/on_cancel.yaml"
+      $ref: "../../Examples/B2C Exports/on_cancel/on_cancel_seller.yaml"
     notes:
-      $ref: "../../notes/on_cancel/on_cancel.yaml"                                          
+      $ref: "../../notes/on_cancel/on_cancel.yaml"             
+  - summary: Buyer updates the refund amount through FYI update call
+    api: update
+    description:
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C Exports/update/update_settlement_trail_part_cancel_by_merchant.yaml"
+    notes:
+      $ref: "../../notes/update/update_buyer_initiated_return_with_liquidation.yaml"                                
