@@ -3204,38 +3204,37 @@ components:
 x-enum:
   search:
     context: &ref_2
-      context:
-        domain:
-          - code: ONDC:RET10
-            description: Grocery
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: ONDC:RET11
-            description: F&B
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: ONDC:RET12
-            description: Fashion
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: ONDC:RET13
-            description: BPC
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: ONDC:RET14
-            description: Electronics
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: ONDC:RET15
-            description: Appliances
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: ONDC:RET16
-            description: Home & Kitchen
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: ONDC:RET17
-            description: Toys & Games
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: ONDC:RET18
-            description: Agriculture
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: ONDC:RET19
-            description: Health & Wellness
-            reference: <PR/Issue/Discussion Links md format text>
+      domain:
+        - code: ONDC:RET10
+          description: Grocery
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: ONDC:RET11
+          description: F&B
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: ONDC:RET12
+          description: Fashion
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: ONDC:RET13
+          description: BPC
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: ONDC:RET14
+          description: Electronics
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: ONDC:RET15
+          description: Appliances
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: ONDC:RET16
+          description: Home & Kitchen
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: ONDC:RET17
+          description: Toys & Games
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: ONDC:RET18
+          description: Agriculture
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: ONDC:RET19
+          description: Health & Wellness
+          reference: <PR/Issue/Discussion Links md format text>
     message:
       intent:
         fulfillments: &ref_0
@@ -6479,20 +6478,21 @@ x-flows:
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer from outside India would like to order item from a seller
-      from India. Considering this is an exports the payment will be directly
-      made from buyer to SOR through OPGSP. Ref Feature UI for more details.
+      within India. Considering this is an exports the payment will be directly
+      made from buyer to SOR (Seller On Record) through OPGSP. Ref Feature UI
+      (OPGSP Payment Flow) for more details.
     details:
       - description: Buyer Search & Quotation
         mermaidGraph: |-
           sequenceDiagram
 
             participant B2C BAP
-            participant B2C Gateway
+            participant Gateway
             participant B2C BPP
 
-            B2C BAP->>B2C Gateway: **/search**  - Buyer searchs from a location outside India
-            B2C Gateway->>B2C BPP: **/search**  - Buyer searchs from a location outside India
-            B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog for the specific domain
+            B2C BAP->>Gateway: **/search**  - Buyer searches from a location outside India
+            Gateway->>B2C BPP: **/search**  - Buyer searches from a location outside India
+            B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog for the specific domain and export license in creds
       - description: Product Selection and Confirmation
         mermaidGraph: |-
           sequenceDiagram
@@ -6519,8 +6519,12 @@ x-flows:
 
             B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Pickup Approved
             B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Picked up
+            B2C BPP ->> B2C BAP: **/on_status** - Status Updates - At Domestic Hub
             B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Domestic Custom Cleared
             B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Reached Destination Hub
+            B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Destination Custom Cleared
+            B2C BPP ->> B2C BAP: **/on_status** - Status Updates - At Destination Hub
+            B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Out for Delivery
             B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Delivered
             
     reference: if any
@@ -9087,19 +9091,21 @@ x-flows:
   - summary: Retail 1.2.0 Exports (Merchant Cancels Full Order before Order Picked-up)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
-      where a buyer would like to import fashion item and then cancels it
+      where a buyer (from outside India) would like to import fashion item. But
+      after order confirmation, the merchant cancels it before order is picked
+      up.
     details:
       - description: Buyer Search & Quotation
         mermaidGraph: |-
           sequenceDiagram
 
             participant B2C BAP
-            participant B2C Gateway
+            participant Gateway
             participant B2C BPP
 
-            B2C BAP->>B2C Gateway: **/search**  - Buyer searchs from a location outside India
-            B2C Gateway->>B2C BPP: **/search**  - Buyer searchs from a location outside India
-            B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog for the specific domain
+            B2C BAP->>Gateway: **/search**  - Buyer searches from a location outside India
+            Gateway->>B2C BPP: **/search**  - Buyer searches from a location outside India
+            B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog for the specific domain and export license in creds
       - description: Product Selection and Confirmation
         mermaidGraph: |-
           sequenceDiagram
@@ -9122,7 +9128,7 @@ x-flows:
             participant B2C BAP
             participant B2C BPP
             
-            B2C BPP ->> B2C BAP: **/on_cancel** - Seller cancels full order before order pick up
+            B2C BPP ->> B2C BAP: **/on_cancel** - Seller cancels full order before order pick up and updates the quote trail for refund
     reference: if any
     steps:
       - summary: Search by fulfillment end location
@@ -9506,46 +9512,11 @@ x-flows:
               error code 27502
             ^21: same as in /confirm
             ^22: can’t be a future date
-      - summary: Buyer cancels the product
-        api: cancel
-        description: null
-        reference: if any
-        example: &ref_36
-          summary: Cancellation by Buyer
-          description: Cancellation by Buyer
-          value:
-            context:
-              domain: ONDC:RET12
-              country: SGP
-              city: UN:SIN
-              action: cancel
-              core_version: 1.2.0
-              bap_id: buyerNP.com
-              bap_uri: https://buyerNP.com/ondc
-              bpp_id: sellerNP.com
-              bpp_uri: https://sellerNP.com/ondc
-              transaction_id: T2
-              message_id: M10
-              timestamp: '2023-06-03T11:00:00.000Z'
-              ttl: PT30S
-            message:
-              order_id: O1
-              cancellation_reason_id: '004'
-              descriptor:
-                name: fulfillment
-                short_desc: F1
-        notes: &ref_37
-          value:
-            ^1: >-
-              cancellation reason codes are defined here, use "006" for
-              cancellation of fulfillment for TAT breach
-            ^2: optional, only if fulfillment is being cancelled
-            ^3: fulfillment id for cancellation of fulfillment for TAT breach
       - summary: Seller accepts the cancellation and responds to it
         api: on_cancel
         description: null
         reference: if any
-        example: &ref_38
+        example: &ref_36
           summary: Cancellation acceptance by Seller
           description: Cancellation acceptance by Seller
           value:
@@ -9729,7 +9700,7 @@ x-flows:
                           value: abcd
                 created_at: '2023-06-03T09:30:00.000Z'
                 updated_at: '2023-06-03T11:00:30.000Z'
-        notes: &ref_39
+        notes: &ref_37
           value:
             ^1: >-
               order state will be updated to "Cancelled" if the order is
@@ -9742,19 +9713,20 @@ x-flows:
   - summary: Retail 1.2.0 Exports (Buyer Cancels Full Order before Order Picked-up)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
-      where a buyer would like to import fashion item and then cancels it
+      where a buyer from outside India would like to buy fashion item. The Buyer
+      then cancels it before order is picked up.
     details:
       - description: Buyer Search & Quotation
         mermaidGraph: |-
           sequenceDiagram
 
             participant B2C BAP
-            participant B2C Gateway
+            participant Gateway
             participant B2C BPP
 
-            B2C BAP->>B2C Gateway: **/search**  - Buyer searchs from a location outside India
-            B2C Gateway->>B2C BPP: **/search**  - Buyer searchs from a location outside India
-            B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog for the specific domain
+            B2C BAP->>Gateway: **/search**  - Buyer searches from a location outside India
+            Gateway->>B2C BPP: **/search**  - Buyer searches from a location outside India
+            B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog for the specific domain and export license in creds
       - description: Product Selection and Confirmation
         mermaidGraph: |-
           sequenceDiagram
@@ -9778,7 +9750,7 @@ x-flows:
             participant B2C BPP
             
             B2C BAP ->> B2C BPP: **/cancel** - Buyer cancels full order before order pick up
-            B2C BPP ->> B2C BAP: **/on_cancel** - Seller accepts the cancellation and responds to it
+            B2C BPP ->> B2C BAP: **/on_cancel** - Seller accepts the cancellation and updates the quote trail for refund
     reference: if any
     steps:
       - summary: Search by fulfillment end location
@@ -9833,14 +9805,43 @@ x-flows:
         api: cancel
         description: null
         reference: if any
-        example: *ref_36
-        notes: *ref_37
+        example:
+          summary: Cancellation by Buyer
+          description: Cancellation by Buyer
+          value:
+            context:
+              domain: ONDC:RET12
+              country: SGP
+              city: UN:SIN
+              action: cancel
+              core_version: 1.2.0
+              bap_id: buyerNP.com
+              bap_uri: https://buyerNP.com/ondc
+              bpp_id: sellerNP.com
+              bpp_uri: https://sellerNP.com/ondc
+              transaction_id: T2
+              message_id: M10
+              timestamp: '2023-06-03T11:00:00.000Z'
+              ttl: PT30S
+            message:
+              order_id: O1
+              cancellation_reason_id: '004'
+              descriptor:
+                name: fulfillment
+                short_desc: F1
+        notes:
+          value:
+            ^1: >-
+              cancellation reason codes are defined here, use "006" for
+              cancellation of fulfillment for TAT breach
+            ^2: optional, only if fulfillment is being cancelled
+            ^3: fulfillment id for cancellation of fulfillment for TAT breach
       - summary: Seller accepts the cancellation and responds to it
         api: on_cancel
         description: null
         reference: if any
-        example: *ref_38
-        notes: *ref_39
+        example: *ref_36
+        notes: *ref_37
   - summary: Retail 1.2.0 Exports (Incremental One Time Push)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -9871,7 +9872,7 @@ x-flows:
         api: search
         description: Search by city
         reference: if any
-        example: &ref_40
+        example: &ref_38
           summary: search_by_city
           description: search request for all sellers in the city identified in Context
           value:
@@ -10065,7 +10066,7 @@ x-flows:
         api: search
         description: Search by country
         reference: if any
-        example: *ref_40
+        example: *ref_38
       - summary: Returns the item or catalog (Fashion)
         api: on_search
         description: null
