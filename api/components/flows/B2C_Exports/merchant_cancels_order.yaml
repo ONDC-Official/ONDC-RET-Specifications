@@ -107,6 +107,6 @@ steps:
     description:
     reference: if any
     example:
-      $ref: "../../Examples/B2C Exports/on_cancel/on_cancel.yaml"
+      $ref: "../../Examples/B2C Exports/on_cancel/on_cancel_seller.yaml"
     notes:
       $ref: "../../notes/on_cancel/on_cancel.yaml"                                          
