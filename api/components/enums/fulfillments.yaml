@@ -6,3 +6,23 @@ fulfillments:
     - code: Self-Pickup
       description: about the enum
       reference: <PR/Issue/Discussion Links md format text>
+  state:
+   descriptor:
+    - code: Agent-assigned
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: Out-for-delivery
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: Order-picked-up
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: Searching-for-agent
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: Pending
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: Order-delivered
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
