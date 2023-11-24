@@ -31,7 +31,7 @@ The buyer will follow the following steps to purchase an export item:
 13. Payment is made to seller on record not to Seller or Buyer App
 14. The seller app shares payment acknowledgement with the buyer app
 
-Payment Flow : Link [here](./opgsp_payment_flow.md)
+Payment Flow : Link [here](https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-b2c_exports/api/docs/%23opgsp%23_payment_flow.md)
 
 15. Buyer sees order confirmation on the buyer app
 Order fulfillment is initiated
@@ -56,7 +56,7 @@ Order fulfillment is initiated
     - Country & its equivalent code, if any, being maintained at the backend
 
 #### PAYMENT COLLECTION
-Payment flow doc available [here](./opgsp_payment_flow.md)
+Payment flow doc available [here](https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-b2c_exports/api/docs/%23opgsp%23_payment_flow.md)
 
 #### ORDER FULFILLMENT 
 
