@@ -4569,7 +4569,7 @@ x-flows:
             participant SellerApp1
             participant SellerApp2
 
-            note over Buyer, SellerApp: **SEARCH FLOW**
+            note over Buyer, SellerApp2: **SEARCH FLOW**
 
             Buyer->>BuyerApp: Search for a product 
             BuyerApp->>Gateway: **/search** - Search for a product<br/>Country and City defined in Context
