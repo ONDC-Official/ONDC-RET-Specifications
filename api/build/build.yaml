@@ -4611,7 +4611,7 @@ x-flows:
 
             Buyer->>BuyerApp: 
             BuyerApp->>SellerApp: **/init** - Initializing the order
-            note right of SellerApp: Logistics order initialization wit billing details
+            note right of SellerApp: Logistics order initialization with billing details
             SellerApp->>BuyerApp: **/on_init** - Order initialization
       - description: PURCHASE ORDER
         mermaidGraph: |-
