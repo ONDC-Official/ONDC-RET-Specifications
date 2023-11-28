@@ -4585,59 +4585,56 @@ x-flows:
         mermaidGraph: |-
           sequenceDiagram
 
-            note over Buyer, SellerApp2: **RFQ (Request For Quotation) FLOW**
+            note over Buyer, SellerApp1: **RFQ (Request For Quotation) FLOW**
 
             Buyer->>BuyerApp: Buyer requests for Quotation
-            BuyerApp->>SellerApp1: **/select** - An item/s + add_ons + variants + offers is selected and <br/> RFQ is raised with a TTL to receive the response
+            BuyerApp->>SellerApp: **/select** - An item/s + add_ons + variants + offers is selected and <br/> RFQ is raised with a TTL to receive the response
 
-            note right of SellerApp1: Logistics quotation + TAT received (Optional)
+            note right of SellerApp: Logistics quotation + TAT received (Optional)
 
-            SellerApp1->>BuyerApp: **/on_select** - Responds to RFQ with <br/> quote, breakup including logistics charges.
+            SellerApp->>BuyerApp: **/on_select** - Responds to RFQ with <br/> quote, breakup including logistics charges.
             BuyerApp->>Buyer: RFQ Response
-      - description: REQUEST FOR QUOTATION
+      - description: ORDER INITIALIZATION
         mermaidGraph: |-
           sequenceDiagram
 
-            note over Buyer, SellerApp2: **REQUEST FOR QUOTATION**
+            note over Buyer, SellerApp2: **ORDER INITIALIZATION**
 
             Buyer->>BuyerApp: 
-            BuyerApp->>SellerApp1: **/init** - Request for Quotation
-            note right of SellerApp1: Logistics quotation + TAT received (Optional if already received)
-            SellerApp1->>BuyerApp: **/on_init** - Respond to RFQ <br/>Appending Logistics Charges
-            BuyerApp->>Buyer: 
+            BuyerApp->>SellerApp: **/init** - Initializing the order
+            note right of SellerApp: Logistics order initialization wit billing details
+            SellerApp->>BuyerApp: **/on_init** - Order initialization
       - description: PURCHASE ORDER
         mermaidGraph: |-
           sequenceDiagram
             note over Buyer, SellerApp2: **PURCHASE ORDER**
 
             Buyer->>BuyerApp: Creates PO
-            BuyerApp->>SellerApp1: **/confirm** - Create PO
-            SellerApp1->>BuyerApp: **/on_confirm** - Accept PO
+            BuyerApp->>SellerApp: **/confirm** - Create PO to create final digital contract
+            SellerApp->>BuyerApp: **/on_confirm** - Accept PO + payment url (if payment.collected_by is BPP) + <br/> Proforma invoice is shared (if payment.type is ON-FULFILLMENT)
       - description: PAYMENT AND INVOICE CREATION
         mermaidGraph: |-
           sequenceDiagram
-            note over Buyer, SellerApp2: **PAYMENT AND INVOICE CREATION**
+            note over Buyer, SellerApp: **PAYMENT AND INVOICE CREATION**
 
-            note left of Buyer: Payment is made offline
-
-            Buyer->>BuyerApp: Requests Invoice and Payment Details
-            BuyerApp->>SellerApp1: /**update** - Requests Invoice and sends Payment status (If payment collected by BAP)<br/>
-            SellerApp1->>BuyerApp: **/on_update** - sends Payment status (If payment collected by BPP)
+            Buyer->>BuyerApp: Buyer makes the payment
+            BuyerApp->>SellerApp: /**update** - Buyer makes the payment and sends the payment status
+            SellerApp->>BuyerApp: **/on_update** - Seller updates the Payment status + Proforma invoice is shared
       - description: Requests for order status
         mermaidGraph: |-
           sequenceDiagram
 
-            BuyerApp-->>SellerApp1: **/status** - Requests for order status <br/>                
+            BuyerApp-->>SellerApp: **/status** - Enquire order status or Tracking info              
 
-            SellerApp1->>BuyerApp: **/on_update** - Invoice is sent
+            SellerApp->>BuyerApp: **/on_update** - Invoice is sent
             BuyerApp->>Buyer: Invoice is sent
 
 
             note over Buyer, SellerApp2: **STATUS OF SHIPMENT**
 
             Buyer->>BuyerApp: Checks order status
-            BuyerApp->>SellerApp1: **/status** - Enquire Order status or Tracking info
-            SellerApp1->>BuyerApp: **/on_status** - Order Status or tracking link is sent
+            BuyerApp->>SellerApp: **/status** - Enquire Order status or Tracking info
+            SellerApp->>BuyerApp: **/on_status** - Order and fulfillment status is updated
     reference: if any
     steps:
       - summary: Search for an item
