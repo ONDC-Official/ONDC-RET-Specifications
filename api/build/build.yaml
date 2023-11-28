@@ -4569,7 +4569,7 @@ x-flows:
             participant SellerApp1
             participant SellerApp2
 
-            note over Buyer, SellerApp2: **SEARCH FLOW**
+            note over BuyerApp, SellerApp: **SEARCH FLOW**
 
             Buyer->>BuyerApp: Search for a product 
             BuyerApp->>Gateway: **/search** - Search for a product<br/>Country and City defined in Context
@@ -4598,7 +4598,7 @@ x-flows:
         mermaidGraph: |-
           sequenceDiagram
 
-            note over Buyer, SellerApp2: **ORDER INITIALIZATION**
+            note over Buyer, SellerApp: **ORDER INITIALIZATION**
 
             Buyer->>BuyerApp: 
             BuyerApp->>SellerApp: **/init** - Initializing the order
@@ -4630,7 +4630,7 @@ x-flows:
             BuyerApp->>Buyer: Invoice is sent
 
 
-            note over Buyer, SellerApp2: **STATUS OF SHIPMENT**
+            note over Buyer, SellerApp: **STATUS OF SHIPMENT**
 
             Buyer->>BuyerApp: Checks order status
             BuyerApp->>SellerApp: **/status** - Enquire Order status or Tracking info
