@@ -4560,91 +4560,82 @@ x-flows:
       where a buyer would like to order bulk items
     details:
       - description: Buyer Search & Quotation
-        mermaidGraph: >-
+        mermaidGraph: |-
           sequenceDiagram
 
-          title B2B Exports 2.0
+            title B2B Exports 2.0
 
-          participant Buyer participant BuyerApp participant Gateway participant
-          SellerApp1 participant SellerApp2
+            participant Buyer
+            participant BuyerApp
+            participant Gateway
+            participant SellerApp1
+            participant SellerApp2
 
-          note over Buyer, SellerApp2: **SEARCH FLOW**
+            note over Buyer, SellerApp2: **SEARCH FLOW**
 
-          Buyer->BuyerApp: Search for a product  BuyerApp->Gateway: **/search**
-          - Search for a product \n                Country and City defined in
-          Context Gateway->SellerApp1: **/search** - Search for a product
-          \n                Broadcast based on Country and domain in Context
-          Gateway->SellerApp2: **/search** - Search for a product
-          \n                Broadcast based on Country and domain in Context
+            Buyer->BuyerApp: Search for a product 
+            BuyerApp->Gateway: **/search** - Search for a product \n                Country and City defined in Context
+            Gateway->SellerApp1: **/search** - Search for a product \n                Broadcast based on Country and domain in Context
+            Gateway->SellerApp2: **/search** - Search for a product \n                Broadcast based on Country and domain in Context
 
-          SellerApp1->Gateway:**/on_search** - Product catalog returned
-          (including \n                      add-ons, variants, offers +
-          Communication channel) \n                      Servicability based on
-          Country, City and HScode permits SellerApp2->Gateway:**/on_search** -
-          Product catalog returned (including \n                      add-ons,
-          variants, offers + Communication channel) \n                      
-          Servicability based on Country, City and HScode permits
-          Gateway->BuyerApp: Multiple **/on_search** BuyerApp->Buyer: Renders
-          the search response
+            SellerApp1->Gateway:**/on_search** - Product catalog returned (including \n                      add-ons, variants, offers + Communication channel) \n                      Servicability based on Country, City and HScode permits
+            SellerApp2->Gateway:**/on_search** - Product catalog returned (including \n                      add-ons, variants, offers + Communication channel) \n                       Servicability based on Country, City and HScode permits
+            Gateway->BuyerApp: Multiple **/on_search**
+            BuyerApp->Buyer: Renders the search response
 
-          note left of Buyer: Offline communication \nb/w buyer and seller
-          \nhappens on the communication \nchannel
+            note left of Buyer: Offline communication \nb/w buyer and seller \nhappens on the communication \nchannel
 
 
-          note over Buyer, SellerApp2: **RFQ (Request For Quotation) FLOW**
+            note over Buyer, SellerApp2: **RFQ (Request For Quotation) FLOW**
 
-          Buyer->BuyerApp: Buyer requests for Quotation BuyerApp->SellerApp1:
-          **/select** - An item/s + add_ons + variants + offers is selected and
-          \n RFQ is raised with a TTL to receive the response
+            Buyer->BuyerApp: Buyer requests for Quotation
+            BuyerApp->SellerApp1: **/select** - An item/s + add_ons + variants + offers is selected and \n RFQ is raised with a TTL to receive the response
 
-          note right of SellerApp1: Logistics quotation + TAT received
-          (Optional)
+            note right of SellerApp1: Logistics quotation + TAT received (Optional)
 
-          SellerApp1->BuyerApp: **/on_select** - Responds to RFQ with \n quote,
-          breakup including logistics charges. BuyerApp->Buyer: RFQ Response
+            SellerApp1->BuyerApp: **/on_select** - Responds to RFQ with \n quote, breakup including logistics charges.
+            BuyerApp->Buyer: RFQ Response
 
 
 
-          note over Buyer, SellerApp2: **REQUEST FOR QUOTATION**
+            note over Buyer, SellerApp2: **REQUEST FOR QUOTATION**
 
-          Buyer->BuyerApp:  BuyerApp->SellerApp1: **/init** - Request for
-          Quotation note right of SellerApp1: Logistics quotation + TAT received
-          (Optional if already received) SellerApp1->BuyerApp: **/on_init** -
-          Respond to RFQ \n                Appending Logistics Charges
-          BuyerApp->Buyer: 
-
-
-          note over Buyer, SellerApp2: **PURCHASE ORDER**
-
-          Buyer->BuyerApp: Creates PO BuyerApp->SellerApp1: **/confirm** -
-          Create PO SellerApp1->BuyerApp: **/on_confirm** - Accept PO
+            Buyer->BuyerApp: 
+            BuyerApp->SellerApp1: **/init** - Request for Quotation
+            note right of SellerApp1: Logistics quotation + TAT received (Optional if already received)
+            SellerApp1->BuyerApp: **/on_init** - Respond to RFQ \n                Appending Logistics Charges
+            BuyerApp->Buyer: 
 
 
-          note over Buyer, SellerApp2: **PAYMENT AND INVOICE CREATION**
+            note over Buyer, SellerApp2: **PURCHASE ORDER**
 
-          note left of Buyer: Payment is made offline
+            Buyer->BuyerApp: Creates PO
+            BuyerApp->SellerApp1: **/confirm** - Create PO
+            SellerApp1->BuyerApp: **/on_confirm** - Accept PO
 
-          Buyer->BuyerApp: Requests Invoice and Payment Details
-          BuyerApp->SellerApp1: /**update** - Requests Invoice and sends Payment
-          status (If payment collected by BAP)\n SellerApp1->BuyerApp:
-          **/on_update** - sends Payment status (If payment collected by BPP)
+
+            note over Buyer, SellerApp2: **PAYMENT AND INVOICE CREATION**
+
+            note left of Buyer: Payment is made offline
+
+            Buyer->BuyerApp: Requests Invoice and Payment Details
+            BuyerApp->SellerApp1: /**update** - Requests Invoice and sends Payment status (If payment collected by BAP)\n
+            SellerApp1->BuyerApp: **/on_update** - sends Payment status (If payment collected by BPP)
 
 
 
 
-          BuyerApp-->SellerApp1: **/status** - Requests for order status
-          \n                
+            BuyerApp-->SellerApp1: **/status** - Requests for order status \n                
 
-          SellerApp1->BuyerApp: **/on_update** - Invoice is sent
-          BuyerApp->Buyer: Invoice is sent
+            SellerApp1->BuyerApp: **/on_update** - Invoice is sent
+            BuyerApp->Buyer: Invoice is sent
 
 
-          note over Buyer, SellerApp2: **STATUS OF SHIPMENT**
+            note over Buyer, SellerApp2: **STATUS OF SHIPMENT**
 
-          Buyer->BuyerApp: Checks order status BuyerApp->SellerApp1: **/status**
-          - Enquire Order status or Tracking info SellerApp1->BuyerApp:
-          **/on_status** - Order Status or tracking link is sent
-            
+            Buyer->BuyerApp: Checks order status
+            BuyerApp->SellerApp1: **/status** - Enquire Order status or Tracking info
+            SellerApp1->BuyerApp: **/on_status** - Order Status or tracking link is sent
     reference: if any
     steps:
       - summary: Search for an item
