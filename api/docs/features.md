@@ -31,7 +31,7 @@ Multiple seller apps, in turn, respond with an on_search call, with the product 
 The diagram below illustrates the flow of discovery phase interactions:
 
 <div style="display: flex; justify-content: center;">
-<img src="B2B-Discovery.png" alt="Alt Text" width="700" height="500" >
+<img src="./B2B-Discovery.png" alt="Alt Text" width="700" height="500" >
 </div>
 
 </br>
@@ -57,7 +57,7 @@ Seller sending Quotation response includes:
 - Logistics charges
 
 <div style="display: flex; justify-content: center;">
-<img src="B2B-Order_phase.png" alt="Alt Text" width="700" height="500" >
+<img src="./B2B-Order_phase.png" alt="Alt Text" width="700" height="500" >
 </div>
 
 </br>
@@ -67,7 +67,7 @@ Seller sending Quotation response includes:
 Once the PO is accepted, the buyer makes the payment (in case of prepaid). If the payment is collected by BAP, the Buyer app sends the payment confirmation to the seller app through an update call. In case the payment is collected by BPP, Seller app sends the payment confirmation to buyer app through /on_update.
 
 <div style="display: flex; justify-content: center;">
-<img src="B2B-Fulfillment_phase.png" alt="Alt Text" width="700" height="500" >
+<img src="./B2B-Fulfillment_phase.png" alt="Alt Text" width="700" height="500" >
 </div>
 
 </br>
@@ -85,7 +85,7 @@ Unsolicited on_status calls can also be triggered by the seller app to share the
 ### Version 2.0.2:
 
 <div style="display: flex; justify-content: center;">
-<img src="B2B-2-0-2.png" alt="Alt Text" width="750" height="900" >
+<img src="./B2B-2-0-2.png" alt="Alt Text" width="750" height="900" >
 </div>
 
 </br>
