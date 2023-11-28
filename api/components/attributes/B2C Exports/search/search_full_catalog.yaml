@@ -6,7 +6,7 @@ context:
     usage: "ONDC:RET12"
     reference: if any
   city:
-    description: city code for search that identifies the cities where sellers have stores. List of city codes, with pincode mapping, are here - https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=1474472733
+    description: city code for search that identifies the cities where sellers have stores. List of city codes, with pincode mapping, are here - https://unece.org/trade/cefact/unlocode-code-list-country-and-territory
     required: mandatory
     usage: UN:SIN
     reference: if any
