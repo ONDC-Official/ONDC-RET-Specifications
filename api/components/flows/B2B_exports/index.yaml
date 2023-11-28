@@ -28,7 +28,7 @@ details:
     mermaidGraph: >-
       sequenceDiagram
 
-        note over Buyer, SellerApp1: **RFQ (Request For Quotation) FLOW**
+        note over Buyer, SellerApp: **RFQ (Request For Quotation) FLOW**
 
         Buyer->>BuyerApp: Buyer requests for Quotation
         BuyerApp->>SellerApp: **/select** - An item/s + add_ons + variants + offers is selected and <br/> RFQ is raised with a TTL to receive the response
