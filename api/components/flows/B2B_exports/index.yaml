@@ -11,28 +11,32 @@ details:
         participant SellerApp1
         participant SellerApp2
 
-        Buyer->BuyerApp: Search for a product 
-        BuyerApp->Gateway: **/search** - Search for a product \n                Country and City defined in Context
-        Gateway->SellerApp1: **/search** - Search for a product \n                Broadcast based on Country and domain in Context
-        Gateway->SellerApp2: **/search** - Search for a product \n                Broadcast based on Country and domain in Context
+        note over Buyer, SellerApp2: **SEARCH FLOW**
 
-        SellerApp1->Gateway:**/on_search** - Product catalog returned (including \n                      add-ons, variants, offers + Communication channel) \n                      Servicability based on Country, City and HScode permits
-        SellerApp2->Gateway:**/on_search** - Product catalog returned (including \n                      add-ons, variants, offers + Communication channel) \n                       Servicability based on Country, City and HScode permits
+        Buyer->BuyerApp: Search for a product 
+        BuyerApp->Gateway: **/search** - Search for a product/>Country and City defined in Context
+        Gateway->SellerApp1: **/search** - Search for a product/>Broadcast based on Country and domain in Context
+        Gateway->SellerApp2: **/search** - Search for a product />Broadcast based on Country and domain in Context
+
+        SellerApp1->Gateway:**/on_search** - Product catalog returned (including /> add-ons, variants, offers + Communication channel) /> Servicability based on Country, City and HScode permits
+        SellerApp2->Gateway:**/on_search** - Product catalog returned (including /> add-ons, variants, offers + Communication channel) />  Servicability based on Country, City and HScode permits
         Gateway->BuyerApp: Multiple **/on_search**
         BuyerApp->Buyer: Renders the search response
-
-        note left of Buyer: Offline communication \nb/w buyer and seller \nhappens on the communication \nchannel
+        
+        note left of Buyer: Offline communication />b/w buyer and seller />happens on the communication />channel
 
   - description: RFQ (Request For Quotation) FLOW
     mermaidGraph: >-
       sequenceDiagram
 
+        note over Buyer, SellerApp2: **RFQ (Request For Quotation) FLOW**
+
         Buyer->BuyerApp: Buyer requests for Quotation
-        BuyerApp->SellerApp1: **/select** - An item/s + add_ons + variants + offers is selected and \n RFQ is raised with a TTL to receive the response
+        BuyerApp->SellerApp1: **/select** - An item/s + add_ons + variants + offers is selected and /> RFQ is raised with a TTL to receive the response
 
         note right of SellerApp1: Logistics quotation + TAT received (Optional)
 
-        SellerApp1->BuyerApp: **/on_select** - Responds to RFQ with \n quote, breakup including logistics charges.
+        SellerApp1->BuyerApp: **/on_select** - Responds to RFQ with /> quote, breakup including logistics charges.
         BuyerApp->Buyer: RFQ Response
 
 
@@ -45,7 +49,7 @@ details:
         Buyer->BuyerApp: 
         BuyerApp->SellerApp1: **/init** - Request for Quotation
         note right of SellerApp1: Logistics quotation + TAT received (Optional if already received)
-        SellerApp1->BuyerApp: **/on_init** - Respond to RFQ \n                Appending Logistics Charges
+        SellerApp1->BuyerApp: **/on_init** - Respond to RFQ />Appending Logistics Charges
         BuyerApp->Buyer: 
 
   - description: PURCHASE ORDER
@@ -65,7 +69,7 @@ details:
         note left of Buyer: Payment is made offline
 
         Buyer->BuyerApp: Requests Invoice and Payment Details
-        BuyerApp->SellerApp1: /**update** - Requests Invoice and sends Payment status (If payment collected by BAP)\n
+        BuyerApp->SellerApp1: /**update** - Requests Invoice and sends Payment status (If payment collected by BAP)/>
         SellerApp1->BuyerApp: **/on_update** - sends Payment status (If payment collected by BPP)
 
 
@@ -74,7 +78,7 @@ details:
     mermaidGraph: >-
       sequenceDiagram
 
-        BuyerApp-->SellerApp1: **/status** - Requests for order status \n                
+        BuyerApp-->SellerApp1: **/status** - Requests for order status />                
 
         SellerApp1->BuyerApp: **/on_update** - Invoice is sent
         BuyerApp->Buyer: Invoice is sent
