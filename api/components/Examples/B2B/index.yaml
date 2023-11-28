@@ -31,7 +31,8 @@ on_search:
     - $ref: ./on_search/on_search_grocery.yaml
 on_select:
   examples:
-    - $ref: ./on_select/on_select.yaml
+    - $ref: "./on_select/on_select_domestic.yaml"
+    - $ref: "./on_select/on_select_exports.yaml"
 on_init:
   examples:
     - $ref: ./on_init/on_init_domestic.yaml
