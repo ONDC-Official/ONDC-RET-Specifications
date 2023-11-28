@@ -53,7 +53,7 @@ details:
   - description: PURCHASE ORDER
     mermaidGraph: >-
       sequenceDiagram
-        note over Buyer, SellerApp2: **PURCHASE ORDER**
+        note over Buyer, SellerApp: **PURCHASE ORDER**
 
         Buyer->>BuyerApp: Creates PO
         BuyerApp->>SellerApp: **/confirm** - Create PO to create final digital contract
