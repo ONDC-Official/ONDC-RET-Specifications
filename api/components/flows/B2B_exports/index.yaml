@@ -14,27 +14,27 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/B2B/on_search/on_search.yaml"
-  - summary: Select the item
+  - summary: Requests for Quotation
     api: select
-    description: Buyer selects an item (Variants/add-ons/offers as required) + Item customization + Delivery terms
+    description: Buyer selects an item (Variants/add-ons/offers as required) + Item customization + Delivery terms and requests for quotation
     reference: if any
     example:
       $ref: "../../Examples/B2B/select/select_exports.yaml"
-  - summary: Returns item breakup
+  - summary: Returns item breakup/ quote
     api: on_select
-    description: Seller responds with quote breakup
+    description: Seller provides the quotation and breakup with logistics charges
     reference: if any
     example:
       $ref: "../../Examples/B2B/on_select/on_select.yaml"
-  - summary: Requests for Quotation
+  - summary: Initialization of Order
     api: init
-    description: Buyer Requests for Quotation
+    description: Initialization of Order - Billing Details added.
     reference: if any
     example:
       $ref: "../../Examples/B2B/init/init_exports.yaml"
-  - summary: Responds to Quotation
+  - summary: Initialization of Order
     api: on_init
-    description: Seller responds with Quotation
+    description: Initialization of Order with final quote
     reference: if any
     example:
       $ref: "../../Examples/B2B/on_init/on_init_exports.yaml"
