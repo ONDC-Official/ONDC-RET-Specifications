@@ -24,7 +24,6 @@ value:
         id: P1
         locations:
         - id: L1
-        ttl: P1D
       items:
       - id: I1
         fulfillment_ids:
@@ -91,6 +90,7 @@ value:
             value: SGP
       payments:
       - type: ON-FULFILLMENT
+        collected_by: BPP
       tags:
       - descriptor:
           code: buyer_id

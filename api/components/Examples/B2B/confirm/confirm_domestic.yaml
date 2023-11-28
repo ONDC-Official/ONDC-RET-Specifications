@@ -128,13 +128,15 @@ value:
       payments:
       - params:
           currency: INR
-          transaction_id: '3937'
           amount: '53600'
         status: NOT-PAID
         type: PRE-FULFILLMENT
         collected_by: BPP
         "@ondc/org/buyer_app_finder_fee_type": percent
         "@ondc/org/buyer_app_finder_fee_amount": '0'
+        "@ondc/org/settlement_basis": delivery
+        "@ondc/org/settlement_window": P1D
+        "@ondc/org/withholding_amount": "10.00"
         "@ondc/org/settlement_details":
         - settlement_counterparty: buyer-app
           settlement_phase: sale-amount

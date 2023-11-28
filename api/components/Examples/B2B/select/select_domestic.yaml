@@ -1,5 +1,5 @@
-summary: Get quote for specific item
-description: Get quote for specific item with Buyer and Delivery terms
+summary: Get quote for specific item (RFQ)
+description: RFQ - Get quote for selected items with Buyer and Delivery terms
 value:
   context:
     domain: ONDC:RET10
@@ -17,28 +17,51 @@ value:
     transaction_id: T1
     message_id: M1
     timestamp: '2023-01-08T22:00:30.000Z'
-    ttl: PT30S
+    ttl: P1D
   message:
     order:
       provider:
         id: P1
         locations:
         - id: L1
+        ttl: P1D
       items:
       - id: I1
         location_ids:
         - L1
+        fulfillment_ids:
+        - F1
         quantity:
           selected:
             count: 200
         add-ons:
         - id: '78787723'
+        tags:
+        - descriptor:
+            code: BUYER_TERMS
+          list:
+          - descriptor:
+              code: ITEM_REQ
+            value: free text on Item Customization
+          - descriptor:
+              code: PACKAGING_REQ
+            value: free text on packaging Customization
       fulfillments:
-      - stops:
+      - id: F1
+        type: Delivery
+        stops:
         - type: end
           location:
             gps: 12.974002,77.613458
             area_code: '560001'
+            city:
+              name: Bengaluru
+            country:
+              code: IND
+            state:
+              name: 'Karnataka'
+          contact:
+            phone: '9886098860'
       payments:
       - type: ON-FULFILLMENT
       tags:
