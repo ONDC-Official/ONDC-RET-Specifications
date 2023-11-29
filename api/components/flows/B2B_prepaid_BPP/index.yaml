@@ -1,5 +1,5 @@
-summary: B2B Prepaid BPP
-description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order bulk items and makes prepaid payment to the seller.
+summary: B2B Prepaid (Payment collected by BPP)
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order bulk items and makes prepaid payment to the seller NP.
 details:
   - description: Buyer Search & Quotation
     mermaidGraph: >-
