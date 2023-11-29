@@ -31,7 +31,7 @@ Multiple seller apps, in turn, respond with an on_search call, with the product 
 The diagram below illustrates the flow of discovery phase interactions:
 
 <div style="display: flex; justify-content: center;">
-<img src="https://github.com/abhinavv245/ONDC-RET-Specifications/blob/release-2.0.2/api/docs/Images/B2B-Discovery.png?raw=true" alt="Alt Text" width="700" height="500" >
+<img src="https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/release-2.0.2/api/docs/Images/B2B-Discovery.png?raw=true" alt="Alt Text" width="700" height="500" >
 </div>
 
 </br>
@@ -40,7 +40,7 @@ The diagram below illustrates the flow of discovery phase interactions:
 
 From multiple on_search responses received, the buyer selects an item (variants, add-ons and offers as required). Post selection of an item, buyer requests for quotation for the selected item with all the customizations and the quantity of items required. Once the buyer provides these customization details, the buyer app relays this information to the seller app. Select will also include the TTL, time till which buyer wants to wait for response to RFQ.
 
-In order to provide the quotation with logistics charges, either the exporter looks for on-network or off-network logistics and appends the logistics charges to the quotation and then responds to the buyer app with the quotation. Seller updates the final quotation and breakup in on_init call. The TTL for getting the response on RFQ will be based on the TTL defined by the buyer in the init call. Buyer receives the quotation and once agreed to go ahead with the quotation received, creates a PO and sends the PO. Buyer app relays the PO to the seller app through confirm call. Once the PO is received, the seller accepts the PO. Seller app sends an on_confirm call to the buyer app relaying the PO acceptance.
+In order to provide the quotation with logistics charges, either the exporter looks for on-network or off-network logistics and appends the logistics charges to the quotation and then responds to the buyer app with the quotation. Seller updates the final quotation and breakup in on_select call. The TTL for getting the response on RFQ will be based on the TTL defined by the buyer in the init call. Buyer receives the quotation and once agreed to go ahead with the quotation received, creates a PO and sends the PO. Buyer app relays the PO to the seller app through confirm call. Once the PO is received, the seller accepts the PO. Seller app sends an on_confirm call to the buyer app relaying the PO acceptance.
 
 Buyer sending Request for Quotation includes:
 
@@ -57,7 +57,7 @@ Seller sending Quotation response includes:
 - Logistics charges
 
 <div style="display: flex; justify-content: center;">
-<img src="https://github.com/abhinavv245/ONDC-RET-Specifications/blob/release-2.0.2/api/docs/Images/B2B-Order_phase.png?raw=true" alt="Alt Text" width="700" height="500" >
+<img src="https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/release-2.0.2/api/docs/Images/B2B-Order_phase.png?raw=true" alt="Alt Text" width="900" height="500" >
 </div>
 
 </br>
@@ -67,7 +67,7 @@ Seller sending Quotation response includes:
 Once the PO is accepted, the buyer makes the payment (in case of prepaid). If the payment is collected by BAP, the Buyer app sends the payment confirmation to the seller app through an update call. In case the payment is collected by BPP, Seller app sends the payment confirmation to buyer app through /on_update.
 
 <div style="display: flex; justify-content: center;">
-<img src="https://github.com/abhinavv245/ONDC-RET-Specifications/blob/release-2.0.2/api/docs/Images/B2B-Fulfillment_phase.png?raw=true" alt="Alt Text" width="700" height="500" >
+<img src="https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/release-2.0.2/api/docs/Images/B2B-Fulfillment_phase.png?raw=true" alt="Alt Text" width="700" height="500" >
 </div>
 
 </br>
@@ -85,7 +85,7 @@ Unsolicited on_status calls can also be triggered by the seller app to share the
 ### Version 2.0.2:
 
 <div style="display: flex; justify-content: center;">
-<img src="https://github.com/abhinavv245/ONDC-RET-Specifications/blob/release-2.0.2/api/docs/Images/B2B-2-0-2.png?raw=true" alt="Alt Text" width="750" height="900" >
+<img src="https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/release-2.0.2/api/docs/Images/B2B-2-0-2.png?raw=true" alt="Alt Text" width="950" height="1050" >
 </div>
 
 </br>
