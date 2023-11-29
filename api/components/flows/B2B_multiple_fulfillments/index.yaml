@@ -1,5 +1,5 @@
 summary: B2B Multiple Fulfillments
-description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order bulk items
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order bulk items comprising multiple fulfillments.
 details:
   - description: Buyer Search & Quotation
     mermaidGraph: >-
@@ -85,7 +85,7 @@ details:
 
         Buyer->>BuyerApp: Buyer makes the payment
         BuyerApp->>SellerApp: /**update** - Buyer makes the payment and sends the payment status
-        SellerApp->>BuyerApp: **/on_update** - Seller updates the Payment status + Proforma invoice is shared
+        SellerApp->>BuyerApp: **/on_update** - Seller updates fulfilments - Multiple fulfillments for Single PO <br/> Seller updates the Payment status + Proforma invoice is shared
 
 
 

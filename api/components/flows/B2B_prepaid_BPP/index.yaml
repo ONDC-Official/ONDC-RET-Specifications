@@ -1,5 +1,5 @@
 summary: B2B Prepaid BPP
-description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order bulk items and makes prepaid payment.
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order bulk items and makes prepaid payment to the seller.
 details:
   - description: Buyer Search & Quotation
     mermaidGraph: >-
@@ -84,7 +84,7 @@ details:
         note over Buyer, SellerApp: **PAYMENT AND INVOICE CREATION**
 
         Buyer->>BuyerApp: Buyer makes the payment
-        BuyerApp->>SellerApp: /**update** - Buyer makes the payment and sends the payment status
+        BuyerApp->>SellerApp: /**update** - Buyer NP updates that payment has been made to the Seller NP
         SellerApp->>BuyerApp: **/on_update** - Seller updates the Payment status + Proforma invoice is shared
 
 
@@ -163,8 +163,14 @@ steps:
     description: Provider platform provides the updated order status to the consumer
     reference: if any
     example:
-      $ref: "../../Examples/B2B/on_status/on_status_proforma_invoice.yaml"                                  
-  - summary: Payment is collected by seller (Prepaid) and details are updated
+      $ref: "../../Examples/B2B/on_status/on_status_proforma_invoice.yaml"     
+  - summary: Buyer NP updates that payment has been made to the Seller NP
+    api: update
+    description: Buyer NP updates that payment has been made to the Seller NP
+    reference: if any
+    example:
+      $ref: "../../Examples/B2B/update/update_prepaid.yaml"                           
+  - summary: Payment is collected by seller NP(Prepaid) and details are updated
     api: on_update
     description: Provider platform sends the payment details
     reference: if any

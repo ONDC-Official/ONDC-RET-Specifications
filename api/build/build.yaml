@@ -3359,9 +3359,9 @@ x-flows:
             note over Buyer, SellerApp2: **SEARCH FLOW**
 
             Buyer->>BuyerApp: Search for a product 
-            BuyerApp->>Gateway: **/search** - Search for a product<br/>Country and City defined in Context
-            Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on Country and domain in Context
-            Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on Country and domain in Context
+            BuyerApp->>Gateway: **/search** - Search for a product
+            Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on city and domain in context
+            Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on city and domain in context
 
             SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
             SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
@@ -7020,7 +7020,8 @@ x-flows:
   - summary: B2B Multiple Fulfillments
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
-      where a buyer would like to order bulk items
+      where a buyer would like to order bulk items comprising multiple
+      fulfillments.
     details:
       - description: Buyer Search & Quotation
         mermaidGraph: |-
@@ -7101,7 +7102,7 @@ x-flows:
 
             Buyer->>BuyerApp: Buyer makes the payment
             BuyerApp->>SellerApp: /**update** - Buyer makes the payment and sends the payment status
-            SellerApp->>BuyerApp: **/on_update** - Seller updates the Payment status + Proforma invoice is shared
+            SellerApp->>BuyerApp: **/on_update** - Seller updates fulfilments - Multiple fulfillments for Single PO <br/> Seller updates the Payment status + Proforma invoice is shared
       - description: Requests for order status
         mermaidGraph: |-
           sequenceDiagram
@@ -7209,7 +7210,8 @@ x-flows:
   - summary: B2B Prepaid BPP
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
-      where a buyer would like to order bulk items and makes prepaid payment.
+      where a buyer would like to order bulk items and makes prepaid payment to
+      the seller.
     details:
       - description: Buyer Search & Quotation
         mermaidGraph: |-
@@ -7289,7 +7291,7 @@ x-flows:
             note over Buyer, SellerApp: **PAYMENT AND INVOICE CREATION**
 
             Buyer->>BuyerApp: Buyer makes the payment
-            BuyerApp->>SellerApp: /**update** - Buyer makes the payment and sends the payment status
+            BuyerApp->>SellerApp: /**update** - Buyer NP updates that payment has been made to the Seller NP
             SellerApp->>BuyerApp: **/on_update** - Seller updates the Payment status + Proforma invoice is shared
       - description: Requests for order status
         mermaidGraph: |-
@@ -7359,7 +7361,12 @@ x-flows:
         description: Provider platform provides the updated order status to the consumer
         reference: if any
         example: *ref_14
-      - summary: Payment is collected by seller (Prepaid) and details are updated
+      - summary: Buyer NP updates that payment has been made to the Seller NP
+        api: update
+        description: Buyer NP updates that payment has been made to the Seller NP
+        reference: if any
+        example: *ref_15
+      - summary: Payment is collected by seller NP(Prepaid) and details are updated
         api: on_update
         description: Provider platform sends the payment details
         reference: if any
@@ -7449,7 +7456,8 @@ x-flows:
   - summary: B2B Prepaid (Payment collected by BAP)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
-      where a buyer would like to order bulk items and makes prepaid payment.
+      where a buyer would like to order bulk items and makes prepaid payment to
+      buyer NP.
     details:
       - description: Buyer Search & Quotation
         mermaidGraph: |-
@@ -7530,7 +7538,6 @@ x-flows:
 
             Buyer->>BuyerApp: Buyer makes the payment
             BuyerApp->>SellerApp: /**update** - Buyer makes the payment and sends the payment status
-            SellerApp->>BuyerApp: **/on_update** - Seller updates the Payment status + Proforma invoice is shared
       - description: Requests for order status
         mermaidGraph: |-
           sequenceDiagram
@@ -7599,8 +7606,8 @@ x-flows:
         description: Provider platform provides the updated order status to the consumer
         reference: if any
         example: *ref_14
-      - summary: Payment is collected by buyer (Prepaid) and details are updated
-        api: on_update
+      - summary: Payment is collected by buyer NP (Prepaid) and details are updated
+        api: update
         description: Consumer platform sends the payment details
         reference: if any
         example: *ref_15

@@ -1,5 +1,5 @@
 summary: B2B Prepaid (Payment collected by BAP)
-description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order bulk items and makes prepaid payment.
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order bulk items and makes prepaid payment to buyer NP.
 details:
   - description: Buyer Search & Quotation
     mermaidGraph: >-
@@ -85,7 +85,7 @@ details:
 
         Buyer->>BuyerApp: Buyer makes the payment
         BuyerApp->>SellerApp: /**update** - Buyer makes the payment and sends the payment status
-        SellerApp->>BuyerApp: **/on_update** - Seller updates the Payment status + Proforma invoice is shared
+  
 
 
 
@@ -164,8 +164,8 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/B2B/on_status/on_status_proforma_invoice.yaml"                                  
-  - summary: Payment is collected by buyer (Prepaid) and details are updated
-    api: on_update
+  - summary: Payment is collected by buyer NP (Prepaid) and details are updated
+    api: update
     description: Consumer platform sends the payment details
     reference: if any
     example:

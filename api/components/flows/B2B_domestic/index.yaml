@@ -14,9 +14,9 @@ details:
         note over Buyer, SellerApp2: **SEARCH FLOW**
 
         Buyer->>BuyerApp: Search for a product 
-        BuyerApp->>Gateway: **/search** - Search for a product<br/>Country and City defined in Context
-        Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on Country and domain in Context
-        Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on Country and domain in Context
+        BuyerApp->>Gateway: **/search** - Search for a product
+        Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on city and domain in context
+        Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on city and domain in context
 
         SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
         SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
