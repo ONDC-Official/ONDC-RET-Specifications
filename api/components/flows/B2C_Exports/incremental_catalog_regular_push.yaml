@@ -7,9 +7,11 @@ details:
       sequenceDiagram
 
         participant B2C BAP
+        participant Gateway
         participant B2C BPP
 
-        B2C BAP->>B2C BPP: **/search**  - Search by country
+        B2C BAP->>Gateway: **/search**  - Buyer searches by country
+        Gateway->>B2C BPP: **/search** - Buyer searches by country
         B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog
 
   - description: Search by incremental regular push catalog refresh
@@ -17,11 +19,15 @@ details:
       sequenceDiagram
 
         participant B2C BAP
+        participant Gateway
         participant B2C BPP
 
-        B2C BAP->>B2C BPP: **/search**  - Search by incremental regular push catalog refresh
+        note over B2C BAP, Gateway: Buyer NP requests regular incremental refresh until stopped <br> mode="start", start_time <= Context.timestamp
+        B2C BAP->>Gateway: **/search**  - Search by incremental regular push catalog refresh
+        Gateway->>B2C BPP: **/search**  - Search by incremental regular push catalog refresh
+        note over B2C BPP, B2C BAP: Seller NP pushes incremental updates from start_time at a frequency within a range of 1-30 mins. <br> If no start_time provided, it defaults to Context.timestamp
         B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog
-        B2C BAP->>B2C BPP: **/search**  - Stop the incremental regular push catalog refresh
+        B2C BAP->>B2C BPP: **/search**  - Buyer NP requests stopping of incremental refresh (mode="stop")
 
 steps:
   - summary: Search by Country

@@ -7,9 +7,11 @@ details:
       sequenceDiagram
 
         participant B2C BAP
+        participant Gateway
         participant B2C BPP
 
-        B2C BAP->>B2C BPP: **/search**  - Search by fulfillment end location 
+        B2C BAP->>Gateway: **/search**  - Buyer searches by fulfillment end location 
+        Gateway->>B2C BPP: **/search**  - Buyer searches by fulfillment end location 
         B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog
 
   - description: Selection of the item
@@ -19,7 +21,7 @@ details:
         participant B2C BAP
         participant B2C BPP
 
-        B2C BAP->>B2C BPP: **/select**  - Selects the item
+        B2C BAP->>B2C BPP: **/select**  - Buyer selects the item
         B2C BPP->>B2C BAP: **/on_select** - Returns that item is not in stock
 
 steps:

@@ -6,9 +6,11 @@ details:
       sequenceDiagram
 
         participant B2C BAP
+        participant Gateway
         participant B2C BPP
 
-        B2C BAP->>B2C BPP: **/search**  - Search by city
+        B2C BAP->>Gateway: **/search**  - Buyer searches by city
+        Gateway->>B2C BPP: **/search** - Buyer searches by city
         B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog
 
   - description: Search by incremental one time push catalog refresh
@@ -16,10 +18,13 @@ details:
       sequenceDiagram
 
         participant B2C BAP
+        participant Gateway
         participant B2C BPP
 
-        B2C BAP->>B2C BPP: **/search**  - Search by incremental one time push catalog refresh
-        B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog
+        note over B2C BAP, Gateway: Buyer NP pulls incremental updates from start_time to end_time <br> in a single solicited response <br> start_time < Context.timestamp, end_time < Context.timestamp, <br> end_time > start_time
+        B2C BAP->>Gateway: **/search**  - Search by incremental one time push catalog refresh
+        Gateway->>B2C BPP: **/search** - Search by incremental one time push catalog refresh
+        B2C BPP->>B2C BAP: **/on_search** - Returns the incremental updates in the catalog
 
 reference: if any
 steps:
