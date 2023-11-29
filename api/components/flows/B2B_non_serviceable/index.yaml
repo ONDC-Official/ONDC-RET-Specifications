@@ -41,6 +41,7 @@ details:
         note right of SellerApp: Logistics quotation + TAT not received (Optional)
         rect rgb(247, 226, 225)
         SellerApp->>BuyerApp: **/on_select** - Responds to RFQ with <br/> quote, breakup without logistics charges.
+        end
        
 reference: if any
 steps:

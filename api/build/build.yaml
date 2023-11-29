@@ -7682,6 +7682,7 @@ x-flows:
             note right of SellerApp: Logistics quotation + TAT received (Optional)
             rect rgb(247, 226, 225)
             SellerApp->>BuyerApp: **/on_select** - Responds to RFQ with <br/> quote, breakup along with error object
+            end
            
     reference: if any
     steps:
@@ -7841,6 +7842,7 @@ x-flows:
             note right of SellerApp: Logistics quotation + TAT not received (Optional)
             rect rgb(247, 226, 225)
             SellerApp->>BuyerApp: **/on_select** - Responds to RFQ with <br/> quote, breakup without logistics charges.
+            end
            
     reference: if any
     steps:
