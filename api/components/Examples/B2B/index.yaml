@@ -33,6 +33,8 @@ on_select:
   examples:
     - $ref: "./on_select/on_select_domestic.yaml"
     - $ref: "./on_select/on_select_exports.yaml"
+    - $ref: "./on_select/on_select_non_serviceable.yaml"
+    - $ref: "./on_select/on_select_quantity_unavailable.yaml"
 on_init:
   examples:
     - $ref: ./on_init/on_init_domestic.yaml

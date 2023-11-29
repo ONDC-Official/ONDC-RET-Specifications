@@ -67,4 +67,4 @@ steps:
     description: Seller provides the quotation and breakup without logistics charges along with error object
     reference: if any
     example:
-      $ref: "../../Examples/B2B/on_select/on_select_non_serviceable.yaml.yaml"
+      $ref: "../../Examples/B2B/on_select/on_select_non_serviceable.yaml"
