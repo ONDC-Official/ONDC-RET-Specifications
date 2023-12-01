@@ -3345,13 +3345,113 @@ x-flows:
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to order bulk items
+    details:
+      - description: Buyer Search & Quotation
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant Gateway
+            participant SellerApp1
+            participant SellerApp2
+
+            note over Buyer, SellerApp2: **SEARCH FLOW**
+
+            Buyer->>BuyerApp: Search for a product 
+            BuyerApp->>Gateway: **/search** - Search for a product
+            Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on city and domain in context
+            Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on city and domain in context
+
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
+            BuyerApp->>Buyer: Renders the search response
+            
+            note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
+      - description: RFQ (Request For Quotation) FLOW
+        mermaidGraph: |-
+          sequenceDiagram
+            
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+
+            note over Buyer, SellerApp: **RFQ (Request For Quotation) FLOW**
+
+            Buyer->>BuyerApp: Buyer requests for Quotation
+            BuyerApp->>SellerApp: **/select** - An item/s + add_ons + variants + offers is selected and <br/> RFQ is raised with a TTL to receive the response
+
+            note right of SellerApp: Logistics quotation + TAT received (Optional)
+
+            SellerApp->>BuyerApp: **/on_select** - Responds to RFQ with <br/> quote, breakup including logistics charges.
+            BuyerApp->>Buyer: RFQ Response
+      - description: ORDER INITIALIZATION
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+            note over Buyer, SellerApp: **ORDER INITIALIZATION**
+
+            Buyer->>BuyerApp: 
+            BuyerApp->>SellerApp: **/init** - Initializing the order
+            note right of SellerApp: Logistics order initialization with billing details
+            SellerApp->>BuyerApp: **/on_init** - Order initialization
+      - description: PURCHASE ORDER
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+            note over Buyer, SellerApp: **PURCHASE ORDER**
+
+            Buyer->>BuyerApp: Creates PO
+            BuyerApp->>SellerApp: **/confirm** - Create PO to create final digital contract
+            SellerApp->>BuyerApp: **/on_confirm** - Accept PO + payment url (if payment.collected_by is BPP) + <br/> Proforma invoice is shared (if payment.type is ON-FULFILLMENT)
+      - description: PAYMENT AND INVOICE CREATION
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+            note over Buyer, SellerApp: **PAYMENT AND INVOICE CREATION**
+
+            Buyer->>BuyerApp: Buyer makes the payment
+            BuyerApp->>SellerApp: /**update** - Buyer makes the payment and sends the payment status
+            SellerApp->>BuyerApp: **/on_update** - Seller updates the Payment status + Proforma invoice is shared
+      - description: Requests for order status
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+            BuyerApp-->>SellerApp: **/status** - Enquire order status or Tracking info              
+
+            SellerApp->>BuyerApp: **/on_update** - Invoice is sent
+            BuyerApp->>Buyer: Invoice is sent
+
+
+            note over Buyer, SellerApp: **STATUS OF SHIPMENT**
+
+            Buyer->>BuyerApp: Checks order status
+            BuyerApp->>SellerApp: **/status** - Enquire Order status or Tracking info
+            SellerApp->>BuyerApp: **/on_status** - Order and fulfillment status is updated
     reference: if any
     steps:
       - summary: Search based on the category
         api: search
         description: Search intent sent by the buyer based on the category
         reference: if any
-        example:
+        example: &ref_20
           summary: search_by_category
           description: Search By Category
           value:
@@ -3415,7 +3515,7 @@ x-flows:
         api: on_search
         description: Catalog provided by the Seller App
         reference: if any
-        example:
+        example: &ref_21
           summary: Return the catalog for grocery
           description: Return the catalog for grocery products
           value:
@@ -4558,6 +4658,106 @@ x-flows:
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to order bulk items
+    details:
+      - description: Buyer Search & Quotation
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant Gateway
+            participant SellerApp1
+            participant SellerApp2
+
+            note over Buyer, SellerApp2: **SEARCH FLOW**
+
+            Buyer->>BuyerApp: Search for a product 
+            BuyerApp->>Gateway: **/search** - Search for a product<br/>Country and City defined in Context
+            Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on Country and domain in Context
+            Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on Country and domain in Context
+
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
+            BuyerApp->>Buyer: Renders the search response
+            
+            note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
+      - description: RFQ (Request For Quotation) FLOW
+        mermaidGraph: |-
+          sequenceDiagram
+            
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+
+            note over Buyer, SellerApp: **RFQ (Request For Quotation) FLOW**
+
+            Buyer->>BuyerApp: Buyer requests for Quotation
+            BuyerApp->>SellerApp: **/select** - An item/s + add_ons + variants + offers is selected and <br/> RFQ is raised with a TTL to receive the response
+
+            note right of SellerApp: Logistics quotation + TAT received (Optional)
+
+            SellerApp->>BuyerApp: **/on_select** - Responds to RFQ with <br/> quote, breakup including logistics charges.
+            BuyerApp->>Buyer: RFQ Response
+      - description: ORDER INITIALIZATION
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+            note over Buyer, SellerApp: **ORDER INITIALIZATION**
+
+            Buyer->>BuyerApp: 
+            BuyerApp->>SellerApp: **/init** - Initializing the order
+            note right of SellerApp: Logistics order initialization with billing details
+            SellerApp->>BuyerApp: **/on_init** - Order initialization
+      - description: PURCHASE ORDER
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+            note over Buyer, SellerApp: **PURCHASE ORDER**
+
+            Buyer->>BuyerApp: Creates PO
+            BuyerApp->>SellerApp: **/confirm** - Create PO to create final digital contract
+            SellerApp->>BuyerApp: **/on_confirm** - Accept PO + payment url (if payment.collected_by is BPP) + <br/> Proforma invoice is shared (if payment.type is ON-FULFILLMENT)
+      - description: PAYMENT AND INVOICE CREATION
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+            note over Buyer, SellerApp: **PAYMENT AND INVOICE CREATION**
+
+            Buyer->>BuyerApp: Buyer makes the payment
+            BuyerApp->>SellerApp: /**update** - Buyer makes the payment and sends the payment status
+            SellerApp->>BuyerApp: **/on_update** - Seller updates the Payment status + Proforma invoice is shared
+      - description: Requests for order status
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+            BuyerApp-->>SellerApp: **/status** - Enquire order status or Tracking info              
+
+            SellerApp->>BuyerApp: **/on_update** - Invoice is sent
+            BuyerApp->>Buyer: Invoice is sent
+
+
+            note over Buyer, SellerApp: **STATUS OF SHIPMENT**
+
+            Buyer->>BuyerApp: Checks order status
+            BuyerApp->>SellerApp: **/status** - Enquire Order status or Tracking info
+            SellerApp->>BuyerApp: **/on_status** - Order and fulfillment status is updated
     reference: if any
     steps:
       - summary: Search for an item
@@ -6820,7 +7020,108 @@ x-flows:
   - summary: B2B Multiple Fulfillments
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
-      where a buyer would like to order bulk items
+      where a buyer would like to order bulk items comprising multiple
+      fulfillments.
+    details:
+      - description: Buyer Search & Quotation
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant Gateway
+            participant SellerApp1
+            participant SellerApp2
+
+            note over Buyer, SellerApp2: **SEARCH FLOW**
+
+            Buyer->>BuyerApp: Search for a product 
+            BuyerApp->>Gateway: **/search** - Search for a product<br/>Country and City defined in Context
+            Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on Country and domain in Context
+            Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on Country and domain in Context
+
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
+            BuyerApp->>Buyer: Renders the search response
+            
+            note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
+      - description: RFQ (Request For Quotation) FLOW
+        mermaidGraph: |-
+          sequenceDiagram
+            
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+
+            note over Buyer, SellerApp: **RFQ (Request For Quotation) FLOW**
+
+            Buyer->>BuyerApp: Buyer requests for Quotation
+            BuyerApp->>SellerApp: **/select** - An item/s + add_ons + variants + offers is selected and <br/> RFQ is raised with a TTL to receive the response
+
+            note right of SellerApp: Logistics quotation + TAT received (Optional)
+
+            SellerApp->>BuyerApp: **/on_select** - Responds to RFQ with <br/> quote, breakup including logistics charges.
+            BuyerApp->>Buyer: RFQ Response
+      - description: ORDER INITIALIZATION
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+            note over Buyer, SellerApp: **ORDER INITIALIZATION**
+
+            Buyer->>BuyerApp: 
+            BuyerApp->>SellerApp: **/init** - Initializing the order
+            note right of SellerApp: Logistics order initialization with billing details
+            SellerApp->>BuyerApp: **/on_init** - Order initialization
+      - description: PURCHASE ORDER
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+            note over Buyer, SellerApp: **PURCHASE ORDER**
+
+            Buyer->>BuyerApp: Creates PO
+            BuyerApp->>SellerApp: **/confirm** - Create PO to create final digital contract
+            SellerApp->>BuyerApp: **/on_confirm** - Accept PO + payment url (if payment.collected_by is BPP) + <br/> Proforma invoice is shared (if payment.type is ON-FULFILLMENT)
+      - description: PAYMENT AND INVOICE CREATION
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+            note over Buyer, SellerApp: **PAYMENT AND INVOICE CREATION**
+
+            Buyer->>BuyerApp: Buyer makes the payment
+            BuyerApp->>SellerApp: /**update** - Buyer makes the payment and sends the payment status
+            SellerApp->>BuyerApp: **/on_update** - Seller updates fulfilments - Multiple fulfillments for Single PO <br/> Seller updates the Payment status + Proforma invoice is shared
+      - description: Requests for order status
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+            BuyerApp-->>SellerApp: **/status** - Enquire order status or Tracking info              
+
+            SellerApp->>BuyerApp: **/on_update** - Invoice is sent
+            BuyerApp->>Buyer: Invoice is sent
+
+
+            note over Buyer, SellerApp: **STATUS OF SHIPMENT**
+
+            Buyer->>BuyerApp: Checks order status
+            BuyerApp->>SellerApp: **/status** - Enquire Order status or Tracking info
+            SellerApp->>BuyerApp: **/on_status** - Order and fulfillment status is updated
     reference: if any
     steps:
       - summary: Search for an item
@@ -6906,10 +7207,111 @@ x-flows:
           after the order is delivered
         reference: if any
         example: *ref_19
-  - summary: B2B Prepaid BPP
+  - summary: B2B Prepaid (Payment collected by BPP)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
-      where a buyer would like to order bulk items and makes prepaid payment.
+      where a buyer would like to order bulk items and makes prepaid payment to
+      the seller NP.
+    details:
+      - description: Buyer Search & Quotation
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant Gateway
+            participant SellerApp1
+            participant SellerApp2
+
+            note over Buyer, SellerApp2: **SEARCH FLOW**
+
+            Buyer->>BuyerApp: Search for a product 
+            BuyerApp->>Gateway: **/search** - Search for a product<br/>Country and City defined in Context
+            Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on Country and domain in Context
+            Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on Country and domain in Context
+
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
+            BuyerApp->>Buyer: Renders the search response
+            
+            note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
+      - description: RFQ (Request For Quotation) FLOW
+        mermaidGraph: |-
+          sequenceDiagram
+            
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+
+            note over Buyer, SellerApp: **RFQ (Request For Quotation) FLOW**
+
+            Buyer->>BuyerApp: Buyer requests for Quotation
+            BuyerApp->>SellerApp: **/select** - An item/s + add_ons + variants + offers is selected and <br/> RFQ is raised with a TTL to receive the response
+
+            note right of SellerApp: Logistics quotation + TAT received (Optional)
+
+            SellerApp->>BuyerApp: **/on_select** - Responds to RFQ with <br/> quote, breakup including logistics charges.
+            BuyerApp->>Buyer: RFQ Response
+      - description: ORDER INITIALIZATION
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+            note over Buyer, SellerApp: **ORDER INITIALIZATION**
+
+            Buyer->>BuyerApp: 
+            BuyerApp->>SellerApp: **/init** - Initializing the order
+            note right of SellerApp: Logistics order initialization with billing details
+            SellerApp->>BuyerApp: **/on_init** - Order initialization
+      - description: PURCHASE ORDER
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+            note over Buyer, SellerApp: **PURCHASE ORDER**
+
+            Buyer->>BuyerApp: Creates PO
+            BuyerApp->>SellerApp: **/confirm** - Create PO to create final digital contract
+            SellerApp->>BuyerApp: **/on_confirm** - Accept PO + payment url (if payment.collected_by is BPP) + <br/> Proforma invoice is shared (if payment.type is ON-FULFILLMENT)
+      - description: PAYMENT AND INVOICE CREATION
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+            note over Buyer, SellerApp: **PAYMENT AND INVOICE CREATION**
+
+            Buyer->>BuyerApp: Buyer makes the payment
+            BuyerApp->>SellerApp: /**update** - Buyer NP updates that payment has been made to the Seller NP
+            SellerApp->>BuyerApp: **/on_update** - Seller updates the Payment status + Proforma invoice is shared
+      - description: Requests for order status
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+            BuyerApp-->>SellerApp: **/status** - Enquire order status or Tracking info              
+
+            SellerApp->>BuyerApp: **/on_update** - Invoice is sent
+            BuyerApp->>Buyer: Invoice is sent
+
+
+            note over Buyer, SellerApp: **STATUS OF SHIPMENT**
+
+            Buyer->>BuyerApp: Checks order status
+            BuyerApp->>SellerApp: **/status** - Enquire Order status or Tracking info
+            SellerApp->>BuyerApp: **/on_status** - Order and fulfillment status is updated
     reference: if any
     steps:
       - summary: Search for an item
@@ -6959,7 +7361,12 @@ x-flows:
         description: Provider platform provides the updated order status to the consumer
         reference: if any
         example: *ref_14
-      - summary: Payment is collected by seller (Prepaid) and details are updated
+      - summary: Buyer NP updates that payment has been made to the Seller NP
+        api: update
+        description: Buyer NP updates that payment has been made to the Seller NP
+        reference: if any
+        example: *ref_15
+      - summary: Payment is collected by seller NP(Prepaid) and details are updated
         api: on_update
         description: Provider platform sends the payment details
         reference: if any
@@ -7049,7 +7456,107 @@ x-flows:
   - summary: B2B Prepaid (Payment collected by BAP)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
-      where a buyer would like to order bulk items and makes prepaid payment.
+      where a buyer would like to order bulk items and makes prepaid payment to
+      buyer NP.
+    details:
+      - description: Buyer Search & Quotation
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant Gateway
+            participant SellerApp1
+            participant SellerApp2
+
+            note over Buyer, SellerApp2: **SEARCH FLOW**
+
+            Buyer->>BuyerApp: Search for a product 
+            BuyerApp->>Gateway: **/search** - Search for a product<br/>Country and City defined in Context
+            Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on Country and domain in Context
+            Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on Country and domain in Context
+
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
+            BuyerApp->>Buyer: Renders the search response
+            
+            note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
+      - description: RFQ (Request For Quotation) FLOW
+        mermaidGraph: |-
+          sequenceDiagram
+            
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+
+            note over Buyer, SellerApp: **RFQ (Request For Quotation) FLOW**
+
+            Buyer->>BuyerApp: Buyer requests for Quotation
+            BuyerApp->>SellerApp: **/select** - An item/s + add_ons + variants + offers is selected and <br/> RFQ is raised with a TTL to receive the response
+
+            note right of SellerApp: Logistics quotation + TAT received (Optional)
+
+            SellerApp->>BuyerApp: **/on_select** - Responds to RFQ with <br/> quote, breakup including logistics charges.
+            BuyerApp->>Buyer: RFQ Response
+      - description: ORDER INITIALIZATION
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+            note over Buyer, SellerApp: **ORDER INITIALIZATION**
+
+            Buyer->>BuyerApp: 
+            BuyerApp->>SellerApp: **/init** - Initializing the order
+            note right of SellerApp: Logistics order initialization with billing details
+            SellerApp->>BuyerApp: **/on_init** - Order initialization
+      - description: PURCHASE ORDER
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+            note over Buyer, SellerApp: **PURCHASE ORDER**
+
+            Buyer->>BuyerApp: Creates PO
+            BuyerApp->>SellerApp: **/confirm** - Create PO to create final digital contract
+            SellerApp->>BuyerApp: **/on_confirm** - Accept PO + payment url (if payment.collected_by is BPP) + <br/> Proforma invoice is shared (if payment.type is ON-FULFILLMENT)
+      - description: PAYMENT AND INVOICE CREATION
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+            note over Buyer, SellerApp: **PAYMENT AND INVOICE CREATION**
+
+            Buyer->>BuyerApp: Buyer makes the payment
+            BuyerApp->>SellerApp: /**update** - Buyer makes the payment and sends the payment status
+      - description: Requests for order status
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+            BuyerApp-->>SellerApp: **/status** - Enquire order status or Tracking info              
+
+            SellerApp->>BuyerApp: **/on_update** - Invoice is sent
+            BuyerApp->>Buyer: Invoice is sent
+
+
+            note over Buyer, SellerApp: **STATUS OF SHIPMENT**
+
+            Buyer->>BuyerApp: Checks order status
+            BuyerApp->>SellerApp: **/status** - Enquire Order status or Tracking info
+            SellerApp->>BuyerApp: **/on_status** - Order and fulfillment status is updated
     reference: if any
     steps:
       - summary: Search for an item
@@ -7099,8 +7606,8 @@ x-flows:
         description: Provider platform provides the updated order status to the consumer
         reference: if any
         example: *ref_14
-      - summary: Payment is collected by buyer (Prepaid) and details are updated
-        api: on_update
+      - summary: Payment is collected by buyer NP (Prepaid) and details are updated
+        api: update
         description: Consumer platform sends the payment details
         reference: if any
         example: *ref_15
@@ -7130,6 +7637,344 @@ x-flows:
           once the order is delivered
         reference: if any
         example: *ref_19
+  - summary: B2B Item out of stock
+    description: >-
+      The following is an illustrative flow to perform a transaction of a nature
+      where a buyer would like to order bulk items but the item is either out of
+      stock or quantity is unavailable
+    details:
+      - description: Buyer Search & Quotation
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant Gateway
+            participant SellerApp1
+            participant SellerApp2
+
+            note over Buyer, SellerApp2: **SEARCH FLOW**
+
+            Buyer->>BuyerApp: Search for a product 
+            BuyerApp->>Gateway: **/search** - Search for a product
+            Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on city and domain in context
+            Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on city and domain in context
+
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
+            BuyerApp->>Buyer: Renders the search response
+            
+            note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
+      - description: RFQ (Request For Quotation) FLOW
+        mermaidGraph: |-
+          sequenceDiagram
+            
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+
+            note over Buyer, SellerApp: **RFQ (Request For Quotation) FLOW**
+
+            Buyer->>BuyerApp: Buyer requests for Quotation
+            BuyerApp->>SellerApp: **/select** - An item/s + add_ons + variants + offers is selected and <br/> RFQ is raised with a TTL to receive the response
+
+            note right of SellerApp: Logistics quotation + TAT received (Optional)
+            rect rgb(247, 226, 225)
+            SellerApp->>BuyerApp: **/on_select** - Responds to RFQ with <br/> quote, breakup along with error object
+            end
+           
+    reference: if any
+    steps:
+      - summary: Search based on the category
+        api: search
+        description: Search intent sent by the buyer based on the category
+        reference: if any
+        example: *ref_20
+      - summary: Returns item/ catalog
+        api: on_search
+        description: Catalog provided by the Seller App
+        reference: if any
+        example: *ref_21
+      - summary: Raise an RFQ
+        api: select
+        description: >-
+          Buyer requests for quotation for the selected item with all the
+          customizations and the quantity of items required
+        reference: if any
+        example: *ref_7
+      - summary: Returns item breakup/ Quote
+        api: on_select
+        description: Seller provides the quotation and breakup along with error object
+        reference: if any
+        example:
+          summary: >-
+            Send quote and breakup - Response to RFQ for item out of stock with
+            error object
+          description: >-
+            Send quote and breakup for items out of stock in RFQ along with
+            error object
+          value:
+            context:
+              domain: ONDC:RET10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_select
+              version: 2.0.1
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/grocery
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/grocery
+              transaction_id: T1
+              message_id: M1
+              timestamp: '2023-01-08T22:00:30.000Z'
+              ttl: PT30S
+            message:
+              order:
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - fulfillment_ids:
+                      - F1
+                    id: I1
+                    quantity:
+                      selected:
+                        count: 200
+                    add-ons:
+                      - id: '78787723'
+                    tags:
+                      - descriptor:
+                          code: BUYER_TERMS
+                        list:
+                          - descriptor:
+                              code: ITEM_REQ
+                            value: free text on Item Customization
+                          - descriptor:
+                              code: PACKAGING_REQ
+                            value: free text on packaging Customization
+                fulfillments:
+                  - id: F1
+                    '@ondc/org/provider_name': Loadshare
+                    tracking: false
+                    '@ondc/org/category': Express Delivery
+                    '@ondc/org/TAT': P7D
+                    state:
+                      descriptor:
+                        code: Serviceable
+                quote:
+                  price:
+                    currency: INR
+                    value: '0'
+                  breakup:
+                    - '@ondc/org/item_id': I1
+                      '@ondc/org/item_quantity':
+                        count: 0
+                      title: Dhara Mustard Oil
+                      '@ondc/org/title_type': item
+                      price:
+                        currency: INR
+                        value: '0'
+                      item:
+                        price:
+                          currency: INR
+                          value: '250'
+                    - '@ondc/org/item_id': F1
+                      title: Delivery charges
+                      '@ondc/org/title_type': delivery
+                      price:
+                        currency: INR
+                        value: '0'
+                  ttl: P1D
+                payments:
+                  - type: ON-FULFILLMENT
+                    collected_by: BPP
+            error:
+              type: DOMAIN-ERROR
+              code: '40002'
+              message: M1
+  - summary: B2B Location not serviceable
+    description: >-
+      The following is an illustrative flow to perform a transaction of a nature
+      where a buyer would like to order bulk items but the location is not
+      servicealbe
+    details:
+      - description: Buyer Search & Quotation
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant Gateway
+            participant SellerApp1
+            participant SellerApp2
+
+            note over Buyer, SellerApp2: **SEARCH FLOW**
+
+            Buyer->>BuyerApp: Search for a product 
+            BuyerApp->>Gateway: **/search** - Search for a product
+            Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on city and domain in context
+            Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on city and domain in context
+
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
+            BuyerApp->>Buyer: Renders the search response
+            
+            note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
+      - description: RFQ (Request For Quotation) FLOW
+        mermaidGraph: |-
+          sequenceDiagram
+            
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+
+            note over Buyer, SellerApp: **RFQ (Request For Quotation) FLOW**
+
+            Buyer->>BuyerApp: Buyer requests for Quotation
+            BuyerApp->>SellerApp: **/select** - An item/s + add_ons + variants + offers is selected and <br/> RFQ is raised with a TTL to receive the response
+
+            note right of SellerApp: Logistics quotation + TAT not received (Optional)
+            rect rgb(247, 226, 225)
+            SellerApp->>BuyerApp: **/on_select** - Responds to RFQ with <br/> quote, breakup without logistics charges.
+            end
+           
+    reference: if any
+    steps:
+      - summary: Search based on the category
+        api: search
+        description: Search intent sent by the buyer based on the category
+        reference: if any
+        example: *ref_20
+      - summary: Returns item/ catalog
+        api: on_search
+        description: Catalog provided by the Seller App
+        reference: if any
+        example: *ref_21
+      - summary: Raise an RFQ
+        api: select
+        description: >-
+          Buyer requests for quotation for the selected item with all the
+          customizations and the quantity of items required
+        reference: if any
+        example: *ref_7
+      - summary: Returns item breakup/ Quote
+        api: on_select
+        description: >-
+          Seller provides the quotation and breakup without logistics charges
+          along with error object
+        reference: if any
+        example:
+          summary: Send quote and breakup - Response to RFQ along with error object
+          description: >-
+            Send quote and breakup for items selected in RFQ along with error
+            object
+          value:
+            context:
+              domain: ONDC:RET10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_select
+              version: 2.0.1
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/grocery
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/grocery
+              transaction_id: T1
+              message_id: M1
+              timestamp: '2023-01-08T22:00:30.000Z'
+              ttl: PT30S
+            message:
+              order:
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - fulfillment_ids:
+                      - F1
+                    id: I1
+                    quantity:
+                      selected:
+                        count: 200
+                    add-ons:
+                      - id: '78787723'
+                    tags:
+                      - descriptor:
+                          code: BUYER_TERMS
+                        list:
+                          - descriptor:
+                              code: ITEM_REQ
+                            value: free text on Item Customization
+                          - descriptor:
+                              code: PACKAGING_REQ
+                            value: free text on packaging Customization
+                fulfillments:
+                  - id: F1
+                    '@ondc/org/provider_name': Loadshare
+                    tracking: false
+                    '@ondc/org/category': Express Delivery
+                    '@ondc/org/TAT': P7D
+                    state:
+                      descriptor:
+                        code: Non-Serviceable
+                quote:
+                  price:
+                    currency: INR
+                    value: '53600'
+                  breakup:
+                    - '@ondc/org/item_id': I1
+                      '@ondc/org/item_quantity':
+                        count: 200
+                      title: Dhara Mustard Oil
+                      '@ondc/org/title_type': item
+                      price:
+                        currency: INR
+                        value: '50000'
+                      item:
+                        price:
+                          currency: INR
+                          value: '250'
+                    - '@ondc/org/item_id': F1
+                      title: Packing charges
+                      '@ondc/org/title_type': packing
+                      price:
+                        currency: INR
+                        value: '500'
+                    - '@ondc/org/item_id': I1
+                      title: Tax
+                      '@ondc/org/title_type': tax
+                      price:
+                        currency: INR
+                        value: '0'
+                    - '@ondc/org/item_id': I1
+                      title: Discount
+                      '@ondc/org/title_type': discount
+                      price:
+                        currency: INR
+                        value: '-1000'
+                    - '@ondc/org/item_id': F1
+                      title: Convenience Fee
+                      '@ondc/org/title_type': misc
+                      price:
+                        currency: INR
+                        value: '100'
+                  ttl: P1D
+                payments:
+                  - type: ON-FULFILLMENT
+                    collected_by: BPP
+            error:
+              type: DOMAIN-ERROR
+              code: '30009'
+              message: M1
 x-examples:
   B2B:
     summary: B2B Use Case Specification
@@ -10103,6 +10948,200 @@ x-examples:
                   payments:
                     - type: ON-FULFILLMENT
                       collected_by: BPP
+          - summary: Send quote and breakup - Response to RFQ along with error object
+            description: >-
+              Send quote and breakup for items selected in RFQ along with error
+              object
+            value:
+              context:
+                domain: ONDC:RET10
+                location:
+                  city:
+                    code: std:080
+                  country:
+                    code: IND
+                action: on_select
+                version: 2.0.1
+                bap_id: buyerapp.com
+                bap_uri: https://buyerapp.com/grocery
+                bpp_id: sellerapp.com
+                bpp_uri: https://sellerapp.com/grocery
+                transaction_id: T1
+                message_id: M1
+                timestamp: '2023-01-08T22:00:30.000Z'
+                ttl: PT30S
+              message:
+                order:
+                  provider:
+                    id: P1
+                    locations:
+                      - id: L1
+                  items:
+                    - fulfillment_ids:
+                        - F1
+                      id: I1
+                      quantity:
+                        selected:
+                          count: 200
+                      add-ons:
+                        - id: '78787723'
+                      tags:
+                        - descriptor:
+                            code: BUYER_TERMS
+                          list:
+                            - descriptor:
+                                code: ITEM_REQ
+                              value: free text on Item Customization
+                            - descriptor:
+                                code: PACKAGING_REQ
+                              value: free text on packaging Customization
+                  fulfillments:
+                    - id: F1
+                      '@ondc/org/provider_name': Loadshare
+                      tracking: false
+                      '@ondc/org/category': Express Delivery
+                      '@ondc/org/TAT': P7D
+                      state:
+                        descriptor:
+                          code: Non-Serviceable
+                  quote:
+                    price:
+                      currency: INR
+                      value: '53600'
+                    breakup:
+                      - '@ondc/org/item_id': I1
+                        '@ondc/org/item_quantity':
+                          count: 200
+                        title: Dhara Mustard Oil
+                        '@ondc/org/title_type': item
+                        price:
+                          currency: INR
+                          value: '50000'
+                        item:
+                          price:
+                            currency: INR
+                            value: '250'
+                      - '@ondc/org/item_id': F1
+                        title: Packing charges
+                        '@ondc/org/title_type': packing
+                        price:
+                          currency: INR
+                          value: '500'
+                      - '@ondc/org/item_id': I1
+                        title: Tax
+                        '@ondc/org/title_type': tax
+                        price:
+                          currency: INR
+                          value: '0'
+                      - '@ondc/org/item_id': I1
+                        title: Discount
+                        '@ondc/org/title_type': discount
+                        price:
+                          currency: INR
+                          value: '-1000'
+                      - '@ondc/org/item_id': F1
+                        title: Convenience Fee
+                        '@ondc/org/title_type': misc
+                        price:
+                          currency: INR
+                          value: '100'
+                    ttl: P1D
+                  payments:
+                    - type: ON-FULFILLMENT
+                      collected_by: BPP
+              error:
+                type: DOMAIN-ERROR
+                code: '30009'
+                message: M1
+          - summary: >-
+              Send quote and breakup - Response to RFQ for item out of stock
+              with error object
+            description: >-
+              Send quote and breakup for items out of stock in RFQ along with
+              error object
+            value:
+              context:
+                domain: ONDC:RET10
+                location:
+                  city:
+                    code: std:080
+                  country:
+                    code: IND
+                action: on_select
+                version: 2.0.1
+                bap_id: buyerapp.com
+                bap_uri: https://buyerapp.com/grocery
+                bpp_id: sellerapp.com
+                bpp_uri: https://sellerapp.com/grocery
+                transaction_id: T1
+                message_id: M1
+                timestamp: '2023-01-08T22:00:30.000Z'
+                ttl: PT30S
+              message:
+                order:
+                  provider:
+                    id: P1
+                    locations:
+                      - id: L1
+                  items:
+                    - fulfillment_ids:
+                        - F1
+                      id: I1
+                      quantity:
+                        selected:
+                          count: 200
+                      add-ons:
+                        - id: '78787723'
+                      tags:
+                        - descriptor:
+                            code: BUYER_TERMS
+                          list:
+                            - descriptor:
+                                code: ITEM_REQ
+                              value: free text on Item Customization
+                            - descriptor:
+                                code: PACKAGING_REQ
+                              value: free text on packaging Customization
+                  fulfillments:
+                    - id: F1
+                      '@ondc/org/provider_name': Loadshare
+                      tracking: false
+                      '@ondc/org/category': Express Delivery
+                      '@ondc/org/TAT': P7D
+                      state:
+                        descriptor:
+                          code: Serviceable
+                  quote:
+                    price:
+                      currency: INR
+                      value: '0'
+                    breakup:
+                      - '@ondc/org/item_id': I1
+                        '@ondc/org/item_quantity':
+                          count: 0
+                        title: Dhara Mustard Oil
+                        '@ondc/org/title_type': item
+                        price:
+                          currency: INR
+                          value: '0'
+                        item:
+                          price:
+                            currency: INR
+                            value: '250'
+                      - '@ondc/org/item_id': F1
+                        title: Delivery charges
+                        '@ondc/org/title_type': delivery
+                        price:
+                          currency: INR
+                          value: '0'
+                    ttl: P1D
+                  payments:
+                    - type: ON-FULFILLMENT
+                      collected_by: BPP
+              error:
+                type: DOMAIN-ERROR
+                code: '40002'
+                message: M1
       on_init:
         examples:
           - summary: Initialization of Order
