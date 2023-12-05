@@ -1,0 +1,18 @@
+message:
+  parent: true
+  order:
+    parent: true
+    update_target:
+      description: target block to be updated (enum - item,fulfillment)
+      required: required
+      usage: "item"
+      reference: if any
+    items:
+      parent: true
+      quantity:
+        selected:
+          count:
+            description: updated count of the item
+            required: optional
+            usage: 30
+            reference: if any
