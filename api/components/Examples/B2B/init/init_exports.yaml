@@ -1,5 +1,5 @@
-summary: Send buyer and delivery terms for RFQ
-description: Send buyer and delivery terms for RFQ
+summary: Intializing the order (Exports)
+description: Intializing the order
 value:
   context:
     domain: ONDC:RET10

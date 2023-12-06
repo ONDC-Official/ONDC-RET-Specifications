@@ -1,5 +1,5 @@
-summary: Get quote for specific item
-description: Get quote for specific item with Buyer and Delivery terms
+summary: Get quote for specific item (comm_channel)
+description: Get quote for specific item with Buyer and Delivery terms, buyer sends a communication channel link
 value:
   context:
     domain: ONDC:RET10

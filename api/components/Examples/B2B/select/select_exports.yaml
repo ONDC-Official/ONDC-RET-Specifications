@@ -1,4 +1,4 @@
-summary: Get quote for specific item
+summary: Get quote for specific item (Exports)
 description: Get quote for specific item with Buyer and Delivery terms
 value:
   context:

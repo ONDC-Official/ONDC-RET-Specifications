@@ -1,4 +1,4 @@
-summary: Send quote and breakup - Response to RFQ for item out of stock with error object
+summary: Send quote and breakup - Response to RFQ (Item out-of-stock)
 description: Send quote and breakup for items out of stock in RFQ along with error object
 value:
   context:

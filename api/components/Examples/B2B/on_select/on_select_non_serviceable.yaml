@@ -1,4 +1,4 @@
-summary: Send quote and breakup - Response to RFQ along with error object
+summary: Send quote and breakup - Response to RFQ (Non-serviceable)
 description: Send quote and breakup for items selected in RFQ along with error object
 value:
   context:

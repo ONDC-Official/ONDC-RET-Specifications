@@ -3939,7 +3939,7 @@ x-flows:
         description: Seller provides the quotation and breakup with logistics charges
         reference: if any
         example: &ref_8
-          summary: Send quote and breakup - Response to RFQ
+          summary: Send quote and breakup - Response to RFQ (Domestic)
           description: Send quote and breakup for items selected in RFQ
           value:
             context:
@@ -4049,7 +4049,7 @@ x-flows:
         description: Initialization of Order - Billing Details added.
         reference: if any
         example: &ref_9
-          summary: Intializing the order
+          summary: Intializing the order (Domestic)
           description: Intializing the order
           value:
             context:
@@ -4141,8 +4141,8 @@ x-flows:
         description: Initialization of Order with final quote
         reference: if any
         example: &ref_10
-          summary: Initialization of Order
-          description: Initialization of Order
+          summary: Respond to RFQ (Domestic)
+          description: Respond to RFQ
           value:
             context:
               domain: ONDC:RET10
@@ -4302,7 +4302,7 @@ x-flows:
           quotation received, creates a PO and sends the PO
         reference: if any
         example: &ref_11
-          summary: Raise PO
+          summary: Raise PO (Domestic)
           description: PO raised by buyer based on the RFQ response received.
           value:
             context:
@@ -4472,7 +4472,7 @@ x-flows:
           acceptance.
         reference: if any
         example: &ref_12
-          summary: Accept PO
+          summary: Accept PO (Domestic)
           description: PO acceptance by Seller
           value:
             context:
@@ -5147,7 +5147,7 @@ x-flows:
           customization + Delivery terms and requests for quotation
         reference: if any
         example:
-          summary: Get quote for specific item
+          summary: Get quote for specific item (Exports)
           description: Get quote for specific item with Buyer and Delivery terms
           value:
             context:
@@ -5246,7 +5246,7 @@ x-flows:
         description: Seller provides the quotation and breakup with logistics charges
         reference: if any
         example:
-          summary: Send quote and breakup - Response to RFQ
+          summary: Send quote and breakup - Response to RFQ (Exports)
           description: Send quote and breakup for items selected in RFQ
           value:
             context:
@@ -5366,8 +5366,8 @@ x-flows:
         description: Initialization of Order - Billing Details added.
         reference: if any
         example:
-          summary: Send buyer and delivery terms for RFQ
-          description: Send buyer and delivery terms for RFQ
+          summary: Intializing the order (Exports)
+          description: Intializing the order
           value:
             context:
               domain: ONDC:RET10
@@ -5474,8 +5474,8 @@ x-flows:
         description: Initialization of Order with final quote
         reference: if any
         example:
-          summary: Initialization of Order
-          description: Initialization of Order
+          summary: Respond to RFQ (Exports)
+          description: Respond to RFQ
           value:
             context:
               domain: ONDC:RET10
@@ -5641,7 +5641,7 @@ x-flows:
         description: Buyer creates a Purchase Order
         reference: if any
         example:
-          summary: Raise PO
+          summary: Raise PO (Exports)
           description: PO raised by buyer based on the RFQ response received.
           value:
             context:
@@ -5817,7 +5817,7 @@ x-flows:
         description: Seller accepts Purchase Order
         reference: if any
         example:
-          summary: Accept PO
+          summary: Accept PO (Exports)
           description: PO acceptance by Seller
           value:
             context:
@@ -6041,7 +6041,7 @@ x-flows:
           and sends invoice
         reference: if any
         example: &ref_14
-          summary: Seller updates the order status and shares Invoice
+          summary: Seller updates the order status (Proforma Invoice)
           description: Seller updates the order status and shares Invoice
           value:
             context:
@@ -6465,7 +6465,7 @@ x-flows:
           once the order is picked up
         reference: if any
         example: &ref_17
-          summary: Seller updates the order status and shares Invoice
+          summary: Seller updates the order status (Order-picked-up)
           description: Seller updates the order status and shares Invoice
           value:
             context:
@@ -6650,7 +6650,7 @@ x-flows:
           once the order is out for delivery
         reference: if any
         example: &ref_18
-          summary: Seller updates the order status and shares Invoice
+          summary: Seller updates the order status (Out-for-delivery)
           description: Seller updates the order status and shares Invoice
           value:
             context:
@@ -6835,7 +6835,7 @@ x-flows:
           after the order is delivered
         reference: if any
         example: &ref_19
-          summary: Seller updates the order status and shares Invoice
+          summary: Seller updates the order status (Order-delivered)
           description: Seller updates the order status and shares Invoice
           value:
             context:
@@ -7708,9 +7708,7 @@ x-flows:
         description: Seller provides the quotation and breakup along with error object
         reference: if any
         example:
-          summary: >-
-            Send quote and breakup - Response to RFQ for item out of stock with
-            error object
+          summary: Send quote and breakup - Response to RFQ (Item out-of-stock)
           description: >-
             Send quote and breakup for items out of stock in RFQ along with
             error object
@@ -7870,7 +7868,7 @@ x-flows:
           along with error object
         reference: if any
         example:
-          summary: Send quote and breakup - Response to RFQ along with error object
+          summary: Send quote and breakup - Response to RFQ (Non-serviceable)
           description: >-
             Send quote and breakup for items selected in RFQ along with error
             object
@@ -8240,7 +8238,7 @@ x-examples:
                         - descriptor:
                             code: buyer_id_no
                           value: xxxxxxxxxxxxxxx
-          - summary: Get quote for specific item
+          - summary: Get quote for specific item (Exports)
             description: Get quote for specific item with Buyer and Delivery terms
             value:
               context:
@@ -8334,8 +8332,10 @@ x-examples:
                         - descriptor:
                             code: buyer_id_no
                           value: xxxxxxxxxxxxxxx
-          - summary: Get quote for specific item
-            description: Get quote for specific item with Buyer and Delivery terms
+          - summary: Get quote for specific item (comm_channel)
+            description: >-
+              Get quote for specific item with Buyer and Delivery terms, buyer
+              sends a communication channel link
             value:
               context:
                 domain: ONDC:RET10
@@ -8434,8 +8434,8 @@ x-examples:
                           value: https://chatengine.xxx.in/
       init:
         examples:
-          - summary: Send buyer and delivery terms for RFQ
-            description: Send buyer and delivery terms for RFQ
+          - summary: Intializing the order (Exports)
+            description: Intializing the order
             value:
               context:
                 domain: ONDC:RET10
@@ -8537,7 +8537,7 @@ x-examples:
                         - descriptor:
                             code: buyer_id_no
                           value: xxxxxxxxxxxxxxx
-          - summary: Intializing the order
+          - summary: Intializing the order (Domestic)
             description: Intializing the order
             value:
               context:
@@ -8626,7 +8626,7 @@ x-examples:
                           value: xxxxxxxxxxxxxxx
       confirm:
         examples:
-          - summary: Raise PO
+          - summary: Raise PO (Domestic)
             description: PO raised by buyer based on the RFQ response received.
             value:
               context:
@@ -8789,7 +8789,7 @@ x-examples:
                           value: xxxxxxxxxxxxxxx
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T09:30:00.000Z'
-          - summary: Raise PO
+          - summary: Raise PO (Exports)
             description: PO raised by buyer based on the RFQ response received.
             value:
               context:
@@ -10728,7 +10728,7 @@ x-examples:
                             email: abc@xyz.com
       on_select:
         examples:
-          - summary: Send quote and breakup - Response to RFQ
+          - summary: Send quote and breakup - Response to RFQ (Domestic)
             description: Send quote and breakup for items selected in RFQ
             value:
               context:
@@ -10833,7 +10833,7 @@ x-examples:
                   payments:
                     - type: ON-FULFILLMENT
                       collected_by: BPP
-          - summary: Send quote and breakup - Response to RFQ
+          - summary: Send quote and breakup - Response to RFQ (Exports)
             description: Send quote and breakup for items selected in RFQ
             value:
               context:
@@ -10948,7 +10948,7 @@ x-examples:
                   payments:
                     - type: ON-FULFILLMENT
                       collected_by: BPP
-          - summary: Send quote and breakup - Response to RFQ along with error object
+          - summary: Send quote and breakup - Response to RFQ (Non-serviceable)
             description: >-
               Send quote and breakup for items selected in RFQ along with error
               object
@@ -11053,9 +11053,7 @@ x-examples:
                 type: DOMAIN-ERROR
                 code: '30009'
                 message: M1
-          - summary: >-
-              Send quote and breakup - Response to RFQ for item out of stock
-              with error object
+          - summary: Send quote and breakup - Response to RFQ (Item out-of-stock)
             description: >-
               Send quote and breakup for items out of stock in RFQ along with
               error object
@@ -11144,8 +11142,8 @@ x-examples:
                 message: M1
       on_init:
         examples:
-          - summary: Initialization of Order
-            description: Initialization of Order
+          - summary: Respond to RFQ (Domestic)
+            description: Respond to RFQ
             value:
               context:
                 domain: ONDC:RET10
@@ -11298,8 +11296,8 @@ x-examples:
                         - descriptor:
                             code: buyer_id_no
                           value: xxxxxxxxxxxxxxx
-          - summary: Initialization of Order
-            description: Initialization of Order
+          - summary: Respond to RFQ (Exports)
+            description: Respond to RFQ
             value:
               context:
                 domain: ONDC:RET10
@@ -11462,7 +11460,7 @@ x-examples:
                           value: xxxxxxxxxxxxxxx
       on_confirm:
         examples:
-          - summary: Accept PO
+          - summary: Accept PO (Domestic)
             description: PO acceptance by Seller
             value:
               context:
@@ -11644,7 +11642,7 @@ x-examples:
                           value: xxxxxxxxxxxxxxx
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T09:31:30.000Z'
-          - summary: Accept PO
+          - summary: Accept PO (Exports)
             description: PO acceptance by Seller
             value:
               context:
@@ -11836,7 +11834,7 @@ x-examples:
                   updated_at: '2023-02-03T09:31:30.000Z'
       on_status:
         examples:
-          - summary: Seller updates the order status and shares Invoice
+          - summary: Seller updates the order status (Proforma Invoice)
             description: Seller updates the order status and shares Invoice
             value:
               context:
@@ -12007,7 +12005,7 @@ x-examples:
                       label: PROFORMA_INVOICE
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T10:00:00.201Z'
-          - summary: Seller updates the order status and shares Invoice
+          - summary: Seller updates the order status (Order-picked-up)
             description: Seller updates the order status and shares Invoice
             value:
               context:
@@ -12185,7 +12183,7 @@ x-examples:
                           branch_name: xxxx
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T10:00:00.201Z'
-          - summary: Seller updates the order status and shares Invoice
+          - summary: Seller updates the order status (Out-for-delivery)
             description: Seller updates the order status and shares Invoice
             value:
               context:
@@ -12363,7 +12361,7 @@ x-examples:
                           branch_name: xxxx
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T10:00:00.201Z'
-          - summary: Seller updates the order status and shares Invoice
+          - summary: Seller updates the order status (Order-delivered)
             description: Seller updates the order status and shares Invoice
             value:
               context:

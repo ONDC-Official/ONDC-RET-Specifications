@@ -1,5 +1,5 @@
-summary: Initialization of Order
-description: Initialization of Order
+summary: Respond to RFQ (Domestic)
+description: Respond to RFQ
 value:
   context:
     domain: ONDC:RET10
