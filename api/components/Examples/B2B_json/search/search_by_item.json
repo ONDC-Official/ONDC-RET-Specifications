@@ -11,7 +11,7 @@
       }
     },
     "action":"search",
-    "version":"2.0.1",
+    "version":"2.0.2",
     "bap_id":"buyerapp.com",
     "bap_uri":"https://buyerapp.com/grocery",
     "transaction_id":"T1",

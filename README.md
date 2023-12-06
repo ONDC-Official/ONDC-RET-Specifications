@@ -3,10 +3,10 @@
 # Open Network for Digital Commerce (ONDC) Protocol Open API Specifications
 
 ## Latest Release
-2.0.1-draft | June 10 2023
+2.0.2-draft | June 10 2023
 
 ## Current Working Draft Version: 
-2.0.1-draft
+2.0.2-draft
 
 ## Versioning Scheme
 [Semantic Version Scheme 2.0.0](https://semver.org/)
@@ -15,7 +15,7 @@
 
 | ONDC Protocol Specification Version | Beckn Protocol Core Specification Version      |
 |-------------------------------------|------------------------------------------------|
-| 2.0.1-release                        | release=1.x                                   |
+| 2.0.2-release                        | release=1.x                                   |
 
 ONDC is an ambitious initiative to democratize digital commerce by creating a decentralized network of buyer apps and seller apps through an interoperable protocol specification. 
 ONDC Protocol is maintained by the Open Source Community to create API specifications, schemas and taxonomy for Retail, Logistics and other domains.

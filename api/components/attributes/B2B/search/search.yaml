@@ -1,7 +1,7 @@
 context:
   parent: true
   domain:
-    description: updated domain namespace defined [here](https://docs.google.com/document/d/brvcltG_DagZ3kGrZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1)
+    description: domain for which the request is initiated
     required: mandatory
     usage: "ONDC:RET12"
     reference: if any

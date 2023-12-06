@@ -9,7 +9,7 @@ value:
       country:
         code: IND
     action: select
-    version: 2.0.1
+    version: "2.0.2"
     bap_id: buyerapp.com
     bap_uri: https://buyerapp.com/grocery
     bpp_id: sellerapp.com
@@ -17,7 +17,7 @@ value:
     transaction_id: T1
     message_id: M1
     timestamp: '2023-01-08T22:00:30.000Z'
-    ttl: PT1D
+    ttl: P1D
   message:
     order:
       provider:
