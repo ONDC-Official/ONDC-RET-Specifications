@@ -22,4 +22,6 @@ ONDC Protocol is maintained by the Open Source Community to create API specifica
 
 Please see [documentation](https://github.com/Open-network-for-digital-commerce/ONDC-Protocol/wiki) for understanding purpose, architecture, and the actual APIs. Participate in the [community discussions](https://github.com/Open-network-for-digital-commerce/ONDC-Protocol/discussions) to leverage ONDC Protocol as well as to contribute towards development of ONDC Protocol by providing ideas, reporting issues, contributing to documentation, and contributing code.
 
+ONDC Financial Services developer guide [link](https://ondc-official.github.io/ONDC-RET-Specifications/)
+
 Please go through the [features document](https://docs.google.com/document/d/1rVWtiCPzQzAVVzlnkCShpH489s8AQMYV23urzbD6ruU/edit?usp=sharing) as well, to understand the transaction flow.
