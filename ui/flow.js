@@ -2,12 +2,13 @@
 
 var flows;
 
-function loadSteps(steps) {
+async function loadSteps(steps) {
   const stepPane = document.querySelector(".step-pane");
   const contentPane = document.querySelector(".content-pane");
   stepPane.innerHTML = "";
   contentPane.innerHTML = "";
-  steps.forEach(function (step, index) {
+  for (const [index, step] of steps?.entries()) {
+    const { details } = step || [];
     const link = document.createElement("a");
     link.href = "#" + step.summary;
     link.classList.add(
@@ -18,6 +19,7 @@ function loadSteps(steps) {
     link.textContent = index + 1 + ". " + step.api;
 
     const content = document.createElement("div");
+    const noteContent = document.createElement("div");
     content.id = step.summary;
     noteContent.id = "test";
     content.classList.add("step-content", "p-4");
@@ -101,9 +103,11 @@ function loadSteps(steps) {
       });
       document.querySelectorAll(".step-content").forEach(function (content) {
         content.classList.remove("active");
+        noteContent.classList.remove("active");
       });
       link.classList.add("active");
       content.classList.add("active");
+      noteContent.classList.add("active");
     });
     stepPane.appendChild(link);
     contentPane.appendChild(content);
@@ -150,6 +154,7 @@ async function loadFlow(flowName) {
       mermaidDiv.appendChild(mermaidPane);
     }
   }
+  flowDescription.append(mermaidDiv);
   loadSteps(selectedFlow["steps"]);
 }
 
