@@ -3294,7 +3294,7 @@ x-tags:
         reference: <PR/Issue/Discussion Links md format text>
         list:
           - code: CHAT_URL
-            description: Description about the tags
+            description: Chat url link is provided for buyer or seller to discuss
             reference: <PR/Issue/Discussion Links md format text>
   fulfillments:
     tags:
@@ -3323,19 +3323,40 @@ x-tags:
             reference: <PR/Issue/Discussion Links md format text>
             value:
               - code: CIF
-                description: about the enum
+                description: >-
+                  CIF (Cost, Insurance, and Freight) indicates that the seller
+                  has the responsibility to deliver the goods to the named port
+                  of destination, covering the cost of transportation,
+                  insurance, and freight charges.
                 reference: <PR/Issue/Discussion Links md format text>
               - code: EXW
-                description: about the enum
+                description: >-
+                  EXW (Ex Works) represents the point at which the seller's
+                  responsibility for the goods ends and the buyer's
+                  responsibility begins in an international transaction.
                 reference: <PR/Issue/Discussion Links md format text>
               - code: FOB
-                description: about the enum
+                description: >-
+                  FOB (Free On Board) terms define the point at which the seller
+                  fulfills their obligation to deliver the goods, and the buyer
+                  takes on the responsibility and costs associated with
+                  transporting the goods from the named port of shipment to the
+                  final destination
                 reference: <PR/Issue/Discussion Links md format text>
               - code: DAP
-                description: about the enum
+                description: >-
+                  under DAP (Delivered at Place) terms, the seller takes on the
+                  responsibility and costs of delivering the goods to a named
+                  place at the buyer's destination.
                 reference: <PR/Issue/Discussion Links md format text>
               - code: DDP
-                description: about the enum
+                description: >-
+                  Under DDP (Delivered Duty Paid) terms, the seller assumes a
+                  high level of responsibility and covers all costs associated
+                  with delivering the goods to the buyer's destination. The
+                  buyer, on the other hand, is responsible for unloading the
+                  goods and any subsequent transportation from the named place
+                  to their final destination.
                 reference: <PR/Issue/Discussion Links md format text>
           - code: NAMED_PLACE_OF_DELIVERY
             description: Place of delivery based on the incoterm used.
