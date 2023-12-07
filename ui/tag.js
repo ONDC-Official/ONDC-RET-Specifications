@@ -165,12 +165,35 @@ function displayTag() {
     if (obj["code"] == selectedValue4)
       return obj
   });
+
+    // Assuming that the tableData is the section containing values
+    const tagValueList = tableData.list;
+
+    // Add the following line to define selectedValue5
+    const selectedValue5 = document.getElementById('tag-value-dropdown').value;
+  
+    const tagValueTableData = tagValueList.find(obj => {
+      if (obj["code"] == selectedValue5)
+        return obj
+    });
+  
+    // Assuming that the tagValueTableData is a value
+    const tagValueTable = document.getElementById('tag-value-table');
+    if (tagValueTable && tagValueTable != {}) tagValueTable.innerHTML = '';
+    insertRow(tagValueTable, "Code", tagValueTableData.code);
+    insertRow(tagValueTable, "Description", tagValueTableData.description);
   // Get the table body element
   var tableBody = document.getElementById('tag-table');
   if (tableBody && tableBody != {}) tableBody.innerHTML = '';
   insertRow(tableBody, "Code", tableData.code)
   insertRow(tableBody, "Description", tableData.description)
   // insertRow(tableBody, "Refrences", tableData.reference)
+
+  console.log("selectedValue1:", selectedValue1);
+console.log("selectedValue2:", selectedValue2);
+console.log("selectedValue3:", selectedValue3);
+console.log("selectedValue4:", selectedValue4);
+console.log("selectedValue5:", selectedValue5);
 
 }
 
