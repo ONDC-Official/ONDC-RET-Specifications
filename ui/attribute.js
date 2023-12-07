@@ -25,7 +25,6 @@ function updateL1Attribute() {
   for (const each of l1Dropdown.value.split(".")) {
     object = object[each];
   }
-  console.log("Object to render", object);
   object = removeParentAttributes(object);
   if (
     "required" in object[Object.keys(object).filter((e) => e !== "parent")[0]]
@@ -39,8 +38,7 @@ function removeParentAttributes(obj) {
     if (
       !["parent", "usage", "description", "reference", "required"].includes(
         key
-      )
-       &&
+      ) &&
       !("parent" in obj[key])
     )
       newObj = { ...newObj, [key]: { ...obj[key] } };
@@ -71,9 +69,11 @@ function updateSets(value, option) {
   const paths = generatePaths(object);
 
   paths.forEach(function (key) {
-    var option = document.createElement("option");
-    option.text = key;
-    l1DropDown.add(option);
+    if (key.split(".").length < 4) {
+      var option = document.createElement("option");
+      option.text = key;
+      l1DropDown.add(option);
+    }
   });
 
   const firstKey = paths[0];
@@ -82,7 +82,6 @@ function updateSets(value, option) {
     keyDetail = keyDetail[each];
   }
 
-  console.log("Object to render", keyDetail);
 
   // if ("required" in keyDetail)
   flattenObject(keyDetail, null, null, keyDetail?.required_attributes);
@@ -103,16 +102,14 @@ function addAttributeSets(option) {
   l1DropDown.innerHTML = "";
 
   const paths = generatePaths(object[Object.keys(object)[0]]);
-  console.log(
-    "PATH from addAttributeSets",
-    paths,
-    object[Object.keys(object)[0]]
-  );
+
 
   paths.forEach(function (key) {
-    var option = document.createElement("option");
-    option.text = key;
-    l1DropDown.add(option);
+    if (key.split(".").length < 4) {
+      var option = document.createElement("option");
+      option.text = key;
+      l1DropDown.add(option);
+    }
   });
 
   const firstKey = paths[0];
@@ -121,7 +118,6 @@ function addAttributeSets(option) {
     keyDetail = keyDetail[each];
   }
 
-  console.log("Object to render", keyDetail);
 
   if (
     "required" in
