@@ -9,7 +9,7 @@ value:
       country:
         code: IND
     action: status
-    version: "2.0.2"
+    version: 2.0.2
     bap_id: buyerapp.com
     bap_uri: https://buyerapp.com/grocery
     bpp_id: sellerapp.com
