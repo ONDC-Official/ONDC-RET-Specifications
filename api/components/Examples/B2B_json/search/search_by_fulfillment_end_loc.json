@@ -1,106 +1,94 @@
 {
-    "context":
-    {
-      "domain":"ONDC:RET10",
-      "location": {
-        "city": {
-          "code": "std:080"
-        },
-        "country": {
-          "code": "IND"
-        }
+  "context": {
+    "domain": "ONDC:RET10",
+    "location": {
+      "city": {
+        "code": "std:080"
       },
-      "action":"search",
-      "version":"2.0.2",
-      "bap_id":"buyerapp.com",
-      "bap_uri":"https://buyerapp.com/grocery",
-      "transaction_id":"T1",
-      "message_id":"M1",
-      "timestamp":"2023-01-08T22:00:00.000Z",
-      "ttl":"PT30S"
+      "country": {
+        "code": "IND"
+      }
     },
-    "message":
-    {
-      "intent":
-      {
-        "fulfillment":
+    "action": "search",
+    "version": "2.0.2",
+    "bap_id": "buyerapp.com",
+    "bap_uri": "https://buyerapp.com/grocery",
+    "transaction_id": "T1",
+    "message_id": "M1",
+    "timestamp": "2023-01-08T22:00:00.000Z",
+    "ttl": "PT30S"
+  },
+  "message": {
+    "intent": {
+      "fulfillment": {
+        "type": "Delivery",
+        "stops": [
+          {
+            "type": "end",
+            "location": {
+              "gps": "12.974002,77.613458",
+              "area_code": "560001"
+            }
+          },
+          {
+            "type": "end",
+            "location": {
+              "gps": "12.944002,77.603458",
+              "area_code": "560004"
+            }
+          },
+          {
+            "type": "end",
+            "location": {
+              "gps": "12.904002,77.593458",
+              "area_code": "560076"
+            }
+          }
+        ]
+      },
+      "payment": {
+        "type": "ON-FULFILLMENT"
+      },
+      "tags": [
         {
-          "type":"Delivery",
-          "stops":
-          [
+          "descriptor": {
+            "code": "bap_terms"
+          },
+          "list": [
             {
-              "type":"end",
-              "location":
-              {
-                "gps":"12.974002,77.613458",
-                "area_code":"560001"
-              }
+              "descriptor": {
+                "code": "finder_fee_type"
+              },
+              "value": "percent"
             },
             {
-              "type":"end",
-              "location":
-              {
-                "gps":"12.944002,77.603458",
-                "area_code":"560004"
-              }
-            },
-            {
-              "type":"end",
-              "location":
-              {
-                "gps":"12.904002,77.593458",
-                "area_code":"560076"
-              }
+              "descriptor": {
+                "code": "finder_fee_amount"
+              },
+              "value": "10"
             }
           ]
         },
-        "payment":
         {
-          "type":"ON-FULFILLMENT"
-        },
-        "tags":
-        [
-          {
-            "descriptor": {
-              "code":"bap_terms"
-            },
-            "list":
-            [
-              {
-                "descriptor": {
-                  "code":"finder_fee_type"
-                },
-                "value":"percent"
-              },
-              {
-                "descriptor": {
-                  "code":"finder_fee_amount"
-                },
-                "value":"10"
-              }
-            ]
+          "descriptor": {
+            "code": "buyer_id"
           },
-          {
-            "descriptor": {
-              "code":"buyer_id"
-            },
-            "list":
-            [
-              {
-                "descriptor": {
-                  "code":"buyer_id_code"
-                },
-                "value":"gst"
+          "list": [
+            {
+              "descriptor": {
+                "code": "buyer_id_code"
               },
-              {
-                "descriptor": {
-                  "code":"buyer_id_no"
-                },
-                "value":"xxxxxxxxxxxxxxx"
-              }
-            ]
-          }
-        ]
-      }
+              "value": "gst"
+            },
+            {
+              "descriptor": {
+                "code": "buyer_id_no"
+              },
+              "value": "xxxxxxxxxxxxxxx"
+            }
+          ]
+        }
+      ]
     }
   }
+}

@@ -3,7 +3,7 @@
     "domain": "ONDC:RET10",
     "location": {
       "city": {
-        "code": "std:999"
+        "code": "std:080"
       },
       "country": {
         "code": "IND"
@@ -34,7 +34,12 @@
       "items": [
         {
           "id": "I1",
-          "location_ids": ["L1"],
+          "location_ids": [
+            "L1"
+          ],
+          "fulfillment_ids": [
+            "F1"
+          ],
           "quantity": {
             "selected": {
               "count": 200
@@ -70,12 +75,26 @@
       ],
       "fulfillments": [
         {
+          "id": "F1",
+          "type": "Delivery",
           "stops": [
             {
               "type": "end",
               "location": {
                 "gps": "1.3806217468119772, 103.74636438437074",
-                "area_code": "680230"
+                "area_code": "680230",
+                "city": {
+                  "name": "Jurong East"
+                },
+                "country": {
+                  "code": "SGP"
+                },
+                "state": {
+                  "name": ""
+                }
+              },
+              "contact": {
+                "phone": "9886098860"
               }
             }
           ],
@@ -91,7 +110,28 @@
                 }
               ]
             }
-          }
+          },
+          "tags": [
+            {
+              "descriptor": {
+                "code": "DELIVERY_TERMS"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "INCOTERMS"
+                  },
+                  "value": "CIF"
+                },
+                {
+                  "descriptor": {
+                    "code": "NAMED_PLACE_OF_DELIVERY"
+                  },
+                  "value": "SGP"
+                }
+              ]
+            }
+          ]
         }
       ],
       "payments": [
