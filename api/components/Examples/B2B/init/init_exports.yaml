@@ -1,5 +1,5 @@
-summary: Send buyer and delivery terms for RFQ
-description: Send buyer and delivery terms for RFQ
+summary: Intializing the order (Exports)
+description: Intializing the order
 value:
   context:
     domain: ONDC:RET10
@@ -9,7 +9,7 @@ value:
       country:
         code: IND
     action: init
-    version: 2.0.1
+    version: "2.0.2"
     bap_id: buyerapp.com
     bap_uri: https://buyerapp.com/grocery
     bpp_id: sellerapp.com

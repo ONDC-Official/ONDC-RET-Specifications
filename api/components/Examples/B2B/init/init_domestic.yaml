@@ -1,4 +1,4 @@
-summary: Intializing the order
+summary: Intializing the order (Domestic)
 description: Intializing the order
 value:
   context:
@@ -9,7 +9,7 @@ value:
       country:
         code: IND
     action: init
-    version: 2.0.1
+    version: "2.0.2"
     bap_id: buyerapp.com
     bap_uri: https://buyerapp.com/grocery
     bpp_id: sellerapp.com

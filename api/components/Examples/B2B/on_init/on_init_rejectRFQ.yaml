@@ -1,4 +1,4 @@
-summary: Respond to RFQ
+summary: Respond to RFQ (Reject)
 description: Respond to RFQ
 value:
   context:
@@ -9,7 +9,7 @@ value:
       country:
         code: IND
     action: on_init
-    version: 2.0.1
+    version: "2.0.2"
     bap_id: buyerapp.com
     bap_uri: https://buyerapp.com/grocery
     bpp_id: sellerapp.com

@@ -1,5 +1,5 @@
-summary: Initialization of Order
-description: Initialization of Order
+summary: Respond to RFQ (Domestic)
+description: Respond to RFQ
 value:
   context:
     domain: ONDC:RET10
@@ -9,7 +9,7 @@ value:
       country:
         code: IND
     action: on_init
-    version: 2.0.1
+    version: "2.0.2"
     bap_id: buyerapp.com
     bap_uri: https://buyerapp.com/grocery
     bpp_id: sellerapp.com

@@ -1,4 +1,4 @@
-summary: Send quote and breakup - Response to RFQ for item out of stock with error object
+summary: Send quote and breakup - Response to RFQ (Item out-of-stock)
 description: Send quote and breakup for items out of stock in RFQ along with error object
 value:
   context:
@@ -9,7 +9,7 @@ value:
       country:
         code: IND
     action: on_select
-    version: 2.0.1
+    version: "2.0.2"
     bap_id: buyerapp.com
     bap_uri: https://buyerapp.com/grocery
     bpp_id: sellerapp.com

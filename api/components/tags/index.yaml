@@ -1,20 +1,20 @@
 search:
   message:
     intent:
-      $ref: "./tag-group.yaml#/intent"
+      $ref: "./TagGroup.yaml#/intent"
 on_search:
   message:
     catalog:
       providers:
-        $ref: "./tag-group.yaml#/providers"
+        $ref: "./TagGroup.yaml#/providers"
         items:
-          $ref: "./tag-group.yaml#/catalog/items"
+          $ref: "./TagGroup.yaml#/catalog/items"
 select: &ref0
   message:
     order:
-      $ref: "./tag-group.yaml#/order"
+      $ref: "./TagGroup.yaml#/order"
       fulfillments:
-        $ref: "./tag-group.yaml#/fulfillments"
+        $ref: "./TagGroup.yaml#/fulfillments"
 on_select: *ref0
 init: *ref0
 on_init: *ref0
