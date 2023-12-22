@@ -9,7 +9,7 @@
         "code": "IND"
       }
     },
-    "action": "on_init",
+    "action": "on_select",
     "version": "2.0.2",
     "bap_id": "buyerapp.com",
     "bap_uri": "https://buyerapp.com/grocery",
@@ -23,17 +23,19 @@
   "message": {
     "order": {
       "provider": {
-        "id": "P1"
-      },
-      "provider_location": {
-        "id": "L1"
+        "id": "P1",
+        "locations": [
+          {
+            "id": "L1"
+          }
+        ]
       },
       "items": [
         {
-          "id": "I1",
           "fulfillment_ids": [
             "F1"
           ],
+          "id": "I1",
           "quantity": {
             "selected": {
               "count": 200
@@ -67,49 +69,18 @@
           ]
         }
       ],
-      "billing": {
-        "name": "ONDC buyer",
-        "address": "B005 aaspire heights, Jurong East, SGP, 680230",
-        "state": {
-          "name": "Jurong East"
-        },
-        "city": {
-          "name": "Jurong East"
-        },
-        "tax_id": "XXXXXXXXXXXXXXX",
-        "email": "nobody@nomail.com",
-        "phone": "9886098860"
-      },
       "fulfillments": [
         {
           "id": "F1",
-          "type": "Delivery",
           "@ondc/org/provider_name": "Loadshare",
+          "tracking": false,
           "@ondc/org/category": "Express Delivery",
           "@ondc/org/TAT": "P7D",
-          "tracking": false,
-          "stops": [
-            {
-              "type": "end",
-              "location": {
-                "gps": "1.3806217468119772, 103.74636438437074",
-                "address": "My House #, My buildin",
-                "city": {
-                  "name": "Jurong East"
-                },
-                "country": {
-                  "code": "SGP"
-                },
-                "area_code": "680230",
-                "state": {
-                  "name": ""
-                }
-              },
-              "contact": {
-                "phone": "9886098860"
-              }
+          "state": {
+            "descriptor": {
+              "code": "Serviceable"
             }
-          ],
+          },
           "tags": [
             {
               "descriptor": {
@@ -207,47 +178,8 @@
       },
       "payments": [
         {
-          "type": "PRE-FULFILLMENT",
-          "collected_by": "BPP",
-          "@ondc/org/buyer_app_finder_fee_type": "percent",
-          "@ondc/org/buyer_app_finder_fee_amount": "0",
-          "@ondc/org/settlement_basis": "delivery",
-          "@ondc/org/settlement_window": "P1D",
-          "@ondc/org/withholding_amount": "10.00",
-          "@ondc/org/settlement_details": [
-            {
-              "settlement_counterparty": "buyer-app",
-              "settlement_phase": "sale-amount",
-              "settlement_type": "upi",
-              "beneficiary_name": "xxxxx",
-              "upi_address": "gft@oksbi",
-              "settlement_bank_account_no": "XXXXXXXXXX",
-              "settlement_ifsc_code": "XXXXXXXXX",
-              "bank_name": "xxxx",
-              "branch_name": "xxxx"
-            }
-          ]
-        }
-      ],
-      "tags": [
-        {
-          "descriptor": {
-            "code": "buyer_id"
-          },
-          "list": [
-            {
-              "descriptor": {
-                "code": "buyer_id_code"
-              },
-              "value": "gst"
-            },
-            {
-              "descriptor": {
-                "code": "buyer_id_no"
-              },
-              "value": "xxxxxxxxxxxxxxx"
-            }
-          ]
+          "type": "ON-FULFILLMENT",
+          "collected_by": "BPP"
         }
       ]
     }

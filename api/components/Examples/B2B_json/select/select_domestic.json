@@ -28,12 +28,18 @@
           {
             "id": "L1"
           }
-        ]
+        ],
+        "ttl": "P1D"
       },
       "items": [
         {
           "id": "I1",
-          "location_ids": ["L1"],
+          "location_ids": [
+            "L1"
+          ],
+          "fulfillment_ids": [
+            "F1"
+          ],
           "quantity": {
             "selected": {
               "count": 200
@@ -69,12 +75,26 @@
       ],
       "fulfillments": [
         {
+          "id": "F1",
+          "type": "Delivery",
           "stops": [
             {
               "type": "end",
               "location": {
                 "gps": "12.974002,77.613458",
-                "area_code": "560001"
+                "area_code": "560001",
+                "city": {
+                  "name": "Bengaluru"
+                },
+                "country": {
+                  "code": "IND"
+                },
+                "state": {
+                  "name": "Karnataka"
+                }
+              },
+              "contact": {
+                "phone": "9886098860"
               }
             }
           ]

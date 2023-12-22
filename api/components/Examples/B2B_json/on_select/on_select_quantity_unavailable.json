@@ -9,7 +9,7 @@
         "code": "IND"
       }
     },
-    "action": "init",
+    "action": "on_select",
     "version": "2.0.2",
     "bap_id": "buyerapp.com",
     "bap_uri": "https://buyerapp.com/grocery",
@@ -32,10 +32,10 @@
       },
       "items": [
         {
-          "id": "I1",
           "fulfillment_ids": [
             "F1"
           ],
+          "id": "I1",
           "quantity": {
             "selected": {
               "count": 200
@@ -69,74 +69,67 @@
           ]
         }
       ],
-      "billing": {
-        "name": "ONDC buyer",
-        "address": "22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar, Bengaluru, Karnataka 560001",
-        "state": {
-          "name": "Karnataka"
-        },
-        "city": {
-          "name": "Bengaluru"
-        },
-        "tax_id": "XXXXXXXXXXXXXXX",
-        "email": "nobody@nomail.com",
-        "phone": "9886098860"
-      },
       "fulfillments": [
         {
           "id": "F1",
-          "type": "Delivery",
-          "stops": [
-            {
-              "type": "end",
-              "location": {
-                "gps": "12.974002,77.613458",
-                "address": "My House #, My buildin",
-                "city": {
-                  "name": "Bengaluru"
-                },
-                "country": {
-                  "code": "IND"
-                },
-                "area_code": "560001",
-                "state": {
-                  "name": "Karnataka"
-                }
-              },
-              "contact": {
-                "phone": "9886098860"
-              }
+          "@ondc/org/provider_name": "Loadshare",
+          "tracking": false,
+          "@ondc/org/category": "Express Delivery",
+          "@ondc/org/TAT": "P7D",
+          "state": {
+            "descriptor": {
+              "code": "Serviceable"
             }
-          ]
+          }
         }
       ],
+      "quote": {
+        "price": {
+          "currency": "INR",
+          "value": "0"
+        },
+        "breakup": [
+          {
+            "@ondc/org/item_id": "I1",
+            "@ondc/org/item_quantity": {
+              "count": 0
+            },
+            "title": "Dhara Mustard Oil",
+            "@ondc/org/title_type": "item",
+            "price": {
+              "currency": "INR",
+              "value": "0"
+            },
+            "item": {
+              "price": {
+                "currency": "INR",
+                "value": "250"
+              }
+            }
+          },
+          {
+            "@ondc/org/item_id": "F1",
+            "title": "Delivery charges",
+            "@ondc/org/title_type": "delivery",
+            "price": {
+              "currency": "INR",
+              "value": "0"
+            }
+          }
+        ],
+        "ttl": "P1D"
+      },
       "payments": [
         {
           "type": "ON-FULFILLMENT",
           "collected_by": "BPP"
         }
-      ],
-      "tags": [
-        {
-          "descriptor": {
-            "code": "buyer_id"
-          },
-          "list": [
-            {
-              "descriptor": {
-                "code": "buyer_id_code"
-              },
-              "value": "gst"
-            },
-            {
-              "descriptor": {
-                "code": "buyer_id_no"
-              },
-              "value": "xxxxxxxxxxxxxxx"
-            }
-          ]
-        }
       ]
     }
+  },
+  "error": {
+    "type": "DOMAIN-ERROR",
+    "code": "40002",
+    "message": "M1"
   }
 }

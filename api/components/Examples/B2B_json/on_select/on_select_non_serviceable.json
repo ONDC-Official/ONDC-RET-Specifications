@@ -23,12 +23,19 @@
   "message": {
     "order": {
       "provider": {
-        "id": "P1"
+        "id": "P1",
+        "locations": [
+          {
+            "id": "L1"
+          }
+        ]
       },
       "items": [
         {
+          "fulfillment_ids": [
+            "F1"
+          ],
           "id": "I1",
-          "fulfillment_ids": ["F1"],
           "quantity": {
             "selected": {
               "count": 200
@@ -71,7 +78,7 @@
           "@ondc/org/TAT": "P7D",
           "state": {
             "descriptor": {
-              "code": "Serviceable"
+              "code": "Non-Serviceable"
             }
           }
         }
@@ -94,27 +101,10 @@
               "value": "50000"
             },
             "item": {
-              "quantity": {
-                "available": {
-                  "count": "200"
-                },
-                "maximum": {
-                  "count": "200"
-                }
-              },
               "price": {
                 "currency": "INR",
                 "value": "250"
               }
-            }
-          },
-          {
-            "@ondc/org/item_id": "F1",
-            "title": "Delivery charges",
-            "@ondc/org/title_type": "delivery",
-            "price": {
-              "currency": "INR",
-              "value": "4000"
             }
           },
           {
@@ -155,7 +145,18 @@
           }
         ],
         "ttl": "P1D"
-      }
+      },
+      "payments": [
+        {
+          "type": "ON-FULFILLMENT",
+          "collected_by": "BPP"
+        }
+      ]
     }
+  },
+  "error": {
+    "type": "DOMAIN-ERROR",
+    "code": "30009",
+    "message": "M1"
   }
 }
