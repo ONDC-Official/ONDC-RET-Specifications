@@ -255,7 +255,7 @@
           "@ondc/org/withholding_amount": "10.00",
           "@ondc/org/settlement_details": [
             {
-              "settlement_counterparty": "seller-app",
+              "settlement_counterparty": "buyer-app",
               "settlement_phase": "sale-amount",
               "beneficiary_name": "xxxxx",
               "settlement_type": "upi",
