@@ -30,3 +30,15 @@ context:
     - code: ONDC:RET19
       description: Pharma
       reference: <PR/Issue/Discussion Links md format text>
+    - code: ONDC:RET20
+      description: Autoparts & Components
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: ONDC:RET21
+      description: Hardware and Industrial
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: ONDC:RET22
+      description: Building and construction supplies
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: ONDC:RET23
+      description: Chemicals
+      reference: <PR/Issue/Discussion Links md format text>
