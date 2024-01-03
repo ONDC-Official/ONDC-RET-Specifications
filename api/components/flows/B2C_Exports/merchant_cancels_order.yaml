@@ -1,5 +1,5 @@
-summary: Retail 1.2.0 Exports (Merchant Cancels Full Order before Order Picked-up)
-description: The following is an illustrative flow to perform a transaction of a nature where a buyer (from outside India) would like to import fashion item. But after order confirmation, the merchant cancels it before order is picked up.
+summary: Retail 1.2.0 Exports (Merchant Cancels Full Order)
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer (from outside India) would like to import fashion item. But after order confirmation, the merchant cancels it.
 details:
   - description: Buyer Search & Quotation
     mermaidGraph: >-
