@@ -210,7 +210,7 @@
           "tags": [
             {
               "descriptor": {
-                "code": "payment_url"
+                "code": "BPP_payment"
               },
               "list": [
                 {
@@ -218,6 +218,12 @@
                     "code": "signature"
                   },
                   "value": "xxxxxxxxxxxxxx"
+                },
+                {
+                  "descriptor": {
+                    "code": "dsa"
+                  },
+                  "value": "ED25519"
                 }
               ]
             }
