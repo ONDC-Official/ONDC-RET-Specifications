@@ -1,9 +1,9 @@
-# Seller App Collecting Payment in Non-RFQ Flow
-This document explains the flow of how the payment is collected by the BPP from the buyer (BAP). It details all the processes required to make this possible.
+# Prepaid payment collected by BPP - Non RFQ flow
+In order to strengthen the unbundled ecommerce transactions and enable trust on the network, there is a need to enable payments collected by seller app and exchange and agree the terms of trade between buyer and seller app (BPP).
 
 ## _/on_search_
 
-The on_search request is sent while sharing catalog by the BPP (Seller) to the Buyer (BAP). Here two cases arise which relate to payment collection:
+As part of the catalog, BPP informs BAP on payment terms (collected by BPP). Here two cases arise which relate to payment collection:
 
 1. **BPP level** - The payment is collected by the seller app for all the providers, or for Inventory Seller Node(ISN) seller apps.
 
@@ -72,9 +72,9 @@ In this case, the `payments` array contains the particular provider(s) who choos
 > Between the _/select_ and _/on\_select_ calls, the BAP and BPP negotiate the prices
 
 ## _/on_init_
-The seller app sends the _/on_init_ payload to the BAP. This on_init contains the payment details which are necessary for the payment. It also contains a signature which has the value of a Signed URI which is signed by the **ED25519** . This URI can be used by the buyer to render the payment gateway and make the payment.
+BPP sends the payment gateway link. This payment gateway link has to be signed by BPP using its private key. Base64 string of the same to be sent as part of the signature. The signature algorithm used (**ED25519**) is also sent as a part of the payload.
 
-The payload sent by the seller also contains the TTL for expiration of the transaction. This is to set the transaction expiration on the Payment Gateway. If the payment is still in the pending state when TTL is finished, the transaction is expired and buyer is refunded (if amount is debited). 
+The payload sent by the seller also contains the TTL for expiration of the transaction. This is to set the transaction expiration on the Payment Gateway. If the payment is still in the pending state when TTL has expired, the payment gateway cancels the transaction and initiates refund for the buyer if amount is debited. 
 
 ```
 "payments": [
@@ -122,7 +122,7 @@ The payload sent by the seller also contains the TTL for expiration of the trans
               "descriptor": {
                 "code": "ttl"
               },
-              "value": "30m"
+              "value": "PT30M"
             }
           ]
         }
@@ -130,8 +130,6 @@ The payload sent by the seller also contains the TTL for expiration of the trans
     }
   ]
 ```
-
-> The Transaction is wrapped up in the successive _/confirm_ and _/on\_confirm calls.
 
 ## _/status_
 The seller can send a _status_ request to know the state of the payment transaction. The BPP returns this request with _on\_status_. This call is optional.
@@ -143,24 +141,10 @@ This is an unsolicited call which returns with the status of the payment. The re
 - Unpaid - When payment is not received.
 - Pending - In a state of flux.
 
-## What happens when TTL expires ?
+### Payment Success:
+Once the _on\_status_ is sent as paid to the BAP. The buyer app sends a _confirm_ object. This confirms the whole payment procedure. The seller responds with an _/on\_confirm_ acknowledgemet.
 
-When the TTL mentioned by the seller expires with either no response or pending status, the buyer initiates a _cancel_ request. This cancel request contains a `cancellation_reason_id` to explain the reason of cancellation. For example:
-```
-"message": {
-  "cancellation_reason_id": "022"
-}
-```
-
-The buyer sends `NACK` if payment TTL expired and seller sends _on\_status_ message "Payment TTL Expired" as shown below.
-```
-"error": {
-  "code": "31004",
-  "message": "Payment TTL Expired"
-}
-```
-
-If buyer app has already sent `NACK` after TTL expiration but payment has succeeded then the buyer uses _cancel_ and _on\_cancel_ (seller-side) for refund of the debited amount.
+> The Transaction is wrapped up in the successive _/confirm_ and _/on\_confirm calls.
 
 ### Payment failed:
 If the payment fails, the _on\_status_ returns status: "Payment Failed" in the error object inside the message body.
@@ -170,6 +154,20 @@ If the payment fails, the _on\_status_ returns status: "Payment Failed" in the e
   "message": "Payment Failed"
 }
 ```
-### Payment Success:
-Once the _on\_status_ is sent as paid to the BAP. The buyer app sends a _confirm_ object. This confirms the whole payment procedure. The seller responds with an _/on\_confirm_
+It should also be noted that status will be unpaid if payment fails.
 
+## What happens when TTL expires ?
+
+When the TTL mentioned by the seller expires with either no response or pending status, the buyer sends `NACK` if payment TTL expired and seller sends _on\_status_ message "Payment TTL Expired" as shown below.
+```
+"error": {
+  "code": "31004",
+  "message": "Payment TTL Expired"
+}
+```
+
+If buyer app has already sent `NACK` after TTL expiration but payment has succeeded then the buyer uses _cancel_ and _on\_cancel_ (seller-side) for refund of the debited amount.
+
+
+<img src="https://github.com/abhik-wil/ONDC-RET-Specifications/blob/release-2.0.2/api/images/prepaid_payment_non_rfq_flow.png?raw=true" alt="Sequence Diagram" width="900" >
+</div>
