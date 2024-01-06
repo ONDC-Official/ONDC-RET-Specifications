@@ -169,5 +169,5 @@ When the TTL mentioned by the seller expires with either no response or pending 
 If buyer app has already sent `NACK` after TTL expiration but payment has succeeded then the buyer uses _cancel_ and _on\_cancel_ (seller-side) for refund of the debited amount.
 
 
-<img src="https://github.com/abhik-wil/ONDC-RET-Specifications/blob/release-2.0.2/api/images/prepaid_payment_non_rfq_flow.png?raw=true" alt="Sequence Diagram" width="900" >
+<img src="https://github.com/abhik-wil/ONDC-RET-Specifications/blob/draft-2.x/api/images/prepaid_payment_non_rfq_flow.png?raw=true" alt="Sequence Diagram" width="900" >
 </div>
