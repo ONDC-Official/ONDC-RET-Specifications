@@ -48,7 +48,7 @@
           },
           "status": "PAID",
           "type": "PRE-FULFILLMENT",
-          "collected_by": "BAP",
+          "collected_by": "BPP",
           "@ondc/org/buyer_app_finder_fee_type": "percent",
           "@ondc/org/buyer_app_finder_fee_amount": "0",
           "@ondc/org/settlement_basis": "delivery",
@@ -57,7 +57,7 @@
           "@ondc/org/settlement_details": [
             {
               "settlement_counterparty": "buyer-app",
-              "settlement_phase": "sale-amount",
+              "settlement_phase": "finder-fee",
               "settlement_type": "upi",
               "upi_address": "gft@oksbi",
               "settlement_bank_account_no": "XXXXXXXXXX",
