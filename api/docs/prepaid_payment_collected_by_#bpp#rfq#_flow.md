@@ -1,4 +1,4 @@
-# Prepaid payment collected by BPP - Non RFQ flow
+# Prepaid payment collected by BPP - RFQ flow
 
 In order to strengthen the unbundled ecommerce transactions and enable trust on the network, there is a need to enable payments collected by seller app and exchange and agree the terms of trade between buyer and seller app (BPP).
 
@@ -72,7 +72,7 @@ In this case, if payment needs to be collected by BPP only for specific provider
 
 > Between the _/select_ and _/on\_select_ calls, the BAP and BPP negotiate the prices
 
-## _/on_init_
+## _/on_confirm_
 
 BPP sends the payment gateway link. This payment gateway link has to be signed by BPP using its private key. Base64 string of the same to be sent as part of the signature. The signature algorithm used (**ED25519**) is also sent as a part of the payload.
 
@@ -147,9 +147,7 @@ This is an unsolicited call which returns with the status of the payment. The re
 
 ### Payment Success:
 
-Once the _on\_status_ is sent as `payment.status` as `PAID` to the BAP, the buyer app sends a _confirm_ object. The seller responds with an _/on\_confirm_ acknowledgement.
-
-> The Transaction is wrapped up in the successive _/confirm_ and _/on\_confirm calls.
+Once payment is successful, BPP sends `payment.status` as `PAID` to the BAP via /on_status.
 
 ### Payment failed:
 
