@@ -22,6 +22,7 @@
     },
     "message": {
         "order": {
+            "order_id": "02",
             "status": "Cancelled",
             "cancellation": {
                 "cancelled_by": "buyerapp.com",
