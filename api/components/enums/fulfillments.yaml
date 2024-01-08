@@ -26,3 +26,11 @@ fulfillments:
     - code: Order-delivered
       description: about the enum
       reference: <PR/Issue/Discussion Links md format text>
+  pre_order_state:
+    - code: Serviceable
+      description: if the location is serviceable
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: Non-Serviceable
+      description: if the location is non-serviceable
+      reference: <PR/Issue/Discussion Links md format text>
+

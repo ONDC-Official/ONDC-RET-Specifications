@@ -2579,38 +2579,37 @@ components:
 x-enum:
   search:
     context: &ref_1
-      context:
-        domain:
-          - code: ONDC:RET10
-            description: Grocery
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: ONDC:RET11
-            description: F&B
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: ONDC:RET12
-            description: Fashion
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: ONDC:RET13
-            description: BPC
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: ONDC:RET14
-            description: Electronics
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: ONDC:RET15
-            description: Appliances
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: ONDC:RET16
-            description: Home & Decor
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: ONDC:RET17
-            description: Toys & Games
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: ONDC:RET18
-            description: Health & Wellness
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: ONDC:RET19
-            description: Pharma
-            reference: <PR/Issue/Discussion Links md format text>
+      domain:
+        - code: ONDC:RET10
+          description: Grocery
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: ONDC:RET11
+          description: F&B
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: ONDC:RET12
+          description: Fashion
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: ONDC:RET13
+          description: BPC
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: ONDC:RET14
+          description: Electronics
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: ONDC:RET15
+          description: Appliances
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: ONDC:RET16
+          description: Home & Decor
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: ONDC:RET17
+          description: Toys & Games
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: ONDC:RET18
+          description: Health & Wellness
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: ONDC:RET19
+          description: Pharma
+          reference: <PR/Issue/Discussion Links md format text>
     message:
       intent:
         payment: &ref_2
@@ -2952,26 +2951,34 @@ x-enum:
     context: *ref_1
     message:
       order:
+        fulfillment:
+          state:
+            - code: Serviceable
+              description: if the location is serviceable
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: Non-Serviceable
+              description: if the location is non-serviceable
+              reference: <PR/Issue/Discussion Links md format text>
         quote:
           breakup:
-            '@ondc/org/title_type':
+            '@ondc/org/title_type': &ref_4
               - code: item
-                description: about the enum
+                description: price of the item
                 reference: <PR/Issue/Discussion Links md format text>
               - code: discount
-                description: about the enum
+                description: discount charges
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: packing
+                description: packing charges
                 reference: <PR/Issue/Discussion Links md format text>
               - code: tax
-                description: about the enum
+                description: tax applied
                 reference: <PR/Issue/Discussion Links md format text>
               - code: delivery
-                description: about the enum
+                description: delivery charges on fulfillment
                 reference: <PR/Issue/Discussion Links md format text>
               - code: misc
-                description: about the enum
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: delivery
-                description: about the enum
+                description: convenience charges
                 reference: <PR/Issue/Discussion Links md format text>
   init:
     context: *ref_1
@@ -2980,12 +2987,17 @@ x-enum:
   on_init:
     context: *ref_1
     message:
-      order: *ref_3
+      order:
+        payment: *ref_2
+        fulfillments: *ref_0
+        quote:
+          breakup: null
+          '@ondc/org/title_type': *ref_4
   confirm:
     context: *ref_1
     message:
-      order: *ref_3
-      state: ./orderstatus.yaml#/order_status
+      order:
+        state: ./orderstatus.yaml#/order_status
   on_confirm:
     context: *ref_1
     message:
@@ -3043,7 +3055,7 @@ x-tags:
       - code: BUYER_ID
         description: Description about the tags
         reference: <PR/Issue/Discussion Links md format text>
-        list: &ref_4
+        list: &ref_5
           - code: BUYER_ID_CODE
             description: Description about the tags
             reference: <PR/Issue/Discussion Links md format text>
@@ -3288,7 +3300,7 @@ x-tags:
       - code: BUYER_ID
         description: Description about the tags
         reference: <PR/Issue/Discussion Links md format text>
-        list: *ref_4
+        list: *ref_5
       - code: COMM_CHANNEL
         description: Description about the tags
         reference: <PR/Issue/Discussion Links md format text>
@@ -3472,7 +3484,7 @@ x-flows:
         api: search
         description: Search intent sent by the buyer based on the category
         reference: if any
-        example: &ref_20
+        example: &ref_21
           summary: Search by Category
           description: Search By Category
           value:
@@ -3536,7 +3548,7 @@ x-flows:
         api: on_search
         description: Catalog provided by the Seller App
         reference: if any
-        example: &ref_21
+        example: &ref_22
           summary: Return the catalog for grocery
           description: Return the catalog for grocery products
           value:
@@ -3878,7 +3890,7 @@ x-flows:
           Buyer requests for quotation for the selected item with all the
           customizations and the quantity of items required
         reference: if any
-        example: &ref_7
+        example: &ref_8
           summary: Get quote for specific item (RFQ)
           description: RFQ - Get quote for selected items with Buyer and Delivery terms
           value:
@@ -3959,7 +3971,7 @@ x-flows:
         api: on_select
         description: Seller provides the quotation and breakup with logistics charges
         reference: if any
-        example: &ref_8
+        example: &ref_9
           summary: Send quote and breakup - Response to RFQ (Domestic)
           description: Send quote and breakup for items selected in RFQ
           value:
@@ -4069,7 +4081,7 @@ x-flows:
         api: init
         description: Initialization of Order - Billing Details added.
         reference: if any
-        example: &ref_9
+        example: &ref_10
           summary: Intializing the order (Domestic)
           description: Intializing the order
           value:
@@ -4161,7 +4173,7 @@ x-flows:
         api: on_init
         description: Initialization of Order with final quote
         reference: if any
-        example: &ref_10
+        example: &ref_11
           summary: Respond to RFQ (Domestic)
           description: Respond to RFQ
           value:
@@ -4322,7 +4334,7 @@ x-flows:
           Buyer receives the quotation and once agreed to go ahead with the
           quotation received, creates a PO and sends the PO
         reference: if any
-        example: &ref_11
+        example: &ref_12
           summary: Raise PO (Domestic)
           description: PO raised by buyer based on the RFQ response received.
           value:
@@ -4492,7 +4504,7 @@ x-flows:
           Seller app sends an on_confirm call to the buyer app relaying the PO
           acceptance.
         reference: if any
-        example: &ref_12
+        example: &ref_13
           summary: Accept PO (Domestic)
           description: PO acceptance by Seller
           value:
@@ -4785,7 +4797,7 @@ x-flows:
         api: search
         description: Buyer outside India searches for a product
         reference: if any
-        example: &ref_5
+        example: &ref_6
           summary: Search by Item
           description: Search By Item
           value:
@@ -4849,7 +4861,7 @@ x-flows:
         api: on_search
         description: Seller responds with catalog + communication channel
         reference: if any
-        example: &ref_6
+        example: &ref_7
           summary: Return the catalog
           description: Return the catalog
           value:
@@ -6032,7 +6044,7 @@ x-flows:
         api: status
         description: Buyer requests for Shipment status
         reference: if any
-        example: &ref_13
+        example: &ref_14
           summary: Buyer asks for order status
           description: Buyer asks for order status
           value:
@@ -6061,7 +6073,7 @@ x-flows:
           Provider platform provides the updated order status to the consumer
           and sends invoice
         reference: if any
-        example: &ref_14
+        example: &ref_15
           summary: Seller updates the order status (Proforma Invoice)
           description: Seller updates the order status and shares Invoice
           value:
@@ -6237,7 +6249,7 @@ x-flows:
         api: update
         description: Payment status is sent (If collected by BAP) + requests for Invoice
         reference: if any
-        example: &ref_15
+        example: &ref_16
           summary: Buyer updates payment status
           description: Buyer updates payment status (CollectedBy BAP)
           value:
@@ -6279,14 +6291,14 @@ x-flows:
                       amount: '53600'
                     status: PAID
                     type: PRE-FULFILLMENT
-                    collected_by: BPP
+                    collected_by: BAP
                     '@ondc/org/buyer_app_finder_fee_type': percent
                     '@ondc/org/buyer_app_finder_fee_amount': '0'
                     '@ondc/org/settlement_basis': delivery
                     '@ondc/org/settlement_window': P1D
                     '@ondc/org/withholding_amount': '10.00'
                     '@ondc/org/settlement_details':
-                      - settlement_counterparty: buyer-app
+                      - settlement_counterparty: seller-app
                         settlement_phase: sale-amount
                         settlement_type: upi
                         upi_address: gft@oksbi
@@ -6299,7 +6311,7 @@ x-flows:
         api: on_update
         description: seller updates fulfilments - Multiple fulfillments for Single PO
         reference: if any
-        example: &ref_16
+        example: &ref_17
           summary: Single PO - Multiple Fulfillment
           description: Single PO - Multiple Fulfillment
           value:
@@ -6485,7 +6497,7 @@ x-flows:
           Provider platform provides the updated order status to the consumer
           once the order is picked up
         reference: if any
-        example: &ref_17
+        example: &ref_18
           summary: Seller updates the order status (Order-picked-up)
           description: Seller updates the order status and shares Invoice
           value:
@@ -6670,7 +6682,7 @@ x-flows:
           Provider platform provides the updated order status to the consumer
           once the order is out for delivery
         reference: if any
-        example: &ref_18
+        example: &ref_19
           summary: Seller updates the order status (Out-for-delivery)
           description: Seller updates the order status and shares Invoice
           value:
@@ -6855,7 +6867,7 @@ x-flows:
           Provider platform provides the updated order status to the consumer
           after the order is delivered
         reference: if any
-        example: &ref_19
+        example: &ref_20
           summary: Seller updates the order status (Order-delivered)
           description: Seller updates the order status and shares Invoice
           value:
@@ -7149,85 +7161,85 @@ x-flows:
         api: search
         description: Buyer searches for an item
         reference: if any
-        example: *ref_5
+        example: *ref_6
       - summary: Returns item/ catalog
         api: on_search
         description: Seller responds back with the catalog
         reference: if any
-        example: *ref_6
+        example: *ref_7
       - summary: Raise an RFQ
         api: select
         description: >-
           Buyer requests for quotation for the selected item with all the
           customizations and the quantity of items required
         reference: if any
-        example: *ref_7
+        example: *ref_8
       - summary: Returns item breakup/ Quote
         api: on_select
         description: Seller provides the quotation and breakup with logistics charges
         reference: if any
-        example: *ref_8
+        example: *ref_9
       - summary: Initialization of Order
         api: init
         description: Initialization of Order - Billing Details added.
         reference: if any
-        example: *ref_9
+        example: *ref_10
       - summary: Initialization of Order
         api: on_init
         description: Initialization of Order with final quote
         reference: if any
-        example: *ref_10
+        example: *ref_11
       - summary: Buyer raises PO
         api: confirm
         description: Buyer creates a Purchase Order
         reference: if any
-        example: *ref_11
+        example: *ref_12
       - summary: Seller Accepts PO
         api: on_confirm
         description: Seller accepts Purchase Order
         reference: if any
-        example: *ref_12
+        example: *ref_13
       - summary: Consumer platform requests for latest status
         api: status
         description: Buyer requests for Shipment status
         reference: if any
-        example: *ref_13
+        example: *ref_14
       - summary: Provider platform provides latest order status and sends invoice
         api: on_status
         description: Provider platform provides the updated order status to the consumer
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Payment details are updated in case BAP collects the payment
         api: update
         description: Payment status is sent (If collected by BAP) + requests for Invoice
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: seller updates fulfilments - Multiple fulfillments for Single PO
         api: on_update
         description: seller updates fulfilments - Multiple fulfillments for Single PO
-        reference: if any
-        example: *ref_16
-      - summary: Provider platform provides latest order status
-        api: on_status
-        description: >-
-          Provider platform provides the updated order status to the consumer
-          once order is picked up
         reference: if any
         example: *ref_17
       - summary: Provider platform provides latest order status
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
-          when the order is out for delivery
+          once order is picked up
         reference: if any
         example: *ref_18
       - summary: Provider platform provides latest order status
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
-          after the order is delivered
+          when the order is out for delivery
         reference: if any
         example: *ref_19
+      - summary: Provider platform provides latest order status
+        api: on_status
+        description: >-
+          Provider platform provides the updated order status to the consumer
+          after the order is delivered
+        reference: if any
+        example: *ref_20
   - summary: B2B Prepaid (Payment collected by BPP)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -7339,54 +7351,54 @@ x-flows:
         api: search
         description: Buyer searches for an item
         reference: if any
-        example: *ref_5
+        example: *ref_6
       - summary: Seller returns item/ catalog with communication channel
         api: on_search
         description: Seller responds back with the catalog
         reference: if any
-        example: *ref_6
+        example: *ref_7
       - summary: Raise an RFQ
         api: select
         description: >-
           Buyer requests for quotation for the selected item with all the
           customizations and the quantity of items required
         reference: if any
-        example: *ref_7
+        example: *ref_8
       - summary: Returns item breakup/ Quote
         api: on_select
         description: Seller provides the quotation and breakup with logistics charges
         reference: if any
-        example: *ref_8
+        example: *ref_9
       - summary: Initialization of Order
         api: init
         description: Initialization of Order - Billing Details added.
         reference: if any
-        example: *ref_9
+        example: *ref_10
       - summary: Initialization of Order
         api: on_init
         description: Initialization of Order with final quote
         reference: if any
-        example: *ref_10
+        example: *ref_11
       - summary: Buyer raises PO
         api: confirm
         description: Buyer creates a Purchase Order
         reference: if any
-        example: *ref_11
+        example: *ref_12
       - summary: Seller Accepts PO
         api: on_confirm
         description: Seller accepts Purchase Order
         reference: if any
-        example: *ref_12
+        example: *ref_13
       - summary: Seller sends proforma invoice.
         api: on_status
         description: Provider platform provides the updated order status to the consumer
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Buyer NP updates that payment has been made to the Seller NP
         api: update
         description: Buyer NP updates that payment has been made to the Seller NP
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: Payment is collected by seller NP(Prepaid) and details are updated
         api: on_update
         description: Provider platform sends the payment details
@@ -7440,7 +7452,7 @@ x-flows:
                     '@ondc/org/withholding_amount': '10.00'
                     '@ondc/org/settlement_details':
                       - settlement_counterparty: buyer-app
-                        settlement_phase: sale-amount
+                        settlement_phase: finder-fee
                         settlement_type: upi
                         upi_address: gft@oksbi
                         settlement_bank_account_no: XXXXXXXXXX
@@ -7452,28 +7464,28 @@ x-flows:
         api: status
         description: Buyer requests for Shipment status
         reference: if any
-        example: *ref_13
+        example: *ref_14
       - summary: Provider platform updates the latest status - Order Picked up
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           once the order is picked up
         reference: if any
-        example: *ref_17
+        example: *ref_18
       - summary: Provider platform updates the latest status - Out for Delivery
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           once the order is out for delivery
         reference: if any
-        example: *ref_18
+        example: *ref_19
       - summary: Provider platform updates the latest status - Delivered
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           once the order is delivered
         reference: if any
-        example: *ref_19
+        example: *ref_20
   - summary: B2B Prepaid (Payment collected by BAP)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -7584,80 +7596,80 @@ x-flows:
         api: search
         description: Buyer searches for an item
         reference: if any
-        example: *ref_5
+        example: *ref_6
       - summary: Seller returns item/ catalog with communication channel
         api: on_search
         description: Seller responds back with the catalog
         reference: if any
-        example: *ref_6
+        example: *ref_7
       - summary: Raise an RFQ
         api: select
         description: >-
           Buyer requests for quotation for the selected item with all the
           customizations and the quantity of items required
         reference: if any
-        example: *ref_7
+        example: *ref_8
       - summary: Returns item breakup/ Quote
         api: on_select
         description: Seller provides the quotation and breakup with logistics charges
         reference: if any
-        example: *ref_8
+        example: *ref_9
       - summary: Initialization of Order
         api: init
         description: Initialization of Order - Billing Details added.
         reference: if any
-        example: *ref_9
+        example: *ref_10
       - summary: Initialization of Order
         api: on_init
         description: Initialization of Order with final quote
         reference: if any
-        example: *ref_10
+        example: *ref_11
       - summary: Buyer raises PO
         api: confirm
         description: Buyer creates a Purchase Order
         reference: if any
-        example: *ref_11
+        example: *ref_12
       - summary: Seller Accepts PO
         api: on_confirm
         description: Seller accepts Purchase Order
         reference: if any
-        example: *ref_12
+        example: *ref_13
       - summary: Seller sends proforma invoice.
         api: on_status
         description: Provider platform provides the updated order status to the consumer
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Payment is collected by buyer NP (Prepaid) and details are updated
         api: update
         description: Consumer platform sends the payment details
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: Consumer platform requests for latest status
         api: status
         description: Buyer requests for Shipment status
         reference: if any
-        example: *ref_13
+        example: *ref_14
       - summary: Provider platform updates the latest status - Order Picked up
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           once the order is picked up
         reference: if any
-        example: *ref_17
+        example: *ref_18
       - summary: Provider platform updates the latest status - Out for Delivery
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           once the order is out for delivery
         reference: if any
-        example: *ref_18
+        example: *ref_19
       - summary: Provider platform updates the latest status - Delivered
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           once the order is delivered
         reference: if any
-        example: *ref_19
+        example: *ref_20
   - summary: B2B Item out of stock
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -7711,19 +7723,19 @@ x-flows:
         api: search
         description: Search intent sent by the buyer based on the category
         reference: if any
-        example: *ref_20
+        example: *ref_21
       - summary: Returns item/ catalog
         api: on_search
         description: Catalog provided by the Seller App
         reference: if any
-        example: *ref_21
+        example: *ref_22
       - summary: Raise an RFQ
         api: select
         description: >-
           Buyer requests for quotation for the selected item with all the
           customizations and the quantity of items required
         reference: if any
-        example: *ref_7
+        example: *ref_8
       - summary: Returns item breakup/ Quote
         api: on_select
         description: Seller provides the quotation and breakup along with error object
@@ -7869,19 +7881,19 @@ x-flows:
         api: search
         description: Search intent sent by the buyer based on the category
         reference: if any
-        example: *ref_20
+        example: *ref_21
       - summary: Returns item/ catalog
         api: on_search
         description: Catalog provided by the Seller App
         reference: if any
-        example: *ref_21
+        example: *ref_22
       - summary: Raise an RFQ
         api: select
         description: >-
           Buyer requests for quotation for the selected item with all the
           customizations and the quantity of items required
         reference: if any
-        example: *ref_7
+        example: *ref_8
       - summary: Returns item breakup/ Quote
         api: on_select
         description: >-
@@ -9024,14 +9036,14 @@ x-examples:
                         amount: '53600'
                       status: PAID
                       type: PRE-FULFILLMENT
-                      collected_by: BPP
+                      collected_by: BAP
                       '@ondc/org/buyer_app_finder_fee_type': percent
                       '@ondc/org/buyer_app_finder_fee_amount': '0'
                       '@ondc/org/settlement_basis': delivery
                       '@ondc/org/settlement_window': P1D
                       '@ondc/org/withholding_amount': '10.00'
                       '@ondc/org/settlement_details':
-                        - settlement_counterparty: buyer-app
+                        - settlement_counterparty: seller-app
                           settlement_phase: sale-amount
                           settlement_type: upi
                           upi_address: gft@oksbi
@@ -12614,7 +12626,7 @@ x-examples:
                       '@ondc/org/withholding_amount': '10.00'
                       '@ondc/org/settlement_details':
                         - settlement_counterparty: buyer-app
-                          settlement_phase: sale-amount
+                          settlement_phase: finder-fee
                           settlement_type: upi
                           upi_address: gft@oksbi
                           settlement_bank_account_no: XXXXXXXXXX
@@ -12801,3 +12813,615 @@ x-examples:
                             - descriptor:
                                 code: MEASURE_VALUE
                               value: '500'
+x-attributes:
+  B2B:
+    attribute_set:
+      search:
+        parent: true
+        context:
+          parent: true
+          domain:
+            description: domain for which the request is initiated
+            required: mandatory
+            usage: ONDC:RET12
+            reference: if any
+          city:
+            description: >-
+              city code for search that identifies the cities where sellers have
+              stores. List of city codes, with pincode mapping, are here -
+              https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=1474472733
+            required: mandatory
+            usage: std:080
+            reference: if any
+          bap_id:
+            description: subscriber id for buyer app
+            required: mandatory
+            usage: buyerNP.com
+            reference: if any
+          bap_uri:
+            description: subscriber URI for buyer app
+            required: mandatory
+            usage: https://buyerNP.com/ondc
+            reference: if any
+          timestamp:
+            description: RFC3339 compliant timestamp
+            required: mandatory
+            usage: '2023-06-03T08:00:00.000Z'
+            reference: if any
+          ttl:
+            description: validity of message
+            required: mandatory
+            usage: PT30S
+            reference: if any
+        message:
+          parent: true
+          intent:
+            parent: true
+            payment:
+              parent: true
+              type:
+                description: type of payment option buyer wants to avail
+                usage: ON-FULFILLMENT
+                reference: if any
+                required: mandatory
+            item:
+              parent: true
+              name:
+                description: item name to be searched
+                required: present if item is present
+                usage: oil
+                reference: if any
+            category:
+              parent: true
+              description: Category of the search
+              required: optional
+              usage: '-'
+              reference: if any
+              id:
+                description: >-
+                  category id will be from this list -
+                  https://docs.google.com/spreadsheets/d/APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+                required: present if category is present
+                usage: RET10-*
+                reference: if any
+            fulfillment:
+              parent: true
+              type:
+                description: type of fulfillment mode buyer wants to avail
+                required: mandatory
+                usage: Delivery
+                reference: if any
+              stops:
+                type:
+                  description: location(s) where the buyer wants the delivery to be made
+                  required: mandatory
+                  usage: end
+                  reference: if any
+                location:
+                  gps:
+                    description: minimum 6 digit decimal precision for gps coordinates
+                    required: mandatory
+                    usage: 1.380621, 103.746364
+                    reference: if any
+                  area_code:
+                    description: area_code
+                    required: mandatory
+                    usage: '110030'
+                    reference: if any
+      on_search:
+        parent: true
+        context:
+          parent: true
+          bpp_id:
+            description: subscriber id for seller app
+            required: mandatory
+            usage: sellerNP.com
+            reference: if any
+          bpp_uri:
+            description: subscriber URI for seller app
+            required: mandatory
+            usage: https://sellerNP.com/ondc
+            reference: if any
+        message:
+          parent: true
+          catalog:
+            parent: true
+            descriptor:
+              parent: true
+              description: descriptor for seller NP
+              required: mandatory
+              name:
+                description: name of seller NP
+                required: mandatory
+                usage: https://sellerNP.com/images/np.png
+                reference: if any
+              short_desc:
+                description: short description for seller NP
+                required: mandatory
+                usage: eCommerce Store
+                reference: if any
+              long_desc:
+                description: long description for seller NP
+                required: mandatory
+                usage: Online eCommerce Store
+                reference: if any
+              images:
+                description: image for seller NP
+                required: mandatory
+                usage: https://sellerNP.com/images/np.png
+                reference: if any
+            providers:
+              parent: true
+              id:
+                description: >-
+                  unique id for provider, must be same as bpp_id for ISN seller
+                  apps. Use of same provider id for distinct legal entities will
+                  cause an MSN being regarded as ISN and use of different
+                  provider id for same legal entity will cause an ISN being
+                  regarded as MSN, thus resulting in tax non-compliance
+                required: mandatory
+                usage: F1
+                reference: if any
+              fulfillments:
+                contact:
+                  description: >-
+                    contact details for merchant - if merchant is in multiple
+                    locations, this will be the contact detail for merchant and
+                    contact detail for the storefront (specific location) will
+                    be in fulfillment.start
+                  required: mandatory
+                  usage: '-'
+                  reference: if any
+                contact.phone:
+                  description: valid 10 digit (mobile no) or 11 digit no
+                  required: mandatory
+                  usage: '9886098860'
+                  reference: if any
+                contact.email:
+                  description: email id of merchant or seller NP
+                  required: mandatory
+                  usage: abc@xyz.com
+                  reference: if any
+              ttl:
+                description: ISO8601 duration format for validity of provider catalog
+                required: mandatory
+                usage: P1D
+                reference: if any
+              locations:
+                description: locations of provider with unique id for each location
+                required: mandatory
+                usage: '-'
+                reference: if any
+              categories:
+                tags.code:
+                  description: >-
+                    if code is "attr", then it defines variant attributes i.e.
+                    attribute & sequence; multiple variant attributes can be
+                    defined in multiple attr blocks
+                  required: mandatory
+                  usage: '-'
+                  reference: if any
+                tags.list.code:
+                  description: >-
+                    if "code" is "attr", then it is namespaced attribute, above
+                    example means attribute(s) in "quantity.unitized" for an
+                    item
+                  required: mandatory
+                  usage: '-'
+                  reference: if any
+                tags.list.value:
+                  description: >-
+                    if `tags>code` is "attr" and `tags>list>code` is "name",
+                    then it's corresponding `value` means concatenation of
+                    item.quantity.unitized.measure.value and
+                    item.quantity.unitized.measure.unit e.g. "1 kilogram", "2
+                    kilogram", "5 kilogram"
+                  required: mandatory
+                  usage: '-'
+                  reference: if any
+              items:
+                parent_item_id:
+                  description: >-
+                    if variant grouping defined for provider above, this matches
+                    id for variant_group definition; if not defined or id is
+                    invalid, buyer NPs may choose to display as normal SKU item
+                  required: mandatory
+                  usage: V1
+                  reference: if any
+                descriptor.code:
+                  description: >-
+                    unique code for item which will be in this format -
+                    "type:code" where type is 1 - EAN, 2 - ISBN, 3 - GTIN, 4 -
+                    HSN, 5 - others
+                  required: optional
+                  usage: 2
+                  reference: if any
+                descriptor.images:
+                  description: >-
+                    while item images ensures better discoverability & enhances
+                    user experience, if no image is available, seller NPs
+                    shouldn’t send image (instead of sending placeholder image)
+                  required: mandatory
+                  usage: '-'
+                  reference: if any
+                creator.descriptor.name:
+                  description: Manufacturer name
+                  required: mandatory
+                  usage: Iphone
+                  reference: if any
+                creator.descriptor.contact:
+                  description: Manufacturer contact details
+                  required: mandatory
+                  usage: '-'
+                  reference: if any
+                creator.descriptor.contact.name:
+                  description: name of the support person
+                  required: mandatory
+                  usage: '-'
+                  reference: if any
+                creator.descriptor.contact.address:
+                  parent: true
+                  description: address of the support person
+                  required: mandatory
+                  usage: '-'
+                  reference: if any
+                creator.descriptor.contact.address.full:
+                  description: full address
+                  required: mandatory
+                  usage: Iphone Ltd., Delhi
+                  reference: if any
+                creator.descriptor.contact.phone:
+                  description: phone number of the support person
+                  required: mandatory
+                  usage: '18001801018'
+                  reference: if any
+                creator.descriptor.contact.email:
+                  description: email of the support person
+                  required: mandatory
+                  usage: consumer.services@abc.com
+                  reference: if any
+                quantity.unitized.measure.unit:
+                  description: >-
+                    enum - "unit", "dozen", "kilogram", "tonne", "litre",
+                    "millilitre"
+                    (https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/grocery/RET10-UOM.json)
+                  required: mandatory
+                  usage: unit
+                  reference: if any
+                quantity.available.count:
+                  description: stringified integer value - default value for item in stock
+                  required: mandatory
+                  usage: '3'
+                  reference: if any
+                quantity.maximum.count:
+                  description: >-
+                    stringified integer value - cap per order (if exists) or
+                    default value
+                  required: mandatory
+                  usage: '3'
+                  reference: if any
+              creds:
+                id:
+                  required: optional
+                  description: Human readable id
+                  reference: if any
+                  usage: ESG-12345678
+                type:
+                  required: optional
+                  description: Type of creds
+                  reference: if any
+                  usage: License
+                desc:
+                  required: optional
+                  description: Description of creds
+                  reference: if any
+                  usage: Export License No. ESG-12345678
+                url:
+                  required: optional
+                  description: Physical description
+                  reference: if any
+                  usage: https://abcd.cdn.com/images/license-img
+              offers:
+                description: offer definition as per the template defined above
+                required: mandatory
+                usage: '-'
+                reference: if any
+            fulfillments:
+              id:
+                description: id for the supported fulfillment type
+                required: mandatory
+                usage: '1'
+                reference: if any
+              type:
+                description: type of fulfillments supported
+                required: mandatory
+                usage: Delivery
+                reference: if any
+            payments:
+              parent: true
+              id:
+                description: id for the supported payment type
+                required: mandatory
+                usage: '1'
+                reference: if any
+              type:
+                description: type of payments supported
+                required: mandatory
+                usage: PRE-FULFILLMENT
+                reference: if any
+      on_select:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            fulfillments:
+              parent: true
+              '@ondc/org/category':
+                description: type of delivery category
+                required: required
+                usage: Standard Delivery
+                reference: if any
+              '@ondc/org/TAT':
+                description: O2D (Order to delivery time)
+                required: required
+                usage: P7D
+                reference: if any
+              state:
+                descriptor.code:
+                  description: describes whether the location is serviceable or not
+                  required: required
+                  usage: Serviceable
+                  reference: if any
+            quote:
+              parent: true
+              price:
+                description: total price quoted from seller NP
+                required: required
+                usage: '-'
+                reference: if any
+              breakup:
+                '@ondc/org/title_type':
+                  description: type of charge - item,packing,discount,tax,misc,delivery
+                  required: required
+                  usage: delivery
+                  reference: if any
+                '@ondc/org/item_id':
+                  description: item id or fulfillment id based on type of charge
+                  required: required
+                  usage: F1
+                  reference: if any
+                title:
+                  description: type of charge - can be customized
+                  required: required
+                  usage: Packing charges
+                  reference: if any
+      init:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            billing:
+              parent: true
+              phone:
+                required: mandatory
+                description: Describes the phone information of an entity
+                reference: if any
+                usage: '9886098860'
+              email:
+                required: optional
+                description: Email address of the contact
+                reference: if any
+                usage: nobody@nomail.com
+              name:
+                required: mandatory
+                description: Describes a person name as any individual
+                reference: if any
+                usage: ONDC buyer
+              tax_id:
+                required: mandatory
+                description: Describes tax id
+                reference: if any
+                usage: 22AAAAA0000A1Z5
+              state:
+                name:
+                  required: mandatory
+                  description: Describes the state information of an entity
+                  reference: if any
+                  usage: Karnataka
+              city:
+                name:
+                  required: mandatory
+                  description: Describes the city information of an entity
+                  reference: if any
+                  usage: Bengaluru
+            provider:
+              parent: true
+              locations:
+                description: >-
+                  mandatory only if provider.locations was returned in
+                  /on_search
+                required: optional
+                usage: '-'
+                reference: if any
+              ttl:
+                description: provider ttl
+                required: mandatory
+                usage: P1D
+                reference: if any
+      on_init:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            quote:
+              parent: true
+              price:
+                description: total price quoted from seller NP
+                required: required
+                usage: '-'
+                reference: if any
+              breakup:
+                '@ondc/org/title_type':
+                  description: type of charge - item,packing,discount,tax,misc,delivery
+                  required: required
+                  usage: delivery
+                  reference: if any
+                '@ondc/org/item_id':
+                  description: item id or fulfillment id based on type of charge
+                  required: required
+                  usage: F1
+                  reference: if any
+                title:
+                  description: type of charge - can be customized
+                  required: required
+                  usage: Packing charges
+                  reference: if any
+            payments:
+              parent: true
+              '@ondc/org/buyer_app_finder_fee_type':
+                description: buyer app finder fee type - percent,amount
+                required: required
+                usage: percent
+                reference: if any
+              '@ondc/org/buyer_app_finder_fee_amount':
+                description: >-
+                  amount of buyer app finder fee (either in percent or actual
+                  amount)
+                required: required
+                usage: '3'
+                reference: if any
+              '@ondc/org/settlement_details':
+                description: Details of counter party for settling the money
+                required: required
+                usage: '-'
+                reference: if any
+      confirm:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            id:
+              description: unique order id generated by the buyer NP
+              required: required
+              usage: O1
+              reference: if any
+            state:
+              description: order state
+              required: mandatory
+              usage: Created
+              reference: if any
+            created_at:
+              description: timestamp when the order was created
+              required: mandatory
+              usage: '2023-02-03T09:30:00.000Z'
+              reference: if any
+            updated_at:
+              description: timestamp when the order was updated
+              required: mandatory
+              usage: '2023-02-03T09:30:00.000Z'
+              reference: if any
+            payments:
+              parent: true
+              status:
+                description: status whether payment has been collected or not
+                required: mandatory
+                usage: PAID
+                reference: if any
+              params:
+                transaction_id:
+                  description: transaction id when the payment was collected
+                  required: mandatory when payment status is PAID
+                  usage: '3937'
+                  reference: if any
+      on_confirm:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            fulfillments:
+              parent: true
+              id:
+                description: unique fulfillment id
+                required: mandatory
+                usage: F1
+                reference: if any
+              stops:
+                type:
+                  description: type of stop (start point or end point)
+                  required: mandatory
+                  usage: end
+                  reference: if any
+                location.id:
+                  description: location id of the point
+                  required: mandatory
+                  usage: L1
+                  reference: if any
+                time.range:
+                  description: time range when the order would be picked up/dropped
+                  required: optional
+                  usage: '-'
+                  reference: if any
+                time.range.start:
+                  description: time range when the order would be picked up
+                  required: optional
+                  usage: '2023-02-03T09:30:00.000Z'
+                  reference: if any
+                time.range.end:
+                  description: time range when the order would be delivered
+                  required: optional
+                  usage: '2023-02-03T09:30:00.000Z'
+                  reference: if any
+                instructions.name:
+                  description: Pickup instructions
+                  required: optional
+                  usage: Pickup Code
+                  reference: if any
+                instructions.short_desc:
+                  description: Pickup code value
+                  required: optional
+                  usage: '345234'
+                  reference: if any
+              state:
+                descriptor.code:
+                  description: fulfillment state
+                  required: mandatory
+                  usage: Pending
+                  reference: if any
+      update:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            update_target:
+              description: target block to be updated (enum - item,fulfillment)
+              required: required
+              usage: item
+              reference: if any
+            items:
+              parent: true
+              quantity:
+                selected:
+                  count:
+                    description: updated count of the item
+                    required: optional
+                    usage: 30
+                    reference: if any
+      on_status:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            documents:
+              parent: true
+              url:
+                description: url of the invoice
+                required: mandatory when order has been picked up
+                usage: https://invoice_url
+                reference: if any

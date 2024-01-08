@@ -1,4 +1,4 @@
-# Prepaid payment collected by BPP - Non RFQ flow
+# Prepaid payment collected by BPP - RFQ flow
 
 In order to strengthen the unbundled ecommerce transactions and enable trust on the network, there is a need to enable payments collected by seller app and exchange and agree the terms of trade between buyer and seller app (BPP).
 
@@ -70,11 +70,15 @@ In this case, if payment needs to be collected by BPP only for specific provider
 }
 ```
 
-> Between the _/select_ and _/on\_select_ calls, the BAP and BPP negotiate the prices
+> Between the _/select_ and _/on\_select_ calls, the BAP and BPP negotiate the prices.
+>
+> In /init and /on_init, the quotation is accepted by the buyer and buyer initialises the order.
+>
+> Buyer raises a PO (Purchase Order) in /confirm nd seller accepts the PO as a part of /on_confirm.
 
-## _/on_init_
+## _/on_confirm_
 
-BPP sends the payment gateway link. This payment gateway link has to be signed by BPP using its private key. Base64 string of the same to be sent as part of the signature. The signature algorithm used (**ED25519**) is also sent as a part of the payload.
+While accepting the PO, seller sends the payment gateway link. This payment gateway link has to be signed by BPP using its private key. Base64 string of the same to be sent as part of the signature. The signature algorithm used (**ED25519**) is also sent as a part of the payload.
 
 The payload sent by the seller also contains the TTL for expiration of the transaction. This is to set the transaction expiration on the Payment Gateway. If the payment is still in the pending state when TTL has expired, the payment gateway cancels the transaction and initiates refund for the buyer if amount is debited.
 
@@ -92,7 +96,7 @@ The payload sent by the seller also contains the TTL for expiration of the trans
       "@ondc/org/settlement_details": [
         {
           "settlement_counterparty": "buyer-app",
-          "settlement_phase": "sale-amount",
+          "settlement_phase": "finder-fee",
           "settlement_type": "upi",
           "beneficiary_name": "xxxxx",
           "upi_address": "gft@oksbi",
@@ -147,9 +151,7 @@ This is an unsolicited call which returns with the status of the payment. The re
 
 ### Payment Success:
 
-Once the _on\_status_ is sent as `payment.status` as `PAID` to the BAP, the buyer app sends a _confirm_ object. The seller responds with an _/on\_confirm_ acknowledgement.
-
-> The Transaction is wrapped up in the successive _/confirm_ and _/on\_confirm calls.
+Once payment is successful, BPP sends `payment.status` as `PAID` to the BAP via /on_status.
 
 ### Payment failed:
 
@@ -178,5 +180,5 @@ When the TTL mentioned by the seller expires with either no response or pending 
 If buyer app has already sent `NACK` after TTL expiration but payment has succeeded then the buyer uses _cancel_ and _on\_cancel_ (seller-side) for refund of the debited amount.
 
 
-<img src="https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-2.x/api/images/prepaid_payment_non_rfq_flow.svg?raw=true" alt="Sequence Diagram" width="900" >
+<img src="https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-2.x/api/images/prepaid_payment_rfq_flow.svg?raw=true" alt="Sequence Diagram" width="900" >
 </div>
