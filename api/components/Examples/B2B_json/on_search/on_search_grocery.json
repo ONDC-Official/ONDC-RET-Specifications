@@ -10,11 +10,11 @@
       }
     },
     "action": "on_search",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "bap_id": "buyerapp.com",
-    "bap_uri": "https://buyerapp.com/ondc",
+    "bap_uri": "https://buyerapp.com/grocery",
     "bpp_id": "sellerapp.com",
-    "bpp_uri": "https://sellerapp.com/ondc",
+    "bpp_uri": "https://sellerapp.com/grocery",
     "transaction_id": "T1",
     "message_id": "M1",
     "timestamp": "2023-01-08T22:00:30.000Z",
@@ -165,68 +165,61 @@
               ]
             }
           ],
-          "categories":
-          [
+          "categories": [
             {
-              "id":"V1",
-              "descriptor":
-              {
-                "name":"Variant Group 1"
+              "id": "V1",
+              "descriptor": {
+                "name": "Variant Group 1"
               },
-              "tags":
-              [
+              "tags": [
                 {
                   "descriptor": {
-                    "code":"type"
+                    "code": "type"
                   },
-                  "list":
-                  [
+                  "list": [
                     {
                       "descriptor": {
-                        "code":"type"
+                        "code": "type"
                       },
-                      "value":"variant_group"
+                      "value": "variant_group"
                     }
                   ]
                 },
                 {
                   "descriptor": {
-                    "code":"attr"
-                  }
-                  ,
-                  "list":
-                  [
+                    "code": "attr"
+                  },
+                  "list": [
                     {
                       "descriptor": {
-                        "code":"name"
+                        "code": "name"
                       },
-                      "value":"item.tags.attribute.colour"
+                      "value": "item.tags.attribute.colour"
                     },
                     {
                       "descriptor": {
-                        "code":"seq"
+                        "code": "seq"
                       },
-                      "value":"1"
+                      "value": "1"
                     }
                   ]
                 },
                 {
                   "descriptor": {
-                    "code":"attr"
+                    "code": "attr"
                   },
-                  "list":
-                  [
+                  "list": [
                     {
                       "descriptor": {
-                        "code":"name"
+                        "code": "name"
                       },
-                      "value":"item.tags.attribute.size"
+                      "value": "item.tags.attribute.size"
                     },
                     {
                       "descriptor": {
-                        "code":"seq"
+                        "code": "seq"
                       },
-                      "value":"2"
+                      "value": "2"
                     }
                   ]
                 }
@@ -281,19 +274,19 @@
                   }
                 },
                 "available": {
-                "measure": {
-                  "unit": "millilitre",
-                  "value": "500"
+                  "measure": {
+                    "unit": "millilitre",
+                    "value": "500"
+                  },
+                  "count": "2000"
                 },
-                "count": "2000"
-              },
-              "maximum": {
-                "measure": {
-                  "unit": "millilitre",
-                  "value": "500"
-                },
-                "count": "4000"
-              }
+                "maximum": {
+                  "measure": {
+                    "unit": "millilitre",
+                    "value": "500"
+                  },
+                  "count": "4000"
+                }
               },
               "category_ids": [
                 "RET10-1042"
@@ -379,52 +372,49 @@
               "tags": [
                 {
                   "descriptor": {
-                    "code":"origin"
+                    "code": "origin"
                   },
-                  "list":
-                  [
+                  "list": [
                     {
                       "descriptor": {
-                        "code":"country"
+                        "code": "country"
                       },
-                      "value":"IND"
+                      "value": "IND"
                     }
                   ]
                 },
                 {
                   "descriptor": {
-                    "code":"image"
+                    "code": "image"
                   },
-                  "list":
-                  [
+                  "list": [
                     {
                       "descriptor": {
-                        "code":"type"
+                        "code": "type"
                       },
-                      "value":"back_image"
+                      "value": "back_image"
                     },
                     {
                       "descriptor": {
-                        "code":"url"
+                        "code": "url"
                       },
-                      "value":"https://sellerNP.com/images/i1_back_image.png"
+                      "value": "https://sellerNP.com/images/i1_back_image.png"
                     }
                   ]
                 },
                 {
                   "descriptor": {
-                    "code":"veg_nonveg"
+                    "code": "veg_nonveg"
                   },
-                  "list":
-                  [
+                  "list": [
                     {
                       "descriptor": {
-                        "code":"veg"
+                        "code": "veg"
                       },
-                      "value":"yes"
+                      "value": "yes"
                     }
                   ]
-                },  
+                },
                 {
                   "descriptor": {
                     "code": "g2"
@@ -452,7 +442,6 @@
                     {
                       "descriptor": {
                         "code": "brand"
-                        
                       },
                       "value": "Dhara"
                     },

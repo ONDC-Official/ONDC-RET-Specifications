@@ -10,7 +10,7 @@
       }
     },
     "action": "on_search",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "bap_id": "buyerapp.com",
     "bap_uri": "https://buyerapp.com/grocery",
     "bpp_id": "sellerapp.com",
@@ -94,16 +94,14 @@
               "area_code": "560076"
             }
           ],
-          "creds":
-          [
+          "creds": [
             {
-              "id":"ESG-12345678",
+              "id": "ESG-12345678",
               "type": "License",
-              "desc":"Export License No. ESG-12345678",
-              "url":"https://abcd.cdn.com/images/license-img"
+              "desc": "Export License No. ESG-12345678",
+              "url": "https://abcd.cdn.com/images/license-img"
             }
           ],
-
           "tags": [
             {
               "descriptor": {
@@ -223,19 +221,19 @@
                   }
                 },
                 "available": {
-                "measure": {
-                  "unit": "millilitre",
-                  "value": "500"
+                  "measure": {
+                    "unit": "millilitre",
+                    "value": "500"
+                  },
+                  "count": "2000"
                 },
-                "count": "2000"
-              },
-              "maximum": {
-                "measure": {
-                  "unit": "millilitre",
-                  "value": "500"
-                },
-                "count": "4000"
-              }
+                "maximum": {
+                  "measure": {
+                    "unit": "millilitre",
+                    "value": "500"
+                  },
+                  "count": "4000"
+                }
               },
               "category_ids": [
                 "RET10-1042"
@@ -321,49 +319,46 @@
               "tags": [
                 {
                   "descriptor": {
-                    "code":"origin"
+                    "code": "origin"
                   },
-                  "list":
-                  [
+                  "list": [
                     {
                       "descriptor": {
-                        "code":"country"
+                        "code": "country"
                       },
-                      "value":"IND"
+                      "value": "IND"
                     }
                   ]
                 },
                 {
                   "descriptor": {
-                    "code":"image"
+                    "code": "image"
                   },
-                  "list":
-                  [
+                  "list": [
                     {
                       "descriptor": {
-                        "code":"type"
+                        "code": "type"
                       },
-                      "value":"back_image"
+                      "value": "back_image"
                     },
                     {
                       "descriptor": {
-                        "code":"url"
+                        "code": "url"
                       },
-                      "value":"https://sellerNP.com/images/i1_back_image.png"
+                      "value": "https://sellerNP.com/images/i1_back_image.png"
                     }
                   ]
                 },
                 {
                   "descriptor": {
-                    "code":"veg_nonveg"
+                    "code": "veg_nonveg"
                   },
-                  "list":
-                  [
+                  "list": [
                     {
                       "descriptor": {
-                        "code":"veg"
+                        "code": "veg"
                       },
-                      "value":"yes"
+                      "value": "yes"
                     }
                   ]
                 },

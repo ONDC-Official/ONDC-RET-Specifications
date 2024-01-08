@@ -19,6 +19,10 @@ confirm:
 on_confirm:
   parent: true
   $ref: "./on_confirm/on_confirm.yaml"
+update:
+  parent: true
+  $ref: "./update/update.yaml"
 on_status:
   parent: true
   $ref: "./on_status/on_status.yaml"
+

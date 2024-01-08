@@ -3,3 +3,5 @@
 - $ref: "./B2B_multiple_fulfillments/index.yaml"
 - $ref: "./B2B_prepaid_BPP/index.yaml"
 - $ref: "./B2B_prepaid_BAP/index.yaml"
+- $ref: "./B2B_Item_out_of_stock/index.yaml"
+- $ref: "./B2B_non_serviceable/index.yaml"

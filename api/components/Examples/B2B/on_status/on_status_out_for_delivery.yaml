@@ -1,4 +1,4 @@
-summary: Seller updates the order status and shares Invoice
+summary: Seller updates the order status (Out-for-delivery)
 description: Seller updates the order status and shares Invoice
 value:
   context:
@@ -9,7 +9,7 @@ value:
       country:
         code: IND
     action: on_status
-    version: 2.0.1
+    version: 2.0.2
     bap_id: buyerapp.com
     bap_uri: https://buyerapp.com/grocery
     bpp_id: sellerapp.com
