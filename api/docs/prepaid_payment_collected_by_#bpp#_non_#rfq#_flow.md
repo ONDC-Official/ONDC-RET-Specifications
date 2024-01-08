@@ -39,7 +39,7 @@ In this case, the message catalog of on_search contains the payments array is as
 
 ### 2. Provider Level
 
-In this case, the `payments` array objects contain the particular providers' provider `id` who choose to collect directly.
+In this case, if payment needs to be collected by BPP only for specific providers, then providers.payments specifies payment collected by BPP. Refer below:
 
 ```
 "message": {
@@ -142,7 +142,7 @@ This is an unsolicited call which returns with the status of the payment. The re
 - PENDING - In a state of flux.
 
 ### Payment Success:
-Once the _on\_status_ is sent as `payment.status` as `Paid` paid to the BAP, the buyer app sends a _confirm_ object. The seller responds with an _/on\_confirm_ acknowledgement.
+Once the _on\_status_ is sent as `payment.status` as `PAID` to the BAP, the buyer app sends a _confirm_ object. The seller responds with an _/on\_confirm_ acknowledgement.
 
 > The Transaction is wrapped up in the successive _/confirm_ and _/on\_confirm calls.
 
