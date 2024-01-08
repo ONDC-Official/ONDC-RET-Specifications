@@ -39,7 +39,7 @@ In this case, the message catalog of on_search contains the payments array is as
 
 ### 2. Provider Level
 
-In this case, the `payments` array contains the particular provider(s) who choose(s) to collect the payment through the seller app.
+In this case, the `payments` array objects contain the particular providers' provider `id` who choose to collect directly.
 
 ```
 "message": {
@@ -137,28 +137,28 @@ The seller can send a _status_ request to know the state of the payment transact
 ## _/on_status_
 This is an unsolicited call which returns with the status of the payment. The returned status can be either of the three :
 
-- Paid - Received when payment is confirmed.
-- Unpaid - When payment is not received.
-- Pending - In a state of flux.
+- PAID - Received when payment is confirmed.
+- NOT-PAID - When payment is not received.
+- PENDING - In a state of flux.
 
 ### Payment Success:
-Once the _on\_status_ is sent as paid to the BAP. The buyer app sends a _confirm_ object. This confirms the whole payment procedure. The seller responds with an _/on\_confirm_ acknowledgemet.
+Once the _on\_status_ is sent as `payment.status` as `Paid` paid to the BAP, the buyer app sends a _confirm_ object. The seller responds with an _/on\_confirm_ acknowledgement.
 
 > The Transaction is wrapped up in the successive _/confirm_ and _/on\_confirm calls.
 
 ### Payment failed:
-If the payment fails, the _on\_status_ returns status: "Payment Failed" in the error object inside the message body.
+If the payment fails, the _on\_status_ returns status: "Payment Failed" in the error object in the `message` property.
 ```
 "error": {
   "code": "31004",
   "message": "Payment Failed"
 }
 ```
-It should also be noted that status will be unpaid if payment fails.
+It should also be noted that status will be `NOT-PAID` if payment fails.
 
 ## What happens when TTL expires ?
 
-When the TTL mentioned by the seller expires with either no response or pending status, the buyer sends `NACK` if payment TTL expired and seller sends _on\_status_ message "Payment TTL Expired" as shown below.
+When the TTL mentioned by the seller expires with either no response or pending status, the buyer sends `NACK` as shown below.
 ```
 "error": {
   "code": "31004",
