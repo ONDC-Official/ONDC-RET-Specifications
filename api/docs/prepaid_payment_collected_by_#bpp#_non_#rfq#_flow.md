@@ -177,6 +177,50 @@ When the TTL mentioned by the seller expires with either no response or pending 
 
 If buyer app has already sent `NACK` after TTL expiration but payment has succeeded then the buyer uses _cancel_ and _on\_cancel_ (seller-side) for refund of the debited amount.
 
+```mermaid
+sequenceDiagram
+    title: Payment Collected by Seller App
+    participant BAP
+    participant BPP
+    
+    note over BAP,BPP: 1. Payment Intimation
+    BPP ->> BAP: /on_search - Seller Sends on_search request<br/>with payment details of the catalog (all or selected)
+    
+    note over BAP,BPP: 2. Price Negotiation
+    BAP ->> BPP: /select - Buyer sends price details
+    activate BPP
+    BPP ->> BAP: /on_select - Seller Accepts the buyer price details
+    deactivate BPP
 
-<img src="https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-2.x/api/images/prepaid_payment_non_rfq_flow.svg?raw=true" alt="Sequence Diagram" width="900" >
+    note over BAP,BPP: 3. Payment Detail Exchange
+    BAP ->> BPP: /init - Buyer App initializes the order with an optional TTL
+    activate BPP
+    BPP ->> BAP: /on_init - Seller sends the payment details to Buyer<br/>and URI to render on Payment Gateway
+    deactivate BPP
+
+    note over BAP,BPP: 4. Communicating Payment Status
+    BAP ->> BPP: /status - BAP requests for payment status (Optional)
+
+    note over BAP,BPP: a. Payment Success
+    BPP ->> BAP: /on_status - Seller lets buyer know<br/>that transaction is successful
+    BAP ->> BPP: /confirm - Buyer sends a confirmation of the payment 
+    BPP ->> BAP: /on_confirm - Seller App sends acknowledgment of the payment confirmation
+
+    rect rgb(240, 211, 212)
+    note over BAP,BPP: b. Payment Failed
+    BPP ->> BAP: /on_status - Seller lets the buyer know<br/>that transaction failed with </br>error code '31004' and message 'Payment Failed'
+    end
+
+    rect rgb(223, 237, 218)
+    note over BAP,BPP: c. TTL expires
+    BAP ->> BPP: /on_status - BPP sends status update
+    BAP ->> BPP: NACK - Buyer sends NACK with error code '31004' and message 'Payment TTL Expired'
+    note over BAP,BPP: If payment is debited
+    BAP ->> BPP: /cancel - Buyer initiates refund request
+    BPP ->> BAP: /cancel - Seller initiates refund process at their end
+    end
+
+
+```
+<!-- <img src="https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-2.x/api/images/prepaid_payment_non_rfq_flow.svg?raw=true" alt="Sequence Diagram" width="900" > -->
 </div>
