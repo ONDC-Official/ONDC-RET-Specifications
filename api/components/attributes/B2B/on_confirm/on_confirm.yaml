@@ -6,18 +6,18 @@ message:
       parent: true
       id:
         description: unique fulfillment id
-        required: mandatory
+        required: required
         usage: F1
         reference: if any
       stops:
         type:
           description: type of stop (start point or end point)
-          required: mandatory
+          required: required
           usage: "end"
           reference: if any
         location.id:
           description: location id of the point
-          required: mandatory
+          required: required
           usage: "L1"
           reference: if any
         time.range:
@@ -48,7 +48,7 @@ message:
       state:
         descriptor.code:
           description: fulfillment state
-          required: mandatory
+          required: required
           usage: Pending
           reference: if any
     payments:

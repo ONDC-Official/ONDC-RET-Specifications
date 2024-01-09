@@ -12963,7 +12963,7 @@ x-attributes:
           parent: true
           domain:
             description: domain for which the request is initiated
-            required: mandatory
+            required: required
             usage: ONDC:RET12
             reference: if any
           city:
@@ -12971,27 +12971,27 @@ x-attributes:
               city code for search that identifies the cities where sellers have
               stores. List of city codes, with pincode mapping, are here -
               https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=1474472733
-            required: mandatory
+            required: required
             usage: std:080
             reference: if any
           bap_id:
             description: subscriber id for buyer app
-            required: mandatory
+            required: required
             usage: buyerNP.com
             reference: if any
           bap_uri:
             description: subscriber URI for buyer app
-            required: mandatory
+            required: required
             usage: https://buyerNP.com/ondc
             reference: if any
           timestamp:
             description: RFC3339 compliant timestamp
-            required: mandatory
+            required: required
             usage: '2023-06-03T08:00:00.000Z'
             reference: if any
           ttl:
             description: validity of message
-            required: mandatory
+            required: required
             usage: PT30S
             reference: if any
         message:
@@ -13004,7 +13004,7 @@ x-attributes:
                 description: type of payment option buyer wants to avail
                 usage: ON-FULFILLMENT
                 reference: if any
-                required: mandatory
+                required: required
             item:
               parent: true
               name:
@@ -13029,24 +13029,24 @@ x-attributes:
               parent: true
               type:
                 description: type of fulfillment mode buyer wants to avail
-                required: mandatory
+                required: required
                 usage: Delivery
                 reference: if any
               stops:
                 type:
                   description: location(s) where the buyer wants the delivery to be made
-                  required: mandatory
+                  required: required
                   usage: end
                   reference: if any
                 location:
                   gps:
                     description: minimum 6 digit decimal precision for gps coordinates
-                    required: mandatory
+                    required: required
                     usage: 1.380621, 103.746364
                     reference: if any
                   area_code:
                     description: area_code
-                    required: mandatory
+                    required: required
                     usage: '110030'
                     reference: if any
       on_search:
@@ -13055,12 +13055,12 @@ x-attributes:
           parent: true
           bpp_id:
             description: subscriber id for seller app
-            required: mandatory
+            required: required
             usage: sellerNP.com
             reference: if any
           bpp_uri:
             description: subscriber URI for seller app
-            required: mandatory
+            required: required
             usage: https://sellerNP.com/ondc
             reference: if any
         message:
@@ -13070,25 +13070,25 @@ x-attributes:
             descriptor:
               parent: true
               description: descriptor for seller NP
-              required: mandatory
+              required: required
               name:
                 description: name of seller NP
-                required: mandatory
+                required: required
                 usage: https://sellerNP.com/images/np.png
                 reference: if any
               short_desc:
                 description: short description for seller NP
-                required: mandatory
+                required: required
                 usage: eCommerce Store
                 reference: if any
               long_desc:
                 description: long description for seller NP
-                required: mandatory
+                required: required
                 usage: Online eCommerce Store
                 reference: if any
               images:
                 description: image for seller NP
-                required: mandatory
+                required: required
                 usage: https://sellerNP.com/images/np.png
                 reference: if any
             providers:
@@ -13100,7 +13100,7 @@ x-attributes:
                   cause an MSN being regarded as ISN and use of different
                   provider id for same legal entity will cause an ISN being
                   regarded as MSN, thus resulting in tax non-compliance
-                required: mandatory
+                required: required
                 usage: F1
                 reference: if any
               fulfillments:
@@ -13110,27 +13110,27 @@ x-attributes:
                     locations, this will be the contact detail for merchant and
                     contact detail for the storefront (specific location) will
                     be in fulfillment.start
-                  required: mandatory
+                  required: required
                   usage: '-'
                   reference: if any
                 contact.phone:
                   description: valid 10 digit (mobile no) or 11 digit no
-                  required: mandatory
+                  required: required
                   usage: '9886098860'
                   reference: if any
                 contact.email:
                   description: email id of merchant or seller NP
-                  required: mandatory
+                  required: required
                   usage: abc@xyz.com
                   reference: if any
               ttl:
                 description: ISO8601 duration format for validity of provider catalog
-                required: mandatory
+                required: required
                 usage: P1D
                 reference: if any
               locations:
                 description: locations of provider with unique id for each location
-                required: mandatory
+                required: required
                 usage: '-'
                 reference: if any
               categories:
@@ -13139,7 +13139,7 @@ x-attributes:
                     if code is "attr", then it defines variant attributes i.e.
                     attribute & sequence; multiple variant attributes can be
                     defined in multiple attr blocks
-                  required: mandatory
+                  required: required
                   usage: '-'
                   reference: if any
                 tags.list.code:
@@ -13147,7 +13147,7 @@ x-attributes:
                     if "code" is "attr", then it is namespaced attribute, above
                     example means attribute(s) in "quantity.unitized" for an
                     item
-                  required: mandatory
+                  required: required
                   usage: '-'
                   reference: if any
                 tags.list.value:
@@ -13157,7 +13157,7 @@ x-attributes:
                     item.quantity.unitized.measure.value and
                     item.quantity.unitized.measure.unit e.g. "1 kilogram", "2
                     kilogram", "5 kilogram"
-                  required: mandatory
+                  required: required
                   usage: '-'
                   reference: if any
               items:
@@ -13166,7 +13166,7 @@ x-attributes:
                     if variant grouping defined for provider above, this matches
                     id for variant_group definition; if not defined or id is
                     invalid, buyer NPs may choose to display as normal SKU item
-                  required: mandatory
+                  required: required
                   usage: V1
                   reference: if any
                 descriptor.code:
@@ -13182,43 +13182,43 @@ x-attributes:
                     while item images ensures better discoverability & enhances
                     user experience, if no image is available, seller NPs
                     shouldn’t send image (instead of sending placeholder image)
-                  required: mandatory
+                  required: required
                   usage: '-'
                   reference: if any
                 creator.descriptor.name:
                   description: Manufacturer name
-                  required: mandatory
+                  required: required
                   usage: Iphone
                   reference: if any
                 creator.descriptor.contact:
                   description: Manufacturer contact details
-                  required: mandatory
+                  required: required
                   usage: '-'
                   reference: if any
                 creator.descriptor.contact.name:
                   description: name of the support person
-                  required: mandatory
+                  required: required
                   usage: '-'
                   reference: if any
                 creator.descriptor.contact.address:
                   parent: true
                   description: address of the support person
-                  required: mandatory
+                  required: required
                   usage: '-'
                   reference: if any
                 creator.descriptor.contact.address.full:
                   description: full address
-                  required: mandatory
+                  required: required
                   usage: Iphone Ltd., Delhi
                   reference: if any
                 creator.descriptor.contact.phone:
                   description: phone number of the support person
-                  required: mandatory
+                  required: required
                   usage: '18001801018'
                   reference: if any
                 creator.descriptor.contact.email:
                   description: email of the support person
-                  required: mandatory
+                  required: required
                   usage: consumer.services@abc.com
                   reference: if any
                 quantity.unitized.measure.unit:
@@ -13226,19 +13226,26 @@ x-attributes:
                     enum - "unit", "dozen", "kilogram", "tonne", "litre",
                     "millilitre"
                     (https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/grocery/RET10-UOM.json)
-                  required: mandatory
+                  required: required
                   usage: unit
                   reference: if any
                 quantity.available.count:
                   description: stringified integer value - default value for item in stock
-                  required: mandatory
+                  required: required
                   usage: '3'
                   reference: if any
                 quantity.maximum.count:
                   description: >-
                     stringified integer value - cap per order (if exists) or
                     default value
-                  required: mandatory
+                  required: required
+                  usage: '3'
+                  reference: if any
+                tags.code:
+                  description: >-
+                    code = 'attribute' is required for Fashion and Electronics
+                    category
+                  required: required
                   usage: '3'
                   reference: if any
               creds:
@@ -13264,30 +13271,30 @@ x-attributes:
                   usage: https://abcd.cdn.com/images/license-img
               offers:
                 description: offer definition as per the template defined above
-                required: mandatory
+                required: required
                 usage: '-'
                 reference: if any
             fulfillments:
               id:
                 description: id for the supported fulfillment type
-                required: mandatory
+                required: required
                 usage: '1'
                 reference: if any
               type:
                 description: type of fulfillments supported
-                required: mandatory
+                required: required
                 usage: Delivery
                 reference: if any
             payments:
               parent: true
               id:
                 description: id for the supported payment type
-                required: mandatory
+                required: required
                 usage: '1'
                 reference: if any
               type:
                 description: type of payments supported
-                required: mandatory
+                required: required
                 usage: PRE-FULFILLMENT
                 reference: if any
       on_select:
@@ -13346,7 +13353,7 @@ x-attributes:
             billing:
               parent: true
               phone:
-                required: mandatory
+                required: required
                 description: Describes the phone information of an entity
                 reference: if any
                 usage: '9886098860'
@@ -13356,39 +13363,37 @@ x-attributes:
                 reference: if any
                 usage: nobody@nomail.com
               name:
-                required: mandatory
+                required: required
                 description: Describes a person name as any individual
                 reference: if any
                 usage: ONDC buyer
               tax_id:
-                required: mandatory
+                required: required
                 description: Describes tax id
                 reference: if any
                 usage: 22AAAAA0000A1Z5
               state:
                 name:
-                  required: mandatory
+                  required: required
                   description: Describes the state information of an entity
                   reference: if any
                   usage: Karnataka
               city:
                 name:
-                  required: mandatory
+                  required: required
                   description: Describes the city information of an entity
                   reference: if any
                   usage: Bengaluru
             provider:
               parent: true
               locations:
-                description: >-
-                  mandatory only if provider.locations was returned in
-                  /on_search
+                description: required only if provider.locations was returned in /on_search
                 required: optional
                 usage: '-'
                 reference: if any
               ttl:
                 description: provider ttl
-                required: mandatory
+                required: required
                 usage: P1D
                 reference: if any
       on_init:
@@ -13520,18 +13525,18 @@ x-attributes:
               parent: true
               id:
                 description: unique fulfillment id
-                required: mandatory
+                required: required
                 usage: F1
                 reference: if any
               stops:
                 type:
                   description: type of stop (start point or end point)
-                  required: mandatory
+                  required: required
                   usage: end
                   reference: if any
                 location.id:
                   description: location id of the point
-                  required: mandatory
+                  required: required
                   usage: L1
                   reference: if any
                 time.range:
@@ -13562,7 +13567,7 @@ x-attributes:
               state:
                 descriptor.code:
                   description: fulfillment state
-                  required: mandatory
+                  required: required
                   usage: Pending
                   reference: if any
             payments:
@@ -13689,7 +13694,7 @@ x-attributes:
               parent: true
               url:
                 description: url of the invoice
-                required: mandatory when order has been picked up
+                required: required when order has been picked up
                 usage: https://invoice_url
                 reference: if any
             payments:

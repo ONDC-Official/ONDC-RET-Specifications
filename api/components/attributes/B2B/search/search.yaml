@@ -2,32 +2,32 @@ context:
   parent: true
   domain:
     description: domain for which the request is initiated
-    required: mandatory
+    required: required
     usage: "ONDC:RET12"
     reference: if any
   city:
     description: city code for search that identifies the cities where sellers have stores. List of city codes, with pincode mapping, are here - https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=1474472733
-    required: mandatory
+    required: required
     usage: std:080
     reference: if any
   bap_id:
     description: subscriber id for buyer app
-    required: mandatory
+    required: required
     usage: buyerNP.com
     reference: if any
   bap_uri:
     description: subscriber URI for buyer app
-    required: mandatory
+    required: required
     usage: https://buyerNP.com/ondc
     reference: if any
   timestamp:
     description: RFC3339 compliant timestamp
-    required: mandatory
+    required: required
     usage: '2023-06-03T08:00:00.000Z'
     reference: if any
   ttl:
     description: validity of message
-    required: mandatory
+    required: required
     usage: PT30S
     reference: if any
 message:
@@ -40,7 +40,7 @@ message:
         description: type of payment option buyer wants to avail
         usage: "ON-FULFILLMENT"
         reference: if any
-        required: mandatory
+        required: required
     item:
       parent: true
       name:
@@ -63,24 +63,24 @@ message:
       parent: true
       type:
         description: type of fulfillment mode buyer wants to avail
-        required: mandatory
+        required: required
         usage: Delivery
         reference: if any
       stops:
         type:
          description: location(s) where the buyer wants the delivery to be made
-         required: mandatory
+         required: required
          usage: end
          reference: if any
         location:
           gps:
             description: minimum 6 digit decimal precision for gps coordinates
-            required: mandatory
+            required: required
             usage: "1.380621, 103.746364"
             reference: if any
           area_code:
             description: area_code 
-            required: mandatory
+            required: required
             usage: "110030"
             reference: if any
 
