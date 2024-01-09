@@ -230,6 +230,5 @@ sequenceDiagram
 
 
 ```
-
 <!-- <img src="https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-2.x/api/images/prepaid_payment_rfq_flow.svg?raw=true" alt="Sequence Diagram" width="900" > -->
 </div>
