@@ -256,6 +256,13 @@
                     "value": "1"
                   },
                   "count": "99"
+                },
+                "minimum": {
+                  "measure": {
+                    "unit": "millilitre",
+                    "value": "500"
+                  },
+                  "count": "4000"
                 }
               },
               "category_ids": [

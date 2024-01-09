@@ -146,6 +146,11 @@ value:
                 unit: millilitre
                 value: '500'
               count: '4000'
+            minimum:
+              measure:
+                unit: millilitre
+                value: '500'
+              count: '4000'
           category_ids:
           - RET10-1042
           fulfillment_ids:
