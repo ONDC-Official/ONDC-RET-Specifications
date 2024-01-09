@@ -3723,6 +3723,11 @@ x-flows:
                               unit: millilitre
                               value: '500'
                             count: '4000'
+                          minimum:
+                            measure:
+                              unit: millilitre
+                              value: '500'
+                            count: '4000'
                         category_ids:
                           - RET10-1042
                         fulfillment_ids:
@@ -5008,6 +5013,11 @@ x-flows:
                               value: '500'
                             count: '2000'
                           maximum:
+                            measure:
+                              unit: millilitre
+                              value: '500'
+                            count: '4000'
+                          minimum:
                             measure:
                               unit: millilitre
                               value: '500'
@@ -7240,253 +7250,7 @@ x-flows:
           after the order is delivered
         reference: if any
         example: *ref_20
-  - summary: B2B Prepaid (Payment collected by BPP)
-    description: >-
-      The following is an illustrative flow to perform a transaction of a nature
-      where a buyer would like to order bulk items and makes prepaid payment to
-      the seller NP.
-    details:
-      - description: Buyer Search & Quotation
-        mermaidGraph: |-
-          sequenceDiagram
-
-            participant Buyer
-            participant BuyerApp
-            participant Gateway
-            participant SellerApp1
-            participant SellerApp2
-
-            note over Buyer, SellerApp2: **SEARCH FLOW**
-
-            Buyer->>BuyerApp: Search for a product 
-            BuyerApp->>Gateway: **/search** - Search for a product<br/>Country and City defined in Context
-            Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on Country and domain in Context
-            Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on Country and domain in Context
-
-            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
-            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
-            BuyerApp->>Buyer: Renders the search response
-            
-            note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
-      - description: RFQ (Request For Quotation) FLOW
-        mermaidGraph: |-
-          sequenceDiagram
-            
-            participant Buyer
-            participant BuyerApp
-            participant SellerApp
-
-
-            note over Buyer, SellerApp: **RFQ (Request For Quotation) FLOW**
-
-            Buyer->>BuyerApp: Buyer requests for Quotation
-            BuyerApp->>SellerApp: **/select** - An item/s + add_ons + variants + offers is selected and <br/> RFQ is raised with a TTL to receive the response
-
-            note right of SellerApp: Logistics quotation + TAT received (Optional)
-
-            SellerApp->>BuyerApp: **/on_select** - Responds to RFQ with <br/> quote, breakup including logistics charges.
-            BuyerApp->>Buyer: RFQ Response
-      - description: ORDER INITIALIZATION
-        mermaidGraph: |-
-          sequenceDiagram
-
-            participant Buyer
-            participant BuyerApp
-            participant SellerApp
-
-            note over Buyer, SellerApp: **ORDER INITIALIZATION**
-
-            Buyer->>BuyerApp: 
-            BuyerApp->>SellerApp: **/init** - Initializing the order
-            note right of SellerApp: Logistics order initialization with billing details
-            SellerApp->>BuyerApp: **/on_init** - Order initialization
-      - description: PURCHASE ORDER
-        mermaidGraph: |-
-          sequenceDiagram
-
-            participant Buyer
-            participant BuyerApp
-            participant SellerApp
-
-            note over Buyer, SellerApp: **PURCHASE ORDER**
-
-            Buyer->>BuyerApp: Creates PO
-            BuyerApp->>SellerApp: **/confirm** - Create PO to create final digital contract
-            SellerApp->>BuyerApp: **/on_confirm** - Accept PO + payment url (if payment.collected_by is BPP) + <br/> Proforma invoice is shared (if payment.type is ON-FULFILLMENT)
-      - description: PAYMENT AND INVOICE CREATION
-        mermaidGraph: |-
-          sequenceDiagram
-
-            participant Buyer
-            participant BuyerApp
-            participant SellerApp
-
-            note over Buyer, SellerApp: **PAYMENT AND INVOICE CREATION**
-
-            Buyer->>BuyerApp: Buyer makes the payment
-            BuyerApp->>SellerApp: /**update** - Buyer NP updates that payment has been made to the Seller NP
-            SellerApp->>BuyerApp: **/on_update** - Seller updates the Payment status + Proforma invoice is shared
-      - description: Requests for order status
-        mermaidGraph: |-
-          sequenceDiagram
-
-            participant Buyer
-            participant BuyerApp
-            participant SellerApp
-
-            BuyerApp-->>SellerApp: **/status** - Enquire order status or Tracking info              
-
-            SellerApp->>BuyerApp: **/on_update** - Invoice is sent
-            BuyerApp->>Buyer: Invoice is sent
-
-
-            note over Buyer, SellerApp: **STATUS OF SHIPMENT**
-
-            Buyer->>BuyerApp: Checks order status
-            BuyerApp->>SellerApp: **/status** - Enquire Order status or Tracking info
-            SellerApp->>BuyerApp: **/on_status** - Order and fulfillment status is updated
-    reference: if any
-    steps:
-      - summary: Search for an item
-        api: search
-        description: Buyer searches for an item
-        reference: if any
-        example: *ref_6
-      - summary: Seller returns item/ catalog with communication channel
-        api: on_search
-        description: Seller responds back with the catalog
-        reference: if any
-        example: *ref_7
-      - summary: Raise an RFQ
-        api: select
-        description: >-
-          Buyer requests for quotation for the selected item with all the
-          customizations and the quantity of items required
-        reference: if any
-        example: *ref_8
-      - summary: Returns item breakup/ Quote
-        api: on_select
-        description: Seller provides the quotation and breakup with logistics charges
-        reference: if any
-        example: *ref_9
-      - summary: Initialization of Order
-        api: init
-        description: Initialization of Order - Billing Details added.
-        reference: if any
-        example: *ref_10
-      - summary: Initialization of Order
-        api: on_init
-        description: Initialization of Order with final quote
-        reference: if any
-        example: *ref_11
-      - summary: Buyer raises PO
-        api: confirm
-        description: Buyer creates a Purchase Order
-        reference: if any
-        example: *ref_12
-      - summary: Seller Accepts PO
-        api: on_confirm
-        description: Seller accepts Purchase Order
-        reference: if any
-        example: *ref_13
-      - summary: Seller sends proforma invoice.
-        api: on_status
-        description: Provider platform provides the updated order status to the consumer
-        reference: if any
-        example: *ref_15
-      - summary: Buyer NP updates that payment has been made to the Seller NP
-        api: update
-        description: Buyer NP updates that payment has been made to the Seller NP
-        reference: if any
-        example: *ref_16
-      - summary: Payment is collected by seller NP(Prepaid) and details are updated
-        api: on_update
-        description: Provider platform sends the payment details
-        reference: if any
-        example:
-          summary: Seller updating the payment status
-          description: Seller updating the payment status (CollectedBy BPP)
-          value:
-            context:
-              domain: ONDC:RET10
-              location:
-                city:
-                  code: std:080
-                country:
-                  code: IND
-              action: on_update
-              version: 2.0.2
-              bap_id: buyerapp.com
-              bap_uri: https://buyerapp.com/grocery
-              bpp_id: sellerapp.com
-              bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
-              timestamp: '2023-01-08T22:00:30.000Z'
-              ttl: PT30S
-            message:
-              order:
-                id: O1
-                state: Accepted
-                provider:
-                  id: P1
-                items:
-                  - id: I1
-                    quantity:
-                      selected:
-                        count: 200
-                payments:
-                  - uri: https://ondc.transaction.com/payment
-                    tl_method: http/get
-                    params:
-                      currency: INR
-                      transaction_id: '3937'
-                      amount: '53600'
-                    status: PAID
-                    type: PRE-FULFILLMENT
-                    collected_by: BPP
-                    '@ondc/org/buyer_app_finder_fee_type': percent
-                    '@ondc/org/buyer_app_finder_fee_amount': '0'
-                    '@ondc/org/settlement_basis': delivery
-                    '@ondc/org/settlement_window': P1D
-                    '@ondc/org/withholding_amount': '10.00'
-                    '@ondc/org/settlement_details':
-                      - settlement_counterparty: buyer-app
-                        settlement_phase: finder-fee
-                        settlement_type: upi
-                        upi_address: gft@oksbi
-                        settlement_bank_account_no: XXXXXXXXXX
-                        settlement_ifsc_code: XXXXXXXXX
-                        beneficiary_name: xxxxx
-                        bank_name: xxxx
-                        branch_name: xxxx
-      - summary: Consumer platform requests for latest status
-        api: status
-        description: Buyer requests for Shipment status
-        reference: if any
-        example: *ref_14
-      - summary: Provider platform updates the latest status - Order Picked up
-        api: on_status
-        description: >-
-          Provider platform provides the updated order status to the consumer
-          once the order is picked up
-        reference: if any
-        example: *ref_18
-      - summary: Provider platform updates the latest status - Out for Delivery
-        api: on_status
-        description: >-
-          Provider platform provides the updated order status to the consumer
-          once the order is out for delivery
-        reference: if any
-        example: *ref_19
-      - summary: Provider platform updates the latest status - Delivered
-        api: on_status
-        description: >-
-          Provider platform provides the updated order status to the consumer
-          once the order is delivered
-        reference: if any
-        example: *ref_20
-  - summary: B2B Prepaid (Payment collected by BAP)
+  - summary: B2B Prepaid (Payment collected by BAP - RFQ Flow)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to order bulk items and makes prepaid payment to
@@ -7578,11 +7342,10 @@ x-flows:
             participant Buyer
             participant BuyerApp
             participant SellerApp
+              
 
-            BuyerApp-->>SellerApp: **/status** - Enquire order status or Tracking info              
-
-            SellerApp->>BuyerApp: **/on_update** - Invoice is sent
-            BuyerApp->>Buyer: Invoice is sent
+            SellerApp->>BuyerApp: **/on_update** - acknowledgment of payment confirmation
+            BuyerApp->>Buyer: acknowledgment of payment confirmation
 
 
             note over Buyer, SellerApp: **STATUS OF SHIPMENT**
@@ -7644,6 +7407,334 @@ x-flows:
         description: Consumer platform sends the payment details
         reference: if any
         example: *ref_16
+      - summary: Consumer platform requests for latest status
+        api: status
+        description: Buyer requests for Shipment status
+        reference: if any
+        example: *ref_14
+      - summary: Provider platform updates the latest status - Order Picked up
+        api: on_status
+        description: >-
+          Provider platform provides the updated order status to the consumer
+          once the order is picked up
+        reference: if any
+        example: *ref_18
+      - summary: Provider platform updates the latest status - Out for Delivery
+        api: on_status
+        description: >-
+          Provider platform provides the updated order status to the consumer
+          once the order is out for delivery
+        reference: if any
+        example: *ref_19
+      - summary: Provider platform updates the latest status - Delivered
+        api: on_status
+        description: >-
+          Provider platform provides the updated order status to the consumer
+          once the order is delivered
+        reference: if any
+        example: *ref_20
+  - summary: B2B Prepaid (Payment collected by BPP - RFQ)
+    description: >-
+      The following is an illustrative flow to perform a transaction of a nature
+      where a buyer would like to order bulk items and makes prepaid payment to
+      the seller NP.
+    details:
+      - description: Buyer Search & Quotation
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant Gateway
+            participant SellerApp1
+            participant SellerApp2
+
+            note over Buyer, SellerApp2: **SEARCH FLOW**
+
+            Buyer->>BuyerApp: Search for a product 
+            BuyerApp->>Gateway: **/search** - Search for a product<br/>Country and City defined in Context
+            Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on Country and domain in Context
+            Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on Country and domain in Context
+
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
+            BuyerApp->>Buyer: Renders the search response
+            
+            note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
+      - description: RFQ (Request For Quotation) FLOW
+        mermaidGraph: |-
+          sequenceDiagram
+            
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+
+            note over Buyer, SellerApp: **RFQ (Request For Quotation) FLOW**
+
+            Buyer->>BuyerApp: Buyer requests for Quotation
+            BuyerApp->>SellerApp: **/select** - An item/s + add_ons + variants + offers is selected and <br/> RFQ is raised with a TTL to receive the response
+
+            note right of SellerApp: Logistics quotation + TAT received (Optional)
+
+            SellerApp->>BuyerApp: **/on_select** - Responds to RFQ with <br/> quote, breakup including logistics charges.
+            BuyerApp->>Buyer: RFQ Response
+      - description: ORDER INITIALIZATION
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+            note over Buyer, SellerApp: **ORDER INITIALIZATION**
+
+            Buyer->>BuyerApp: 
+            BuyerApp->>SellerApp: **/init** - Initializing the order
+            note right of SellerApp: Logistics order initialization with billing details
+            SellerApp->>BuyerApp: **/on_init** - Order initialization
+      - description: PURCHASE ORDER
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+            note over Buyer, SellerApp: **PURCHASE ORDER**
+
+            Buyer->>BuyerApp: Creates PO
+            BuyerApp->>SellerApp: **/confirm** - Create PO to create final digital contract
+            SellerApp->>BuyerApp: **/on_confirm** - Accept PO + payment url (if payment.collected_by is BPP) + <br/> Proforma invoice is shared (if payment.type is ON-FULFILLMENT)
+      - description: Requests for order status
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+            note over Buyer, SellerApp: **STATUS OF SHIPMENT**
+
+            Buyer->>BuyerApp: Checks order status
+            BuyerApp->>SellerApp: **/status** - Enquire Order status or Tracking info
+            SellerApp->>BuyerApp: **/on_status** - Order and fulfillment status is updated
+    reference: if any
+    steps:
+      - summary: Search for an item
+        api: search
+        description: Buyer searches for an item
+        reference: if any
+        example: *ref_6
+      - summary: Seller returns item/ catalog with communication channel
+        api: on_search
+        description: Seller responds back with the catalog
+        reference: if any
+        example: *ref_7
+      - summary: Raise an RFQ
+        api: select
+        description: >-
+          Buyer requests for quotation for the selected item with all the
+          customizations and the quantity of items required
+        reference: if any
+        example: *ref_8
+      - summary: Returns item breakup/ Quote
+        api: on_select
+        description: Seller provides the quotation and breakup with logistics charges
+        reference: if any
+        example: *ref_9
+      - summary: Initialization of Order
+        api: init
+        description: Initialization of Order - Billing Details added.
+        reference: if any
+        example: *ref_10
+      - summary: Initialization of Order
+        api: on_init
+        description: Initialization of Order with final quote
+        reference: if any
+        example: *ref_11
+      - summary: Buyer raises PO
+        api: confirm
+        description: Buyer creates a Purchase Order
+        reference: if any
+        example: *ref_12
+      - summary: Seller Accepts PO
+        api: on_confirm
+        description: Seller accepts Purchase Order
+        reference: if any
+        example: *ref_13
+      - summary: Consumer platform requests for latest status
+        api: status
+        description: Buyer requests for Shipment status
+        reference: if any
+        example: *ref_14
+      - summary: Provider platform updates the latest status - Order Picked up
+        api: on_status
+        description: >-
+          Provider platform provides the updated order status to the consumer
+          once the order is picked up
+        reference: if any
+        example: *ref_18
+      - summary: Provider platform updates the latest status - Out for Delivery
+        api: on_status
+        description: >-
+          Provider platform provides the updated order status to the consumer
+          once the order is out for delivery
+        reference: if any
+        example: *ref_19
+      - summary: Provider platform updates the latest status - Delivered
+        api: on_status
+        description: >-
+          Provider platform provides the updated order status to the consumer
+          once the order is delivered
+        reference: if any
+        example: *ref_20
+  - summary: B2B Prepaid (Payment collected by BPP - No RFQ)
+    description: >-
+      The following is an illustrative flow to perform a transaction of a nature
+      where a buyer would like to order bulk items and makes prepaid payment to
+      the seller NP.
+    details:
+      - description: Buyer Search & Quotation
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant Gateway
+            participant SellerApp1
+            participant SellerApp2
+
+            note over Buyer, SellerApp2: **SEARCH FLOW**
+
+            Buyer->>BuyerApp: Search for a product 
+            BuyerApp->>Gateway: **/search** - Search for a product<br/>Country and City defined in Context
+            Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on Country and domain in Context
+            Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on Country and domain in Context
+
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
+            BuyerApp->>Buyer: Renders the search response
+            
+            note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
+      - description: SELECTION OF ITEMS AND PRICE NEGOTIATION
+        mermaidGraph: |-
+          sequenceDiagram
+            
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+
+            note over Buyer, SellerApp: **Selection of item and price negotiation**
+
+            Buyer->>BuyerApp: Buyer requests for Quotation
+            BuyerApp->>SellerApp: **/select** - An item/s + add_ons + variants + offers are selected 
+
+            note right of SellerApp: Logistics quotation + TAT received (Optional)
+
+            SellerApp->>BuyerApp: **/on_select** - Responds with <br/> quote, breakup including logistics charges.
+            BuyerApp->>Buyer: Quote breakup
+      - description: ORDER INITIALIZATION
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+            note over Buyer, SellerApp: **ORDER INITIALIZATION**
+
+            Buyer->>BuyerApp: 
+            BuyerApp->>SellerApp: **/init** - Initializing the order
+            note right of SellerApp: Logistics order initialization with billing details
+            SellerApp->>BuyerApp: **/on_init** - Order initialization + payment url (if payment.collected_by is BPP)
+      - description: PAYMENT
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+            note over Buyer, SellerApp: **PAYMENT AND INVOICE CREATION**
+
+            Buyer->>BuyerApp: Buyer makes the payment
+            BuyerApp->>SellerApp: /**status** - Buyer requests to know the state of the payment transaction (Optional)
+            SellerApp->>BuyerApp: **/on_status** - Seller updates the Payment status to the buyer
+      - description: ORDER CONFIRMATION
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+            note over Buyer, SellerApp: **PURCHASE ORDER**
+
+            Buyer->>BuyerApp: Creates PO
+            BuyerApp->>SellerApp: **/confirm** - Once the payment is successful, BAP confirms the order
+            SellerApp->>BuyerApp: **/on_confirm** - BPP acknowledges with the confirmation of the order
+      - description: Requests for order status
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+            Buyer->>BuyerApp: Checks order status
+            BuyerApp->>SellerApp: **/status** - Enquire Order status or Tracking info
+            SellerApp->>BuyerApp: **/on_status** - Order and fulfillment status is updated
+    reference: if any
+    steps:
+      - summary: Search for an item
+        api: search
+        description: Buyer searches for an item
+        reference: if any
+        example: *ref_6
+      - summary: Seller returns item/ catalog with communication channel
+        api: on_search
+        description: Seller responds back with the catalog
+        reference: if any
+        example: *ref_7
+      - summary: Raise an RFQ
+        api: select
+        description: >-
+          Buyer selects the items with all the customizations and the quantity
+          of items required
+        reference: if any
+        example: *ref_8
+      - summary: Returns item breakup/ Quote
+        api: on_select
+        description: Seller provides the quotation and breakup with logistics charges
+        reference: if any
+        example: *ref_9
+      - summary: Initialization of Order
+        api: init
+        description: Initialization of Order - Billing Details added.
+        reference: if any
+        example: *ref_10
+      - summary: Initialization of Order
+        api: on_init
+        description: Initialization of Order + payment url provided
+        reference: if any
+        example: *ref_11
+      - summary: Buyer makes the payment and then confirms the order
+        api: confirm
+        description: Buyer makes the payment and then confirms the order
+        reference: if any
+        example: *ref_12
+      - summary: Seller provides acknowledgment to the order confirmation
+        api: on_confirm
+        description: Seller provides acknowledgment to the order confirmation
+        reference: if any
+        example: *ref_13
+      - summary: Seller sends proforma invoice.
+        api: on_status
+        description: Provider platform provides the updated order status to the consumer
+        reference: if any
+        example: *ref_15
       - summary: Consumer platform requests for latest status
         api: status
         description: Buyer requests for Shipment status
@@ -9228,6 +9319,11 @@ x-examples:
                                 unit: millilitre
                                 value: '500'
                               count: '4000'
+                            minimum:
+                              measure:
+                                unit: millilitre
+                                value: '500'
+                              count: '4000'
                           category_ids:
                             - RET10-1042
                           fulfillment_ids:
@@ -9522,6 +9618,11 @@ x-examples:
                                 value: '500'
                               count: '2000'
                             maximum:
+                              measure:
+                                unit: millilitre
+                                value: '500'
+                              count: '4000'
+                            minimum:
                               measure:
                                 unit: millilitre
                                 value: '500'
@@ -9829,6 +9930,11 @@ x-examples:
                                 value: '1'
                               count: '99'
                             maximum:
+                              measure:
+                                unit: unit
+                                value: '1'
+                              count: '99'
+                            minimum:
                               measure:
                                 unit: unit
                                 value: '1'
@@ -10280,6 +10386,11 @@ x-examples:
                                 unit: unit
                                 value: '1'
                               count: '4000'
+                            minimum:
+                              measure:
+                                unit: unit
+                                value: '1'
+                              count: '4000'
                           category_ids:
                             - RET14-1042
                           fulfillment_ids:
@@ -10593,6 +10704,11 @@ x-examples:
                                 value: '500'
                               count: '2000'
                             maximum:
+                              measure:
+                                unit: millilitre
+                                value: '500'
+                              count: '4000'
+                            minimum:
                               measure:
                                 unit: millilitre
                                 value: '500'

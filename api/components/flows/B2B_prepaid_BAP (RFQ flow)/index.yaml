@@ -1,5 +1,5 @@
-summary: B2B Prepaid (Payment collected by BPP)
-description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order bulk items and makes prepaid payment to the seller NP.
+summary: B2B Prepaid (Payment collected by BAP - RFQ Flow)
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order bulk items and makes prepaid payment to buyer NP.
 details:
   - description: Buyer Search & Quotation
     mermaidGraph: >-
@@ -84,8 +84,8 @@ details:
         note over Buyer, SellerApp: **PAYMENT AND INVOICE CREATION**
 
         Buyer->>BuyerApp: Buyer makes the payment
-        BuyerApp->>SellerApp: /**update** - Buyer NP updates that payment has been made to the Seller NP
-        SellerApp->>BuyerApp: **/on_update** - Seller updates the Payment status + Proforma invoice is shared
+        BuyerApp->>SellerApp: /**update** - Buyer makes the payment and sends the payment status
+  
 
 
 
@@ -96,11 +96,10 @@ details:
         participant Buyer
         participant BuyerApp
         participant SellerApp
-      
-        BuyerApp-->>SellerApp: **/status** - Enquire order status or Tracking info              
+          
 
-        SellerApp->>BuyerApp: **/on_update** - Invoice is sent
-        BuyerApp->>Buyer: Invoice is sent
+        SellerApp->>BuyerApp: **/on_update** - acknowledgment of payment confirmation
+        BuyerApp->>Buyer: acknowledgment of payment confirmation
 
 
         note over Buyer, SellerApp: **STATUS OF SHIPMENT**
@@ -163,19 +162,13 @@ steps:
     description: Provider platform provides the updated order status to the consumer
     reference: if any
     example:
-      $ref: "../../Examples/B2B/on_status/on_status_proforma_invoice.yaml"     
-  - summary: Buyer NP updates that payment has been made to the Seller NP
+      $ref: "../../Examples/B2B/on_status/on_status_proforma_invoice.yaml"                                  
+  - summary: Payment is collected by buyer NP (Prepaid) and details are updated
     api: update
-    description: Buyer NP updates that payment has been made to the Seller NP
+    description: Consumer platform sends the payment details
     reference: if any
     example:
-      $ref: "../../Examples/B2B/update/update_prepaid.yaml"                           
-  - summary: Payment is collected by seller NP(Prepaid) and details are updated
-    api: on_update
-    description: Provider platform sends the payment details
-    reference: if any
-    example:
-      $ref: "../../Examples/B2B/on_update/on_update_prepaid.yaml"
+      $ref: "../../Examples/B2B/update/update_prepaid.yaml"
   - summary: Consumer platform requests for latest status
     api: status
     description: Buyer requests for Shipment status

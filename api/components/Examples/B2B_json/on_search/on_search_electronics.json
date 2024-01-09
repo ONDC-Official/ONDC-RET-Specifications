@@ -256,20 +256,19 @@
                     "value": "1"
                   },
                   "count": "4000"
+                },
+                "minimum": {
+                  "measure": {
+                    "unit": "millilitre",
+                    "value": "500"
+                  },
+                  "count": "4000"
                 }
               },
-              "category_ids": [
-                "RET14-1042"
-              ],
-              "fulfillment_ids": [
-                "1"
-              ],
-              "location_ids": [
-                "L1"
-              ],
-              "payment_ids": [
-                "2"
-              ],
+              "category_ids": ["RET14-1042"],
+              "fulfillment_ids": ["1"],
+              "location_ids": ["L1"],
+              "payment_ids": ["2"],
               "add-ons": [
                 {
                   "id": "78787723",
