@@ -13427,32 +13427,57 @@ x-attributes:
               reference: if any
             state:
               description: order state
-              required: mandatory
+              required: required
               usage: Created
               reference: if any
             created_at:
               description: timestamp when the order was created
-              required: mandatory
+              required: required
               usage: '2023-02-03T09:30:00.000Z'
               reference: if any
             updated_at:
               description: timestamp when the order was updated
-              required: mandatory
+              required: required
               usage: '2023-02-03T09:30:00.000Z'
               reference: if any
             payments:
               parent: true
               status:
                 description: status whether payment has been collected or not
-                required: mandatory
+                required: required
                 usage: PAID
                 reference: if any
               params:
                 transaction_id:
                   description: transaction id when the payment was collected
-                  required: mandatory when payment status is PAID
+                  required: required when payment status is PAID
                   usage: '3937'
                   reference: if any
+                currency:
+                  description: currency
+                  required: required
+                  usage: INR
+                  reference: if any
+                amount:
+                  description: amount of payment
+                  required: required
+                  usage: '3937'
+                  reference: if any
+              '@ondc/org/settlement_basis':
+                description: basis of settlement
+                required: required
+                usage: delivery
+                reference: if any
+              '@ondc/org/settlement_window':
+                description: time window within which settlement needs to be done
+                required: required
+                usage: P1D
+                reference: if any
+              '@ondc/org/withholding_amount':
+                description: amount to be settled
+                required: required
+                usage: '10.00'
+                reference: if any
       on_confirm:
         parent: true
         message:
