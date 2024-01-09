@@ -7452,7 +7452,7 @@ x-flows:
             BuyerApp->>Buyer: Renders the search response
             
             note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
-      - description: RFQ (Request For Quotation) FLOW
+      - description: SELECTION OF ITEMS AND PRICE NEGOTIATION
         mermaidGraph: |-
           sequenceDiagram
             
@@ -7461,15 +7461,15 @@ x-flows:
             participant SellerApp
 
 
-            note over Buyer, SellerApp: **RFQ (Request For Quotation) FLOW**
+            note over Buyer, SellerApp: **Selection of item and price negotiation**
 
             Buyer->>BuyerApp: Buyer requests for Quotation
-            BuyerApp->>SellerApp: **/select** - An item/s + add_ons + variants + offers is selected and <br/> RFQ is raised with a TTL to receive the response
+            BuyerApp->>SellerApp: **/select** - An item/s + add_ons + variants + offers are selected 
 
             note right of SellerApp: Logistics quotation + TAT received (Optional)
 
-            SellerApp->>BuyerApp: **/on_select** - Responds to RFQ with <br/> quote, breakup including logistics charges.
-            BuyerApp->>Buyer: RFQ Response
+            SellerApp->>BuyerApp: **/on_select** - Responds with <br/> quote, breakup including logistics charges.
+            BuyerApp->>Buyer: Quote breakup
       - description: ORDER INITIALIZATION
         mermaidGraph: |-
           sequenceDiagram
@@ -7552,7 +7552,7 @@ x-flows:
         example: *ref_10
       - summary: Initialization of Order
         api: on_init
-        description: Initialization of Order with final quote
+        description: Initialization of Order + payment url provided
         reference: if any
         example: *ref_11
       - summary: Buyer makes the payment and then confirms the order
