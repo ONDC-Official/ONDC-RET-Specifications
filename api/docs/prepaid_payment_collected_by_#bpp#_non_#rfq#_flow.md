@@ -193,31 +193,31 @@ sequenceDiagram
     deactivate BPP
 
     note over BAP,BPP: 3. Payment Detail Exchange
-    BAP ->> BPP: /init - Buyer App initializes the order with an optional TTL
+    BAP ->> BPP: /init - Buyer app initializes the order with an optional TTL
     activate BPP
-    BPP ->> BAP: /on_init - Seller sends the payment details to Buyer<br/>and URI to render on Payment Gateway
+    BPP ->> BAP: /on_init - Seller app sends the payment details to Buyer<br/>and URI to render on Payment Gateway
     deactivate BPP
 
     note over BAP,BPP: 4. Communicating Payment Status
     BAP ->> BPP: /status - BAP requests for payment status (Optional)
 
     note over BAP,BPP: a. Payment Success
-    BPP ->> BAP: /on_status - Seller lets buyer know<br/>that transaction is successful
-    BAP ->> BPP: /confirm - Buyer sends a confirmation of the payment 
-    BPP ->> BAP: /on_confirm - Seller App sends acknowledgment of the payment confirmation
+    BPP ->> BAP: /on_status - Seller app lets the buyer app know<br/>that transaction is successful
+    BAP ->> BPP: /confirm - Buyer app sends a confirmation of the payment 
+    BPP ->> BAP: /on_confirm - Seller app sends acknowledgment of the payment confirmation
 
     rect rgb(240, 211, 212)
     note over BAP,BPP: b. Payment Failed
-    BPP ->> BAP: /on_status - Seller lets the buyer know<br/>that transaction failed with </br>error code '31004' and message 'Payment Failed'
+    BPP ->> BAP: /on_status - Seller app lets the BAP know<br/>that transaction failed with </br>error code '31004' and message 'Payment Failed'
     end
 
     rect rgb(223, 237, 218)
     note over BAP,BPP: c. TTL expires
     BAP ->> BPP: /on_status - BPP sends status update
-    BAP ->> BPP: NACK - Buyer sends NACK with error code '31004' and message 'Payment TTL Expired'
+    BAP ->> BPP: NACK - BAP sends NACK with error code '31004' and message 'Payment TTL Expired'
     note over BAP,BPP: If payment is debited
-    BAP ->> BPP: /cancel - Buyer initiates refund request
-    BPP ->> BAP: /cancel - Seller initiates refund process at their end
+    BAP ->> BPP: /cancel - Buyer app initiates refund request
+    BPP ->> BAP: /cancel - Seller app initiates refund process at their end
     end
 
 
