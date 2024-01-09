@@ -73,6 +73,28 @@ details:
         BuyerApp->>SellerApp: **/confirm** - Create PO to create final digital contract
         SellerApp->>BuyerApp: **/on_confirm** - Accept PO + payment url (if payment.collected_by is BPP) + <br/> Proforma invoice is shared (if payment.type is ON-FULFILLMENT)
 
+  - description: PAYMENT COMMUNICATION
+    mermaidGraph: >-
+      sequenceDiagram
+
+        participant Buyer
+        participant BuyerApp
+        participant SellerApp
+
+        note over BuyerApp,SellerApp: a. Payment Success
+        BuyerApp ->> SellerApp: /on_status - Seller app lets the buyer app know<br/>that transaction is successful
+
+        note over BuyerApp,SellerApp: b. Payment Failed
+        BuyerApp ->> BuyerApp: /on_status - Seller app lets the BAP know<br/>that transaction failed with </br>error code '31004' and message 'Payment Failed'
+        
+      
+        note over BuyerApp,SellerApp: c. TTL expires
+        BuyerApp ->> SellerApp: /on_status - BPP sends status update
+        BuyerApp ->> SellerApp: NACK - BAP sends NACK with error code '31004' and message 'Payment TTL Expired'
+        note over BuyerApp,SellerApp: If payment is debited
+        BuyerApp ->> SellerApp: /cancel - Buyer app initiates refund request
+        BuyerApp ->> SellerApp: /cancel - Seller app initiates refund process at their end
+
   - description: Requests for order status
     mermaidGraph: >-
       sequenceDiagram
