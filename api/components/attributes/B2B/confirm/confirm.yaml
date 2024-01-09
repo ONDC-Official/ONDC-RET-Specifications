@@ -60,6 +60,11 @@ message:
             required: required 
             usage: "10.00"
             reference: if any
+      '@ondc/org/settlement_details':
+            description: settlement details sent to the counterparty who will be settling the amount
+            required: required 
+            usage: "-"
+            reference: if any
           
 
       
