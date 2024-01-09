@@ -6281,7 +6281,7 @@ x-flows:
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
-              update_target: item
+              update_target: payments
               order:
                 id: O1
                 state: Accepted
@@ -7456,8 +7456,8 @@ x-flows:
             Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on Country and domain in Context
             Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on Country and domain in Context
 
-            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
-            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + intimates that payment will <br/> be collected by BPP + Communication channel) <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + intimates that payment will <br/> be collected by BPP + Communication channel) <br/>  Servicability based on Country, City and HScode permits
             BuyerApp->>Buyer: Renders the search response
             
             note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
@@ -7633,8 +7633,8 @@ x-flows:
             Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on Country and domain in Context
             Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on Country and domain in Context
 
-            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
-            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + intimates that payment will <br/> be collected by BPP  + Communication channel) <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + intimates that payment will <br/> be collected by BPP + Communication channel) <br/>  Servicability based on Country, City and HScode permits
             BuyerApp->>Buyer: Renders the search response
             
             note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
@@ -9132,7 +9132,7 @@ x-examples:
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
-                update_target: item
+                update_target: payments
                 order:
                   id: O1
                   state: Accepted
@@ -13619,7 +13619,7 @@ x-attributes:
             update_target:
               description: target block to be updated (enum - item,fulfillment)
               required: required
-              usage: item
+              usage: payments
               reference: if any
             items:
               parent: true
@@ -13632,6 +13632,10 @@ x-attributes:
                     reference: if any
             payments:
               parent: true
+              description: payment details
+              required: required when buyer app wants to update the payment status
+              usage: '-'
+              reference: if any
               status:
                 description: status whether payment has been collected or not
                 required: required

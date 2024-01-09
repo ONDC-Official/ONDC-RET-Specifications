@@ -4,8 +4,8 @@ message:
     parent: true
     update_target:
       description: target block to be updated (enum - item,fulfillment)
-      required: required
-      usage: "item"
+      required: required 
+      usage: "payments"
       reference: if any
     items:
       parent: true
@@ -18,9 +18,13 @@ message:
             reference: if any
     payments:
       parent: true
+      description: payment details
+      required: required when buyer app wants to update the payment status
+      usage: '-'
+      reference: if any
       status:
         description: status whether payment has been collected or not
-        required: required
+        required: required 
         usage: PAID
         reference: if any
       params:
