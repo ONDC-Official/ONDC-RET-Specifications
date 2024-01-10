@@ -8,6 +8,7 @@ select:
     - $ref: ./select/select_domestic.yaml
     - $ref: ./select/select_exports.yaml
     - $ref: ./select/select_BAP_chat.yaml
+    - $ref: ./select/select_domestic(Non RFQ).yaml
 init:
   examples:
     - $ref: ./init/init_exports.yaml

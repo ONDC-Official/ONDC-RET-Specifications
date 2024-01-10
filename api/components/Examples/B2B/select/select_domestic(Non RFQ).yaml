@@ -1,5 +1,5 @@
-summary: Get quote for specific item (RFQ)
-description: RFQ - Get quote for selected items with Buyer and Delivery terms with a TTL to receive the response
+summary: Get quote for specific item
+description: RFQ - Get quote for selected items with Buyer and Delivery terms 
 value:
   context:
     domain: ONDC:RET10
@@ -17,14 +17,13 @@ value:
     transaction_id: T1
     message_id: M1
     timestamp: '2023-01-08T22:00:30.000Z'
-    ttl: P1D
+    ttl: PT30S
   message:
     order:
       provider:
         id: P1
         locations:
         - id: L1
-        ttl: P1D
       items:
       - id: I1
         location_ids:

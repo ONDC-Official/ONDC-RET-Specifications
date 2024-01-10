@@ -123,7 +123,7 @@ steps:
     description: Buyer requests for quotation for the selected item with all the customizations and the quantity of items required
     reference: if any
     example:
-      $ref: "../../Examples/B2B/select/select_domestic.yaml"
+      $ref: "../../Examples/B2B/select/select_domestic(Non RFQ).yaml"
   - summary: Returns item breakup/ Quote
     api: on_select
     description: Seller provides the quotation and breakup with logistics charges

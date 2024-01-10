@@ -197,7 +197,7 @@
             "currency": "INR",
             "amount": "53600"
           },
-          "status": "PAID",
+          "status": "Pending",
           "type": "PRE-FULFILLMENT",
           "collected_by": "BPP",
           "@ondc/org/buyer_app_finder_fee_type": "percent",
@@ -273,10 +273,6 @@
             {
               "code":"accept_bpp_terms",
               "value":"Y"
-            },
-            {
-              "code":"static_terms",
-              "value":"https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf"
             }
           ]
         }

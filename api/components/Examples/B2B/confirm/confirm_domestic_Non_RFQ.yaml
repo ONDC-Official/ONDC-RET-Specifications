@@ -175,8 +175,5 @@ value:
           list:
             - code: accept_bpp_terms
               value: 'Y'
-            - code: static_terms
-              value: >-
-                https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
       created_at: '2023-02-03T09:30:00.000Z'
       updated_at: '2023-02-03T09:30:00.000Z'
