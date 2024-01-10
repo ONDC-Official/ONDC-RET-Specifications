@@ -71,7 +71,7 @@ details:
 
         Buyer->>BuyerApp: Creates PO
         BuyerApp->>SellerApp: **/confirm** - Create PO to create final digital contract
-        SellerApp->>BuyerApp: **/on_confirm** - Accept PO + payment url (if payment.collected_by is BPP) + <br/> Proforma invoice is shared (if payment.type is ON-FULFILLMENT)
+        SellerApp->>BuyerApp: **/on_confirm** - Accept PO + payment url (if payment.collected_by is BPP)
 
   - description: PAYMENT COMMUNICATION
     mermaidGraph: >-
