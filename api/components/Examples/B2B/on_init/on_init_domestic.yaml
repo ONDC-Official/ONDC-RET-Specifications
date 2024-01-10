@@ -1,5 +1,5 @@
-summary: Respond to RFQ (Domestic)
-description: Respond to RFQ
+summary: Acknowledges the initialization (Domestic)
+description: Acknowledges the initialization
 value:
   context:
     domain: ONDC:RET10

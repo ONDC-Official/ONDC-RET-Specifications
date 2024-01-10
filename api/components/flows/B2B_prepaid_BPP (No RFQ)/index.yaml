@@ -84,11 +84,11 @@ details:
         
       
         note over BuyerApp,SellerApp: c. TTL expires
-        BuyerApp ->> SellerApp: /on_status - BPP sends status update
+        SellerApp ->> BuyerApp: /on_status - BPP sends status update
         BuyerApp ->> SellerApp: NACK - BAP sends NACK with error code '31004' and message 'Payment TTL Expired'
-        note over BuyerApp,SellerApp: If payment is debited
-        BuyerApp ->> SellerApp: /cancel - Buyer app initiates refund request
-        BuyerApp ->> SellerApp: /cancel - Seller app initiates refund process at their end
+        note over BuyerApp,SellerApp: If payment fails or TTL expires
+        BuyerApp ->> SellerApp: /cancel - Buyer app cancels the order
+        BuyerApp ->> SellerApp: /on_cancel - Seller app confirms the cancellation
 
 
   - description: Requests for order status
@@ -112,10 +112,10 @@ steps:
       $ref: "../../Examples/B2B/search/search_by_item.yaml"
   - summary: Seller returns item/ catalog with communication channel
     api: on_search
-    description: Seller responds back with the catalog
+    description: Seller responds back with the catalog and intimates that BPP will be collecting the payment
     reference: if any
     example:
-      $ref: "../../Examples/B2B/on_search/on_search.yaml"
+      $ref: "../../Examples/B2B/on_search/on_search_payment_BPP.yaml"
   - summary: Raise an RFQ
     api: select
     description: Buyer selects the items with all the customizations and the quantity of items required
@@ -133,19 +133,19 @@ steps:
     description: Initialization of Order - Billing Details added.
     reference: if any
     example:
-      $ref: "../../Examples/B2B/init/init_domestic.yaml"
+      $ref: "../../Examples/B2B/init/init_domestic_BPP_payment.yaml"
   - summary: Initialization of Order
     api: on_init
     description: Initialization of Order + payment url provided
     reference: if any
     example:
-      $ref: "../../Examples/B2B/on_init/on_init_domestic.yaml"
+      $ref: "../../Examples/B2B/on_init/on_init_domestic_payment_BPP_Non_RFQ.yaml"
   - summary: Buyer makes the payment and then confirms the order
     api: confirm
     description: Buyer makes the payment and then confirms the order
     reference: if any
     example:
-      $ref: "../../Examples/B2B/confirm/confirm_domestic.yaml"
+      $ref: "../../Examples/B2B/confirm/confirm_domestic_Non_RFQ.yaml"
   - summary: Seller provides acknowledgment to the order confirmation
     api: on_confirm
     description: Seller provides acknowledgment to the order confirmation

@@ -97,10 +97,9 @@ details:
         participant BuyerApp
         participant SellerApp
           
-
+        BuyerApp->>SellerApp: **/update** - Buyer app lets the seller app know about payment confirmation
         SellerApp->>BuyerApp: **/on_update** - acknowledgment of payment confirmation
-        BuyerApp->>Buyer: acknowledgment of payment confirmation
-
+      
 
         note over Buyer, SellerApp: **STATUS OF SHIPMENT**
 

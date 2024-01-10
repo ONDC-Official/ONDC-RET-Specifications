@@ -55,7 +55,8 @@ confirm:
   context: *context
   message:
     order: 
-     state: "./orderstatus.yaml#/order_status"
+     state: 
+     $ref: "./orderstatus.yaml#/status"
 on_confirm:
   context: *context
   message:
