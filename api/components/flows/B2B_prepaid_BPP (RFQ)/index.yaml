@@ -71,7 +71,7 @@ details:
 
         Buyer->>BuyerApp: Creates PO
         BuyerApp->>SellerApp: **/confirm** - Create PO to create final digital contract
-        SellerApp->>BuyerApp: **/on_confirm** - Accept PO + payment url (if payment.collected_by is BPP)
+        SellerApp->>BuyerApp: **/on_confirm** - Accept PO + payment url (if payment.collected_by is BPP) + TTL for payment
 
   - description: PAYMENT COMMUNICATION
     mermaidGraph: >-
@@ -154,7 +154,7 @@ steps:
       $ref: "../../Examples/B2B/confirm/confirm_domestic.yaml"
   - summary: Seller Accepts PO
     api: on_confirm
-    description: Seller accepts Purchase Order
+    description: Seller accepts Purchase Order and shares the payment link along with TTL
     reference: if any
     example:
       $ref: "../../Examples/B2B/on_confirm/on_confirm_domestic.yaml" 

@@ -51,7 +51,7 @@ details:
 
         BuyerApp->>SellerApp: **/init** - Initializing the order
         note right of SellerApp: Logistics order initialization with billing details
-        SellerApp->>BuyerApp: **/on_init** - Order initialization + payment url (if payment.collected_by is BPP)
+        SellerApp->>BuyerApp: **/on_init** - Order initialization + payment url (if payment.collected_by is BPP) + TTL for payment
 
   - description: ORDER CONFIRMATION
     mermaidGraph: >-
@@ -134,7 +134,7 @@ steps:
       $ref: "../../Examples/B2B/init/init_domestic_BPP_payment.yaml"
   - summary: Acknowledges the init request and shares the payment url
     api: on_init
-    description: Initialization of Order + payment url provided
+    description: BPP acknowledges and shares the payment link along with TTL
     reference: if any
     example:
       $ref: "../../Examples/B2B/on_init/on_init_domestic_payment_BPP_Non_RFQ.yaml"

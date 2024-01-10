@@ -8184,7 +8184,7 @@ x-flows:
 
             Buyer->>BuyerApp: Creates PO
             BuyerApp->>SellerApp: **/confirm** - Create PO to create final digital contract
-            SellerApp->>BuyerApp: **/on_confirm** - Accept PO + payment url (if payment.collected_by is BPP)
+            SellerApp->>BuyerApp: **/on_confirm** - Accept PO + payment url (if payment.collected_by is BPP) + TTL for payment
       - description: PAYMENT COMMUNICATION
         mermaidGraph: |-
           sequenceDiagram
@@ -8600,7 +8600,9 @@ x-flows:
         example: *ref_13
       - summary: Seller Accepts PO
         api: on_confirm
-        description: Seller accepts Purchase Order
+        description: >-
+          Seller accepts Purchase Order and shares the payment link along with
+          TTL
         reference: if any
         example: *ref_14
       - summary: Seller app updates the payment status and sends proforma invoice
@@ -8689,7 +8691,7 @@ x-flows:
 
             BuyerApp->>SellerApp: **/init** - Initializing the order
             note right of SellerApp: Logistics order initialization with billing details
-            SellerApp->>BuyerApp: **/on_init** - Order initialization + payment url (if payment.collected_by is BPP)
+            SellerApp->>BuyerApp: **/on_init** - Order initialization + payment url (if payment.collected_by is BPP) + TTL for payment
       - description: ORDER CONFIRMATION
         mermaidGraph: |-
           sequenceDiagram
@@ -8854,7 +8856,7 @@ x-flows:
                         value: xxxxxxxxxxxxxxx
       - summary: Acknowledges the init request and shares the payment url
         api: on_init
-        description: Initialization of Order + payment url provided
+        description: BPP acknowledges and shares the payment link along with TTL
         reference: if any
         example:
           summary: >-
