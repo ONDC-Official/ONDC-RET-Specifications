@@ -2,6 +2,7 @@
 - $ref: "./B2B_exports/index.yaml"
 - $ref: "./B2B_multiple_fulfillments/index.yaml"
 - $ref: "./B2B_prepaid_BAP (RFQ flow)/index.yaml"
+- $ref: "./B2B_prepaid_BAP (Non RFQ)/index.yaml"
 - $ref: "./B2B_prepaid_BPP (RFQ)/index.yaml"
 - $ref: "./B2B_prepaid_BPP (No RFQ)/index.yaml"
 - $ref: "./B2B_Item_out_of_stock/index.yaml"

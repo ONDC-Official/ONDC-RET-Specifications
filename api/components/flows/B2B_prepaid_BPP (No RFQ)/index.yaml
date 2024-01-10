@@ -18,12 +18,10 @@ details:
         Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on Country and domain in Context
         Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on Country and domain in Context
 
-        SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + intimates that payment will <br/> be collected by BPP  + Communication channel) <br/> Servicability based on Country, City and HScode permits
-        SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + intimates that payment will <br/> be collected by BPP + Communication channel) <br/>  Servicability based on Country, City and HScode permits
+        SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + intimates that payment will <br/> be collected by BPP <br/> Servicability based on Country, City and HScode permits
+        SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + intimates that payment will <br/> be collected by BPP <br/>  Servicability based on Country, City and HScode permits
         BuyerApp->>Buyer: Renders the search response
         
-        note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
-
   - description: SELECTION OF ITEMS AND PRICE NEGOTIATION
     mermaidGraph: >-
       sequenceDiagram
@@ -39,7 +37,7 @@ details:
 
         note right of SellerApp: Logistics quotation + TAT received (Optional)
 
-        SellerApp->>BuyerApp: **/on_select** - sends quote, breakup including </br> logistics charges.
+        SellerApp->>BuyerApp: **/on_select** - sends quote, breakup including <br/> logistics charges.
 
   - description: ORDER INITIALIZATION
     mermaidGraph: >-
@@ -53,7 +51,7 @@ details:
 
         BuyerApp->>SellerApp: **/init** - Initializing the order
         note right of SellerApp: Logistics order initialization with billing details
-        SellerApp->>BuyerApp: **/on_init** - Order initialization + payment url (if payment.collected_by is BPP)
+        SellerApp->>BuyerApp: **/on_init** - Order initialization + payment url (if payment.collected_by is BPP) + TTL for payment
 
   - description: ORDER CONFIRMATION
     mermaidGraph: >-
@@ -65,7 +63,7 @@ details:
       
         note over Buyer, SellerApp: **ORDER CONFIRMATION**
 
-        BuyerApp->>SellerApp: **/confirm** - BAP confirms the order
+        BuyerApp->>SellerApp: **/confirm** - Buyer makes the payment and BAP confirms the order
         SellerApp->>BuyerApp: **/on_confirm** - BPP acknowledges with the confirmation of the order
 
   - description: PAYMENT COMMUNICATION
@@ -77,18 +75,18 @@ details:
         participant SellerApp
 
         note over BuyerApp,SellerApp: a. Payment Success
-        BuyerApp ->> SellerApp: /on_status - Seller app lets the buyer app know<br/>that transaction is successful
+         SellerApp ->> BuyerApp: /on_status - Seller app lets the buyer app know<br/>that transaction is successful
 
         note over BuyerApp,SellerApp: b. Payment Failed
-        BuyerApp ->> BuyerApp: /on_status - Seller app lets the BAP know<br/>that transaction failed with </br>error code '31004' and message 'Payment Failed'
+         SellerApp ->> BuyerApp: /on_status - Seller app lets the BAP know<br/>that transaction failed with <br/>error code '31004' and message 'Payment Failed'
         
       
         note over BuyerApp,SellerApp: c. TTL expires
-        BuyerApp ->> SellerApp: /on_status - BPP sends status update
+        SellerApp ->> BuyerApp: /on_status - BPP sends status update
         BuyerApp ->> SellerApp: NACK - BAP sends NACK with error code '31004' and message 'Payment TTL Expired'
-        note over BuyerApp,SellerApp: If payment is debited
-        BuyerApp ->> SellerApp: /cancel - Buyer app initiates refund request
-        BuyerApp ->> SellerApp: /cancel - Seller app initiates refund process at their end
+        note over BuyerApp,SellerApp: If payment fails or TTL expires
+        BuyerApp ->> SellerApp: /cancel - Buyer app cancels the order
+        BuyerApp ->> SellerApp: /on_cancel - Seller app confirms the cancellation
 
 
   - description: Requests for order status
@@ -110,21 +108,21 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/B2B/search/search_by_item.yaml"
-  - summary: Seller returns item/ catalog with communication channel
+  - summary: Seller returns item/ catalog 
     api: on_search
-    description: Seller responds back with the catalog
+    description: Seller responds back with the catalog and intimates that BPP will be collecting the payment
     reference: if any
     example:
-      $ref: "../../Examples/B2B/on_search/on_search.yaml"
-  - summary: Raise an RFQ
+      $ref: "../../Examples/B2B/on_search/on_search_payment_BPP.yaml"
+  - summary: Selection of items
     api: select
     description: Buyer selects the items with all the customizations and the quantity of items required
     reference: if any
     example:
-      $ref: "../../Examples/B2B/select/select_domestic.yaml"
+      $ref: "../../Examples/B2B/select/select_domestic(Non RFQ).yaml"
   - summary: Returns item breakup/ Quote
     api: on_select
-    description: Seller provides the quotation and breakup with logistics charges
+    description: Seller provides the quote and breakup with logistics charges
     reference: if any
     example:
       $ref: "../../Examples/B2B/on_select/on_select_domestic.yaml"
@@ -133,31 +131,31 @@ steps:
     description: Initialization of Order - Billing Details added.
     reference: if any
     example:
-      $ref: "../../Examples/B2B/init/init_domestic.yaml"
-  - summary: Initialization of Order
+      $ref: "../../Examples/B2B/init/init_domestic_BPP_payment.yaml"
+  - summary: Acknowledges the init request and shares the payment url
     api: on_init
-    description: Initialization of Order + payment url provided
+    description: BPP acknowledges and shares the payment link along with TTL
     reference: if any
     example:
-      $ref: "../../Examples/B2B/on_init/on_init_domestic.yaml"
+      $ref: "../../Examples/B2B/on_init/on_init_domestic_payment_BPP_Non_RFQ.yaml"
   - summary: Buyer makes the payment and then confirms the order
     api: confirm
     description: Buyer makes the payment and then confirms the order
     reference: if any
     example:
-      $ref: "../../Examples/B2B/confirm/confirm_domestic.yaml"
+      $ref: "../../Examples/B2B/confirm/confirm_domestic_Non_RFQ.yaml"
   - summary: Seller provides acknowledgment to the order confirmation
     api: on_confirm
     description: Seller provides acknowledgment to the order confirmation
     reference: if any
     example:
-      $ref: "../../Examples/B2B/on_confirm/on_confirm_domestic.yaml"                        
-  - summary: Seller sends proforma invoice.
+      $ref: "../../Examples/B2B/on_confirm/on_confirm_domestic_non_rfq.yaml"   
+  - summary: Seller app updates the payment status
     api: on_status
-    description: Provider platform provides the updated order status to the consumer
+    description: Seller app updates the payment status
     reference: if any
     example:
-      $ref: "../../Examples/B2B/on_status/on_status_proforma_invoice.yaml"     
+      $ref: "../../Examples/B2B/on_status/on_status_BPP_payment.yaml"                          
   - summary: Consumer platform requests for latest status
     api: status
     description: Buyer requests for Shipment status

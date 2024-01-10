@@ -244,6 +244,33 @@
               "bank_name": "xxxx",
               "branch_name": "xxxx"
             }
+          ],
+          "tags": [
+            {
+              "descriptor": {
+                "code": "BPP_payment"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "signature"
+                  },
+                  "value": "xxxxxxxxxxxxxx"
+                },
+                {
+                  "descriptor": {
+                    "code": "dsa"
+                  },
+                  "value": "ED25519"
+                },
+                {
+                  "descriptor": {
+                    "code": "ttl"
+                  },
+                  "value": "PT30M"
+                }
+              ]
+            }
           ]
         }
       ],

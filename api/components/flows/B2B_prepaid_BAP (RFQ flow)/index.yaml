@@ -71,7 +71,7 @@ details:
 
         Buyer->>BuyerApp: Creates PO
         BuyerApp->>SellerApp: **/confirm** - Create PO to create final digital contract
-        SellerApp->>BuyerApp: **/on_confirm** - Accept PO + payment url (if payment.collected_by is BPP) + <br/> Proforma invoice is shared (if payment.type is ON-FULFILLMENT)
+        SellerApp->>BuyerApp: **/on_confirm** - Accept PO + payment url (if payment.collected_by is BPP) 
 
   - description: PAYMENT AND INVOICE CREATION
     mermaidGraph: >-
@@ -84,11 +84,12 @@ details:
         note over Buyer, SellerApp: **PAYMENT AND INVOICE CREATION**
 
         Buyer->>BuyerApp: Buyer makes the payment
-        BuyerApp->>SellerApp: /**update** - Buyer makes the payment and sends the payment status
+        BuyerApp->>SellerApp: **/update** - BAP updates the payment status
+        SellerApp->>BuyerApp: **/on_update** - Acknowledgment of payment confirmation
+       SellerApp->>BuyerApp: **/on_status** - BPP sends the proforma invoice
+
+      
   
-
-
-
   - description: Requests for order status
     mermaidGraph: >-
       sequenceDiagram
@@ -96,11 +97,6 @@ details:
         participant Buyer
         participant BuyerApp
         participant SellerApp
-          
-
-        SellerApp->>BuyerApp: **/on_update** - acknowledgment of payment confirmation
-        BuyerApp->>Buyer: acknowledgment of payment confirmation
-
 
         note over Buyer, SellerApp: **STATUS OF SHIPMENT**
 
@@ -156,19 +152,25 @@ steps:
     description: Seller accepts Purchase Order
     reference: if any
     example:
-      $ref: "../../Examples/B2B/on_confirm/on_confirm_domestic.yaml"                        
-  - summary: Seller sends proforma invoice.
-    api: on_status
-    description: Provider platform provides the updated order status to the consumer
-    reference: if any
-    example:
-      $ref: "../../Examples/B2B/on_status/on_status_proforma_invoice.yaml"                                  
+      $ref: "../../Examples/B2B/on_confirm/on_confirm_domestic.yaml"   
   - summary: Payment is collected by buyer NP (Prepaid) and details are updated
     api: update
     description: Consumer platform sends the payment details
     reference: if any
     example:
-      $ref: "../../Examples/B2B/update/update_prepaid.yaml"
+      $ref: "../../Examples/B2B/update/update_prepaid.yaml"        
+  - summary: Seller app acknowledges the payment confirmation
+    api: on_update
+    description: Seller app acknowledges the payment confirmation
+    reference: if any
+    example:
+      $ref: "../../Examples/B2B/on_update/on_update_prepaid_BAP.yaml"             
+  - summary: Seller sends proforma invoice.
+    api: on_status
+    description: Provider platform sends the proforma invoice to the consumer
+    reference: if any
+    example:
+      $ref: "../../Examples/B2B/on_status/on_status_proforma_invoice.yaml"                                  
   - summary: Consumer platform requests for latest status
     api: status
     description: Buyer requests for Shipment status

@@ -6,7 +6,7 @@ message:
       parent: true
       url: 
         description: url of the invoice
-        required: mandatory when order has been picked up
+        required: required when order has been picked up
         usage: "https://invoice_url"
         reference: if any
     payments:

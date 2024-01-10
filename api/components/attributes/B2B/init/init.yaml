@@ -5,7 +5,7 @@ message:
     billing:
       parent: true
       phone:
-        required: mandatory
+        required: required
         description: Describes the phone information of an entity
         reference: if any
         usage: "9886098860"
@@ -15,37 +15,37 @@ message:
         reference: if any
         usage: nobody@nomail.com
       name:
-        required: mandatory
+        required: required
         description: Describes a person name as any individual
         reference: if any
         usage: ONDC buyer  
       tax_id:
-        required: mandatory
+        required: required
         description: Describes tax id
         reference: if any
         usage: 22AAAAA0000A1Z5 
       state:
         name:
-          required: mandatory
+          required: required
           description: Describes the state information of an entity
           reference: if any
           usage: Karnataka
       city:
         name:
-          required: mandatory
+          required: required
           description: Describes the city information of an entity
           reference: if any
           usage: Bengaluru
     provider:
       parent: true
       locations:
-        description: mandatory only if provider.locations was returned in /on_search
+        description: required only if provider.locations was returned in /on_search
         required: optional
         usage: "-"
         reference: if any
       ttl:
         description: provider ttl
-        required: mandatory
+        required: required
         usage: P1D
         reference: if any     
 

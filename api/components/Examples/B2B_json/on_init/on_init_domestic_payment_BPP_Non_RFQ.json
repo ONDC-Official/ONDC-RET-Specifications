@@ -224,6 +224,12 @@
                     "code": "dsa"
                   },
                   "value": "ED25519"
+                },
+                {
+                  "descriptor": {
+                    "code": "ttl"
+                  },
+                  "value": "PT30M"
                 }
               ]
             }

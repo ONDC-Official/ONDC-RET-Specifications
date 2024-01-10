@@ -40,7 +40,9 @@ on_select:
 init:
   context: *context
   message:
-    order: *order
+    order: 
+      payment: *payment
+      fulfillments: *fulfillment
 on_init:
   context: *context
   message:
@@ -55,17 +57,27 @@ confirm:
   context: *context
   message:
     order: 
-     state: "./orderstatus.yaml#/order_status"
+     payment: *payment
+     fulfillments: *fulfillment
+     state: 
+       $ref: "./orderstatus.yaml#/status"
 on_confirm:
   context: *context
   message:
-    order: *order
+    order: 
+     payment: *payment
+     fulfillments: *fulfillment
+     state: 
+       $ref: "./orderstatus.yaml#/status"
 status:
   context: *context
 on_status:
   context: *context
   message:
     order: 
+      payment: *payment
+      state: 
+       $ref: "./orderstatus.yaml#/status"
       fulfillments:
         state: 
            $ref: "./fulfillments.yaml#/fulfillments/state"
@@ -74,7 +86,13 @@ cancel:
 on_cancel:
   context: *context
   message:
-    order: *order
+    order: 
+      payment: *payment
+      state: 
+       $ref: "./orderstatus.yaml#/status"
+      fulfillments:
+        state: 
+           $ref: "./fulfillments.yaml#/fulfillments/state"
 track:
   context: *context
 on_track:
