@@ -71,7 +71,7 @@ details:
 
         Buyer->>BuyerApp: Creates PO
         BuyerApp->>SellerApp: **/confirm** - Create PO to create final digital contract
-        SellerApp->>BuyerApp: **/on_confirm** - Accept PO + payment url (if payment.collected_by is BPP) + <br/> Proforma invoice is shared (if payment.type is ON-FULFILLMENT)
+        SellerApp->>BuyerApp: **/on_confirm** - Accept PO + payment url (if payment.collected_by is BPP) 
 
   - description: PAYMENT AND INVOICE CREATION
     mermaidGraph: >-
@@ -84,8 +84,10 @@ details:
         note over Buyer, SellerApp: **PAYMENT AND INVOICE CREATION**
 
         Buyer->>BuyerApp: Buyer makes the payment
-        BuyerApp->>SellerApp: /**update** - Buyer makes the payment and sends the payment status
-        SellerApp->>BuyerApp: **/on_update** - Seller updates the Payment status + Proforma invoice is shared
+        BuyerApp->>SellerApp: **/update** - Buyer app sends the payment status
+        SellerApp->>BuyerApp: **/on_update** - Seller app updates the Payment status 
+        SellerApp->>BuyerApp: **/on_status** - Seller sends the proforma invoice
+
 
 
 
@@ -96,13 +98,7 @@ details:
         participant Buyer
         participant BuyerApp
         participant SellerApp
-      
-        BuyerApp-->>SellerApp: **/status** - Enquire order status or Tracking info              
-
-        SellerApp->>BuyerApp: **/on_update** - Invoice is sent
-        BuyerApp->>Buyer: Invoice is sent
-
-
+        
         note over Buyer, SellerApp: **STATUS OF SHIPMENT**
 
         Buyer->>BuyerApp: Checks order status

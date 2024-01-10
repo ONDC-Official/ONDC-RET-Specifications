@@ -82,7 +82,7 @@ details:
         participant SellerApp
 
         note over BuyerApp,SellerApp: a. Payment Success
-        SellerApp ->> BuyerApp: /on_status - Seller app lets the buyer app know<br/>that transaction is successful
+        SellerApp ->> BuyerApp: /on_status - Seller app lets the buyer app know<br/>that transaction is successful <br/> and sends the proforma invoice
 
         note over BuyerApp,SellerApp: b. Payment Failed
         SellerApp ->> BuyerApp: /on_status - Seller app lets the BAP know<br/>that transaction failed with <br/>error code '31004' and message 'Payment Failed'

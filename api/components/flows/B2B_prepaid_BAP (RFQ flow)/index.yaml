@@ -84,8 +84,8 @@ details:
         note over Buyer, SellerApp: **PAYMENT AND INVOICE CREATION**
 
         Buyer->>BuyerApp: Buyer makes the payment
-        BuyerApp->>SellerApp: /**update** - BAP updates the payment status
-        SellerApp->>BuyerApp: **/on_update** - acknowledgment of payment confirmation
+        BuyerApp->>SellerApp: **/update** - BAP updates the payment status
+        SellerApp->>BuyerApp: **/on_update** - Acknowledgment of payment confirmation
        SellerApp->>BuyerApp: **/on_status** - BPP sends the proforma invoice
 
       
@@ -167,7 +167,7 @@ steps:
       $ref: "../../Examples/B2B/on_update/on_update_prepaid_BAP.yaml"             
   - summary: Seller sends proforma invoice.
     api: on_status
-    description: Provider platform provides the updated order status to the consumer
+    description: Provider platform sends the proforma invoice to the consumer
     reference: if any
     example:
       $ref: "../../Examples/B2B/on_status/on_status_proforma_invoice.yaml"                                  

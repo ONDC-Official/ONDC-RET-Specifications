@@ -3470,7 +3470,7 @@ x-flows:
 
             Buyer->>BuyerApp: Creates PO
             BuyerApp->>SellerApp: **/confirm** - Create PO to create final digital contract
-            SellerApp->>BuyerApp: **/on_confirm** - Accept PO + payment url (if payment.collected_by is BPP) + <br/> Proforma invoice is shared (if payment.type is ON-FULFILLMENT)
+            SellerApp->>BuyerApp: **/on_confirm** - Accept PO + payment url (if payment.collected_by is BPP) 
       - description: PAYMENT AND INVOICE CREATION
         mermaidGraph: |-
           sequenceDiagram
@@ -3482,8 +3482,9 @@ x-flows:
             note over Buyer, SellerApp: **PAYMENT AND INVOICE CREATION**
 
             Buyer->>BuyerApp: Buyer makes the payment
-            BuyerApp->>SellerApp: /**update** - Buyer makes the payment and sends the payment status
-            SellerApp->>BuyerApp: **/on_update** - Seller updates the Payment status + Proforma invoice is shared
+            BuyerApp->>SellerApp: **/update** - Buyer app sends the payment status
+            SellerApp->>BuyerApp: **/on_update** - Seller app updates the Payment status 
+            SellerApp->>BuyerApp: **/on_status** - Seller sends the proforma invoice
       - description: Requests for order status
         mermaidGraph: |-
           sequenceDiagram
@@ -3491,13 +3492,7 @@ x-flows:
             participant Buyer
             participant BuyerApp
             participant SellerApp
-
-            BuyerApp-->>SellerApp: **/status** - Enquire order status or Tracking info              
-
-            SellerApp->>BuyerApp: **/on_update** - Invoice is sent
-            BuyerApp->>Buyer: Invoice is sent
-
-
+            
             note over Buyer, SellerApp: **STATUS OF SHIPMENT**
 
             Buyer->>BuyerApp: Checks order status
@@ -7361,8 +7356,8 @@ x-flows:
             note over Buyer, SellerApp: **PAYMENT AND INVOICE CREATION**
 
             Buyer->>BuyerApp: Buyer makes the payment
-            BuyerApp->>SellerApp: /**update** - BAP updates the payment status
-            SellerApp->>BuyerApp: **/on_update** - acknowledgment of payment confirmation
+            BuyerApp->>SellerApp: **/update** - BAP updates the payment status
+            SellerApp->>BuyerApp: **/on_update** - Acknowledgment of payment confirmation
            SellerApp->>BuyerApp: **/on_status** - BPP sends the proforma invoice
       - description: Requests for order status
         mermaidGraph: |-
@@ -7489,7 +7484,7 @@ x-flows:
                         branch_name: xxxx
       - summary: Seller sends proforma invoice.
         api: on_status
-        description: Provider platform provides the updated order status to the consumer
+        description: Provider platform sends the proforma invoice to the consumer
         reference: if any
         example: *ref_16
       - summary: Consumer platform requests for latest status
@@ -8005,7 +8000,7 @@ x-flows:
             participant SellerApp
 
             note over BuyerApp,SellerApp: a. Payment Success
-            SellerApp ->> BuyerApp: /on_status - Seller app lets the buyer app know<br/>that transaction is successful
+            SellerApp ->> BuyerApp: /on_status - Seller app lets the buyer app know<br/>that transaction is successful <br/> and sends the proforma invoice
 
             note over BuyerApp,SellerApp: b. Payment Failed
             SellerApp ->> BuyerApp: /on_status - Seller app lets the BAP know<br/>that transaction failed with <br/>error code '31004' and message 'Payment Failed'
