@@ -7361,7 +7361,9 @@ x-flows:
             note over Buyer, SellerApp: **PAYMENT AND INVOICE CREATION**
 
             Buyer->>BuyerApp: Buyer makes the payment
-            BuyerApp->>SellerApp: /**update** - Buyer makes the payment and sends the payment status
+            BuyerApp->>SellerApp: /**update** - BAP updates the payment status
+            SellerApp->>BuyerApp: **/on_update** - acknowledgment of payment confirmation
+           SellerApp->>BuyerApp: **/on_status** - BPP sends the proforma invoice
       - description: Requests for order status
         mermaidGraph: |-
           sequenceDiagram
@@ -7369,10 +7371,6 @@ x-flows:
             participant Buyer
             participant BuyerApp
             participant SellerApp
-              
-            BuyerApp->>SellerApp: **/update** - Buyer app lets the seller app know about payment confirmation
-            SellerApp->>BuyerApp: **/on_update** - acknowledgment of payment confirmation
-
 
             note over Buyer, SellerApp: **STATUS OF SHIPMENT**
 
@@ -8007,10 +8005,10 @@ x-flows:
             participant SellerApp
 
             note over BuyerApp,SellerApp: a. Payment Success
-            BuyerApp ->> SellerApp: /on_status - Seller app lets the buyer app know<br/>that transaction is successful
+            SellerApp ->> BuyerApp: /on_status - Seller app lets the buyer app know<br/>that transaction is successful
 
             note over BuyerApp,SellerApp: b. Payment Failed
-            BuyerApp ->> BuyerApp: /on_status - Seller app lets the BAP know<br/>that transaction failed with <br/>error code '31004' and message 'Payment Failed'
+            SellerApp ->> BuyerApp: /on_status - Seller app lets the BAP know<br/>that transaction failed with <br/>error code '31004' and message 'Payment Failed'
             
 
             note over BuyerApp,SellerApp: c. TTL expires
@@ -8524,10 +8522,10 @@ x-flows:
             participant SellerApp
 
             note over BuyerApp,SellerApp: a. Payment Success
-            BuyerApp ->> SellerApp: /on_status - Seller app lets the buyer app know<br/>that transaction is successful
+             SellerApp ->> BuyerApp: /on_status - Seller app lets the buyer app know<br/>that transaction is successful
 
             note over BuyerApp,SellerApp: b. Payment Failed
-            BuyerApp ->> BuyerApp: /on_status - Seller app lets the BAP know<br/>that transaction failed with <br/>error code '31004' and message 'Payment Failed'
+             SellerApp ->> BuyerApp: /on_status - Seller app lets the BAP know<br/>that transaction failed with <br/>error code '31004' and message 'Payment Failed'
             
 
             note over BuyerApp,SellerApp: c. TTL expires

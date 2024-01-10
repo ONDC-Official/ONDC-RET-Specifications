@@ -82,10 +82,10 @@ details:
         participant SellerApp
 
         note over BuyerApp,SellerApp: a. Payment Success
-        BuyerApp ->> SellerApp: /on_status - Seller app lets the buyer app know<br/>that transaction is successful
+        SellerApp ->> BuyerApp: /on_status - Seller app lets the buyer app know<br/>that transaction is successful
 
         note over BuyerApp,SellerApp: b. Payment Failed
-        BuyerApp ->> BuyerApp: /on_status - Seller app lets the BAP know<br/>that transaction failed with <br/>error code '31004' and message 'Payment Failed'
+        SellerApp ->> BuyerApp: /on_status - Seller app lets the BAP know<br/>that transaction failed with <br/>error code '31004' and message 'Payment Failed'
         
       
         note over BuyerApp,SellerApp: c. TTL expires

@@ -84,11 +84,12 @@ details:
         note over Buyer, SellerApp: **PAYMENT AND INVOICE CREATION**
 
         Buyer->>BuyerApp: Buyer makes the payment
-        BuyerApp->>SellerApp: /**update** - Buyer makes the payment and sends the payment status
+        BuyerApp->>SellerApp: /**update** - BAP updates the payment status
+        SellerApp->>BuyerApp: **/on_update** - acknowledgment of payment confirmation
+       SellerApp->>BuyerApp: **/on_status** - BPP sends the proforma invoice
+
+      
   
-
-
-
   - description: Requests for order status
     mermaidGraph: >-
       sequenceDiagram
@@ -96,10 +97,6 @@ details:
         participant Buyer
         participant BuyerApp
         participant SellerApp
-          
-        BuyerApp->>SellerApp: **/update** - Buyer app lets the seller app know about payment confirmation
-        SellerApp->>BuyerApp: **/on_update** - acknowledgment of payment confirmation
-      
 
         note over Buyer, SellerApp: **STATUS OF SHIPMENT**
 
