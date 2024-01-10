@@ -24,11 +24,11 @@
     "catalog": {
       "fulfillments": [
         {
-          "id": "1",
+          "id": "F1",
           "type": "Delivery"
         },
         {
-          "id": "2",
+          "id": "F2",
           "type": "Self-Pickup"
         }
       ],
