@@ -37,7 +37,7 @@ details:
 
         note right of SellerApp: Logistics quotation + TAT received (Optional)
 
-        SellerApp->>BuyerApp: **/on_select** - sends quote, breakup including </br> logistics charges.
+        SellerApp->>BuyerApp: **/on_select** - sends quote, breakup including <br/> logistics charges.
 
   - description: ORDER INITIALIZATION
     mermaidGraph: >-
@@ -63,7 +63,7 @@ details:
       
         note over Buyer, SellerApp: **ORDER CONFIRMATION**
 
-        BuyerApp->>SellerApp: **/confirm** - BAP confirms the order
+        BuyerApp->>SellerApp: **/confirm** - Buyer makes the payment and BAP confirms the order
         SellerApp->>BuyerApp: **/on_confirm** - BPP acknowledges with the confirmation of the order
 
   - description: PAYMENT COMMUNICATION
@@ -108,13 +108,13 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/B2B/search/search_by_item.yaml"
-  - summary: Seller returns item/ catalog with communication channel
+  - summary: Seller returns item/ catalog 
     api: on_search
     description: Seller responds back with the catalog and intimates that BPP will be collecting the payment
     reference: if any
     example:
       $ref: "../../Examples/B2B/on_search/on_search_payment_BPP.yaml"
-  - summary: Raise an RFQ
+  - summary: Selection of items
     api: select
     description: Buyer selects the items with all the customizations and the quantity of items required
     reference: if any
@@ -122,7 +122,7 @@ steps:
       $ref: "../../Examples/B2B/select/select_domestic(Non RFQ).yaml"
   - summary: Returns item breakup/ Quote
     api: on_select
-    description: Seller provides the quotation and breakup with logistics charges
+    description: Seller provides the quote and breakup with logistics charges
     reference: if any
     example:
       $ref: "../../Examples/B2B/on_select/on_select_domestic.yaml"
@@ -132,7 +132,7 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/B2B/init/init_domestic_BPP_payment.yaml"
-  - summary: Initialization of Order
+  - summary: Acknowledges the init request and shares the payment url
     api: on_init
     description: Initialization of Order + payment url provided
     reference: if any
@@ -149,13 +149,13 @@ steps:
     description: Seller provides acknowledgment to the order confirmation
     reference: if any
     example:
-      $ref: "../../Examples/B2B/on_confirm/on_confirm_domestic.yaml"                        
-  - summary: Seller sends proforma invoice.
+      $ref: "../../Examples/B2B/on_confirm/on_confirm_domestic.yaml"   
+  - summary: Seller app updates the payment status
     api: on_status
-    description: Provider platform provides the updated order status to the consumer
+    description: Seller app updates the payment status
     reference: if any
     example:
-      $ref: "../../Examples/B2B/on_status/on_status_proforma_invoice.yaml"     
+      $ref: "../../Examples/B2B/on_status/on_status_BPP_payment.yaml"                          
   - summary: Consumer platform requests for latest status
     api: status
     description: Buyer requests for Shipment status
