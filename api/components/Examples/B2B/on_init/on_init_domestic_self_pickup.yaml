@@ -1,5 +1,5 @@
-summary: Acknowledges the initialization (Non RFQ and BPP collecting the payment)
-description: Acknowledges the initialization (Non RFQ and BPP collecting the payment)
+summary: Acknowledges the initialization (Self Pickup)
+description: Acknowledges the initialization
 value:
   context:
     domain: ONDC:RET10
@@ -27,7 +27,7 @@ value:
       items:
         - id: I1
           fulfillment_ids:
-            - F1
+            - F2
           quantity:
             selected:
               count: 200
@@ -56,22 +56,21 @@ value:
         email: nobody@nomail.com
         phone: '9886098860'
       fulfillments:
-        - id: F1
-          type: Delivery
-          '@ondc/org/provider_name': Loadshare
-          '@ondc/org/category': Express Delivery
-          '@ondc/org/TAT': P7D
+        - id: F2
+          type: Self-Pickup
+          '@ondc/org/category': Self-Pickup
+          '@ondc/org/TAT': P3D
           tracking: false
           stops:
-            - type: end
+            - type: start
               location:
-                gps: 12.974002,77.613458
-                address: 'My House #, My buildin'
+                gps: 12.967555,77.749666
+                address: Jayanagar 4th Block
                 city:
                   name: Bengaluru
                 country:
                   code: IND
-                area_code: '560001'
+                area_code: '560076'
                 state:
                   name: Karnataka
               contact:
@@ -93,12 +92,12 @@ value:
               price:
                 currency: INR
                 value: '250'
-          - '@ondc/org/item_id': F1
+          - '@ondc/org/item_id': F2
             title: Delivery charges
             '@ondc/org/title_type': delivery
             price:
               currency: INR
-              value: '4000'
+              value: '0'
           - '@ondc/org/item_id': F1
             title: Packing charges
             '@ondc/org/title_type': packing
@@ -117,35 +116,21 @@ value:
             price:
               currency: INR
               value: '-1000'
-          - '@ondc/org/item_id': F1
+          - '@ondc/org/item_id': F2
             title: Convenience Fee
             '@ondc/org/title_type': misc
             price:
               currency: INR
-              value: '100'
+              value: '0'
         ttl: P1D
       payments:
-        - type: PRE-FULFILLMENT
+        - type: ON-FULFILLMENT
           collected_by: BPP
-          uri: https://snp.com/pg
           '@ondc/org/buyer_app_finder_fee_type': percent
           '@ondc/org/buyer_app_finder_fee_amount': '0'
           '@ondc/org/settlement_basis': delivery
           '@ondc/org/settlement_window': P1D
           '@ondc/org/withholding_amount': '10.00'
-          tags:
-            - descriptor:
-                code: BPP_payment
-              list:
-                - descriptor:
-                    code: signature
-                  value: xxxxxxxxxxxxxx
-                - descriptor:
-                    code: dsa
-                  value: ED25519
-                - descriptor:
-                    code: ttl
-                  value: PT30M
       tags:
         - descriptor:
             code: buyer_id
