@@ -6,8 +6,53 @@ message:
       parent: true
       url: 
         description: url of the invoice
-        required: mandatory when order has been picked up
+        required: required when order has been picked up
         usage: "https://invoice_url"
         reference: if any
+    payments:
+      parent: true
+      status:
+        description: status whether payment has been collected or not
+        required: required
+        usage: PAID
+        reference: if any
+      params:
+         transaction_id:
+            description: transaction id when the payment was collected
+            required: required when payment status is PAID
+            usage: "3937"
+            reference: if any
+         currency:
+            description: currency
+            required: required
+            usage: "INR"
+            reference: if any
+         amount:
+            description: amount of payment
+            required: required
+            usage: "3937"
+            reference: if any
+      '@ondc/org/settlement_basis':
+            description: basis of settlement
+            required: required 
+            usage: "delivery"
+            reference: if any
+      '@ondc/org/settlement_window':
+            description: time window within which settlement needs to be done
+            required: required 
+            usage: "P1D"
+            reference: if any
+      '@ondc/org/withholding_amount':
+            description: amount to be settled
+            required: required 
+            usage: "10.00"
+            reference: if any
+      '@ondc/org/settlement_details':
+            description: settlement details sent to the counterparty who will be settling the amount
+            required: required 
+            usage: "-"
+            reference: if any
+          
+
 
       

@@ -1,5 +1,5 @@
 summary: Get quote for specific item (RFQ)
-description: RFQ - Get quote for selected items with Buyer and Delivery terms
+description: RFQ - Get quote for selected items with Buyer and Delivery terms with a TTL to receive the response
 value:
   context:
     domain: ONDC:RET10

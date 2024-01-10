@@ -155,6 +155,11 @@ value:
                 unit: unit
                 value: '1'
               count: '99'
+            minimum:
+              measure:
+                unit: unit
+                value: '1'
+              count: '99'  
           category_ids:
           - RET12-102F
           fulfillment_ids:

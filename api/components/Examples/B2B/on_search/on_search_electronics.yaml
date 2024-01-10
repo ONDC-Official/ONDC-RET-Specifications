@@ -155,6 +155,11 @@ value:
                 unit: unit
                 value: '1'
               count: '4000'
+            minimum:
+              measure:
+                unit: unit
+                value: '1'
+              count: '4000'  
           category_ids:
           - RET14-1042
           fulfillment_ids:

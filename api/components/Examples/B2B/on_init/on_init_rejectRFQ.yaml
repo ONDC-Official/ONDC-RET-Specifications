@@ -1,5 +1,5 @@
-summary: Respond to RFQ (Reject)
-description: Respond to RFQ
+summary: Acknowledges the initialization (Reject)
+description: Acknowledges the initialization
 value:
   context:
     domain: ONDC:RET10

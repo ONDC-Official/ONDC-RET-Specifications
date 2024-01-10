@@ -16,6 +16,7 @@ confirm:
   examples:
     - $ref: ./confirm/confirm_domestic.yaml
     - $ref: ./confirm/confirm_exports.yaml
+    - $ref: ./confirm/confirm_domestic_Non_RFQ.yaml
 update:
   examples:
     - $ref: ./update/update_prepaid.yaml

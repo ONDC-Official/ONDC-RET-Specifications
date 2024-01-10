@@ -157,7 +157,7 @@
       },
       "payments": [
         {
-          "type": "ON-FULFILLMENT",
+          "type": "PRE-FULFILLMENT",
           "collected_by": "BPP"
         }
       ]

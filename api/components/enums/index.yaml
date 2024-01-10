@@ -1,6 +1,7 @@
 search:
   context: &context
-    $ref: "./context.yaml"
+    domain: 
+      $ref: "./context.yaml#/context/domain"
   message:
     intent:
      payment: &payment
@@ -14,7 +15,7 @@ on_search:
     catalog:
         providers:
           items:
-            category_ids: &category_ids
+            category_ids: 
               $ref: "./category.yaml#/category_ids"
         fulfillments: *fulfillment
         offers:
@@ -29,33 +30,54 @@ on_select:
   context: *context
   message:
     order:
-      quote: &quote
+      fulfillment:
+        state:
+          $ref: "./fulfillments.yaml#/fulfillments/pre_order_state"
+      quote: 
        breakup: 
         "@ondc/org/title_type":
            $ref: "./quote.yaml#/title_type"
 init:
   context: *context
   message:
-    order: *order
+    order: 
+      payment: *payment
+      fulfillments: *fulfillment
 on_init:
   context: *context
   message:
-    order: *order
+    order:
+      payment: *payment
+      fulfillments: *fulfillment
+      quote: 
+        breakup: 
+        "@ondc/org/title_type":
+            $ref: "./quote.yaml#/title_type"
 confirm:
   context: *context
   message:
-    order: *order
-    state: "./orderstatus.yaml#/order_status"
+    order: 
+     payment: *payment
+     fulfillments: *fulfillment
+     state: 
+       $ref: "./orderstatus.yaml#/status"
 on_confirm:
   context: *context
   message:
-    order: *order
+    order: 
+     payment: *payment
+     fulfillments: *fulfillment
+     state: 
+       $ref: "./orderstatus.yaml#/status"
 status:
   context: *context
 on_status:
   context: *context
   message:
     order: 
+      payment: *payment
+      state: 
+       $ref: "./orderstatus.yaml#/status"
       fulfillments:
         state: 
            $ref: "./fulfillments.yaml#/fulfillments/state"
@@ -64,7 +86,13 @@ cancel:
 on_cancel:
   context: *context
   message:
-    order: *order
+    order: 
+      payment: *payment
+      state: 
+       $ref: "./orderstatus.yaml#/status"
+      fulfillments:
+        state: 
+           $ref: "./fulfillments.yaml#/fulfillments/state"
 track:
   context: *context
 on_track:

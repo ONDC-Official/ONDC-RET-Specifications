@@ -19,39 +19,39 @@ value:
     timestamp: '2023-01-08T22:00:30.000Z'
     ttl: PT30S
   message:
-    update_target: item
+    update_target: payments
     order:
       id: O1
       state: Accepted
       provider:
         id: P1
       items:
-      - id: I1
-        quantity:
-          selected:
-            count: 200
+        - id: I1
+          quantity:
+            selected:
+              count: 200
       payments:
-      - uri: https://ondc.transaction.com/payment
-        tl_method: http/get
-        params:
-          currency: INR
-          transaction_id: '3937'
-          amount: '53600'
-        status: PAID
-        type: PRE-FULFILLMENT
-        collected_by: BPP
-        "@ondc/org/buyer_app_finder_fee_type": percent
-        "@ondc/org/buyer_app_finder_fee_amount": '0'
-        "@ondc/org/settlement_basis": delivery
-        "@ondc/org/settlement_window": P1D
-        "@ondc/org/withholding_amount": "10.00"
-        "@ondc/org/settlement_details":
-        - settlement_counterparty: buyer-app
-          settlement_phase: sale-amount
-          settlement_type: upi
-          upi_address: gft@oksbi
-          settlement_bank_account_no: XXXXXXXXXX
-          settlement_ifsc_code: XXXXXXXXX
-          beneficiary_name: xxxxx
-          bank_name: xxxx
-          branch_name: xxxx
+        - uri: https://ondc.transaction.com/payment
+          tl_method: http/get
+          params:
+            currency: INR
+            transaction_id: '3937'
+            amount: '53600'
+          status: PAID
+          type: PRE-FULFILLMENT
+          collected_by: BAP
+          '@ondc/org/buyer_app_finder_fee_type': percent
+          '@ondc/org/buyer_app_finder_fee_amount': '0'
+          '@ondc/org/settlement_basis': delivery
+          '@ondc/org/settlement_window': P1D
+          '@ondc/org/withholding_amount': '10.00'
+          '@ondc/org/settlement_details':
+            - settlement_counterparty: seller-app
+              settlement_phase: sale-amount
+              settlement_type: upi
+              upi_address: gft@oksbi
+              settlement_bank_account_no: XXXXXXXXXX
+              settlement_ifsc_code: XXXXXXXXX
+              beneficiary_name: xxxxx
+              bank_name: xxxx
+              branch_name: xxxx
