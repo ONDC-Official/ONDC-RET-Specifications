@@ -57,23 +57,6 @@
           {
             "url": "https://abc.com/images/1-shop-img"
           }
-        ],
-        "tags":
-        [
-          {
-            "code":"bpp_terms",
-            "list":
-            [
-              {
-                "code":"np_type",
-                "value":"MSN"
-              },
-              {
-                "code":"accept_bap_terms",
-                "value":"Y"
-              }
-            ]
-          }
         ]
       },
       "providers": [

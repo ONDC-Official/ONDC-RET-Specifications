@@ -294,10 +294,6 @@
             {
               "code":"np_type",
               "value":"MSN"
-            },
-            {
-              "code":"accept_bap_terms",
-              "value":"Y"
             }
           ]
         },
@@ -308,10 +304,6 @@
             {
               "code":"accept_bpp_terms",
               "value":"Y"
-            },
-            {
-              "code":"static_terms",
-              "value":"https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf"
             }
           ]
         }
