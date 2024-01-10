@@ -123,7 +123,7 @@ steps:
     description: Buyer confirms the order
     reference: if any
     example:
-      $ref: "../../Examples/B2B/confirm/confirm_domestic.yaml"
+      $ref: "../../Examples/B2B/confirm/confirm_domestic_Non_RFQ.yaml"
   - summary: Seller acknowledges
     api: on_confirm
     description: Seller acknowledges

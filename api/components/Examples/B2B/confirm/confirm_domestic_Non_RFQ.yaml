@@ -1,5 +1,5 @@
-summary: Raise PO (Domestic - BPP collecting the payment)
-description: PO raised by buyer based on the RFQ response received.
+summary: Confirms the order (Domestic)
+description: Confirms the order (Domestic)
 value:
   context:
     domain: ONDC:RET10
