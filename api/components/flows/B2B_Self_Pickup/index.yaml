@@ -38,9 +38,7 @@ details:
         Buyer->>BuyerApp: Buyer requests for Quotation
         BuyerApp->>SellerApp: **/select** - An item/s + add_ons + variants + offers is selected and <br/> RFQ is raised with a TTL to receive the response
 
-        note right of SellerApp: Logistics quotation + TAT received (Optional)
-
-        SellerApp->>BuyerApp: **/on_select** - Responds to RFQ with <br/> quote, breakup including logistics charges.
+        SellerApp->>BuyerApp: **/on_select** - Responds to RFQ with <br/> quote, breakup.
         BuyerApp->>Buyer: RFQ Response
 
 
@@ -56,7 +54,6 @@ details:
 
         Buyer->>BuyerApp: 
         BuyerApp->>SellerApp: **/init** - Initializing the order
-        note right of SellerApp: Logistics order initialization with billing details
         SellerApp->>BuyerApp: **/on_init** - Order initialization
 
   - description: PURCHASE ORDER
@@ -71,7 +68,7 @@ details:
 
         Buyer->>BuyerApp: Creates PO
         BuyerApp->>SellerApp: **/confirm** - Create PO to create final digital contract
-        SellerApp->>BuyerApp: **/on_confirm** - Accept PO + payment url (if payment.collected_by is BPP) 
+        SellerApp->>BuyerApp: **/on_confirm** - Accept PO + payment url (if payment.collected_by is BPP) + TTL for the payment
 
   - description: PAYMENT AND INVOICE CREATION
     mermaidGraph: >-
@@ -124,7 +121,7 @@ steps:
       $ref: "../../Examples/B2B/select/select_domestic_SelfPickup.yaml"
   - summary: Returns item breakup/ Quote
     api: on_select
-    description: Seller provides the quotation and breakup with logistics charges
+    description: Seller provides the quotation and breakup
     reference: if any
     example:
       $ref: "../../Examples/B2B/on_select/on_select_domestic_self_pickup.yaml"
