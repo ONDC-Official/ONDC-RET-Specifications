@@ -8615,7 +8615,7 @@ x-flows:
           once the order is delivered
         reference: if any
         example: *ref_21
-  - summary: B2B Prepaid (Payment collected by BPP - No RFQ)
+  - summary: B2B Prepaid (Payment collected by BPP - Non RFQ)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to order bulk items and makes prepaid payment to
@@ -10122,6 +10122,337 @@ x-flows:
               type: DOMAIN-ERROR
               code: '30009'
               message: M1
+  - summary: B2B Purchase Order (PO) Rejected
+    description: >-
+      The following is an illustrative flow to perform a transaction of a nature
+      where a buyer would like to order bulk items but the purchase order is
+      rejected by the seller
+    details:
+      - description: Buyer Search & Quotation
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant Gateway
+            participant SellerApp1
+            participant SellerApp2
+
+            note over Buyer, SellerApp2: **SEARCH FLOW**
+
+            Buyer->>BuyerApp: Search for a product 
+            BuyerApp->>Gateway: **/search** - Search for a product
+            Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on city and domain in context
+            Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on city and domain in context
+
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
+            BuyerApp->>Buyer: Renders the search response
+            
+            note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
+      - description: RFQ (Request For Quotation) FLOW
+        mermaidGraph: |-
+          sequenceDiagram
+            
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+
+            note over Buyer, SellerApp: **RFQ (Request For Quotation) FLOW**
+
+            Buyer->>BuyerApp: Buyer requests for Quotation
+            BuyerApp->>SellerApp: **/select** - An item/s + add_ons + variants + offers is selected and <br/> RFQ is raised with a TTL to receive the response
+
+            note right of SellerApp: Logistics quotation + TAT received (Optional)
+
+            SellerApp->>BuyerApp: **/on_select** - Responds to RFQ with <br/> quote, breakup including logistics charges.
+            BuyerApp->>Buyer: RFQ Response
+      - description: ORDER INITIALIZATION
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+            note over Buyer, SellerApp: **ORDER INITIALIZATION**
+
+            Buyer->>BuyerApp: 
+            BuyerApp->>SellerApp: **/init** - Initializing the order
+            note right of SellerApp: Logistics order initialization with billing details
+            SellerApp->>BuyerApp: **/on_init** - Order initialization
+      - description: PURCHASE ORDER
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+            note over Buyer, SellerApp: **PURCHASE ORDER**
+
+            Buyer->>BuyerApp: Creates PO
+            BuyerApp->>SellerApp: **/confirm** - Create PO to create final digital contract
+            SellerApp->>BuyerApp: **/on_confirm** - Purchase order is rejected by BPP
+    reference: if any
+    steps:
+      - summary: Search based on the category
+        api: search
+        description: Search intent sent by the buyer based on the category
+        reference: if any
+        example: *ref_26
+      - summary: Returns item/ catalog
+        api: on_search
+        description: Catalog provided by the Seller App
+        reference: if any
+        example: *ref_27
+      - summary: Raise an RFQ
+        api: select
+        description: >-
+          Buyer requests for quotation for the selected item with all the
+          customizations and the quantity of items required
+        reference: if any
+        example: *ref_9
+      - summary: Returns item breakup/ Quote
+        api: on_select
+        description: Seller provides the quotation and breakup with logistics charges
+        reference: if any
+        example: *ref_10
+      - summary: Initialization of Order
+        api: init
+        description: Initialization of Order - Billing Details added.
+        reference: if any
+        example: *ref_11
+      - summary: Initialization of Order
+        api: on_init
+        description: Initialization of Order with final quote
+        reference: if any
+        example: *ref_12
+      - summary: Buyer raises PO
+        api: confirm
+        description: >-
+          Buyer receives the quotation and once agreed to go ahead with the
+          quotation received, creates a PO and sends the PO
+        reference: if any
+        example: *ref_13
+      - summary: Seller rejects PO
+        api: on_confirm
+        description: >-
+          Seller app sends an on_confirm call to the buyer app rejecting the PO
+          with an error object.
+        reference: if any
+        example:
+          summary: PO (Purchase Order) rejected by BPP
+          description: PO (Purchase Order) rejected by BPP
+          value:
+            context:
+              domain: ONDC:RET10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_confirm
+              version: 2.0.2
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/grocery
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/grocery
+              transaction_id: T1
+              message_id: M1
+              timestamp: '2023-01-08T22:00:30.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O1
+                state: Rejected
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                  rateable: true
+                items:
+                  - id: I1
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 200
+                    add-ons:
+                      - id: '78787723'
+                    tags:
+                      - descriptor:
+                          code: BUYER_TERMS
+                        list:
+                          - descriptor:
+                              code: ITEM_REQ
+                            value: free text on Item Customization
+                          - descriptor:
+                              code: PACKAGING_REQ
+                            value: free text on packaging Customization
+                billing:
+                  name: ONDC buyer
+                  address: >-
+                    22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                    Bengaluru, Karnataka 560001
+                  state:
+                    name: Karnataka
+                  city:
+                    name: Bengaluru
+                  tax_id: XXXXXXXXXXXXXXX
+                  email: nobody@nomail.com
+                  phone: '9886098860'
+                fulfillments:
+                  - id: F1
+                    '@ondc/org/provider_name': Loadshare
+                    state:
+                      descriptor:
+                        code: Pending
+                    type: Delivery
+                    tracking: false
+                    stops:
+                      - type: start
+                        location:
+                          id: L1
+                          descriptor:
+                            name: ABC Store
+                          gps: 12.956399,77.636803
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                      - type: end
+                        location:
+                          gps: 12.974002,77.613458
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Bengaluru
+                          country:
+                            code: IND
+                          area_code: '560001'
+                          state:
+                            name: Karnataka
+                        contact:
+                          phone: '9886098860'
+                    rateable: true
+                quote:
+                  price:
+                    currency: INR
+                    value: '53600'
+                  breakup:
+                    - '@ondc/org/item_id': I1
+                      '@ondc/org/item_quantity':
+                        count: 200
+                      title: Dhara Mustard Oil
+                      '@ondc/org/title_type': item
+                      price:
+                        currency: INR
+                        value: '50000'
+                      item:
+                        price:
+                          currency: INR
+                          value: '250'
+                    - '@ondc/org/item_id': F1
+                      title: Delivery charges
+                      '@ondc/org/title_type': delivery
+                      price:
+                        currency: INR
+                        value: '4000'
+                    - '@ondc/org/item_id': F1
+                      title: Packing charges
+                      '@ondc/org/title_type': packing
+                      price:
+                        currency: INR
+                        value: '500'
+                    - '@ondc/org/item_id': I1
+                      title: Tax
+                      '@ondc/org/title_type': tax
+                      price:
+                        currency: INR
+                        value: '0'
+                    - '@ondc/org/item_id': I1
+                      title: Discount
+                      '@ondc/org/title_type': discount
+                      price:
+                        currency: INR
+                        value: '-1000'
+                    - '@ondc/org/item_id': F1
+                      title: Convenience Fee
+                      '@ondc/org/title_type': misc
+                      price:
+                        currency: INR
+                        value: '100'
+                  ttl: P1D
+                payments:
+                  - params:
+                      currency: INR
+                      amount: '53600'
+                    status: NOT-PAID
+                    uri: https://snp.com/pg
+                    type: PRE-FULFILLMENT
+                    collected_by: BPP
+                    '@ondc/org/buyer_app_finder_fee_type': percent
+                    '@ondc/org/buyer_app_finder_fee_amount': '0'
+                    '@ondc/org/settlement_basis': delivery
+                    '@ondc/org/settlement_window': P1D
+                    '@ondc/org/withholding_amount': '10.00'
+                    '@ondc/org/settlement_details':
+                      - settlement_counterparty: seller-app
+                        settlement_phase: sale-amount
+                        beneficiary_name: xxxxx
+                        settlement_type: upi
+                        upi_address: gft@oksbi
+                        settlement_bank_account_no: XXXXXXXXXX
+                        settlement_ifsc_code: XXXXXXXXX
+                        bank_name: xxxx
+                        branch_name: xxxx
+                    tags:
+                      - descriptor:
+                          code: BPP_payment
+                        list:
+                          - descriptor:
+                              code: signature
+                            value: xxxxxxxxxxxxxx
+                          - descriptor:
+                              code: dsa
+                            value: ED25519
+                          - descriptor:
+                              code: ttl
+                            value: PT30M
+                tags:
+                  - descriptor:
+                      code: buyer_id
+                    list:
+                      - descriptor:
+                          code: buyer_id_code
+                        value: gst
+                      - descriptor:
+                          code: buyer_id_no
+                        value: xxxxxxxxxxxxxxx
+                  - code: bpp_terms
+                    list:
+                      - code: max_liability
+                        value: '2'
+                      - code: max_liability_cap
+                        value: '10000'
+                      - code: mandatory_arbitration
+                        value: 'false'
+                      - code: court_jurisdiction
+                        value: Bengaluru
+                      - code: delay_interest
+                        value: '1000'
+                      - code: np_type
+                        value: MSN
+                  - code: bap_terms
+                    list:
+                      - code: accept_bpp_terms
+                        value: 'Y'
+                created_at: '2023-02-03T09:30:00.000Z'
+                updated_at: '2023-02-03T09:31:30.000Z'
+            error:
+              type: DOMAIN-ERROR
+              code: '30019'
+              message: PO rejected due to xx reason
 x-examples:
   B2B:
     summary: B2B Use Case Specification
