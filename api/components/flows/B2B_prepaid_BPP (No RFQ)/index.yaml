@@ -1,7 +1,7 @@
-summary: B2B Prepaid (Payment collected by BPP - No RFQ)
+summary: B2B Prepaid (Payment collected by BPP - Non RFQ)
 description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order bulk items and makes prepaid payment to the seller NP.
 details:
-  - description: Buyer Search & Quotation
+  - description: SEARCH AND DISCOVERY
     mermaidGraph: >-
       sequenceDiagram
 
@@ -89,7 +89,7 @@ details:
         BuyerApp ->> SellerApp: /on_cancel - Seller app confirms the cancellation
 
 
-  - description: Requests for order status
+  - description: ORDER STATUS
     mermaidGraph: >-
       sequenceDiagram
 

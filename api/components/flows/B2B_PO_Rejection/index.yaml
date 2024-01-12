@@ -1,5 +1,5 @@
-summary: B2B Domestic
-description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order bulk items
+summary: B2B Purchase Order (PO) Rejected
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order bulk items but the purchase order is rejected by the seller
 details:
   - description: SEARCH AND DISCOVERY
     mermaidGraph: >-
@@ -71,39 +71,8 @@ details:
 
         Buyer->>BuyerApp: Creates PO
         BuyerApp->>SellerApp: **/confirm** - Create PO to create final digital contract
-        SellerApp->>BuyerApp: **/on_confirm** - Accept PO + payment url (if payment.collected_by is BPP) 
+        SellerApp->>BuyerApp: **/on_confirm** - Purchase order is rejected by BPP
 
-  - description: PAYMENT AND INVOICE CREATION
-    mermaidGraph: >-
-      sequenceDiagram
-
-        participant Buyer
-        participant BuyerApp
-        participant SellerApp
-      
-        note over Buyer, SellerApp: **PAYMENT AND INVOICE CREATION**
-
-        Buyer->>BuyerApp: Buyer makes the payment
-        BuyerApp->>SellerApp: **/update** - Buyer app sends the payment status
-        SellerApp->>BuyerApp: **/on_update** - Seller app updates the Payment status 
-        SellerApp->>BuyerApp: **/on_status** - Seller sends the proforma invoice
-
-
-
-
-  - description: ORDER STATUS
-    mermaidGraph: >-
-      sequenceDiagram
-
-        participant Buyer
-        participant BuyerApp
-        participant SellerApp
-
-        note over Buyer, SellerApp: **STATUS OF SHIPMENT**
-
-        Buyer->>BuyerApp: Checks order status
-        BuyerApp->>SellerApp: **/status** - Enquire Order status or Tracking info
-        SellerApp->>BuyerApp: **/on_status** - Order and fulfillment status is updated
 reference: if any
 steps:
   - summary: Search based on the category
@@ -148,21 +117,9 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/B2B/confirm/confirm_domestic.yaml"
-  - summary: Seller Accepts PO
+  - summary: Seller rejects PO
     api: on_confirm
-    description: Seller app sends an on_confirm call to the buyer app relaying the PO acceptance.
+    description: Seller app sends an on_confirm call to the buyer app rejecting the PO with an error object.
     reference: if any
     example:
-      $ref: "../../Examples/B2B/on_confirm/on_confirm_domestic.yaml"
-  - summary: Consumer platform requests for latest status
-    api: status
-    description: Buyer requests for Shipment status
-    reference: if any
-    example:
-      $ref: "../../Examples/B2B/status/status.yaml"
-  - summary: Provider platform updates the latest status - Order Picked up
-    api: on_status
-    description: Provider platform provides the updated order status to the consumer once the order is picked up
-    reference: if any
-    example:
-      $ref: "../../Examples/B2B/on_status/on_status_picked_up.yaml"
+      $ref: "../../Examples/B2B/on_confirm/on_confirm_domestic_Rejected.yaml"

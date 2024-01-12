@@ -1,7 +1,7 @@
 summary: B2B Item out of stock
 description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order bulk items but the item is either out of stock or quantity is unavailable
 details:
-  - description: Buyer Search & Quotation
+  - description: SEARCH AND DISCOVERY
     mermaidGraph: >-
       sequenceDiagram
 

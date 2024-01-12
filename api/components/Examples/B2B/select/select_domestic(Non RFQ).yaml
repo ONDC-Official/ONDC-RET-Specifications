@@ -1,4 +1,4 @@
-summary: Get quote for specific item
+summary: Get quote for specific item (Non RFQ)
 description: RFQ - Get quote for selected items with Buyer and Delivery terms 
 value:
   context:
@@ -35,16 +35,6 @@ value:
             count: 200
         add-ons:
         - id: '78787723'
-        tags:
-        - descriptor:
-            code: BUYER_TERMS
-          list:
-          - descriptor:
-              code: ITEM_REQ
-            value: free text on Item Customization
-          - descriptor:
-              code: PACKAGING_REQ
-            value: free text on packaging Customization
       fulfillments:
       - id: F1
         type: Delivery
