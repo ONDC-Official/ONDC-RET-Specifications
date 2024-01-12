@@ -1,7 +1,7 @@
 summary: B2B Domestic
 description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order bulk items
 details:
-  - description: Buyer Search & Quotation
+  - description: SEARCH AND DISCOVERY
     mermaidGraph: >-
       sequenceDiagram
 
@@ -91,14 +91,14 @@ details:
 
 
 
-  - description: Requests for order status
+  - description: ORDER STATUS
     mermaidGraph: >-
       sequenceDiagram
 
         participant Buyer
         participant BuyerApp
         participant SellerApp
-        
+
         note over Buyer, SellerApp: **STATUS OF SHIPMENT**
 
         Buyer->>BuyerApp: Checks order status

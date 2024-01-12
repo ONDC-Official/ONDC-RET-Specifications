@@ -1,7 +1,7 @@
 summary: B2B Self Pickup
 description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order bulk items
 details:
-  - description: Buyer Search & Quotation
+  - description: SEARCH AND DISCOVERY
     mermaidGraph: >-
       sequenceDiagram
 
@@ -86,7 +86,7 @@ details:
 
 
 
-  - description: Requests for order status
+  - description: SELF PICKUP AND ORDER COMPLETION
     mermaidGraph: >-
       sequenceDiagram
 

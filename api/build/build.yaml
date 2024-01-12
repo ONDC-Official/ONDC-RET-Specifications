@@ -3410,7 +3410,7 @@ x-flows:
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to order bulk items
     details:
-      - description: Buyer Search & Quotation
+      - description: SEARCH AND DISCOVERY
         mermaidGraph: |-
           sequenceDiagram
 
@@ -3491,14 +3491,14 @@ x-flows:
             BuyerApp->>SellerApp: **/update** - Buyer app sends the payment status
             SellerApp->>BuyerApp: **/on_update** - Seller app updates the Payment status 
             SellerApp->>BuyerApp: **/on_status** - Seller sends the proforma invoice
-      - description: Requests for order status
+      - description: ORDER STATUS
         mermaidGraph: |-
           sequenceDiagram
 
             participant Buyer
             participant BuyerApp
             participant SellerApp
-            
+
             note over Buyer, SellerApp: **STATUS OF SHIPMENT**
 
             Buyer->>BuyerApp: Checks order status
@@ -4728,7 +4728,7 @@ x-flows:
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to order bulk items
     details:
-      - description: Buyer Search & Quotation
+      - description: SEARCH AND DISCOVERY
         mermaidGraph: |-
           sequenceDiagram
 
@@ -4808,7 +4808,7 @@ x-flows:
             Buyer->>BuyerApp: Buyer makes the payment
             BuyerApp->>SellerApp: /**update** - Buyer makes the payment and sends the payment status
             SellerApp->>BuyerApp: **/on_update** - Seller updates the Payment status + Proforma invoice is shared
-      - description: Requests for order status
+      - description: ORDER STATUS
         mermaidGraph: |-
           sequenceDiagram
 
@@ -7087,7 +7087,7 @@ x-flows:
       where a buyer would like to order bulk items comprising multiple
       fulfillments.
     details:
-      - description: Buyer Search & Quotation
+      - description: SEARCH AND DISCOVERY
         mermaidGraph: |-
           sequenceDiagram
 
@@ -7167,7 +7167,7 @@ x-flows:
             Buyer->>BuyerApp: Buyer makes the payment
             BuyerApp->>SellerApp: /**update** - Buyer makes the payment and sends the payment status
             SellerApp->>BuyerApp: **/on_update** - Seller updates fulfilments - Multiple fulfillments for Single PO <br/> Seller updates the Payment status + Proforma invoice is shared
-      - description: Requests for order status
+      - description: ORDER STATUS
         mermaidGraph: |-
           sequenceDiagram
 
@@ -7277,7 +7277,7 @@ x-flows:
       where a buyer would like to order bulk items and makes prepaid payment to
       buyer NP.
     details:
-      - description: Buyer Search & Quotation
+      - description: SEARCH AND DISCOVERY
         mermaidGraph: |-
           sequenceDiagram
 
@@ -7358,7 +7358,7 @@ x-flows:
             BuyerApp->>SellerApp: **/update** - BAP updates the payment status
             SellerApp->>BuyerApp: **/on_update** - Acknowledgment of payment confirmation
            SellerApp->>BuyerApp: **/on_status** - BPP sends the proforma invoice
-      - description: Requests for order status
+      - description: ORDER STATUS
         mermaidGraph: |-
           sequenceDiagram
 
@@ -7518,7 +7518,7 @@ x-flows:
       where a buyer would like to order bulk items and makes prepaid payment to
       buyer NP.
     details:
-      - description: Buyer Search & Quotation
+      - description: SEARCH AND DISCOVERY
         mermaidGraph: |-
           sequenceDiagram
 
@@ -7580,7 +7580,7 @@ x-flows:
 
             BuyerApp->>SellerApp: **/confirm** - Buyer makes the payment and BAP confirms the order
             SellerApp->>BuyerApp: **/on_confirm** - BPP acknowledges with the confirmation of the order
-      - description: Requests for order status
+      - description: ORDER STATUS
         mermaidGraph: |-
           sequenceDiagram
 
@@ -8104,7 +8104,7 @@ x-flows:
       where a buyer would like to order bulk items and makes prepaid payment to
       the seller NP.
     details:
-      - description: Buyer Search & Quotation
+      - description: SEARCH AND DISCOVERY
         mermaidGraph: |-
           sequenceDiagram
 
@@ -8192,7 +8192,7 @@ x-flows:
             note over BuyerApp,SellerApp: If payment fails or TTL expires
             BuyerApp ->> SellerApp: /cancel - Buyer app cancels the order
             BuyerApp ->> SellerApp: /on_cancel - Seller app confirms the cancellation
-      - description: Requests for order status
+      - description: ORDER STATUS
         mermaidGraph: |-
           sequenceDiagram
 
@@ -8621,7 +8621,7 @@ x-flows:
       where a buyer would like to order bulk items and makes prepaid payment to
       the seller NP.
     details:
-      - description: Buyer Search & Quotation
+      - description: SEARCH AND DISCOVERY
         mermaidGraph: |-
           sequenceDiagram
 
@@ -8704,7 +8704,7 @@ x-flows:
             note over BuyerApp,SellerApp: If payment fails or TTL expires
             BuyerApp ->> SellerApp: /cancel - Buyer app cancels the order
             BuyerApp ->> SellerApp: /on_cancel - Seller app confirms the cancellation
-      - description: Requests for order status
+      - description: ORDER STATUS
         mermaidGraph: |-
           sequenceDiagram
 
@@ -9166,7 +9166,7 @@ x-flows:
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to order bulk items
     details:
-      - description: Buyer Search & Quotation
+      - description: SEARCH AND DISCOVERY
         mermaidGraph: |-
           sequenceDiagram
 
@@ -9242,7 +9242,7 @@ x-flows:
 
             Buyer->>BuyerApp: Buyer makes the payment
             SellerApp->>BuyerApp: **/on_status** - Seller updates the payment status and sends the proforma invoice
-      - description: Requests for order status
+      - description: SELF PICKUP AND ORDER COMPLETION
         mermaidGraph: |-
           sequenceDiagram
 
@@ -9792,7 +9792,7 @@ x-flows:
       where a buyer would like to order bulk items but the item is either out of
       stock or quantity is unavailable
     details:
-      - description: Buyer Search & Quotation
+      - description: SEARCH AND DISCOVERY
         mermaidGraph: |-
           sequenceDiagram
 
@@ -9950,7 +9950,7 @@ x-flows:
       where a buyer would like to order bulk items but the location is not
       servicealbe
     details:
-      - description: Buyer Search & Quotation
+      - description: SEARCH AND DISCOVERY
         mermaidGraph: |-
           sequenceDiagram
 
@@ -10128,7 +10128,7 @@ x-flows:
       where a buyer would like to order bulk items but the purchase order is
       rejected by the seller
     details:
-      - description: Buyer Search & Quotation
+      - description: SEARCH AND DISCOVERY
         mermaidGraph: |-
           sequenceDiagram
 
