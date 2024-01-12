@@ -23,7 +23,7 @@
   "message": {
     "order": {
       "id": "O1",
-      "state": "Rejected",
+      "state": "Accepted",
       "provider": {
         "id": "P1",
         "locations": [
@@ -105,6 +105,16 @@
                   "name": "ABC Store"
                 },
                 "gps": "12.956399,77.636803"
+              },
+              "time": {
+                "range": {
+                  "start": "2023-02-03T10:00:00.000Z",
+                  "end": "2023-02-03T10:30:00.000Z"
+                }
+              },
+              "instructions": {
+                "name": "Status for pickup",
+                "short_desc": "Pickup Confirmation Code"
               },
               "contact": {
                 "phone": "9886098860",
@@ -214,7 +224,6 @@
             "amount": "53600"
           },
           "status": "NOT-PAID",
-          "uri": "https://snp.com/pg",
           "type": "PRE-FULFILLMENT",
           "collected_by": "BPP",
           "@ondc/org/buyer_app_finder_fee_type": "percent",
@@ -233,33 +242,6 @@
               "settlement_ifsc_code": "XXXXXXXXX",
               "bank_name": "xxxx",
               "branch_name": "xxxx"
-            }
-          ],
-          "tags": [
-            {
-              "descriptor": {
-                "code": "BPP_payment"
-              },
-              "list": [
-                {
-                  "descriptor": {
-                    "code": "signature"
-                  },
-                  "value": "xxxxxxxxxxxxxx"
-                },
-                {
-                  "descriptor": {
-                    "code": "dsa"
-                  },
-                  "value": "ED25519"
-                },
-                {
-                  "descriptor": {
-                    "code": "ttl"
-                  },
-                  "value": "PT30M"
-                }
-              ]
             }
           ]
         }
@@ -283,55 +265,10 @@
               "value": "xxxxxxxxxxxxxxx"
             }
           ]
-        },
-        {
-          "code":"bpp_terms",
-          "list":
-          [
-            {
-              "code":"max_liability",
-              "value":"2"
-            },
-            {
-              "code":"max_liability_cap",
-              "value":"10000"
-            },
-            {
-              "code":"mandatory_arbitration",
-              "value":"false"
-            },
-            {
-              "code":"court_jurisdiction",
-              "value":"Bengaluru"
-            },
-            {
-              "code":"delay_interest",
-              "value":"1000"
-            },
-            {
-              "code":"np_type",
-              "value":"MSN"
-            }
-          ]
-        },
-        {
-          "code":"bap_terms",
-          "list":
-          [
-            {
-              "code":"accept_bpp_terms",
-              "value":"Y"
-            }
-          ]
         }
       ],
       "created_at": "2023-02-03T09:30:00.000Z",
       "updated_at": "2023-02-03T09:31:30.000Z"
     }
-  },
-  "error": {
-    "type": "DOMAIN-ERROR",
-    "code": "30019",
-    "message": "PO rejected due to xx reason"
   }
 }
