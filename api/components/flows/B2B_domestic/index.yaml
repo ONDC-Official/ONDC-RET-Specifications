@@ -154,3 +154,15 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/B2B/on_confirm/on_confirm_domestic.yaml"
+  - summary: Consumer platform requests for latest status
+    api: status
+    description: Buyer requests for Shipment status
+    reference: if any
+    example:
+      $ref: "../../Examples/B2B/status/status.yaml"
+  - summary: Provider platform updates the latest status - Order Picked up
+    api: on_status
+    description: Provider platform provides the updated order status to the consumer once the order is picked up
+    reference: if any
+    example:
+      $ref: "../../Examples/B2B/on_status/on_status_picked_up.yaml"

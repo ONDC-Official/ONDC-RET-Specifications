@@ -23,7 +23,7 @@
   "message": {
     "order": {
       "id": "O1",
-      "state": "Rejected",
+      "state": "Cancelled",
       "provider": {
         "id": "P1",
         "locations": [
