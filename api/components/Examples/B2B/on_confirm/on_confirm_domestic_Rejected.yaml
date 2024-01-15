@@ -1,5 +1,5 @@
-summary: Acknowledges the initialization (Non RFQ and BPP collecting the payment)
-description: Acknowledges the initialization (Non RFQ and BPP collecting the payment)
+summary: PO (Purchase Order) rejected by BPP
+description: PO (Purchase Order) rejected by BPP
 value:
   context:
     domain: ONDC:RET10
@@ -8,7 +8,7 @@ value:
         code: std:080
       country:
         code: IND
-    action: on_init
+    action: on_confirm
     version: 2.0.2
     bap_id: buyerapp.com
     bap_uri: https://buyerapp.com/grocery
@@ -20,10 +20,13 @@ value:
     ttl: PT30S
   message:
     order:
+      id: O1
+      state: Cancelled
       provider:
         id: P1
-      provider_location:
-        id: L1
+        locations:
+          - id: L1
+        rateable: true
       items:
         - id: I1
           fulfillment_ids:
@@ -57,12 +60,22 @@ value:
         phone: '9886098860'
       fulfillments:
         - id: F1
-          type: Delivery
           '@ondc/org/provider_name': Loadshare
-          '@ondc/org/category': Express Delivery
-          '@ondc/org/TAT': P7D
+          state:
+            descriptor:
+              code: Pending
+          type: Delivery
           tracking: false
           stops:
+            - type: start
+              location:
+                id: L1
+                descriptor:
+                  name: ABC Store
+                gps: 12.956399,77.636803
+              contact:
+                phone: '9886098860'
+                email: nobody@nomail.com
             - type: end
               location:
                 gps: 12.974002,77.613458
@@ -76,6 +89,7 @@ value:
                   name: Karnataka
               contact:
                 phone: '9886098860'
+          rateable: true
       quote:
         price:
           currency: INR
@@ -125,14 +139,28 @@ value:
               value: '100'
         ttl: P1D
       payments:
-        - type: PRE-FULFILLMENT
-          collected_by: BPP
+        - params:
+            currency: INR
+            amount: '53600'
+          status: NOT-PAID
           uri: https://snp.com/pg
+          type: PRE-FULFILLMENT
+          collected_by: BPP
           '@ondc/org/buyer_app_finder_fee_type': percent
           '@ondc/org/buyer_app_finder_fee_amount': '0'
           '@ondc/org/settlement_basis': delivery
           '@ondc/org/settlement_window': P1D
           '@ondc/org/withholding_amount': '10.00'
+          '@ondc/org/settlement_details':
+            - settlement_counterparty: seller-app
+              settlement_phase: sale-amount
+              beneficiary_name: xxxxx
+              settlement_type: upi
+              upi_address: gft@oksbi
+              settlement_bank_account_no: XXXXXXXXXX
+              settlement_ifsc_code: XXXXXXXXX
+              bank_name: xxxx
+              branch_name: xxxx
           tags:
             - descriptor:
                 code: BPP_payment
@@ -168,3 +196,15 @@ value:
               value: Bengaluru
             - code: delay_interest
               value: '1000'
+            - code: np_type
+              value: MSN
+        - code: bap_terms
+          list:
+            - code: accept_bpp_terms
+              value: 'Y'
+      created_at: '2023-02-03T09:30:00.000Z'
+      updated_at: '2023-02-03T09:31:30.000Z'
+  error:
+    type: DOMAIN-ERROR
+    code: '30019'
+    message: PO rejected due to xx reason

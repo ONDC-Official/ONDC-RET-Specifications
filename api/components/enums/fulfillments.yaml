@@ -11,6 +11,9 @@ fulfillments:
     - code: Agent-assigned
       description: about the enum
       reference: <PR/Issue/Discussion Links md format text>
+    - code: Packed
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
     - code: Out-for-delivery
       description: about the enum
       reference: <PR/Issue/Discussion Links md format text>
@@ -24,6 +27,9 @@ fulfillments:
       description: about the enum
       reference: <PR/Issue/Discussion Links md format text>
     - code: Order-delivered
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: Cancelled
       description: about the enum
       reference: <PR/Issue/Discussion Links md format text>
   pre_order_state:

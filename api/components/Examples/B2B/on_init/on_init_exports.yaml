@@ -140,16 +140,6 @@ value:
         "@ondc/org/settlement_basis": delivery
         "@ondc/org/settlement_window": P1D
         "@ondc/org/withholding_amount": "10.00"
-        "@ondc/org/settlement_details":
-        - settlement_counterparty: buyer-app
-          settlement_phase: sale-amount
-          settlement_type: upi
-          beneficiary_name: xxxxx
-          upi_address: gft@oksbi
-          settlement_bank_account_no: XXXXXXXXXX
-          settlement_ifsc_code: XXXXXXXXX
-          bank_name: xxxx
-          branch_name: xxxx
       tags:
       - descriptor:
           code: buyer_id

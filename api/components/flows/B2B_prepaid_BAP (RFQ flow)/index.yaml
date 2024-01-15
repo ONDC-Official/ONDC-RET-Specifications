@@ -1,7 +1,7 @@
 summary: B2B Prepaid (Payment collected by BAP - RFQ Flow)
 description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order bulk items and makes prepaid payment to buyer NP.
 details:
-  - description: Buyer Search & Quotation
+  - description: SEARCH AND DISCOVERY
     mermaidGraph: >-
       sequenceDiagram
 
@@ -90,7 +90,7 @@ details:
 
       
   
-  - description: Requests for order status
+  - description: ORDER STATUS
     mermaidGraph: >-
       sequenceDiagram
 
