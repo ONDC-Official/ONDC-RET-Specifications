@@ -36,7 +36,7 @@ fulfillments:
     - code: Serviceable
       description: if the location is serviceable
       reference: <PR/Issue/Discussion Links md format text>
-    - code: Non-Serviceable
+    - code: Non-serviceable
       description: if the location is non-serviceable
       reference: <PR/Issue/Discussion Links md format text>
 

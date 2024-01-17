@@ -2956,7 +2956,7 @@ x-enum:
             - code: Serviceable
               description: if the location is serviceable
               reference: <PR/Issue/Discussion Links md format text>
-            - code: Non-Serviceable
+            - code: Non-serviceable
               description: if the location is non-serviceable
               reference: <PR/Issue/Discussion Links md format text>
         quote:
@@ -4210,7 +4210,7 @@ x-flows:
         description: Initialization of Order with final quote
         reference: if any
         example: &ref_14
-          summary: Acknowledges the initialization (Domestic)
+          summary: Acknowledges the initialization (Domestic - RFQ)
           description: Acknowledges the initialization
           value:
             context:
@@ -4354,6 +4354,24 @@ x-flows:
                       - descriptor:
                           code: buyer_id_no
                         value: xxxxxxxxxxxxxxx
+                      - descriptor:
+                          code: bpp_terms
+                        list:
+                          - descriptor:
+                              code: max_liability
+                            value: '2'
+                          - descriptor:
+                              code: max_liability_cap
+                            value: '10000'
+                          - descriptor:
+                              code: mandatory_arbitration
+                            value: 'false'
+                          - descriptor:
+                              code: court_jurisdiction
+                            value: Bengaluru
+                          - descriptor:
+                              code: delay_interest
+                            value: '1000'
       - summary: Buyer raises PO
         api: confirm
         description: >-
@@ -4522,6 +4540,30 @@ x-flows:
                       - descriptor:
                           code: buyer_id_no
                         value: xxxxxxxxxxxxxxx
+                  - descriptor:
+                      code: bpp_terms
+                    list:
+                      - descriptor:
+                          code: max_liability
+                        value: '2'
+                      - descriptor:
+                          code: max_liability_cap
+                        value: '10000'
+                      - descriptor:
+                          code: mandatory_arbitration
+                        value: 'false'
+                      - descriptor:
+                          code: court_jurisdiction
+                        value: Bengaluru
+                      - descriptor:
+                          code: delay_interest
+                        value: '1000'
+                  - descriptor:
+                      code: bap_terms
+                    list:
+                      - descriptor:
+                          code: accept_bpp_terms
+                        value: 'Y'
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T09:30:00.000Z'
       - summary: Seller Accepts PO
@@ -4724,6 +4766,30 @@ x-flows:
                       - descriptor:
                           code: buyer_id_no
                         value: xxxxxxxxxxxxxxx
+                  - descriptor:
+                      code: bpp_terms
+                    list:
+                      - descriptor:
+                          code: max_liability
+                        value: '2'
+                      - descriptor:
+                          code: max_liability_cap
+                        value: '10000'
+                      - descriptor:
+                          code: mandatory_arbitration
+                        value: 'false'
+                      - descriptor:
+                          code: court_jurisdiction
+                        value: Bengaluru
+                      - descriptor:
+                          code: delay_interest
+                        value: '1000'
+                  - descriptor:
+                      code: bap_terms
+                    list:
+                      - descriptor:
+                          code: accept_bpp_terms
+                        value: 'Y'
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T09:31:30.000Z'
       - summary: Consumer platform requests for latest status
@@ -5915,6 +5981,24 @@ x-flows:
                       - descriptor:
                           code: buyer_id_no
                         value: xxxxxxxxxxxxxxx
+                      - descriptor:
+                          code: bpp_terms
+                        list:
+                          - descriptor:
+                              code: max_liability
+                            value: '2'
+                          - descriptor:
+                              code: max_liability_cap
+                            value: '10000'
+                          - descriptor:
+                              code: mandatory_arbitration
+                            value: 'false'
+                          - descriptor:
+                              code: court_jurisdiction
+                            value: Bengaluru
+                          - descriptor:
+                              code: delay_interest
+                            value: '1000'
       - summary: Buyer raises PO
         api: confirm
         description: Buyer creates a Purchase Order
@@ -6089,6 +6173,30 @@ x-flows:
                       - descriptor:
                           code: buyer_id_no
                         value: xxxxxxxxxxxxxxx
+                  - descriptor:
+                      code: bpp_terms
+                    list:
+                      - descriptor:
+                          code: max_liability
+                        value: '2'
+                      - descriptor:
+                          code: max_liability_cap
+                        value: '10000'
+                      - descriptor:
+                          code: mandatory_arbitration
+                        value: 'false'
+                      - descriptor:
+                          code: court_jurisdiction
+                        value: Bengaluru
+                      - descriptor:
+                          code: delay_interest
+                        value: '1000'
+                  - descriptor:
+                      code: bap_terms
+                    list:
+                      - descriptor:
+                          code: accept_bpp_terms
+                        value: 'Y'
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T09:30:00.000Z'
       - summary: Seller Accepts PO
@@ -6284,6 +6392,30 @@ x-flows:
                       - descriptor:
                           code: buyer_id_no
                         value: xxxxxxxxxxxxxxx
+                  - descriptor:
+                      code: bpp_terms
+                    list:
+                      - descriptor:
+                          code: max_liability
+                        value: '2'
+                      - descriptor:
+                          code: max_liability_cap
+                        value: '10000'
+                      - descriptor:
+                          code: mandatory_arbitration
+                        value: 'false'
+                      - descriptor:
+                          code: court_jurisdiction
+                        value: Bengaluru
+                      - descriptor:
+                          code: delay_interest
+                        value: '1000'
+                  - descriptor:
+                      code: bap_terms
+                    list:
+                      - descriptor:
+                          code: accept_bpp_terms
+                        value: 'Y'
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T09:31:30.000Z'
       - summary: Consumer platform requests for latest status
@@ -7701,12 +7833,251 @@ x-flows:
         api: init
         description: Initialization of Order - Billing Details added.
         reference: if any
-        example: *ref_13
+        example:
+          summary: Intializing the order (Domestic - Non RFQ)
+          description: Intializing the order
+          value:
+            context:
+              domain: ONDC:RET10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: init
+              version: 2.0.2
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/grocery
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/grocery
+              transaction_id: T1
+              message_id: M1
+              timestamp: '2023-01-08T22:00:30.000Z'
+              ttl: PT30S
+            message:
+              order:
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 200
+                    add-ons:
+                      - id: '78787723'
+                billing:
+                  name: ONDC buyer
+                  address: >-
+                    22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                    Bengaluru, Karnataka 560001
+                  state:
+                    name: Karnataka
+                  city:
+                    name: Bengaluru
+                  tax_id: XXXXXXXXXXXXXXX
+                  email: nobody@nomail.com
+                  phone: '9886098860'
+                fulfillments:
+                  - id: F1
+                    type: Delivery
+                    stops:
+                      - type: end
+                        location:
+                          gps: 12.974002,77.613458
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Bengaluru
+                          country:
+                            code: IND
+                          area_code: '560001'
+                          state:
+                            name: Karnataka
+                        contact:
+                          phone: '9886098860'
+                payments:
+                  - type: ON-FULFILLMENT
+                    collected_by: BPP
+                tags:
+                  - descriptor:
+                      code: buyer_id
+                    list:
+                      - descriptor:
+                          code: buyer_id_code
+                        value: gst
+                      - descriptor:
+                          code: buyer_id_no
+                        value: xxxxxxxxxxxxxxx
       - summary: Initialization of Order
         api: on_init
         description: Initialization of Order with final quote
         reference: if any
-        example: *ref_14
+        example:
+          summary: Acknowledges the initialization (Domestic - Non RFQ)
+          description: Acknowledges the initialization
+          value:
+            context:
+              domain: ONDC:RET10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_init
+              version: 2.0.2
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/grocery
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/grocery
+              transaction_id: T1
+              message_id: M1
+              timestamp: '2023-01-08T22:00:30.000Z'
+              ttl: PT30S
+            message:
+              order:
+                provider:
+                  id: P1
+                provider_location:
+                  id: L1
+                items:
+                  - id: I1
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 200
+                    add-ons:
+                      - id: '78787723'
+                billing:
+                  name: ONDC buyer
+                  address: >-
+                    22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                    Bengaluru, Karnataka 560001
+                  state:
+                    name: Karnataka
+                  city:
+                    name: Bengaluru
+                  tax_id: XXXXXXXXXXXXXXX
+                  email: nobody@nomail.com
+                  phone: '9886098860'
+                fulfillments:
+                  - id: F1
+                    type: Delivery
+                    '@ondc/org/provider_name': Loadshare
+                    '@ondc/org/category': Express Delivery
+                    '@ondc/org/TAT': P7D
+                    tracking: false
+                    stops:
+                      - type: end
+                        location:
+                          gps: 12.974002,77.613458
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Bengaluru
+                          country:
+                            code: IND
+                          area_code: '560001'
+                          state:
+                            name: Karnataka
+                        contact:
+                          phone: '9886098860'
+                quote:
+                  price:
+                    currency: INR
+                    value: '53600'
+                  breakup:
+                    - '@ondc/org/item_id': I1
+                      '@ondc/org/item_quantity':
+                        count: 200
+                      title: Dhara Mustard Oil
+                      '@ondc/org/title_type': item
+                      price:
+                        currency: INR
+                        value: '50000'
+                      item:
+                        price:
+                          currency: INR
+                          value: '250'
+                    - '@ondc/org/item_id': F1
+                      title: Delivery charges
+                      '@ondc/org/title_type': delivery
+                      price:
+                        currency: INR
+                        value: '4000'
+                    - '@ondc/org/item_id': F1
+                      title: Packing charges
+                      '@ondc/org/title_type': packing
+                      price:
+                        currency: INR
+                        value: '500'
+                    - '@ondc/org/item_id': I1
+                      title: Tax
+                      '@ondc/org/title_type': tax
+                      price:
+                        currency: INR
+                        value: '0'
+                    - '@ondc/org/item_id': I1
+                      title: Discount
+                      '@ondc/org/title_type': discount
+                      price:
+                        currency: INR
+                        value: '-1000'
+                    - '@ondc/org/item_id': F1
+                      title: Convenience Fee
+                      '@ondc/org/title_type': misc
+                      price:
+                        currency: INR
+                        value: '100'
+                  ttl: P1D
+                payments:
+                  - type: PRE-FULFILLMENT
+                    collected_by: BAP
+                    '@ondc/org/buyer_app_finder_fee_type': percent
+                    '@ondc/org/buyer_app_finder_fee_amount': '0'
+                    '@ondc/org/settlement_basis': delivery
+                    '@ondc/org/settlement_window': P1D
+                    '@ondc/org/withholding_amount': '10.00'
+                    '@ondc/org/settlement_details':
+                      - settlement_counterparty: seller-app
+                        settlement_phase: sale-amount
+                        settlement_type: upi
+                        upi_address: gft@oksbi
+                        settlement_bank_account_no: XXXXXXXXXX
+                        settlement_ifsc_code: XXXXXXXXX
+                        beneficiary_name: xxxxx
+                        bank_name: xxxx
+                        branch_name: xxxx
+                tags:
+                  - descriptor:
+                      code: buyer_id
+                    list:
+                      - descriptor:
+                          code: buyer_id_code
+                        value: gst
+                      - descriptor:
+                          code: buyer_id_no
+                        value: xxxxxxxxxxxxxxx
+                  - descriptor:
+                      code: bpp_terms
+                    list:
+                      - descriptor:
+                          code: max_liability
+                        value: '2'
+                      - descriptor:
+                          code: max_liability_cap
+                        value: '10000'
+                      - descriptor:
+                          code: mandatory_arbitration
+                        value: 'false'
+                      - descriptor:
+                          code: court_jurisdiction
+                        value: Bengaluru
+                      - descriptor:
+                          code: delay_interest
+                        value: '1000'
       - summary: Buyer confirms the order
         api: confirm
         description: Buyer confirms the order
@@ -7749,16 +8120,6 @@ x-flows:
                         count: 200
                     add-ons:
                       - id: '78787723'
-                    tags:
-                      - descriptor:
-                          code: BUYER_TERMS
-                        list:
-                          - descriptor:
-                              code: ITEM_REQ
-                            value: free text on Item Customization
-                          - descriptor:
-                              code: PACKAGING_REQ
-                            value: free text on packaging Customization
                 billing:
                   name: ONDC buyer
                   address: >-
@@ -7873,21 +8234,29 @@ x-flows:
                       - descriptor:
                           code: buyer_id_no
                         value: xxxxxxxxxxxxxxx
-                  - code: bpp_terms
+                  - descriptor:
+                      code: bpp_terms
                     list:
-                      - code: max_liability
+                      - descriptor:
+                          code: max_liability
                         value: '2'
-                      - code: max_liability_cap
+                      - descriptor:
+                          code: max_liability_cap
                         value: '10000'
-                      - code: mandatory_arbitration
+                      - descriptor:
+                          code: mandatory_arbitration
                         value: 'false'
-                      - code: court_jurisdiction
+                      - descriptor:
+                          code: court_jurisdiction
                         value: Bengaluru
-                      - code: delay_interest
+                      - descriptor:
+                          code: delay_interest
                         value: '1000'
-                  - code: bap_terms
+                  - descriptor:
+                      code: bap_terms
                     list:
-                      - code: accept_bpp_terms
+                      - descriptor:
+                          code: accept_bpp_terms
                         value: 'Y'
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T09:30:00.000Z'
@@ -7934,16 +8303,6 @@ x-flows:
                         count: 200
                     add-ons:
                       - id: '78787723'
-                    tags:
-                      - descriptor:
-                          code: BUYER_TERMS
-                        list:
-                          - descriptor:
-                              code: ITEM_REQ
-                            value: free text on Item Customization
-                          - descriptor:
-                              code: PACKAGING_REQ
-                            value: free text on packaging Customization
                 billing:
                   name: ONDC buyer
                   address: >-
@@ -8075,6 +8434,30 @@ x-flows:
                       - descriptor:
                           code: buyer_id_no
                         value: xxxxxxxxxxxxxxx
+                  - descriptor:
+                      code: bpp_terms
+                    list:
+                      - descriptor:
+                          code: max_liability
+                        value: '2'
+                      - descriptor:
+                          code: max_liability_cap
+                        value: '10000'
+                      - descriptor:
+                          code: mandatory_arbitration
+                        value: 'false'
+                      - descriptor:
+                          code: court_jurisdiction
+                        value: Bengaluru
+                      - descriptor:
+                          code: delay_interest
+                        value: '1000'
+                  - descriptor:
+                      code: bap_terms
+                    list:
+                      - descriptor:
+                          code: accept_bpp_terms
+                        value: 'Y'
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T09:31:30.000Z'
       - summary: Consumer platform requests for latest status
@@ -8882,16 +9265,6 @@ x-flows:
                         count: 200
                     add-ons:
                       - id: '78787723'
-                    tags:
-                      - descriptor:
-                          code: BUYER_TERMS
-                        list:
-                          - descriptor:
-                              code: ITEM_REQ
-                            value: free text on Item Customization
-                          - descriptor:
-                              code: PACKAGING_REQ
-                            value: free text on packaging Customization
                 billing:
                   name: ONDC buyer
                   address: >-
@@ -9005,17 +9378,23 @@ x-flows:
                       - descriptor:
                           code: buyer_id_no
                         value: xxxxxxxxxxxxxxx
-                  - code: bpp_terms
+                  - descriptor:
+                      code: bpp_terms
                     list:
-                      - code: max_liability
+                      - descriptor:
+                          code: max_liability
                         value: '2'
-                      - code: max_liability_cap
+                      - descriptor:
+                          code: max_liability_cap
                         value: '10000'
-                      - code: mandatory_arbitration
+                      - descriptor:
+                          code: mandatory_arbitration
                         value: 'false'
-                      - code: court_jurisdiction
+                      - descriptor:
+                          code: court_jurisdiction
                         value: Bengaluru
-                      - code: delay_interest
+                      - descriptor:
+                          code: delay_interest
                         value: '1000'
       - summary: Buyer makes the payment and then confirms the order
         api: confirm
@@ -9604,17 +9983,23 @@ x-flows:
                       - descriptor:
                           code: buyer_id_no
                         value: xxxxxxxxxxxxxxx
-                  - code: bpp_terms
+                  - descriptor:
+                      code: bpp_terms
                     list:
-                      - code: max_liability
+                      - descriptor:
+                          code: max_liability
                         value: '2'
-                      - code: max_liability_cap
+                      - descriptor:
+                          code: max_liability_cap
                         value: '10000'
-                      - code: mandatory_arbitration
+                      - descriptor:
+                          code: mandatory_arbitration
                         value: 'false'
-                      - code: court_jurisdiction
+                      - descriptor:
+                          code: court_jurisdiction
                         value: Bengaluru
-                      - code: delay_interest
+                      - descriptor:
+                          code: delay_interest
                         value: '1000'
       - summary: Buyer raises PO
         api: confirm
@@ -10434,23 +10819,29 @@ x-flows:
                       - descriptor:
                           code: buyer_id_no
                         value: xxxxxxxxxxxxxxx
-                  - code: bpp_terms
+                  - descriptor:
+                      code: bpp_terms
                     list:
-                      - code: max_liability
+                      - descriptor:
+                          code: max_liability
                         value: '2'
-                      - code: max_liability_cap
+                      - descriptor:
+                          code: max_liability_cap
                         value: '10000'
-                      - code: mandatory_arbitration
+                      - descriptor:
+                          code: mandatory_arbitration
                         value: 'false'
-                      - code: court_jurisdiction
+                      - descriptor:
+                          code: court_jurisdiction
                         value: Bengaluru
-                      - code: delay_interest
+                      - descriptor:
+                          code: delay_interest
                         value: '1000'
-                      - code: np_type
-                        value: MSN
-                  - code: bap_terms
+                  - descriptor:
+                      code: bap_terms
                     list:
-                      - code: accept_bpp_terms
+                      - descriptor:
+                          code: accept_bpp_terms
                         value: 'Y'
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T09:31:30.000Z'
@@ -11239,6 +11630,83 @@ x-examples:
                         - descriptor:
                             code: buyer_id_no
                           value: xxxxxxxxxxxxxxx
+          - summary: Intializing the order (Domestic - Non RFQ)
+            description: Intializing the order
+            value:
+              context:
+                domain: ONDC:RET10
+                location:
+                  city:
+                    code: std:080
+                  country:
+                    code: IND
+                action: init
+                version: 2.0.2
+                bap_id: buyerapp.com
+                bap_uri: https://buyerapp.com/grocery
+                bpp_id: sellerapp.com
+                bpp_uri: https://sellerapp.com/grocery
+                transaction_id: T1
+                message_id: M1
+                timestamp: '2023-01-08T22:00:30.000Z'
+                ttl: PT30S
+              message:
+                order:
+                  provider:
+                    id: P1
+                    locations:
+                      - id: L1
+                  items:
+                    - id: I1
+                      fulfillment_ids:
+                        - F1
+                      quantity:
+                        selected:
+                          count: 200
+                      add-ons:
+                        - id: '78787723'
+                  billing:
+                    name: ONDC buyer
+                    address: >-
+                      22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                      Bengaluru, Karnataka 560001
+                    state:
+                      name: Karnataka
+                    city:
+                      name: Bengaluru
+                    tax_id: XXXXXXXXXXXXXXX
+                    email: nobody@nomail.com
+                    phone: '9886098860'
+                  fulfillments:
+                    - id: F1
+                      type: Delivery
+                      stops:
+                        - type: end
+                          location:
+                            gps: 12.974002,77.613458
+                            address: 'My House #, My buildin'
+                            city:
+                              name: Bengaluru
+                            country:
+                              code: IND
+                            area_code: '560001'
+                            state:
+                              name: Karnataka
+                          contact:
+                            phone: '9886098860'
+                  payments:
+                    - type: ON-FULFILLMENT
+                      collected_by: BPP
+                  tags:
+                    - descriptor:
+                        code: buyer_id
+                      list:
+                        - descriptor:
+                            code: buyer_id_code
+                          value: gst
+                        - descriptor:
+                            code: buyer_id_no
+                          value: xxxxxxxxxxxxxxx
           - summary: Initializing the order (Domestic - BPP collecting the payment)
             description: Intializing the order
             value:
@@ -11489,6 +11957,30 @@ x-examples:
                         - descriptor:
                             code: buyer_id_no
                           value: xxxxxxxxxxxxxxx
+                    - descriptor:
+                        code: bpp_terms
+                      list:
+                        - descriptor:
+                            code: max_liability
+                          value: '2'
+                        - descriptor:
+                            code: max_liability_cap
+                          value: '10000'
+                        - descriptor:
+                            code: mandatory_arbitration
+                          value: 'false'
+                        - descriptor:
+                            code: court_jurisdiction
+                          value: Bengaluru
+                        - descriptor:
+                            code: delay_interest
+                          value: '1000'
+                    - descriptor:
+                        code: bap_terms
+                      list:
+                        - descriptor:
+                            code: accept_bpp_terms
+                          value: 'Y'
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T09:30:00.000Z'
           - summary: Raise PO (Exports)
@@ -11660,6 +12152,30 @@ x-examples:
                         - descriptor:
                             code: buyer_id_no
                           value: xxxxxxxxxxxxxxx
+                    - descriptor:
+                        code: bpp_terms
+                      list:
+                        - descriptor:
+                            code: max_liability
+                          value: '2'
+                        - descriptor:
+                            code: max_liability_cap
+                          value: '10000'
+                        - descriptor:
+                            code: mandatory_arbitration
+                          value: 'false'
+                        - descriptor:
+                            code: court_jurisdiction
+                          value: Bengaluru
+                        - descriptor:
+                            code: delay_interest
+                          value: '1000'
+                    - descriptor:
+                        code: bap_terms
+                      list:
+                        - descriptor:
+                            code: accept_bpp_terms
+                          value: 'Y'
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T09:30:00.000Z'
           - summary: Confirms the order (Domestic)
@@ -11699,16 +12215,6 @@ x-examples:
                           count: 200
                       add-ons:
                         - id: '78787723'
-                      tags:
-                        - descriptor:
-                            code: BUYER_TERMS
-                          list:
-                            - descriptor:
-                                code: ITEM_REQ
-                              value: free text on Item Customization
-                            - descriptor:
-                                code: PACKAGING_REQ
-                              value: free text on packaging Customization
                   billing:
                     name: ONDC buyer
                     address: >-
@@ -11823,21 +12329,29 @@ x-examples:
                         - descriptor:
                             code: buyer_id_no
                           value: xxxxxxxxxxxxxxx
-                    - code: bpp_terms
+                    - descriptor:
+                        code: bpp_terms
                       list:
-                        - code: max_liability
+                        - descriptor:
+                            code: max_liability
                           value: '2'
-                        - code: max_liability_cap
+                        - descriptor:
+                            code: max_liability_cap
                           value: '10000'
-                        - code: mandatory_arbitration
+                        - descriptor:
+                            code: mandatory_arbitration
                           value: 'false'
-                        - code: court_jurisdiction
+                        - descriptor:
+                            code: court_jurisdiction
                           value: Bengaluru
-                        - code: delay_interest
+                        - descriptor:
+                            code: delay_interest
                           value: '1000'
-                    - code: bap_terms
+                    - descriptor:
+                        code: bap_terms
                       list:
-                        - code: accept_bpp_terms
+                        - descriptor:
+                            code: accept_bpp_terms
                           value: 'Y'
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T09:30:00.000Z'
@@ -14512,7 +15026,7 @@ x-examples:
                       collected_by: BPP
       on_init:
         examples:
-          - summary: Acknowledges the initialization (Domestic)
+          - summary: Acknowledges the initialization (Domestic - RFQ)
             description: Acknowledges the initialization
             value:
               context:
@@ -14656,6 +15170,186 @@ x-examples:
                         - descriptor:
                             code: buyer_id_no
                           value: xxxxxxxxxxxxxxx
+                        - descriptor:
+                            code: bpp_terms
+                          list:
+                            - descriptor:
+                                code: max_liability
+                              value: '2'
+                            - descriptor:
+                                code: max_liability_cap
+                              value: '10000'
+                            - descriptor:
+                                code: mandatory_arbitration
+                              value: 'false'
+                            - descriptor:
+                                code: court_jurisdiction
+                              value: Bengaluru
+                            - descriptor:
+                                code: delay_interest
+                              value: '1000'
+          - summary: Acknowledges the initialization (Domestic - Non RFQ)
+            description: Acknowledges the initialization
+            value:
+              context:
+                domain: ONDC:RET10
+                location:
+                  city:
+                    code: std:080
+                  country:
+                    code: IND
+                action: on_init
+                version: 2.0.2
+                bap_id: buyerapp.com
+                bap_uri: https://buyerapp.com/grocery
+                bpp_id: sellerapp.com
+                bpp_uri: https://sellerapp.com/grocery
+                transaction_id: T1
+                message_id: M1
+                timestamp: '2023-01-08T22:00:30.000Z'
+                ttl: PT30S
+              message:
+                order:
+                  provider:
+                    id: P1
+                  provider_location:
+                    id: L1
+                  items:
+                    - id: I1
+                      fulfillment_ids:
+                        - F1
+                      quantity:
+                        selected:
+                          count: 200
+                      add-ons:
+                        - id: '78787723'
+                  billing:
+                    name: ONDC buyer
+                    address: >-
+                      22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                      Bengaluru, Karnataka 560001
+                    state:
+                      name: Karnataka
+                    city:
+                      name: Bengaluru
+                    tax_id: XXXXXXXXXXXXXXX
+                    email: nobody@nomail.com
+                    phone: '9886098860'
+                  fulfillments:
+                    - id: F1
+                      type: Delivery
+                      '@ondc/org/provider_name': Loadshare
+                      '@ondc/org/category': Express Delivery
+                      '@ondc/org/TAT': P7D
+                      tracking: false
+                      stops:
+                        - type: end
+                          location:
+                            gps: 12.974002,77.613458
+                            address: 'My House #, My buildin'
+                            city:
+                              name: Bengaluru
+                            country:
+                              code: IND
+                            area_code: '560001'
+                            state:
+                              name: Karnataka
+                          contact:
+                            phone: '9886098860'
+                  quote:
+                    price:
+                      currency: INR
+                      value: '53600'
+                    breakup:
+                      - '@ondc/org/item_id': I1
+                        '@ondc/org/item_quantity':
+                          count: 200
+                        title: Dhara Mustard Oil
+                        '@ondc/org/title_type': item
+                        price:
+                          currency: INR
+                          value: '50000'
+                        item:
+                          price:
+                            currency: INR
+                            value: '250'
+                      - '@ondc/org/item_id': F1
+                        title: Delivery charges
+                        '@ondc/org/title_type': delivery
+                        price:
+                          currency: INR
+                          value: '4000'
+                      - '@ondc/org/item_id': F1
+                        title: Packing charges
+                        '@ondc/org/title_type': packing
+                        price:
+                          currency: INR
+                          value: '500'
+                      - '@ondc/org/item_id': I1
+                        title: Tax
+                        '@ondc/org/title_type': tax
+                        price:
+                          currency: INR
+                          value: '0'
+                      - '@ondc/org/item_id': I1
+                        title: Discount
+                        '@ondc/org/title_type': discount
+                        price:
+                          currency: INR
+                          value: '-1000'
+                      - '@ondc/org/item_id': F1
+                        title: Convenience Fee
+                        '@ondc/org/title_type': misc
+                        price:
+                          currency: INR
+                          value: '100'
+                    ttl: P1D
+                  payments:
+                    - type: PRE-FULFILLMENT
+                      collected_by: BAP
+                      '@ondc/org/buyer_app_finder_fee_type': percent
+                      '@ondc/org/buyer_app_finder_fee_amount': '0'
+                      '@ondc/org/settlement_basis': delivery
+                      '@ondc/org/settlement_window': P1D
+                      '@ondc/org/withholding_amount': '10.00'
+                      '@ondc/org/settlement_details':
+                        - settlement_counterparty: seller-app
+                          settlement_phase: sale-amount
+                          settlement_type: upi
+                          upi_address: gft@oksbi
+                          settlement_bank_account_no: XXXXXXXXXX
+                          settlement_ifsc_code: XXXXXXXXX
+                          beneficiary_name: xxxxx
+                          bank_name: xxxx
+                          branch_name: xxxx
+                  tags:
+                    - descriptor:
+                        code: buyer_id
+                      list:
+                        - descriptor:
+                            code: buyer_id_code
+                          value: gst
+                        - descriptor:
+                            code: buyer_id_no
+                          value: xxxxxxxxxxxxxxx
+                    - descriptor:
+                        code: bpp_terms
+                      list:
+                        - descriptor:
+                            code: max_liability
+                          value: '2'
+                        - descriptor:
+                            code: max_liability_cap
+                          value: '10000'
+                        - descriptor:
+                            code: mandatory_arbitration
+                          value: 'false'
+                        - descriptor:
+                            code: court_jurisdiction
+                          value: Bengaluru
+                        - descriptor:
+                            code: delay_interest
+                          value: '1000'
           - summary: Acknowledges the initialization (Exports)
             description: Acknowledges the initialization
             value:
@@ -14808,6 +15502,24 @@ x-examples:
                         - descriptor:
                             code: buyer_id_no
                           value: xxxxxxxxxxxxxxx
+                        - descriptor:
+                            code: bpp_terms
+                          list:
+                            - descriptor:
+                                code: max_liability
+                              value: '2'
+                            - descriptor:
+                                code: max_liability_cap
+                              value: '10000'
+                            - descriptor:
+                                code: mandatory_arbitration
+                              value: 'false'
+                            - descriptor:
+                                code: court_jurisdiction
+                              value: Bengaluru
+                            - descriptor:
+                                code: delay_interest
+                              value: '1000'
           - summary: >-
               Acknowledges the initialization (Non RFQ and BPP collecting the
               payment)
@@ -14847,16 +15559,6 @@ x-examples:
                           count: 200
                       add-ons:
                         - id: '78787723'
-                      tags:
-                        - descriptor:
-                            code: BUYER_TERMS
-                          list:
-                            - descriptor:
-                                code: ITEM_REQ
-                              value: free text on Item Customization
-                            - descriptor:
-                                code: PACKAGING_REQ
-                              value: free text on packaging Customization
                   billing:
                     name: ONDC buyer
                     address: >-
@@ -14970,17 +15672,23 @@ x-examples:
                         - descriptor:
                             code: buyer_id_no
                           value: xxxxxxxxxxxxxxx
-                    - code: bpp_terms
+                    - descriptor:
+                        code: bpp_terms
                       list:
-                        - code: max_liability
+                        - descriptor:
+                            code: max_liability
                           value: '2'
-                        - code: max_liability_cap
+                        - descriptor:
+                            code: max_liability_cap
                           value: '10000'
-                        - code: mandatory_arbitration
+                        - descriptor:
+                            code: mandatory_arbitration
                           value: 'false'
-                        - code: court_jurisdiction
+                        - descriptor:
+                            code: court_jurisdiction
                           value: Bengaluru
-                        - code: delay_interest
+                        - descriptor:
+                            code: delay_interest
                           value: '1000'
           - summary: Acknowledges the initialization (Reject)
             description: Acknowledges the initialization
@@ -15129,6 +15837,24 @@ x-examples:
                         - descriptor:
                             code: buyer_id_no
                           value: xxxxxxxxxxxxxxx
+                        - descriptor:
+                            code: bpp_terms
+                          list:
+                            - descriptor:
+                                code: max_liability
+                              value: '2'
+                            - descriptor:
+                                code: max_liability_cap
+                              value: '10000'
+                            - descriptor:
+                                code: mandatory_arbitration
+                              value: 'false'
+                            - descriptor:
+                                code: court_jurisdiction
+                              value: Bengaluru
+                            - descriptor:
+                                code: delay_interest
+                              value: '1000'
               error:
                 type: DOMAIN-ERROR
                 code: '50005'
@@ -15276,17 +16002,23 @@ x-examples:
                         - descriptor:
                             code: buyer_id_no
                           value: xxxxxxxxxxxxxxx
-                    - code: bpp_terms
+                    - descriptor:
+                        code: bpp_terms
                       list:
-                        - code: max_liability
+                        - descriptor:
+                            code: max_liability
                           value: '2'
-                        - code: max_liability_cap
+                        - descriptor:
+                            code: max_liability_cap
                           value: '10000'
-                        - code: mandatory_arbitration
+                        - descriptor:
+                            code: mandatory_arbitration
                           value: 'false'
-                        - code: court_jurisdiction
+                        - descriptor:
+                            code: court_jurisdiction
                           value: Bengaluru
-                        - code: delay_interest
+                        - descriptor:
+                            code: delay_interest
                           value: '1000'
       on_confirm:
         examples:
@@ -15483,6 +16215,30 @@ x-examples:
                         - descriptor:
                             code: buyer_id_no
                           value: xxxxxxxxxxxxxxx
+                    - descriptor:
+                        code: bpp_terms
+                      list:
+                        - descriptor:
+                            code: max_liability
+                          value: '2'
+                        - descriptor:
+                            code: max_liability_cap
+                          value: '10000'
+                        - descriptor:
+                            code: mandatory_arbitration
+                          value: 'false'
+                        - descriptor:
+                            code: court_jurisdiction
+                          value: Bengaluru
+                        - descriptor:
+                            code: delay_interest
+                          value: '1000'
+                    - descriptor:
+                        code: bap_terms
+                      list:
+                        - descriptor:
+                            code: accept_bpp_terms
+                          value: 'Y'
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T09:31:30.000Z'
           - summary: Accept PO (Exports)
@@ -15673,6 +16429,30 @@ x-examples:
                         - descriptor:
                             code: buyer_id_no
                           value: xxxxxxxxxxxxxxx
+                    - descriptor:
+                        code: bpp_terms
+                      list:
+                        - descriptor:
+                            code: max_liability
+                          value: '2'
+                        - descriptor:
+                            code: max_liability_cap
+                          value: '10000'
+                        - descriptor:
+                            code: mandatory_arbitration
+                          value: 'false'
+                        - descriptor:
+                            code: court_jurisdiction
+                          value: Bengaluru
+                        - descriptor:
+                            code: delay_interest
+                          value: '1000'
+                    - descriptor:
+                        code: bap_terms
+                      list:
+                        - descriptor:
+                            code: accept_bpp_terms
+                          value: 'Y'
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T09:31:30.000Z'
           - summary: Order confirmation (Domestic - Non RFQ)
@@ -15713,16 +16493,6 @@ x-examples:
                           count: 200
                       add-ons:
                         - id: '78787723'
-                      tags:
-                        - descriptor:
-                            code: BUYER_TERMS
-                          list:
-                            - descriptor:
-                                code: ITEM_REQ
-                              value: free text on Item Customization
-                            - descriptor:
-                                code: PACKAGING_REQ
-                              value: free text on packaging Customization
                   billing:
                     name: ONDC buyer
                     address: >-
@@ -15854,6 +16624,30 @@ x-examples:
                         - descriptor:
                             code: buyer_id_no
                           value: xxxxxxxxxxxxxxx
+                    - descriptor:
+                        code: bpp_terms
+                      list:
+                        - descriptor:
+                            code: max_liability
+                          value: '2'
+                        - descriptor:
+                            code: max_liability_cap
+                          value: '10000'
+                        - descriptor:
+                            code: mandatory_arbitration
+                          value: 'false'
+                        - descriptor:
+                            code: court_jurisdiction
+                          value: Bengaluru
+                        - descriptor:
+                            code: delay_interest
+                          value: '1000'
+                    - descriptor:
+                        code: bap_terms
+                      list:
+                        - descriptor:
+                            code: accept_bpp_terms
+                          value: 'Y'
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T09:31:30.000Z'
           - summary: PO (Purchase Order) rejected by BPP
@@ -16042,23 +16836,29 @@ x-examples:
                         - descriptor:
                             code: buyer_id_no
                           value: xxxxxxxxxxxxxxx
-                    - code: bpp_terms
+                    - descriptor:
+                        code: bpp_terms
                       list:
-                        - code: max_liability
+                        - descriptor:
+                            code: max_liability
                           value: '2'
-                        - code: max_liability_cap
+                        - descriptor:
+                            code: max_liability_cap
                           value: '10000'
-                        - code: mandatory_arbitration
+                        - descriptor:
+                            code: mandatory_arbitration
                           value: 'false'
-                        - code: court_jurisdiction
+                        - descriptor:
+                            code: court_jurisdiction
                           value: Bengaluru
-                        - code: delay_interest
+                        - descriptor:
+                            code: delay_interest
                           value: '1000'
-                        - code: np_type
-                          value: MSN
-                    - code: bap_terms
+                    - descriptor:
+                        code: bap_terms
                       list:
-                        - code: accept_bpp_terms
+                        - descriptor:
+                            code: accept_bpp_terms
                           value: 'Y'
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T09:31:30.000Z'

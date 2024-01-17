@@ -48,27 +48,6 @@
             {
               "id": "78787723"
             }
-          ],
-          "tags": [
-            {
-              "descriptor": {
-                "code": "BUYER_TERMS"
-              },
-              "list": [
-                {
-                  "descriptor": {
-                    "code": "ITEM_REQ"
-                  },
-                  "value": "free text on Item Customization"
-                },
-                {
-                  "descriptor": {
-                    "code": "PACKAGING_REQ"
-                  },
-                  "value": "free text on packaging Customization"
-                }
-              ]
-            }
           ]
         }
       ],
@@ -263,6 +242,56 @@
                 "code": "buyer_id_no"
               },
               "value": "xxxxxxxxxxxxxxx"
+            }
+          ]
+        },
+        {
+          "descriptor": {
+            "code": "bpp_terms"
+          },
+          "list": [
+            {
+              "descriptor": {
+                "code": "max_liability"
+              },
+              "value": "2"
+            },
+            {
+              "descriptor": {
+                "code": "max_liability_cap"
+              },
+              "value": "10000"
+            },
+            {
+              "descriptor": {
+                "code": "mandatory_arbitration"
+              },
+              "value": "false"
+            },
+            {
+              "descriptor": {
+                "code": "court_jurisdiction"
+              },
+              "value": "Bengaluru"
+            },
+            {
+              "descriptor": {
+                "code": "delay_interest"
+              },
+              "value": "1000"
+            }
+          ]
+        },
+        {
+          "descriptor": {
+            "code": "bap_terms"
+          },
+          "list": [
+            {
+              "descriptor": {
+                "code": "accept_bpp_terms"
+              },
+              "value": "Y"
             }
           ]
         }
