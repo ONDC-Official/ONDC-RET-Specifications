@@ -244,6 +244,56 @@
               "value": "xxxxxxxxxxxxxxx"
             }
           ]
+        },
+        {
+          "descriptor": {
+            "code": "bpp_terms"
+          },
+          "list": [
+            {
+              "descriptor": {
+                "code": "max_liability"
+              },
+              "value": "2"
+            },
+            {
+              "descriptor": {
+                "code": "max_liability_cap"
+              },
+              "value": "10000"
+            },
+            {
+              "descriptor": {
+                "code": "mandatory_arbitration"
+              },
+              "value": "false"
+            },
+            {
+              "descriptor": {
+                "code": "court_jurisdiction"
+              },
+              "value": "Bengaluru"
+            },
+            {
+              "descriptor": {
+                "code": "delay_interest"
+              },
+              "value": "1000"
+            }
+          ]
+        },
+        {
+          "descriptor": {
+            "code": "bap_terms"
+          },
+          "list": [
+            {
+              "descriptor": {
+                "code": "accept_bpp_terms"
+              },
+              "value": "Y"
+            }
+          ]
         }
       ],
       "created_at": "2023-02-03T09:30:00.000Z",

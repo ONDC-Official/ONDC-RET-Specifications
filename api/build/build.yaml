@@ -4540,6 +4540,30 @@ x-flows:
                       - descriptor:
                           code: buyer_id_no
                         value: xxxxxxxxxxxxxxx
+                  - descriptor:
+                      code: bpp_terms
+                    list:
+                      - descriptor:
+                          code: max_liability
+                        value: '2'
+                      - descriptor:
+                          code: max_liability_cap
+                        value: '10000'
+                      - descriptor:
+                          code: mandatory_arbitration
+                        value: 'false'
+                      - descriptor:
+                          code: court_jurisdiction
+                        value: Bengaluru
+                      - descriptor:
+                          code: delay_interest
+                        value: '1000'
+                  - descriptor:
+                      code: bap_terms
+                    list:
+                      - descriptor:
+                          code: accept_bpp_terms
+                        value: 'Y'
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T09:30:00.000Z'
       - summary: Seller Accepts PO
@@ -4742,6 +4766,30 @@ x-flows:
                       - descriptor:
                           code: buyer_id_no
                         value: xxxxxxxxxxxxxxx
+                  - descriptor:
+                      code: bpp_terms
+                    list:
+                      - descriptor:
+                          code: max_liability
+                        value: '2'
+                      - descriptor:
+                          code: max_liability_cap
+                        value: '10000'
+                      - descriptor:
+                          code: mandatory_arbitration
+                        value: 'false'
+                      - descriptor:
+                          code: court_jurisdiction
+                        value: Bengaluru
+                      - descriptor:
+                          code: delay_interest
+                        value: '1000'
+                  - descriptor:
+                      code: bap_terms
+                    list:
+                      - descriptor:
+                          code: accept_bpp_terms
+                        value: 'Y'
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T09:31:30.000Z'
       - summary: Consumer platform requests for latest status
@@ -6125,6 +6173,30 @@ x-flows:
                       - descriptor:
                           code: buyer_id_no
                         value: xxxxxxxxxxxxxxx
+                  - descriptor:
+                      code: bpp_terms
+                    list:
+                      - descriptor:
+                          code: max_liability
+                        value: '2'
+                      - descriptor:
+                          code: max_liability_cap
+                        value: '10000'
+                      - descriptor:
+                          code: mandatory_arbitration
+                        value: 'false'
+                      - descriptor:
+                          code: court_jurisdiction
+                        value: Bengaluru
+                      - descriptor:
+                          code: delay_interest
+                        value: '1000'
+                  - descriptor:
+                      code: bap_terms
+                    list:
+                      - descriptor:
+                          code: accept_bpp_terms
+                        value: 'Y'
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T09:30:00.000Z'
       - summary: Seller Accepts PO
@@ -6320,6 +6392,30 @@ x-flows:
                       - descriptor:
                           code: buyer_id_no
                         value: xxxxxxxxxxxxxxx
+                  - descriptor:
+                      code: bpp_terms
+                    list:
+                      - descriptor:
+                          code: max_liability
+                        value: '2'
+                      - descriptor:
+                          code: max_liability_cap
+                        value: '10000'
+                      - descriptor:
+                          code: mandatory_arbitration
+                        value: 'false'
+                      - descriptor:
+                          code: court_jurisdiction
+                        value: Bengaluru
+                      - descriptor:
+                          code: delay_interest
+                        value: '1000'
+                  - descriptor:
+                      code: bap_terms
+                    list:
+                      - descriptor:
+                          code: accept_bpp_terms
+                        value: 'Y'
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T09:31:30.000Z'
       - summary: Consumer platform requests for latest status
@@ -8138,21 +8234,29 @@ x-flows:
                       - descriptor:
                           code: buyer_id_no
                         value: xxxxxxxxxxxxxxx
-                  - code: bpp_terms
+                  - descriptor:
+                      code: bpp_terms
                     list:
-                      - code: max_liability
+                      - descriptor:
+                          code: max_liability
                         value: '2'
-                      - code: max_liability_cap
+                      - descriptor:
+                          code: max_liability_cap
                         value: '10000'
-                      - code: mandatory_arbitration
+                      - descriptor:
+                          code: mandatory_arbitration
                         value: 'false'
-                      - code: court_jurisdiction
+                      - descriptor:
+                          code: court_jurisdiction
                         value: Bengaluru
-                      - code: delay_interest
+                      - descriptor:
+                          code: delay_interest
                         value: '1000'
-                  - code: bap_terms
+                  - descriptor:
+                      code: bap_terms
                     list:
-                      - code: accept_bpp_terms
+                      - descriptor:
+                          code: accept_bpp_terms
                         value: 'Y'
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T09:30:00.000Z'
@@ -8330,6 +8434,30 @@ x-flows:
                       - descriptor:
                           code: buyer_id_no
                         value: xxxxxxxxxxxxxxx
+                  - descriptor:
+                      code: bpp_terms
+                    list:
+                      - descriptor:
+                          code: max_liability
+                        value: '2'
+                      - descriptor:
+                          code: max_liability_cap
+                        value: '10000'
+                      - descriptor:
+                          code: mandatory_arbitration
+                        value: 'false'
+                      - descriptor:
+                          code: court_jurisdiction
+                        value: Bengaluru
+                      - descriptor:
+                          code: delay_interest
+                        value: '1000'
+                  - descriptor:
+                      code: bap_terms
+                    list:
+                      - descriptor:
+                          code: accept_bpp_terms
+                        value: 'Y'
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T09:31:30.000Z'
       - summary: Consumer platform requests for latest status
@@ -10691,23 +10819,29 @@ x-flows:
                       - descriptor:
                           code: buyer_id_no
                         value: xxxxxxxxxxxxxxx
-                  - code: bpp_terms
+                  - descriptor:
+                      code: bpp_terms
                     list:
-                      - code: max_liability
+                      - descriptor:
+                          code: max_liability
                         value: '2'
-                      - code: max_liability_cap
+                      - descriptor:
+                          code: max_liability_cap
                         value: '10000'
-                      - code: mandatory_arbitration
+                      - descriptor:
+                          code: mandatory_arbitration
                         value: 'false'
-                      - code: court_jurisdiction
+                      - descriptor:
+                          code: court_jurisdiction
                         value: Bengaluru
-                      - code: delay_interest
+                      - descriptor:
+                          code: delay_interest
                         value: '1000'
-                      - code: np_type
-                        value: MSN
-                  - code: bap_terms
+                  - descriptor:
+                      code: bap_terms
                     list:
-                      - code: accept_bpp_terms
+                      - descriptor:
+                          code: accept_bpp_terms
                         value: 'Y'
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T09:31:30.000Z'
@@ -11823,6 +11957,30 @@ x-examples:
                         - descriptor:
                             code: buyer_id_no
                           value: xxxxxxxxxxxxxxx
+                    - descriptor:
+                        code: bpp_terms
+                      list:
+                        - descriptor:
+                            code: max_liability
+                          value: '2'
+                        - descriptor:
+                            code: max_liability_cap
+                          value: '10000'
+                        - descriptor:
+                            code: mandatory_arbitration
+                          value: 'false'
+                        - descriptor:
+                            code: court_jurisdiction
+                          value: Bengaluru
+                        - descriptor:
+                            code: delay_interest
+                          value: '1000'
+                    - descriptor:
+                        code: bap_terms
+                      list:
+                        - descriptor:
+                            code: accept_bpp_terms
+                          value: 'Y'
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T09:30:00.000Z'
           - summary: Raise PO (Exports)
@@ -11994,6 +12152,30 @@ x-examples:
                         - descriptor:
                             code: buyer_id_no
                           value: xxxxxxxxxxxxxxx
+                    - descriptor:
+                        code: bpp_terms
+                      list:
+                        - descriptor:
+                            code: max_liability
+                          value: '2'
+                        - descriptor:
+                            code: max_liability_cap
+                          value: '10000'
+                        - descriptor:
+                            code: mandatory_arbitration
+                          value: 'false'
+                        - descriptor:
+                            code: court_jurisdiction
+                          value: Bengaluru
+                        - descriptor:
+                            code: delay_interest
+                          value: '1000'
+                    - descriptor:
+                        code: bap_terms
+                      list:
+                        - descriptor:
+                            code: accept_bpp_terms
+                          value: 'Y'
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T09:30:00.000Z'
           - summary: Confirms the order (Domestic)
@@ -12147,21 +12329,29 @@ x-examples:
                         - descriptor:
                             code: buyer_id_no
                           value: xxxxxxxxxxxxxxx
-                    - code: bpp_terms
+                    - descriptor:
+                        code: bpp_terms
                       list:
-                        - code: max_liability
+                        - descriptor:
+                            code: max_liability
                           value: '2'
-                        - code: max_liability_cap
+                        - descriptor:
+                            code: max_liability_cap
                           value: '10000'
-                        - code: mandatory_arbitration
+                        - descriptor:
+                            code: mandatory_arbitration
                           value: 'false'
-                        - code: court_jurisdiction
+                        - descriptor:
+                            code: court_jurisdiction
                           value: Bengaluru
-                        - code: delay_interest
+                        - descriptor:
+                            code: delay_interest
                           value: '1000'
-                    - code: bap_terms
+                    - descriptor:
+                        code: bap_terms
                       list:
-                        - code: accept_bpp_terms
+                        - descriptor:
+                            code: accept_bpp_terms
                           value: 'Y'
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T09:30:00.000Z'
@@ -16025,6 +16215,30 @@ x-examples:
                         - descriptor:
                             code: buyer_id_no
                           value: xxxxxxxxxxxxxxx
+                    - descriptor:
+                        code: bpp_terms
+                      list:
+                        - descriptor:
+                            code: max_liability
+                          value: '2'
+                        - descriptor:
+                            code: max_liability_cap
+                          value: '10000'
+                        - descriptor:
+                            code: mandatory_arbitration
+                          value: 'false'
+                        - descriptor:
+                            code: court_jurisdiction
+                          value: Bengaluru
+                        - descriptor:
+                            code: delay_interest
+                          value: '1000'
+                    - descriptor:
+                        code: bap_terms
+                      list:
+                        - descriptor:
+                            code: accept_bpp_terms
+                          value: 'Y'
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T09:31:30.000Z'
           - summary: Accept PO (Exports)
@@ -16215,6 +16429,30 @@ x-examples:
                         - descriptor:
                             code: buyer_id_no
                           value: xxxxxxxxxxxxxxx
+                    - descriptor:
+                        code: bpp_terms
+                      list:
+                        - descriptor:
+                            code: max_liability
+                          value: '2'
+                        - descriptor:
+                            code: max_liability_cap
+                          value: '10000'
+                        - descriptor:
+                            code: mandatory_arbitration
+                          value: 'false'
+                        - descriptor:
+                            code: court_jurisdiction
+                          value: Bengaluru
+                        - descriptor:
+                            code: delay_interest
+                          value: '1000'
+                    - descriptor:
+                        code: bap_terms
+                      list:
+                        - descriptor:
+                            code: accept_bpp_terms
+                          value: 'Y'
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T09:31:30.000Z'
           - summary: Order confirmation (Domestic - Non RFQ)
@@ -16386,6 +16624,30 @@ x-examples:
                         - descriptor:
                             code: buyer_id_no
                           value: xxxxxxxxxxxxxxx
+                    - descriptor:
+                        code: bpp_terms
+                      list:
+                        - descriptor:
+                            code: max_liability
+                          value: '2'
+                        - descriptor:
+                            code: max_liability_cap
+                          value: '10000'
+                        - descriptor:
+                            code: mandatory_arbitration
+                          value: 'false'
+                        - descriptor:
+                            code: court_jurisdiction
+                          value: Bengaluru
+                        - descriptor:
+                            code: delay_interest
+                          value: '1000'
+                    - descriptor:
+                        code: bap_terms
+                      list:
+                        - descriptor:
+                            code: accept_bpp_terms
+                          value: 'Y'
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T09:31:30.000Z'
           - summary: PO (Purchase Order) rejected by BPP
@@ -16574,23 +16836,29 @@ x-examples:
                         - descriptor:
                             code: buyer_id_no
                           value: xxxxxxxxxxxxxxx
-                    - code: bpp_terms
+                    - descriptor:
+                        code: bpp_terms
                       list:
-                        - code: max_liability
+                        - descriptor:
+                            code: max_liability
                           value: '2'
-                        - code: max_liability_cap
+                        - descriptor:
+                            code: max_liability_cap
                           value: '10000'
-                        - code: mandatory_arbitration
+                        - descriptor:
+                            code: mandatory_arbitration
                           value: 'false'
-                        - code: court_jurisdiction
+                        - descriptor:
+                            code: court_jurisdiction
                           value: Bengaluru
-                        - code: delay_interest
+                        - descriptor:
+                            code: delay_interest
                           value: '1000'
-                        - code: np_type
-                          value: MSN
-                    - code: bap_terms
+                    - descriptor:
+                        code: bap_terms
                       list:
-                        - code: accept_bpp_terms
+                        - descriptor:
+                            code: accept_bpp_terms
                           value: 'Y'
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T09:31:30.000Z'
