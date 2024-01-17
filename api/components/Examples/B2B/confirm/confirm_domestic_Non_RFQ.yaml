@@ -35,16 +35,6 @@ value:
               count: 200
           add-ons:
             - id: '78787723'
-          tags:
-            - descriptor:
-                code: BUYER_TERMS
-              list:
-                - descriptor:
-                    code: ITEM_REQ
-                  value: free text on Item Customization
-                - descriptor:
-                    code: PACKAGING_REQ
-                  value: free text on packaging Customization
       billing:
         name: ONDC buyer
         address: >-
