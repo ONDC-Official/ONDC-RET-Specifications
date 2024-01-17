@@ -215,28 +215,39 @@
           ]
         },
         {
-          "code":"bpp_terms",
-          "list":
-          [
+          "descriptor": {
+            "code": "bpp_terms"
+          },
+          "list": [
             {
-              "code":"max_liability",
-              "value":"2"
+              "descriptor": {
+                "code": "max_liability"
+              },
+              "value": "2"
             },
             {
-              "code":"max_liability_cap",
-              "value":"10000"
+              "descriptor": {
+                "code": "max_liability_cap"
+              },
+              "value": "10000"
             },
             {
-              "code":"mandatory_arbitration",
-              "value":"false"
+              "descriptor": {
+                "code": "mandatory_arbitration"
+              },
+              "value": "false"
             },
             {
-              "code":"court_jurisdiction",
-              "value":"Bengaluru"
+              "descriptor": {
+                "code": "court_jurisdiction"
+              },
+              "value": "Bengaluru"
             },
             {
-              "code":"delay_interest",
-              "value":"1000"
+              "descriptor": {
+                "code": "delay_interest"
+              },
+              "value": "1000"
             }
           ]
         }

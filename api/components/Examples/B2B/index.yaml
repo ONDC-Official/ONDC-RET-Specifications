@@ -14,6 +14,7 @@ init:
   examples:
     - $ref: ./init/init_exports.yaml
     - $ref: ./init/init_domestic.yaml
+    - $ref: ./init/init_domestic_non_rfq.yaml
     - $ref: ./init/init_domestic_BPP_payment.yaml
 confirm:
   examples:
@@ -44,6 +45,7 @@ on_select:
 on_init:
   examples:
     - $ref: ./on_init/on_init_domestic.yaml
+    - $ref: ./on_init/on_init_domestic_non_rfq.yaml
     - $ref: ./on_init/on_init_exports.yaml
     - $ref: "./on_init/on_init_domestic_payment_BPP_Non_RFQ.yaml"
     - $ref: "./on_init/on_init_rejectRFQ.yaml"
