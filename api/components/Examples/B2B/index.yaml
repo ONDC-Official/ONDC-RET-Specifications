@@ -27,7 +27,6 @@ update:
 status:
   examples:
     - $ref: ./status/status.yaml
-    - $ref: ./status/status_pre-payment.yaml
 on_search:
   examples:
     - $ref: ./on_search/on_search.yaml
