@@ -35,6 +35,10 @@ on_search:
     - $ref: ./on_search/on_search_electronics.yaml
     - $ref: ./on_search/on_search_grocery.yaml
     - $ref: ./on_search/on_search_payment_BPP.yaml
+    - $ref: ./on_search/on_search_autoparts_and_components.yaml
+    - $ref: ./on_search/on_search_construction_and_building.yaml
+    - $ref: ./on_search/on_search_chemicals.yaml
+    - $ref: ./on_search/on_search_hardware_and_industrial.yaml
 on_select:
   examples:
     - $ref: "./on_select/on_select_domestic.yaml"
