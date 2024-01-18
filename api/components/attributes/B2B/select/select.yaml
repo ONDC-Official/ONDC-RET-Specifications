@@ -85,8 +85,8 @@ message:
           reference: if any
           required: required
       tags:
-        description: Buyer provides customization details 
-        usage: 2
+        description: Buyer provides customization details for RFQ
+        usage: '-'
         reference: if any
         required: optional
       add-ons:
@@ -131,8 +131,44 @@ message:
             required: required
             usage: "110030"
             reference: if any
+      customer:
+        description: customer details
+        required: optional
+        usage: "-"
+        reference: if any
+        person:
+          creds:
+            description: credentials of the buyer
+            required: optional
+            usage: "-"
+            reference: if any
+            id:
+              required: optional
+              description: Human readable id
+              reference: if any
+              usage: ESG-12345678
+            type:
+              required: optional
+              description: Type of creds
+              reference: if any
+              usage: License
+            desc:
+              required: optional
+              description: Description of creds
+              reference: if any
+              usage: Export License No. ESG-12345678
+            icon:
+              required: optional
+              description: image of the credential
+              reference: if any
+              usage: https://abcd.cdn.com/images/license-img
+            url:
+              required: optional
+              description: link for the credential
+              reference: if any
+              usage: https://abcd.cdn.com/images/license-img
     tags:
-      description: Buyer provides details like GST number.
+      description: Buyer details like GST number.
       required: required
       usage: "-"
       reference: if any

@@ -161,13 +161,17 @@ message:
           reference: if any
 
       creds:
+        description: credentials of the seller
+        required: required for exports
+        usage: "-"
+        reference: if any
         id:
-          required: optional
+          required: required 
           description: Human readable id
           reference: if any
           usage: ESG-12345678
         type:
-          required: optional
+          required: required
           description: Type of creds
           reference: if any
           usage: License

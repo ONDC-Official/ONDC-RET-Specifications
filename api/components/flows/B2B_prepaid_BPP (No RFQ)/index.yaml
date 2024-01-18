@@ -125,7 +125,7 @@ steps:
     description: Seller provides the quote and breakup with logistics charges
     reference: if any
     example:
-      $ref: "../../Examples/B2B/on_select/on_select_domestic.yaml"
+      $ref: "../../Examples/B2B/on_select/on_select_domestic_non_rfq.yaml"
   - summary: Initialization of Order
     api: init
     description: Initialization of Order - Billing Details added.
