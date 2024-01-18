@@ -1,6 +1,6 @@
 {
     "context": {
-      "domain": "ONDC:RET1C",
+      "domain": "ONDC:RET1B",
       "location": {
         "city": {
           "code": "std:080"
@@ -10,7 +10,7 @@
         }
       },
       "action": "on_search",
-      "version": "2.0.1",
+      "version": "2.0.2",
       "bap_id": "buyerapp.com",
       "bap_uri": "https://buyerapp.com/fs",
       "bpp_id": "sellerapp.com",
@@ -120,7 +120,7 @@
                     "descriptor": {
                       "code": "category"
                     },
-                    "value": "RET10-1042"
+                    "value": "RET1B-10A9"
                   },
                   {
                     "descriptor": {
@@ -132,7 +132,7 @@
                     "descriptor": {
                       "code": "val"
                     },
-                    "value": "SGP"
+                    "value": "IND"
                   },
                   {
                     "descriptor": {
@@ -248,10 +248,10 @@
                 "id": "I1",
                 "parent_item_id": "V1",
                 "descriptor": {
-                  "name": "Gokul White PP Non Return Screwed Valve",
+                  "name": "CRI 1HP 10 Stage Single Phase Submersible Pump with Digital Control Starter",
                   "code": "UPC / EAN code / SKU code",
-                  "short_desc": "Gokul White PP Non Return Screwed Valve",
-                  "long_desc": "Gokul White PP Non Return Screwed Valve",
+                  "short_desc": "CRI 1HP 10 Stage Single Phase Submersible Pump with Digital Control Starter",
+                  "long_desc": "CRI 1HP 10 Stage Single Phase Submersible Pump with Digital Control Starter",
                   "images": [
                     {
                       "url": "https://abc.com/images/207.png"
@@ -270,7 +270,7 @@
                     "contact": {
                       "name": "xxxx",
                       "address": {
-                        "full": "Gokul Poly Valves Private Limited,AT Post Bakrol Bujrang, Ahmedabad, Gujarat-382430"
+                        "full": "C.R.I. Pumps Private Limited 7/46-1, Keeranatham Road, Saravanampatti Coimbatore - 641 035. Tamilnadu"
                       },
                       "phone": "18001801018",
                       "email": "consumer.services@xxxx.com"
@@ -306,7 +306,7 @@
                 }
                 },
                 "category_ids": [
-                  "RET12-102F"
+                  "RET1B-10A9"
                 ],
                 "fulfillment_ids": [
                   "1"
@@ -410,67 +410,235 @@
                         "descriptor": {
                           "code":"brand"
                         },
-                        "value":"Gokul"
+                        "value":"CRI"
                       },
                       {
                         "descriptor": {
-                          "code":"model"
+                          "code":"weight"
                         },
-                        "value":"2 PICE FLANGEND"
+                        "value":"Oz."
                       },
                       {
                         "descriptor": {
-                          "code":"item_condition"
+                          "code":"shipping_weight"
                         },
-                        "value":"New"
+                        "value":"Oz."
                       },
                       {
                         "descriptor": {
                           "code":"material"
                         },
-                        "value":"pp"
+                        "value":"Rubber"
+                      },
+                      {
+                        "descriptor": {
+                          "code":"size"
+                        },
+                        "value":"small"
+                      },
+                      {
+                        "descriptor": {
+                          "code":"model"
+                        },
+                        "value":"CRI 1HP 10"
                       },
                       {
                         "descriptor": {
                           "code":"warranty"
                         },
-                        "value":"2 years"
+                        "value":"1 Years"
                       },
                       {
                         "descriptor": {
-                          "code":"mount_type"
+                          "code":"capacity"
                         },
-                        "value":"wall mount"
+                        "value":"Ltr."
                       },
                       {
                         "descriptor": {
-                          "code":"thickness"
+                          "code":"connection"
                         },
-                        "value":"1 mm"
+                        "value":"1/2 inch"
                       },
                       {
                         "descriptor": {
-                          "code":"power_output"
+                          "code":"finish"
                         },
-                        "value":"2 HP"
+                        "value":"Copper"
                       },
                       {
                         "descriptor": {
-                          "code":"hazardous"
+                          "code":"head_style"
+                        },
+                        "value":"Box End"
+                      },
+                      {
+                        "descriptor": {
+                          "code":"phase"
+                        },
+                        "value":"Single phase"
+                      },
+                      {
+                        "descriptor": {
+                          "code":"horse_power"
+                        },
+                        "value":"1"
+                      },
+                      {
+                        "descriptor": {
+                          "code":"flashlight_included"
                         },
                         "value":"Yes"
                       },
                       {
                         "descriptor": {
-                          "code":"form_factor"
+                          "code":"power_supply"
                         },
-                        "value":"Powder"
+                        "value":"0-30 VDC"
                       },
                       {
                         "descriptor": {
-                          "code":"diameter"
+                          "code":"output"
                         },
-                        "value":"15 mm"
+                        "value":"4-20 mA"
+                      },
+                      {
+                        "descriptor": {
+                          "code":"rpm"
+                        },
+                        "value":"10000"
+                      },
+                      {
+                        "descriptor": {
+                          "code":"power_source"
+                        },
+                        "value":"Battery Powered"
+                      },
+                      {
+                        "descriptor": {
+                          "code":"wattage"
+                        },
+                        "value":"0.75"
+                      },
+                      {
+                        "descriptor": {
+                          "code":"mount_type"
+                        },
+                        "value":"Wall mount"
+                      },
+                      {
+                        "descriptor": {
+                          "code":"efficiency_grade"
+                        },
+                        "value":"IE1 (Standard Efficiency)"
+                      },
+                      {
+                        "descriptor": {
+                          "code":"ip_rating"
+                        },
+                        "value":"IP55"
+                      },
+                      {
+                        "descriptor": {
+                          "code":"water_resistance_level"
+                        },
+                        "value":"Not Water Resistant"
+                      },
+                      {
+                        "descriptor": {
+                          "code":"fire_resistance"
+                        },
+                        "value":"Yes"
+                      },
+                      {
+                        "descriptor": {
+                          "code":"audible_range"
+                        },
+                        "value":"0.1 Km"
+                      },
+                      {
+                        "descriptor": {
+                          "code":"connectivity"
+                        },
+                        "value":"Bluetooth"
+                      },
+                      {
+                        "descriptor": {
+                          "code":"battery_type"
+                        },
+                        "value":"3 AA batteries"
+                      },
+                      {
+                        "descriptor": {
+                          "code":"battery_life"
+                        },
+                        "value":"10 hours"
+                      },
+                      {
+                        "descriptor": {
+                          "code":"fire_rating"
+                        },
+                        "value":"1A & 13B"
+                      },
+                      {
+                        "descriptor": {
+                          "code":"power_requirement"
+                        },
+                        "value":"200V"
+                      },
+                      {
+                        "descriptor": {
+                          "code":"battery_included"
+                        },
+                        "value":"Yes"
+                      },
+                      {
+                        "descriptor": {
+                          "code":"voltage"
+                        },
+                        "value":"110V"
+                      },
+                      {
+                        "descriptor": {
+                          "code":"resolution"
+                        },
+                        "value":"0.0005 inch"
+                      },
+                      {
+                        "descriptor": {
+                          "code":"micron_rating"
+                        },
+                        "value":"10"
+                      },
+                      {
+                        "descriptor": {
+                          "code":"heat_time"
+                        },
+                        "value":"30 sec."
+                      },
+                      {
+                        "descriptor": {
+                          "code":"video_output"
+                        },
+                        "value":"HDMC"
+                      },
+                      {
+                        "descriptor": {
+                          "code":"comaptible_devices"
+                        },
+                        "value":"Desktop"
+                      },
+                      {
+                        "descriptor": {
+                          "code":"touchscreen"
+                        },
+                        "value":"No"
+                      },
+                      {
+                        "descriptor": {
+                          "code":"product_shape"
+                        },
+                        "value":"Circle"
                       }
                     ]
                   },   
