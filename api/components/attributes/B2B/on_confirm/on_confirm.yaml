@@ -2,12 +2,54 @@ message:
   parent: true
   order:
     parent: true
+    provider:
+      parent: true
+      id:
+        description: id of the selected provider from the catalog
+        usage: "P1"
+        reference: if any
+        required: required
+      locations:
+        description: store locations of the provider
+        usage: "-"
+        reference: if any
+        required: required
+        id:
+          description: id of the store location
+          usage: "L1"
+          reference: if any
+          required: required
+      rateable:
+        description: Provider rating is enabled or not
+        required: required
+        usage: "false"
+        reference: if any
     fulfillments:
       parent: true
       id:
         description: unique fulfillment id
         required: required
         usage: F1
+        reference: if any
+      type:
+        description: type of fulfillment mode buyer wants to avail
+        required: required
+        usage: "Delivery"
+        reference: if any
+      "@ondc/org/provider":
+        description: Delivery provider
+        required: required
+        usage: "Loadshare"
+        reference: if any
+      tracking:
+        description: Indicates the tracking is enabled or not
+        required: required
+        usage: "false"
+        reference: if any
+      rateable:
+        description: Fulfillment rating is enabled or not
+        required: required
+        usage: "false"
         reference: if any
       stops:
         type:
@@ -19,6 +61,16 @@ message:
           description: location id of the point
           required: required
           usage: "L1"
+          reference: if any
+        location.descriptor.name:
+          description: Name of the location
+          required: required
+          usage: "ABC Store"
+          reference: if any
+        location.gps:
+          description: GPS cordinates of the store
+          required: required
+          usage: "11.234567,34.1286443"
           reference: if any
         time.range:
           description: time range when the order would be picked up/dropped
@@ -36,12 +88,22 @@ message:
           usage: "2023-02-03T09:30:00.000Z"
           reference: if any
         instructions.name:
-          description: Pickup instructions
+          description: Status for pickup
           required: optional
-          usage: Pickup Code
+          usage: Status for pickup
           reference: if any
         instructions.short_desc:
           description: Pickup code value
+          required: optional
+          usage: "345234"
+          reference: if any
+        contact.phone:
+          description: Contact number of the seller or buyer
+          required: required
+          usage: "9248281919"
+          reference: if any
+        contact.email:
+          description: Contact email of the seller or buyer
           required: optional
           usage: "345234"
           reference: if any
@@ -58,41 +120,204 @@ message:
         required: required
         usage: PAID
         reference: if any
+      uri:
+        description: payment gateway url if BPP is collecting the payment
+        required: required for prepaid payment collected by BPP
+        usage: "https://snp.com/pg"
+        reference: if any
       params:
-         transaction_id:
-            description: transaction id when the payment was collected
-            required: required when payment status is PAID
-            usage: "3937"
+        transaction_id:
+          description: transaction id when the payment was collected
+          required: required when payment status is PAID
+          usage: "3937"
+          reference: if any
+        currency:
+          description: currency
+          required: required
+          usage: "INR"
+          reference: if any
+        amount:
+          description: amount of payment
+          required: required
+          usage: "3937"
+          reference: if any
+      "@ondc/org/settlement_basis":
+        description: basis of settlement
+        required: required
+        usage: "delivery"
+        reference: if any
+      "@ondc/org/settlement_window":
+        description: time window within which settlement needs to be done
+        required: required
+        usage: "P1D"
+        reference: if any
+      "@ondc/org/withholding_amount":
+        description: amount to be settled
+        required: required
+        usage: "10.00"
+        reference: if any
+      "@ondc/org/settlement_details":
+        description: settlement details sent to the counterparty who will be settling the amount
+        required: required
+        usage: "-"
+        reference: if any
+      tags:
+        description: Seller NP provides the signature, algorithm and ttl for the payment url provided
+        required: required for prepaid payment where BPP is collecting the payment
+        usage: "-"
+        reference: if any
+    items:
+      parent: true
+      description: Array of items selected by the buyer.
+      usage: "-"
+      reference: if any
+      required: required
+      id:
+        description: ID of the chosen item from the catalog provided by the merchant.
+        usage: "I1"
+        reference: if any
+        required: required
+      location_ids:
+        description: List of location IDs where the item is available.
+        usage: "L1,L2"
+        reference: if any
+        required: required
+      fulfillment_ids:
+        description: List of fulfillment IDs used for item fulfillment.
+        usage: "F1,F2"
+        reference: if any
+        required: required
+      quantity:
+        selected:
+          count:
+            description: Number of units for the chosen item.
+            usage: 2
             reference: if any
-         currency:
-            description: currency
             required: required
-            usage: "INR"
+      tags:
+        description: Buyer provides customization details for RFQ
+        usage: "-"
+        reference: if any
+        required: optional
+      add-ons:
+        id:
+          description: ID of the add-on selected from the catalog
+          usage: "3456"
+          reference: if any
+          required: optional
+    billing:
+      parent: true
+      phone:
+        required: required
+        description: Describes the phone information of an entity
+        reference: if any
+        usage: "9886098860"
+      email:
+        required: optional
+        description: Email address of the contact
+        reference: if any
+        usage: nobody@nomail.com
+      name:
+        required: required
+        description: Describes a person name as any individual
+        reference: if any
+        usage: ONDC buyer
+      tax_id:
+        required: required
+        description: Describes tax id
+        reference: if any
+        usage: 22AAAAA0000A1Z5
+      state:
+        name:
+          required: required
+          description: Describes the state information of an entity
+          reference: if any
+          usage: Karnataka
+      city:
+        name:
+          required: required
+          description: Describes the city information of an entity
+          reference: if any
+          usage: Bengaluru
+    tags:
+      description: Buyer details like GST number, bpp_terms, bap_terms
+      required: required
+      usage: "-"
+      reference: if any
+    quote:
+      parent: true
+      price:
+        description: total price quoted from seller NP
+        required: required
+        usage: "-"
+        reference: if any
+        currency:
+          description: currency of the price
+          required: required
+          usage: "INR"
+          reference: if any
+        value:
+          description: price value
+          required: required
+          usage: "345"
+          reference: if any
+      breakup:
+        "@ondc/org/title_type":
+          description: type of charge - item,packing,discount,tax,misc,delivery
+          required: required
+          usage: "delivery"
+          reference: if any
+        "@ondc/org/item_id":
+          description: item id or fulfillment id based on type of charge
+          required: required
+          usage: "F1"
+          reference: if any
+        title:
+          description: type of charge - can be customized
+          required: required
+          usage: "Packing charges"
+          reference: if any
+        "@ondc/org/item_quantity":
+          count:
+            description: Item count for which the price is provided.
+            required: required for an 'item'
+            usage: "2"
             reference: if any
-         amount:
-            description: amount of payment
+        price:
+        currency:
+          description: currency of the price
+          required: required
+          usage: "INR"
+          reference: if any
+          value:
+            description: The overall cost of the item, calculated based on the quantity and unit price.
             required: required
-            usage: "3937"
+            usage: "700"
             reference: if any
-      '@ondc/org/settlement_basis':
-            description: basis of settlement
-            required: required 
-            usage: "delivery"
-            reference: if any
-      '@ondc/org/settlement_window':
-            description: time window within which settlement needs to be done
-            required: required 
-            usage: "P1D"
-            reference: if any
-      '@ondc/org/withholding_amount':
-            description: amount to be settled
-            required: required 
-            usage: "10.00"
-            reference: if any
-      '@ondc/org/settlement_details':
-            description: settlement details sent to the counterparty who will be settling the amount
-            required: required 
-            usage: "-"
-            reference: if any
-          
-
+        item:
+          price:
+            currency:
+              description: currency of the price
+              required: required for an 'item'
+              usage: "INR"
+              reference: if any
+            value:
+              description: Unit price for the item
+              required: required for an 'item'
+              usage: "350"
+              reference: if any
+      ttl:
+        description: Time period for which the quote is valid
+        required: required
+        usage: "P1D"
+        reference: if any
+    created_at:
+      description: timestamp when the order was created
+      required: required
+      usage: "2023-02-03T09:30:00.000Z"
+      reference: if any
+    updated_at:
+      description: timestamp when the order was updated
+      required: required
+      usage: "2023-02-03T09:30:00.000Z"
+      reference: if any

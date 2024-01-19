@@ -22,12 +22,34 @@ message:
       required: required
       usage: "2023-02-03T09:30:00.000Z"
       reference: if any
+    provider:
+      parent: true
+      id:
+        description: id of the selected provider from the catalog
+        usage: "P1"
+        reference: if any
+        required: required
+      locations:
+        description: store locations of the provider
+        usage: "-"
+        reference: if any
+        required: required
+        id:
+          description: id of the store location
+          usage: "L1"
+          reference: if any
+          required: required
     payments:
       parent: true
       status:
         description: status whether payment has been collected or not
         required: required
         usage: PAID
+        reference: if any
+      uri:
+        description: payment gateway url if BAP is collecting the payment
+        required: required for prepaid payment collected by BAP
+        usage: "https://snp.com/pg"
         reference: if any
       params:
          transaction_id:
@@ -65,6 +87,222 @@ message:
             required: required 
             usage: "-"
             reference: if any
+    quote:
+      parent: true
+      price:
+        description: total price quoted from seller NP
+        required: required
+        usage: "-"
+        reference: if any
+        currency:
+          description: currency of the price
+          required: required
+          usage: "INR"
+          reference: if any
+        value:
+          description: price value
+          required: required
+          usage: "345"
+          reference: if any
+      breakup:
+        "@ondc/org/title_type":
+          description: type of charge - item,packing,discount,tax,misc,delivery
+          required: required
+          usage: "delivery"
+          reference: if any
+        "@ondc/org/item_id":
+          description: item id or fulfillment id based on type of charge
+          required: required
+          usage: "F1"
+          reference: if any
+        title:
+          description: type of charge - can be customized
+          required: required
+          usage: "Packing charges"
+          reference: if any
+        "@ondc/org/item_quantity":
+          count: 
+            description: Item count for which the price is provided.
+            required: required for an 'item'
+            usage: '2'
+            reference: if any
+        price:
+        currency:
+          description: currency of the price
+          required: required
+          usage: "INR"
+          reference: if any
+          value: 
+            description: The overall cost of the item, calculated based on the quantity and unit price.
+            required: required
+            usage: "700"
+            reference: if any
+        item:
+          price:
+            currency:
+              description: currency of the price
+              required: required for an 'item'
+              usage: "INR"
+              reference: if any
+            value: 
+              description: Unit price for the item
+              required: required for an 'item'
+              usage: "350"
+              reference: if any
+      ttl:
+        description: Time period for which the quote is valid
+        required: required
+        usage: "P1D"
+        reference: if any
+    tags:    
+      description: Buyer details like GST number, bpp_terms, bap_terms
+      required: required
+      usage: "-"
+      reference: if any
+    billing:
+      parent: true
+      phone:
+        required: required
+        description: Describes the phone information of an entity
+        reference: if any
+        usage: "9886098860"
+      email:
+        required: optional
+        description: Email address of the contact
+        reference: if any
+        usage: nobody@nomail.com
+      name:
+        required: required
+        description: Describes a person name as any individual
+        reference: if any
+        usage: ONDC buyer
+      tax_id:
+        required: required
+        description: Describes tax id
+        reference: if any
+        usage: 22AAAAA0000A1Z5
+      state:
+        name:
+          required: required
+          description: Describes the state information of an entity
+          reference: if any
+          usage: Karnataka
+      city:
+        name:
+          required: required
+          description: Describes the city information of an entity
+          reference: if any
+          usage: Bengaluru
+    items:
+      parent: true
+      description: Array of items selected by the buyer.
+      usage: "-"
+      reference: if any
+      required: required
+      id:
+        description: ID of the chosen item from the catalog provided by the merchant.
+        usage: "I1"
+        reference: if any
+        required: required
+      location_ids:
+        description: List of location IDs where the item is available.
+        usage: "L1,L2"
+        reference: if any
+        required: required
+      fulfillment_ids:
+        description: List of fulfillment IDs used for item fulfillment.
+        usage: "F1,F2"
+        reference: if any
+        required: required
+      quantity:
+       selected:
+        count:
+          description: Number of units for the chosen item.
+          usage: 2
+          reference: if any
+          required: required
+      tags:
+        description: Buyer provides customization details for RFQ
+        usage: '-'
+        reference: if any
+        required: optional
+      add-ons:
+        id: 
+          description: ID of the add-on selected from the catalog
+          usage: "3456"
+          reference: if any
+          required: optional
+    fulfillments:
+      parent: true
+      id:
+        description: ID of the fulfillment
+        usage: "F1"
+        reference: if any
+        required: required
+      type:
+        description: type of fulfillment mode buyer wants to avail
+        required: required
+        usage: "Delivery"
+        reference: if any
+      stops:
+        type:
+          description: location(s) where the buyer wants the delivery to be made
+          required: required
+          usage: end
+          reference: if any
+        location:
+          gps:
+            description: minimum 6 digit decimal precision for gps coordinates
+            required: required
+            usage: "1.380621, 103.746364"
+            reference: if any
+          area_code:
+            description: area_code
+            required: required
+            usage: "110030"
+            reference: if any
+          address:
+            description: Destination address for the shipment drop-off.
+            required: required
+            usage: "My House #, My building"
+            reference: if any
+          city:
+            name:
+              description: Name of the city
+              required: required
+              usage: "Bangalore"
+              reference: if any
+          country:
+            code:
+              description: Country code
+              required: required
+              usage: "IND"
+              reference: if any
+          state:
+            name:
+              description: Name of the state
+              required: required
+              usage: "Karnataka"
+              reference: if any
+        contact:
+          phone:
+            description: contact number of the receiver
+            required: required
+            usage: "09212342829"
+            reference: if any
+      customer:
+        person:
+          name:
+            required: required
+            description: Name of the customer
+            reference: if any
+            usage: 'Ramu'
+
+      tags:
+        required: required for exports
+        description: delivery terms like incoterms
+        reference: if any
+        usage: '-'
           
 
       

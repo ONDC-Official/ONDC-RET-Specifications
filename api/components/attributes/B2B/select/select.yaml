@@ -167,7 +167,7 @@ message:
               description: link for the credential
               reference: if any
               usage: https://abcd.cdn.com/images/license-img
-    tags:
+    tags:    
       description: Buyer details like GST number.
       required: required
       usage: "-"

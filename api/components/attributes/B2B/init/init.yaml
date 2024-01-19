@@ -42,11 +42,11 @@ message:
         required: required
       quantity:
         selected:
-        count:
-          description: Number of units for the chosen item.
-          usage: 2
-          reference: if any
-          required: required
+          count:
+            description: Number of units for the chosen item.
+            usage: 2
+            reference: if any
+            required: required
       tags:
         description: Buyer provides customization details for RFQ
         usage: "-"
@@ -99,6 +99,29 @@ message:
             required: required
             usage: "110030"
             reference: if any
+          address:
+            description: Destination address for the shipment drop-off.
+            required: required
+            usage: "My House #, My building"
+            reference: if any
+          city:
+            name:
+              description: Name of the city
+              required: required
+              usage: "Bangalore"
+              reference: if any
+          country:
+            code:
+              description: Country code
+              required: required
+              usage: "IND"
+              reference: if any
+          state:
+            name:
+              description: Name of the state
+              required: required
+              usage: "Karnataka"
+              reference: if any
         contact:
           phone:
             description: contact number of the receiver
