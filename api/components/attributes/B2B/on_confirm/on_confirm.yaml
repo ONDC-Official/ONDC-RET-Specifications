@@ -115,6 +115,16 @@ message:
           reference: if any
     payments:
       parent: true
+      type:
+        description: Preferred payment method chosen by the buyer
+        usage: "ON-FULFILLMENT"
+        reference: if any
+        required: required
+      collected_by:
+        description: Indicates who is collecting the payment
+        usage: "BPP"
+        reference: if any
+        required: required
       status:
         description: status whether payment has been collected or not
         required: required
@@ -158,7 +168,7 @@ message:
         reference: if any
       "@ondc/org/settlement_details":
         description: settlement details sent to the counterparty who will be settling the amount
-        required: required
+        required: optional
         usage: "-"
         reference: if any
       tags:
@@ -284,16 +294,16 @@ message:
             usage: "2"
             reference: if any
         price:
-        currency:
-          description: currency of the price
-          required: required
-          usage: "INR"
-          reference: if any
-          value:
-            description: The overall cost of the item, calculated based on the quantity and unit price.
+          currency:
+            description: currency of the price
             required: required
-            usage: "700"
+            usage: "INR"
             reference: if any
+            value:
+              description: The overall cost of the item, calculated based on the quantity and unit price.
+              required: required
+              usage: "700"
+              reference: if any
         item:
           price:
             currency:

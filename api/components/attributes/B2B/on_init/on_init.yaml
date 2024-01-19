@@ -42,16 +42,16 @@ message:
             usage: '2'
             reference: if any
         price:
-        currency:
-          description: currency of the price
-          required: required
-          usage: "INR"
-          reference: if any
-          value: 
-            description: The overall cost of the item, calculated based on the quantity and unit price.
+          currency:
+            description: currency of the price
             required: required
-            usage: "700"
+            usage: "INR"
             reference: if any
+            value: 
+              description: The overall cost of the item, calculated based on the quantity and unit price.
+              required: required
+              usage: "700"
+              reference: if any
         item:
           price:
             currency:
@@ -108,7 +108,7 @@ message:
             reference: if any
       "@ondc/org/settlement_details":
         description: Settlment details provided to counter party collecting the payment for settlement
-        required: required if BAP is collecting the payment
+        required: optional
         usage: "-"
         reference: if any
     tags:    
