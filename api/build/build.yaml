@@ -21535,7 +21535,7 @@ x-attributes:
                 reference: if any
               uri:
                 description: payment gateway url if BAP is collecting the payment
-                required: required for prepaid payment collected by BAP
+                required: optional
                 usage: https://snp.com/pg
                 reference: if any
               params:
@@ -22178,7 +22178,7 @@ x-attributes:
                 required: required
               uri:
                 description: payment gateway url provided by buyer app in case of RFQ flow
-                required: required when BAP is collecting the pyament for RFQ flow
+                required: optional
                 usage: https://ondc.transaction.com/payment
                 reference: if any
               status:

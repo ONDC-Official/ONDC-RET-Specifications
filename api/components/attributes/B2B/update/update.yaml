@@ -34,7 +34,7 @@ message:
         required: required
       uri:
         description: payment gateway url provided by buyer app in case of RFQ flow
-        required: required when BAP is collecting the pyament for RFQ flow
+        required: optional
         usage: "https://ondc.transaction.com/payment"
         reference: if any
       status:

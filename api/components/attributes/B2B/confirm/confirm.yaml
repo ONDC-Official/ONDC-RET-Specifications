@@ -58,7 +58,7 @@ message:
         reference: if any
       uri:
         description: payment gateway url if BAP is collecting the payment
-        required: required for prepaid payment collected by BAP
+        required: optional
         usage: "https://snp.com/pg"
         reference: if any
       params:
