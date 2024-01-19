@@ -20189,14 +20189,25 @@ x-attributes:
             required: required
             usage: ONDC:RET12
             reference: if any
-          city:
-            description: >-
-              city code for search that identifies the cities where sellers have
-              stores. List of city codes, with pincode mapping, are here -
-              https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=1474472733
-            required: required
-            usage: std:080
-            reference: if any
+          location:
+            city:
+              description: >-
+                city code for search that identifies the cities where sellers
+                have stores. List of city codes, with pincode mapping, are here
+                -
+                https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=1474472733
+              required: required
+              usage: std:080
+              reference: if any
+            country:
+              description: >-
+                country code for search that identifies the cities where sellers
+                have stores. List of city codes, with pincode mapping, are here
+                -
+                https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=1474472733
+              required: required
+              usage: std:080
+              reference: if any
           bap_id:
             description: subscriber id for buyer app
             required: required
@@ -20216,6 +20227,16 @@ x-attributes:
             description: validity of message
             required: required
             usage: PT30S
+            reference: if any
+          version:
+            description: version of the ONDC model implementation used
+            required: required
+            usage: 2.0.2
+            reference: if any
+          action:
+            description: API call initiated
+            required: required
+            usage: search
             reference: if any
         message:
           parent: true
@@ -20276,6 +20297,37 @@ x-attributes:
         parent: true
         context:
           parent: true
+          domain:
+            description: domain for which the request is initiated
+            required: required
+            usage: ONDC:RET12
+            reference: if any
+          location:
+            city:
+              description: city code of the seller location
+              required: required
+              usage: std:080
+              reference: if any
+            country:
+              description: country code of the seller location
+              required: required
+              usage: IND
+              reference: if any
+          bap_id:
+            description: subscriber id for buyer app
+            required: required
+            usage: buyerNP.com
+            reference: if any
+          bap_uri:
+            description: subscriber URI for buyer app
+            required: required
+            usage: https://buyerNP.com/ondc
+            reference: if any
+          timestamp:
+            description: RFC3339 compliant timestamp
+            required: required
+            usage: '2023-06-03T08:00:00.000Z'
+            reference: if any
           bpp_id:
             description: subscriber id for seller app
             required: required
@@ -20286,14 +20338,27 @@ x-attributes:
             required: required
             usage: https://sellerNP.com/ondc
             reference: if any
+          ttl:
+            description: validity of message
+            required: required
+            usage: PT30S
+            reference: if any
+          version:
+            description: version of the ONDC model implementation used
+            required: required
+            usage: 2.0.2
+            reference: if any
+          action:
+            description: API call initiated
+            required: required
+            usage: on_search
+            reference: if any
         message:
           parent: true
           catalog:
             parent: true
             descriptor:
               parent: true
-              description: descriptor for seller NP
-              required: required
               name:
                 description: name of seller NP
                 required: required
@@ -20325,6 +20390,45 @@ x-attributes:
                   regarded as MSN, thus resulting in tax non-compliance
                 required: required
                 usage: F1
+                reference: if any
+              descriptor:
+                name:
+                  description: name of provider
+                  required: required
+                  usage: https://sellerNP.com/images/np.png
+                  reference: if any
+                short_desc:
+                  description: short description for provider
+                  required: required
+                  usage: eCommerce Store
+                  reference: if any
+                long_desc:
+                  description: long description for provider
+                  required: required
+                  usage: Online eCommerce Store
+                  reference: if any
+                additional_desc:
+                  url:
+                    description: >-
+                      Communication channel link of the provider where the buyer
+                      and seller can discuss customizations and other details.
+                    required: optional
+                    usage: chat link
+                    reference: if any
+                  content_type:
+                    description: type of content being provided
+                    required: optional
+                    usage: text/html
+                    reference: if any
+                images:
+                  description: images of provider
+                  required: required
+                  usage: https://sellerNP.com/images/np.png
+                  reference: if any
+              rating:
+                description: rating of the provider over the network
+                required: optional
+                usage: '4.5'
                 reference: if any
               fulfillments:
                 contact:
@@ -20523,6 +20627,13 @@ x-attributes:
                 description: type of payments supported
                 required: required
                 usage: PRE-FULFILLMENT
+                reference: if any
+              collected_by:
+                description: >-
+                  If the BPP is collecting the payment, it can notify the buyer
+                  at this point.
+                required: optional
+                usage: BPP
                 reference: if any
       select:
         parent: true

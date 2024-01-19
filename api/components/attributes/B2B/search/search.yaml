@@ -5,11 +5,17 @@ context:
     required: required
     usage: "ONDC:RET12"
     reference: if any
-  city:
-    description: city code for search that identifies the cities where sellers have stores. List of city codes, with pincode mapping, are here - https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=1474472733
-    required: required
-    usage: std:080
-    reference: if any
+  location:
+    city:
+      description: city code for search that identifies the cities where sellers have stores. List of city codes, with pincode mapping, are here - https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=1474472733
+      required: required
+      usage: std:080
+      reference: if any
+    country:
+      description: country code for search that identifies the cities where sellers have stores. List of city codes, with pincode mapping, are here - https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=1474472733
+      required: required
+      usage: std:080
+      reference: if any
   bap_id:
     description: subscriber id for buyer app
     required: required
@@ -29,6 +35,16 @@ context:
     description: validity of message
     required: required
     usage: PT30S
+    reference: if any
+  version:
+    description: version of the ONDC model implementation used
+    required: required
+    usage: '2.0.2'
+    reference: if any
+  action:
+    description: API call initiated
+    required: required
+    usage: search
     reference: if any
 message:
   parent: true
