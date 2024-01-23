@@ -41,4 +41,4 @@ The Request For Quotation (RFQ) flow is a systematic process within a B2B (Busin
 
 <!-- <img src="../images/RFQflow.svg" alt="Sequence Diagram" width="900" > -->
 
-<img src="https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-2.x/api/images/RFQ_flow.svg?raw=true" alt="Sequence Diagram" width="900" >
+<img src="https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-2.x/api/images/RFQflow.svg?raw=true" alt="Sequence Diagram" width="900" >
