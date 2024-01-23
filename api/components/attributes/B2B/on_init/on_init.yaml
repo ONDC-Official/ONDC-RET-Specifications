@@ -9,6 +9,16 @@ message:
         required: required
         usage: "-"
         reference: if any
+        currency:
+          description: currency of the price
+          required: required
+          usage: "INR"
+          reference: if any
+        value:
+          description: price value
+          required: required
+          usage: "345"
+          reference: if any
       breakup:
         "@ondc/org/title_type":
           description: type of charge - item,packing,discount,tax,misc,delivery
@@ -25,8 +35,52 @@ message:
           required: required
           usage: "Packing charges"
           reference: if any
+        "@ondc/org/item_quantity":
+          count: 
+            description: Item count for which the price is provided.
+            required: required for an 'item'
+            usage: '2'
+            reference: if any
+        price:
+          currency:
+            description: currency of the price
+            required: required
+            usage: "INR"
+            reference: if any
+            value: 
+              description: The overall cost of the item, calculated based on the quantity and unit price.
+              required: required
+              usage: "700"
+              reference: if any
+        item:
+          price:
+            currency:
+              description: currency of the price
+              required: required for an 'item'
+              usage: "INR"
+              reference: if any
+            value: 
+              description: Unit price for the item
+              required: required for an 'item'
+              usage: "350"
+              reference: if any
+      ttl:
+        description: Time period for which the quote is valid
+        required: required
+        usage: "P1D"
+        reference: if any
     payments:
       parent: true
+      type:
+        description: Preferred payment method chosen by the buyer
+        usage: "ON-FULFILLMENT"
+        reference: if any
+        required: required
+      collected_by:
+        description: Indicates who is collecting the payment
+        usage: "BPP"
+        reference: if any
+        required: required
       "@ondc/org/buyer_app_finder_fee_type":
         description: buyer app finder fee type - percent,amount
         required: required
@@ -37,8 +91,164 @@ message:
         required: required
         usage: "3"
         reference: if any
+      '@ondc/org/settlement_basis':
+            description: basis of settlement
+            required: required if BPP is collecting the payment
+            usage: "delivery"
+            reference: if any
+      '@ondc/org/settlement_window':
+            description: time window within which settlement needs to be done
+            required: required if BPP collecting the payment 
+            usage: "P1D"
+            reference: if any
+      '@ondc/org/withholding_amount':
+            description: amount to be settled
+            required: required if BPP is collecting the payment 
+            usage: "10.00"
+            reference: if any
       "@ondc/org/settlement_details":
-        description: Details of counter party for settling the money
-        required: required
+        description: Settlment details provided to counter party collecting the payment for settlement
+        required: optional
         usage: "-"
         reference: if any
+    tags:    
+      description: Buyer details like GST number, bpp_terms
+      required: required
+      usage: "-"
+      reference: if any
+    provider:
+      parent: true
+      id:
+        description: id of the selected provider from the catalog
+        usage: "P1"
+        reference: if any
+        required: required
+    provider_location:
+      parent: true
+      id:
+        description: location id of the selected provider from the catalog
+        usage: "L1"
+        reference: if any
+        required: required
+    items:
+      parent: true
+      description: Array of items selected by the buyer.
+      usage: "-"
+      reference: if any
+      required: required
+      id:
+        description: ID of the chosen item from the catalog provided by the merchant.
+        usage: "I1"
+        reference: if any
+        required: required
+      location_ids:
+        description: List of location IDs where the item is available.
+        usage: "L1,L2"
+        reference: if any
+        required: required
+      fulfillment_ids:
+        description: List of fulfillment IDs used for item fulfillment.
+        usage: "F1,F2"
+        reference: if any
+        required: required
+      quantity:
+        selected:
+          count:
+            description: Number of units for the chosen item.
+            usage: 2
+            reference: if any
+            required: required
+      tags:
+        description: Buyer provides customization details for RFQ
+        usage: "-"
+        reference: if any
+        required: optional
+      add-ons:
+        id:
+          description: ID of the add-on selected from the catalog
+          usage: "3456"
+          reference: if any
+          required: optional
+    fulfillments:
+      parent: true
+      id:
+        description: ID of the fulfillment
+        usage: "F1"
+        reference: if any
+        required: required
+      type:
+        description: type of fulfillment mode buyer wants to avail
+        required: required
+        usage: "Delivery"
+        reference: if any
+      "@ondc/org/provider":
+        description: Delivery provider
+        required: required
+        usage: "Loadshare"
+        reference: if any
+      "@ondc/org/category":
+        description: type of delivery category
+        required: required
+        usage: "Standard Delivery"
+        reference: if any
+      "@ondc/org/TAT":
+        description: O2D (Order to delivery time)
+        required: required
+        usage: "P7D"
+        reference: if any
+      tracking:
+        description: Indicates the tracking is enabled or not
+        required: required
+        usage: "false"
+        reference: if any
+      stops:
+        type:
+          description: location(s) where the buyer wants the delivery to be made
+          required: required
+          usage: end
+          reference: if any
+        location:
+          gps:
+            description: minimum 6 digit decimal precision for gps coordinates
+            required: required
+            usage: "1.380621, 103.746364"
+            reference: if any
+          area_code:
+            description: area_code
+            required: required
+            usage: "110030"
+            reference: if any
+          address:
+            description: Destination address for the shipment drop-off.
+            required: required
+            usage: "My House #, My building"
+            reference: if any
+          city:
+            name:
+              description: Name of the city
+              required: required
+              usage: "Bangalore"
+              reference: if any
+          country:
+            code:
+              description: Country code
+              required: required
+              usage: "IND"
+              reference: if any
+          state:
+            name:
+              description: Name of the state
+              required: required
+              usage: "Karnataka"
+              reference: if any
+        contact:
+          phone:
+            description: contact number of the receiver
+            required: required
+            usage: "09212342829"
+            reference: if any
+      tags:
+        required: required for exports
+        description: delivery terms like incoterms
+        reference: if any
+        usage: '-'

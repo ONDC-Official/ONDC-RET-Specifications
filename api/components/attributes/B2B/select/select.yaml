@@ -1,3 +1,35 @@
+context:
+  parent: true
+  domain:
+    description: domain for which the request is initiated
+    required: required
+    usage: "ONDC:RET12"
+    reference: if any
+  city:
+    description: city code for search that identifies the cities where sellers have stores. List of city codes, with pincode mapping, are here - https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=1474472733
+    required: required
+    usage: std:080
+    reference: if any
+  bap_id:
+    description: subscriber id for buyer app
+    required: required
+    usage: buyerNP.com
+    reference: if any
+  bap_uri:
+    description: subscriber URI for buyer app
+    required: required
+    usage: https://buyerNP.com/ondc
+    reference: if any
+  timestamp:
+    description: RFC3339 compliant timestamp
+    required: required
+    usage: '2023-06-03T08:00:00.000Z'
+    reference: if any
+  ttl:
+    description: validity of message
+    required: required
+    usage: PT30S
+    reference: if any
 message:
   parent: true
   order:
@@ -19,6 +51,11 @@ message:
           usage: "L1"
           reference: if any
           required: required
+      ttl:
+        description: The time period within which the buyer expects a quotation from the provider.
+        usage: "P2D"
+        reference: if any
+        required: required for RFQ flow
     items:
       parent: true
       description: Array of items selected by the buyer.
@@ -41,19 +78,19 @@ message:
         reference: if any
         required: required
       quantity:
-        selected:
-          count:
-            description: Number of units for the chosen item.
-            usage: 2
-            reference: if any
-            required: required
+       selected:
+        count:
+          description: Number of units for the chosen item.
+          usage: 2
+          reference: if any
+          required: required
       tags:
         description: Buyer provides customization details for RFQ
-        usage: "-"
+        usage: '-'
         reference: if any
         required: optional
       add-ons:
-        id:
+        id: 
           description: ID of the add-on selected from the catalog
           usage: "3456"
           reference: if any
@@ -63,11 +100,6 @@ message:
       type:
         description: Preferred payment method chosen by the buyer
         usage: "ON-FULFILLMENT"
-        reference: if any
-        required: required
-      collected_by:
-        description: Indicates who is collecting the payment
-        usage: "BPP"
         reference: if any
         required: required
     fulfillments:
@@ -84,10 +116,10 @@ message:
         reference: if any
       stops:
         type:
-          description: location(s) where the buyer wants the delivery to be made
-          required: required
-          usage: end
-          reference: if any
+         description: location(s) where the buyer wants the delivery to be made
+         required: required
+         usage: end
+         reference: if any
         location:
           gps:
             description: minimum 6 digit decimal precision for gps coordinates
@@ -95,40 +127,15 @@ message:
             usage: "1.380621, 103.746364"
             reference: if any
           area_code:
-            description: area_code
+            description: area_code 
             required: required
             usage: "110030"
             reference: if any
-          address:
-            description: Destination address for the shipment drop-off.
-            required: required
-            usage: "My House #, My building"
-            reference: if any
-          city:
-            name:
-              description: Name of the city
-              required: required
-              usage: "Bangalore"
-              reference: if any
-          country:
-            code:
-              description: Country code
-              required: required
-              usage: "IND"
-              reference: if any
-          state:
-            name:
-              description: Name of the state
-              required: required
-              usage: "Karnataka"
-              reference: if any
-        contact:
-          phone:
-            description: contact number of the receiver
-            required: required
-            usage: "09212342829"
-            reference: if any
       customer:
+        description: customer details
+        required: optional
+        usage: "-"
+        reference: if any
         person:
           creds:
             description: credentials of the buyer
@@ -160,46 +167,7 @@ message:
               description: link for the credential
               reference: if any
               usage: https://abcd.cdn.com/images/license-img
-      tags:
-        required: required for exports
-        description: delivery terms like incoterms
-        reference: if any
-        usage: '-'
-    billing:
-      parent: true
-      phone:
-        required: required
-        description: Describes the phone information of an entity
-        reference: if any
-        usage: "9886098860"
-      email:
-        required: optional
-        description: Email address of the contact
-        reference: if any
-        usage: nobody@nomail.com
-      name:
-        required: required
-        description: Describes a person name as any individual
-        reference: if any
-        usage: ONDC buyer
-      tax_id:
-        required: required
-        description: Describes tax id
-        reference: if any
-        usage: 22AAAAA0000A1Z5
-      state:
-        name:
-          required: required
-          description: Describes the state information of an entity
-          reference: if any
-          usage: Karnataka
-      city:
-        name:
-          required: required
-          description: Describes the city information of an entity
-          reference: if any
-          usage: Bengaluru
-    tags:
+    tags:    
       description: Buyer details like GST number.
       required: required
       usage: "-"

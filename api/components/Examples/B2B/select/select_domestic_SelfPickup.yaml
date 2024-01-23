@@ -1,4 +1,4 @@
-summary: Get quote for specific item (Self Pickup)
+summary: Get quote for specific item (Self Pickup - RFQ)
 description: RFQ - Get quote for selected items with Buyer and Delivery terms
 value:
   context:

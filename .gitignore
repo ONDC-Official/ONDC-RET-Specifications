@@ -1,5 +1,3 @@
 .DS_Store
 node_modules
 package-lock.json
-api/docs/Non_RFQ_Flow.md
-api/docs/RFQ_flow.md
