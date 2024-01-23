@@ -2,8 +2,86 @@ message:
   parent: true
   order:
     parent: true
+    provider:
+      parent: true
+      id:
+        description: id of the selected provider from the catalog
+        usage: "P1"
+        reference: if any
+        required: required
+      locations:
+        description: store locations of the provider
+        usage: "-"
+        reference: if any
+        required: required
+        id:
+          description: id of the store location
+          usage: "L1"
+          reference: if any
+          required: required
+      ttl:
+        description: The time period within which the buyer expects a quotation from the provider.
+        usage: "P2D"
+        reference: if any
+        required: required for RFQ flow
+    items:
+      parent: true
+      description: Array of items selected by the buyer.
+      usage: "-"
+      reference: if any
+      required: required
+      id:
+        description: ID of the chosen item from the catalog provided by the merchant.
+        usage: "I1"
+        reference: if any
+        required: required
+      location_ids:
+        description: List of location IDs where the item is available.
+        usage: "L1,L2"
+        reference: if any
+        required: required
+      fulfillment_ids:
+        description: List of fulfillment IDs used for item fulfillment.
+        usage: "F1,F2"
+        reference: if any
+        required: required
+      quantity:
+       selected:
+        count:
+          description: Number of units for the chosen item.
+          usage: 2
+          reference: if any
+          required: required
+      tags:
+        description: Buyer provides customization details for RFQ
+        usage: '-'
+        reference: if any
+        required: optional
+      add-ons:
+        id: 
+          description: ID of the add-on selected from the catalog
+          usage: "3456"
+          reference: if any
+          required: optional
+    payments:
+      parent: true
+      type:
+        description: Preferred payment method chosen by the buyer
+        usage: "ON-FULFILLMENT"
+        reference: if any
+        required: required
+      collected_by:
+        description: Indicates who is collecting the payment
+        usage: "BPP"
+        reference: if any
+        required: required
     fulfillments:
       parent: true
+      id:
+        description: ID of the fulfillment
+        usage: "F1"
+        reference: if any
+        required: required
       "@ondc/org/category":
         description: type of delivery category
         required: required
@@ -20,6 +98,11 @@ message:
         required: required
         usage: "Serviceable"
         reference: if any
+      tracking:
+        description: Indicates the tracking is enabled or not
+        required: required
+        usage: "false"
+        reference: if any
     quote:
       parent: true
       price:
@@ -27,6 +110,16 @@ message:
         required: required
         usage: "-"
         reference: if any
+        currency:
+          description: currency of the price
+          required: required
+          usage: "INR"
+          reference: if any
+        value:
+          description: price value
+          required: required
+          usage: "345"
+          reference: if any
       breakup:
         "@ondc/org/title_type":
           description: type of charge - item,packing,discount,tax,misc,delivery
@@ -43,3 +136,40 @@ message:
           required: required
           usage: "Packing charges"
           reference: if any
+        "@ondc/org/item_quantity":
+          count: 
+            description: Item count for which the price is provided.
+            required: required for an 'item'
+            usage: '2'
+            reference: if any
+        price:
+          currency:
+            description: currency of the price
+            required: required
+            usage: "INR"
+            reference: if any
+            value: 
+              description: The overall cost of the item, calculated based on the quantity and unit price.
+              required: required
+              usage: "700"
+              reference: if any
+        item:
+          price:
+            currency:
+              description: currency of the price
+              required: required for an 'item'
+              usage: "INR"
+              reference: if any
+            value: 
+              description: Unit price for the item
+              required: required for an 'item'
+              usage: "350"
+              reference: if any
+      ttl:
+        description: Time period for which the quote is valid
+        required: required
+        usage: "P1D"
+        reference: if any
+
+
+

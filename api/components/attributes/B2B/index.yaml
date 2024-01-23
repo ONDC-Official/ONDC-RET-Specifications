@@ -4,6 +4,9 @@ search:
 on_search:
   parent: true
   $ref: "./on_search/on_search.yaml"
+select:
+  parent: true
+  $ref: "./select/select.yaml"
 on_select:
   parent: true
   $ref: "./on_select/on_select.yaml"

@@ -1,4 +1,4 @@
-summary: Raise PO (Exports)
+summary: Raise PO (Exports - RFQ)
 description: PO raised by buyer based on the RFQ response received.
 value:
   context:

@@ -68,12 +68,6 @@ value:
               price:
                 currency: INR
                 value: '250'
-          - '@ondc/org/item_id': F2
-            title: Delivery charges
-            '@ondc/org/title_type': delivery
-            price:
-              currency: INR
-              value: '0'
           - '@ondc/org/item_id': F1
             title: Packing charges
             '@ondc/org/title_type': packing

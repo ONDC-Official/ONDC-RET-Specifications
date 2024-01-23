@@ -3,7 +3,7 @@ message:
   order:
     parent: true
     update_target:
-      description: target block to be updated (enum - item,fulfillment)
+      description: target block to be updated (enum - item,fulfillment,payments)
       required: required 
       usage: "payments"
       reference: if any
@@ -22,6 +22,21 @@ message:
       required: required when buyer app wants to update the payment status
       usage: '-'
       reference: if any
+      type:
+        description: Preferred payment method chosen by the buyer
+        usage: "ON-FULFILLMENT"
+        reference: if any
+        required: required
+      collected_by:
+        description: Indicates who is collecting the payment
+        usage: "BPP"
+        reference: if any
+        required: required
+      uri:
+        description: payment gateway url provided by buyer app in case of RFQ flow
+        required: optional
+        usage: "https://ondc.transaction.com/payment"
+        reference: if any
       status:
         description: status whether payment has been collected or not
         required: required 
@@ -60,7 +75,7 @@ message:
             reference: if any
       '@ondc/org/settlement_details':
             description: settlement details sent to the counterparty who will be settling the amount
-            required: required 
+            required: optional 
             usage: "-"
             reference: if any
           
