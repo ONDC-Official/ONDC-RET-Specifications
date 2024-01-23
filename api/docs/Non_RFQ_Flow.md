@@ -1,6 +1,6 @@
 # B2B Non-RFQ Flow
 
-In the B2B (Business-to-Business) construct, the Non-RFQ flow is a straightforward process. Here, the buyer can select items from the catalog and confirm the order without talking to the seller about customizations or extras. The key steps in the Non-RFQ flow are:
+In the B2B (Business-to-Business) construct, the Non-RFQ flow is a straightforward process. Here, the buyer can select items from the catalog and confirm the order based on the prices defined in the catalog without customizations and negotiated cart value. The key steps in the Non-RFQ flow are:
 
 ## Search & Discovery
 - The buyer initiates a search request through the Buyer App (BAP).
