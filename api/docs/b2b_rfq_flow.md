@@ -2,6 +2,7 @@
 
 The Request For Quotation (RFQ) flow is a systematic process within a B2B (Business-to-Business) environment where a buyer engages with a seller to discuss customizations, add-ons, and other details related to a potential purchase and then raises a Purchase Order (PO) for the same. The key steps in the RFQ flow are as follows:
 
+
 ## Search & Discovery
 - The buyer initiates a search request through the Buyer App (BAP).
 - The Gateway broadcasts this request to relevant seller apps (BPPs) based on country, domain, and city parameters.
@@ -40,4 +41,4 @@ The Request For Quotation (RFQ) flow is a systematic process within a B2B (Busin
 
 <!-- <img src="../images/RFQflow.svg" alt="Sequence Diagram" width="900" > -->
 
-<img src="https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-2.x/api/images/RFQ_flow.svg?raw=true" alt="Sequence Diagram" width="900" >
+<img src="https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-2.x/api/images/RFQflow.svg?raw=true" alt="Sequence Diagram" width="900" >
