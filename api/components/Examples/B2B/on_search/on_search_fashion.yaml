@@ -14,8 +14,8 @@ value:
     bap_uri: https://buyerapp.com/fs
     bpp_id: sellerapp.com
     bpp_uri: https://sellerapp.com/fs
-    transaction_id: T1
-    message_id: M1
+    transaction_id: "9568beb3-265a-4730-be4e-c00ba2e5e30a"
+    message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
     timestamp: '2023-01-08T22:00:30.000Z'
     ttl: PT30S
   message:
@@ -51,7 +51,7 @@ value:
           images:
           - url: https://abc.com/images/1-shop-img
         rating: '4.4'
-        ttl: 'PT1D'
+        ttl: PT1D
         locations:
         - id: L1
           gps: 12.967555,77.749666
@@ -149,17 +149,17 @@ value:
               measure:
                 unit: unit
                 value: '1'
-              count: '99'
+              count: 99
             maximum:
               measure:
                 unit: unit
                 value: '1'
-              count: '99'
+              count: 99
             minimum:
               measure:
                 unit: unit
                 value: '1'
-              count: '99'  
+              count: 99  
           category_ids:
           - RET12-102F
           fulfillment_ids:
@@ -194,8 +194,8 @@ value:
             range:
               start: '2022-12-24T00:00:00.000Z'
               end: '2022-12-31T00:00:00.000Z'
-          matched: 'true'
-          recommended: 'true'
+          matched: true
+          recommended: true
           tags:
           - code: origin
             list:
@@ -282,7 +282,7 @@ value:
             - url: https://abc.com/images/207.png
             media:
             - mimetype: video/mp4
-              url: video_url
+              url: https://abc.com/images/207.mp4
           creator:
             descriptor:
               name: xxxxx
@@ -306,12 +306,12 @@ value:
               measure:
                 unit: unit
                 value: '1'
-              count: '99'
+              count: 99
             maximum:
               measure:
                 unit: unit
                 value: '1'
-              count: '99'
+              count: 99
           category_ids:
           - RET12-102F
           fulfillment_ids:
@@ -346,8 +346,8 @@ value:
             range:
               start: '2022-12-24T00:00:00.000Z'
               end: '2022-12-31T00:00:00.000Z'
-          matched: 'true'
-          recommended: 'true'
+          matched: true
+          recommended: true
           tags:
           - code: origin
             list:

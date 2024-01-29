@@ -13,17 +13,15 @@
     "version": "2.0.2",
     "bap_id": "buyerapp.com",
     "bap_uri": "https://buyerapp.com/grocery",
-    "transaction_id": "T1",
-    "message_id": "M1",
+    "transaction_id": "9568beb3-265a-4730-be4e-c00ba2e5e30a",
+    "message_id": "86fb6231-ea67-42d1-b1ef-e43f1719a44f",
     "timestamp": "2023-01-08T22:00:00.000Z",
     "ttl": "PT30S"
   },
   "message": {
     "intent": {
-      "item": {
-        "category": {
-          "id": "RET10-*"
-        }
+      "category": {
+        "id": "RET10-*"
       },
       "fulfillment": {
         "type": "Delivery",

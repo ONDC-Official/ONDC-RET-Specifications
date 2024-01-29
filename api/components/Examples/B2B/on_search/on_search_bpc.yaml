@@ -14,8 +14,8 @@ value:
     bap_uri: https://buyerapp.com/bpc
     bpp_id: sellerapp.com
     bpp_uri: https://sellerapp.com/bpc
-    transaction_id: T1
-    message_id: M1
+    transaction_id: "9568beb3-265a-4730-be4e-c00ba2e5e30a"
+    message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
     timestamp: '2023-01-08T22:00:30.000Z'
     ttl: PT30S
   message:
@@ -51,7 +51,7 @@ value:
           images:
           - url: https://abc.com/images/1-shop-img
         rating: '4.4'
-        ttl: 'PT1D'
+        ttl: PT1D
         locations:
         - id: L1
           gps: 12.967555,77.749666
@@ -128,17 +128,17 @@ value:
               measure:
                 unit: millilitre
                 value: '500'
-              count: '2000'
+              count: 2000
             maximum:
               measure:
                 unit: millilitre
                 value: '500'
-              count: '4000'
+              count: 4000
             minimum:
               measure:
                 unit: millilitre
                 value: '500'
-              count: '4000'            
+              count: 4000            
           category_ids:
           - RET10-1042
           fulfillment_ids:
@@ -147,7 +147,7 @@ value:
           - L1
           payment_ids:
           - '2'
-          add-ons:
+          add_ons:
           - id: '78787723'
             descriptor:
               name: Kesh King Ayurvedic Shampoo
@@ -186,8 +186,8 @@ value:
             range:
               start: '2022-12-24T00:00:00.000Z'
               end: '2022-12-31T00:00:00.000Z'
-          matched: 'true'
-          recommended: 'true'
+          matched: true
+          recommended: true
           tags:
           - code: origin
             list:
