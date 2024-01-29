@@ -397,6 +397,12 @@
                         "code": "tax_rate"
                       },
                       "value": "12"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "cancellable"
+                      },
+                      "value": "true"
                     }
                   ]
                 },
