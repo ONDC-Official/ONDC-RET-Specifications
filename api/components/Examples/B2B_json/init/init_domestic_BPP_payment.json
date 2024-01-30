@@ -113,22 +113,7 @@
       "payments": [
         {
           "type": "PRE-FULFILLMENT",
-          "collected_by": "BPP",
-          "tags": [
-            {
-              "descriptor": {
-                "code": "BPP_payment"
-              },
-              "list": [
-                {
-                  "descriptor": {
-                    "code": "ttl"
-                  },
-                  "value": "PT1H"
-                }
-              ]
-            }
-          ]
+          "collected_by": "BPP"
         }
       ],
       "tags": [

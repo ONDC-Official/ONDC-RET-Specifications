@@ -5000,6 +5000,9 @@ x-flows:
                     collected_by: BPP
                     '@ondc/org/buyer_app_finder_fee_type': percent
                     '@ondc/org/buyer_app_finder_fee_amount': '3'
+                    '@ondc/org/settlement_basis': delivery
+                    '@ondc/org/settlement_window': P1D
+                    '@ondc/org/withholding_amount': '10.00'
                     '@ondc/org/settlement_details':
                       - settlement_counterparty: seller-app
                         settlement_phase: sale-amount
@@ -6596,6 +6599,9 @@ x-flows:
                     collected_by: BPP
                     '@ondc/org/buyer_app_finder_fee_type': percent
                     '@ondc/org/buyer_app_finder_fee_amount': '3'
+                    '@ondc/org/settlement_basis': delivery
+                    '@ondc/org/settlement_window': P1D
+                    '@ondc/org/withholding_amount': '10.00'
                     '@ondc/org/settlement_details':
                       - settlement_counterparty: seller-app
                         settlement_phase: sale-amount
@@ -7035,6 +7041,9 @@ x-flows:
                     collected_by: BPP
                     '@ondc/org/buyer_app_finder_fee_type': percent
                     '@ondc/org/buyer_app_finder_fee_amount': '3'
+                    '@ondc/org/settlement_basis': delivery
+                    '@ondc/org/settlement_window': P1D
+                    '@ondc/org/withholding_amount': '10.00'
                     '@ondc/org/settlement_details':
                       - settlement_counterparty: seller-app
                         settlement_phase: sale-amount
@@ -7221,6 +7230,9 @@ x-flows:
                     collected_by: BAP
                     '@ondc/org/buyer_app_finder_fee_type': percent
                     '@ondc/org/buyer_app_finder_fee_amount': '3'
+                    '@ondc/org/settlement_basis': delivery
+                    '@ondc/org/settlement_window': P1D
+                    '@ondc/org/withholding_amount': '10.00'
                     '@ondc/org/settlement_details':
                       - settlement_counterparty: seller-app
                         settlement_phase: sale-amount
@@ -8226,6 +8238,16 @@ x-flows:
                         count: 200
                     add_ons:
                       - id: '78787723'
+                    tags:
+                      - descriptor:
+                          code: BUYER_TERMS
+                        list:
+                          - descriptor:
+                              code: ITEM_REQ
+                            value: free text on Item Customization
+                          - descriptor:
+                              code: PACKAGING_REQ
+                            value: free text on packaging Customization
                 billing:
                   name: ONDC buyer
                   address: >-
@@ -10261,6 +10283,9 @@ x-flows:
                     collected_by: BPP
                     '@ondc/org/buyer_app_finder_fee_type': percent
                     '@ondc/org/buyer_app_finder_fee_amount': '3'
+                    '@ondc/org/settlement_basis': delivery
+                    '@ondc/org/settlement_window': P1D
+                    '@ondc/org/withholding_amount': '10.00'
                     '@ondc/org/settlement_details':
                       - settlement_counterparty: seller-app
                         settlement_phase: sale-amount
@@ -11729,7 +11754,7 @@ x-examples:
                         - descriptor:
                             code: buyer_id_no
                           value: xxxxxxxxxxxxxxx
-          - summary: Initializing the order (Domestic - BPP collecting the payment)
+          - summary: Intializing the order (Domestic - Non RFQ)
             description: Intializing the order
             value:
               context:
@@ -11745,8 +11770,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
-                message_id: 582eb99f-a7c1-46ae-8174-936757d2d96f
+                transaction_id: T1
+                message_id: M1
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -11762,7 +11787,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add_ons:
+                      add-ons:
                         - id: '78787723'
                   billing:
                     name: ONDC buyer
@@ -12314,6 +12339,16 @@ x-examples:
                           count: 200
                       add_ons:
                         - id: '78787723'
+                      tags:
+                        - descriptor:
+                            code: BUYER_TERMS
+                          list:
+                            - descriptor:
+                                code: ITEM_REQ
+                              value: free text on Item Customization
+                            - descriptor:
+                                code: PACKAGING_REQ
+                              value: free text on packaging Customization
                   billing:
                     name: ONDC buyer
                     address: >-
@@ -16190,8 +16225,8 @@ x-examples:
                   payments:
                     - type: ON-FULFILLMENT
                       collected_by: BPP
-          - summary: Send quote and breakup - Response to RFQ (Exports)
-            description: Send quote and breakup for items selected in RFQ
+          - summary: Send quote and breakup - (Domestic - Non RFQ)
+            description: Seller sends quote and breakup for the selected items
             value:
               context:
                 domain: ONDC:RET10
@@ -16206,8 +16241,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
-                message_id: 4e90afaf-2d02-4ed9-9659-45d702a82f8e
+                transaction_id: T1
+                message_id: M1
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -16223,7 +16258,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add_ons:
+                      add-ons:
                         - id: '78787723'
                   fulfillments:
                     - id: F1
@@ -16836,7 +16871,25 @@ x-examples:
                         - descriptor:
                             code: buyer_id_no
                           value: xxxxxxxxxxxxxxx
-          - summary: Acknowledges the initialization (Exports)
+                        - descriptor:
+                            code: bpp_terms
+                          list:
+                            - descriptor:
+                                code: max_liability
+                              value: '2'
+                            - descriptor:
+                                code: max_liability_cap
+                              value: '10000'
+                            - descriptor:
+                                code: mandatory_arbitration
+                              value: 'false'
+                            - descriptor:
+                                code: court_jurisdiction
+                              value: Bengaluru
+                            - descriptor:
+                                code: delay_interest
+                              value: '1000'
+          - summary: Acknowledges the initialization (Domestic - Non RFQ)
             description: Acknowledges the initialization
             value:
               context:
@@ -16852,8 +16905,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
-                message_id: 582eb99f-a7c1-46ae-8174-936757d2d96f
+                transaction_id: T1
+                message_id: M1
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -16869,7 +16922,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add_ons:
+                      add-ons:
                         - id: '78787723'
                   billing:
                     name: ONDC buyer
@@ -18671,6 +18724,9 @@ x-examples:
                       collected_by: BPP
                       '@ondc/org/buyer_app_finder_fee_type': percent
                       '@ondc/org/buyer_app_finder_fee_amount': '3'
+                      '@ondc/org/settlement_basis': delivery
+                      '@ondc/org/settlement_window': P1D
+                      '@ondc/org/withholding_amount': '10.00'
                       '@ondc/org/settlement_details':
                         - settlement_counterparty: seller-app
                           settlement_phase: sale-amount
@@ -18850,6 +18906,9 @@ x-examples:
                       collected_by: BPP
                       '@ondc/org/buyer_app_finder_fee_type': percent
                       '@ondc/org/buyer_app_finder_fee_amount': '3'
+                      '@ondc/org/settlement_basis': delivery
+                      '@ondc/org/settlement_window': P1D
+                      '@ondc/org/withholding_amount': '10.00'
                       '@ondc/org/settlement_details':
                         - settlement_counterparty: seller-app
                           settlement_phase: sale-amount
@@ -19028,6 +19087,9 @@ x-examples:
                       collected_by: BPP
                       '@ondc/org/buyer_app_finder_fee_type': percent
                       '@ondc/org/buyer_app_finder_fee_amount': '3'
+                      '@ondc/org/settlement_basis': delivery
+                      '@ondc/org/settlement_window': P1D
+                      '@ondc/org/withholding_amount': '10.00'
                       '@ondc/org/settlement_details':
                         - settlement_counterparty: seller-app
                           settlement_phase: sale-amount
@@ -19207,6 +19269,9 @@ x-examples:
                       collected_by: BAP
                       '@ondc/org/buyer_app_finder_fee_type': percent
                       '@ondc/org/buyer_app_finder_fee_amount': '3'
+                      '@ondc/org/settlement_basis': delivery
+                      '@ondc/org/settlement_window': P1D
+                      '@ondc/org/withholding_amount': '10.00'
                       '@ondc/org/settlement_details':
                         - settlement_counterparty: seller-app
                           settlement_phase: sale-amount
@@ -19318,6 +19383,9 @@ x-examples:
                       collected_by: BPP
                       '@ondc/org/buyer_app_finder_fee_type': percent
                       '@ondc/org/buyer_app_finder_fee_amount': '3'
+                      '@ondc/org/settlement_basis': delivery
+                      '@ondc/org/settlement_window': P1D
+                      '@ondc/org/withholding_amount': '10.00'
                       '@ondc/org/settlement_details':
                         - settlement_counterparty: buyer-app
                           settlement_phase: finder-fee
@@ -19575,6 +19643,9 @@ x-examples:
                       collected_by: BPP
                       '@ondc/org/buyer_app_finder_fee_type': percent
                       '@ondc/org/buyer_app_finder_fee_amount': '3'
+                      '@ondc/org/settlement_basis': delivery
+                      '@ondc/org/settlement_window': P1D
+                      '@ondc/org/withholding_amount': '10.00'
                       '@ondc/org/settlement_details':
                         - settlement_counterparty: seller-app
                           settlement_phase: sale-amount
@@ -20169,14 +20240,25 @@ x-attributes:
             required: required
             usage: ONDC:RET12
             reference: if any
-          city:
-            description: >-
-              city code for search that identifies the cities where sellers have
-              stores. List of city codes, with pincode mapping, are here -
-              https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=1474472733
-            required: required
-            usage: std:080
-            reference: if any
+          location:
+            city:
+              description: >-
+                city code for search that identifies the cities where sellers
+                have stores. List of city codes, with pincode mapping, are here
+                -
+                https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=1474472733
+              required: required
+              usage: std:080
+              reference: if any
+            country:
+              description: >-
+                country code for search that identifies the cities where sellers
+                have stores. List of city codes, with pincode mapping, are here
+                -
+                https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=1474472733
+              required: required
+              usage: std:080
+              reference: if any
           bap_id:
             description: subscriber id for buyer app
             required: required
@@ -20196,6 +20278,16 @@ x-attributes:
             description: validity of message
             required: required
             usage: PT30S
+            reference: if any
+          version:
+            description: version of the ONDC model implementation used
+            required: required
+            usage: 2.0.2
+            reference: if any
+          action:
+            description: API call initiated
+            required: required
+            usage: search
             reference: if any
         message:
           parent: true
@@ -20256,6 +20348,37 @@ x-attributes:
         parent: true
         context:
           parent: true
+          domain:
+            description: domain for which the request is initiated
+            required: required
+            usage: ONDC:RET12
+            reference: if any
+          location:
+            city:
+              description: city code of the seller location
+              required: required
+              usage: std:080
+              reference: if any
+            country:
+              description: country code of the seller location
+              required: required
+              usage: IND
+              reference: if any
+          bap_id:
+            description: subscriber id for buyer app
+            required: required
+            usage: buyerNP.com
+            reference: if any
+          bap_uri:
+            description: subscriber URI for buyer app
+            required: required
+            usage: https://buyerNP.com/ondc
+            reference: if any
+          timestamp:
+            description: RFC3339 compliant timestamp
+            required: required
+            usage: '2023-06-03T08:00:00.000Z'
+            reference: if any
           bpp_id:
             description: subscriber id for seller app
             required: required
@@ -20266,14 +20389,27 @@ x-attributes:
             required: required
             usage: https://sellerNP.com/ondc
             reference: if any
+          ttl:
+            description: validity of message
+            required: required
+            usage: PT30S
+            reference: if any
+          version:
+            description: version of the ONDC model implementation used
+            required: required
+            usage: 2.0.2
+            reference: if any
+          action:
+            description: API call initiated
+            required: required
+            usage: on_search
+            reference: if any
         message:
           parent: true
           catalog:
             parent: true
             descriptor:
               parent: true
-              description: descriptor for seller NP
-              required: required
               name:
                 description: name of seller NP
                 required: required
@@ -20305,6 +20441,45 @@ x-attributes:
                   regarded as MSN, thus resulting in tax non-compliance
                 required: required
                 usage: F1
+                reference: if any
+              descriptor:
+                name:
+                  description: name of provider
+                  required: required
+                  usage: https://sellerNP.com/images/np.png
+                  reference: if any
+                short_desc:
+                  description: short description for provider
+                  required: required
+                  usage: eCommerce Store
+                  reference: if any
+                long_desc:
+                  description: long description for provider
+                  required: required
+                  usage: Online eCommerce Store
+                  reference: if any
+                additional_desc:
+                  url:
+                    description: >-
+                      Communication channel link of the provider where the buyer
+                      and seller can discuss customizations and other details.
+                    required: optional
+                    usage: chat link
+                    reference: if any
+                  content_type:
+                    description: type of content being provided
+                    required: optional
+                    usage: text/html
+                    reference: if any
+                images:
+                  description: images of provider
+                  required: required
+                  usage: https://sellerNP.com/images/np.png
+                  reference: if any
+              rating:
+                description: rating of the provider over the network
+                required: optional
+                usage: '4.5'
                 reference: if any
               fulfillments:
                 contact:
@@ -20452,13 +20627,17 @@ x-attributes:
                   usage: '3'
                   reference: if any
               creds:
+                description: credentials of the seller
+                required: required for exports
+                usage: '-'
+                reference: if any
                 id:
-                  required: optional
+                  required: required
                   description: Human readable id
                   reference: if any
                   usage: ESG-12345678
                 type:
-                  required: optional
+                  required: required
                   description: Type of creds
                   reference: if any
                   usage: License
@@ -20478,6 +20657,7 @@ x-attributes:
                 usage: '-'
                 reference: if any
             fulfillments:
+              parent: true
               id:
                 description: id for the supported fulfillment type
                 required: required
@@ -20500,14 +20680,286 @@ x-attributes:
                 required: required
                 usage: PRE-FULFILLMENT
                 reference: if any
+              collected_by:
+                description: >-
+                  If the BPP is collecting the payment, it can notify the buyer
+                  at this point.
+                required: optional
+                usage: BPP
+                reference: if any
+      select:
+        parent: true
+        context:
+          parent: true
+          domain:
+            description: domain for which the request is initiated
+            required: required
+            usage: ONDC:RET12
+            reference: if any
+          city:
+            description: >-
+              city code for search that identifies the cities where sellers have
+              stores. List of city codes, with pincode mapping, are here -
+              https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=1474472733
+            required: required
+            usage: std:080
+            reference: if any
+          bap_id:
+            description: subscriber id for buyer app
+            required: required
+            usage: buyerNP.com
+            reference: if any
+          bap_uri:
+            description: subscriber URI for buyer app
+            required: required
+            usage: https://buyerNP.com/ondc
+            reference: if any
+          timestamp:
+            description: RFC3339 compliant timestamp
+            required: required
+            usage: '2023-06-03T08:00:00.000Z'
+            reference: if any
+          ttl:
+            description: validity of message
+            required: required
+            usage: PT30S
+            reference: if any
+        message:
+          parent: true
+          order:
+            parent: true
+            provider:
+              parent: true
+              id:
+                description: id of the selected provider from the catalog
+                usage: P1
+                reference: if any
+                required: required
+              locations:
+                description: store locations of the provider
+                usage: '-'
+                reference: if any
+                required: required
+                id:
+                  description: id of the store location
+                  usage: L1
+                  reference: if any
+                  required: required
+              ttl:
+                description: >-
+                  The time period within which the buyer expects a quotation
+                  from the provider.
+                usage: P2D
+                reference: if any
+                required: required for RFQ flow
+            items:
+              parent: true
+              description: Array of items selected by the buyer.
+              usage: '-'
+              reference: if any
+              required: required
+              id:
+                description: >-
+                  ID of the chosen item from the catalog provided by the
+                  merchant.
+                usage: I1
+                reference: if any
+                required: required
+              location_ids:
+                description: List of location IDs where the item is available.
+                usage: L1,L2
+                reference: if any
+                required: required
+              fulfillment_ids:
+                description: List of fulfillment IDs used for item fulfillment.
+                usage: F1,F2
+                reference: if any
+                required: required
+              quantity:
+                selected:
+                  count:
+                    description: Number of units for the chosen item.
+                    usage: 2
+                    reference: if any
+                    required: required
+              tags:
+                description: Buyer provides customization details for RFQ
+                usage: '-'
+                reference: if any
+                required: optional
+              add-ons:
+                id:
+                  description: ID of the add-on selected from the catalog
+                  usage: '3456'
+                  reference: if any
+                  required: optional
+            payments:
+              parent: true
+              type:
+                description: Preferred payment method chosen by the buyer
+                usage: ON-FULFILLMENT
+                reference: if any
+                required: required
+            fulfillments:
+              parent: true
+              id:
+                description: ID of the fulfillment
+                usage: F1
+                reference: if any
+                required: required
+              type:
+                description: type of fulfillment mode buyer wants to avail
+                required: required
+                usage: Delivery
+                reference: if any
+              stops:
+                type:
+                  description: location(s) where the buyer wants the delivery to be made
+                  required: required
+                  usage: end
+                  reference: if any
+                location:
+                  gps:
+                    description: minimum 6 digit decimal precision for gps coordinates
+                    required: required
+                    usage: 1.380621, 103.746364
+                    reference: if any
+                  area_code:
+                    description: area_code
+                    required: required
+                    usage: '110030'
+                    reference: if any
+              customer:
+                description: customer details
+                required: optional
+                usage: '-'
+                reference: if any
+                person:
+                  creds:
+                    description: credentials of the buyer
+                    required: optional
+                    usage: '-'
+                    reference: if any
+                    id:
+                      required: optional
+                      description: Human readable id
+                      reference: if any
+                      usage: ESG-12345678
+                    type:
+                      required: optional
+                      description: Type of creds
+                      reference: if any
+                      usage: License
+                    desc:
+                      required: optional
+                      description: Description of creds
+                      reference: if any
+                      usage: Export License No. ESG-12345678
+                    icon:
+                      required: optional
+                      description: image of the credential
+                      reference: if any
+                      usage: https://abcd.cdn.com/images/license-img
+                    url:
+                      required: optional
+                      description: link for the credential
+                      reference: if any
+                      usage: https://abcd.cdn.com/images/license-img
+            tags:
+              description: Buyer details like GST number.
+              required: required
+              usage: '-'
+              reference: if any
       on_select:
         parent: true
         message:
           parent: true
           order:
             parent: true
+            provider:
+              parent: true
+              id:
+                description: id of the selected provider from the catalog
+                usage: P1
+                reference: if any
+                required: required
+              locations:
+                description: store locations of the provider
+                usage: '-'
+                reference: if any
+                required: required
+                id:
+                  description: id of the store location
+                  usage: L1
+                  reference: if any
+                  required: required
+              ttl:
+                description: >-
+                  The time period within which the buyer expects a quotation
+                  from the provider.
+                usage: P2D
+                reference: if any
+                required: required for RFQ flow
+            items:
+              parent: true
+              description: Array of items selected by the buyer.
+              usage: '-'
+              reference: if any
+              required: required
+              id:
+                description: >-
+                  ID of the chosen item from the catalog provided by the
+                  merchant.
+                usage: I1
+                reference: if any
+                required: required
+              location_ids:
+                description: List of location IDs where the item is available.
+                usage: L1,L2
+                reference: if any
+                required: required
+              fulfillment_ids:
+                description: List of fulfillment IDs used for item fulfillment.
+                usage: F1,F2
+                reference: if any
+                required: required
+              quantity:
+                selected:
+                  count:
+                    description: Number of units for the chosen item.
+                    usage: 2
+                    reference: if any
+                    required: required
+              tags:
+                description: Buyer provides customization details for RFQ
+                usage: '-'
+                reference: if any
+                required: optional
+              add-ons:
+                id:
+                  description: ID of the add-on selected from the catalog
+                  usage: '3456'
+                  reference: if any
+                  required: optional
+            payments:
+              parent: true
+              type:
+                description: Preferred payment method chosen by the buyer
+                usage: ON-FULFILLMENT
+                reference: if any
+                required: required
+              collected_by:
+                description: Indicates who is collecting the payment
+                usage: BPP
+                reference: if any
+                required: required
             fulfillments:
               parent: true
+              id:
+                description: ID of the fulfillment
+                usage: F1
+                reference: if any
+                required: required
               '@ondc/org/category':
                 description: type of delivery category
                 required: required
@@ -20524,6 +20976,11 @@ x-attributes:
                   required: required
                   usage: Serviceable
                   reference: if any
+              tracking:
+                description: Indicates the tracking is enabled or not
+                required: required
+                usage: 'false'
+                reference: if any
             quote:
               parent: true
               price:
@@ -20531,6 +20988,16 @@ x-attributes:
                 required: required
                 usage: '-'
                 reference: if any
+                currency:
+                  description: currency of the price
+                  required: required
+                  usage: INR
+                  reference: if any
+                value:
+                  description: price value
+                  required: required
+                  usage: '345'
+                  reference: if any
               breakup:
                 '@ondc/org/title_type':
                   description: type of charge - item,packing,discount,tax,misc,delivery
@@ -20547,12 +21014,213 @@ x-attributes:
                   required: required
                   usage: Packing charges
                   reference: if any
+                '@ondc/org/item_quantity':
+                  count:
+                    description: Item count for which the price is provided.
+                    required: required for an 'item'
+                    usage: '2'
+                    reference: if any
+                price:
+                  currency:
+                    description: currency of the price
+                    required: required
+                    usage: INR
+                    reference: if any
+                    value:
+                      description: >-
+                        The overall cost of the item, calculated based on the
+                        quantity and unit price.
+                      required: required
+                      usage: '700'
+                      reference: if any
+                item:
+                  price:
+                    currency:
+                      description: currency of the price
+                      required: required for an 'item'
+                      usage: INR
+                      reference: if any
+                    value:
+                      description: Unit price for the item
+                      required: required for an 'item'
+                      usage: '350'
+                      reference: if any
+              ttl:
+                description: Time period for which the quote is valid
+                required: required
+                usage: P1D
+                reference: if any
       init:
         parent: true
         message:
           parent: true
           order:
             parent: true
+            provider:
+              parent: true
+              id:
+                description: id of the selected provider from the catalog
+                usage: P1
+                reference: if any
+                required: required
+              locations:
+                description: store locations of the provider
+                usage: '-'
+                reference: if any
+                required: required
+                id:
+                  description: id of the store location
+                  usage: L1
+                  reference: if any
+                  required: required
+            items:
+              parent: true
+              description: Array of items selected by the buyer.
+              usage: '-'
+              reference: if any
+              required: required
+              id:
+                description: >-
+                  ID of the chosen item from the catalog provided by the
+                  merchant.
+                usage: I1
+                reference: if any
+                required: required
+              location_ids:
+                description: List of location IDs where the item is available.
+                usage: L1,L2
+                reference: if any
+                required: required
+              fulfillment_ids:
+                description: List of fulfillment IDs used for item fulfillment.
+                usage: F1,F2
+                reference: if any
+                required: required
+              quantity:
+                selected:
+                  count:
+                    description: Number of units for the chosen item.
+                    usage: 2
+                    reference: if any
+                    required: required
+              tags:
+                description: Buyer provides customization details for RFQ
+                usage: '-'
+                reference: if any
+                required: optional
+              add-ons:
+                id:
+                  description: ID of the add-on selected from the catalog
+                  usage: '3456'
+                  reference: if any
+                  required: optional
+            payments:
+              parent: true
+              type:
+                description: Preferred payment method chosen by the buyer
+                usage: ON-FULFILLMENT
+                reference: if any
+                required: required
+              collected_by:
+                description: Indicates who is collecting the payment
+                usage: BPP
+                reference: if any
+                required: required
+            fulfillments:
+              parent: true
+              id:
+                description: ID of the fulfillment
+                usage: F1
+                reference: if any
+                required: required
+              type:
+                description: type of fulfillment mode buyer wants to avail
+                required: required
+                usage: Delivery
+                reference: if any
+              stops:
+                type:
+                  description: location(s) where the buyer wants the delivery to be made
+                  required: required
+                  usage: end
+                  reference: if any
+                location:
+                  gps:
+                    description: minimum 6 digit decimal precision for gps coordinates
+                    required: required
+                    usage: 1.380621, 103.746364
+                    reference: if any
+                  area_code:
+                    description: area_code
+                    required: required
+                    usage: '110030'
+                    reference: if any
+                  address:
+                    description: Destination address for the shipment drop-off.
+                    required: required
+                    usage: 'My House #, My building'
+                    reference: if any
+                  city:
+                    name:
+                      description: Name of the city
+                      required: required
+                      usage: Bangalore
+                      reference: if any
+                  country:
+                    code:
+                      description: Country code
+                      required: required
+                      usage: IND
+                      reference: if any
+                  state:
+                    name:
+                      description: Name of the state
+                      required: required
+                      usage: Karnataka
+                      reference: if any
+                contact:
+                  phone:
+                    description: contact number of the receiver
+                    required: required
+                    usage: '09212342829'
+                    reference: if any
+              customer:
+                person:
+                  creds:
+                    description: credentials of the buyer
+                    required: optional
+                    usage: '-'
+                    reference: if any
+                    id:
+                      required: optional
+                      description: Human readable id
+                      reference: if any
+                      usage: ESG-12345678
+                    type:
+                      required: optional
+                      description: Type of creds
+                      reference: if any
+                      usage: License
+                    desc:
+                      required: optional
+                      description: Description of creds
+                      reference: if any
+                      usage: Export License No. ESG-12345678
+                    icon:
+                      required: optional
+                      description: image of the credential
+                      reference: if any
+                      usage: https://abcd.cdn.com/images/license-img
+                    url:
+                      required: optional
+                      description: link for the credential
+                      reference: if any
+                      usage: https://abcd.cdn.com/images/license-img
+              tags:
+                required: required for exports
+                description: delivery terms like incoterms
+                reference: if any
+                usage: '-'
             billing:
               parent: true
               phone:
@@ -20587,18 +21255,11 @@ x-attributes:
                   description: Describes the city information of an entity
                   reference: if any
                   usage: Bengaluru
-            provider:
-              parent: true
-              locations:
-                description: required only if provider.locations was returned in /on_search
-                required: optional
-                usage: '-'
-                reference: if any
-              ttl:
-                description: provider ttl
-                required: required
-                usage: P1D
-                reference: if any
+            tags:
+              description: Buyer details like GST number.
+              required: required
+              usage: '-'
+              reference: if any
       on_init:
         parent: true
         message:
@@ -20612,6 +21273,16 @@ x-attributes:
                 required: required
                 usage: '-'
                 reference: if any
+                currency:
+                  description: currency of the price
+                  required: required
+                  usage: INR
+                  reference: if any
+                value:
+                  description: price value
+                  required: required
+                  usage: '345'
+                  reference: if any
               breakup:
                 '@ondc/org/title_type':
                   description: type of charge - item,packing,discount,tax,misc,delivery
@@ -20628,8 +21299,54 @@ x-attributes:
                   required: required
                   usage: Packing charges
                   reference: if any
+                '@ondc/org/item_quantity':
+                  count:
+                    description: Item count for which the price is provided.
+                    required: required for an 'item'
+                    usage: '2'
+                    reference: if any
+                price:
+                  currency:
+                    description: currency of the price
+                    required: required
+                    usage: INR
+                    reference: if any
+                    value:
+                      description: >-
+                        The overall cost of the item, calculated based on the
+                        quantity and unit price.
+                      required: required
+                      usage: '700'
+                      reference: if any
+                item:
+                  price:
+                    currency:
+                      description: currency of the price
+                      required: required for an 'item'
+                      usage: INR
+                      reference: if any
+                    value:
+                      description: Unit price for the item
+                      required: required for an 'item'
+                      usage: '350'
+                      reference: if any
+              ttl:
+                description: Time period for which the quote is valid
+                required: required
+                usage: P1D
+                reference: if any
             payments:
               parent: true
+              type:
+                description: Preferred payment method chosen by the buyer
+                usage: ON-FULFILLMENT
+                reference: if any
+                required: required
+              collected_by:
+                description: Indicates who is collecting the payment
+                usage: BPP
+                reference: if any
+                required: required
               '@ondc/org/buyer_app_finder_fee_type':
                 description: buyer app finder fee type - percent,amount
                 required: required
@@ -20642,11 +21359,171 @@ x-attributes:
                 required: required
                 usage: '3'
                 reference: if any
+              '@ondc/org/settlement_basis':
+                description: basis of settlement
+                required: required if BPP is collecting the payment
+                usage: delivery
+                reference: if any
+              '@ondc/org/settlement_window':
+                description: time window within which settlement needs to be done
+                required: required if BPP collecting the payment
+                usage: P1D
+                reference: if any
+              '@ondc/org/withholding_amount':
+                description: amount to be settled
+                required: required if BPP is collecting the payment
+                usage: '10.00'
+                reference: if any
               '@ondc/org/settlement_details':
-                description: Details of counter party for settling the money
-                required: required
+                description: >-
+                  Settlment details provided to counter party collecting the
+                  payment for settlement
+                required: optional
                 usage: '-'
                 reference: if any
+            tags:
+              description: Buyer details like GST number, bpp_terms
+              required: required
+              usage: '-'
+              reference: if any
+            provider:
+              parent: true
+              id:
+                description: id of the selected provider from the catalog
+                usage: P1
+                reference: if any
+                required: required
+            provider_location:
+              parent: true
+              id:
+                description: location id of the selected provider from the catalog
+                usage: L1
+                reference: if any
+                required: required
+            items:
+              parent: true
+              description: Array of items selected by the buyer.
+              usage: '-'
+              reference: if any
+              required: required
+              id:
+                description: >-
+                  ID of the chosen item from the catalog provided by the
+                  merchant.
+                usage: I1
+                reference: if any
+                required: required
+              location_ids:
+                description: List of location IDs where the item is available.
+                usage: L1,L2
+                reference: if any
+                required: required
+              fulfillment_ids:
+                description: List of fulfillment IDs used for item fulfillment.
+                usage: F1,F2
+                reference: if any
+                required: required
+              quantity:
+                selected:
+                  count:
+                    description: Number of units for the chosen item.
+                    usage: 2
+                    reference: if any
+                    required: required
+              tags:
+                description: Buyer provides customization details for RFQ
+                usage: '-'
+                reference: if any
+                required: optional
+              add-ons:
+                id:
+                  description: ID of the add-on selected from the catalog
+                  usage: '3456'
+                  reference: if any
+                  required: optional
+            fulfillments:
+              parent: true
+              id:
+                description: ID of the fulfillment
+                usage: F1
+                reference: if any
+                required: required
+              type:
+                description: type of fulfillment mode buyer wants to avail
+                required: required
+                usage: Delivery
+                reference: if any
+              '@ondc/org/provider':
+                description: Delivery provider
+                required: required
+                usage: Loadshare
+                reference: if any
+              '@ondc/org/category':
+                description: type of delivery category
+                required: required
+                usage: Standard Delivery
+                reference: if any
+              '@ondc/org/TAT':
+                description: O2D (Order to delivery time)
+                required: required
+                usage: P7D
+                reference: if any
+              tracking:
+                description: Indicates the tracking is enabled or not
+                required: required
+                usage: 'false'
+                reference: if any
+              stops:
+                type:
+                  description: location(s) where the buyer wants the delivery to be made
+                  required: required
+                  usage: end
+                  reference: if any
+                location:
+                  gps:
+                    description: minimum 6 digit decimal precision for gps coordinates
+                    required: required
+                    usage: 1.380621, 103.746364
+                    reference: if any
+                  area_code:
+                    description: area_code
+                    required: required
+                    usage: '110030'
+                    reference: if any
+                  address:
+                    description: Destination address for the shipment drop-off.
+                    required: required
+                    usage: 'My House #, My building'
+                    reference: if any
+                  city:
+                    name:
+                      description: Name of the city
+                      required: required
+                      usage: Bangalore
+                      reference: if any
+                  country:
+                    code:
+                      description: Country code
+                      required: required
+                      usage: IND
+                      reference: if any
+                  state:
+                    name:
+                      description: Name of the state
+                      required: required
+                      usage: Karnataka
+                      reference: if any
+                contact:
+                  phone:
+                    description: contact number of the receiver
+                    required: required
+                    usage: '09212342829'
+                    reference: if any
+              tags:
+                required: required for exports
+                description: delivery terms like incoterms
+                reference: if any
+                usage: '-'
       confirm:
         parent: true
         message:
@@ -20673,12 +21550,44 @@ x-attributes:
               required: required
               usage: '2023-02-03T09:30:00.000Z'
               reference: if any
+            provider:
+              parent: true
+              id:
+                description: id of the selected provider from the catalog
+                usage: P1
+                reference: if any
+                required: required
+              locations:
+                description: store locations of the provider
+                usage: '-'
+                reference: if any
+                required: required
+                id:
+                  description: id of the store location
+                  usage: L1
+                  reference: if any
+                  required: required
             payments:
               parent: true
+              type:
+                description: Preferred payment method chosen by the buyer
+                usage: ON-FULFILLMENT
+                reference: if any
+                required: required
+              collected_by:
+                description: Indicates who is collecting the payment
+                usage: BPP
+                reference: if any
+                required: required
               status:
                 description: status whether payment has been collected or not
                 required: required
                 usage: PAID
+                reference: if any
+              uri:
+                description: payment gateway url if BAP is collecting the payment
+                required: optional
+                usage: https://snp.com/pg
                 reference: if any
               params:
                 transaction_id:
@@ -20715,21 +21624,282 @@ x-attributes:
                 description: >-
                   settlement details sent to the counterparty who will be
                   settling the amount
+                required: optional
+                usage: '-'
+                reference: if any
+            quote:
+              parent: true
+              price:
+                description: total price quoted from seller NP
                 required: required
                 usage: '-'
                 reference: if any
+                currency:
+                  description: currency of the price
+                  required: required
+                  usage: INR
+                  reference: if any
+                value:
+                  description: price value
+                  required: required
+                  usage: '345'
+                  reference: if any
+              breakup:
+                '@ondc/org/title_type':
+                  description: type of charge - item,packing,discount,tax,misc,delivery
+                  required: required
+                  usage: delivery
+                  reference: if any
+                '@ondc/org/item_id':
+                  description: item id or fulfillment id based on type of charge
+                  required: required
+                  usage: F1
+                  reference: if any
+                title:
+                  description: type of charge - can be customized
+                  required: required
+                  usage: Packing charges
+                  reference: if any
+                '@ondc/org/item_quantity':
+                  count:
+                    description: Item count for which the price is provided.
+                    required: required for an 'item'
+                    usage: '2'
+                    reference: if any
+                price:
+                  currency:
+                    description: currency of the price
+                    required: required
+                    usage: INR
+                    reference: if any
+                    value:
+                      description: >-
+                        The overall cost of the item, calculated based on the
+                        quantity and unit price.
+                      required: required
+                      usage: '700'
+                      reference: if any
+                item:
+                  price:
+                    currency:
+                      description: currency of the price
+                      required: required for an 'item'
+                      usage: INR
+                      reference: if any
+                    value:
+                      description: Unit price for the item
+                      required: required for an 'item'
+                      usage: '350'
+                      reference: if any
+              ttl:
+                description: Time period for which the quote is valid
+                required: required
+                usage: P1D
+                reference: if any
+            tags:
+              description: Buyer details like GST number, bpp_terms, bap_terms
+              required: required
+              usage: '-'
+              reference: if any
+            billing:
+              parent: true
+              phone:
+                required: required
+                description: Describes the phone information of an entity
+                reference: if any
+                usage: '9886098860'
+              email:
+                required: optional
+                description: Email address of the contact
+                reference: if any
+                usage: nobody@nomail.com
+              name:
+                required: required
+                description: Describes a person name as any individual
+                reference: if any
+                usage: ONDC buyer
+              tax_id:
+                required: required
+                description: Describes tax id
+                reference: if any
+                usage: 22AAAAA0000A1Z5
+              state:
+                name:
+                  required: required
+                  description: Describes the state information of an entity
+                  reference: if any
+                  usage: Karnataka
+              city:
+                name:
+                  required: required
+                  description: Describes the city information of an entity
+                  reference: if any
+                  usage: Bengaluru
+            items:
+              parent: true
+              description: Array of items selected by the buyer.
+              usage: '-'
+              reference: if any
+              required: required
+              id:
+                description: >-
+                  ID of the chosen item from the catalog provided by the
+                  merchant.
+                usage: I1
+                reference: if any
+                required: required
+              location_ids:
+                description: List of location IDs where the item is available.
+                usage: L1,L2
+                reference: if any
+                required: required
+              fulfillment_ids:
+                description: List of fulfillment IDs used for item fulfillment.
+                usage: F1,F2
+                reference: if any
+                required: required
+              quantity:
+                selected:
+                  count:
+                    description: Number of units for the chosen item.
+                    usage: 2
+                    reference: if any
+                    required: required
+              tags:
+                description: Buyer provides customization details for RFQ
+                usage: '-'
+                reference: if any
+                required: optional
+              add-ons:
+                id:
+                  description: ID of the add-on selected from the catalog
+                  usage: '3456'
+                  reference: if any
+                  required: optional
+            fulfillments:
+              parent: true
+              id:
+                description: ID of the fulfillment
+                usage: F1
+                reference: if any
+                required: required
+              type:
+                description: type of fulfillment mode buyer wants to avail
+                required: required
+                usage: Delivery
+                reference: if any
+              stops:
+                type:
+                  description: location(s) where the buyer wants the delivery to be made
+                  required: required
+                  usage: end
+                  reference: if any
+                location:
+                  gps:
+                    description: minimum 6 digit decimal precision for gps coordinates
+                    required: required
+                    usage: 1.380621, 103.746364
+                    reference: if any
+                  area_code:
+                    description: area_code
+                    required: required
+                    usage: '110030'
+                    reference: if any
+                  address:
+                    description: Destination address for the shipment drop-off.
+                    required: required
+                    usage: 'My House #, My building'
+                    reference: if any
+                  city:
+                    name:
+                      description: Name of the city
+                      required: required
+                      usage: Bangalore
+                      reference: if any
+                  country:
+                    code:
+                      description: Country code
+                      required: required
+                      usage: IND
+                      reference: if any
+                  state:
+                    name:
+                      description: Name of the state
+                      required: required
+                      usage: Karnataka
+                      reference: if any
+                contact:
+                  phone:
+                    description: contact number of the receiver
+                    required: required
+                    usage: '09212342829'
+                    reference: if any
+              customer:
+                person:
+                  name:
+                    required: required
+                    description: Name of the customer
+                    reference: if any
+                    usage: Ramu
+              tags:
+                required: required for exports
+                description: delivery terms like incoterms
+                reference: if any
+                usage: '-'
       on_confirm:
         parent: true
         message:
           parent: true
           order:
             parent: true
+            provider:
+              parent: true
+              id:
+                description: id of the selected provider from the catalog
+                usage: P1
+                reference: if any
+                required: required
+              locations:
+                description: store locations of the provider
+                usage: '-'
+                reference: if any
+                required: required
+                id:
+                  description: id of the store location
+                  usage: L1
+                  reference: if any
+                  required: required
+              rateable:
+                description: Provider rating is enabled or not
+                required: required
+                usage: 'false'
+                reference: if any
             fulfillments:
               parent: true
               id:
                 description: unique fulfillment id
                 required: required
                 usage: F1
+                reference: if any
+              type:
+                description: type of fulfillment mode buyer wants to avail
+                required: required
+                usage: Delivery
+                reference: if any
+              '@ondc/org/provider':
+                description: Delivery provider
+                required: required
+                usage: Loadshare
+                reference: if any
+              tracking:
+                description: Indicates the tracking is enabled or not
+                required: required
+                usage: 'false'
+                reference: if any
+              rateable:
+                description: Fulfillment rating is enabled or not
+                required: required
+                usage: 'false'
                 reference: if any
               stops:
                 type:
@@ -20741,6 +21911,16 @@ x-attributes:
                   description: location id of the point
                   required: required
                   usage: L1
+                  reference: if any
+                location.descriptor.name:
+                  description: Name of the location
+                  required: required
+                  usage: ABC Store
+                  reference: if any
+                location.gps:
+                  description: GPS cordinates of the store
+                  required: required
+                  usage: 11.234567,34.1286443
                   reference: if any
                 time.range:
                   description: time range when the order would be picked up/dropped
@@ -20758,12 +21938,22 @@ x-attributes:
                   usage: '2023-02-03T09:30:00.000Z'
                   reference: if any
                 instructions.name:
-                  description: Pickup instructions
+                  description: Status for pickup
                   required: optional
-                  usage: Pickup Code
+                  usage: Status for pickup
                   reference: if any
                 instructions.short_desc:
                   description: Pickup code value
+                  required: optional
+                  usage: '345234'
+                  reference: if any
+                contact.phone:
+                  description: Contact number of the seller or buyer
+                  required: required
+                  usage: '9248281919'
+                  reference: if any
+                contact.email:
+                  description: Contact email of the seller or buyer
                   required: optional
                   usage: '345234'
                   reference: if any
@@ -20775,10 +21965,25 @@ x-attributes:
                   reference: if any
             payments:
               parent: true
+              type:
+                description: Preferred payment method chosen by the buyer
+                usage: ON-FULFILLMENT
+                reference: if any
+                required: required
+              collected_by:
+                description: Indicates who is collecting the payment
+                usage: BPP
+                reference: if any
+                required: required
               status:
                 description: status whether payment has been collected or not
                 required: required
                 usage: PAID
+                reference: if any
+              uri:
+                description: payment gateway url if BPP is collecting the payment
+                required: required for prepaid payment collected by BPP
+                usage: https://snp.com/pg
                 reference: if any
               params:
                 transaction_id:
@@ -20815,9 +22020,177 @@ x-attributes:
                 description: >-
                   settlement details sent to the counterparty who will be
                   settling the amount
+                required: optional
+                usage: '-'
+                reference: if any
+              tags:
+                description: >-
+                  Seller NP provides the signature, algorithm and ttl for the
+                  payment url provided
+                required: >-
+                  required for prepaid payment where BPP is collecting the
+                  payment
+                usage: '-'
+                reference: if any
+            items:
+              parent: true
+              description: Array of items selected by the buyer.
+              usage: '-'
+              reference: if any
+              required: required
+              id:
+                description: >-
+                  ID of the chosen item from the catalog provided by the
+                  merchant.
+                usage: I1
+                reference: if any
+                required: required
+              location_ids:
+                description: List of location IDs where the item is available.
+                usage: L1,L2
+                reference: if any
+                required: required
+              fulfillment_ids:
+                description: List of fulfillment IDs used for item fulfillment.
+                usage: F1,F2
+                reference: if any
+                required: required
+              quantity:
+                selected:
+                  count:
+                    description: Number of units for the chosen item.
+                    usage: 2
+                    reference: if any
+                    required: required
+              tags:
+                description: Buyer provides customization details for RFQ
+                usage: '-'
+                reference: if any
+                required: optional
+              add-ons:
+                id:
+                  description: ID of the add-on selected from the catalog
+                  usage: '3456'
+                  reference: if any
+                  required: optional
+            billing:
+              parent: true
+              phone:
+                required: required
+                description: Describes the phone information of an entity
+                reference: if any
+                usage: '9886098860'
+              email:
+                required: optional
+                description: Email address of the contact
+                reference: if any
+                usage: nobody@nomail.com
+              name:
+                required: required
+                description: Describes a person name as any individual
+                reference: if any
+                usage: ONDC buyer
+              tax_id:
+                required: required
+                description: Describes tax id
+                reference: if any
+                usage: 22AAAAA0000A1Z5
+              state:
+                name:
+                  required: required
+                  description: Describes the state information of an entity
+                  reference: if any
+                  usage: Karnataka
+              city:
+                name:
+                  required: required
+                  description: Describes the city information of an entity
+                  reference: if any
+                  usage: Bengaluru
+            tags:
+              description: Buyer details like GST number, bpp_terms, bap_terms
+              required: required
+              usage: '-'
+              reference: if any
+            quote:
+              parent: true
+              price:
+                description: total price quoted from seller NP
                 required: required
                 usage: '-'
                 reference: if any
+                currency:
+                  description: currency of the price
+                  required: required
+                  usage: INR
+                  reference: if any
+                value:
+                  description: price value
+                  required: required
+                  usage: '345'
+                  reference: if any
+              breakup:
+                '@ondc/org/title_type':
+                  description: type of charge - item,packing,discount,tax,misc,delivery
+                  required: required
+                  usage: delivery
+                  reference: if any
+                '@ondc/org/item_id':
+                  description: item id or fulfillment id based on type of charge
+                  required: required
+                  usage: F1
+                  reference: if any
+                title:
+                  description: type of charge - can be customized
+                  required: required
+                  usage: Packing charges
+                  reference: if any
+                '@ondc/org/item_quantity':
+                  count:
+                    description: Item count for which the price is provided.
+                    required: required for an 'item'
+                    usage: '2'
+                    reference: if any
+                price:
+                  currency:
+                    description: currency of the price
+                    required: required
+                    usage: INR
+                    reference: if any
+                    value:
+                      description: >-
+                        The overall cost of the item, calculated based on the
+                        quantity and unit price.
+                      required: required
+                      usage: '700'
+                      reference: if any
+                item:
+                  price:
+                    currency:
+                      description: currency of the price
+                      required: required for an 'item'
+                      usage: INR
+                      reference: if any
+                    value:
+                      description: Unit price for the item
+                      required: required for an 'item'
+                      usage: '350'
+                      reference: if any
+              ttl:
+                description: Time period for which the quote is valid
+                required: required
+                usage: P1D
+                reference: if any
+            created_at:
+              description: timestamp when the order was created
+              required: required
+              usage: '2023-02-03T09:30:00.000Z'
+              reference: if any
+            updated_at:
+              description: timestamp when the order was updated
+              required: required
+              usage: '2023-02-03T09:30:00.000Z'
+              reference: if any
       update:
         parent: true
         message:
@@ -20825,7 +22198,7 @@ x-attributes:
           order:
             parent: true
             update_target:
-              description: target block to be updated (enum - item,fulfillment)
+              description: target block to be updated (enum - item,fulfillment,payments)
               required: required
               usage: payments
               reference: if any
@@ -20844,6 +22217,21 @@ x-attributes:
               required: required when buyer app wants to update the payment status
               usage: '-'
               reference: if any
+              type:
+                description: Preferred payment method chosen by the buyer
+                usage: ON-FULFILLMENT
+                reference: if any
+                required: required
+              collected_by:
+                description: Indicates who is collecting the payment
+                usage: BPP
+                reference: if any
+                required: required
+              uri:
+                description: payment gateway url provided by buyer app in case of RFQ flow
+                required: optional
+                usage: https://ondc.transaction.com/payment
+                reference: if any
               status:
                 description: status whether payment has been collected or not
                 required: required
@@ -20884,7 +22272,7 @@ x-attributes:
                 description: >-
                   settlement details sent to the counterparty who will be
                   settling the amount
-                required: required
+                required: optional
                 usage: '-'
                 reference: if any
       on_status:
@@ -20893,15 +22281,138 @@ x-attributes:
           parent: true
           order:
             parent: true
-            documents:
+            provider:
               parent: true
-              url:
-                description: url of the invoice
-                required: required when order has been picked up
-                usage: https://invoice_url
+              id:
+                description: id of the selected provider from the catalog
+                usage: P1
                 reference: if any
+                required: required
+              locations:
+                description: store locations of the provider
+                usage: '-'
+                reference: if any
+                required: required
+                id:
+                  description: id of the store location
+                  usage: L1
+                  reference: if any
+                  required: required
+            fulfillments:
+              parent: true
+              id:
+                description: unique fulfillment id
+                required: required
+                usage: F1
+                reference: if any
+              type:
+                description: type of fulfillment mode buyer wants to avail
+                required: required
+                usage: Delivery
+                reference: if any
+              '@ondc/org/provider':
+                description: Delivery provider
+                required: required
+                usage: Loadshare
+                reference: if any
+              tracking:
+                description: Indicates the tracking is enabled or not
+                required: required
+                usage: 'false'
+                reference: if any
+              rateable:
+                description: Fulfillment rating is enabled or not
+                required: required
+                usage: 'false'
+                reference: if any
+              stops:
+                type:
+                  description: type of stop (start point or end point)
+                  required: required
+                  usage: end
+                  reference: if any
+                location.id:
+                  description: location id of the point
+                  required: required
+                  usage: L1
+                  reference: if any
+                location.descriptor.name:
+                  description: Name of the location
+                  required: required
+                  usage: ABC Store
+                  reference: if any
+                location.gps:
+                  description: GPS cordinates of the store
+                  required: required
+                  usage: 11.234567,34.1286443
+                  reference: if any
+                time.range:
+                  description: time range when the order would be picked up/dropped
+                  required: optional
+                  usage: '-'
+                  reference: if any
+                time.range.start:
+                  description: time range when the order would be picked up
+                  required: optional
+                  usage: '2023-02-03T09:30:00.000Z'
+                  reference: if any
+                time.range.end:
+                  description: time range when the order would be delivered
+                  required: optional
+                  usage: '2023-02-03T09:30:00.000Z'
+                  reference: if any
+                time.range.timestamp:
+                  description: timestamp when the order is picked up or delivered
+                  required: >-
+                    required in start once the order is picked up and in end
+                    once delivered
+                  usage: '2023-02-03T09:30:00.000Z'
+                  reference: if any
+                instructions.name:
+                  description: Name of the instructions
+                  required: optional
+                  usage: Status for pickup
+                  reference: if any
+                instructions.short_desc:
+                  description: Pickup code value
+                  required: optional
+                  usage: '345234'
+                  reference: if any
+                instructions.images:
+                  description: Proof of pickup
+                  required: >-
+                    required in start once the order is picked up and in end
+                    once delivered
+                  usage: https://image1_url.png
+                  reference: if any
+                contact.phone:
+                  description: Contact number of the seller or buyer
+                  required: required
+                  usage: '9248281919'
+                  reference: if any
+                contact.email:
+                  description: Contact email of the seller or buyer
+                  required: optional
+                  usage: '345234'
+                  reference: if any
+              state:
+                descriptor.code:
+                  description: fulfillment state
+                  required: required
+                  usage: Order-picked-ip
+                  reference: if any
             payments:
               parent: true
+              type:
+                description: Preferred payment method chosen by the buyer
+                usage: ON-FULFILLMENT
+                reference: if any
+                required: required
+              collected_by:
+                description: Indicates who is collecting the payment
+                usage: BPP
+                reference: if any
+                required: required
               status:
                 description: status whether payment has been collected or not
                 required: required
@@ -20942,6 +22453,169 @@ x-attributes:
                 description: >-
                   settlement details sent to the counterparty who will be
                   settling the amount
+                required: optional
+                usage: '-'
+                reference: if any
+            items:
+              parent: true
+              description: Array of items selected by the buyer.
+              usage: '-'
+              reference: if any
+              required: required
+              id:
+                description: >-
+                  ID of the chosen item from the catalog provided by the
+                  merchant.
+                usage: I1
+                reference: if any
+                required: required
+              location_ids:
+                description: List of location IDs where the item is available.
+                usage: L1,L2
+                reference: if any
+                required: required
+              fulfillment_ids:
+                description: List of fulfillment IDs used for item fulfillment.
+                usage: F1,F2
+                reference: if any
+                required: required
+              quantity:
+                selected:
+                  count:
+                    description: Number of units for the chosen item.
+                    usage: 2
+                    reference: if any
+                    required: required
+              add-ons:
+                id:
+                  description: ID of the add-on selected from the catalog
+                  usage: '3456'
+                  reference: if any
+                  required: optional
+            billing:
+              parent: true
+              phone:
+                required: required
+                description: Describes the phone information of an entity
+                reference: if any
+                usage: '9886098860'
+              email:
+                required: optional
+                description: Email address of the contact
+                reference: if any
+                usage: nobody@nomail.com
+              name:
+                required: required
+                description: Describes a person name as any individual
+                reference: if any
+                usage: ONDC buyer
+              tax_id:
+                required: required
+                description: Describes tax id
+                reference: if any
+                usage: 22AAAAA0000A1Z5
+              state:
+                name:
+                  required: required
+                  description: Describes the state information of an entity
+                  reference: if any
+                  usage: Karnataka
+              city:
+                name:
+                  required: required
+                  description: Describes the city information of an entity
+                  reference: if any
+                  usage: Bengaluru
+            quote:
+              parent: true
+              price:
+                description: total price quoted from seller NP
                 required: required
                 usage: '-'
+                reference: if any
+                currency:
+                  description: currency of the price
+                  required: required
+                  usage: INR
+                  reference: if any
+                value:
+                  description: price value
+                  required: required
+                  usage: '345'
+                  reference: if any
+              breakup:
+                '@ondc/org/title_type':
+                  description: type of charge - item,packing,discount,tax,misc,delivery
+                  required: required
+                  usage: delivery
+                  reference: if any
+                '@ondc/org/item_id':
+                  description: item id or fulfillment id based on type of charge
+                  required: required
+                  usage: F1
+                  reference: if any
+                title:
+                  description: type of charge - can be customized
+                  required: required
+                  usage: Packing charges
+                  reference: if any
+                '@ondc/org/item_quantity':
+                  count:
+                    description: Item count for which the price is provided.
+                    required: required for an 'item'
+                    usage: '2'
+                    reference: if any
+                price:
+                  currency:
+                    description: currency of the price
+                    required: required
+                    usage: INR
+                    reference: if any
+                    value:
+                      description: >-
+                        The overall cost of the item, calculated based on the
+                        quantity and unit price.
+                      required: required
+                      usage: '700'
+                      reference: if any
+                item:
+                  price:
+                    currency:
+                      description: currency of the price
+                      required: required for an 'item'
+                      usage: INR
+                      reference: if any
+                    value:
+                      description: Unit price for the item
+                      required: required for an 'item'
+                      usage: '350'
+                      reference: if any
+              ttl:
+                description: Time period for which the quote is valid
+                required: required
+                usage: P1D
+                reference: if any
+            created_at:
+              description: timestamp when the order was created
+              required: required
+              usage: '2023-02-03T09:30:00.000Z'
+              reference: if any
+            updated_at:
+              description: timestamp when the order was updated
+              required: required
+              usage: '2023-02-03T09:30:00.000Z'
+              reference: if any
+            documents:
+              parent: true
+              url:
+                description: url of the invoice
+                required: required
+                usage: https://invoice_url
+                reference: if any
+              label:
+                description: >-
+                  Proforma invoice should be sent in case of RFQ Flow after the
+                  payment is received, and final invoice will be shared later
+                required: required
+                usage: INVOICE
                 reference: if any
