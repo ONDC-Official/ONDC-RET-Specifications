@@ -1,4 +1,4 @@
-summary: Get quote for specific item
+summary: Get quote for specific item (make to order products)
 description: Get quote for specific item for make to order products
 value:
   context:
@@ -154,9 +154,18 @@ value:
               list:
                 - code: id
                   value: CG3
+      offers [^4]:
+        - id: BUY2GET3
+          tags:
+            - code: selection
+              list:
+                - code: apply [^5]
+                  value: yes [^6]
       fulfillments:
         - end:
             location:
               gps: 12.453544,77.928379
               address:
-                area_code: '560001'
+                area_code: "560001"
+      payment [^7]:
+        type: ON-FULFILLMENT [^8]

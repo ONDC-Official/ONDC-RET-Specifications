@@ -1,4 +1,4 @@
-summary: Get quote for specific item
+summary: Get quote for specific item (other products)
 description: Get quote for specific item for other products
 value:
   context:
@@ -24,9 +24,20 @@ value:
       items:
         - id: I1
           location_id: L1
+          quantity:
+            count: 2
+      offers [^1]:
+        - id: BUY2GET3
+          tags:
+            - code: selection
+              list:
+                - code : apply [^2]
+                  value : yes [^3]
       fulfillments:
-        - end [^3]:
+        - end [^4]:
             location:
-              gps [^4]: 12.453544,77.928379
+              gps [^5]: 12.453544,77.928379
               address:
-                area_code: '560001'
+                area_code: "560001"
+      payment [^6]:
+        type: ON-FULFILLMENT [^7]
