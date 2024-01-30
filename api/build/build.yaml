@@ -7319,7 +7319,7 @@ x-flows:
         description: null
         reference: if any
         example: &ref_24
-          summary: Get quote for specific item
+          summary: Get quote for specific item (make to order products)
           description: Get quote for specific item for make to order products
           value:
             context:
@@ -7475,12 +7475,21 @@ x-flows:
                         list:
                           - code: id
                             value: CG3
+                offers [^4]:
+                  - id: BUY2GET3
+                    tags:
+                      - code: selection
+                        list:
+                          - code: apply [^5]
+                            value: yes [^6]
                 fulfillments:
                   - end:
                       location:
                         gps: 12.453544,77.928379
                         address:
                           area_code: '560001'
+                payment [^7]:
+                  type: ON-FULFILLMENT [^8]
         notes: &ref_25
           value:
             ^1: >-
@@ -7488,12 +7497,13 @@ x-flows:
               alphanumeric & up to 12 characters
             ^2: parent for customization, i.e. customization group
             ^3: dynamic item id
-            ^4: optional, only if buyer selects offer code
-            ^5: >-
-              if offer code is not valid, seller NP can NACK /select with error
-              code 30006
-            ^6: optional
-            ^7: >-
+            ^4: >-
+              optional, only if buyer selects offer code, offer construct to be
+              added in /init and /confirm as well;
+            ^5: whether to apply the offer id;
+            ^6: enum - "yes", "no";
+            ^7: optional
+            ^8: >-
               enum - "ON-ORDER" (prepaid), "ON-FULFILLMENT" (on delivery),
               "POST-FULFILLMENT" (after delivery)
       - summary: Returns item breakup for a product with customization
@@ -12641,7 +12651,7 @@ x-flows:
         description: null
         reference: if any
         example: &ref_38
-          summary: Get quote for specific item
+          summary: Get quote for specific item (other products)
           description: Get quote for specific item for other products
           value:
             context:
@@ -12667,24 +12677,36 @@ x-flows:
                 items:
                   - id: I1
                     location_id: L1
+                    quantity:
+                      count: 2
+                offers [^1]:
+                  - id: BUY2GET3
+                    tags:
+                      - code: selection
+                        list:
+                          - code: apply [^2]
+                            value: yes [^3]
                 fulfillments:
-                  - end [^3]:
+                  - end [^4]:
                       location:
-                        gps [^4]: 12.453544,77.928379
+                        gps [^5]: 12.453544,77.928379
                         address:
                           area_code: '560001'
+                payment [^6]:
+                  type: ON-FULFILLMENT [^7]
         notes: &ref_39
           value:
-            ^1: optional, only if buyer selects offer code
-            ^2: >-
-              if offer code is not valid, seller NP can NACK /select with error
-              code 30006
-            ^3: fulfillment end location, i.e. delivery location for buyer
-            ^4: >-
+            ^1: >-
+              optional, only if buyer selects offer code; offer construct to be
+              added in /init and /confirm as well;
+            ^2: whether to apply the offer id;
+            ^3: enum - "yes", "no";
+            ^4: fulfillment end location, i.e. delivery location for buyer
+            ^5: >-
               GPS coordinates & precision for fulfillment end location has to be
               same in /confirm
-            ^5: optional
-            ^6: >-
+            ^6: optional
+            ^7: >-
               enum - "ON-ORDER" (prepaid), "ON-FULFILLMENT" (on delivery),
               "POST-FULFILLMENT" (after delivery)
       - summary: Returns item breakup when item is in stock and offer applied
@@ -19130,7 +19152,7 @@ x-examples:
                           value: stop
       select:
         examples:
-          - summary: Get quote for specific item
+          - summary: Get quote for specific item (make to order products)
             description: Get quote for specific item for make to order products
             value:
               context:
@@ -19286,13 +19308,22 @@ x-examples:
                           list:
                             - code: id
                               value: CG3
+                  offers [^4]:
+                    - id: BUY2GET3
+                      tags:
+                        - code: selection
+                          list:
+                            - code: apply [^5]
+                              value: yes [^6]
                   fulfillments:
                     - end:
                         location:
                           gps: 12.453544,77.928379
                           address:
                             area_code: '560001'
-          - summary: Get quote for specific item
+                  payment [^7]:
+                    type: ON-FULFILLMENT [^8]
+          - summary: Get quote for specific item (other products)
             description: Get quote for specific item for other products
             value:
               context:
@@ -19318,12 +19349,23 @@ x-examples:
                   items:
                     - id: I1
                       location_id: L1
+                      quantity:
+                        count: 2
+                  offers [^1]:
+                    - id: BUY2GET3
+                      tags:
+                        - code: selection
+                          list:
+                            - code: apply [^2]
+                              value: yes [^3]
                   fulfillments:
-                    - end [^3]:
+                    - end [^4]:
                         location:
-                          gps [^4]: 12.453544,77.928379
+                          gps [^5]: 12.453544,77.928379
                           address:
                             area_code: '560001'
+                  payment [^6]:
+                    type: ON-FULFILLMENT [^7]
       init:
         examples:
           - summary: Send buyer and delivery terms for make to order products
