@@ -79,6 +79,14 @@ value:
               name: ONDC Order
               short_desc: value of PCC [^10]
               long_desc: additional instructions for pickup
+              "images ":
+                - https://lsp.com/pickup_image.png
+                - https://lsp.com/rider_location.png
+            "authorization ":
+              type: "OTP "
+              token: OTP code
+              valid_from: 2023-06-03T12:00:00.000Z
+              valid_to: 2023-06-03T14:00:00.000Z
             contact:
               phone: "9886098860"
               email [^11]: nobody@nomail.com
@@ -103,19 +111,52 @@ value:
               name: ONDC Order
               short_desc: value of DCC [^14]
               long_desc: additional instructions for delivery
+              "images ":
+                - https://lsp.com/delivery_image.png
+                - https://lsp.com/rider_location.png
+            "authorization ":
+              type: "OTP "
+              token: OTP code
+              valid_from: 2023-06-03T18:00:00.000Z
+              valid_to: 2023-06-03T22:00:00.000Z
+            person:
+              name: name_of_person
             contact:
               phone: "9886098860"
           agent [^15]:
             name: agent_name
             phone: "9886098860"
           vehicle [^16]:
-            category: mini-truck
-            size: small
             registration: 3LVJ945
+          tags:
+            - code: "state "
+              list:
+                - code: ready_to_ship
+                  value: yes
+            - code: "routing "
+              list:
+                - code: type
+                  value: "P2P "
+            - code: "tracking "
+              list:
+                - code: "gps_enabled "
+                  value: yes
+                - code: "url_enabled "
+                  value: no
+                - code: "url "
+                  value: https://sellerNP.com/ondc/tracking_url
+            - code: "fulfillment_delay "
+              list:
+                - code: state
+                  value: "Order-picked-up "
+                - code: reason_id
+                  value: "002 "
+                - code: timestamp
+                  value: 2023-06-06T22:00:00.000Z
       quote:
         price:
           currency: INR
-          value: "245"
+          value: "254"
         breakup:
           - "@ondc/org/item_id": I1
             "@ondc/org/item_quantity":
@@ -135,6 +176,18 @@ value:
             price:
               currency: INR
               value: "50"
+          - "@ondc/org/item_id": F1
+            title: Tax
+            "@ondc/org/title_type": "tax "
+            price:
+              currency: INR
+              value: "9.00"
+            item:
+              tags:
+                - code: quote
+                  list:
+                    - code: type
+                      value: fulfillment
           - "@ondc/org/item_id": F1
             title: Packing charges
             "@ondc/org/title_type": packing
@@ -166,10 +219,12 @@ value:
         params:
           currency: INR
           transaction_id: "3937"
-          amount: "245"
+          amount: "254"
         status: PAID
         type: ON-ORDER
         collected_by: BAP
+        "time ":
+          timestamp: 2023-06-04T10:00:00.000Z
         "@ondc/org/buyer_app_finder_fee_type": percent
         "@ondc/org/buyer_app_finder_fee_amount": "3"
         "@ondc/org/settlement_basis": delivery

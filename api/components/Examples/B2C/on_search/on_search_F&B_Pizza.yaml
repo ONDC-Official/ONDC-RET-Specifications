@@ -30,6 +30,15 @@ value:
         long_desc: Seller Marketplace
         images:
           - https://sellerNP.com/images/np.png
+        tags:
+        - code: bpp_terms
+          list:
+          - code: np_type
+            value: 'ISN '
+          - code: accept_bap_terms
+            value: 'Y '
+          - code: 'collect_payment '
+            value: 'Y '
       bpp/providers:
         - id: P1
           time:

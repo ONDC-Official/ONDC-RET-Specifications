@@ -1,4 +1,4 @@
-summary: Acceptance by Seller
+summary: Acceptance by Seller (Other Products)
 description: Acceptance by Seller for other products
 value:
   context:
@@ -30,9 +30,9 @@ value:
       billing:
         name: ONDC buyer
         address:
-          name: 'My house #'
-          building: My building name
-          locality: My street name
+          name: "my house or door or floor #"
+          building: "my building name or house #"
+          locality: my street name
           city: Bengaluru
           state: Karnataka
           country: IND
@@ -88,8 +88,8 @@ value:
                 area_code: '560037'
             time [^13]:
               range:
-                start: '2023-06-03T11:00:00.000Z'
-                end: '2023-06-03T11:30:00.000Z'
+                start: 2023-06-03T11:00:00.000Z
+                end: 2023-06-03T11:30:00.000Z
             person:
               name: name_of_person
             contact:
@@ -98,7 +98,7 @@ value:
       quote:
         price:
           currency: INR
-          value: '415.00'
+          value: "424.00"
         breakup:
           - '@ondc/org/item_id': I1
             '@ondc/org/item_quantity':
@@ -117,8 +117,20 @@ value:
             '@ondc/org/title_type': delivery
             price:
               currency: INR
-              value: '50.00'
-          - '@ondc/org/item_id': F1
+              value: "50.00"
+          - "@ondc/org/item_id": F1
+            title: Tax
+            "@ondc/org/title_type": "tax "
+            price:
+              currency: INR
+              value: "9.00"
+            item:
+              tags:
+                - code: quote
+                  list:
+                    - code: type
+                      value: fulfillment
+          - "@ondc/org/item_id": F1
             title: Packing charges
             '@ondc/org/title_type': packing
             price:
@@ -168,13 +180,72 @@ value:
             settlement_ifsc_code: XXXXXXXXX
             bank_name: xxxx
             branch_name: xxxx
-      tags [^19]:
+      "cancellation_terms ":
+        - fulfillment_state:
+            descriptor:
+              code: Pending
+              short_desc: "002"
+          cancellation_fee:
+            amount:
+              currency: INR
+              value: "0.00"
+        - fulfillment_state:
+            descriptor:
+              code: Packed
+              short_desc: 001,003
+          cancellation_fee:
+            amount:
+              currency: INR
+              value: "50.00"
+        - fulfillment_state:
+            descriptor:
+              code: Order-picked-up
+              short_desc: 001,003
+          cancellation_fee:
+            amount:
+              currency: INR
+              value: "50.00"
+        - fulfillment_state:
+            descriptor:
+              code: Out-for-delivery
+              short_desc: "009"
+          cancellation_fee:
+            amount:
+              currency: INR
+              value: "0.00"
+        - fulfillment_state:
+            descriptor:
+              code: Out-for-delivery
+              short_desc: 011,012,013,014,015
+          cancellation_fee:
+            amount:
+              currency: INR
+              value: "100.00"
+      "tags ":
         - code: bpp_terms
           list:
+            - code: max_liability_cap
+              value: "10000.00"
+            - code: max_liability
+              value: "2"
+            - code: mandatory_arbitration
+              value: "false"
+            - code: court_jurisdiction
+              value: Bengaluru
+            - code: delay_interest
+              value: "1000.00"
+            - code: np_type
+              value: "MSN "
             - code: tax_number
               value: gst_number_of_sellerNP
+            - code: provider_tax_number
+              value: PAN_number_of_provider
+            - code: "accept_bap_terms "
+              value: Y
         - code: bap_terms
           list:
+            - code: static_terms
+              value: https://github.com/ONDC-Official/protocol-network-extension/discussions/79
             - code: tax_number
               value: gst_number_of_buyerNP
       created_at [^21]: '2023-06-03T09:30:00.000Z'
