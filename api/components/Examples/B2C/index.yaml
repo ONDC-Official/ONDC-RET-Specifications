@@ -6,6 +6,7 @@ search:
     - $ref: ./search/incremental_catalog_refresh_one_time_push.yaml
     - $ref: ./search/incremental_catalog_refresh_regular_push.yaml
     - $ref: ./search/stop_incremental_refresh.yaml
+    - $ref: ./search/search_by_city_response_as_downloadable_link.yaml
 select:
   examples:
     - $ref: ./select/select_make_to_order_product.yaml
@@ -21,6 +22,8 @@ confirm:
 update:
   examples:
     - $ref: ./update/update_settlement_trail_for_refund_initiation.yaml
+    - $ref: ./update/update_buyer_initiated_part_return_request.yaml
+    - $ref: ./update/update_for_fulfillments.yaml
 cancel:
   examples:
     - $ref: ./cancel/cancel.yaml
@@ -60,6 +63,8 @@ on_select:
     - $ref: ./on_select/on_select_enable_self_pickup.yaml
     - $ref: ./on_select/on_select_multiple_pickup.yaml
     - $ref: ./on_select/on_select_product_with_customization.yaml
+    - $ref: ./on_select/on_select_offer_based_on_cart_selection.yaml
+    - $ref: ./on_select/on_select_offer_free_delivery.yaml
 on_init:
   examples:
     - $ref: ./on_init/on_init_make_to_order_product.yaml
@@ -72,6 +77,15 @@ on_update:
   examples:
     - $ref: ./on_update/on_update_merchant_cancels_customized.yaml
     - $ref: ./on_update/on_update_merchant_cancels_non_customized.yaml
+    - $ref: ./on_update/on_update_seller_NP_sends_interim_status_for_request.yaml
+    - $ref: ./on_update/on_update_seller_approves_request_and_wants_item_back.yaml
+    - $ref: ./on_update/on_update_return_picked.yaml
+    - $ref: ./on_update/on_update_return_attempted_failed_rescheduled.yaml
+    - $ref: ./on_update/on_update_return_picked_failed.yaml
+    - $ref: ./on_update/on_update_return_delivered.yaml
+    - $ref: ./on_update/on_update_for_fulfillments.yaml
+    - $ref: ./on_update/on_update_seller_approves_request_and_not_wants_item_back.yaml
+    - $ref: ./on_update/on_update_seller_NP_rejects_request.yaml
 on_cancel:
   examples:
     - $ref: ./on_cancel/on_cancel.yaml

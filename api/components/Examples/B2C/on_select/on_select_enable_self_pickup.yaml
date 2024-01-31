@@ -1,5 +1,5 @@
-summary: Send quote and breakup
-description: Send quote and breakup for items selected in select Api call enabling self pickup.
+summary: Enabling Self-Pickup / Buyer-Delivery
+description: Enabling Self-Pickup / Buyer-Delivery
 value:
   context:
     domain: ONDC:RET11
@@ -39,11 +39,45 @@ value:
           '@ondc/org/TAT': PT15M [^4]
           state:
             descriptor:
-              code: Serviceable
-      quote [^5]:
+              code: Serviceable [^5]
+        - id: F3
+          type: Buyer-Delivery
+          '@ondc/org/provider_name': ''
+          tracking: false
+          '@ondc/org/category': ''
+          '@ondc/org/TAT': PT15M [^6]
+          state:
+            descriptor:
+              code: Serviceable [^7]
+          tags:
+            - code: weight
+              list:
+                - code: unit
+                  value: kilogram [^8]
+                - code: value
+                  value: "1"
+            - code: length
+              list:
+              - code: unit
+                value: centimeter [^9]
+              - code: value
+                value: "1"
+            - code: breadth
+              list:
+              - code: unit
+                value: centimeter
+              - code: value
+                value: "1"
+            - code: height
+              list:
+              - code: unit
+                value: centimeter
+              - code: value
+                value: "1"
+      quote [^10]:
         price:
           currency: INR
-          value: '1360.00'
+          value: '1394.00'
         breakup:
           - '@ondc/org/item_id': I1
             '@ondc/org/item_quantity':
@@ -68,6 +102,19 @@ value:
             price:
               currency: INR
               value: '50.00'
+
+          - '@ondc/org/item_id': F1
+            title: Tax
+            '@ondc/org/title_type': tax [^11]
+            price:
+              currency: INR
+              value: '9.00'
+            items:
+              - code: quote
+                list: 
+                  - code: type
+                    value: fulfillment
+          
           - '@ondc/org/item_id': F1
             title: Packing charges
             '@ondc/org/title_type': packing
@@ -80,12 +127,36 @@ value:
             price:
               currency: INR
               value: '0.00'
-          - '@ondc/org/item_id': F2
+            item:
+              tags:
+                - code: quote
+                  list:
+                    - code: type
+                      value: fulfillment
+          - '@ondc/org/item_id': F3
             title: Packing charges
             '@ondc/org/title_type': packing
             price:
               currency: INR
               value: '25.00'
+            item:
+              tags:
+                - code: quote
+                  list:
+                    - code: type
+                      value: fulfillment
+          - '@ondc/org/item_id': F3
+            title: Convenience fee
+            '@ondc/org/title_type': misc
+            price:
+              currency: INR
+              value: '0.00'
+            item:
+              tags:
+                - code: quote
+                  list:
+                    - code: type
+                      value: fulfillment
           - '@ondc/org/item_id': I1
             title: Tax
             '@ondc/org/title_type': tax

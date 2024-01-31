@@ -1,4 +1,4 @@
-summary: stop_incremental_refresh
+summary: stop incremental refresh
 description: Stop Incremental Refresh
 value:
   context:

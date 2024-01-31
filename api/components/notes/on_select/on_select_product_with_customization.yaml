@@ -6,5 +6,6 @@ value:
   [^5]: id of customization group for the customization
   [^6]: id of customization group for the customization
   [^7]: id of customization group for the customization
-  [^8]: only if item(s) out of stock or location not serviceable;
+  [^8]: tax on fulfillment level charges, to be included only if not 0 (i.e. logistics buyer NP provides tax inclusive fulfillment level charges)
+  [^9]: only if item(s) out of stock or location not serviceable
 

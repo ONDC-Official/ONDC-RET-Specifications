@@ -1,0 +1,35 @@
+value:
+  [^1]: If fulfillment not found, SNP can NACK with error code 50007; if fulfillment has reached terminal state, SNP can NACK with error code 50008;
+  [^2]: request update for fulfillment state
+  [^3]: valid fulfillment state as defined [here](https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.ii1xl1f08zho)
+  [^4]: optional - for pickup / delivery failure state codes, applicable reason may be provided from [here](https://docs.google.com/spreadsheets/d/1_qAtG6Bu2we3AP6OpXr4GVP3X-32v2xNRNSYQhhR6kA/edit#gid=0)
+  [^5]: only if cancel request in /update
+  [^6]: optional
+  [^7]: valid reason code from [here](https://docs.google.com/spreadsheets/d/1_qAtG6Bu2we3AP6OpXr4GVP3X-32v2xNRNSYQhhR6kA/edit#gid=1095388031)
+  [^8]: subscriber id of NP initiating cancellation
+  [^9]: required if state is "Order-picked-up" or "Order-delivered"
+  [^10]: either pickup ("Order-picked-up") or delivery state ("Order-delivered")
+  [^11]: pickup or delivery time
+  [^12]: start time for pickup or delivery time slot
+  [^13]: end time for pickup or delivery time slot
+  [^14]: "includes pickup / delivery delay:
+          in case of pickup delay, start time slot (start.time.range.start, start.time.range.end) needs to be updated and the pickup delay reason code and timestamp (when recorded) may be provided here;
+          in case of delivery delay, start time slot (start.time.range.start, start.time.range.end) needs to be updated and the pickup delay reason code and timestamp (when recorded) may be provided here"
+  [^15]: enum for type of delay - "Order-picked-up" (pickup), "Order-delivered" (delivery)
+  [^16]: reason codes for [pickup delay](https://docs.google.com/spreadsheets/d/1_qAtG6Bu2we3AP6OpXr4GVP3X-32v2xNRNSYQhhR6kA/edit#gid=1062302411), [delivery delay](https://docs.google.com/spreadsheets/d/1_qAtG6Bu2we3AP6OpXr4GVP3X-32v2xNRNSYQhhR6kA/edit#gid=1062302411)
+  [^17]: (optional) agent details
+  [^18]: shipping label, required for hub-based (P2H2P) shipment
+  [^19]: "may be provided if fulfillment.type="Return" for the following states - "Order-picked-up" or "Pickup-failed" (only if BNP is handling logistics for return)
+          codified reverse qc checklist (includes product attributes & questionnaire with answers);
+          universal checklist is [here](https://docs.google.com/spreadsheets/d/1o9jHIt-BqPbhn3HHdNGig2kbul6TWa6JRc6dxtdxohw/edit#gid=1958973203)"
+  [^20]: enum - "Y" (yes) or "N" (no)
+  [^21]: receivables claim by BAP for cancellation charges (wherever SNP/seller liable), weight differential charges
+  [^22]: "fulfillment level charges:
+          "delivery", "packaging", "misc", "tax" - matching quote.title_type;
+          "diff", "tax_diff" - for weight differential charges (in logistics contract)"
+  [^23]: updated weight, only required if bap_receivables_claim includes type "diff"
+  [^24]: enum [here](https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/uom.json)
+  [^25]: updated length, only required if bap_receivables_claim includes type "diff"
+  [^26]: enum [here](https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/dimension_unit.json)
+  [^27]: updated breadth, only required if bap_receivables_claim includes type "diff"
+  [^28]: updated height, only required if bap_receivables_claim includes type "diff"

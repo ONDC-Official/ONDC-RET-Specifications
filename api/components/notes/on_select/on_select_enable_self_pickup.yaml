@@ -3,4 +3,10 @@ value:
   [^2]: O2D = O2S (i.e. max of time_to_ship for items in order) + S2D (for delivery)
   [^3]: enums for fulfillment type "Self-Pickup" are "Takeaway", "Kerbside"
   [^4]: O2S time, i.e. max of time_to_ship for items in order
-  [^5]: includes costs for both fulfillment options
+  [^5]: Self-Pickup fulfillments are always serviceable
+  [^6]: O2S time, i.e. max of time_to_ship for items in order
+  [^7]: Self-Pickup fulfillments are always serviceable
+  [^8]: enum [here](https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/uom.json)
+  [^9]: enum [here](https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/uom.json)
+  [^10]: includes costs for both fulfillment options
+  [^11]: tax on fulfillment level charges, to be included only if not 0 (i.e. logistics buyer NP provides tax inclusive fulfillment level charges)

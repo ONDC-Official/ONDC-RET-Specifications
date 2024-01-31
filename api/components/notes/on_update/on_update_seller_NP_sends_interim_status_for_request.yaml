@@ -1,0 +1,14 @@
+value:
+  [^1]: shows the current state of order with the new fulfillment for part cancel by merchant
+  [^2]: forward shipment fulfillment
+  [^3]: pickup time
+  [^4]: PCC, proof of pickup
+  [^5]: pickup authorization (optional)
+  [^6]: delivery time
+  [^7]: DCC, proof of delivery
+  [^8]: delivery authorization (optional)
+  [^9]: agent details (optional)
+  [^10]: vehicle details (for rider) or buyer (for kerbside pickup) - optional
+  [^11]: new fulfillment created with the same id as return request with status code "Return_Initiated". If return is approved ("Return_Approved" or "Liquidated"), the items will be assigned to this fulfillment, else, the status code will change to "Return_Rejected"
+  [^12]: tax on fulfillment level charges, to be included only if not 0 (i.e. logistics buyer NP provides tax inclusive fulfillment level charges)
+  [^13]: optional keys here as defined in /confirm

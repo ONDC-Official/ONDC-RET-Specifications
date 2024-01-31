@@ -1,5 +1,5 @@
-summary: Send quote and breakup
-description: Send quote and breakup for items in stock
+summary: If item is in stock & buyer location serviceable
+description: If item is in stock & buyer location serviceable
 value:
   context:
     domain: ONDC:RET10
@@ -61,18 +61,24 @@ value:
             price:
               currency: INR
               value: '50.00'
-          - '@ondc/org/item_id': F1
-            title: Discount
-            '@ondc/org/title_type': discount_f [^14]
-            price:
-              currency: INR
-              value: '-50.00'
+          # - '@ondc/org/item_id': F1
+          #   title: Discount
+          #   '@ondc/org/title_type': discount_f [^14]
+          #   price:
+          #     currency: INR
+          #     value: '-50.00'
           - '@ondc/org/item_id': F1
             title: Tax
             '@ondc/org/title_type': tax_f [^15]
             price:
               currency: INR
               value: '9.00'
+            item:
+               tags:
+                - code: quote
+                  list:
+                    - code: type
+                      value: fulfillment
           - '@ondc/org/item_id': F1
             title: Packing charges
             '@ondc/org/title_type [^16]': packing

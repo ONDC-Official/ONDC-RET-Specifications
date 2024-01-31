@@ -1,5 +1,5 @@
-summary: Send quote and breakup
-description: Send quote and breakup for items selected in select Api call with offer applied.
+summary: Offer(freebie)
+description: Offer(freebie)
 value:
   context:
     domain: ONDC:RET11
@@ -37,7 +37,7 @@ value:
       quote:
         price:
           currency: INR
-          value: '1370.00'
+          value: '1310.00'
         breakup:
           - '@ondc/org/item_id': I1
             '@ondc/org/item_quantity':
@@ -56,15 +56,54 @@ value:
               price:
                 currency: INR
                 value: '600.00'
-          - '@ondc/org/item_id': FREEBIE
+
+          - '[^2] @ondc/org/item_id': 'I1 [^3]'
             '@ondc/org/item_quantity':
               count: 1
-            title: Garlic Bread
+            title: "Buy 2 Veg Pizzas, get the 3rd for free"
             '@ondc/org/title_type': offer
             price:
               currency: INR
-              offered_value: '0.00'
-              value: '200.00'
+              value: '0.00'
+          - '@ondc/org/item_id': FREEBIE
+            '@ondc/org/item_quantity':
+              count: 1
+            # title: Garlic Bread
+            # '@ondc/org/title_type': offer
+            # price:
+            #   currency: INR
+            #   offered_value: '0.00'
+            #   value: '200.00'
+          - item: 
+              quantity:
+                available:
+                  count: '99'
+                maximum:
+                  count: '99'
+              price:
+                currency: INR
+                value: '0.00'
+              tags:
+                - code: quote
+                  list:
+                    - code: "type [^4]"
+                      value: item [^5]
+                - code: offer
+                  list:
+                    - code: id
+                      value: FREEBIE 
+                    - code: type
+                      value: freebie [^6]
+                    - code: auto [^7]
+                      value: "yes [^8]"
+                    - code: additive [^9]
+                      value: "no [^10]"
+                    - code: item_id [^11]
+                      value: I1
+                    - code: item_value [^12]
+                      value: "600"
+                    - code: item_count [^13]
+                      value: "1"
           - '@ondc/org/item_id': F1
             title: Delivery charges
             '@ondc/org/title_type': delivery
@@ -83,12 +122,12 @@ value:
             price:
               currency: INR
               value: '60.00'
-          - '@ondc/org/item_id': FREEBIE
-            title: Tax
-            '@ondc/org/title_type': tax
-            price:
-              currency: INR
-              value: '10.00'
+          # - '@ondc/org/item_id': FREEBIE
+          #   title: Tax
+          #   '@ondc/org/title_type': tax
+          #   price:
+          #     currency: INR
+          #     value: '10.00'
           - '@ondc/org/item_id': F1
             title: Convenience Fee
             '@ondc/org/title_type': misc

@@ -1,0 +1,105 @@
+summary: update for fulfillments
+description: update for fulfillments
+value:
+  context:
+    domain: ONDC:RET10
+    action: update
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    bpp_id: sellerNP.com
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: T1
+    message_id: M10
+    city: std:080
+    country: IND
+    timestamp: '2023-11-17T10:00:00.000Z'
+  message:
+    update_target: fulfillment
+    order:
+      id: O1
+      fulfillments:
+      - id: F3 [^1]
+        tags:
+        - code: update_state [^2]
+          list:
+          - code: state
+            value: Order-picked-up [^3]
+          - code: reason_id
+            value: '007 [^4]'
+        - code: cancel_request [^5]
+          list:
+          - code: retry_count [^6]
+            value: '3'
+          - code: reason_id
+            value: '013 [^7]'
+          - code: initiated_by
+            value: lsp.com [^8]
+        - code: update_fulfillment_time [^9]
+          list:
+          - code: state
+            value: Order-picked-up [^10]
+          - code: timestamp
+            value: '2023-11-17T09:30:00.000Z [^11]'
+          - code: start_time [^12]
+            value: '2023-11-17T09:00:00.000Z'
+          - code: end_time [^13]
+            value: '2023-11-17T09:30:00.000Z'
+        - code: fulfillment_delay [^14]
+          list:
+          - code: state
+            value: Order-picked-up [^15]
+          - code: reason_id
+            value: '002 [^16]'
+          - code: timestamp
+            value: '2023-11-16T22:00:00.000Z'
+        - code: update_agent_details [^17]
+          list:
+          - code: name
+            value: agent_name
+          - code: phone
+            value: '9886098860'
+        - code: update_label
+          list:
+          - code: shipping [^18]
+            value: link to downloadable shipping label (required for P2H2P)
+        - code: reverseqc_output [^19]
+          list:
+          - code: P001
+            value: Atta
+          - code: P003
+            value: '1'
+          - code: Q001
+            value: "Y [^20]"
+        - code: bnp_receivables_claim [^21]
+          list:
+          - code: type
+            value: delivery [^22]
+          - code: currency
+            value: INR
+          - code: value
+            value: '50.00'
+        - code: bnp_diff_weight [^23]
+          list:
+          - code: unit
+            value: kilogram [^24]
+          - code: value
+            value: '1'
+        - code: bnp_diff_length [^25]
+          list:
+          - code: unit
+            value: centimeter [^26]
+          - code: value
+            value: '1'
+        - code: bnp_diff_breadth [^27]
+          list:
+          - code: unit
+            value: centimeter
+          - code: value
+            value: '1'
+        - code: bnp_diff_height [^28]
+          list:
+          - code: unit
+            value: centimeter
+          - code: value
+            value: '1'

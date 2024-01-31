@@ -1,2 +1,12 @@
 value:
   [^1]: default option - for immediate delivery; all the costs for this option are in the quote
+  [^2]: "delivery time slot - either of the following required for fulfillment:
+          time slot (start, end) or TAT & (optionally) end;
+          if both provided, time slot will override"
+  [^3]: "self pickup time slot - either either of the following required for fulfillment:
+          time slot (start, end) or
+          TAT & (optionally) end;
+          if both provided, time slot will override;"
+  [^4]: tax on fulfillment level charges, to be included only if not 0 (i.e. logistics buyer NP provides tax inclusive fulfillment level charges)
+  [^5]: tax on fulfillment level charges, to be included only if not 0 (i.e. logistics buyer NP provides tax inclusive fulfillment level charges)
+

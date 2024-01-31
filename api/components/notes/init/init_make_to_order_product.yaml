@@ -1,5 +1,5 @@
 value:
-  [^1]: id for dynamic item created by buyer app for make-to-order product and available in parent_item_id in /select
+  [^1]: optional, only if buyer selects offer code
   [^2]: house no (for independent dwellings) or door no (for apartments or community dwellings) if name is house no, building is optional
   [^3]: street name
   [^4]: optional, may be required for B2B
@@ -8,3 +8,4 @@ value:
   [^7]: same as created_at
   [^8]: name + building + locality < 190 chars, name != locality
   [^9]: house no (for independent dwellings) or door no (for apartments or community dwellings) if name is house no, building is optional
+  [^10]: house no (for independent dwellings) or door no (for apartments or community dwellings) if name is house no, building is optional

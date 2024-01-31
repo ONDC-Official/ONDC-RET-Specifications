@@ -1,0 +1,121 @@
+summary: Offer (based on cart selection)y
+description: Offer (based on cart selection)
+value:
+  context:
+    domain: ONDC:RET11
+    action: on_select
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    bpp_id: sellerNP.com
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: T2
+    message_id: M2
+    city: std:080
+    country: IND
+    timestamp: '2023-06-03T08:30:30.000Z'
+  message:
+    order:
+      provider:
+        id: P1
+        locations:
+        - id: L1 [^1]
+      items:
+      - id: I1
+        fulfillment_id: F1
+      fulfillments:
+      - id: F1
+        "@ondc/org/provider_name": LSP or Provider Name
+        tracking: false
+        "@ondc/org/category": Immediate Delivery
+        "@ondc/org/TAT": PT60M
+        state:
+          descriptor:
+            code: Serviceable
+      quote:
+        price:
+          currency: INR
+          value: '1219.00'
+        breakup:
+        - "@ondc/org/item_id": I1
+          "@ondc/org/item_quantity":
+            count: 2
+          title: Veg Pizza
+          "@ondc/org/title_type": item
+          price:
+            currency: INR
+            value: '1200.00'
+          item:
+            quantity:
+              available:
+                count: '99'
+              maximum:
+                count: '99'
+            price:
+              currency: INR
+              value: '600.00'
+        - "[^2] @ondc/org/item_id": T2 [^3]
+          title: Flat discount of ₹120 on minimum cart value of ₹499
+          "@ondc/org/title_type": offer
+          price:
+            currency: INR
+            value: "-150.00"
+          item:
+            tags:
+            - code: quote
+              list:
+              - code: type [^4]
+                value: order [^5]
+            - code: offer
+              list:
+              - code: id
+                value: FLAT150 [^6]
+              - code: type
+                value: disc_amt [^7]
+              - code: auto [^8]
+                value: 'yes [^9]' 
+              - code: additive [^10]
+                value: 'no [^11]'
+              - code: item_id [^12]
+                value: ''
+              - code: item_value [^13]
+                value: ''
+              - code: item_count [^14]
+                value: ''
+        - "@ondc/org/item_id": F1
+          title: Delivery charges
+          "@ondc/org/title_type": delivery
+          price:
+            currency: INR
+            value: '50.00'
+        - "@ondc/org/item_id": F1
+          title: Tax
+          "@ondc/org/title_type": tax [^15]
+          price:
+            currency: INR
+            value: '9.00'
+            item:
+              tags:
+                - code: quote
+                  list:
+                    - code: type
+                      value: fulfillment 
+        - "@ondc/org/item_id": F1
+          title: Packing charges
+          "@ondc/org/title_type": packing
+          price:
+            currency: INR
+            value: '50.00'
+        - "@ondc/org/item_id": I1
+          title: Tax
+          "@ondc/org/title_type": tax
+          price:
+            currency: INR
+            value: '60.00'
+        - "@ondc/org/item_id": F1
+          title: Convenience Fee
+          "@ondc/org/title_type": misc
+          price:
+            currency: INR
+            value: '0.00'
+        ttl: PT1H

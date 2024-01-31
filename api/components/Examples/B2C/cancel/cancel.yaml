@@ -21,3 +21,10 @@ value:
     descriptor [^2]:
       name: fulfillment
       short_desc: F1 [^3]
+      tags [^4]:
+        - code: params
+          list: 
+            - code: force [^5]
+              value: "no [^6]"
+            - code: ttl_response [^7]
+              value: PT1H
