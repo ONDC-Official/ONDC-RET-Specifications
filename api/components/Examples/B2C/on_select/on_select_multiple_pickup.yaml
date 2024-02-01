@@ -1,5 +1,5 @@
-summary: Send quote and breakup
-description: Send quote and breakup for multiple pickup
+summary: Slotted delivery / pickup options
+description: Slotted delivery / pickup options
 value:
   context:
     domain: ONDC:RET11
@@ -31,6 +31,11 @@ value:
           state:
             descriptor:
               code: Serviceable
+          end [^2]:
+            time:
+              range:
+                start: "2023-06-03T09:30:00.000Z"
+                end: "2023-06-03T10:00:00.000Z"
         - id: F2
           type: Delivery
           '@ondc/org/provider_name': LSP or Provider Name
@@ -40,6 +45,11 @@ value:
           state:
             descriptor:
               code: Serviceable
+          end:
+            time:
+              range:
+                start: "2023-06-03T10:30:00.000Z"
+                end: "2023-06-03T11:00:00.000Z"
         - id: F3
           type: Self-Pickup
           '@ondc/org/provider_name': ''
@@ -49,6 +59,11 @@ value:
           state:
             descriptor:
               code: Serviceable
+          start [^3]:
+            time:
+              range:
+                start: "2023-06-03T09:15:00.000Z"
+                end: "2023-06-03T09:30:00.000Z"
         - id: F4
           type: Self-Pickup
           '@ondc/org/provider_name': ''
@@ -58,6 +73,11 @@ value:
           state:
             descriptor:
               code: Serviceable
+          start:
+            time:
+              range:
+                start: "2023-06-03T10:30:00.000Z"
+                end: "2023-06-03T10:45:00.000Z"
       quote:
         price:
           currency: INR
@@ -87,6 +107,18 @@ value:
               currency: INR
               value: '50.00'
           - '@ondc/org/item_id': F1
+            title: Tax
+            '@ondc/org/title_type': tax [^4]
+            price:
+              currency: INR
+              value: '9.00'
+            item:
+              tags:
+                - code: quote
+                  list:
+                    - code: type
+                      value: fulfillment
+          - '@ondc/org/item_id': F1
             title: Packing charges
             '@ondc/org/title_type': packing
             price:
@@ -98,6 +130,18 @@ value:
             price:
               currency: INR
               value: '30.00'
+          - '@ondc/org/item_id': F3
+            title: Tax
+            '@ondc/org/title_type': tax [^5]
+            price:
+              currency: INR
+              value: '5.40'
+            item:
+              tags:
+                - code: quote
+                  list:
+                    - code: type
+                      value: fulfillment
           - '@ondc/org/item_id': F2
             title: Packing charges
             '@ondc/org/title_type': packing

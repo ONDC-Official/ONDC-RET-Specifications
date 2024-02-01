@@ -1,4 +1,4 @@
-summary: search_by_city
+summary: search by city
 description: Search request for all sellers in the city identified in Context
 value:
   context:
@@ -15,8 +15,19 @@ value:
     ttl [^6]: PT30S
   message:
     intent:
-      fulfillment [^7]:
+      category[^7]: 
+        id: Foodgrains [^8]
+      fulfillment [^9]:
         type: Delivery
       payment:
-        '@ondc/org/buyer_app_finder_fee_type': percent
-        '@ondc/org/buyer_app_finder_fee_amount [^8]': '3'
+        '@ondc/org/buyer_app_finder_fee_type': percent [^10]
+        '@ondc/org/buyer_app_finder_fee_amount [^11]': '3'
+      tags:
+        - code: bap_terms[^12]
+          list:
+            - code: static_terms
+              value: ""
+            - code: static_terms_new
+              value: https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
+            - code: effective_date
+              value: "2023-10-01T00:00:00.000Z"

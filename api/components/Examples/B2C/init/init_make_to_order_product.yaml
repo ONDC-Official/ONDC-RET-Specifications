@@ -1,5 +1,5 @@
-summary: Send buyer and delivery terms for make to order products
-description: Send buyer and delivery terms for make to order products
+summary: For make-to-order product - Domino’s Pizza (same as in /select)
+description: For make-to-order product - Domino’s Pizza (same as in /select)
 value:
   context:
     domain: ONDC:RET11
@@ -26,7 +26,7 @@ value:
         fulfillment_id: F1
         quantity:
           count: 1
-        parent_item_id: DI1 [^1]
+        parent_item_id: DI1
         tags:
         - code: type
           list:
@@ -154,6 +154,8 @@ value:
           list:
           - code: id
             value: CG3
+      offers [^1]:
+        - id: BUY2GET3
       billing:
         name: ONDC buyer
         address:
@@ -184,4 +186,4 @@ value:
               country: IND
               area_code: '560037'
           contact:
-            phone: '9886098860'
+            phone: '9886098860 [^10]'

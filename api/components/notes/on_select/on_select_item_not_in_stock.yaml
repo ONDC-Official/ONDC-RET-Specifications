@@ -2,4 +2,4 @@ value:
   [^1]: may be the same location as selected by the buyer or a different location
   [^2]: can be 0 (completely out of stock) or the reduced quantity in stock
   [^3]: delivery charge to be included only if fulfillment state code is "Serviceable"
-  [^4]: comma delimited item ids, for items out of stock, should be here, e.g. "I1,I2,I3" means items (with id) "I1", "I2", "I3" are out of stock
+  [^4]: 'error.message in the response should have the list of corresponding item ids referenced in stringified object notation, e.g. if items "I1", "I2", "I3" are out of stock, error.message would be encoded as: "[{"item_id":"I1","error":"40002"},{"item_id":"I2","error":"40002"},{"item_id":"I3","error":"40002"}]". This is in addition to the error.code (40002) which is being sent by seller NP'

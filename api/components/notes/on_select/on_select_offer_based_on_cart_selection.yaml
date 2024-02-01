@@ -1,0 +1,20 @@
+value:
+  [^1]: may be the same location as selected by the buyer or a different location
+  [^2]: offer quote construct to be added in /on_init, /on_confirm, /on_status, /on_cancel, /on_update
+  [^3]: "based on quote type, item_id to be assigned as follows:
+        "order" - transaction id;
+        "fulfillment" - fulfillment id;
+        "item" - item id"
+  [^4]: quote type for title type above (mapping of title_type to quote type defined [here](https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.g252ed4gpeis))
+  [^5]: offer type (with enum) as per offer template above
+  [^6]  offer id - may match the corresponding id in /select (for opt-in offer) or can be unique offer id (for order) for auto applied offer from SNP
+  [^7]: offer type (with enum) as per offer template above
+  [^8]: whether offer is auto applied based on cart selection
+  [^9]: enum - "yes", "no"
+  [^10]: whether offer can be applied in addition to other offers
+  [^11]: enum - "yes", "no"
+  [^12]: enum - optional - to be provided if required for offer type as per template definition
+  [^13]: enum - optional - to be provided if required for offer type as per template definition
+  [^14]: enum - optional - to be provided if required for offer type as per template definition
+  [^15]: tax on fulfillment level charges, to be included only if not 0 (i.e. logistics buyer NP provides tax inclusive fulfillment level charges)
+

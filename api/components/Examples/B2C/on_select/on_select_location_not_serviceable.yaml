@@ -1,5 +1,5 @@
-summary: Send error
-description: Send error for location not serviceable
+summary: location not servicable or merchant not available
+description: If buyer or seller location not serviceable or merchant not available
 value:
   context:
     domain: ONDC:RET10
@@ -18,12 +18,15 @@ value:
     order:
       provider:
         id: P1
+        locations:
+          - id: L1 [^1]
       items:
         - fulfillment_id: F1
           id: I1
       fulfillments:
         - id: F1
           '@ondc/org/provider_name': LSP or Provider Name
+          type: Delivery
           tracking: false
           '@ondc/org/category': ''
           '@ondc/org/TAT': ''
@@ -34,10 +37,19 @@ value:
         price:
           currency: INR
           value: '170.00'
+          item:
+            quantity:
+              available:
+                count: '99'
+              maximum:
+                count: '99'
+            price:
+              currency: "INR"
+              value: "170.00"
         breakup:
           - '@ondc/org/item_id': I1
             '@ondc/org/item_quantity':
-              count: 1
+              count: "1"
             title: Atta
             '@ondc/org/title_type': item
             price:

@@ -1,0 +1,13 @@
+value:
+  [^1]: pickup time
+  [^2]: PCC, proof of pickup
+  [^3]: pickup authorization (optional)
+  [^4]: delivery time
+  [^5]: DCC, proof of delivery
+  [^6]: delivery authorization (optional)
+  [^7]: agent details (optional)
+  [^8]: vehicle details (for rider) or buyer (for kerbside pickup) - optional
+  [^9]: reference to issue related to return request raised in IGM, this will be added here only after issue resolution and returned in all post-order APIs like /on_status, /on_update, /on_cancel(optional)
+  [^10]: IGM issue id
+  [^11]: tax on fulfillment level charges, to be included only if not 0 (i.e. logistics buyer NP provides tax inclusive fulfillment level charges)
+  [^12]: optional keys here as defined in /confirm

@@ -1,4 +1,4 @@
-summary: On Update for when merchant cancels customized product
+summary: On Update for when merchant cancels customized product DI1, qty 1
 description:
   nb:
     - seq: 1
@@ -750,6 +750,18 @@ value:
               currency: INR
               value: "50.00"
           - "@ondc/org/item_id": F1
+            title: Tax
+            "@ondc/org/title_type": tax [^19]
+            price:
+              currency: INR
+              value: '9.00'
+            item:
+              tags:
+              - code: quote
+                list:
+                - code: type
+                  value: fulfillment
+          - "@ondc/org/item_id": F1
             title: Packing charges
             "@ondc/org/title_type": packing
             price:
@@ -762,7 +774,7 @@ value:
               currency: INR
               value: "10.00"
         ttl: PT1H
-      payment [^19]:
+      payment [^20]:
         uri: https://ondc.transaction.com/payment
         params:
           currency: INR

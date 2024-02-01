@@ -2,4 +2,6 @@ value:
   [^1]: order state will be updated to "Cancelled" if the order is cancelled
   [^2]: to be used only if order is cancelled
   [^3]: only if fulfillment is cancelled
-  [^4]: updated order value including cancellation charges (delivery + packing charges)
+  [^4]: (optional) pre-cancel state of fulfillment, i.e. state of fulfillment prior to cancellation
+  [^5]: updated order value including cancellation charges (delivery + packing charges)
+  [^6]: tax on fulfillment level charges, to be included only if not 0 (i.e. logistics buyer NP provides tax inclusive fulfillment level charges)

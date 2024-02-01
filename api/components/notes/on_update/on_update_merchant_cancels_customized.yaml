@@ -17,4 +17,5 @@ value:
   [^16]: id of customization group for the customization
   [^17]: id of customization group for the customization
   [^18]: id of customization group for the customization
-  [^19]: optional keys here as defined in /confirm
+  [^19]: tax on fulfillment level charges, to be included only if not 0 (i.e. logistics buyer NP provides tax inclusive fulfillment level charges)
+  [^20]: optional keys here as defined in /confirm

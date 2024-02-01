@@ -2,8 +2,10 @@ value:
   [^1]: for single fulfillment order, terminal state will be "Cancelled" (if RTO is initiated); for multi-fulfillment order, terminal state will depend on the status of the other fulfillment(s)
   [^2]: items reassigned from forward fulfillment to RTO fulfillment
   [^3]: forward fulfillment is cancelled and RTO reasons added
-  [^4]: enum - "RTO-Initiated", "RTO-Delivered", "RTO-Disposed"
-  [^5]: quote trail for RTO fulfillment will include additional costs charged (+ve) or existing costs refunded (-ve);
-  [^6]: quote trail for RTO fulfillment will include additional costs charged (+ve) or existing costs refunded (-ve);
-  [^7]: updated order value including cancellation charges (delivery + packing charges)
-  [^8]: for make-to-order items, quantity may not be changed
+  [^4]: (optional) reference to issue related to cancel request raised in IGM, this will be added here only after issue resolution and returned in all post-order APIs like /on_status, /on_update, /on_cancel;
+  [^5]: (optional) pre-cancel state of fulfillment, i.e. state of fulfillment prior to cancellation
+  [^6]: enum - "RTO-Initiated", "RTO-Delivered", "RTO-Disposed"
+  [^7]: quote trail for RTO fulfillment will include additional costs charged (+ve) or existing costs refunded (-ve);
+  [^8]: updated order value including cancellation charges (delivery + packing charges)
+  [^9]: for make-to-order items, quantity may not be changed
+  [^10]: tax on fulfillment level charges, to be included only if not 0 (i.e. logistics buyer NP provides tax inclusive fulfillment level charges)

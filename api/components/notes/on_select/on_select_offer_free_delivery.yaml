@@ -1,0 +1,14 @@
+value:
+  [^1]: may be the same location as selected by the buyer or a different location
+  [^2]: offer quote construct to be added in /on_init, /on_confirm, /on_status, /on_cancel, /on_update
+  [^3]: "based on quote type, item_id to be assigned as follows:
+        "order" - transaction id;
+        "fulfillment" - fulfillment id;
+        "item" - item id"
+  [^4]: quote type for title type above (mapping of title_type to quote type defined [here](https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.g252ed4gpeis))
+  [^5]: enum - "order", "fulfillment", "item"
+  [^6]: offer type (with enum) as per offer template above
+  [^7]: whether offer is auto applied based on cart selection
+  [^8]: enum - "yes", "no"
+  [^9]: whether offer can be applied in addition to other offers
+  [^10]: enum - "yes", "no"
