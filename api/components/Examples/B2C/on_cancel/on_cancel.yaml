@@ -27,13 +27,17 @@ value:
         - id: I1
           fulfillment_id: F1
           quantity:
+            count: 0
+        - id: I1
+          fulfillment_id: C1
+          quantity:
             count: 2
       billing:
         name: ONDC buyer
         address:
-          name: "My house #"
-          building: My building name
-          locality: My street name
+          name: "my house or door or floor #"
+          building: my building name or house #
+          locality: my street name
           city: Bengaluru
           state: Karnataka
           country: IND
@@ -54,6 +58,7 @@ value:
               code: Cancelled
           type: Delivery
           tracking: true
+          "@ondc/org/TAT": "PT60M"
           start:
             location:
               id: L1
@@ -76,8 +81,8 @@ value:
             location:
               gps: 12.453544,77.928379
               address:
-                name: "My house #"
-                building: My building name
+                name: "my house or door or floor #"
+                building: "my building name or house #"
                 locality: My street name
                 city: Bengaluru
                 state: Karnataka
@@ -99,6 +104,22 @@ value:
                   value: "013"
                 - code: cancelled_by
                   value: buyerNP.com
+            - code: igm_request
+              list:
+                - code: id
+                  value: "Issue1"
+            - code: precancel_state [^4]
+              list:
+                - code: fulfillment_state
+                  value: "Order-picked-up"
+                - code: updated_at
+                  value: "2023-06-03T10:45:00.000Z"
+        - id: C1
+          type: Cancel
+          state: 
+            descriptor:
+              code: Cancelled
+          tags:    
             - code: quote_trail
               list:
                 - code: type
@@ -110,7 +131,7 @@ value:
                 - code: value
                   value: "-340.00"
       quote:
-        price [^4]:
+        price [^5]:
           currency: INR
           value: "75.00"
         breakup:
@@ -132,6 +153,18 @@ value:
             price:
               currency: INR
               value: "50.00"
+          - "@ondc/org/item_id": F1
+            title: Tax
+            "@ondc/org/title_type": tax [^6]
+            price:
+              currency: INR
+              value: "25.00"
+            items:
+              - tags: 
+                - code: quote
+                  list: 
+                    - code: type
+                      value: fulfillment
           - "@ondc/org/item_id": F1
             title: Packing charges
             "@ondc/org/title_type": packing

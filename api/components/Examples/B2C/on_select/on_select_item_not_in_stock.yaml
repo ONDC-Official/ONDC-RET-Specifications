@@ -1,5 +1,5 @@
-summary: Send error
-description: Send error for item not in stock 
+summary: If item is not in stock
+description: If item is not in stock
 value:
   context:
     domain: ONDC:RET10

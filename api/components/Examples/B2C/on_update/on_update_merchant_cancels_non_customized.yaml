@@ -1,4 +1,4 @@
-summary: On Update flow for when merchant cancels non customized product
+summary: On Update flow for when merchant cancels non customized product I1, qty 1
 description:
   nb:
     - seq: 1
@@ -20,7 +20,7 @@ value:
     country: IND
     timestamp: "2023-06-03T10:30:30.000Z"
   message:
-    order [^11]:
+    order [^1]:
       id: O1
       state: Accepted
       provider:
@@ -132,7 +132,7 @@ value:
       quote:
         price:
           currency: INR
-          value: "245.00 [^11]"
+          value: "254.00 [^11]"
         breakup:
           - "@ondc/org/item_id": I1
             "@ondc/org/item_quantity":
@@ -152,6 +152,18 @@ value:
             price:
               currency: INR
               value: "50.00"
+          - "@ondc/org/item_id": F1
+            title: Tax
+            "@ondc/org/title_type": tax
+            price:
+              currency: INR
+              value: '9.00'
+            item:
+              tags:
+              - code: quote
+                list:
+                - code: type
+                  value: fulfillment
           - "@ondc/org/item_id": F1
             title: Packing charges
             "@ondc/org/title_type": packing
@@ -182,7 +194,7 @@ value:
         params:
           currency: INR
           transaction_id: "3937"
-          amount: "415.00"
+          amount: "424.00"
         status: PAID
         type: ON-ORDER
         collected_by: BAP

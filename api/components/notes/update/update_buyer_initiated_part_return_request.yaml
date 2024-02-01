@@ -1,0 +1,8 @@
+value:
+  [^1]: new fulfillment of type "Return" created, with return request initiated from buyer NP; separate return requests can be created for each item, with 1 fulfillment object per return request
+  [^2]: unique id for each return request
+  [^3]: optional - only to be used for make-to-order items
+  [^4]: valid return reason codes from [here](https://docs.google.com/spreadsheets/d/1_qAtG6Bu2we3AP6OpXr4GVP3X-32v2xNRNSYQhhR6kA/edit#gid=1698485244)
+  [^5]: buyer comment
+  [^6]: ttl for either approving or rejecting the return request
+  [^7]: ttl for initiating reverse qc, reverse qc (if required) should be completed within the return window

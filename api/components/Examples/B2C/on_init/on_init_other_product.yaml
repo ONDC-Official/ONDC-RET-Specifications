@@ -1,4 +1,4 @@
-summary: Respond to init call for other products
+summary: For other product (response to /init)
 description: Respond to init call for other products
 value:
   context:
@@ -18,8 +18,8 @@ value:
     order:
       provider:
         id: P1
-        provider_location:
-          - id: L1 [^1]
+        locations:
+        - id: L1 [^1]
       items:
         - id: I1
           fulfillment_id: F1
@@ -57,6 +57,11 @@ value:
                 area_code: '560037'
             contact:
               phone: '9886098860'
+          tags:
+            - code: rto_action [^7]
+              list:
+                - code: return_to_origin
+                  value: "Yes"
       quote:
         price:
           currency: INR
@@ -80,6 +85,18 @@ value:
             price:
               currency: INR
               value: '50.00'
+          - "@ondc/org/item_id": "F1"
+            title: Tax
+            "@ondc/org/title_type": tax [^8]
+            price:
+              currency: INR
+              value: "9.00"
+            item:
+              tags:
+                - code: quote
+                  list: 
+                    - code: type
+                      value: fulfillment
           - '@ondc/org/item_id': F1
             title: Packing charges
             '@ondc/org/title_type': packing
@@ -105,28 +122,91 @@ value:
               currency: INR
               value: '10.00'
         ttl: P1D
-      payment [^7]:
+      payment [^9]:
         type: ON-ORDER
         collected_by: BPP
         uri: https://snp.com/pg
-        status: NOT-PAID [^8]
+        status: NOT-PAID [^10]
         '@ondc/org/buyer_app_finder_fee_type': percent
         '@ondc/org/buyer_app_finder_fee_amount': '3'
-        '@ondc/org/settlement_basis': delivery [^9]
-        '@ondc/org/settlement_window': P1D [^10]
-        '@ondc/org/withholding_amount': '10.00 [^11]'
-        '@ondc/org/settlement_details [^12]':
+        '@ondc/org/settlement_basis': delivery [^11]
+        '@ondc/org/settlement_window': P1D [^12]
+        '@ondc/org/withholding_amount': '10.00 [^13]'
+        tags:
+          - code: bpp_collect [^14]
+            list: 
+              - code: success
+                value: "Y"
+              - code: error
+                value: ".."
+        '@ondc/org/settlement_details [^15]':
           - settlement_counterparty: seller-app
             settlement_phase: sale-amount
-            settlement_type: upi [^13]
+            settlement_type: upi [^16]
             beneficiary_name: xxxxx
             upi_address: gft@oksbi
             settlement_bank_account_no: XXXXXXXXXX
             settlement_ifsc_code: XXXXXXXXX
             bank_name: xxxx
             branch_name: xxxx
-      tags:
-        - code: bpp_terms [^24]
-          list:
-            - code: tax_number [^25]
-              value: gst_number_of_sellerNP
+      cancellation_terms:
+          - fulfillment_state:
+              descriptor:
+                code: Pending [^17]
+                short_desc [^18]: '002'
+            cancellation_fee [^19]:
+              percentage: '0.00'
+              amount:
+                currency: INR
+                value: '0.00'
+          - fulfillment_state:
+              descriptor:
+                code: Packed
+                short_desc: '001,003'
+            cancellation_fee [^20]:
+              percentage: '10.00'
+              amount:
+                currency: INR
+                value: '42.40'
+          - fulfillment_state:
+              descriptor:
+                code: Order-picked-up
+                short_desc: '001,003'
+            cancellation_fee:
+              percentage: '10.00'
+              amount:
+                currency: INR
+                value: '42.40'
+          - fulfillment_state:
+              descriptor:
+                code: Out-for-delivery
+                short_desc: '009'
+            cancellation_fee [^21]:
+              percentage: '0.00'
+              amount:
+                currency: INR
+                value: '0.00'
+          - fulfillment_state:
+              descriptor:
+                code: Out-for-delivery
+                short_desc: '010,011,012,013,014,015 [^22]'
+            cancellation_fee [^23]:
+              percentage: '20.00'
+              amount:
+                currency: INR
+                value: '84.80'
+            tags:
+              - code: bpp_terms [^24]
+                list:
+                - code: max_liability
+                  value: '2'
+                - code: max_liability_cap
+                  value: '10000.00'
+                - code: mandatory_arbitration
+                  value: 'false'
+                - code: court_jurisdiction
+                  value: Bengaluru
+                - code: delay_interest
+                  value: '1000.00'
+                - code: tax_number [^25]
+                  value: gst_number_of_sellerNP

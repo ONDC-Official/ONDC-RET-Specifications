@@ -1,0 +1,17 @@
+value:
+  [^1]: forward shipment fulfillment
+  [^2]: PCC, proof of pickup
+  [^3]: pickup authorization (optional)
+  [^4]: delivery time
+  [^5]: DCC, proof of delivery
+  [^6]: delivery authorization (optional)
+  [^7]: agent details (optional)
+  [^8]: vehicle details (for rider) or buyer (for kerbside pickup) - optional
+  [^9]: if rejected, status code will be "Return_Rejected"
+  [^10]: reverse pickup start location, i.e. buyer address
+  [^11]: time slot for reverse pickup, should be within the return window
+  [^12]: (optional) reference to issue related to return request raised in IGM, this will be added here only after issue resolution and returned in all post-order APIs like /on_status, /on_update, /on_cancel
+  [^13]: IGM issue id
+  [^14]: "may be provided if fulfillment.type="Return"; codified reverse qc checklist (includes product attributes & questionnaire); universal checklist is [here](https://docs.google.com/spreadsheets/d/1o9jHIt-BqPbhn3HHdNGig2kbul6TWa6JRc6dxtdxohw/edit#gid=1958973203)"
+  [^15]: tax on fulfillment level charges, to be included only if not 0 (i.e. logistics buyer NP provides tax inclusive fulfillment level charges
+  [^16]: optional keys here as defined in /confirm

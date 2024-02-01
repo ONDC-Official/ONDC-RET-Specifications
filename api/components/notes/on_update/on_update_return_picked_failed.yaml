@@ -1,0 +1,16 @@
+value:
+  [^1]: pickup time
+  [^2]: PCC, proof of pickup
+  [^3]: pickup authorization (optional)
+  [^4]: delivery time
+  [^5]: DCC, proof of delivery
+  [^6]: delivery authorization (optional)
+  [^7]: agent details (optional)
+  [^8]: vehicle details (for rider) or buyer (for kerbside pickup) - optional
+  [^9]: if QC rejected, this will be set to "Return_Rejected"
+  [^10]: valid pickup failure reason codes are [here](https://docs.google.com/spreadsheets/d/1_qAtG6Bu2we3AP6OpXr4GVP3X-32v2xNRNSYQhhR6kA/edit#gid=0)
+  [^11]: time when return marked as failed after number of return pickup attempts exhausted
+  [^12]: (optional) reference to issue related to return request raised in IGM, this will be added here only after issue resolution and returned in all post-order APIs like /on_status, /on_update, /on_cancel
+  [^13]: IGM issue id
+  [^14]: tax on fulfillment level charges, to be included only if not 0 (i.e. logistics buyer NP provides tax inclusive fulfillment level charges)
+  [^15]: optional keys here as defined in /confirm

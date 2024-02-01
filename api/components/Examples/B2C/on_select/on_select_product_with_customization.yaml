@@ -1,5 +1,6 @@
-summary: Send quote and breakup
-description: Send quote and breakup for products with customization
+summary: Quote for product with customizations 
+description: "Quote for product with customizations (response to scenario for /select (when location is not 
+servicable))"
 value:
   context:
     domain: ONDC:RET11
@@ -18,6 +19,8 @@ value:
     order:
       provider:
         id: P1
+        locations:
+          - id: L1 [^1]
       items:
         - id: I1
           fulfillment_id: F1
@@ -133,6 +136,7 @@ value:
                   value: CG3
       fulfillments:
         - id: F1
+          type: Delivery
           "@ondc/org/provider_name": LSP or Provider Name
           tracking: false
           "@ondc/org/category": Immediate Delivery
@@ -575,6 +579,18 @@ value:
             price:
               currency: INR
               value: "50.00"
+          - "@ondc/org/item_id": F1
+            title: Tax
+            "@ondc/org/title_type": tax [^8]
+            price:
+              currency: INR
+              value: "9.00"
+            item:
+              tags:
+                - code: quote
+                  list:
+                    - code: type
+                      value: fulfillment
           - "@ondc/org/item_id": F1
             title: Packing charges
             "@ondc/org/title_type": packing

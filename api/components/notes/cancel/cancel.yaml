@@ -2,3 +2,7 @@ value:
   [^1]: cancellation reason codes are defined here, use "006" for cancellation of fulfillment for TAT breach
   [^2]: optional, only if fulfillment is being cancelled
   [^3]: fulfillment id for cancellation of fulfillment for TAT breach
+  [^4]: optional may be used at BNP discretion
+  [^5]: as per force cancellation flow above
+  [^6]: enum - "yes", "no"
+  [^7]: TAT for valid cancellation response (ISO8601 Duration)

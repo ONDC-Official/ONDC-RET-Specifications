@@ -1,4 +1,4 @@
-summary: incremental_catalog_refresh_one_time_push
+summary: Incremental catalog refresh one time push
 description: Incremental Catalog Refresh One Time Push
 value:
   context:
@@ -24,4 +24,12 @@ value:
             - code: start_time
               value: '2023-06-03T08:00:00.000Z'
             - code: end_time
-              value: '2023-06-03T09:00:00.000Z'
+              value: "2023-06-03T09:00:00.000Z [^2]"
+        - code: bap_terms [^3]
+          list:
+            - code: static_terms
+              value: ""
+            - code: static_terms_new
+              value: https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
+            - code: effective_date
+              value: "2023-10-01T00:00:00.000Z"
