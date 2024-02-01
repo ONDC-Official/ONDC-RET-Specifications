@@ -14,9 +14,9 @@ value:
     bap_uri: https://buyerapp.com/grocery
     bpp_id: sellerapp.com
     bpp_uri: https://sellerapp.com/grocery
-    transaction_id: T1
-    message_id: M1
-    timestamp: "2023-01-08T22:00:30.000Z"
+    transaction_id: "9568beb3-265a-4730-be4e-c00ba2e5e30a"
+    message_id: ad33f8db-cc87-4470-961a-e5555869fd3c
+    timestamp: '2023-01-08T22:00:30.000Z'
     ttl: PT30S
   message:
     order:
@@ -33,8 +33,18 @@ value:
           quantity:
             selected:
               count: 200
-          add-ons:
-            - id: "78787723"
+          add_ons:
+            - id: '78787723'
+          tags:
+            - descriptor:
+                code: BUYER_TERMS
+              list:
+                - descriptor:
+                    code: ITEM_REQ
+                  value: free text on Item Customization
+                - descriptor:
+                    code: PACKAGING_REQ
+                  value: free text on packaging Customization
       billing:
         name: ONDC buyer
         address: >-
