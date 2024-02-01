@@ -6476,7 +6476,7 @@ x-flows:
             ^5: >-
               static terms for [transaction level
               contract](https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.8hhit7nmwue6)
-      - summary: Returns the item or catalog (F&B_Pizza)
+      - summary: Returns the item or catalog (F&B)
         api: on_search
         description: null
         reference: if any
