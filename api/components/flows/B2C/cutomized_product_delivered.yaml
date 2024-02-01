@@ -17,7 +17,7 @@ steps:
     example:
       $ref: "../../Examples/B2C/on_search/on_search_F&B.yaml"
     notes:
-      $ref: "../../notes/on_search/on_search_F&B_Pizza.yaml"   
+      $ref: "../../notes/on_search/on_search_F&B.yaml"   
   - summary: Select the item
     api: select
     description: 
