@@ -15,8 +15,8 @@
     "bap_uri": "https://buyerapp.com/grocery",
     "bpp_id": "sellerapp.com",
     "bpp_uri": "https://sellerapp.com/grocery",
-    "transaction_id": "T1",
-    "message_id": "M1",
+    "transaction_id": "9568beb3-265a-4730-be4e-c00ba2e5e30a",
+    "message_id": "2052ef5e-2ec7-4c21-96f7-dec4b2309010",
     "timestamp": "2023-01-08T22:00:30.000Z",
     "ttl": "PT30S"
   },

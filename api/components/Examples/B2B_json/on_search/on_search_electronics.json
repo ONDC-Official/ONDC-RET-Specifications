@@ -15,8 +15,8 @@
     "bap_uri": "https://buyerapp.com/electronics",
     "bpp_id": "sellerapp.com",
     "bpp_uri": "https://sellerapp.com/electronics",
-    "transaction_id": "T1",
-    "message_id": "M1",
+    "transaction_id": "9568beb3-265a-4730-be4e-c00ba2e5e30a",
+    "message_id": "86fb6231-ea67-42d1-b1ef-e43f1719a44f",
     "timestamp": "2023-01-08T22:00:30.000Z",
     "ttl": "PT30S"
   },
@@ -269,7 +269,7 @@
               "fulfillment_ids": ["1"],
               "location_ids": ["L1"],
               "payment_ids": ["2"],
-              "add-ons": [
+              "add_ons": [
                 {
                   "id": "78787723",
                   "descriptor": {

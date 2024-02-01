@@ -3540,15 +3540,14 @@ x-flows:
               version: 2.0.2
               bap_id: buyerapp.com
               bap_uri: https://buyerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
               timestamp: '2023-01-08T22:00:00.000Z'
               ttl: PT30S
             message:
               intent:
-                item:
-                  category:
-                    id: RET10-*
+                category:
+                  id: RET10-*
                 fulfillment:
                   type: Delivery
                   stops:
@@ -3606,8 +3605,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -3731,7 +3730,7 @@ x-flows:
                             - url: https://abc.com/images/207.png
                           media:
                             - mimetype: video/mp4
-                              url: video_url
+                              url: https://abc.com/images/207.mp4
                         creator:
                           descriptor:
                             name: Mother Dairy
@@ -3758,17 +3757,17 @@ x-flows:
                             measure:
                               unit: millilitre
                               value: '500'
-                            count: '2000'
+                            count: 2000
                           maximum:
                             measure:
                               unit: millilitre
                               value: '500'
-                            count: '4000'
+                            count: 4000
                           minimum:
                             measure:
                               unit: millilitre
                               value: '500'
-                            count: '4000'
+                            count: 4000
                         category_ids:
                           - RET10-1042
                         fulfillment_ids:
@@ -3777,7 +3776,7 @@ x-flows:
                           - L1
                         payment_ids:
                           - '2'
-                        add-ons:
+                        add_ons:
                           - id: '78787723'
                             descriptor:
                               name: Dhara Sunflower Oil
@@ -3816,8 +3815,8 @@ x-flows:
                           range:
                             start: '2022-12-24T00:00:00.000Z'
                             end: '2022-12-31T00:00:00.000Z'
-                        matched: 'true'
-                        recommended: 'true'
+                        matched: true
+                        recommended: true
                         tags:
                           - descriptor:
                               code: origin
@@ -3955,8 +3954,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 4e90afaf-2d02-4ed9-9659-45d702a82f8e
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: P1D
             message:
@@ -3975,7 +3974,7 @@ x-flows:
                     quantity:
                       selected:
                         count: 200
-                    add-ons:
+                    add_ons:
                       - id: '78787723'
                     tags:
                       - descriptor:
@@ -4036,8 +4035,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 4e90afaf-2d02-4ed9-9659-45d702a82f8e
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -4053,7 +4052,7 @@ x-flows:
                     quantity:
                       selected:
                         count: 200
-                    add-ons:
+                    add_ons:
                       - id: '78787723'
                     tags:
                       - descriptor:
@@ -4146,8 +4145,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 582eb99f-a7c1-46ae-8174-936757d2d96f
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -4163,7 +4162,7 @@ x-flows:
                     quantity:
                       selected:
                         count: 200
-                    add-ons:
+                    add_ons:
                       - id: '78787723'
                     tags:
                       - descriptor:
@@ -4238,8 +4237,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 582eb99f-a7c1-46ae-8174-936757d2d96f
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -4255,7 +4254,7 @@ x-flows:
                     quantity:
                       selected:
                         count: 200
-                    add-ons:
+                    add_ons:
                       - id: '78787723'
                     tags:
                       - descriptor:
@@ -4407,8 +4406,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: ad33f8db-cc87-4470-961a-e5555869fd3c
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -4426,7 +4425,7 @@ x-flows:
                     quantity:
                       selected:
                         count: 200
-                    add-ons:
+                    add_ons:
                       - id: '78787723'
                     tags:
                       - descriptor:
@@ -4601,8 +4600,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: ad33f8db-cc87-4470-961a-e5555869fd3c
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -4621,7 +4620,7 @@ x-flows:
                     quantity:
                       selected:
                         count: 200
-                    add-ons:
+                    add_ons:
                       - id: '78787723'
                     tags:
                       - descriptor:
@@ -4825,8 +4824,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 7b6665ef-88b5-4ca4-b481-c7aa6e169b90
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -4854,8 +4853,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 2052ef5e-2ec7-4c21-96f7-dec4b2309010
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -5144,8 +5143,8 @@ x-flows:
               version: 2.0.2
               bap_id: buyerapp.com
               bap_uri: https://buyerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
               timestamp: '2023-01-08T22:00:00.000Z'
               ttl: PT30S
             message:
@@ -5210,8 +5209,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -5311,7 +5310,7 @@ x-flows:
                             - url: https://abc.com/images/207.png
                           media:
                             - mimetype: video/mp4
-                              url: video_url
+                              url: https://abc.com/videos/207.mp4
                         creator:
                           descriptor:
                             name: Mother Dairy
@@ -5338,17 +5337,17 @@ x-flows:
                             measure:
                               unit: millilitre
                               value: '500'
-                            count: '2000'
+                            count: 2000
                           maximum:
                             measure:
                               unit: millilitre
                               value: '500'
-                            count: '4000'
+                            count: 4000
                           minimum:
                             measure:
                               unit: millilitre
                               value: '500'
-                            count: '4000'
+                            count: 4000
                         category_ids:
                           - RET10-1042
                         fulfillment_ids:
@@ -5357,7 +5356,7 @@ x-flows:
                           - L1
                         payment_ids:
                           - '2'
-                        add-ons:
+                        add_ons:
                           - id: '78787723'
                             descriptor:
                               name: Dhara Sunflower Oil
@@ -5396,8 +5395,8 @@ x-flows:
                           range:
                             start: '2022-12-24T00:00:00.000Z'
                             end: '2022-12-31T00:00:00.000Z'
-                        matched: 'true'
-                        recommended: 'true'
+                        matched: true
+                        recommended: true
                         tags:
                           - descriptor:
                               code: origin
@@ -5533,8 +5532,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 4e90afaf-2d02-4ed9-9659-45d702a82f8e
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: P1D
             message:
@@ -5553,7 +5552,7 @@ x-flows:
                     quantity:
                       selected:
                         count: 200
-                    add-ons:
+                    add_ons:
                       - id: '78787723'
                     tags:
                       - descriptor:
@@ -5632,8 +5631,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 4e90afaf-2d02-4ed9-9659-45d702a82f8e
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -5649,7 +5648,7 @@ x-flows:
                     quantity:
                       selected:
                         count: 200
-                    add-ons:
+                    add_ons:
                       - id: '78787723'
                     tags:
                       - descriptor:
@@ -5752,8 +5751,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 582eb99f-a7c1-46ae-8174-936757d2d96f
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -5769,7 +5768,7 @@ x-flows:
                     quantity:
                       selected:
                         count: 200
-                    add-ons:
+                    add_ons:
                       - id: '78787723'
                     tags:
                       - descriptor:
@@ -5860,8 +5859,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 582eb99f-a7c1-46ae-8174-936757d2d96f
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -5877,7 +5876,7 @@ x-flows:
                     quantity:
                       selected:
                         count: 200
-                    add-ons:
+                    add_ons:
                       - id: '78787723'
                     tags:
                       - descriptor:
@@ -6035,8 +6034,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: ad33f8db-cc87-4470-961a-e5555869fd3c
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -6054,7 +6053,7 @@ x-flows:
                     quantity:
                       selected:
                         count: 200
-                    add-ons:
+                    add_ons:
                       - id: '78787723'
                     tags:
                       - descriptor:
@@ -6235,8 +6234,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: ad33f8db-cc87-4470-961a-e5555869fd3c
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -6255,7 +6254,7 @@ x-flows:
                     quantity:
                       selected:
                         count: 200
-                    add-ons:
+                    add_ons:
                       - id: '78787723'
                     tags:
                       - descriptor:
@@ -6461,8 +6460,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 2052ef5e-2ec7-4c21-96f7-dec4b2309010
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -6640,8 +6639,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 21d9d8b4-723b-44b4-a205-16626cbbfe4f
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -6702,8 +6701,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 21d9d8b4-723b-44b4-a205-16626cbbfe4f
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -6895,8 +6894,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 2052ef5e-2ec7-4c21-96f7-dec4b2309010
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -7083,8 +7082,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 2052ef5e-2ec7-4c21-96f7-dec4b2309010
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -7612,8 +7611,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 21d9d8b4-723b-44b4-a205-16626cbbfe4f
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -7799,8 +7798,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 4e90afaf-2d02-4ed9-9659-45d702a82f8e
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -7818,7 +7817,7 @@ x-flows:
                     quantity:
                       selected:
                         count: 200
-                    add-ons:
+                    add_ons:
                       - id: '78787723'
                 fulfillments:
                   - id: F1
@@ -8218,8 +8217,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: ad33f8db-cc87-4470-961a-e5555869fd3c
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -8237,8 +8236,18 @@ x-flows:
                     quantity:
                       selected:
                         count: 200
-                    add-ons:
+                    add_ons:
                       - id: '78787723'
+                    tags:
+                      - descriptor:
+                          code: BUYER_TERMS
+                        list:
+                          - descriptor:
+                              code: ITEM_REQ
+                            value: free text on Item Customization
+                          - descriptor:
+                              code: PACKAGING_REQ
+                            value: free text on packaging Customization
                 billing:
                   name: ONDC buyer
                   address: >-
@@ -8400,8 +8409,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: ad33f8db-cc87-4470-961a-e5555869fd3c
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -8420,7 +8429,7 @@ x-flows:
                     quantity:
                       selected:
                         count: 200
-                    add-ons:
+                    add_ons:
                       - id: '78787723'
                 billing:
                   name: ONDC buyer
@@ -8744,8 +8753,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -8848,7 +8857,7 @@ x-flows:
                             - url: https://abc.com/images/207.png
                           media:
                             - mimetype: video/mp4
-                              url: video_url
+                              url: https://abc.com/images/207.mp4
                         creator:
                           descriptor:
                             name: Mother Dairy
@@ -8875,17 +8884,17 @@ x-flows:
                             measure:
                               unit: millilitre
                               value: '500'
-                            count: '2000'
+                            count: 2000
                           maximum:
                             measure:
                               unit: millilitre
                               value: '500'
-                            count: '4000'
+                            count: 4000
                           minimum:
                             measure:
                               unit: millilitre
                               value: '500'
-                            count: '4000'
+                            count: 4000
                         category_ids:
                           - RET10-1042
                         fulfillment_ids:
@@ -8894,7 +8903,7 @@ x-flows:
                           - L1
                         payment_ids:
                           - '2'
-                        add-ons:
+                        add_ons:
                           - id: '78787723'
                             descriptor:
                               name: Dhara Sunflower Oil
@@ -8933,8 +8942,8 @@ x-flows:
                           range:
                             start: '2022-12-24T00:00:00.000Z'
                             end: '2022-12-31T00:00:00.000Z'
-                        matched: 'true'
-                        recommended: 'true'
+                        matched: true
+                        recommended: true
                         tags:
                           - descriptor:
                               code: origin
@@ -9269,8 +9278,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 582eb99f-a7c1-46ae-8174-936757d2d96f
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -9286,7 +9295,7 @@ x-flows:
                     quantity:
                       selected:
                         count: 200
-                    add-ons:
+                    add_ons:
                       - id: '78787723'
                     tags:
                       - descriptor:
@@ -9365,8 +9374,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 582eb99f-a7c1-46ae-8174-936757d2d96f
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -9382,7 +9391,7 @@ x-flows:
                     quantity:
                       selected:
                         count: 200
-                    add-ons:
+                    add_ons:
                       - id: '78787723'
                 billing:
                   name: ONDC buyer
@@ -9546,8 +9555,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 2052ef5e-2ec7-4c21-96f7-dec4b2309010
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -9793,8 +9802,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 4e90afaf-2d02-4ed9-9659-45d702a82f8e
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: P1D
             message:
@@ -9813,7 +9822,7 @@ x-flows:
                     quantity:
                       selected:
                         count: 200
-                    add-ons:
+                    add_ons:
                       - id: '78787723'
                     tags:
                       - descriptor:
@@ -9861,8 +9870,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 4e90afaf-2d02-4ed9-9659-45d702a82f8e
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -9878,7 +9887,7 @@ x-flows:
                     quantity:
                       selected:
                         count: 200
-                    add-ons:
+                    add_ons:
                       - id: '78787723'
                     tags:
                       - descriptor:
@@ -9969,8 +9978,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 582eb99f-a7c1-46ae-8174-936757d2d96f
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -9986,7 +9995,7 @@ x-flows:
                     quantity:
                       selected:
                         count: 200
-                    add-ons:
+                    add_ons:
                       - id: '78787723'
                     tags:
                       - descriptor:
@@ -10156,8 +10165,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 2052ef5e-2ec7-4c21-96f7-dec4b2309010
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -10381,8 +10390,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 4e90afaf-2d02-4ed9-9659-45d702a82f8e
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -10398,7 +10407,7 @@ x-flows:
                     quantity:
                       selected:
                         count: 200
-                    add-ons:
+                    add_ons:
                       - id: '78787723'
                     tags:
                       - descriptor:
@@ -10541,8 +10550,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 4e90afaf-2d02-4ed9-9659-45d702a82f8e
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -10558,7 +10567,7 @@ x-flows:
                     quantity:
                       selected:
                         count: 200
-                    add-ons:
+                    add_ons:
                       - id: '78787723'
                     tags:
                       - descriptor:
@@ -10765,8 +10774,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: ad33f8db-cc87-4470-961a-e5555869fd3c
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -10785,7 +10794,7 @@ x-flows:
                     quantity:
                       selected:
                         count: 200
-                    add-ons:
+                    add_ons:
                       - id: '78787723'
                     tags:
                       - descriptor:
@@ -10992,8 +11001,8 @@ x-examples:
                 version: 2.0.2
                 bap_id: buyerapp.com
                 bap_uri: https://buyerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
                 timestamp: '2023-01-08T22:00:00.000Z'
                 ttl: PT30S
               message:
@@ -11051,15 +11060,14 @@ x-examples:
                 version: 2.0.2
                 bap_id: buyerapp.com
                 bap_uri: https://buyerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
                 timestamp: '2023-01-08T22:00:00.000Z'
                 ttl: PT30S
               message:
                 intent:
-                  item:
-                    category:
-                      id: RET10-*
+                  category:
+                    id: RET10-*
                   fulfillment:
                     type: Delivery
                     stops:
@@ -11110,8 +11118,8 @@ x-examples:
                 version: 2.0.2
                 bap_id: buyerapp.com
                 bap_uri: https://buyerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
                 timestamp: '2023-01-08T22:00:00.000Z'
                 ttl: PT30S
               message:
@@ -11172,8 +11180,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 4e90afaf-2d02-4ed9-9659-45d702a82f8e
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: P1D
               message:
@@ -11192,7 +11200,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add-ons:
+                      add_ons:
                         - id: '78787723'
                       tags:
                         - descriptor:
@@ -11248,8 +11256,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 4e90afaf-2d02-4ed9-9659-45d702a82f8e
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: P1D
               message:
@@ -11268,7 +11276,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add-ons:
+                      add_ons:
                         - id: '78787723'
                       tags:
                         - descriptor:
@@ -11344,8 +11352,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 4e90afaf-2d02-4ed9-9659-45d702a82f8e
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: P1D
               message:
@@ -11364,7 +11372,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add-ons:
+                      add_ons:
                         - id: '78787723'
                       tags:
                         - descriptor:
@@ -11442,8 +11450,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 4e90afaf-2d02-4ed9-9659-45d702a82f8e
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: P1D
               message:
@@ -11462,7 +11470,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add-ons:
+                      add_ons:
                         - id: '78787723'
                       tags:
                         - descriptor:
@@ -11505,8 +11513,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 4e90afaf-2d02-4ed9-9659-45d702a82f8e
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -11524,7 +11532,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add-ons:
+                      add_ons:
                         - id: '78787723'
                   fulfillments:
                     - id: F1
@@ -11572,8 +11580,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 582eb99f-a7c1-46ae-8174-936757d2d96f
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -11589,7 +11597,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add-ons:
+                      add_ons:
                         - id: '78787723'
                       tags:
                         - descriptor:
@@ -11675,8 +11683,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 582eb99f-a7c1-46ae-8174-936757d2d96f
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -11692,7 +11700,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add-ons:
+                      add_ons:
                         - id: '78787723'
                       tags:
                         - descriptor:
@@ -11839,8 +11847,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 582eb99f-a7c1-46ae-8174-936757d2d96f
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -11856,7 +11864,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add-ons:
+                      add_ons:
                         - id: '78787723'
                       tags:
                         - descriptor:
@@ -11928,8 +11936,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: ad33f8db-cc87-4470-961a-e5555869fd3c
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -11947,7 +11955,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add-ons:
+                      add_ons:
                         - id: '78787723'
                       tags:
                         - descriptor:
@@ -12115,8 +12123,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: ad33f8db-cc87-4470-961a-e5555869fd3c
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -12134,7 +12142,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add-ons:
+                      add_ons:
                         - id: '78787723'
                       tags:
                         - descriptor:
@@ -12310,8 +12318,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: ad33f8db-cc87-4470-961a-e5555869fd3c
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -12329,8 +12337,18 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add-ons:
+                      add_ons:
                         - id: '78787723'
+                      tags:
+                        - descriptor:
+                            code: BUYER_TERMS
+                          list:
+                            - descriptor:
+                                code: ITEM_REQ
+                              value: free text on Item Customization
+                            - descriptor:
+                                code: PACKAGING_REQ
+                              value: free text on packaging Customization
                   billing:
                     name: ONDC buyer
                     address: >-
@@ -12489,8 +12507,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 21d9d8b4-723b-44b4-a205-16626cbbfe4f
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -12548,8 +12566,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 7b6665ef-88b5-4ca4-b481-c7aa6e169b90
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -12572,8 +12590,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -12673,7 +12691,7 @@ x-examples:
                               - url: https://abc.com/images/207.png
                             media:
                               - mimetype: video/mp4
-                                url: video_url
+                                url: https://abc.com/videos/207.mp4
                           creator:
                             descriptor:
                               name: Mother Dairy
@@ -12700,17 +12718,17 @@ x-examples:
                               measure:
                                 unit: millilitre
                                 value: '500'
-                              count: '2000'
+                              count: 2000
                             maximum:
                               measure:
                                 unit: millilitre
                                 value: '500'
-                              count: '4000'
+                              count: 4000
                             minimum:
                               measure:
                                 unit: millilitre
                                 value: '500'
-                              count: '4000'
+                              count: 4000
                           category_ids:
                             - RET10-1042
                           fulfillment_ids:
@@ -12719,7 +12737,7 @@ x-examples:
                             - L1
                           payment_ids:
                             - '2'
-                          add-ons:
+                          add_ons:
                             - id: '78787723'
                               descriptor:
                                 name: Dhara Sunflower Oil
@@ -12758,8 +12776,8 @@ x-examples:
                             range:
                               start: '2022-12-24T00:00:00.000Z'
                               end: '2022-12-31T00:00:00.000Z'
-                          matched: 'true'
-                          recommended: 'true'
+                          matched: true
+                          recommended: true
                           tags:
                             - descriptor:
                                 code: origin
@@ -12889,8 +12907,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/bpc
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/bpc
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -13003,17 +13021,17 @@ x-examples:
                               measure:
                                 unit: millilitre
                                 value: '500'
-                              count: '2000'
+                              count: 2000
                             maximum:
                               measure:
                                 unit: millilitre
                                 value: '500'
-                              count: '4000'
+                              count: 4000
                             minimum:
                               measure:
                                 unit: millilitre
                                 value: '500'
-                              count: '4000'
+                              count: 4000
                           category_ids:
                             - RET10-1042
                           fulfillment_ids:
@@ -13022,7 +13040,7 @@ x-examples:
                             - L1
                           payment_ids:
                             - '2'
-                          add-ons:
+                          add_ons:
                             - id: '78787723'
                               descriptor:
                                 name: Kesh King Ayurvedic Shampoo
@@ -13061,8 +13079,8 @@ x-examples:
                             range:
                               start: '2022-12-24T00:00:00.000Z'
                               end: '2022-12-31T00:00:00.000Z'
-                          matched: 'true'
-                          recommended: 'true'
+                          matched: true
+                          recommended: true
                           tags:
                             - code: origin
                               list:
@@ -13178,8 +13196,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/fs
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/fs
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -13315,17 +13333,17 @@ x-examples:
                               measure:
                                 unit: unit
                                 value: '1'
-                              count: '99'
+                              count: 99
                             maximum:
                               measure:
                                 unit: unit
                                 value: '1'
-                              count: '99'
+                              count: 99
                             minimum:
                               measure:
                                 unit: unit
                                 value: '1'
-                              count: '99'
+                              count: 99
                           category_ids:
                             - RET12-102F
                           fulfillment_ids:
@@ -13360,8 +13378,8 @@ x-examples:
                             range:
                               start: '2022-12-24T00:00:00.000Z'
                               end: '2022-12-31T00:00:00.000Z'
-                          matched: 'true'
-                          recommended: 'true'
+                          matched: true
+                          recommended: true
                           tags:
                             - code: origin
                               list:
@@ -13450,7 +13468,7 @@ x-examples:
                               - url: https://abc.com/images/207.png
                             media:
                               - mimetype: video/mp4
-                                url: video_url
+                                url: https://abc.com/images/207.mp4
                           creator:
                             descriptor:
                               name: xxxxx
@@ -13476,12 +13494,12 @@ x-examples:
                               measure:
                                 unit: unit
                                 value: '1'
-                              count: '99'
+                              count: 99
                             maximum:
                               measure:
                                 unit: unit
                                 value: '1'
-                              count: '99'
+                              count: 99
                           category_ids:
                             - RET12-102F
                           fulfillment_ids:
@@ -13516,8 +13534,8 @@ x-examples:
                             range:
                               start: '2022-12-24T00:00:00.000Z'
                               end: '2022-12-31T00:00:00.000Z'
-                          matched: 'true'
-                          recommended: 'true'
+                          matched: true
+                          recommended: true
                           tags:
                             - code: origin
                               list:
@@ -13632,8 +13650,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/electronics
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/electronics
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -13767,17 +13785,17 @@ x-examples:
                               measure:
                                 unit: unit
                                 value: '1'
-                              count: '2000'
+                              count: 2000
                             maximum:
                               measure:
                                 unit: unit
                                 value: '1'
-                              count: '4000'
+                              count: 4000
                             minimum:
                               measure:
                                 unit: unit
                                 value: '1'
-                              count: '4000'
+                              count: 4000
                           category_ids:
                             - RET14-1042
                           fulfillment_ids:
@@ -13786,7 +13804,7 @@ x-examples:
                             - L1
                           payment_ids:
                             - '2'
-                          add-ons:
+                          add_ons:
                             - id: '78787723'
                               descriptor:
                                 name: Iphone Cover
@@ -13825,8 +13843,8 @@ x-examples:
                             range:
                               start: '2022-12-24T00:00:00.000Z'
                               end: '2022-12-31T00:00:00.000Z'
-                          matched: 'true'
-                          recommended: 'true'
+                          matched: true
+                          recommended: true
                           tags:
                             - code: origin
                               list:
@@ -13937,8 +13955,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -14062,7 +14080,7 @@ x-examples:
                               - url: https://abc.com/images/207.png
                             media:
                               - mimetype: video/mp4
-                                url: video_url
+                                url: https://abc.com/images/207.mp4
                           creator:
                             descriptor:
                               name: Mother Dairy
@@ -14089,17 +14107,17 @@ x-examples:
                               measure:
                                 unit: millilitre
                                 value: '500'
-                              count: '2000'
+                              count: 2000
                             maximum:
                               measure:
                                 unit: millilitre
                                 value: '500'
-                              count: '4000'
+                              count: 4000
                             minimum:
                               measure:
                                 unit: millilitre
                                 value: '500'
-                              count: '4000'
+                              count: 4000
                           category_ids:
                             - RET10-1042
                           fulfillment_ids:
@@ -14108,7 +14126,7 @@ x-examples:
                             - L1
                           payment_ids:
                             - '2'
-                          add-ons:
+                          add_ons:
                             - id: '78787723'
                               descriptor:
                                 name: Dhara Sunflower Oil
@@ -14147,8 +14165,8 @@ x-examples:
                             range:
                               start: '2022-12-24T00:00:00.000Z'
                               end: '2022-12-31T00:00:00.000Z'
-                          matched: 'true'
-                          recommended: 'true'
+                          matched: true
+                          recommended: true
                           tags:
                             - descriptor:
                                 code: origin
@@ -14280,8 +14298,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -14384,7 +14402,7 @@ x-examples:
                               - url: https://abc.com/images/207.png
                             media:
                               - mimetype: video/mp4
-                                url: video_url
+                                url: https://abc.com/images/207.mp4
                           creator:
                             descriptor:
                               name: Mother Dairy
@@ -14411,17 +14429,17 @@ x-examples:
                               measure:
                                 unit: millilitre
                                 value: '500'
-                              count: '2000'
+                              count: 2000
                             maximum:
                               measure:
                                 unit: millilitre
                                 value: '500'
-                              count: '4000'
+                              count: 4000
                             minimum:
                               measure:
                                 unit: millilitre
                                 value: '500'
-                              count: '4000'
+                              count: 4000
                           category_ids:
                             - RET10-1042
                           fulfillment_ids:
@@ -14430,7 +14448,7 @@ x-examples:
                             - L1
                           payment_ids:
                             - '2'
-                          add-ons:
+                          add_ons:
                             - id: '78787723'
                               descriptor:
                                 name: Dhara Sunflower Oil
@@ -14469,8 +14487,8 @@ x-examples:
                             range:
                               start: '2022-12-24T00:00:00.000Z'
                               end: '2022-12-31T00:00:00.000Z'
-                          matched: 'true'
-                          recommended: 'true'
+                          matched: true
+                          recommended: true
                           tags:
                             - descriptor:
                                 code: origin
@@ -16118,8 +16136,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 4e90afaf-2d02-4ed9-9659-45d702a82f8e
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -16135,7 +16153,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add-ons:
+                      add_ons:
                         - id: '78787723'
                       tags:
                         - descriptor:
@@ -16318,8 +16336,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 4e90afaf-2d02-4ed9-9659-45d702a82f8e
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -16335,7 +16353,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add-ons:
+                      add_ons:
                         - id: '78787723'
                       tags:
                         - descriptor:
@@ -16435,8 +16453,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 4e90afaf-2d02-4ed9-9659-45d702a82f8e
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -16452,7 +16470,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add-ons:
+                      add_ons:
                         - id: '78787723'
                       tags:
                         - descriptor:
@@ -16540,8 +16558,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 4e90afaf-2d02-4ed9-9659-45d702a82f8e
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -16557,7 +16575,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add-ons:
+                      add_ons:
                         - id: '78787723'
                       tags:
                         - descriptor:
@@ -16625,8 +16643,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 4e90afaf-2d02-4ed9-9659-45d702a82f8e
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -16642,7 +16660,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add-ons:
+                      add_ons:
                         - id: '78787723'
                       tags:
                         - descriptor:
@@ -16725,8 +16743,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 582eb99f-a7c1-46ae-8174-936757d2d96f
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -16742,7 +16760,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add-ons:
+                      add_ons:
                         - id: '78787723'
                       tags:
                         - descriptor:
@@ -17049,8 +17067,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 582eb99f-a7c1-46ae-8174-936757d2d96f
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -17066,7 +17084,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add-ons:
+                      add_ons:
                         - id: '78787723'
                       tags:
                         - descriptor:
@@ -17223,8 +17241,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 582eb99f-a7c1-46ae-8174-936757d2d96f
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -17240,7 +17258,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add-ons:
+                      add_ons:
                         - id: '78787723'
                   billing:
                     name: ONDC buyer
@@ -17389,8 +17407,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 582eb99f-a7c1-46ae-8174-936757d2d96f
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -17406,7 +17424,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add-ons:
+                      add_ons:
                         - id: '78787723'
                       tags:
                         - descriptor:
@@ -17558,8 +17576,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 582eb99f-a7c1-46ae-8174-936757d2d96f
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -17575,7 +17593,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add-ons:
+                      add_ons:
                         - id: '78787723'
                       tags:
                         - descriptor:
@@ -17721,8 +17739,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: ad33f8db-cc87-4470-961a-e5555869fd3c
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -17741,7 +17759,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add-ons:
+                      add_ons:
                         - id: '78787723'
                       tags:
                         - descriptor:
@@ -17940,8 +17958,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: ad33f8db-cc87-4470-961a-e5555869fd3c
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -17960,7 +17978,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add-ons:
+                      add_ons:
                         - id: '78787723'
                       tags:
                         - descriptor:
@@ -18154,8 +18172,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: ad33f8db-cc87-4470-961a-e5555869fd3c
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -18174,7 +18192,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add-ons:
+                      add_ons:
                         - id: '78787723'
                   billing:
                     name: ONDC buyer
@@ -18349,8 +18367,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: ad33f8db-cc87-4470-961a-e5555869fd3c
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -18369,7 +18387,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add-ons:
+                      add_ons:
                         - id: '78787723'
                       tags:
                         - descriptor:
@@ -18567,8 +18585,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 2052ef5e-2ec7-4c21-96f7-dec4b2309010
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -18741,8 +18759,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 2052ef5e-2ec7-4c21-96f7-dec4b2309010
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -18922,8 +18940,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 2052ef5e-2ec7-4c21-96f7-dec4b2309010
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -19103,8 +19121,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 2052ef5e-2ec7-4c21-96f7-dec4b2309010
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -19288,8 +19306,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 2052ef5e-2ec7-4c21-96f7-dec4b2309010
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -19399,8 +19417,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 2052ef5e-2ec7-4c21-96f7-dec4b2309010
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -19507,8 +19525,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 2052ef5e-2ec7-4c21-96f7-dec4b2309010
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -19661,8 +19679,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 21d9d8b4-723b-44b4-a205-16626cbbfe4f
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -19717,8 +19735,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 21d9d8b4-723b-44b4-a205-16626cbbfe4f
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -19896,8 +19914,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 21d9d8b4-723b-44b4-a205-16626cbbfe4f
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -19954,8 +19972,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 1e8db0ff-4905-4edb-8f1b-a980635e89da
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -19979,8 +19997,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 1e8db0ff-4905-4edb-8f1b-a980635e89da
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -20002,7 +20020,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add-ons:
+                      add_ons:
                         - id: '78787723'
                       tags:
                         - descriptor:
