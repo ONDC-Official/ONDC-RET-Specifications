@@ -7547,7 +7547,7 @@ x-flows:
           summary: Quote for product with customizations
           description: >-
             Quote for product with customizations (response to scenario for
-            /select (when location is not  servicable))
+            /select (when location is not servicable))
           value:
             context:
               domain: ONDC:RET11
@@ -7745,7 +7745,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG1 [^1]
+                                value: CG1 [^2]
                     - '@ondc/org/item_id': C7
                       '@ondc/org/item_quantity':
                         count: 1
@@ -7772,7 +7772,7 @@ x-flows:
                           - code: parent
                             list:
                               - code: id
-                                value: CG2 [^2]
+                                value: CG2
                     - '@ondc/org/item_id': C14
                       '@ondc/org/item_quantity':
                         count: 1
@@ -8157,7 +8157,9 @@ x-flows:
               message: stringified json formatted as in point 7 below
         notes: &ref_27
           value:
-            ^1: id of customization group for the customization
+            ^1: >-
+              location could be same as what was selected by buyer or may be
+              filled from different location;
             ^2: id of customization group for the customization
             ^3: id of customization group for the customization
             ^4: id of customization group for the customization
@@ -29006,7 +29008,7 @@ x-examples:
           - summary: Quote for product with customizations
             description: >-
               Quote for product with customizations (response to scenario for
-              /select (when location is not  servicable))
+              /select (when location is not servicable))
             value:
               context:
                 domain: ONDC:RET11
@@ -29204,7 +29206,7 @@ x-examples:
                             - code: parent
                               list:
                                 - code: id
-                                  value: CG1 [^1]
+                                  value: CG1 [^2]
                       - '@ondc/org/item_id': C7
                         '@ondc/org/item_quantity':
                           count: 1
@@ -29231,7 +29233,7 @@ x-examples:
                             - code: parent
                               list:
                                 - code: id
-                                  value: CG2 [^2]
+                                  value: CG2
                       - '@ondc/org/item_id': C14
                         '@ondc/org/item_quantity':
                           count: 1
