@@ -314,6 +314,9 @@
                   }
                 },
                 "return_eligible": true,
+                "return_time": {
+                  "duration": "P7D"
+                },
                 "return_location": {
                   "address": "RTO address",
                   "gps": "12.667555,77.349666"
