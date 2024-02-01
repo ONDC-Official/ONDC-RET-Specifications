@@ -40,8 +40,18 @@ value:
           fulfillments:
             - id: F1
               type: Delivery
+              "contact ":
+                phone: "9886098860 "
+                "email ": abc@xyz.com
+            - id: F2
+              type: Self-Pickup
               contact:
-                phone: '9886098860'
+                phone: "9886098860"
+                email: abc@xyz.com
+            - id: F3
+              type: "Buyer-Delivery"
+              contact:
+                phone: "9886098860"
                 email: abc@xyz.com
           descriptor:
             name: Store 1
