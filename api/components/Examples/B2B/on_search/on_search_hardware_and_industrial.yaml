@@ -190,21 +190,32 @@ value:
           - fulfillment_state:
               descriptor:
                 code: Pending
-            refund_eligible: 'true'
+            reason_required: false
+            cancellation_fee:
+              percentage: '0'
+              amount:
+                currency: IND
+                value: '0'
           - fulfillment_state:
               descriptor:
                 code: Packed
-            refund_eligible: 'true'
-          - fulfillment_state:
+            reason_required: false
+            cancellation_fee:
+              percentage: '0'
+              amount:
+                currency: IND
+                value: '0'
+          return_terms:
+            fulfillment_state:
               descriptor:
                 code: Order-delivered
-            return_policy:
-              return_eligible: 'true'
-              return_within: P7D
-              fulfillment_managed_by: seller
-              return_location:
-                address: RTO address
-                gps: 12.667555,77.349666
+            return_eligible: true
+            return_time:
+              duration: P7D
+            return_location:
+              address: RTO address
+              gps: 12.667555,77.349666
+            fulfillment_managed_by: seller
           replacement_terms:
           - replace_within: P7D
           time:
@@ -359,6 +370,9 @@ value:
             - descriptor:
                 code: tax_rate
               value: '12'
+            - descriptor:
+                code: cancellable
+              value: 'true'
           - descriptor:
               code: g3
             list:
