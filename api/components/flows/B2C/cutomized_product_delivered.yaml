@@ -15,7 +15,7 @@ steps:
     description:  
     reference: if any
     example:
-      $ref: "../../Examples/B2C/on_search/on_search_F&B_Pizza.yaml"
+      $ref: "../../Examples/B2C/on_search/on_search_F&B.yaml"
     notes:
       $ref: "../../notes/on_search/on_search_F&B_Pizza.yaml"   
   - summary: Select the item
