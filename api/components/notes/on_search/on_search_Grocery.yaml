@@ -81,3 +81,5 @@ value:
   [^80]: serviceability construct is defined for (provider+location+category) at either of these levels -  hyperlocal (radius) or intercity (pincodes) or pan-India; every unique combination of (provider+location+category) can have serviceability defined only at one of these levels
   [^81]: maps to unique location for provider
   [^82]: enum - "10" (hyperlocal), "11" (intercity), "12" (pan-India)
+  [^83]: credentials for provider (optional);
+

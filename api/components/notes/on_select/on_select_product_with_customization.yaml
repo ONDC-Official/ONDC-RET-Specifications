@@ -1,5 +1,5 @@
 value:
-  [^1]: id of customization group for the customization
+  [^1]: location could be same as what was selected by buyer or may be filled from different location;
   [^2]: id of customization group for the customization
   [^3]: id of customization group for the customization
   [^4]: id of customization group for the customization

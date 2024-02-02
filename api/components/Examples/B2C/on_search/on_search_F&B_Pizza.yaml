@@ -30,13 +30,34 @@ value:
         long_desc: Seller Marketplace
         images:
           - https://sellerNP.com/images/np.png
+        tags:
+        - code: bpp_terms
+          list:
+          - code: np_type
+            value: 'ISN '
+          - code: accept_bap_terms
+            value: 'Y '
+          - code: 'collect_payment '
+            value: 'Y '
       bpp/providers:
         - id: P1
           time:
             label: enable [^1]
             timestamp: "2023-06-03T07:00:30.000Z [^2]"
           fulfillments:
-            - contact:
+            - id: F1
+              type: Delivery
+              "contact ":
+                phone: "9886098860 "
+                "email ": abc@xyz.com
+            - id: F2
+              type: Self-Pickup
+              contact:
+                phone: "9886098860"
+                email: abc@xyz.com
+            - id: F3
+              type: "Buyer-Delivery"
+              contact:
                 phone: "9886098860"
                 email: abc@xyz.com
           descriptor:

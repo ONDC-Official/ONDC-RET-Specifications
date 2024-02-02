@@ -79,4 +79,7 @@ value:
   [^78]: in case of overlapping store timing e.g. for Monday from 1300 - 1600 and 1500 - 1700, the union of these store timings will be considered (1300 - 1700)
   [^79]: serviceability construct is defined for (provider+location+category) at either of these levels -  hyperlocal (radius) or intercity (pincodes) or pan-India; every unique combination of (provider+location+category) can have serviceability defined only at one of these levels
   [^80]: maps to unique location for provider
-  [^81]: enum - "10" (hyperlocal), "11" (intercity), "12" (pan-India)
+  [^81]: enum - "10" (hyperlocal), "11" (intercity), "12" (pan-India), "13" (polygon serviceability)
+  [^82]: enum - "GeoJSON"
+  [^83]: GeoJSON polygon (check here(https://geojson.org/) & here(https://geojson.io/#map=6/13.93/77.83)), gps coordinates with minimum 6 decimal precision;
+  [^84]: serviceability timing ("day_from", "day_to", "time_from", "time_to") - optional and only required if serviceability varies based on day & time; if not provided, serviceability will apply for store timing;

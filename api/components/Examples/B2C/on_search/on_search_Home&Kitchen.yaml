@@ -46,6 +46,11 @@ value:
               contact:
                 phone: '9886098860'
                 email: abc@xyz.com
+            - id: F3
+              type: "Buyer-Delivery"
+              contact:
+                phone: "9886098860"
+                email: abc@xyz.com
           descriptor:
             name: Store 1
             symbol: https://sellerNP.com/images/store1.png

@@ -1,6 +1,5 @@
 summary: Quote for product with customizations 
-description: "Quote for product with customizations (response to scenario for /select (when location is not 
-servicable))"
+description: "Quote for product with customizations (response to scenario for /select (when location is not servicable))"
 value:
   context:
     domain: ONDC:RET11
@@ -198,7 +197,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG1 [^1]
+                      value: CG1 [^2]
           - "@ondc/org/item_id": C7
             "@ondc/org/item_quantity":
               count: 1
@@ -225,7 +224,7 @@ value:
                 - code: parent
                   list:
                     - code: id
-                      value: CG2 [^2]
+                      value: CG2 
           - "@ondc/org/item_id": C14
             "@ondc/org/item_quantity":
               count: 1

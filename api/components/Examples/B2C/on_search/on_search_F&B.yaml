@@ -30,6 +30,15 @@ value:
         long_desc: Seller Marketplace
         images:
           - https://sellerNP.com/images/np.png
+        tags:
+        - code: bpp_terms
+          list:
+          - code: np_type
+            value: 'ISN '
+          - code: accept_bap_terms
+            value: 'Y '
+          - code: 'collect_payment '
+            value: 'Y '
       bpp/providers [^3]:
         - id: P1 [^4]
           time:
@@ -45,6 +54,11 @@ value:
               type: Self-Pickup
               contact:
                 phone: '9886098860'
+                email: abc@xyz.com
+            - id: F3
+              type: "Buyer-Delivery"
+              contact:
+                phone: "9886098860"
                 email: abc@xyz.com
           descriptor:
             name: Store 1
@@ -358,113 +372,133 @@ value:
                   list:
                     - code: veg [^63]
                       value: 'yes'
-          offers [^64]:
-            - id: TRYNEW
-              descriptor:
-                code: Disc_Pct
-                images:
-                  - https://sellerNP.com/images/offer2-banner.png
-              location_ids:
-                - L1
-              item_ids:
-                - I1
-              time:
-                label: valid
-                range:
-                  start: '2023-06-21T16:00:00.000Z'
-                  end: '2023-06-21T23:00:00.000Z'
-              tags:
-                - code: cart
-                  list:
-                    - code: min_value
-                      value: '159'
-                - code: offer
-                  list:
-                    - code: offered_value_type
-                      value: percent
-                    - code: offered_value_amt
-                      value: '-60.00'
-                    - code: offered_value_cap
-                      value: '-120.00'
-            - id: FLAT150
-              descriptor:
-                code: Disc_Amt
-                images:
-                  - https://sellerNP.com/images/offer2-banner.png
-              location_ids:
-                - L1
-              item_ids:
-                - I1
-              time:
-                label: valid
-                range:
-                  start: '2023-06-22T16:00:00.000Z'
-                  end: '2023-06-22T23:00:00.000Z'
-              tags:
-                - code: cart
-                  list:
-                    - code: min_value
-                      value: '499.00'
-                - code: offer
-                  list:
-                    - code: offered_value_type
-                      value: amount
-                    - code: offered_value_amt
-                      value: '-150.00'
-            - id: BUY2GET3
-              descriptor:
-                code: BuyXGetY
-                images:
-                  - https://sellerNP.com/images/offer1-banner.png
-              location_ids:
-                - L1
-              item_ids:
-                - I1
-              time:
-                label: valid
-                range:
-                  start: '2023-06-23T16:00:00.000Z'
-                  end: '2023-06-23T23:00:00.000Z'
-              tags:
-                - code: cart
-                  list:
-                    - code: item_count
-                      value: '2'
-                - code: offer
-                  list:
-                    - code: item_count
-                      value: '3'
-                    - code: item_id
-                      value: sku_id_for_extra_item
-            - id: FREEBIE
-              descriptor:
-                code: Freebie
-                images:
-                  - https://sellerNP.com/images/offer3-banner.png
-              location_ids:
-                - L1
-              item_ids:
-                - I1
-              time:
-                label: valid
-                range:
-                  start: '2023-06-24T16:00:00.000Z'
-                  end: '2023-06-24T23:00:00.000Z'
-              tags:
-                - code: cart
-                  list:
-                    - code: min_value
-                      value: '598.00'
-                - code: offer
-                  list:
-                    - code: offered_value
-                      value: '0.00'
-                    - code: item_count
-                      value: '1'
-                    - code: item_id
-                      value: sku_id_for_extra_item
-                    - code: item_value
-                      value: '200.00'
+          offers:
+          - id: TRYNEW
+            descriptor:
+              code: 'disc_pct '
+              images:
+              - https://sellerNP.com/images/offer2-banner.png
+            location_ids:
+            - L1
+            item_ids:
+            - I1
+            time:
+              label: valid
+              range:
+                start: '2023-06-21T16:00:00.000Z'
+                end: '2023-06-21T23:00:00.000Z'
+            tags:
+            - code: qualifier
+              list:
+              - code: min_value
+                value: '159.00'
+            - code: benefit
+              list:
+              - code: value_type
+                value: percent
+              - code: value
+                value: "-60.00"
+              - code: value_cap
+                value: "-120.00"
+            - code: meta
+              list:
+              - code: 'additive '
+                value: 'no '
+              - code: 'auto '
+                value: 'yes '
+          - id: FLAT150
+            descriptor:
+              code: disc_amt
+              images:
+              - https://sellerNP.com/images/offer2-banner.png
+            location_ids:
+            - L1
+            item_ids:
+            - I1
+            time:
+              label: valid
+              range:
+                start: '2023-06-22T16:00:00.000Z'
+                end: '2023-06-22T23:00:00.000Z'
+            tags:
+            - code: qualifier
+              list:
+              - code: min_value
+                value: '499.00'
+            - code: benefit
+              list:
+              - code: value_type
+                value: amount
+              - code: value
+                value: "-150.00"
+            - code: meta
+              list:
+              - code: additive
+                value: 'no'
+              - code: auto
+                value: 'yes'
+          - id: BUY2GET3
+            descriptor:
+              code: buyXgetY
+              images:
+              - https://sellerNP.com/images/offer1-banner.png
+            location_ids:
+            - L1
+            item_ids:
+            - I1
+            time:
+              label: valid
+              range:
+                start: '2023-06-23T16:00:00.000Z'
+                end: '2023-06-23T23:00:00.000Z'
+            tags:
+            - code: qualifier
+              list:
+              - code: item_count
+                value: '2'
+            - code: benefit
+              list:
+              - code: item_count
+                value: '3'
+            - code: meta
+              list:
+              - code: additive
+                value: 'no'
+              - code: auto
+                value: 'yes'
+          - id: FREEBIE
+            descriptor:
+              code: freebie
+              images:
+              - https://sellerNP.com/images/offer3-banner.png
+            location_ids:
+            - L1
+            item_ids:
+            - I1
+            time:
+              label: valid
+              range:
+                start: '2023-06-24T16:00:00.000Z'
+                end: '2023-06-24T23:00:00.000Z'
+            tags:
+            - code: qualifier
+              list:
+              - code: min_value
+                value: '598.00'
+            - code: benefit
+              list:
+              - code: item_count
+                value: '1'
+              - code: item_id
+                value: sku id for extra item
+              - code: item_value
+                value: '200.00'
+            - code: meta
+              list:
+              - code: additive
+                value: 'no'
+              - code: auto
+                value: 'yes'
           tags:
             - code: order_value [^65]
               list:
@@ -482,111 +516,75 @@ value:
                   value: 2023-05-21T00:00:00:000Z
             - code: timing
               list:
-                - code: type
-                  value: Order [^72]
-                - code: location
-                  value: L1 [^73]
-                - code: day_from
-                  value: '1 [^74]' 
-                - code: day_to
-                  value: '5 [^75]' 
-                - code: time_from
-                  value: '0900 [^76]' 
-                - code: time_to
-                  value: '1100 [^77]' 
+                  - code: type
+                    value: Order [^72]
+                  - code: location
+                    value: L1 [^73]
+                  - code: day_from
+                    value: '1 [^74]' 
+                  - code: day_to
+                    value: '5 [^75]' 
+                  - code: time_from
+                    value: '0900 [^76]' 
+                  - code: time_to
+                    value: '1100 [^77]'
             - code: timing [^78]
               list:
-                - code: type
-                  value: Order
-                - code: location
-                  value: L1
-                - code: day_from
-                  value: '1'
-                - code: day_to
-                  value: '5'
-                - code: time_from
-                  value: '1300'
-                - code: time_to
-                  value: '1530'
+              - code: type
+                value: Self-Pickup
+              - code: location
+                value: L1
+              - code: day_from
+                value: '1'
+              - code: day_to
+                value: '7'
+              - code: time_from
+                value: '1100'
+              - code: time_to
+                value: '2000'
             - code: timing
               list:
-                - code: type
-                  value: Order
-                - code: location
-                  value: L1
-                - code: day_from
-                  value: '1'
-                - code: day_to
-                  value: '5'
-                - code: time_from
-                  value: '1830'
-                - code: time_to
-                  value: '2130'
-            - code: timing
+              - code: type
+                value: Delivery
+              - code: location
+                value: L1
+              - code: day_from
+                value: '1'
+              - code: day_to
+                value: '7'
+              - code: time_from
+                value: '1100'
+              - code: time_to
+                value: '2200'
+            - code: 'close_timing '
               list:
-                - code: type
-                  value: Order
-                - code: location
-                  value: L1
-                - code: day_from
-                  value: '6'
-                - code: day_to
-                  value: '7'
-                - code: time_from
-                  value: '1300'
-                - code: time_to
-                  value: '1600'
-            - code: timing
-              list:
-                - code: type
-                  value: Order
-                - code: location
-                  value: L1
-                - code: day_from
-                  value: '6'
-                - code: day_to
-                  value: '7'
-                - code: time_from
-                  value: '1900'
-                - code: time_to
-                  value: '2300'
-            - code: timing
-              list:
-                - code: type
-                  value: Self-Pickup
-                - code: location
-                  value: L1
-                - code: day_from
-                  value: '1'
-                - code: day_to
-                  value: '7'
-                - code: time_from
-                  value: '1100'
-                - code: time_to
-                  value: '2000'
-            - code: timing
-              list:
-                - code: type
-                  value: Delivery
-                - code: location
-                  value: L1
-                - code: day_from
-                  value: '1'
-                - code: day_to
-                  value: '7'
-                - code: time_from
-                  value: '1100'
-                - code: time_to
-                  value: '2200'
+              - code: location
+                value: L1
+              - code: start
+                value: '2023-06-03T16:00:00.000Z'
+              - code: 'end '
+                value: '2023-06-03T23:59:00.000Z'
             - code: serviceability [^79]
               list:
-                - code: location
-                  value: L1 [^80]
-                - code: category
-                  value: F&B
-                - code: type
-                  value: '10 [^81]' 
-                - code: val
-                  value: '3'
-                - code: unit
-                  value: km
+              - code: location
+                value: L1 [^80]
+              - code: category
+                value: F&B
+              - code: type
+                value: '13 [^81]'
+              - code: unit
+                value: GeoJSON [^82]
+              - code: val
+                value: '{"type": "FeatureCollection", "features": [{"type": "Feature", "properties":
+                  {}, "geometry": {"coordinates": [[[[77.436651, 14.623085], [75.597353, 13.250722],
+                  [76.835955, 11.932994], [78.770939, 11.329016]]], [[[75.694892, 15.992882], [74.831999,
+                  14.851566], [77.400610, 15.122951], [75.694892, 15.992882]]]], "type": "MultiPolygon"}}]} [^83]'
+              - code: day_from [^84]
+                value: '1'
+              - code: day_to
+                value: '7'
+              - code: time_from
+                value: '1000'
+              - code: time_to
+                value: '2200'
+

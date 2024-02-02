@@ -177,6 +177,7 @@ value:
       fulfillments:
         - id: F1
           type: Delivery
+          "@ondc/org/TAT": "PT60M "
           tracking: false
           end:
             person:
@@ -194,6 +195,8 @@ value:
                 state: Karnataka
                 country: IND
                 area_code: "560037"
+          "vehicle ":
+            registration: 3LVJ945
       quote:
         price:
           currency: INR
@@ -580,6 +583,18 @@ value:
               currency: INR
               value: "50.00"
           - "@ondc/org/item_id": F1
+            title: Tax
+            "@ondc/org/title_type": "tax "
+            price:
+              currency: INR
+              value: "9.00"
+            item:
+              tags:
+                - code: quote
+                  list:
+                    - code: type
+                      value: fulfillment
+          - "@ondc/org/item_id": F1
             title: Packing charges
             "@ondc/org/title_type": packing
             price:
@@ -620,10 +635,24 @@ value:
       tags:
         - code: bpp_terms
           list:
+            - code: max_liability
+              value: "2"
+            - code: max_liability_cap
+              value: "10000"
+            - code: mandatory_arbitration
+              value: "false"
+            - code: court_jurisdiction
+              value: Bengaluru
+            - code: delay_interest
+              value: "1000"
             - code: tax_number
               value: gst_number_of_sellerNP
         - code: bap_terms
           list:
+            - code: "accept_bpp_terms "
+              value: Y
+            - code: "static_terms "
+              value: https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf    
             - code: tax_number [^28]
               value: gst_number_of_buyerNP
       created_at [^29]: "2023-06-03T09:30:00.000Z"

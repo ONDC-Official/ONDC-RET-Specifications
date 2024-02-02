@@ -16,13 +16,6 @@ value:
     timestamp: '2023-06-03T08:00:30.000Z'
   message:
     catalog:
-      bpp/fulfillments:
-        - id: "1"
-          type: Delivery
-        - id: "2"
-          type: Self-Pickup
-        - id: "3"
-          type: Delivery and Self-Pickup
       bpp/descriptor:
         name: Seller NP
         symbol: https://sellerNP.com/images/np.png
@@ -30,6 +23,15 @@ value:
         long_desc: Seller Marketplace
         images:
           - https://sellerNP.com/images/np.png
+        tags:
+        - code: bpp_terms
+          list:
+          - code: np_type
+            value: 'ISN '
+          - code: accept_bap_terms
+            value: 'Y '
+          - code: 'collect_payment '
+            value: 'Y '
       bpp/providers:
         - id: P1
           time:
@@ -38,8 +40,18 @@ value:
           fulfillments:
             - id: F1
               type: Delivery
+              "contact ":
+                phone: "9886098860 "
+                "email ": abc@xyz.com
+            - id: F2
+              type: Self-Pickup
               contact:
-                phone: '9886098860'
+                phone: "9886098860"
+                email: abc@xyz.com
+            - id: F3
+              type: "Buyer-Delivery"
+              contact:
+                phone: "9886098860"
                 email: abc@xyz.com
           descriptor:
             name: Store 1

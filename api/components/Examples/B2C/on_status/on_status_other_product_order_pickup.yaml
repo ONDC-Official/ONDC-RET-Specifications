@@ -39,9 +39,9 @@ value:
       billing:
         name: ONDC buyer
         address:
-          name: 'My house #'
-          building: My building name
-          locality: My street name
+          name: "my house or door or floor #"
+          building: "my building name or house #"
+          locality: my street name
           city: Bengaluru
           state: Karnataka
           country: IND
@@ -94,9 +94,9 @@ value:
             location:
               gps: 12.453544,77.928379
               address:
-                name: 'My house #'
-                building: My building name
-                locality: My street name
+                name: "my house or door or floor #"
+                building: "my building name or house #"
+                locality: my street name
                 city: Bengaluru
                 state: Karnataka
                 country: IND
@@ -128,10 +128,35 @@ value:
             phone: '9886098860'
           vehicle [^21]:
             registration: 3LVJ945
+          tags:
+            - code: "state "
+              list:
+                - code: ready_to_ship
+                  value: yes
+            - code: "routing "
+              list:
+                - code: type
+                  value: "P2P "
+            - code: "tracking "
+              list:
+                - code: "gps_enabled "
+                  value: yes
+                - code: "url_enabled "
+                  value: no
+                - code: "url "
+                  value: https://sellerNP.com/ondc/tracking_url
+            - code: "fulfillment_delay "
+              list:
+                - code: state
+                  value: "Order-picked-up "
+                - code: reason_id
+                  value: "002 "
+                - code: timestamp
+                  value: 2023-06-06T22:00:00.000Z
       quote:
         price:
           currency: INR
-          value: '245'
+          value: "254"
         breakup:
           - '@ondc/org/item_id': I1
             '@ondc/org/item_quantity':
@@ -150,8 +175,20 @@ value:
             '@ondc/org/title_type': delivery
             price:
               currency: INR
-              value: '50'
-          - '@ondc/org/item_id': F1
+              value: "50"
+          - "@ondc/org/item_id": F1
+            title: Tax
+            "@ondc/org/title_type": "tax "
+            price:
+              currency: INR
+              value: "9.00"
+            item:
+              tags:
+                - code: quote
+                  list:
+                    - code: type
+                      value: fulfillment
+          - "@ondc/org/item_id": F1
             title: Packing charges
             '@ondc/org/title_type': packing
             price:
@@ -181,8 +218,8 @@ value:
         tl_method: http/get
         params:
           currency: INR
-          transaction_id: '3937'
-          amount: '245'
+          transaction_id: "3937"
+          amount: "254"
         status: PAID
         type: ON-ORDER
         collected_by: BAP

@@ -10,14 +10,14 @@ steps:
       $ref: "../../Examples/B2C/search/search_by_item.yaml"
     notes:
       $ref: "../../notes/search/search_by_item.yaml"
-  - summary: Returns the item or catalog (F&B_Pizza)
+  - summary: Returns the item or catalog (F&B)
     api: on_search
     description:  
     reference: if any
     example:
-      $ref: "../../Examples/B2C/on_search/on_search_F&B_Pizza.yaml"
+      $ref: "../../Examples/B2C/on_search/on_search_F&B.yaml"
     notes:
-      $ref: "../../notes/on_search/on_search_F&B_Pizza.yaml"   
+      $ref: "../../notes/on_search/on_search_F&B.yaml"   
   - summary: Select the item
     api: select
     description: 
