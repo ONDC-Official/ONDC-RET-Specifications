@@ -1,0 +1,36 @@
+summary: Retail 1.2.0 (Slotted delivery/pickup options)
+description: The following is an illustrative flow where Seller NP will forward all fulfilment options in different types (delivery, self-pickup) to buyer to select
+reference: if any
+steps:
+  - summary: Search by item
+    api: search
+    description:  Buyer search by item
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/search/search_by_item.yaml"
+    notes:
+      $ref: "../../notes/search/search_by_item.yaml"
+  - summary: Returns the item or catalogue electronics(Desktop)
+    api: on_search
+    description:  
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/on_search/on_search_Electronics_Desktop.yaml"
+    notes:
+      $ref: "../../notes/on_search/on_search_F&B_Pizza.yaml" 
+  - summary: Select the item
+    api: select
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/select/select_make_to_order_product.yaml"
+    notes:
+      $ref: "../../notes/select/select_make_to_order_product.yaml"
+  - summary: Returns the catalogue with all fulfillment options
+    api: on_select
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/on_select/on_select_multiple_pickup.yaml"
+    notes:
+      $ref: "../../notes/on_select/on_select_multiple_pickup.yaml" 
