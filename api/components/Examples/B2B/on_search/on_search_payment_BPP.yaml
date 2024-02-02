@@ -229,12 +229,15 @@ value:
                 - descriptor:
                     code: g2
                   list:
-                    - descriptor:
-                        code: time_to_ship
-                      value: P1D
-                    - descriptor:
-                        code: tax_rate
-                      value: '12'
+                  - descriptor:
+                      code: time_to_ship
+                    value: P1D
+                  - descriptor:
+                      code: tax_rate
+                    value: '12'
+                  - descriptor:
+                      code: cancellable
+                    value: 'true'
                 - descriptor:
                     code: g3
                   list:

@@ -220,19 +220,11 @@
                   "count": "4000"
                 }
               },
-              
-              "category_ids": [
-                "RET10-1042"
-              ],
-              "fulfillment_ids": [
-                "1"
-              ],
-              "location_ids": [
-                "L1"
-              ],
-              "payment_ids": [
-                "2"
-              ],
+
+              "category_ids": ["RET10-1042"],
+              "fulfillment_ids": ["1"],
+              "location_ids": ["L1"],
+              "payment_ids": ["2"],
               "add_ons": [
                 {
                   "id": "78787723",
@@ -261,7 +253,14 @@
                       "code": "Pending"
                     }
                   },
-                  "refund_eligible": "true"
+                  "reason_required": false,
+                  "cancellation_fee": {
+                    "percentage": "0",
+                    "amount": {
+                      "currency": "IND",
+                      "value": "0"
+                    }
+                  }
                 },
                 {
                   "fulfillment_state": {
@@ -269,25 +268,32 @@
                       "code": "Packed"
                     }
                   },
-                  "refund_eligible": "true"
-                },
-                {
-                  "fulfillment_state": {
-                    "descriptor": {
-                      "code": "Order-delivered"
-                    }
-                  },
-                  "return_policy": {
-                    "return_eligible": "true",
-                    "return_within": "P7D",
-                    "fulfillment_managed_by": "seller",
-                    "return_location": {
-                      "address": "RTO address",
-                      "gps": "12.667555,77.349666"
+                  "reason_required": false,
+                  "cancellation_fee": {
+                    "percentage": "0",
+                    "amount": {
+                      "currency": "IND",
+                      "value": "0"
                     }
                   }
                 }
               ],
+              "return_terms": {
+                "fulfillment_state": {
+                  "descriptor": {
+                    "code": "Order-delivered"
+                  }
+                },
+                "return_eligible": true,
+                "return_time": {
+                  "duration": "P7D"
+                },
+                "return_location": {
+                  "address": "RTO address",
+                  "gps": "12.667555,77.349666"
+                },
+                "fulfillment_managed_by": "seller"
+              },
               "replacement_terms": [
                 {
                   "replace_within": "P7D"
@@ -304,162 +310,244 @@
               "recommended": "true",
               "tags": [
                 {
-                  "code": "origin",
+                  "descriptor": {
+                    "code": "origin"
+                  },
                   "list": [
                     {
-                      "code": "country",
+                      "descriptor": {
+                        "code": "country"
+                      },
                       "value": "IND"
                     }
                   ]
                 },
                 {
-                  "code": "image",
+                  "descriptor": {
+                    "code": "image"
+                  },
                   "list": [
                     {
-                      "code": "type",
+                      "descriptor": {
+                        "code": "type"
+                      },
                       "value": "back_image"
                     },
                     {
-                      "code": "url",
+                      "descriptor": {
+                        "code": "url"
+                      },
                       "value": "https://sellerNP.com/images/i1_back_image.png"
                     }
                   ]
                 },
                 {
-                  "code": "attribute",
+                  "descriptor": {
+                    "code": "attribute"
+                  },
                   "list": [
                     {
-                      "code": "brand",
+                      "descriptor": {
+                        "code": "brand"
+                      },
                       "value": "Kesh King"
                     },
                     {
-                      "code": "colour",
+                      "descriptor": {
+                        "code": "colour"
+                      },
                       "value": "black"
                     },
                     {
-                      "code": "gender",
+                      "descriptor": {
+                        "code": "gender"
+                      },
                       "value": "male"
                     },
                     {
-                      "code": "concern",
+                      "descriptor": {
+                        "code": "concern"
+                      },
                       "value": "tangled_hair"
                     },
                     {
-                      "code": "ingredient",
+                      "descriptor": {
+                        "code": "ingredient"
+                      },
                       "value": "neem"
                     },
                     {
-                      "code": "conscious",
+                      "descriptor": {
+                        "code": "conscious"
+                      },
                       "value": "natural"
                     },
                     {
-                      "code": "preference",
+                      "descriptor": {
+                        "code": "preference"
+                      },
                       "value": "herbal"
                     },
                     {
-                      "code": "formulation",
+                      "descriptor": {
+                        "code": "formulation"
+                      },
                       "value": "liquid"
                     },
                     {
-                      "code": "skin_type",
+                      "descriptor": {
+                        "code": "skin_type"
+                      },
                       "value": "normal"
                     }
                   ]
                 },
                 {
-                  "code": "g2",
+                  "descriptor": {
+                    "code": "g2"
+                  },
                   "list": [
                     {
-                      "code": "time_to_ship",
+                      "descriptor": {
+                        "code": "time_to_ship"
+                      },
                       "value": "P1D"
                     },
                     {
-                      "code": "tax_rate",
+                      "descriptor": {
+                        "code": "tax_rate"
+                      },
                       "value": "12"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "cancellable"
+                      },
+                      "value": "true"
                     }
                   ]
                 },
                 {
-                  "code": "g3",
+                  "descriptor": {
+                    "code": "g3"
+                  },
                   "list": [
                     {
-                      "code": "brand",
+                      "descriptor": {
+                        "code": "brand"
+                      },
                       "value": "Dhara"
                     },
                     {
-                      "code": "pack_size",
+                      "descriptor": {
+                        "code": "pack_size"
+                      },
                       "value": "5"
                     },
                     {
-                      "code": "num_price_slabs",
+                      "descriptor": {
+                        "code": "num_price_slabs"
+                      },
                       "value": "3"
                     }
                   ]
                 },
                 {
-                  "code": "price_slab",
+                  "descriptor": {
+                    "code": "price_slab"
+                  },
                   "list": [
                     {
-                      "code": "min_pack_size",
+                      "descriptor": {
+                        "code": "min_pack_size"
+                      },
                       "value": "1"
                     },
                     {
-                      "code": "max_pack_size",
+                      "descriptor": {
+                        "code": "max_pack_size"
+                      },
                       "value": "4"
                     },
                     {
-                      "code": "unit_sale_price",
+                      "descriptor": {
+                        "code": "unit_sale_price"
+                      },
                       "value": "250"
                     }
                   ]
                 },
                 {
-                  "code": "price_slab",
+                  "descriptor": {
+                    "code": "price_slab"
+                  },
                   "list": [
                     {
-                      "code": "min_pack_size",
+                      "descriptor": {
+                        "code": "min_pack_size"
+                      },
                       "value": "5"
                     },
                     {
-                      "code": "max_pack_size",
+                      "descriptor": {
+                        "code": "max_pack_size"
+                      },
                       "value": "9"
                     },
                     {
-                      "code": "unit_sale_price",
+                      "descriptor": {
+                        "code": "unit_sale_price"
+                      },
                       "value": "200"
                     }
                   ]
                 },
                 {
-                  "code": "price_slab",
+                  "descriptor": {
+                    "code": "price_slab"
+                  },
                   "list": [
                     {
-                      "code": "min_pack_size",
+                      "descriptor": {
+                        "code": "min_pack_size"
+                      },
                       "value": "10"
                     },
                     {
-                      "code": "max_pack_size",
+                      "descriptor": {
+                        "code": "max_pack_size"
+                      },
                       "value": ""
                     },
                     {
-                      "code": "unit_sale_price",
+                      "descriptor": {
+                        "code": "unit_sale_price"
+                      },
                       "value": "175"
                     }
                   ]
                 },
                 {
-                  "code": "FSSAI_LICENSE_NO",
+                  "descriptor": {
+                    "code": "FSSAI_LICENSE_NO"
+                  },
                   "list": [
                     {
-                      "code": "BRAND_OWNER",
+                      "descriptor": {
+                        "code": "BRAND_OWNER"
+                      },
                       "value": "12345678901234"
                     },
                     {
-                      "code": "OTHER",
+                      "descriptor": {
+                        "code": "OTHER"
+                      },
                       "value": "12345678901234"
                     },
                     {
-                      "code": "IMPORTER",
+                      "descriptor": {
+                        "code": "IMPORTER"
+                      },
                       "value": "12345678901234"
                     }
                   ]

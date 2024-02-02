@@ -159,36 +159,52 @@
               },
               "tags": [
                 {
-                  "code": "type",
+                  "descriptor": {
+                    "code": "type"
+                  },
                   "list": [
                     {
-                      "code": "type",
+                      "descriptor": {
+                        "code": "type"
+                      },
                       "value": "variant_group"
                     }
                   ]
                 },
                 {
-                  "code": "attr",
+                  "descriptor": {
+                    "code": "attr"
+                  },
                   "list": [
                     {
-                      "code": "name",
+                      "descriptor": {
+                        "code": "name"
+                      },
                       "value": "item.tags.attribute.colour"
                     },
                     {
-                      "code": "seq",
+                      "descriptor": {
+                        "code": "seq"
+                      },
                       "value": "1"
                     }
                   ]
                 },
                 {
-                  "code": "attr",
+                  "descriptor": {
+                    "code": "attr"
+                  },
                   "list": [
                     {
-                      "code": "name",
+                      "descriptor": {
+                        "code": "name"
+                      },
                       "value": "item.tags.attribute.storage"
                     },
                     {
-                      "code": "seq",
+                      "descriptor": {
+                        "code": "seq"
+                      },
                       "value": "2"
                     }
                   ]
@@ -297,7 +313,14 @@
                       "code": "Pending"
                     }
                   },
-                  "refund_eligible": "true"
+                  "reason_required": false,
+                  "cancellation_fee": {
+                    "percentage": "0",
+                    "amount": {
+                      "currency": "IND",
+                      "value": "0"
+                    }
+                  }
                 },
                 {
                   "fulfillment_state": {
@@ -305,25 +328,32 @@
                       "code": "Packed"
                     }
                   },
-                  "refund_eligible": "true"
-                },
-                {
-                  "fulfillment_state": {
-                    "descriptor": {
-                      "code": "Order-delivered"
-                    }
-                  },
-                  "return_policy": {
-                    "return_eligible": "true",
-                    "return_within": "P7D",
-                    "fulfillment_managed_by": "seller",
-                    "return_location": {
-                      "address": "RTO address",
-                      "gps": "12.667555,77.349666"
+                  "reason_required": false,
+                  "cancellation_fee": {
+                    "percentage": "0",
+                    "amount": {
+                      "currency": "IND",
+                      "value": "0"
                     }
                   }
                 }
               ],
+              "return_terms": {
+                "fulfillment_state": {
+                  "descriptor": {
+                    "code": "Order-delivered"
+                  }
+                },
+                "return_eligible": true,
+                "return_time": {
+                  "duration": "P7D"
+                },
+                "return_location": {
+                  "address": "RTO address",
+                  "gps": "12.667555,77.349666"
+                },
+                "fulfillment_managed_by": "seller"
+              },
               "replacement_terms": [
                 {
                   "replace_within": "P7D"
@@ -340,118 +370,180 @@
               "recommended": "true",
               "tags": [
                 {
-                  "code": "origin",
+                  "descriptor": {
+                    "code": "origin"
+                  },
                   "list": [
                     {
-                      "code": "country",
+                      "descriptor": {
+                        "code": "country"
+                      },
                       "value": "IND"
                     }
                   ]
                 },
                 {
-                  "code": "image",
+                  "descriptor": {
+                    "code": "image"
+                  },
                   "list": [
                     {
-                      "code": "type",
+                      "descriptor": {
+                        "code": "type"
+                      },
                       "value": "back_image"
                     },
                     {
-                      "code": "url",
+                      "descriptor": {
+                        "code": "url"
+                      },
                       "value": "https://sellerNP.com/images/i1_back_image.png"
                     }
                   ]
                 },
                 {
-                  "code": "attribute",
+                  "descriptor": {
+                    "code": "attribute"
+                  },
                   "list": [
                     {
-                      "code": "brand",
+                      "descriptor": {
+                        "code": "brand"
+                      },
                       "value": "Samsung"
                     },
                     {
-                      "code": "model",
+                      "descriptor": {
+                        "code": "model"
+                      },
                       "value": "Galaxy Bean Buds Live"
                     },
                     {
-                      "code": "colour",
+                      "descriptor": {
+                        "code": "colour"
+                      },
                       "value": "mystic black"
                     },
                     {
-                      "code": "connectivity",
+                      "descriptor": {
+                        "code": "connectivity"
+                      },
                       "value": "wireless"
                     },
                     {
-                      "code": "form_factor",
+                      "descriptor": {
+                        "code": "form_factor"
+                      },
                       "value": "In Ear"
                     },
                     {
-                      "code": "size",
+                      "descriptor": {
+                        "code": "size"
+                      },
                       "value": "128GB"
                     },
                     {
-                      "code": "style",
+                      "descriptor": {
+                        "code": "style"
+                      },
                       "value": "Modern"
                     },
                     {
-                      "code": "screen_size",
+                      "descriptor": {
+                        "code": "screen_size"
+                      },
                       "value": "1.99\""
                     },
                     {
-                      "code": "memory",
+                      "descriptor": {
+                        "code": "memory"
+                      },
                       "value": "8GB"
                     },
                     {
-                      "code": "cpu",
+                      "descriptor": {
+                        "code": "cpu"
+                      },
                       "value": "Core M family"
                     },
                     {
-                      "code": "cpu_mfr",
+                      "descriptor": {
+                        "code": "cpu_mfr"
+                      },
                       "value": "Intel"
                     },
                     {
-                      "code": "storage",
+                      "descriptor": {
+                        "code": "storage"
+                      },
                       "value": "256GB"
                     },
                     {
-                      "code": "os",
+                      "descriptor": {
+                        "code": "os"
+                      },
                       "value": "Windows 11"
                     },
                     {
-                      "code": "includes",
+                      "descriptor": {
+                        "code": "includes"
+                      },
                       "value": "Desktop, User Manual, Warranty Card"
                     },
                     {
-                      "code": "compatible_devices",
+                      "descriptor": {
+                        "code": "compatible_devices"
+                      },
                       "value": "PC, MAC, Laptop, Smartphone, Tablet"
                     },
                     {
-                      "code": "type",
+                      "descriptor": {
+                        "code": "type"
+                      },
                       "value": "wireless"
                     },
                     {
-                      "code": "special_feature",
+                      "descriptor": {
+                        "code": "special_feature"
+                      },
                       "value": "wireless,laser"
                     },
                     {
-                      "code": "display",
+                      "descriptor": {
+                        "code": "display"
+                      },
                       "value": "1920x1080px"
                     },
                     {
-                      "code": "refresh",
+                      "descriptor": {
+                        "code": "refresh"
+                      },
                       "value": "60Hz"
                     }
                   ]
                 },
                 {
-                  "code": "g2",
+                  "descriptor": {
+                    "code": "g2"
+                  },
                   "list": [
                     {
-                      "code": "time_to_ship",
+                      "descriptor": {
+                        "code": "time_to_ship"
+                      },
                       "value": "P1D"
                     },
                     {
-                      "code": "tax_rate",
+                      "descriptor": {
+                        "code": "tax_rate"
+                      },
                       "value": "12"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "cancellable"
+                      },
+                      "value": "true"
                     }
                   ]
                 },
