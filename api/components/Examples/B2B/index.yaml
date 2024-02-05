@@ -33,6 +33,7 @@ on_search:
     - $ref: ./on_search/on_search_bpc.yaml
     - $ref: ./on_search/on_search_fashion.yaml
     - $ref: ./on_search/on_search_electronics.yaml
+    - $ref: ./on_search/on_search_electronics_mobile.yaml
     - $ref: ./on_search/on_search_grocery.yaml
     - $ref: ./on_search/on_search_payment_BPP.yaml
     - $ref: ./on_search/on_search_autoparts_and_components.yaml
