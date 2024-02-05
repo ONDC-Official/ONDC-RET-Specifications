@@ -286,7 +286,7 @@ value:
                   code: rom_unit
                 value: GB
               - descriptor:
-                code: storage
+                  code: storage
                 value: "256"
               - descriptor:
                   code: storage_unit

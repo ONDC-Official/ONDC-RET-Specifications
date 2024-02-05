@@ -14556,8 +14556,8 @@ x-examples:
                                 - descriptor:
                                     code: rom_unit
                                   value: GB
-                                - descriptor: null
-                                  code: storage
+                                - descriptor:
+                                    code: storage
                                   value: '256'
                                 - descriptor:
                                     code: storage_unit
