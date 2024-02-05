@@ -13558,8 +13558,8 @@ x-examples:
                                     code: url
                                   value: >-
                                     https://sellerNP.com/images/i1_back_image.png
-                            - descriptor: null
-                              code: attribute
+                            - descriptor:
+                                code: attribute
                               list:
                                 - descriptor:
                                     code: brand
