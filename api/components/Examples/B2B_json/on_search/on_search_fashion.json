@@ -265,18 +265,10 @@
                   "count": "4000"
                 }
               },
-              "category_ids": [
-                "RET12-102F"
-              ],
-              "fulfillment_ids": [
-                "1"
-              ],
-              "location_ids": [
-                "L1"
-              ],
-              "payment_ids": [
-                "2"
-              ],
+              "category_ids": ["RET12-102F"],
+              "fulfillment_ids": ["1"],
+              "location_ids": ["L1"],
+              "payment_ids": ["2"],
               "cancellation_terms": [
                 {
                   "fulfillment_state": {
@@ -402,15 +394,27 @@
                   ]
                 },
                 {
-                  "code": "g2",
+                  "descriptor": {
+                    "code": "g2"
+                  },
                   "list": [
                     {
-                      "code": "time_to_ship",
+                      "descriptor": {
+                        "code": "time_to_ship"
+                      },
                       "value": "P1D"
                     },
                     {
-                      "code": "tax_rate",
+                      "descriptor": {
+                        "code": "tax_rate"
+                      },
                       "value": "12"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "cancellable"
+                      },
+                      "value": "true"
                     }
                   ]
                 },
@@ -545,18 +549,10 @@
                   "count": "99"
                 }
               },
-              "category_ids": [
-                "RET12-102F"
-              ],
-              "fulfillment_ids": [
-                "1"
-              ],
-              "location_ids": [
-                "L1"
-              ],
-              "payment_ids": [
-                "2"
-              ],
+              "category_ids": ["RET12-102F"],
+              "fulfillment_ids": ["1"],
+              "location_ids": ["L1"],
+              "payment_ids": ["2"],
               "cancellation_terms": [
                 {
                   "fulfillment_state": {
@@ -564,7 +560,14 @@
                       "code": "Pending"
                     }
                   },
-                  "refund_eligible": "true"
+                  "reason_required": false,
+                  "cancellation_fee": {
+                    "percentage": "0",
+                    "amount": {
+                      "currency": "IND",
+                      "value": "0"
+                    }
+                  }
                 },
                 {
                   "fulfillment_state": {
@@ -572,25 +575,32 @@
                       "code": "Packed"
                     }
                   },
-                  "refund_eligible": "true"
-                },
-                {
-                  "fulfillment_state": {
-                    "descriptor": {
-                      "code": "Order-delivered"
-                    }
-                  },
-                  "return_policy": {
-                    "return_eligible": "true",
-                    "return_within": "P7D",
-                    "fulfillment_managed_by": "seller",
-                    "return_location": {
-                      "address": "RTO address",
-                      "gps": "12.667555,77.349666"
+                  "reason_required": false,
+                  "cancellation_fee": {
+                    "percentage": "0",
+                    "amount": {
+                      "currency": "IND",
+                      "value": "0"
                     }
                   }
                 }
               ],
+              "return_terms": {
+                "fulfillment_state": {
+                  "descriptor": {
+                    "code": "Order-delivered"
+                  }
+                },
+                "return_eligible": true,
+                "return_time": {
+                  "duration": "P7D"
+                },
+                "return_location": {
+                  "address": "RTO address",
+                  "gps": "12.667555,77.349666"
+                },
+                "fulfillment_managed_by": "seller"
+              },
               "replacement_terms": [
                 {
                   "replace_within": "P7D"
@@ -607,90 +617,138 @@
               "recommended": "true",
               "tags": [
                 {
-                  "code": "origin",
+                  "descriptor": {
+                    "code": "origin"
+                  },
                   "list": [
                     {
-                      "code": "country",
+                      "descriptor": {
+                        "code": "country"
+                      },
                       "value": "IND"
                     }
                   ]
                 },
                 {
-                  "code": "image",
+                  "descriptor": {
+                    "code": "image"
+                  },
                   "list": [
                     {
-                      "code": "type",
+                      "descriptor": {
+                        "code": "type"
+                      },
                       "value": "back_image"
                     },
                     {
-                      "code": "url",
+                      "descriptor": {
+                        "code": "url"
+                      },
                       "value": "https://sellerNP.com/images/i1_back_image.png"
                     }
                   ]
                 },
                 {
-                  "code": "attribute",
+                  "descriptor": {
+                    "code": "attribute"
+                  },
                   "list": [
                     {
-                      "code": "brand",
+                      "descriptor": {
+                        "code": "brand"
+                      },
                       "value": "Allen Solly"
                     },
                     {
-                      "code": "colour",
+                      "descriptor": {
+                        "code": "colour"
+                      },
                       "value": "coral"
                     },
                     {
-                      "code": "size",
+                      "descriptor": {
+                        "code": "size"
+                      },
                       "value": "M"
                     },
                     {
-                      "code": "gender",
+                      "descriptor": {
+                        "code": "gender"
+                      },
                       "value": "male"
                     },
                     {
-                      "code": "pattern",
+                      "descriptor": {
+                        "code": "pattern"
+                      },
                       "value": "striped"
                     },
                     {
-                      "code": "material",
+                      "descriptor": {
+                        "code": "material"
+                      },
                       "value": "cotton"
                     },
                     {
-                      "code": "occasion",
+                      "descriptor": {
+                        "code": "occasion"
+                      },
                       "value": "casual"
                     },
                     {
-                      "code": "season",
+                      "descriptor": {
+                        "code": "season"
+                      },
                       "value": "summer"
                     },
                     {
-                      "code": "trend",
+                      "descriptor": {
+                        "code": "trend"
+                      },
                       "value": "tribal"
                     },
                     {
-                      "code": "features",
+                      "descriptor": {
+                        "code": "features"
+                      },
                       "value": "alpha"
                     },
                     {
-                      "code": "material_finish",
+                      "descriptor": {
+                        "code": "material_finish"
+                      },
                       "value": "embossed"
                     },
                     {
-                      "code": "size_chart",
+                      "descriptor": {
+                        "code": "size_chart"
+                      },
                       "value": "https://sellerNP.com/images/i1_size_chart.png"
                     }
                   ]
                 },
                 {
-                  "code": "g2",
+                  "descriptor": {
+                    "code": "g2"
+                  },
                   "list": [
                     {
-                      "code": "time_to_ship",
+                      "descriptor": {
+                        "code": "time_to_ship"
+                      },
                       "value": "P1D"
                     },
                     {
-                      "code": "tax_rate",
+                      "descriptor": {
+                        "code": "tax_rate"
+                      },
                       "value": "12"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "cancellable"
+                      },
+                      "value": "true"
                     }
                   ]
                 },
