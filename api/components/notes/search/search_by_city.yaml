@@ -1,5 +1,5 @@
 value:
-  [^1]: updated domain namespace defined [here](https://docs.google.com/document/d/brvcltG_DagZ3kGrZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1)
+  [^1]: updated domain namespace defined [https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-1.x/api/components/enums/context.yaml]
   [^2]: city code for search that identifies the cities where sellers have stores. List of city codes, with pincode mapping, are [here](https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=1474472733)
   [^3]: subscriber id for buyer app
   [^4]: subscriber URI for buyer app

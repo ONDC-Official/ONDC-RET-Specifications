@@ -3235,6 +3235,21 @@ x-enum:
         - code: ONDC:RET19
           description: Health & Wellness
           reference: <PR/Issue/Discussion Links md format text>
+        - code: ONDC:RET1A
+          description: Autoparts & Components
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: ONDC:RET1B
+          description: Hardware and Industrial
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: ONDC:RET1C
+          description: Building and construction supplies
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: ONDC:RET1D
+          description: Chemicals
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: ONDC:AGR11
+          description: Agri Output
+          reference: <PR/Issue/Discussion Links md format text>
     message:
       intent:
         fulfillments: &ref_0
@@ -6458,7 +6473,7 @@ x-flows:
           value:
             ^1: >-
               updated domain namespace defined
-              [here](https://docs.google.com/document/d/brvcltG_DagZ3kGrZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1)
+              [https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-1.x/api/components/enums/context.yaml]
             ^2: >-
               city code for search that identifies the cities where sellers have
               stores. List of city codes, with pincode mapping, are
