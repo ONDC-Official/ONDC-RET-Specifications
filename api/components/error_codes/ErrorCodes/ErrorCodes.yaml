@@ -329,3 +329,159 @@ ErrorCodes:
     Type: Seller App
     Message: Fulfillment cannot be updated
     Description: Fulfillment has reached terminal state, cannot be updated
+  - Code: 60001
+    Type: Logistics Provider
+    Message: Location Serviceability Error
+    Description: Pickup location not serviceable by Logistics Provider
+  - Code: 60002
+    Type: Logistics Provider
+    Message: Location Serviceability Error
+    Description: Dropoff location not serviceable by Logistics Provider
+  - Code: 60003
+    Type: Logistics Provider
+    Message: Location Serviceability Error
+    Description: Delivery distance exceeds the maximum serviceability distance
+  - Code: 60004
+    Type: Logistics Provider
+    Message: Order Serviceability Error
+    Description: Delivery Partners not available
+  - Code: 60005
+    Type: Logistics Provider
+    Message: Invalid Signature
+    Description: Cannot verify signature for request
+  - Code: 60006
+    Type: Logistics Provider
+    Message: Invalid Request
+    Description: Invalid request, not compliant with API contract
+  - Code: 60007
+    Type: Logistics Provider
+    Message: Policy Error
+    Description: Cancellation not possible because of Logistics Provider policy
+  - Code: 60008
+    Type: Logistics Provider
+    Message: Invalid Fulfillment TAT
+    Description: Fulfillment TAT is different from what was quoted earlier
+  - Code: 60009
+    Type: Logistics Provider
+    Message: Invalid cancellation request
+    Description: Cancellation reason is invalid
+  - Code: 60010
+    Type: Logistics Provider
+    Message: Cancellation unacceptable
+    Description: Cancellation request is rejected as fulfillment TAT is not breached
+  - Code: 60011
+    Type: Logistics Provider
+    Message: Difference in packaging details
+    Description: >-
+      Weight and / or dimensions provided is different from what was originally
+      provided
+  - Code: 60012
+    Type: Logistics Provider
+    Message: Tracking not enabled
+    Description: Tracking not enabled for any fulfillment in the order
+  - Code: 61001
+    Type: Logistics Provider
+    Message: Feature not supported
+    Description: Feature not supported
+  - Code: 62501
+    Type: Logistics Buyer
+    Message: Terms and Conditions unacceptable
+    Description: Logistics Provider terms & conditions not acceptable to Logistics Buyer
+  - Code: 62502
+    Type: Logistics Buyer
+    Message: Order terminated
+    Description: >-
+      Order terminated as Logistics Provider did not accept terms proposed by
+      Logistics Buyer
+  - Code: 62503
+    Type: Logistics Buyer
+    Message: RTO rejected
+    Description: RTO request rejected as quote does not match the quote provided in catalog
+  - Code: 62504
+    Type: Logistics Buyer
+    Message: Weight differential cost rejected
+    Description: Weight differential cost is rejected
+  - Code: 62505
+    Type: Logistics Buyer
+    Message: Cancellation terms unacceptable
+    Description: Logistics Provider cancellation terms not acceptable to Logistics Buyer
+  - Code: 62506
+    Type: Logistics Buyer
+    Message: Invalid Fulfillment TAT
+    Description: Fulfillment TAT is different from what was quoted earlier
+  - Code: 62507
+    Type: Logistics Buyer
+    Message: Difference in packaging details
+    Description: >-
+      Weight and / or dimensions provided is different from what was originally
+      provided
+  - Code: 62508
+    Type: Logistics Buyer
+    Message: Quote difference
+    Description: Total price is different from what was originally provided
+  - Code: 62509
+    Type: Logistics Buyer
+    Message: Invalid Cancellation Terms
+    Description: Cancellation terms are different from what was quoted earlier
+  - Code: 62510
+    Type: Logistics Buyer
+    Message: Expired authorization
+    Description: Authorization code has expired
+  - Code: 62511
+    Type: Logistics Buyer
+    Message: Invalid authorization
+    Description: Authorization code is invalid
+  - Code: 63001
+    Type: Logistics Buyer
+    Message: Internal Error
+    Description: Cannot process response due to internal error, please retry
+  - Code: 63002
+    Type: Logistics Buyer
+    Message: Order validation failure
+    Description: Order validation failure
+  - Code: 64001
+    Type: Logistics Buyer
+    Message: Feature not supported
+    Description: Feature not supported
+  - Code: 64002
+    Type: Logistics Buyer
+    Message: Order validation failure
+    Description: Order validation failure
+  - Code: 65001
+    Type: Logistics Provider
+    Message: Order Confirm Error
+    Description: Logistics Provider is unable to confirm the order
+  - Code: 65002
+    Type: Logistics Provider
+    Message: Order terminated
+    Description: >-
+      Order terminated as Logistics Buyer did not accept terms proposed by
+      Logistics Provider
+  - Code: 65003
+    Type: Logistics Provider
+    Message: Stale Request
+    Description: Cannot process stale request
+  - Code: 65004
+    Type: Logistics Provider
+    Message: Terms unacceptable
+    Description: Logistics Buyer terms not acceptable to Logistics Provider
+  - Code: 66001
+    Type: Logistics Provider
+    Message: Internal Error
+    Description: Cannot process request due to internal error, please retry
+  - Code: 66002
+    Type: Logistics Provider
+    Message: Order validation failure
+    Description: Order validation failure
+  - Code: 66003
+    Type: Logistics Provider
+    Message: Order processing in progress
+    Description: Order processing in progress
+  - Code: 66004
+    Type: Logistics Provider
+    Message: Invalid Order
+    Description: Order not found
+  - Code: 66005
+    Type: Logistics Provider
+    Message: Quote unavailable
+    Description: Quote no longer available
