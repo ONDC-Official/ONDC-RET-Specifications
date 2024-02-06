@@ -28054,6 +28054,363 @@ x-examples:
                           time:
                             label: open
                             timestamp: '2023-06-03T10:20:00.000Z'
+          - summary: Return the catalog for Agri Output
+            description: Return the catalog for Agri Output
+            value:
+              context:
+                domain: ONDC:AGR11
+                country: IND
+                city: std:080
+                action: on_search
+                core_version: 1.2.0
+                bap_id: buyerNP.com
+                bap_uri: https://buyerNP.com/ondc
+                bpp_id: sellerNP.com
+                bpp_uri: https://sellerNP.com/ondc
+                transaction_id: T1
+                message_id: M1
+                timestamp: '2023-06-03T08:00:30.000Z'
+              message:
+                catalog:
+                  bpp/descriptor:
+                    name: Seller NP
+                    symbol: https://sellerNP.com/images/np.png
+                    short_desc: Seller Marketplace
+                    long_desc: Seller Marketplace
+                    images:
+                      - https://sellerNP.com/images/np.png
+                  bpp/providers:
+                    - id: P1
+                      time:
+                        label: enable
+                        timestamp: 2023-06-03T08:00:30.000Z [^1]
+                      fulfillments:
+                        - id: F1
+                          type: Delivery
+                          contact:
+                            phone: '9886098860'
+                            email: abc@xyz.com
+                        - id: F2
+                          type: Self-Pickup
+                          contact:
+                            phone: '9886098860'
+                            email: abc@xyz.com
+                        - id: F2
+                          type: Buyer-Delivery
+                          contact:
+                            phone: '9886098860'
+                            email: abc@xyz.com
+                      descriptor:
+                        name: Store 1
+                        symbol: https://sellerNP.com/images/store1.png
+                        short_desc: Store 1
+                        long_desc: Store 1
+                        images:
+                          - https://sellerNP.com/images/store1.png
+                      ttl: P1D
+                      locations:
+                        - id: L1
+                          time:
+                            label: enable [^2]
+                            timestamp: 2023-06-03T07:30:30.000Z [^3]
+                            schedule:
+                              holidays:
+                                - '2023-08-15'
+                          gps: 12.967555,77.749666
+                          address:
+                            locality: Jayanagar
+                            street: Jayanagar 4th Block
+                            city: Bengaluru
+                            area_code: '560076'
+                            state: KA
+                      items:
+                        - id: I1
+                          time:
+                            label: enable [^4]
+                            timestamp: 2023-06-03T07:30:00.000Z [^5]
+                          descriptor:
+                            name: Maize Lot
+                            code: 5:<unique_product_code>
+                            symbol: https://sellerNP.com/images/i1.png
+                            short_desc: >-
+                              High-starch content Maize, ideal for ethanol
+                              production
+                            long_desc: >-
+                              With its high-starch content, this maize is
+                              perfect for ethanol production, ensuring a robust
+                              and efficient biofuel manufacturing process.
+                            images:
+                              - https://sellerNP.com/images/i1.png
+                            additional_desc:
+                              - url: https://quality_assessment.pdf
+                              - content_type: text/html
+                          quantity:
+                            unitized:
+                              measure:
+                                unit: kg
+                                value: '1'
+                            available:
+                              count: '500'
+                            maximum:
+                              count: '500'
+                            minumum:
+                              count: '500'
+                          price:
+                            currency: INR
+                            value: '80.00'
+                            maximum_value: '80.00'
+                          category_id: Cereals
+                          fulfillment_id: F2
+                          location_id: L1
+                          '@ondc/org/returnable': true
+                          '@ondc/org/cancellable': true
+                          '@ondc/org/return_window': P7D
+                          '@ondc/org/seller_pickup_return': true
+                          '@ondc/org/time_to_ship': PT3H
+                          '@ondc/org/available_on_cod': false
+                          '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
+                          tags:
+                            - code: origin
+                              list:
+                                - code: country
+                                  value: IND
+                            - code: attribute
+                              list:
+                                - code: moisture
+                                  value: 20
+                                - code: moisture_unit
+                                  value: percentage
+                                - code: oil_content
+                                  value: 4%
+                                - code: oil_content_unit
+                                  value: percentage
+                                - code: shelf_life
+                                  value: 1
+                                - code: shelf_life_unit
+                                  value: year
+                        - id: I2
+                          time:
+                            label: enable [^4]
+                            timestamp: 2023-06-03T07:30:00.000Z [^5]
+                          descriptor:
+                            name: Saffron
+                            code: 5:<unique_product_code>
+                            symbol: https://sellerNP.com/images/i1.png
+                            short_desc: >-
+                              High-quality saffron strands known for their rich
+                              color and intense flavor.
+                            long_desc: >-
+                              High-quality saffron strands known for their rich
+                              color and intense flavor.
+                            images:
+                              - https://sellerNP.com/images/i1.png
+                            additional_desc:
+                              - url: https://quality_assessment.pdf
+                              - content_type: text/html
+                          quantity:
+                            unitized:
+                              measure:
+                                unit: g
+                                value: '1'
+                            available:
+                              count: '100'
+                            maximum:
+                              count: '100'
+                            minumum:
+                              count: '50'
+                          price:
+                            currency: INR
+                            value: '350.00'
+                            maximum_value: '350.00'
+                          category_id: Spices
+                          fulfillment_id: F2
+                          location_id: L1
+                          '@ondc/org/returnable': true
+                          '@ondc/org/cancellable': true
+                          '@ondc/org/return_window': P7D
+                          '@ondc/org/seller_pickup_return': true
+                          '@ondc/org/time_to_ship': PT3H
+                          '@ondc/org/available_on_cod': false
+                          '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
+                          tags:
+                            - code: origin
+                              list:
+                                - code: country
+                                  value: IND
+                            - code: attribute
+                              list:
+                                - code: moisture
+                                  value: 12
+                                - code: moisture_unit
+                                  value: percent
+                                - code: oil_content
+                                  value: 2
+                                - code: oil_content_unit
+                                  value: percent
+                                - code: shelf_life
+                                  value: 2
+                                - code: shelf_life_unit
+                                  value: year
+                                - code: foreign_matter
+                                  value: 2
+                                - code: foreign_matter_unit
+                                  value: percent
+                                - code: defectives
+                                  value: 5
+                                - code: defectives_unit
+                                  value: percent
+                                - code: insected
+                                  value: 2
+                                - code: insected_unit
+                                  value: percent
+                                - code: weevilled
+                                  value: 2
+                                - code: weevilled_unit
+                                  value: percent
+                                - code: damaged
+                                  value: 2
+                                - code: damaged_unit
+                                  value: percent
+                                - code: broken
+                                  value: 2
+                                - code: broken_unit
+                                  value: percent
+                                - code: fragments
+                                  value: 1
+                                - code: fragments_unit
+                                  value: percent
+                                - code: diameter_min
+                                  value: 1
+                                - code: diameter_max
+                                  value: 1.5
+                                - code: diameter_unit
+                                  value: mm
+                                - code: length_min
+                                  value: 2
+                                - code: length_max
+                                  value: 4
+                                - code: length_unit
+                                  value: mm
+                                - code: wastage
+                                  value: 2
+                                - code: wastage_unit
+                                  value: percent
+                                - code: visible_colour
+                                  value: Red
+                                - code: min_flower_per_stem
+                                  value: 3
+                                - code: uric_acid
+                                  value: 100
+                                - code: uric_acid_unit
+                                  value: mg/kg
+                      creds [^8]:
+                        - id: Auth33567
+                          descriptor:
+                            name: Certified Organic
+                          url: https://abcd.cdn.com/images/cert-img
+                          tags:
+                            - code: verification
+                              list:
+                                - code: verify_url
+                                  value: >-
+                                    https://abcd.dnb.com/verify?id='ESG-12345678'
+                                - code: valid_from
+                                  value: 2023-06-03T00:00:00:000Z
+                                - code: valid_to
+                                  value: 2024-06-03T23:59:59:999Z
+                        - id: Auth33567
+                          descriptor:
+                            name: AGMARK
+                          url: https://abcd.cdn.com/images/cert-img
+                          tags:
+                            - code: verification
+                              list:
+                                - code: verify_url
+                                  value: >-
+                                    https://abcd.dnb.com/verify?id='ESG-12345678'
+                                - code: valid_from
+                                  value: 2023-06-03T00:00:00:000Z
+                                - code: valid_to
+                                  value: 2024-06-03T23:59:59:999Z
+                      tags:
+                        - code: timing
+                          list:
+                            - code: type
+                              value: Order
+                            - code: location
+                              value: L1
+                            - code: day_from
+                              value: '1'
+                            - code: day_to
+                              value: '7'
+                            - code: time_from
+                              value: '0000'
+                            - code: time_to
+                              value: '2359'
+                        - code: timing
+                          list:
+                            - code: type
+                              value: Self-Pickup
+                            - code: location
+                              value: L1
+                            - code: day_from
+                              value: '1'
+                            - code: day_to
+                              value: '7'
+                            - code: time_from
+                              value: '0000'
+                            - code: time_to
+                              value: '2359'
+                        - code: timing
+                          list:
+                            - code: type
+                              value: Delivery
+                            - code: location
+                              value: L1
+                            - code: day_from
+                              value: '1'
+                            - code: day_to
+                              value: '7'
+                            - code: time_from
+                              value: '0000'
+                            - code: time_to
+                              value: '2359'
+                        - code: close_timing
+                          list:
+                            - code: location
+                              value: L1
+                            - code: start
+                              value: '2023-06-03T16:00:00.000Z'
+                            - code: end
+                              value: '2023-06-03T23:59:00.000Z'
+                        - code: serviceability
+                          list:
+                            - code: location
+                              value: L1
+                            - code: category
+                              value: Cereals
+                            - code: type
+                              value: '12'
+                            - code: val
+                              value: IND
+                            - code: unit
+                              value: country
+                        - code: serviceability
+                          list:
+                            - code: location
+                              value: L1
+                            - code: category
+                              value: Spices
+                            - code: type
+                              value: '12'
+                            - code: val
+                              value: IND
+                            - code: unit
+                              value: country
+                        - code: comm_channel
+                          list:
+                            - code: chat_url
+                              value: https://wa.me/<number>
       on_select:
         examples:
           - summary: If item is in stock & buyer location serviceable
