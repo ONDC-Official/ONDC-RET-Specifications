@@ -149,6 +149,17 @@
                   >Feature-UI</a
                 >
               </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  id="error-tab"
+                  data-bs-toggle="tab"
+                  href="#error"
+                  role="tab"
+                  aria-selected="false"
+                  >Error-UI</a
+                >
+              </li>
             </ul>
           </div>
           <div class="tab-content">
@@ -257,6 +268,29 @@
                 </div>
               </div>
              </div>
+            </div>
+            <div class="tab-pane fade" id="error" role="tabpanel">
+              <table class="table">
+                <tr>
+                  <td><b>Error Set</b></td>
+                  <td>
+                    <!-- <select
+                      id="error-dropdown"
+                      class="form-select"
+                      onchange="loadErrors()"
+                    ></select> -->
+                    <select id="error-dropdown" class="form-select" value = "Cancellation" onchange="updateErrors()">
+                      <option value="Cancellation">Cancellation</option>
+                      <option value="ErrorCodes">Error Codes</option>
+                    </select>
+                  </td>
+                </tr>
+              </table>
+              <div class="table-wrapper">
+                <table id="errorset">
+                 
+                </table>
+              </div>
             </div>
           </div>
         </div>
@@ -383,6 +417,7 @@
     <script src="ui/flow.js"></script>
     <script src="ui/examples.js"></script>
     <script src="ui/attribute.js"></script>
+    <script src="ui/error.js"></script>
     </script>
     <script type="text/javascript">
 

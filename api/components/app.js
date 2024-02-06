@@ -19,6 +19,8 @@ var base_yaml = "./beckn_yaml.yaml"; //args[0];
 var example_yaml = "./index.yaml"; //args[1];
 var outputPath = "../build/build.yaml";
 var uiPath = "../../ui/build.js";
+const { buildErrorCodes } = require('./build-error-code')
+buildErrorCodes()
 // const outputPath = `./build.yaml`;
 // const unresolvedFilePath = `https://raw.githubusercontent.com/beckn/protocol-specifications/master/api/transaction/components/index.yaml`
 const tempPath = `./temp.yaml`;
@@ -116,7 +118,7 @@ async function matchKeyType(
       type = allOfType;
     }
     if (typeof checkEnum?.code != type) {
-          throw Error(`Enum type not matched: ${currentAttrib} in ${logObject}`);
+      throw Error(`Enum type not matched: ${currentAttrib} in ${logObject}`);
     }
   }
 }
@@ -172,7 +174,7 @@ async function validateEnumsTags(exampleEnums, schemaMap) {
 }
 
 async function traverseTags(currentTagValue, schemaForTraversal, logObject) {
-    //console.log('currentTagValue', currentTagValue)
+  //console.log('currentTagValue', currentTagValue)
   for (const currentTagKey of Object.keys(currentTagValue)) {
     const currentTag = currentTagValue[currentTagKey];
     const schemaType = schemaForTraversal[currentTagKey];
@@ -215,6 +217,7 @@ async function validateTags(tags, schema) {
 async function getSwaggerYaml(example_set, outputPath) {
   try {
     const schema = await baseYMLFile(example_yaml);
+    console.log("schema::::: ", schema.examples)
     const baseYAML = await baseYMLFile(base_yaml);
     const { flows, examples: exampleSets, enum: enums, tags } = schema;
     const { paths } = baseYAML;
@@ -297,6 +300,7 @@ function addEnumTag(base, layer) {
   base["x-tags"] = layer["tags"];
   base["x-flows"] = layer["flows"];
   base["x-examples"] = layer["examples"];
+  base["x-errors"] = layer["error_codes"];
 }
 
 function GenerateYaml(base, layer, output_yaml) {

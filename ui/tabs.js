@@ -8,6 +8,7 @@ function onFirstLoad(build_spec){
       loadExample(data["x-examples"])
       //addExample("on-demand")
       loadFlows(data["x-flows"])
+      loadErrors(data["x-errors"])
       loadAttributes(data["x-attributes"])
 }
 
