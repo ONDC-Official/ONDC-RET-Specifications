@@ -1,0 +1,43 @@
+summary: Get quote for specific item (other products)
+description: Get quote for specific item for other products
+value:
+  context:
+    domain: ONDC:AGR11
+    action: select
+    core_version: 1.2.0
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    bpp_id: sellerNP.com
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: T2
+    message_id: M2
+    city: std:080
+    country: IND
+    timestamp: '2023-06-03T08:30:00.000Z'
+    ttl: PT30S
+  message:
+    order:
+      provider:
+        id: P1
+        locations:
+          - id: L1
+      items:
+        - id: I1
+          location_id: L1
+          quantity:
+            count: 2
+      offers [^1]:
+        - id: BUY2GET3
+          tags:
+            - code: selection
+              list:
+                - code : apply [^2]
+                  value : yes [^3]
+      fulfillments:
+        - end [^4]:
+            location:
+              gps [^5]: 12.453544,77.928379
+              address:
+                area_code: "560001"
+      payment [^6]:
+        type: ON-FULFILLMENT [^7]

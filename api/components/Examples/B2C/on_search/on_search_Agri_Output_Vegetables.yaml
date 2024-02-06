@@ -178,67 +178,67 @@ value:
                 - code: attribute
                   list:
                     - code: moisture
-                      value: 12
+                      value: "12"
                     - code: moisture_unit
                       value: percent
                     - code: oil_content
-                      value: 2
+                      value: "2"
                     - code: oil_content_unit
                       value: percent
                     - code: shelf_life
-                      value: 2
+                      value: "2"
                     - code: shelf_life_unit
                       value: year
                     - code: foreign_matter
-                      value: 2
+                      value: "2"
                     - code: foreign_matter_unit
                       value: percent
                     - code: defectives
-                      value: 5
+                      value: "5"
                     - code: defectives_unit
                       value: percent
                     - code: insected
-                      value: 2
+                      value: "2"
                     - code: insected_unit
                       value: percent
                     - code: weevilled
-                      value: 2
+                      value: "2"
                     - code: weevilled_unit
                       value: percent
                     - code: damaged
-                      value: 2
+                      value: "2"
                     - code: damaged_unit
                       value: percent
                     - code: broken
-                      value: 2
+                      value: "2"
                     - code: broken_unit
                       value: percent
                     - code: fragments
-                      value: 1
+                      value: "1"
                     - code: fragments_unit
                       value: percent
                     - code: diameter_min
-                      value: 1
+                      value: "1"
                     - code: diameter_max
-                      value: 1.5
+                      value: "1.5"
                     - code: diameter_unit
                       value: mm
                     - code: length_min
-                      value: 2
+                      value: "2"
                     - code: length_max
-                      value: 4
+                      value: "4"
                     - code: length_unit
                       value: mm
                     - code: wastage
-                      value: 2
+                      value: "2"
                     - code: wastage_unit
                       value: percent
                     - code: visible_colour
                       value: Red
                     - code: min_flower_per_stem
-                      value: 3
+                      value: "3"
                     - code: uric_acid
-                      value: 100
+                      value: "100"
                     - code: uric_acid_unit
                       value: mg/kg
           creds [^8]:
