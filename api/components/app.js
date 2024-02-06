@@ -36,6 +36,10 @@ async function baseYMLFile(file) {
     console.error("Error parsing schema:", error);
   }
 }
+
+const { buildErrorCodes } = require('./build-error-code')
+buildErrorCodes()
+
 async function validateSchema(schema, data) {
   const validate = ajv.compile(schema);
   const valid = validate(data?.value);
@@ -271,6 +275,7 @@ function addEnumTag(base, layer) {
   base["x-flows"] = layer["flows"];
   base["x-examples"] = layer["examples"];
   base["x-attributes"] = layer["attributes"];
+  base["x-errors"] = layer["error_codes"];
 }
 function GenerateYaml(base, layer, output_yaml) {
   const output = yaml.dump(base);
