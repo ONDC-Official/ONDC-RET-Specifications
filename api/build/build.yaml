@@ -22263,10 +22263,6 @@ x-attributes:
                 reference: if any
             tags:
               parent: true
-              description: Buyer details like GST number, bpp_terms
-              required: required
-              usage: '-'
-              reference: if any
               bpp_terms.max_liability:
                 description: >-
                   max_liability is the maximum aggregate liability of either
@@ -22733,10 +22729,6 @@ x-attributes:
                 reference: if any
             tags:
               parent: true
-              description: Buyer details like GST number, bpp_terms, bap_terms
-              required: required
-              usage: '-'
-              reference: if any
               bpp_terms.max_liability:
                 description: >-
                   max_liability is the maximum aggregate liability of either
@@ -23299,10 +23291,6 @@ x-attributes:
                   usage: Bengaluru
             tags:
               parent: true
-              description: Buyer details like GST number, bpp_terms, bap_terms
-              required: required
-              usage: '-'
-              reference: if any
               bpp_terms.max_liability:
                 description: >-
                   max_liability is the maximum aggregate liability of either
