@@ -34,6 +34,12 @@ function onFirstLoad(build_spec, features) {
   }
 
   try {
+    loadErrors(data["x-errors"])
+  } catch (error) {
+    console.trace(error);
+  }
+
+  try {
     loadAttributes(data["x-attributes"]);
   } catch (error) {
     console.trace(error);
