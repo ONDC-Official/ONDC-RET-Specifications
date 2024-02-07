@@ -186,6 +186,11 @@ message:
         reference: if any
     tags:   
       parent: true 
+      tags:  
+        description: order tags like buyer_id_code, bpp_terms, bap_terms
+        required: required
+        usage: "-"
+        reference: if any
       bpp_terms.max_liability:    
         description: max_liability is the maximum aggregate liability of either party expressed as multiple of the total transaction value.
         required: required
