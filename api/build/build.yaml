@@ -6423,7 +6423,7 @@ x-tags:
     message:
       order: *ref_19
 x-flows:
-  - summary: Retail 1.2.0 (Delivered Agri product)
+  - summary: Retail 1.2.0 ( Delivered Agri product )
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to order an agri product and it is delivered
