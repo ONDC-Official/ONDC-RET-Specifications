@@ -9,7 +9,7 @@ steps:
     example:
       $ref: "../../Examples/B2C/search/search_by_city_AGR11.yaml"
     notes:
-      $ref: "../../notes/search/search_by_city.yaml"
+      $ref: "../../notes/search/search_by_city_AGRI11.yaml"
   - summary: Returns the Agri catalog
     api: on_search
     description:  
@@ -17,7 +17,7 @@ steps:
     example:
       $ref: "../../Examples/B2C/on_search/on_search_Agri_Output_Vegetables.yaml"
     notes:
-      $ref: "../../notes/on_search/on_search_Grocery.yaml"   
+      $ref: "../../notes/on_search/on_search_Agri_Output_Vegetables.yaml"   
   - summary: Select the item
     api: select
     description: 

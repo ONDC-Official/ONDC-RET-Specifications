@@ -241,7 +241,7 @@ value:
                       value: "100"
                     - code: uric_acid_unit
                       value: mg/kg
-          creds [^8]:
+          creds [^6]:
             - id: Auth33567
               descriptor:
                 name: Certified Organic
