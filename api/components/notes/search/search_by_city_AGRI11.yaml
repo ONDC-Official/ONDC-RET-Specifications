@@ -5,7 +5,7 @@ value:
   [^4]: subscriber URI for buyer app
   [^5]: RFC3339 compliant timestamp
   [^6]: validity of message
-  [ˆ7]: optional
+  [ˆ7]: optional attribute
   [ˆ8]: category id will be from this [list](https://docs.google.com/spreadsheets/d/1IVz6vevUbBzNPXBn3PaemE1XbomRdaYO/edit#gid=433414083)
   [^9]: optional, when not specified, all fulfillment types supported by provider should be returned in response
   [^10]: enum - "percent", "amount"
