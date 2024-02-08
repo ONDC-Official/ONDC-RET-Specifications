@@ -4,4 +4,11 @@ value:
   [^3]: timestamp when the snapshot for location was generated, must be <= Context.timestamp
   [^4]: enum - "enable", "disable"
   [^5]: timestamp for item event
-  [^6]: optional
+  [^6]: optional; unique code for item which will be in this format - "type:code" where type is 1 - EAN, 2 - ISBN, 3 - GTIN, 4 - HSN, 5 - others
+  [^7]: categories defined [here](https://docs.google.com/spreadsheets/d/1IVz6vevUbBzNPXBn3PaemE1XbomRdaYO/edit#gid=433414083)
+  [^8]: item attributes defined [here](https://docs.google.com/spreadsheets/d/1IVz6vevUbBzNPXBn3PaemE1XbomRdaYO/edit#gid=433414083) (mapping of attributes to keys e.g. "Oil Content" => "oil_content"), suggestive enums [here](https://docs.google.com/spreadsheets/d/1IVz6vevUbBzNPXBn3PaemE1XbomRdaYO/edit#gid=433414083)
+  [^9]: optional
+  [^10]: optional
+  [^11]: timing for fulfillment type, enum - "Order" (online order processing timings), "Delivery" (order shipment timings, will be same as delivery timings for hyperlocal), "Self-Pickup" (self-pickup timings), "All" (same timing for all fulfillments supported by seller)
+  [^12]: optional - may be provided if store close timing was earlier provided but the store info is being updated thru full refresh
+  [^13]: serviceability construct is defined for (provider+location+category) at either of these levels -  hyperlocal (radius) or intercity (pincodes) or pan-India or polygon; every unique combination of (provider+location+category) can have serviceability defined only at one of these levels

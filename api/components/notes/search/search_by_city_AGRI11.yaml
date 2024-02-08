@@ -9,5 +9,5 @@ value:
   [ˆ8]: category id will be from this [list](https://docs.google.com/spreadsheets/d/1IVz6vevUbBzNPXBn3PaemE1XbomRdaYO/edit#gid=433414083)
   [^9]: optional, when not specified, all fulfillment types supported by provider should be returned in response
   [^10]: enum - "percent", "amount"
-  [^11]: buyer NP finder fee calculations are detailed [here](https://docs.google.com/document/d/iqLdayk488ekEzKrEs-yn6gVrevbxBkILBe5j4oIxMY/edit)
+  [^11]: buyer NP finder fee calculations are detailed [here](https://docs.google.com/document/d/iqLdayk488ekEzKrEs-yn6gVrevbxBkILBe5j4oIxMY)
   [^12]: static terms for [transaction level contract](https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.8hhit7nmwue6)

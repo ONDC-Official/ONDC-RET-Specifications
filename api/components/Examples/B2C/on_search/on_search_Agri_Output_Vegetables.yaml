@@ -74,7 +74,7 @@ value:
                 timestamp: "2023-06-03T07:30:00.000Z [^5]"
               descriptor:
                 name: Maize Lot
-                code: 5:<unique_product_code>
+                code: 5:<unique_product_code> [^6]
                 symbol: https://sellerNP.com/images/i1.png
                 short_desc: High-starch content Maize, ideal for ethanol production
                 long_desc:
@@ -100,7 +100,7 @@ value:
                 currency: INR
                 value: "80.00"
                 maximum_value: "80.00"
-              category_id: Cereals
+              category_id: Cereals [^7]
               fulfillment_id: F2
               location_id: L1
               "@ondc/org/returnable": true
@@ -115,13 +115,13 @@ value:
                   list:
                     - code: country
                       value: IND
-                - code: attribute
+                - code: attribute [^8]
                   list:
                     - code: moisture
                       value: 20
                     - code: moisture_unit
                       value: percentage
-                    - code: oil_content
+                    - code: oil_content[^9]
                       value: 4%
                     - code: oil_content_unit
                       value: percentage
@@ -131,8 +131,8 @@ value:
                       value: year
             - id: I2
               time:
-                label: enable [^4]
-                timestamp: "2023-06-03T07:30:00.000Z [^5]"
+                label: enable 
+                timestamp: "2023-06-03T07:30:00.000Z"
               descriptor:
                 name: Saffron
                 code: 5:<unique_product_code>
@@ -241,7 +241,7 @@ value:
                       value: "100"
                     - code: uric_acid_unit
                       value: mg/kg
-          creds [^6]:
+          creds [^10]:
             - id: Auth33567
               descriptor:
                 name: Certified Organic
@@ -269,7 +269,7 @@ value:
                     - code: valid_to
                       value: 2024-06-03T23:59:59:999Z
           tags:
-            - code: timing
+            - code: timing [^11]
               list:
                 - code: type
                   value: Order
@@ -311,7 +311,7 @@ value:
                   value: "0000"
                 - code: time_to
                   value: "2359"
-            - code: close_timing
+            - code: close_timing [^12]
               list:
                 - code: location
                   value: L1
@@ -319,12 +319,11 @@ value:
                   value: "2023-06-03T16:00:00.000Z"
                 - code: end
                   value: "2023-06-03T23:59:00.000Z"
-            - code: serviceability
+            - code: serviceability [^13]
               list:
                 - code: location
                   value: L1
                 - code: category
-                  value: Cereals
                 - code: type
                   value: "12"
                 - code: val
