@@ -319,7 +319,7 @@ value:
                   value: "2023-06-03T16:00:00.000Z"
                 - code: end
                   value: "2023-06-03T23:59:00.000Z"
-            - code: serviceability [^13]
+            - code: serviceability [^39]
               list:
                 - code: location
                   value: L1
