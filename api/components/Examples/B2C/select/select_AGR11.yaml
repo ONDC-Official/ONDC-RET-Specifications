@@ -13,7 +13,7 @@ value:
     message_id: M2
     city: std:080
     country: IND
-    timestamp: '2023-06-03T08:30:00.000Z'
+    timestamp: "2023-06-03T08:30:00.000Z"
     ttl: PT30S
   message:
     order:
@@ -25,14 +25,14 @@ value:
         - id: I1
           location_id: L1
           quantity:
-            count: 2
+            count: 1
       offers [^1]:
         - id: BUY2GET3
           tags:
             - code: selection
               list:
-                - code : apply [^2]
-                  value : yes [^3]
+                - code: apply [^2]
+                  value: yes [^3]
       fulfillments:
         - end [^4]:
             location:

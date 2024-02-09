@@ -39,7 +39,7 @@ value:
               contact:
                 phone: "9886098860"
                 email: abc@xyz.com
-            - id: F2
+            - id: F3
               type: Buyer-Delivery
               contact:
                 phone: "9886098860"
@@ -78,7 +78,7 @@ value:
                 symbol: https://sellerNP.com/images/i1.png
                 short_desc: High-starch content Maize, ideal for ethanol production
                 long_desc:
-                  With its high-starch content, this maize is perfect for ethanol production, 
+                  With its high-starch content, this maize is perfect for ethanol production,
                   ensuring a robust and efficient biofuel manufacturing process.
                 images [^19]:
                   - https://sellerNP.com/images/i1.png
@@ -91,11 +91,11 @@ value:
                     unit: kg [^21]
                     value: "1"
                 available:
-                  count [^22]: "500"
+                  count [^22]: "99"
                 maximum:
-                  count [^23]: "500"
+                  count [^23]: "99"
                 minumum:
-                  count: "500"
+                  count: "99"
               price:
                 currency: INR
                 value: "80.00"
@@ -131,15 +131,14 @@ value:
                       value: year
             - id: I2
               time:
-                label: enable 
+                label: enable
                 timestamp: "2023-06-03T07:30:00.000Z"
               descriptor:
                 name: Saffron
                 code: 5:<unique_product_code>
                 symbol: https://sellerNP.com/images/i1.png
                 short_desc: High-quality saffron strands known for their rich color and intense flavor.
-                long_desc:
-                  High-quality saffron strands known for their rich color and intense flavor.
+                long_desc: High-quality saffron strands known for their rich color and intense flavor.
                 images:
                   - https://sellerNP.com/images/i1.png
                 additional_desc:
@@ -324,6 +323,7 @@ value:
                 - code: location
                   value: L1
                 - code: category
+                  value: "Cereals"
                 - code: type
                   value: "12"
                 - code: val
