@@ -28,8 +28,8 @@ value:
           id: '022'
       provider:
         id: P1
-      provider_location:
-        id: L1
+        locations:
+        - id: L1
       items:
         - id: I1
           fulfillment_ids:
@@ -64,24 +64,43 @@ value:
       fulfillments:
         - id: F1
           type: Delivery
+          state:
+            descriptor:
+              code: Cancelled
           '@ondc/org/provider_name': Loadshare
           '@ondc/org/category': Express Delivery
           '@ondc/org/TAT': P7D
           tracking: false
           stops:
-            - type: end
-              location:
-                gps: 12.974002,77.613458
-                address: 'My House #, My buildin'
-                city:
-                  name: Bengaluru
-                country:
-                  code: IND
-                area_code: '560001'
-                state:
-                  name: Karnataka
-              contact:
-                phone: '9886098860'
+          - type: start
+            location:
+              id: L1
+              descriptor:
+                name: ABC Store
+              gps: 12.956399,77.636803
+            time:
+              range:
+                start: '2023-02-03T10:00:00.000Z'
+                end: '2023-02-03T10:30:00.000Z'
+            instructions:
+              name: Status for pickup
+              short_desc: Pickup Confirmation Code
+            contact:
+              phone: '9886098860'
+              email: nobody@nomail.com
+          - type: end
+            location:
+              gps: 12.974002,77.613458
+              address: 'My House #, My buildin'
+              city:
+                name: Bengaluru
+              country:
+                code: IND
+              area_code: '560001'
+              state:
+                name: 'Karnataka'
+            contact:
+              phone: '9886098860'
       quote:
         price:
           currency: INR
