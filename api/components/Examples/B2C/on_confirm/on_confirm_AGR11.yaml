@@ -101,14 +101,14 @@ value:
           currency: INR
           value: "114.00"
         breakup:
-          - "@ondc/org/item_id [^9]": I1
+          - "@ondc/org/item_id": I1
             "@ondc/org/item_quantity":
-              count [^10]: 1
+              count: 1
             title: Maize Lot
-            "@ondc/org/title_type [^11]": item
+            "@ondc/org/title_type": item
             price:
               currency: INR
-              value: "80.00 [^12]"
+              value: "80.00"
             item:
               quantity:
                 available:
@@ -120,13 +120,13 @@ value:
                 value: "80.00"
           - "@ondc/org/item_id": F2
             title: Delivery charges
-            "@ondc/org/title_type [^13]": delivery
+            "@ondc/org/title_type": delivery
             price:
               currency: INR
               value: "0.00"
           - "@ondc/org/item_id": F2
             title: Tax
-            "@ondc/org/title_type": tax_f [^15]
+            "@ondc/org/title_type": tax_f
             price:
               currency: INR
               value: "9.00"
@@ -138,25 +138,25 @@ value:
                       value: fulfillment
           - "@ondc/org/item_id": F2
             title: Packing charges
-            "@ondc/org/title_type [^16]": packing
+            "@ondc/org/title_type": packing
             price:
               currency: INR
               value: "25.00"
           - "@ondc/org/item_id": I1
             title: Tax
-            "@ondc/org/title_type [^17]": tax
+            "@ondc/org/title_type": tax
             price:
               currency: INR
               value: "0.00"
           - "@ondc/org/item_id": I1
             title: Discount
-            "@ondc/org/title_type [^18]": discount
+            "@ondc/org/title_type": discount
             price:
               currency: INR
               value: "-10.00"
           - "@ondc/org/item_id": F2
             title: Convenience Fee
-            "@ondc/org/title_type [^19]": misc
+            "@ondc/org/title_type": misc
             price:
               currency: INR
               value: "10.00"
