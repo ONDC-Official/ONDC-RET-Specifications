@@ -8,7 +8,7 @@ value:
         code: std:080
       country:
         code: IND
-    action: cancel
+    action: on_cancel
     version: 2.0.2
     bap_id: buyerapp.com
     bap_uri: https://buyerapp.com/grocery

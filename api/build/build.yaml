@@ -20796,7 +20796,7 @@ x-examples:
                     code: std:080
                   country:
                     code: IND
-                action: cancel
+                action: on_cancel
                 version: 2.0.2
                 bap_id: buyerapp.com
                 bap_uri: https://buyerapp.com/grocery
@@ -20808,7 +20808,7 @@ x-examples:
                 ttl: PT30S
               message:
                 order:
-                  order_id: '02'
+                  id: '02'
                   status: Cancelled
                   cancellation:
                     cancelled_by: buyerapp.com
@@ -20997,28 +20997,6 @@ x-examples:
                           settlement_ifsc_code: XXXXXXXXX
                           bank_name: xxxx
                           branch_name: xxxx
-                  tags:
-                    - descriptor:
-                        code: buyer_id
-                      list:
-                        - descriptor:
-                            code: buyer_id_code
-                          value: gst
-                        - descriptor:
-                            code: buyer_id_no
-                          value: xxxxxxxxxxxxxxx
-                    - code: bpp_terms
-                      list:
-                        - code: max_liability
-                          value: '2'
-                        - code: max_liability_cap
-                          value: '10000'
-                        - code: mandatory_arbitration
-                          value: 'false'
-                        - code: court_jurisdiction
-                          value: Bengaluru
-                        - code: delay_interest
-                          value: '1000'
 x-attributes:
   B2B:
     attribute_set:
