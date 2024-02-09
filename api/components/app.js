@@ -217,7 +217,6 @@ async function validateTags(tags, schema) {
 async function getSwaggerYaml(example_set, outputPath) {
   try {
     const schema = await baseYMLFile(example_yaml);
-    console.log("schema::::: ", schema.examples)
     const baseYAML = await baseYMLFile(base_yaml);
     const { flows, examples: exampleSets, enum: enums, tags } = schema;
     const { paths } = baseYAML;

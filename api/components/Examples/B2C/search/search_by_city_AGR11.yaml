@@ -16,7 +16,7 @@ value:
   message:
     intent:
       category[^7]: 
-        id: Foodgrains [^8]
+        id: Vegetables [^8]
       fulfillment [^9]:
         type: Delivery
       payment:

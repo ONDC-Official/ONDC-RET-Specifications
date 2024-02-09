@@ -6423,7 +6423,7 @@ x-tags:
     message:
       order: *ref_19
 x-flows:
-  - summary: Retail 1.2.0 (Delivered Agri product)
+  - summary: Retail 1.2.0 ( Delivered Agri product )
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to order an agri product and it is delivered
@@ -6453,7 +6453,7 @@ x-flows:
             message:
               intent:
                 category[^7]:
-                  id: Foodgrains [^8]
+                  id: Vegetables [^8]
                 fulfillment [^9]:
                   type: Delivery
                 payment:
@@ -6469,7 +6469,7 @@ x-flows:
                           https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
                       - code: effective_date
                         value: '2023-10-01T00:00:00.000Z'
-        notes: &ref_54
+        notes:
           value:
             ^1: >-
               updated domain namespace defined
@@ -6482,17 +6482,17 @@ x-flows:
             ^4: subscriber URI for buyer app
             ^5: RFC3339 compliant timestamp
             ^6: validity of message
-            ˆ7: optional
+            ˆ7: optional attribute
             ˆ8: >-
               category id will be from this
-              [list](https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0)
+              [list](https://docs.google.com/spreadsheets/d/1IVz6vevUbBzNPXBn3PaemE1XbomRdaYO/edit#gid=433414083)
             ^9: >-
               optional, when not specified, all fulfillment types supported by
               provider should be returned in response
             ^10: enum - "percent", "amount"
             ^11: >-
               buyer NP finder fee calculations are detailed
-              [here](https://docs.google.com/document/d/iqLdayk488ekEzKrEs-yn6gVrevbxBkILBe5j4oIxMY/edit)
+              [here](https://docs.google.com/document/d/iqLdayk488ekEzKrEs-yn6gVrevbxBkILBe5j4oIxMY)
             ^12: >-
               static terms for [transaction level
               contract](https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.8hhit7nmwue6)
@@ -6505,7 +6505,7 @@ x-flows:
           description: Return the catalog for Agri Output
           value:
             context:
-              domain: ONDC:AGR11
+              domain: ONDC:AGR11[^1]
               country: IND
               city: std:080
               action: on_search
@@ -6519,24 +6519,24 @@ x-flows:
               timestamp: '2023-06-03T08:00:30.000Z'
             message:
               catalog:
-                bpp/descriptor:
+                bpp/descriptor[^2]:
                   name: Seller NP
-                  symbol: https://sellerNP.com/images/np.png
+                  symbol: https://sellerNP.com/images/np.png [^3]
                   short_desc: Seller Marketplace
                   long_desc: Seller Marketplace
                   images:
                     - https://sellerNP.com/images/np.png
-                bpp/providers:
-                  - id: P1
+                bpp/providers [^4]:
+                  - id: P1 [^5]
                     time:
-                      label: enable
-                      timestamp: 2023-06-03T08:00:30.000Z [^1]
-                    fulfillments:
+                      label: enable [^6]
+                      timestamp: 2023-06-03T08:00:30.000Z [^7]
+                    fulfillments[^8]:
                       - id: F1
                         type: Delivery
-                        contact:
-                          phone: '9886098860'
-                          email: abc@xyz.com
+                        contact[^9]:
+                          phone: 9886098860[^10]
+                          email: abc@xyz.com[^11]
                       - id: F2
                         type: Self-Pickup
                         contact:
@@ -6554,12 +6554,12 @@ x-flows:
                       long_desc: Store 1
                       images:
                         - https://sellerNP.com/images/store1.png
-                    ttl: P1D
-                    locations:
+                    ttl: P1D [^12]
+                    locations[^13]:
                       - id: L1
                         time:
-                          label: enable [^2]
-                          timestamp: 2023-06-03T07:30:30.000Z [^3]
+                          label: enable [^14]
+                          timestamp: 2023-06-03T07:30:30.000Z [^15]
                           schedule:
                             holidays:
                               - '2023-08-15'
@@ -6573,11 +6573,11 @@ x-flows:
                     items:
                       - id: I1
                         time:
-                          label: enable [^4]
-                          timestamp: 2023-06-03T07:30:00.000Z [^5]
+                          label: enable [^16]
+                          timestamp: 2023-06-03T07:30:00.000Z [^17]
                         descriptor:
                           name: Maize Lot
-                          code: 5:<unique_product_code>
+                          code: 5:<unique_product_code> [^18]
                           symbol: https://sellerNP.com/images/i1.png
                           short_desc: >-
                             High-starch content Maize, ideal for ethanol
@@ -6586,48 +6586,48 @@ x-flows:
                             With its high-starch content, this maize is perfect
                             for ethanol production, ensuring a robust and
                             efficient biofuel manufacturing process.
-                          images:
+                          images [^19]:
                             - https://sellerNP.com/images/i1.png
                           additional_desc:
                             - url: https://quality_assessment.pdf
                             - content_type: text/html
                         quantity:
-                          unitized:
+                          unitized [^20]:
                             measure:
-                              unit: kg
+                              unit: kg [^21]
                               value: '1'
                           available:
-                            count: '500'
+                            count [^22]: '500'
                           maximum:
-                            count: '500'
+                            count [^23]: '500'
                           minumum:
                             count: '500'
                         price:
                           currency: INR
                           value: '80.00'
                           maximum_value: '80.00'
-                        category_id: Cereals
+                        category_id: Cereals [^24]
                         fulfillment_id: F2
                         location_id: L1
-                        '@ondc/org/returnable': true
-                        '@ondc/org/cancellable': true
+                        '@ondc/org/returnable': true [^25]
+                        '@ondc/org/cancellable': true [^26]
                         '@ondc/org/return_window': P7D
-                        '@ondc/org/seller_pickup_return': true
+                        '@ondc/org/seller_pickup_return [^27]': true
                         '@ondc/org/time_to_ship': PT3H
                         '@ondc/org/available_on_cod': false
-                        '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
+                        '@ondc/org/contact_details_consumer_care [^28]': Ramesh,ramesh@abc.com,18004254444
                         tags:
-                          - code: origin
+                          - code: origin [^29]
                             list:
-                              - code: country
+                              - code: country [^30]
                                 value: IND
-                          - code: attribute
+                          - code: attribute [^31]
                             list:
                               - code: moisture
                                 value: 20
                               - code: moisture_unit
                                 value: percentage
-                              - code: oil_content
+                              - code: oil_content[^32]
                                 value: 4%
                               - code: oil_content_unit
                                 value: percentage
@@ -6637,8 +6637,8 @@ x-flows:
                                 value: year
                       - id: I2
                         time:
-                          label: enable [^4]
-                          timestamp: 2023-06-03T07:30:00.000Z [^5]
+                          label: enable
+                          timestamp: '2023-06-03T07:30:00.000Z'
                         descriptor:
                           name: Saffron
                           code: 5:<unique_product_code>
@@ -6750,11 +6750,11 @@ x-flows:
                                 value: '100'
                               - code: uric_acid_unit
                                 value: mg/kg
-                    creds [^8]:
-                      - id: Auth33567
+                    creds [^33]:
+                      - id [^34]: Auth33567
                         descriptor:
                           name: Certified Organic
-                        url: https://abcd.cdn.com/images/cert-img
+                        url [^35]: https://abcd.cdn.com/images/cert-img
                         tags:
                           - code: verification
                             list:
@@ -6762,7 +6762,7 @@ x-flows:
                                 value: https://abcd.dnb.com/verify?id='ESG-12345678'
                               - code: valid_from
                                 value: 2023-06-03T00:00:00:000Z
-                              - code: valid_to
+                              - code: valid_to [^36]
                                 value: 2024-06-03T23:59:59:999Z
                       - id: Auth33567
                         descriptor:
@@ -6778,7 +6778,7 @@ x-flows:
                               - code: valid_to
                                 value: 2024-06-03T23:59:59:999Z
                     tags:
-                      - code: timing
+                      - code: timing [^37]
                         list:
                           - code: type
                             value: Order
@@ -6820,7 +6820,7 @@ x-flows:
                             value: '0000'
                           - code: time_to
                             value: '2359'
-                      - code: close_timing
+                      - code: close_timing [^38]
                         list:
                           - code: location
                             value: L1
@@ -6828,12 +6828,11 @@ x-flows:
                             value: '2023-06-03T16:00:00.000Z'
                           - code: end
                             value: '2023-06-03T23:59:00.000Z'
-                      - code: serviceability
+                      - code: serviceability [^39]
                         list:
                           - code: location
                             value: L1
                           - code: category
-                            value: Cereals
                           - code: type
                             value: '12'
                           - code: val
@@ -6856,20 +6855,15 @@ x-flows:
                         list:
                           - code: chat_url
                             value: https://wa.me/<number>
-        notes: &ref_55
+        notes:
           value:
             ^1: >-
               updated domain namespace is provided
               [here](https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1)
             ^2: descriptor for seller NP
             ^3: logo or image for seller NP
-            ^4: descriptor for seller (merchant) that processes & fulfills orders
-            ^5: >-
-              unique id for provider, must be same as bpp_id for ISN seller
-              apps. Use of same provider id for distinct legal entities will
-              cause an MSN being regarded as ISN and use of different provider
-              id for same legal entity will cause an ISN being regarded as MSN,
-              thus resulting in tax non-compliance
+            ^4: type of NP, enum - "ISN" (inventory seller), "MSN" (marketplace)
+            ^5: unique id for provider
             ^6: >-
               enum - "enable" (default), "disable" (soft delete of provider from
               buyer NP cache)
@@ -6893,165 +6887,71 @@ x-flows:
               location, i.e. warehouse or store, from buyer NP cache - in this
               case, serviceability for the store should not be a part of the
               catalog), "close" (temporary closure of store with the same format
-              for time.range as specified, for incremental refresh,
-              [here](https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.ar4y0zvk65s4)
+              for time.range as specified, for incremental refresh, here -
+              https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.ar4y0zvk65s4
               only if this event is available at the time of generating the full
               catalog snapshot)
             ^15: >-
               timestamp when the snapshot for location was generated, must be <=
               Context.timestamp
-            ^16: >-
-              list of future dated holidays, to be used as per holiday calendar;
-              if no holidays, empty array needs to be passed
-            ^17: locality name
+            ^16: enum - "enable", "disable"
+            ^17: timestamp for item event
             ^18: >-
-              defines variant attributes i.e. attribute & sequence; multiple
-              variant attributes can be defined in multiple attr blocks
-            ^19: >-
-              namespaced attribute, above example means attribute(s) in
-              "quantity.unitized" for an item
-            ^20: >-
-              means concatenation of item.quantity.unitized.measure.value and
-              item.quantity.unitized.measure.unit e.g. "1 kilogram", "2
-              kilogram", "5 kilogram"
-            ^21: enum - "enable", "disable"
-            ^22: timestamp for item event
-            ^23: >-
-              if variant grouping defined for provider above, this matches id
-              for variant_group definition; if not defined or id is invalid,
-              buyer NPs may choose to display as normal SKU item
-            ^24: >-
               optional; unique code for item which will be in this format -
               "type:code" where type is 1 - EAN, 2 - ISBN, 3 - GTIN, 4 - HSN, 5
-              - UPC, 6 - others
-            ^25: >-
+              - others
+            ^19: >-
               while item images ensures better discoverability & enhances user
               experience, if no image is available, seller NPs shouldn’t send
               image (instead of sending placeholder image)
-            ^26: >-
+            ^20: net quantity per unit
+            ^21: >-
               enum - "unit", "dozen", "kilogram", "tonne", "litre", "millilitre"
-              (list
-              [here](https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/grocery/RET10-UOM.json))
-            ^27: stringified integer value - default value for item in stock
-            ^28: >-
+              (list [here] (enum - "unit", "dozen", "kilogram", "tonne",
+              "litre", "millilitre" (list here)))
+            ^22: stringified integer value - default value for item in stock
+            ^23: >-
               stringified integer value - cap per order (if exists) or default
               value
-            ^29: >-
-              enum from
-              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
-            ^30: should default to true except for specific make-to-order items
-            ^31: should default to true except for specific make-to-order items
-            ^32: whether seller is responsible for pick up of item for return
-            ^33: >-
+            ^24: >-
+              categories defined
+              [here](https://docs.google.com/spreadsheets/d/1IVz6vevUbBzNPXBn3PaemE1XbomRdaYO/edit#gid=433414083)
+            ^25: should default to true except for specific make-to-order items
+            ^26: should default to true except for specific make-to-order items
+            ^27: whether seller is responsible for pick up of item for return
+            ^28: >-
               valid contact details exactly in this format - name, email,
               contact no
+            ^29: identifies origin of item i.e. country, state, etc
+            ^30: ISO 3166-1 alpha-3 code
+            ^31: >-
+              item attributes defined
+              [here](https://docs.google.com/spreadsheets/d/1IVz6vevUbBzNPXBn3PaemE1XbomRdaYO/edit#gid=433414083)
+              (mapping of attributes to keys e.g. "Oil Content" =>
+              "oil_content"), suggestive enums
+              [here](https://docs.google.com/spreadsheets/d/1IVz6vevUbBzNPXBn3PaemE1XbomRdaYO/edit#gid=433414083)
+            ^32: optional
+            ^33: credentials for provider (optional)
             ^34: >-
-              mapping of category to attribute key is defined
-              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
-            ^35: >-
-              mapping of category to attribute key is defined
-              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
-            ^36: identifies origin of item i.e. country, state, etc
-            ^37: ISO 3166-1 alpha-3 code
-            ^38: images for statutory requirements - optional
-            ^39: optional, only as applicable
-            ^40: enum - "veg", "non_veg"
-            ^41: >-
-              if variant grouping defined for provider above, this matches id
-              for variant_group definition; if not defined or id is invalid,
-              buyer NPs may choose to display as normal SKU item
-            ^42: >-
-              optional; unique code for item which will be in this format -
-              "type:code" where type is 1 - EAN, 2 - ISBN, 3 - GTIN, 4 - HSN, 5
-              - Others
-            ^43: >-
-              enum - "unit", "dozen", "kilogram", "tonne", "litre", "millilitre"
-              https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/grocery/RET10-UOM.json
-            ^44: >-
-              enum from
-              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
-            ^45: >-
-              valid contact details exactly in this format - name, email,
-              contact no
-            ^46: >-
-              mapping of category to attribute key is defined
-              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
-            ^47: >-
-              mapping of category to attribute key is defined
-              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
-            ^48: identifies origin of item i.e. country, state, etc
-            ^49: ISO 3166-1 alpha-3 code
-            ^50: optional, only as applicable
-            ^51: enum - "veg", "non_veg", "egg"
-            ^52: >-
-              if variant grouping defined for provider above, this matches id
-              for variant_group definition; if not defined or id is invalid,
-              buyer NPs may choose to display as normal SKU item
-            ^53: >-
-              optional; unique code for item which will be in this format -
-              "type:code" where type is 1 - EAN, 2 - ISBN, 3 - GTIN, 4 - HSN, 5
-              - Others
-            ^54: >-
-              enum - "unit", "dozen", "kilogram", "tonne", "litre", "millilitre"
-              https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/grocery/RET10-UOM.json
-            ^55: >-
-              enum from
-              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
-            ^56: >-
-              mapping of category to attribute key is defined
-              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
-            ^57: >-
-              mapping of category to attribute key is defined
-              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
-            ^58: identifies origin of item i.e. country, state, etc.
-            ^59: ISO 3166-1 alpha-3 code
-            ^60: optional, only as applicable
-            ^61: enum - "veg", "non_veg", "egg"
-            ^62: credentials for provider (optional)
-            ^63: >-
               globally identifiable identity or unique ID provided by seller
               app; mandatory if creds are provided
-            ^64: display URL for credential, optional
-            ^65: optional, only if available
-            ^66: offer definition as per the template defined above
-            ^67: for defining order value (e.g. min order value) for provider
-            ^68: minimum order value for provider (up to 2 decimals)
-            ^69: option for catalog response using link or inline (default)
-            ^70: >-
-              enum - "link" (link to zip file for items array for the provider),
-              "inline" (items array in inline response, which is the default
-              today)
-            ^71: >-
-              authorized link URL, required only if type = "link"; in this case,
-              items array won’t be a part of inline response
-            ^72: >-
-              authorized link validity from last_update, required only if type =
-              "link"
-            ^73: >-
-              timestamp for last update of link (RFC3339), required only if type
-              = "link"
-            ^74: >-
+            ^35: display URL for credential, optional
+            ^36: optional, only if available
+            ^37: >-
               timing for fulfillment type, enum - "Order" (online order
               processing timings), "Delivery" (order shipment timings, will be
               same as delivery timings for hyperlocal), "Self-Pickup"
-              (self-pickup timings); example shows store open 24x7- Monday to
-              Sunday (0000 - 2359)
-            ^75: location id for provider
-            ^76: valid value - day of week ("1" - Monday, "7" - Sunday)
-            ^77: >-
-              valid value - day of week ("1" - Monday, "7" - Sunday), day_to >=
-              day_from
-            ^78: valid value - 24hr format ("0000" to "2359")
-            ^79: valid value - 24hr format ("0000" to "2359"), time_to >= time_from
-            ^80: >-
+              (self-pickup timings), "All" (same timing for all fulfillments
+              supported by seller)
+            ^38: >-
+              optional - may be provided if store close timing was earlier
+              provided but the store info is being updated thru full refresh
+            ^39: >-
               serviceability construct is defined for
               (provider+location+category) at either of these levels - 
-              hyperlocal (radius) or intercity (pincodes) or pan-India; every
-              unique combination of (provider+location+category) can have
-              serviceability defined only at one of these levels
-            ^81: maps to unique location for provider
-            ^82: enum - "10" (hyperlocal), "11" (intercity), "12" (pan-India)
-            ^83: credentials for provider (optional);
+              hyperlocal (radius) or intercity (pincodes) or pan-India or
+              polygon; every unique combination of (provider+location+category)
+              can have serviceability defined only at one of these levels
       - summary: Select the item
         api: select
         description: null
@@ -20788,7 +20688,7 @@ x-flows:
         api: search
         description: Search by city
         reference: if any
-        example: &ref_56
+        example: &ref_54
           summary: search by city
           description: Search request for all sellers in the city identified in Context
           value:
@@ -20823,7 +20723,33 @@ x-flows:
                           https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
                       - code: effective_date
                         value: '2023-10-01T00:00:00.000Z'
-        notes: *ref_54
+        notes: &ref_55
+          value:
+            ^1: >-
+              updated domain namespace defined
+              [https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-1.x/api/components/enums/context.yaml]
+            ^2: >-
+              city code for search that identifies the cities where sellers have
+              stores. List of city codes, with pincode mapping, are
+              [here](https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=1474472733)
+            ^3: subscriber id for buyer app
+            ^4: subscriber URI for buyer app
+            ^5: RFC3339 compliant timestamp
+            ^6: validity of message
+            ˆ7: optional
+            ˆ8: >-
+              category id will be from this
+              [list](https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0)
+            ^9: >-
+              optional, when not specified, all fulfillment types supported by
+              provider should be returned in response
+            ^10: enum - "percent", "amount"
+            ^11: >-
+              buyer NP finder fee calculations are detailed
+              [here](https://docs.google.com/document/d/iqLdayk488ekEzKrEs-yn6gVrevbxBkILBe5j4oIxMY/edit)
+            ^12: >-
+              static terms for [transaction level
+              contract](https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.8hhit7nmwue6)
       - summary: Returns the item or catalog (Home&Kitchen)
         api: on_search
         description: null
@@ -21145,7 +21071,202 @@ x-flows:
                             value: '3'
                           - code: unit
                             value: km
-        notes: *ref_55
+        notes:
+          value:
+            ^1: >-
+              updated domain namespace is provided
+              [here](https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1)
+            ^2: descriptor for seller NP
+            ^3: logo or image for seller NP
+            ^4: descriptor for seller (merchant) that processes & fulfills orders
+            ^5: >-
+              unique id for provider, must be same as bpp_id for ISN seller
+              apps. Use of same provider id for distinct legal entities will
+              cause an MSN being regarded as ISN and use of different provider
+              id for same legal entity will cause an ISN being regarded as MSN,
+              thus resulting in tax non-compliance
+            ^6: >-
+              enum - "enable" (default), "disable" (soft delete of provider from
+              buyer NP cache)
+            ^7: >-
+              timestamp when the snapshot for this provider (including provider
+              details, items) was generated, must be <= Context.timestamp. Buyer
+              NPs can use this to determine from when to start incremental
+              refresh
+            ^8: provider level fulfillment options
+            ^9: >-
+              contact details for merchant - if merchant is in multiple
+              locations, this will be the contact detail for merchant and
+              contact detail for the storefront (specific location) will be in
+              fulfillment.start
+            ^10: valid 10 digit (mobile no) or 11 digit no
+            ^11: email id of merchant or seller NP
+            ^12: ISO8601 duration format for validity of provider catalog
+            ^13: locations for provider with unique id for each location
+            ^14: >-
+              enum - "enable" (default), "disable" (soft delete of provider
+              location, i.e. warehouse or store, from buyer NP cache - in this
+              case, serviceability for the store should not be a part of the
+              catalog), "close" (temporary closure of store with the same format
+              for time.range as specified, for incremental refresh,
+              [here](https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.ar4y0zvk65s4)
+              only if this event is available at the time of generating the full
+              catalog snapshot)
+            ^15: >-
+              timestamp when the snapshot for location was generated, must be <=
+              Context.timestamp
+            ^16: >-
+              list of future dated holidays, to be used as per holiday calendar;
+              if no holidays, empty array needs to be passed
+            ^17: locality name
+            ^18: >-
+              defines variant attributes i.e. attribute & sequence; multiple
+              variant attributes can be defined in multiple attr blocks
+            ^19: >-
+              namespaced attribute, above example means attribute(s) in
+              "quantity.unitized" for an item
+            ^20: >-
+              means concatenation of item.quantity.unitized.measure.value and
+              item.quantity.unitized.measure.unit e.g. "1 kilogram", "2
+              kilogram", "5 kilogram"
+            ^21: enum - "enable", "disable"
+            ^22: timestamp for item event
+            ^23: >-
+              if variant grouping defined for provider above, this matches id
+              for variant_group definition; if not defined or id is invalid,
+              buyer NPs may choose to display as normal SKU item
+            ^24: >-
+              optional; unique code for item which will be in this format -
+              "type:code" where type is 1 - EAN, 2 - ISBN, 3 - GTIN, 4 - HSN, 5
+              - UPC, 6 - others
+            ^25: >-
+              while item images ensures better discoverability & enhances user
+              experience, if no image is available, seller NPs shouldn’t send
+              image (instead of sending placeholder image)
+            ^26: >-
+              enum - "unit", "dozen", "kilogram", "tonne", "litre", "millilitre"
+              (list
+              [here](https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/grocery/RET10-UOM.json))
+            ^27: stringified integer value - default value for item in stock
+            ^28: >-
+              stringified integer value - cap per order (if exists) or default
+              value
+            ^29: >-
+              enum from
+              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+            ^30: should default to true except for specific make-to-order items
+            ^31: should default to true except for specific make-to-order items
+            ^32: whether seller is responsible for pick up of item for return
+            ^33: >-
+              valid contact details exactly in this format - name, email,
+              contact no
+            ^34: >-
+              mapping of category to attribute key is defined
+              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+            ^35: >-
+              mapping of category to attribute key is defined
+              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+            ^36: identifies origin of item i.e. country, state, etc
+            ^37: ISO 3166-1 alpha-3 code
+            ^38: images for statutory requirements - optional
+            ^39: optional, only as applicable
+            ^40: enum - "veg", "non_veg"
+            ^41: >-
+              if variant grouping defined for provider above, this matches id
+              for variant_group definition; if not defined or id is invalid,
+              buyer NPs may choose to display as normal SKU item
+            ^42: >-
+              optional; unique code for item which will be in this format -
+              "type:code" where type is 1 - EAN, 2 - ISBN, 3 - GTIN, 4 - HSN, 5
+              - Others
+            ^43: >-
+              enum - "unit", "dozen", "kilogram", "tonne", "litre", "millilitre"
+              https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/grocery/RET10-UOM.json
+            ^44: >-
+              enum from
+              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+            ^45: >-
+              valid contact details exactly in this format - name, email,
+              contact no
+            ^46: >-
+              mapping of category to attribute key is defined
+              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+            ^47: >-
+              mapping of category to attribute key is defined
+              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+            ^48: identifies origin of item i.e. country, state, etc
+            ^49: ISO 3166-1 alpha-3 code
+            ^50: optional, only as applicable
+            ^51: enum - "veg", "non_veg", "egg"
+            ^52: >-
+              if variant grouping defined for provider above, this matches id
+              for variant_group definition; if not defined or id is invalid,
+              buyer NPs may choose to display as normal SKU item
+            ^53: >-
+              optional; unique code for item which will be in this format -
+              "type:code" where type is 1 - EAN, 2 - ISBN, 3 - GTIN, 4 - HSN, 5
+              - Others
+            ^54: >-
+              enum - "unit", "dozen", "kilogram", "tonne", "litre", "millilitre"
+              https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/grocery/RET10-UOM.json
+            ^55: >-
+              enum from
+              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+            ^56: >-
+              mapping of category to attribute key is defined
+              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+            ^57: >-
+              mapping of category to attribute key is defined
+              https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+            ^58: identifies origin of item i.e. country, state, etc.
+            ^59: ISO 3166-1 alpha-3 code
+            ^60: optional, only as applicable
+            ^61: enum - "veg", "non_veg", "egg"
+            ^62: credentials for provider (optional)
+            ^63: >-
+              globally identifiable identity or unique ID provided by seller
+              app; mandatory if creds are provided
+            ^64: display URL for credential, optional
+            ^65: optional, only if available
+            ^66: offer definition as per the template defined above
+            ^67: for defining order value (e.g. min order value) for provider
+            ^68: minimum order value for provider (up to 2 decimals)
+            ^69: option for catalog response using link or inline (default)
+            ^70: >-
+              enum - "link" (link to zip file for items array for the provider),
+              "inline" (items array in inline response, which is the default
+              today)
+            ^71: >-
+              authorized link URL, required only if type = "link"; in this case,
+              items array won’t be a part of inline response
+            ^72: >-
+              authorized link validity from last_update, required only if type =
+              "link"
+            ^73: >-
+              timestamp for last update of link (RFC3339), required only if type
+              = "link"
+            ^74: >-
+              timing for fulfillment type, enum - "Order" (online order
+              processing timings), "Delivery" (order shipment timings, will be
+              same as delivery timings for hyperlocal), "Self-Pickup"
+              (self-pickup timings); example shows store open 24x7- Monday to
+              Sunday (0000 - 2359)
+            ^75: location id for provider
+            ^76: valid value - day of week ("1" - Monday, "7" - Sunday)
+            ^77: >-
+              valid value - day of week ("1" - Monday, "7" - Sunday), day_to >=
+              day_from
+            ^78: valid value - 24hr format ("0000" to "2359")
+            ^79: valid value - 24hr format ("0000" to "2359"), time_to >= time_from
+            ^80: >-
+              serviceability construct is defined for
+              (provider+location+category) at either of these levels - 
+              hyperlocal (radius) or intercity (pincodes) or pan-India; every
+              unique combination of (provider+location+category) can have
+              serviceability defined only at one of these levels
+            ^81: maps to unique location for provider
+            ^82: enum - "10" (hyperlocal), "11" (intercity), "12" (pan-India)
+            ^83: credentials for provider (optional);
       - summary: Search by incremental one time push catalog refresh
         api: search
         description: Search by incremental one time push catalog refresh
@@ -21310,8 +21431,8 @@ x-flows:
         api: search
         description: Search by city
         reference: if any
-        example: *ref_56
-        notes: *ref_54
+        example: *ref_54
+        notes: *ref_55
       - summary: Returns the item or catalog (Health_Wellness)
         api: on_search
         description: null
@@ -29767,7 +29888,7 @@ x-examples:
             description: Return the catalog for Agri Output
             value:
               context:
-                domain: ONDC:AGR11
+                domain: ONDC:AGR11[^1]
                 country: IND
                 city: std:080
                 action: on_search
@@ -29781,24 +29902,24 @@ x-examples:
                 timestamp: '2023-06-03T08:00:30.000Z'
               message:
                 catalog:
-                  bpp/descriptor:
+                  bpp/descriptor[^2]:
                     name: Seller NP
-                    symbol: https://sellerNP.com/images/np.png
+                    symbol: https://sellerNP.com/images/np.png [^3]
                     short_desc: Seller Marketplace
                     long_desc: Seller Marketplace
                     images:
                       - https://sellerNP.com/images/np.png
-                  bpp/providers:
-                    - id: P1
+                  bpp/providers [^4]:
+                    - id: P1 [^5]
                       time:
-                        label: enable
-                        timestamp: 2023-06-03T08:00:30.000Z [^1]
-                      fulfillments:
+                        label: enable [^6]
+                        timestamp: 2023-06-03T08:00:30.000Z [^7]
+                      fulfillments[^8]:
                         - id: F1
                           type: Delivery
-                          contact:
-                            phone: '9886098860'
-                            email: abc@xyz.com
+                          contact[^9]:
+                            phone: 9886098860[^10]
+                            email: abc@xyz.com[^11]
                         - id: F2
                           type: Self-Pickup
                           contact:
@@ -29816,12 +29937,12 @@ x-examples:
                         long_desc: Store 1
                         images:
                           - https://sellerNP.com/images/store1.png
-                      ttl: P1D
-                      locations:
+                      ttl: P1D [^12]
+                      locations[^13]:
                         - id: L1
                           time:
-                            label: enable [^2]
-                            timestamp: 2023-06-03T07:30:30.000Z [^3]
+                            label: enable [^14]
+                            timestamp: 2023-06-03T07:30:30.000Z [^15]
                             schedule:
                               holidays:
                                 - '2023-08-15'
@@ -29835,11 +29956,11 @@ x-examples:
                       items:
                         - id: I1
                           time:
-                            label: enable [^4]
-                            timestamp: 2023-06-03T07:30:00.000Z [^5]
+                            label: enable [^16]
+                            timestamp: 2023-06-03T07:30:00.000Z [^17]
                           descriptor:
                             name: Maize Lot
-                            code: 5:<unique_product_code>
+                            code: 5:<unique_product_code> [^18]
                             symbol: https://sellerNP.com/images/i1.png
                             short_desc: >-
                               High-starch content Maize, ideal for ethanol
@@ -29848,48 +29969,48 @@ x-examples:
                               With its high-starch content, this maize is
                               perfect for ethanol production, ensuring a robust
                               and efficient biofuel manufacturing process.
-                            images:
+                            images [^19]:
                               - https://sellerNP.com/images/i1.png
                             additional_desc:
                               - url: https://quality_assessment.pdf
                               - content_type: text/html
                           quantity:
-                            unitized:
+                            unitized [^20]:
                               measure:
-                                unit: kg
+                                unit: kg [^21]
                                 value: '1'
                             available:
-                              count: '500'
+                              count [^22]: '500'
                             maximum:
-                              count: '500'
+                              count [^23]: '500'
                             minumum:
                               count: '500'
                           price:
                             currency: INR
                             value: '80.00'
                             maximum_value: '80.00'
-                          category_id: Cereals
+                          category_id: Cereals [^24]
                           fulfillment_id: F2
                           location_id: L1
-                          '@ondc/org/returnable': true
-                          '@ondc/org/cancellable': true
+                          '@ondc/org/returnable': true [^25]
+                          '@ondc/org/cancellable': true [^26]
                           '@ondc/org/return_window': P7D
-                          '@ondc/org/seller_pickup_return': true
+                          '@ondc/org/seller_pickup_return [^27]': true
                           '@ondc/org/time_to_ship': PT3H
                           '@ondc/org/available_on_cod': false
-                          '@ondc/org/contact_details_consumer_care': Ramesh,ramesh@abc.com,18004254444
+                          '@ondc/org/contact_details_consumer_care [^28]': Ramesh,ramesh@abc.com,18004254444
                           tags:
-                            - code: origin
+                            - code: origin [^29]
                               list:
-                                - code: country
+                                - code: country [^30]
                                   value: IND
-                            - code: attribute
+                            - code: attribute [^31]
                               list:
                                 - code: moisture
                                   value: 20
                                 - code: moisture_unit
                                   value: percentage
-                                - code: oil_content
+                                - code: oil_content[^32]
                                   value: 4%
                                 - code: oil_content_unit
                                   value: percentage
@@ -29899,8 +30020,8 @@ x-examples:
                                   value: year
                         - id: I2
                           time:
-                            label: enable [^4]
-                            timestamp: 2023-06-03T07:30:00.000Z [^5]
+                            label: enable
+                            timestamp: '2023-06-03T07:30:00.000Z'
                           descriptor:
                             name: Saffron
                             code: 5:<unique_product_code>
@@ -30012,11 +30133,11 @@ x-examples:
                                   value: '100'
                                 - code: uric_acid_unit
                                   value: mg/kg
-                      creds [^8]:
-                        - id: Auth33567
+                      creds [^33]:
+                        - id [^34]: Auth33567
                           descriptor:
                             name: Certified Organic
-                          url: https://abcd.cdn.com/images/cert-img
+                          url [^35]: https://abcd.cdn.com/images/cert-img
                           tags:
                             - code: verification
                               list:
@@ -30025,7 +30146,7 @@ x-examples:
                                     https://abcd.dnb.com/verify?id='ESG-12345678'
                                 - code: valid_from
                                   value: 2023-06-03T00:00:00:000Z
-                                - code: valid_to
+                                - code: valid_to [^36]
                                   value: 2024-06-03T23:59:59:999Z
                         - id: Auth33567
                           descriptor:
@@ -30042,7 +30163,7 @@ x-examples:
                                 - code: valid_to
                                   value: 2024-06-03T23:59:59:999Z
                       tags:
-                        - code: timing
+                        - code: timing [^37]
                           list:
                             - code: type
                               value: Order
@@ -30084,7 +30205,7 @@ x-examples:
                               value: '0000'
                             - code: time_to
                               value: '2359'
-                        - code: close_timing
+                        - code: close_timing [^38]
                           list:
                             - code: location
                               value: L1
@@ -30092,12 +30213,11 @@ x-examples:
                               value: '2023-06-03T16:00:00.000Z'
                             - code: end
                               value: '2023-06-03T23:59:00.000Z'
-                        - code: serviceability
+                        - code: serviceability [^39]
                           list:
                             - code: location
                               value: L1
                             - code: category
-                              value: Cereals
                             - code: type
                               value: '12'
                             - code: val
