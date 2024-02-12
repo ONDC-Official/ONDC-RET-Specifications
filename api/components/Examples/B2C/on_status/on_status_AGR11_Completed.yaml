@@ -1,23 +1,28 @@
-summary: Acceptance by Seller (Other Products)
-description: Acceptance by Seller for other products
+summary: Seller updates the order status and shares Invoice for other product types
+description: Seller updates the order status and shares Invoice for other products
 value:
   context:
     domain: ONDC:AGR11
-    action: on_confirm
+    action: on_status
     core_version: 1.2.0
     bap_id: buyerNP.com
     bap_uri: https://buyerNP.com/ondc
     bpp_id: sellerNP.com
     bpp_uri: https://sellerNP.com/ondc
     transaction_id: T2
-    message_id: M4
+    message_id: M6
     city: std:080
     country: IND
-    timestamp: "2023-06-03T09:30:30.000Z"
+    timestamp: "2023-06-03T11:10:00.000Z"
+    ttl: PT30S
   message:
     order:
       id: O1
-      state: Accepted [^1]
+      state: In-progress [^1]
+      cancellation [^2]:
+        cancelled_by: buyerNP.com
+        reason:
+          id: "004"
       provider:
         id: P1
         locations:
@@ -37,16 +42,16 @@ value:
           state: Karnataka
           country: IND
           area_code: "560037"
-        email [^2]: nobody@nomail.com
+        email [^4]: nobody@nomail.com
         phone: "9886098860"
-        created_at [^3]: "2023-06-03T09:00:00.000Z"
-        updated_at [^4]: "2023-06-03T09:00:00.000Z"
+        created_at [^5]: "2023-06-03T09:00:00.000Z"
+        updated_at: "2023-06-03T09:00:00.000Z"
       fulfillments:
         - id: F2
           "@ondc/org/provider_name": Provider Name
           state:
             descriptor:
-              code: Pending
+              code: Packed [^6]
           type: Delivery
           tracking: false [^5]
           "@ondc/org/TAT": PT5H [^6]
@@ -66,16 +71,17 @@ value:
               range:
                 start: "2023-06-03T10:00:00.000Z"
                 end: "2023-06-03T10:30:00.000Z"
-            instructions [^9]:
-              code: "2 [^10]"
+              timestamp [7^]: "2023-06-03T10:00:30.000Z"
+            instructions [^10]:
+              code: "2 [^8]"
               name: ONDC order
-              short_desc: value of PCC [^11]
+              short_desc: value of PCC [^9]
               long_desc: >-
                 additional instructions such as register or counter no for
                 self-pickup
             contact:
               phone: "9886098860"
-              email [^12]: nobody@nomail.com
+              email [^13]: nobody@nomail.com
           end:
             location:
               gps: 12.453544,77.928379
@@ -91,6 +97,15 @@ value:
               range:
                 start: 2023-06-03T11:00:00.000Z
                 end: 2023-06-03T11:30:00.000Z
+              timestamp [^14]: "2023-06-03T11:10:00.000Z"
+            instructions:
+              code: "2 [^15]"
+              name: ONDC Order
+              short_desc: value of DCC [^16]
+              long_desc: additional instructions for delivery
+              "images ":
+                - https://lsp.com/delivery_image.png
+                - https://lsp.com/rider_location.png
             person:
               name: name_of_person
             contact:
@@ -161,8 +176,8 @@ value:
               currency: INR
               value: "10.00"
         ttl: P1D [^20]
-      payment [^15]:
-        uri [^16]: https://snp.com/pg
+      payment [^29]:
+        uri: https://snp.com/pg
         tl_method [^17]: http/get
         params:
           currency: INR
@@ -255,4 +270,4 @@ value:
             - code: tax_number
               value: gst_number_of_buyerNP
       created_at [^21]: "2023-06-03T09:30:00.000Z"
-      updated_at [^22]: "2023-06-03T09:31:30.000Z"
+      updated_at [^22]: "2023-06-03T11:10:00.000Z"

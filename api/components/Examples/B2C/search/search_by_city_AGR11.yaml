@@ -11,17 +11,17 @@ value:
     bap_uri [^4]: https://buyerNP.com/ondc
     transaction_id: T1
     message_id: M1
-    timestamp [^5]: '2023-06-03T08:00:00.000Z'
+    timestamp [^5]: "2023-06-03T08:00:00.000Z"
     ttl [^6]: PT30S
   message:
     intent:
-      category[^7]: 
-        id: Vegetables [^8]
+      category[^7]:
+        id: Cereals [^8]
       fulfillment [^9]:
-        type: Delivery
+        type: Self-Pickup
       payment:
-        '@ondc/org/buyer_app_finder_fee_type': percent [^10]
-        '@ondc/org/buyer_app_finder_fee_amount [^11]': '3'
+        "@ondc/org/buyer_app_finder_fee_type": percent [^10]
+        "@ondc/org/buyer_app_finder_fee_amount [^11]": "3"
       tags:
         - code: bap_terms[^12]
           list:

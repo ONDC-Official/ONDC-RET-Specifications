@@ -25,9 +25,9 @@ value:
           - id: L1
       items:
         - id: I1
-          fulfillment_id: F1
+          fulfillment_id: F2
           quantity:
-            count: 2
+            count: 1
       "offers ":
         - id: BUY2GET3
       billing:
@@ -45,9 +45,9 @@ value:
         created_at [^3]: "2023-02-03T09:00:00.000Z"
         updated_at [^4]: "2023-02-03T09:00:00.000Z"
       fulfillments:
-        - id: F1
-          type: Delivery
-          "@ondc/org/TAT": "PT60M "
+        - id: F2
+          type: Self-Pickup
+          "@ondc/org/TAT": "PT5H"
           tracking: false
           end:
             person:
@@ -65,34 +65,37 @@ value:
                 state: Karnataka
                 country: IND
                 area_code: "560037"
-          "vehicle ":
-            registration: 3LVJ945
       quote:
         price:
           currency: INR
-          value: "424.00"
+          value: "114.00"
         breakup:
           - "@ondc/org/item_id": I1
             "@ondc/org/item_quantity":
-              count: 2
-            title: Atta
+              count: 1
+            title: Maize Lot
             "@ondc/org/title_type": item
             price:
               currency: INR
-              value: "340.00"
+              value: "80.00"
             item:
+              quantity:
+                available:
+                  count: "99"
+                maximum:
+                  count: "99"
               price:
                 currency: INR
-                value: "170.00"
-          - "@ondc/org/item_id": F1
+                value: "80.00"
+          - "@ondc/org/item_id": F2
             title: Delivery charges
             "@ondc/org/title_type": delivery
             price:
               currency: INR
-              value: "50.00"
-          - "@ondc/org/item_id": F1
+              value: "0.00"
+          - "@ondc/org/item_id": F2
             title: Tax
-            "@ondc/org/title_type": "tax "
+            "@ondc/org/title_type": tax_f
             price:
               currency: INR
               value: "9.00"
@@ -102,7 +105,7 @@ value:
                   list:
                     - code: type
                       value: fulfillment
-          - "@ondc/org/item_id": F1
+          - "@ondc/org/item_id": F2
             title: Packing charges
             "@ondc/org/title_type": packing
             price:
@@ -120,28 +123,28 @@ value:
             price:
               currency: INR
               value: "-10.00"
-          - "@ondc/org/item_id": F1
+          - "@ondc/org/item_id": F2
             title: Convenience Fee
             "@ondc/org/title_type": misc
             price:
               currency: INR
               value: "10.00"
-        ttl: P1D
+        ttl: P1D [^20]
       payment:
-        uri [^8]: https://ondc.transaction.com/payment
+        uri [^8]: https://snp.com/pg
         tl_method [^9]: http/get
         params:
           currency: INR
           transaction_id [^10]: "3937"
-          amount: "415.00 [^11]"
-        status: PAID [^12]
-        type: ON-ORDER [^13]
-        collected_by: BAP [^14]
+          amount: "134.00 [^11]"
+        status: NOT-PAID [^12]
+        type: ON-FULFILLMENT [^13]
+        collected_by: BPP [^14]
         "@ondc/org/buyer_app_finder_fee_type": percent
         "@ondc/org/buyer_app_finder_fee_amount": "3"
         "@ondc/org/settlement_basis": delivery [^15]
         "@ondc/org/settlement_window": P1D [^16]
-        "@ondc/org/withholding_amount": "10.00 [^17]"
+        "@ondc/org/withholding_amount": 0.00 [^17]
         "@ondc/org/settlement_details [^18]":
           - settlement_counterparty: seller-app [^19]
             settlement_phase: sale-amount
@@ -171,8 +174,8 @@ value:
           list:
             - code: "accept_bpp_terms"
               value: Y
-            - code: "static_terms "
-              value: https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf          
+            - code: "static_terms"
+              value: https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
             - code: tax_number [^20]
               value: gst_number_of_buyerNP
       created_at [^21]: "2023-06-03T09:30:00.000Z"
