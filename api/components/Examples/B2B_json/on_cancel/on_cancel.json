@@ -42,6 +42,7 @@
         {
           "id": "I1",
           "fulfillment_ids": ["F1"],
+          "payment_ids": ["P1", "P2"],
           "quantity": {
             "selected": {
               "count": 200
@@ -253,6 +254,7 @@
       },
       "payments": [
         {
+          "id": "P1",
           "type": "PRE-FULFILLMENT",
           "collected_by": "BPP",
           "uri": "https://snp.com/pg",
@@ -303,6 +305,7 @@
           ]
         },
         {
+          "id": "P2",
           "type": "PRE-FULFILLMENT",
           "collected_by": "buyer",
           "uri": "https://snp.com/pg",
@@ -316,20 +319,7 @@
           "@ondc/org/buyer_app_finder_fee_amount": "0",
           "@ondc/org/settlement_basis": "delivery",
           "@ondc/org/settlement_window": "P1D",
-          "@ondc/org/withholding_amount": "10.00",
-          "@ondc/org/settlement_details": [
-            {
-              "settlement_counterparty": "buyer-app",
-              "settlement_phase": "sale-amount",
-              "settlement_type": "upi",
-              "beneficiary_name": "xxxxx",
-              "upi_address": "gft@oksbi",
-              "settlement_bank_account_no": "XXXXXXXXXX",
-              "settlement_ifsc_code": "XXXXXXXXX",
-              "bank_name": "xxxx",
-              "branch_name": "xxxx"
-            }
-          ]
+          "@ondc/org/withholding_amount": "10.00"
         }
       ],
       "tags": [

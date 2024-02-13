@@ -3809,16 +3809,16 @@ x-flows:
                                 currency: IND
                                 value: '0'
                         return_terms:
-                          fulfillment_state:
-                            descriptor:
-                              code: Order-delivered
-                          return_eligible: true
-                          return_time:
-                            duration: P7D
-                          return_location:
-                            address: RTO address
-                            gps: 12.667555,77.349666
-                          fulfillment_managed_by: seller
+                          - fulfillment_state:
+                              descriptor:
+                                code: Order-delivered
+                            return_eligible: true
+                            return_time:
+                              duration: P7D
+                            return_location:
+                              address: RTO address
+                              gps: 12.667555,77.349666
+                            fulfillment_managed_by: seller
                         replacement_terms:
                           - replace_within: P7D
                         time:
@@ -5403,16 +5403,16 @@ x-flows:
                                 currency: IND
                                 value: '0'
                         return_terms:
-                          fulfillment_state:
-                            descriptor:
-                              code: Order-delivered
-                          return_eligible: true
-                          return_time:
-                            duration: P7D
-                          return_location:
-                            address: RTO address
-                            gps: 12.667555,77.349666
-                          fulfillment_managed_by: seller
+                          - fulfillment_state:
+                              descriptor:
+                                code: Order-delivered
+                            return_eligible: true
+                            return_time:
+                              duration: P7D
+                            return_location:
+                              address: RTO address
+                              gps: 12.667555,77.349666
+                            fulfillment_managed_by: seller
                         replacement_terms:
                           - replace_within: P7D
                         time:
@@ -8945,21 +8945,32 @@ x-flows:
                           - fulfillment_state:
                               descriptor:
                                 code: Pending
-                            refund_eligible: 'true'
+                            reason_required: false
+                            cancellation_fee:
+                              percentage: '0'
+                              amount:
+                                currency: IND
+                                value: '0'
                           - fulfillment_state:
                               descriptor:
                                 code: Packed
-                            refund_eligible: 'true'
+                            reason_required: false
+                            cancellation_fee:
+                              percentage: '0'
+                              amount:
+                                currency: IND
+                                value: '0'
+                        return_terms:
                           - fulfillment_state:
                               descriptor:
                                 code: Order-delivered
-                            return_policy:
-                              return_eligible: 'true'
-                              return_within: P7D
-                              fulfillment_managed_by: seller
-                              return_location:
-                                address: RTO address
-                                gps: 12.667555,77.349666
+                            return_eligible: true
+                            return_time:
+                              duration: P7D
+                            return_location:
+                              address: RTO address
+                              gps: 12.667555,77.349666
+                            fulfillment_managed_by: seller
                         replacement_terms:
                           - replace_within: P7D
                         time:
@@ -12798,16 +12809,16 @@ x-examples:
                                   currency: IND
                                   value: '0'
                           return_terms:
-                            fulfillment_state:
-                              descriptor:
-                                code: Order-delivered
-                            return_eligible: true
-                            return_time:
-                              duration: P7D
-                            return_location:
-                              address: RTO address
-                              gps: 12.667555,77.349666
-                            fulfillment_managed_by: seller
+                            - fulfillment_state:
+                                descriptor:
+                                  code: Order-delivered
+                              return_eligible: true
+                              return_time:
+                                duration: P7D
+                              return_location:
+                                address: RTO address
+                                gps: 12.667555,77.349666
+                              fulfillment_managed_by: seller
                           replacement_terms:
                             - replace_within: P7D
                           time:
@@ -13152,16 +13163,16 @@ x-examples:
                                   currency: IND
                                   value: '0'
                           return_terms:
-                            fulfillment_state:
-                              descriptor:
-                                code: Order-delivered
-                            return_eligible: true
-                            return_time:
-                              duration: P7D
-                            return_location:
-                              address: RTO address
-                              gps: 12.667555,77.349666
-                            fulfillment_managed_by: seller
+                            - fulfillment_state:
+                                descriptor:
+                                  code: Order-delivered
+                              return_eligible: true
+                              return_time:
+                                duration: P7D
+                              return_location:
+                                address: RTO address
+                                gps: 12.667555,77.349666
+                              fulfillment_managed_by: seller
                           replacement_terms:
                             - replace_within: P7D
                           time:
@@ -13522,16 +13533,16 @@ x-examples:
                                   currency: IND
                                   value: '0'
                           return_terms:
-                            fulfillment_state:
-                              descriptor:
-                                code: Order-delivered
-                            return_eligible: true
-                            return_time:
-                              duration: P7D
-                            return_location:
-                              address: RTO address
-                              gps: 12.667555,77.349666
-                            fulfillment_managed_by: seller
+                            - fulfillment_state:
+                                descriptor:
+                                  code: Order-delivered
+                              return_eligible: true
+                              return_time:
+                                duration: P7D
+                              return_location:
+                                address: RTO address
+                                gps: 12.667555,77.349666
+                              fulfillment_managed_by: seller
                           replacement_terms:
                             - replace_within: P7D
                           time:
@@ -14108,16 +14119,16 @@ x-examples:
                                   currency: IND
                                   value: '0'
                           return_terms:
-                            fulfillment_state:
-                              descriptor:
-                                code: Order-delivered
-                            return_eligible: true
-                            return_time:
-                              duration: P7D
-                            return_location:
-                              address: RTO address
-                              gps: 12.667555,77.349666
-                            fulfillment_managed_by: seller
+                            - fulfillment_state:
+                                descriptor:
+                                  code: Order-delivered
+                              return_eligible: true
+                              return_time:
+                                duration: P7D
+                              return_location:
+                                address: RTO address
+                                gps: 12.667555,77.349666
+                              fulfillment_managed_by: seller
                           replacement_terms:
                             - replace_within: P7D
                           time:
@@ -14490,16 +14501,16 @@ x-examples:
                                   currency: IND
                                   value: '0'
                           return_terms:
-                            fulfillment_state:
-                              descriptor:
-                                code: Order-delivered
-                            return_eligible: true
-                            return_time:
-                              duration: P7D
-                            return_location:
-                              address: RTO address
-                              gps: 12.667555,77.349666
-                            fulfillment_managed_by: seller
+                            - fulfillment_state:
+                                descriptor:
+                                  code: Order-delivered
+                              return_eligible: true
+                              return_time:
+                                duration: P7D
+                              return_location:
+                                address: RTO address
+                                gps: 12.667555,77.349666
+                              fulfillment_managed_by: seller
                           replacement_terms:
                             - replace_within: P7D
                           time:
@@ -14891,16 +14902,16 @@ x-examples:
                                   currency: IND
                                   value: '0'
                           return_terms:
-                            fulfillment_state:
-                              descriptor:
-                                code: Order-delivered
-                            return_eligible: true
-                            return_time:
-                              duration: P7D
-                            return_location:
-                              address: RTO address
-                              gps: 12.667555,77.349666
-                            fulfillment_managed_by: seller
+                            - fulfillment_state:
+                                descriptor:
+                                  code: Order-delivered
+                              return_eligible: true
+                              return_time:
+                                duration: P7D
+                              return_location:
+                                address: RTO address
+                                gps: 12.667555,77.349666
+                              fulfillment_managed_by: seller
                           replacement_terms:
                             - replace_within: P7D
                           time:
@@ -15211,21 +15222,32 @@ x-examples:
                             - fulfillment_state:
                                 descriptor:
                                   code: Pending
-                              refund_eligible: 'true'
+                              reason_required: false
+                              cancellation_fee:
+                                percentage: '0'
+                                amount:
+                                  currency: IND
+                                  value: '0'
                             - fulfillment_state:
                                 descriptor:
                                   code: Packed
-                              refund_eligible: 'true'
+                              reason_required: false
+                              cancellation_fee:
+                                percentage: '0'
+                                amount:
+                                  currency: IND
+                                  value: '0'
+                          return_terms:
                             - fulfillment_state:
                                 descriptor:
                                   code: Order-delivered
-                              return_policy:
-                                return_eligible: 'true'
-                                return_within: P7D
-                                fulfillment_managed_by: seller
-                                return_location:
-                                  address: RTO address
-                                  gps: 12.667555,77.349666
+                              return_eligible: true
+                              return_time:
+                                duration: P7D
+                              return_location:
+                                address: RTO address
+                                gps: 12.667555,77.349666
+                              fulfillment_managed_by: seller
                           replacement_terms:
                             - replace_within: P7D
                           time:
@@ -15573,16 +15595,16 @@ x-examples:
                                   currency: IND
                                   value: '0'
                           return_terms:
-                            fulfillment_state:
-                              descriptor:
-                                code: Order-delivered
-                            return_eligible: true
-                            return_time:
-                              duration: P7D
-                            return_location:
-                              address: RTO address
-                              gps: 12.667555,77.349666
-                            fulfillment_managed_by: seller
+                            - fulfillment_state:
+                                descriptor:
+                                  code: Order-delivered
+                              return_eligible: true
+                              return_time:
+                                duration: P7D
+                              return_location:
+                                address: RTO address
+                                gps: 12.667555,77.349666
+                              fulfillment_managed_by: seller
                           replacement_terms:
                             - replace_within: P7D
                           time:
@@ -15956,16 +15978,16 @@ x-examples:
                                   currency: IND
                                   value: '0'
                           return_terms:
-                            fulfillment_state:
-                              descriptor:
-                                code: Order-delivered
-                            return_eligible: true
-                            return_time:
-                              duration: P7D
-                            return_location:
-                              address: RTO address
-                              gps: 12.667555,77.349666
-                            fulfillment_managed_by: seller
+                            - fulfillment_state:
+                                descriptor:
+                                  code: Order-delivered
+                              return_eligible: true
+                              return_time:
+                                duration: P7D
+                              return_location:
+                                address: RTO address
+                                gps: 12.667555,77.349666
+                              fulfillment_managed_by: seller
                           replacement_terms:
                             - replace_within: P7D
                           time:
@@ -16320,16 +16342,16 @@ x-examples:
                                   currency: IND
                                   value: '0'
                           return_terms:
-                            fulfillment_state:
-                              descriptor:
-                                code: Order-delivered
-                            return_eligible: true
-                            return_time:
-                              duration: P7D
-                            return_location:
-                              address: RTO address
-                              gps: 12.667555,77.349666
-                            fulfillment_managed_by: seller
+                            - fulfillment_state:
+                                descriptor:
+                                  code: Order-delivered
+                              return_eligible: true
+                              return_time:
+                                duration: P7D
+                              return_location:
+                                address: RTO address
+                                gps: 12.667555,77.349666
+                              fulfillment_managed_by: seller
                           replacement_terms:
                             - replace_within: P7D
                           time:
@@ -16686,16 +16708,16 @@ x-examples:
                                   currency: IND
                                   value: '0'
                           return_terms:
-                            fulfillment_state:
-                              descriptor:
-                                code: Order-delivered
-                            return_eligible: true
-                            return_time:
-                              duration: P7D
-                            return_location:
-                              address: RTO address
-                              gps: 12.667555,77.349666
-                            fulfillment_managed_by: seller
+                            - fulfillment_state:
+                                descriptor:
+                                  code: Order-delivered
+                              return_eligible: true
+                              return_time:
+                                duration: P7D
+                              return_location:
+                                address: RTO address
+                                gps: 12.667555,77.349666
+                              fulfillment_managed_by: seller
                           replacement_terms:
                             - replace_within: P7D
                           time:
@@ -20822,6 +20844,9 @@ x-examples:
                     - id: I1
                       fulfillment_ids:
                         - F1
+                      payment_ids:
+                        - P1
+                        - P2
                       quantity:
                         selected:
                           count: 200
@@ -20974,7 +20999,8 @@ x-examples:
                           value: '-100'
                     ttl: P1D
                   payments:
-                    - type: PRE-FULFILLMENT
+                    - id: P1
+                      type: PRE-FULFILLMENT
                       collected_by: BPP
                       uri: https://snp.com/pg
                       params:
@@ -21007,7 +21033,8 @@ x-examples:
                             - descriptor:
                                 code: dsa
                               value: ED25519
-                    - type: PRE-FULFILLMENT
+                    - id: P2
+                      type: PRE-FULFILLMENT
                       collected_by: buyer
                       uri: https://snp.com/pg
                       params:
@@ -21020,16 +21047,6 @@ x-examples:
                       '@ondc/org/settlement_basis': delivery
                       '@ondc/org/settlement_window': P1D
                       '@ondc/org/withholding_amount': '10.00'
-                      '@ondc/org/settlement_details':
-                        - settlement_counterparty: buyer-app
-                          settlement_phase: sale-amount
-                          settlement_type: upi
-                          beneficiary_name: xxxxx
-                          upi_address: gft@oksbi
-                          settlement_bank_account_no: XXXXXXXXXX
-                          settlement_ifsc_code: XXXXXXXXX
-                          bank_name: xxxx
-                          branch_name: xxxx
                   tags:
                     - descriptor:
                         code: buyer_id

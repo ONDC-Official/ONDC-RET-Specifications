@@ -206,7 +206,7 @@ value:
                 currency: IND
                 value: '0'
           return_terms:
-            fulfillment_state:
+          - fulfillment_state:
               descriptor:
                 code: Order-delivered
             return_eligible: true
