@@ -187,6 +187,39 @@ value:
         ttl: P1D
       payments:
         - type: PRE-FULFILLMENT
+          collected_by: BPP
+          uri: https://snp.com/pg
+          params:
+            currency: INR
+            transaction_id: '3937'
+            amount: '53600'
+          status: PAID
+          "@ondc/org/buyer_app_finder_fee_type": percent
+          "@ondc/org/buyer_app_finder_fee_amount": '0'
+          "@ondc/org/settlement_basis": delivery
+          "@ondc/org/settlement_window": P1D
+          "@ondc/org/withholding_amount": '10.00'
+          "@ondc/org/settlement_details":
+          - settlement_counterparty: buyer-app
+            settlement_phase: sale-amount
+            settlement_type: upi
+            beneficiary_name: xxxxx
+            upi_address: gft@oksbi
+            settlement_bank_account_no: XXXXXXXXXX
+            settlement_ifsc_code: XXXXXXXXX
+            bank_name: xxxx
+            branch_name: xxxx
+          tags:
+          - descriptor:
+              code: BPP_payment
+            list:
+            - descriptor:
+                code: signature
+              value: xxxxxxxxxxxxxx
+            - descriptor:
+                code: dsa
+              value: ED25519
+        - type: PRE-FULFILLMENT
           collected_by: buyer
           uri: https://snp.com/pg
           params:
