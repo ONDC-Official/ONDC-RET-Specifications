@@ -20796,7 +20796,7 @@ x-examples:
                     code: std:080
                   country:
                     code: IND
-                action: cancel
+                action: on_cancel
                 version: 2.0.2
                 bap_id: buyerapp.com
                 bap_uri: https://buyerapp.com/grocery
@@ -20808,7 +20808,7 @@ x-examples:
                 ttl: PT30S
               message:
                 order:
-                  order_id: '02'
+                  id: '02'
                   status: Cancelled
                   cancellation:
                     cancelled_by: buyerapp.com
@@ -20816,8 +20816,8 @@ x-examples:
                       id: '022'
                   provider:
                     id: P1
-                  provider_location:
-                    id: L1
+                    locations:
+                      - id: L1
                   items:
                     - id: I1
                       fulfillment_ids:
@@ -20852,11 +20852,30 @@ x-examples:
                   fulfillments:
                     - id: F1
                       type: Delivery
+                      state:
+                        descriptor:
+                          code: Cancelled
                       '@ondc/org/provider_name': Loadshare
                       '@ondc/org/category': Express Delivery
                       '@ondc/org/TAT': P7D
                       tracking: false
                       stops:
+                        - type: start
+                          location:
+                            id: L1
+                            descriptor:
+                              name: ABC Store
+                            gps: 12.956399,77.636803
+                          time:
+                            range:
+                              start: '2023-02-03T10:00:00.000Z'
+                              end: '2023-02-03T10:30:00.000Z'
+                          instructions:
+                            name: Status for pickup
+                            short_desc: Pickup Confirmation Code
+                          contact:
+                            phone: '9886098860'
+                            email: nobody@nomail.com
                         - type: end
                           location:
                             gps: 12.974002,77.613458
@@ -21021,18 +21040,30 @@ x-examples:
                         - descriptor:
                             code: buyer_id_no
                           value: xxxxxxxxxxxxxxx
-                    - code: bpp_terms
+                    - descriptor:
+                        code: bpp_terms
                       list:
-                        - code: max_liability
+                        - descriptor:
+                            code: max_liability
                           value: '2'
-                        - code: max_liability_cap
+                        - descriptor:
+                            code: max_liability_cap
                           value: '10000'
-                        - code: mandatory_arbitration
+                        - descriptor:
+                            code: mandatory_arbitration
                           value: 'false'
-                        - code: court_jurisdiction
+                        - descriptor:
+                            code: court_jurisdiction
                           value: Bengaluru
-                        - code: delay_interest
+                        - descriptor:
+                            code: delay_interest
                           value: '1000'
+                    - descriptor:
+                        code: bap_terms
+                      list:
+                        - descriptor:
+                            code: accept_bpp_terms
+                          value: 'Y'
 x-attributes:
   B2B:
     attribute_set:
