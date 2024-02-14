@@ -140,6 +140,7 @@ value:
         tl_method [^17]: http/get
         params:
           currency: INR
+          transaction_id: "3937"
           amount: "105.00"
         status: PAID
         type: ON-FULFILLMENT
