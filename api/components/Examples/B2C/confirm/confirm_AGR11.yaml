@@ -25,7 +25,7 @@ value:
           - id: L1
       items:
         - id: I1
-          fulfillment_id: F2
+          fulfillment_id: F1
           quantity:
             count: 1
       offers:

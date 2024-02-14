@@ -71,7 +71,6 @@ value:
               range:
                 start: "2023-06-03T10:00:00.000Z"
                 end: "2023-06-03T10:30:00.000Z"
-              timestamp [7^]: "2023-06-03T10:00:30.000Z"
             instructions [^10]:
               code: "2 [^8]"
               name: ONDC order

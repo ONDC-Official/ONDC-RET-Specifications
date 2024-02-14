@@ -7308,7 +7308,7 @@ x-flows:
                     - id: L1 [^1]
                 items:
                   - id: I1
-                    fulfillment_id: F2
+                    fulfillment_id: F1
                     quantity:
                       count: 2
                 billing [^2]:
@@ -7605,7 +7605,7 @@ x-flows:
                     - id: L1
                 items:
                   - id: I1
-                    fulfillment_id: F2
+                    fulfillment_id: F1
                     quantity:
                       count: 1
                 offers:
@@ -8205,7 +8205,6 @@ x-flows:
                         range:
                           start: '2023-06-03T10:00:00.000Z'
                           end: '2023-06-03T10:30:00.000Z'
-                        timestamp [7^]: '2023-06-03T10:00:30.000Z'
                       instructions [^10]:
                         code: 2 [^8]
                         name: ONDC order
