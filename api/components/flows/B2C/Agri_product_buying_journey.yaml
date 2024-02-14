@@ -103,6 +103,6 @@ steps:
     description: Seller provides the updated status to the buyer for order completion
     reference: if any
     example:
-      $ref: "../../Examples/B2C/on_status/on_status_AGR11_In-Progress.yaml"
+      $ref: "../../Examples/B2C/on_status/on_status_AGR11_Completed.yaml"
     notes:
       $ref: "../../notes/on_status/on_status_other_product_out_for_delivery.yaml"

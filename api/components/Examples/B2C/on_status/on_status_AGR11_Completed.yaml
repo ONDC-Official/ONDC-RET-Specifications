@@ -18,7 +18,7 @@ value:
   message:
     order:
       id: O1
-      state: In-progress [^1]
+      state: Completed [^1]
       cancellation [^2]:
         cancelled_by: buyerNP.com
         reason:
