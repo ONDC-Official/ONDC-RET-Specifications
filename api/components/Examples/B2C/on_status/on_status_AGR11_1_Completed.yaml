@@ -82,35 +82,6 @@ value:
             contact:
               phone: "9886098860"
               email [^13]: nobody@nomail.com
-          end:
-            location:
-              gps: 12.453544,77.928379
-              address:
-                name: "My house #"
-                building: My building name
-                locality: My street name
-                city: Bengaluru
-                state: Karnataka
-                country: IND
-                area_code: "560037"
-            time [^13]:
-              range:
-                start: "2023-06-03T11:00:00.000Z"
-                end: "2023-06-03T11:30:00.000Z"
-              timestamp [^14]: "2023-06-03T11:10:00.000Z"
-            instructions:
-              code: "2 [^15]"
-              name: ONDC Order
-              short_desc: value of DCC [^16]
-              long_desc: additional instructions for delivery
-              images:
-                - https://lsp.com/delivery_image.png
-                - https://lsp.com/rider_location.png
-            person:
-              name: name_of_person
-            contact:
-              phone: "9886098860"
-              email [^14]: nobody@nomail.com
       quote:
         price:
           currency: INR
