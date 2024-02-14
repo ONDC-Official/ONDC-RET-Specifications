@@ -29,7 +29,7 @@ value:
           - id: L1
       items:
         - id: I1
-          fulfillment_id: F2
+          fulfillment_id: F1
           quantity:
             count: 1
       billing:
@@ -47,11 +47,11 @@ value:
         created_at [^5]: "2023-06-03T09:00:00.000Z"
         updated_at: "2023-06-03T09:00:00.000Z"
       fulfillments:
-        - id: F2
+        - id: F1
           "@ondc/org/provider_name": Provider Name
           state:
             descriptor:
-              code: Packed [^6]
+              code: Delivered [^6]
           type: Delivery
           tracking: false [^5]
           "@ondc/org/TAT": PT5H [^6]
@@ -95,8 +95,8 @@ value:
                 area_code: "560037"
             time [^13]:
               range:
-                start: 2023-06-03T11:00:00.000Z
-                end: 2023-06-03T11:30:00.000Z
+                start: "2023-06-03T11:00:00.000Z"
+                end: "2023-06-03T11:30:00.000Z"
               timestamp [^14]: "2023-06-03T11:10:00.000Z"
             instructions:
               code: "2 [^15]"
@@ -114,16 +114,16 @@ value:
       quote:
         price:
           currency: INR
-          value: "114.00"
+          value: "204.00"
         breakup:
-          - "@ondc/org/item_id": I1
+          - "@ondc/org/item_id [^9]": I1
             "@ondc/org/item_quantity":
-              count: 1
+              count [^10]: 1
             title: Maize Lot
-            "@ondc/org/title_type": item
+            "@ondc/org/title_type [^11]": item
             price:
               currency: INR
-              value: "80.00"
+              value: "80.00 [^12]"
             item:
               quantity:
                 available:
@@ -133,15 +133,15 @@ value:
               price:
                 currency: INR
                 value: "80.00"
-          - "@ondc/org/item_id": F2
+          - "@ondc/org/item_id": F1
             title: Delivery charges
-            "@ondc/org/title_type": delivery
+            "@ondc/org/title_type [^13]": delivery
             price:
               currency: INR
-              value: "0.00"
-          - "@ondc/org/item_id": F2
+              value: "90.00"
+          - "@ondc/org/item_id": F1
             title: Tax
-            "@ondc/org/title_type": tax_f
+            "@ondc/org/title_type [^13]": tax
             price:
               currency: INR
               value: "9.00"
@@ -151,27 +151,27 @@ value:
                   list:
                     - code: type
                       value: fulfillment
-          - "@ondc/org/item_id": F2
+          - "@ondc/org/item_id": F1
             title: Packing charges
-            "@ondc/org/title_type": packing
+            "@ondc/org/title_type [^16]": packing
             price:
               currency: INR
               value: "25.00"
           - "@ondc/org/item_id": I1
             title: Tax
-            "@ondc/org/title_type": tax
+            "@ondc/org/title_type [^17]": tax
             price:
               currency: INR
               value: "0.00"
           - "@ondc/org/item_id": I1
             title: Discount
-            "@ondc/org/title_type": discount
+            "@ondc/org/title_type [^18]": discount
             price:
               currency: INR
               value: "-10.00"
-          - "@ondc/org/item_id": F2
+          - "@ondc/org/item_id": F1
             title: Convenience Fee
-            "@ondc/org/title_type": misc
+            "@ondc/org/title_type [^19]": misc
             price:
               currency: INR
               value: "10.00"
@@ -183,7 +183,7 @@ value:
           currency: INR
           transaction_id: "3937"
           amount: "114.00"
-        status: NOT-PAID
+        status: PAID
         type: ON-FULFILLMENT
         collected_by: BPP
         "@ondc/org/buyer_app_finder_fee_type": percent
@@ -201,7 +201,7 @@ value:
             settlement_ifsc_code: XXXXXXXXX
             bank_name: xxxx
             branch_name: xxxx
-      "cancellation_terms ":
+      cancellation_terms:
         - fulfillment_state:
             descriptor:
               code: Pending
@@ -242,7 +242,7 @@ value:
             amount:
               currency: INR
               value: "100.00"
-      "tags ":
+      tags:
         - code: bpp_terms
           list:
             - code: max_liability_cap

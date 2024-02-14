@@ -28,7 +28,7 @@ value:
           fulfillment_id: F2
           quantity:
             count: 1
-      "offers ":
+      offers:
         - id: BUY2GET3
       billing:
         name: ONDC buyer
@@ -45,9 +45,9 @@ value:
         created_at [^3]: "2023-02-03T09:00:00.000Z"
         updated_at [^4]: "2023-02-03T09:00:00.000Z"
       fulfillments:
-        - id: F2
-          type: Self-Pickup
-          "@ondc/org/TAT": "PT5H"
+        - id: F1
+          type: Delivery
+          "@ondc/org/TAT": "PT60M"
           tracking: false
           end:
             person:
@@ -68,16 +68,16 @@ value:
       quote:
         price:
           currency: INR
-          value: "114.00"
+          value: "204.00"
         breakup:
-          - "@ondc/org/item_id": I1
+          - "@ondc/org/item_id [^9]": I1
             "@ondc/org/item_quantity":
-              count: 1
+              count [^10]: 1
             title: Maize Lot
-            "@ondc/org/title_type": item
+            "@ondc/org/title_type [^11]": item
             price:
               currency: INR
-              value: "80.00"
+              value: "80.00 [^12]"
             item:
               quantity:
                 available:
@@ -87,15 +87,15 @@ value:
               price:
                 currency: INR
                 value: "80.00"
-          - "@ondc/org/item_id": F2
+          - "@ondc/org/item_id": F1
             title: Delivery charges
-            "@ondc/org/title_type": delivery
+            "@ondc/org/title_type [^13]": delivery
             price:
               currency: INR
-              value: "0.00"
-          - "@ondc/org/item_id": F2
+              value: "90.00"
+          - "@ondc/org/item_id": F1
             title: Tax
-            "@ondc/org/title_type": tax_f
+            "@ondc/org/title_type [^13]": tax
             price:
               currency: INR
               value: "9.00"
@@ -105,27 +105,27 @@ value:
                   list:
                     - code: type
                       value: fulfillment
-          - "@ondc/org/item_id": F2
+          - "@ondc/org/item_id": F1
             title: Packing charges
-            "@ondc/org/title_type": packing
+            "@ondc/org/title_type [^16]": packing
             price:
               currency: INR
               value: "25.00"
           - "@ondc/org/item_id": I1
             title: Tax
-            "@ondc/org/title_type": tax
+            "@ondc/org/title_type [^17]": tax
             price:
               currency: INR
               value: "0.00"
           - "@ondc/org/item_id": I1
             title: Discount
-            "@ondc/org/title_type": discount
+            "@ondc/org/title_type [^18]": discount
             price:
               currency: INR
               value: "-10.00"
-          - "@ondc/org/item_id": F2
+          - "@ondc/org/item_id": F1
             title: Convenience Fee
-            "@ondc/org/title_type": misc
+            "@ondc/org/title_type [^19]": misc
             price:
               currency: INR
               value: "10.00"
@@ -146,7 +146,7 @@ value:
         "@ondc/org/settlement_window": P1D [^16]
         "@ondc/org/withholding_amount": 0.00 [^17]
         "@ondc/org/settlement_details [^18]":
-          - settlement_counterparty: seller-app [^19]
+          - settlement_counterparty: buyer-app [^19]
             settlement_phase: sale-amount
             settlement_type: upi
             upi_address: gft@oksbi

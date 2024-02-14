@@ -152,7 +152,7 @@ value:
                 - code: reason_id
                   value: "002 "
                 - code: timestamp
-                  value: 2023-06-06T22:00:00.000Z
+                  value: "2023-06-06T22:00:00.000Z"
       quote:
         price:
           currency: INR

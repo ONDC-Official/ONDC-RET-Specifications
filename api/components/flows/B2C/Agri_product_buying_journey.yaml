@@ -79,7 +79,23 @@ steps:
     description: Seller provides the updated status to the buyer for in-progress
     reference: if any
     example:
-      $ref: "../../Examples/B2C/on_status/on_status_AGR11_Completed.yaml"
+      $ref: "../../Examples/B2C/on_status/on_status_AGR11_In-Progress.yaml"
+    notes:
+      $ref: "../../notes/on_status/on_status_other_product_order_pickup.yaml"
+  - summary: Seller provides latest order status
+    api: on_status (In-progress)
+    description: Seller provides the updated status to the buyer for in-progress
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/on_status/on_status_other_product_order_pickup.yaml"
+    notes:
+      $ref: "../../notes/on_status/on_status_other_product_order_pickup.yaml"
+  - summary: Seller provides latest order status
+    api: on_status (In-progress)
+    description: Seller provides the updated status to the buyer for in-progress
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C/on_status/on_status_other_product_out_for_delivery.yaml"
     notes:
       $ref: "../../notes/on_status/on_status_other_product_order_pickup.yaml"
   - summary: Seller provides latest order status

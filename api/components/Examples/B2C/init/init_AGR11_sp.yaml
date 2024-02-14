@@ -46,9 +46,9 @@ value:
       fulfillments:
         - id: F2
           type: Self-Pickup
-          end:
+          start:
             location:
-              gps: 12.453544,77.928379
+              gps: 12.967555,77.749666
               address [^8]:
                 name: "My House/Warehouse # [^8]"
                 building: My building name
@@ -56,6 +56,6 @@ value:
                 city: Bengaluru
                 state: Karnataka
                 country: IND
-                area_code: "560037"
+                area_code: "560076"
             contact:
               phone: "9886098860"

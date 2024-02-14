@@ -39,7 +39,7 @@ steps:
     description:
     reference: if any
     example:
-      $ref: "../../Examples/B2C/init/init_AGR11.yaml"
+      $ref: "../../Examples/B2C/init/init_AGR11_sp.yaml"
     notes:
       $ref: "../../notes/init/init_other_product.yaml"
   - summary: Respond to init
@@ -47,7 +47,7 @@ steps:
     description:
     reference: if any
     example:
-      $ref: "../../Examples/B2C/on_init/on_init_AGR11.yaml"
+      $ref: "../../Examples/B2C/on_init/on_init_AGR11_1.yaml"
     notes:
       $ref: "../../notes/on_init/on_init_other_product.yaml"
   - summary: Buyer confirms product
@@ -55,7 +55,7 @@ steps:
     description:
     reference: if any
     example:
-      $ref: "../../Examples/B2C/confirm/confirm_AGR11.yaml"
+      $ref: "../../Examples/B2C/confirm/confirm_AGR11_1.yaml"
     notes:
       $ref: "../../notes/confirm/confirm_other_product.yaml"
   - summary: Seller Accepts confirmation
@@ -63,7 +63,7 @@ steps:
     description:
     reference: if any
     example:
-      $ref: "../../Examples/B2C/on_confirm/on_confirm_AGR11.yaml"
+      $ref: "../../Examples/B2C/on_confirm/on_confirm_AGR11_1.yaml"
     notes:
       $ref: "../../notes/on_confirm/on_confirm_other_product.yaml"
   - summary: Buyer platform requests for latest status
@@ -79,7 +79,7 @@ steps:
     description: Seller provides the updated status to the buyer for in-progress
     reference: if any
     example:
-      $ref: "../../Examples/B2C/on_status/on_status_AGR11_Completed.yaml"
+      $ref: "../../Examples/B2C/on_status/on_status_AGR11_1_In-Progress.yaml"
     notes:
       $ref: "../../notes/on_status/on_status_other_product_order_pickup.yaml"
   - summary: Seller provides latest order status
@@ -87,6 +87,6 @@ steps:
     description: Seller provides the updated status to the buyer for order completion
     reference: if any
     example:
-      $ref: "../../Examples/B2C/on_status/on_status_AGR11_In-Progress.yaml"
+      $ref: "../../Examples/B2C/on_status/on_status_AGR11_1_Completed.yaml"
     notes:
-      $ref: "../../notes/on_status/on_status_other_product_out_for_delivery.yaml"
+      $ref: "../../notes/on_status/on_status_other_product_order_delivered.yaml"

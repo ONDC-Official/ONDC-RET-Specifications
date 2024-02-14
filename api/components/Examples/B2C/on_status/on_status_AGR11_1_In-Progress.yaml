@@ -52,7 +52,7 @@ value:
           state:
             descriptor:
               code: Packed [^6]
-          type: Delivery
+          type: Self-Pickup
           tracking: false [^5]
           "@ondc/org/TAT": PT5H [^6]
           start:
@@ -95,8 +95,8 @@ value:
                 area_code: "560037"
             time [^13]:
               range:
-                start: 2023-06-03T11:00:00.000Z
-                end: 2023-06-03T11:30:00.000Z
+                start: "2023-06-03T11:00:00.000Z"
+                end: "2023-06-03T11:30:00.000Z"
             instructions:
               code: "2 [^15]"
               name: ONDC Order
@@ -113,16 +113,16 @@ value:
       quote:
         price:
           currency: INR
-          value: "114.00"
+          value: "105.00"
         breakup:
-          - "@ondc/org/item_id": I1
+          - "@ondc/org/item_id [^9]": I1
             "@ondc/org/item_quantity":
-              count: 1
+              count [^10]: 1
             title: Maize Lot
-            "@ondc/org/title_type": item
+            "@ondc/org/title_type [^11]": item
             price:
               currency: INR
-              value: "80.00"
+              value: "80.00 [^12]"
             item:
               quantity:
                 available:
@@ -134,43 +134,31 @@ value:
                 value: "80.00"
           - "@ondc/org/item_id": F2
             title: Delivery charges
-            "@ondc/org/title_type": delivery
+            "@ondc/org/title_type [^13]": delivery
             price:
               currency: INR
               value: "0.00"
           - "@ondc/org/item_id": F2
-            title: Tax
-            "@ondc/org/title_type": tax_f
-            price:
-              currency: INR
-              value: "9.00"
-            item:
-              tags:
-                - code: quote
-                  list:
-                    - code: type
-                      value: fulfillment
-          - "@ondc/org/item_id": F2
             title: Packing charges
-            "@ondc/org/title_type": packing
+            "@ondc/org/title_type [^16]": packing
             price:
               currency: INR
               value: "25.00"
           - "@ondc/org/item_id": I1
             title: Tax
-            "@ondc/org/title_type": tax
+            "@ondc/org/title_type [^17]": tax
             price:
               currency: INR
               value: "0.00"
           - "@ondc/org/item_id": I1
             title: Discount
-            "@ondc/org/title_type": discount
+            "@ondc/org/title_type [^18]": discount
             price:
               currency: INR
               value: "-10.00"
           - "@ondc/org/item_id": F2
             title: Convenience Fee
-            "@ondc/org/title_type": misc
+            "@ondc/org/title_type [^19]": misc
             price:
               currency: INR
               value: "10.00"
@@ -181,7 +169,7 @@ value:
         params:
           currency: INR
           transaction_id: "3937"
-          amount: "114.00"
+          amount: "105.00"
         status: NOT-PAID
         type: ON-FULFILLMENT
         collected_by: BPP
@@ -200,7 +188,7 @@ value:
             settlement_ifsc_code: XXXXXXXXX
             bank_name: xxxx
             branch_name: xxxx
-      "cancellation_terms ":
+      cancellation_terms:
         - fulfillment_state:
             descriptor:
               code: Pending
@@ -241,7 +229,7 @@ value:
             amount:
               currency: INR
               value: "100.00"
-      "tags ":
+      tags:
         - code: bpp_terms
           list:
             - code: max_liability_cap

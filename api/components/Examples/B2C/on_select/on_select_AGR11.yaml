@@ -21,7 +21,7 @@ value:
         locations:
           - id: L1 [^1]
       items:
-        - fulfillment_id: F2
+        - fulfillment_id: F1
           id: I1
       fulfillments [^2]:
         - id: F1 [^3]
@@ -45,7 +45,7 @@ value:
       quote:
         price:
           currency: INR
-          value: "114.00"
+          value: "204.00"
         breakup:
           - "@ondc/org/item_id [^9]": I1
             "@ondc/org/item_quantity":
@@ -64,21 +64,15 @@ value:
               price:
                 currency: INR
                 value: "80.00"
-          - "@ondc/org/item_id": F2
+          - "@ondc/org/item_id": F1
             title: Delivery charges
             "@ondc/org/title_type [^13]": delivery
             price:
               currency: INR
-              value: "0.00"
-          # - '@ondc/org/item_id': F1
-          #   title: Discount
-          #   '@ondc/org/title_type': discount_f [^14]
-          #   price:
-          #     currency: INR
-          #     value: '-50.00'
-          - "@ondc/org/item_id": F2
+              value: "90.00"
+          - "@ondc/org/item_id": F1
             title: Tax
-            "@ondc/org/title_type": tax_f [^15]
+            "@ondc/org/title_type [^13]": tax
             price:
               currency: INR
               value: "9.00"
@@ -88,6 +82,18 @@ value:
                   list:
                     - code: type
                       value: fulfillment
+          - "@ondc/org/item_id": F1
+            title: Packing charges
+            "@ondc/org/title_type [^16]": packing
+            price:
+              currency: INR
+              value: "25.00"
+          - "@ondc/org/item_id": F2
+            title: Delivery charges
+            "@ondc/org/title_type [^13]": delivery
+            price:
+              currency: INR
+              value: "0.00"
           - "@ondc/org/item_id": F2
             title: Packing charges
             "@ondc/org/title_type [^16]": packing
@@ -106,7 +112,7 @@ value:
             price:
               currency: INR
               value: "-10.00"
-          - "@ondc/org/item_id": F2
+          - "@ondc/org/item_id": F1
             title: Convenience Fee
             "@ondc/org/title_type [^19]": misc
             price:
