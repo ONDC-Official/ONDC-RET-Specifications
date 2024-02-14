@@ -1,4 +1,5 @@
 - $ref: "./B2C/Agri_product_buying_journey.yaml"
+- $ref: "./B2C/Agri_product_self_pickup.yaml"
 - $ref: "./B2C/cutomized_product_delivered.yaml"
 - $ref: "./B2C/cancellation_rto_flow.yaml"
 - $ref: "./B2C/merchant_cancels_customized_product.yaml"

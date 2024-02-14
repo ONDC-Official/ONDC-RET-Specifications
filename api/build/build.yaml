@@ -6434,7 +6434,7 @@ x-flows:
         api: search
         description: Search by city
         reference: if any
-        example:
+        example: &ref_22
           summary: search by city
           description: Search request for all sellers in the city identified in Context
           value:
@@ -6469,7 +6469,7 @@ x-flows:
                           https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
                       - code: effective_date
                         value: '2023-10-01T00:00:00.000Z'
-        notes:
+        notes: &ref_23
           value:
             ^1: >-
               updated domain namespace defined
@@ -6500,7 +6500,7 @@ x-flows:
         api: on_search
         description: null
         reference: if any
-        example:
+        example: &ref_24
           summary: Return the catalog for Agri Output
           description: Return the catalog for Agri Output
           value:
@@ -6856,7 +6856,7 @@ x-flows:
                         list:
                           - code: chat_url
                             value: https://wa.me/<number>
-        notes:
+        notes: &ref_25
           value:
             ^1: >-
               updated domain namespace is provided
@@ -6957,7 +6957,7 @@ x-flows:
         api: select
         description: null
         reference: if any
-        example:
+        example: &ref_26
           summary: Get quote for specific item (other products)
           description: Get quote for specific item for other products
           value:
@@ -7001,7 +7001,7 @@ x-flows:
                           area_code: '560001'
                 payment [^6]:
                   type: ON-FULFILLMENT [^7]
-        notes: &ref_28
+        notes: &ref_27
           value:
             ^1: >-
               optional, only if buyer selects offer code; offer construct to be
@@ -7020,7 +7020,7 @@ x-flows:
         api: on_select
         description: null
         reference: if any
-        example:
+        example: &ref_28
           summary: If item is in stock & buyer location serviceable
           description: If item is in stock & buyer location serviceable
           value:
@@ -7142,7 +7142,7 @@ x-flows:
                         currency: INR
                         value: '10.00'
                   ttl: P1D [^20]
-        notes:
+        notes: &ref_29
           value:
             ^1: >-
               may be the same location as selected by the buyer or a different
@@ -7264,7 +7264,7 @@ x-flows:
                           area_code: '560037'
                       contact:
                         phone: '9886098860'
-        notes: &ref_29
+        notes: &ref_30
           value:
             ^1: optional, only if buyer selects offer code
             ^2: >-
@@ -7494,7 +7494,7 @@ x-flows:
                             value: '1000.00'
                           - code: tax_number [^25]
                             value: gst_number_of_sellerNP
-        notes: &ref_30
+        notes: &ref_31
           value:
             ^1: >-
               may be the same location as selected by the buyer or a different
@@ -7761,7 +7761,7 @@ x-flows:
                         value: gst_number_of_buyerNP
                 created_at [^21]: '2023-06-03T09:30:00.000Z'
                 updated_at [^22]: '2023-06-03T09:30:00.000Z'
-        notes: &ref_31
+        notes: &ref_32
           value:
             ^1: alphanumeric, up to 32 characters
             ^2: optional
@@ -8055,7 +8055,7 @@ x-flows:
                         value: gst_number_of_buyerNP
                 created_at [^21]: '2023-06-03T09:30:00.000Z'
                 updated_at [^22]: '2023-06-03T09:31:30.000Z'
-        notes: &ref_32
+        notes: &ref_33
           value:
             ^1: enum - "Created", "Accepted", "Cancelled"
             ^2: optional
@@ -8098,7 +8098,7 @@ x-flows:
         api: status
         description: null
         reference: if any
-        example:
+        example: &ref_34
           summary: Buyer asks for order status
           description: Buyer asks for order status
           value:
@@ -8118,7 +8118,7 @@ x-flows:
               ttl: PT30S
             message:
               order_id: O1
-        notes: &ref_22
+        notes: &ref_35
           value:
             ^1: >-
               status for order can be queried using same transaction id used for
@@ -8484,7 +8484,7 @@ x-flows:
         api: on_status (In-progress)
         description: Seller provides the updated status to the buyer for in-progress
         reference: if any
-        example: &ref_23
+        example: &ref_36
           summary: >-
             Seller updates the order status and shares Invoice for other
             products
@@ -8749,7 +8749,7 @@ x-flows:
         api: on_status (In-progress)
         description: Seller provides the updated status to the buyer for in-progress
         reference: if any
-        example: &ref_24
+        example: &ref_37
           summary: >-
             Seller updates the order status and shares Invoice for other
             products
@@ -9015,7 +9015,7 @@ x-flows:
         description: Seller provides the updated status to the buyer for order completion
         reference: if any
         example: *ref_21
-        notes: &ref_25
+        notes: &ref_38
           value:
             ^1: enum - "Created","Accepted","In-progress","Completed","Cancelled"
             ^2: required if order state is "Cancelled"
@@ -9090,6 +9090,1337 @@ x-flows:
               required for payment on delivery orders when order state is
               "Completed"
             ^24: required from fulfillment.state = "Order-picked-up" and thereafter
+  - summary: Retail 1.2.0 ( Agri product - Self Pickup )
+    description: >-
+      The following is an illustrative flow to perform a transaction of a nature
+      where a buyer would like to order an agri product and it is picked up
+      successfully
+    reference: if any
+    steps:
+      - summary: Search by city
+        api: search
+        description: Search by city
+        reference: if any
+        example: *ref_22
+        notes: *ref_23
+      - summary: Returns the Agri catalog
+        api: on_search
+        description: null
+        reference: if any
+        example: *ref_24
+        notes: *ref_25
+      - summary: Select the item
+        api: select
+        description: null
+        reference: if any
+        example: *ref_26
+        notes: *ref_27
+      - summary: Returns item breakup
+        api: on_select
+        description: null
+        reference: if any
+        example: *ref_28
+        notes: *ref_29
+      - summary: Buyer initiate the product and send the updated fulfillment id
+        api: init
+        description: null
+        reference: if any
+        example:
+          summary: For other product
+          description: Send buyer and delivery terms for other products
+          value:
+            context:
+              domain: ONDC:AGR11
+              action: init
+              core_version: 1.2.0
+              bap_id: buyerNP.com
+              bap_uri: https://buyerNP.com/ondc
+              bpp_id: sellerNP.com
+              bpp_uri: https://sellerNP.com/ondc
+              transaction_id: T2
+              message_id: M3
+              city: std:080
+              country: IND
+              timestamp: '2023-06-03T09:00:00.000Z'
+              ttl: PT30S
+            message:
+              order:
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    fulfillment_id: F2
+                    quantity:
+                      count: 2
+                offers [^1]:
+                  - id: BUY2GET3
+                billing:
+                  name: ONDC buyer
+                  address:
+                    name: 'My House # [^2]'
+                    building: My building name
+                    locality [^3]: My Street name
+                    city: Bengaluru
+                    state: Karnataka
+                    country: IND
+                    area_code: '560037'
+                  tax_number [^4]: XXXXXXXXXXXXXXX
+                  email [^5]: nobody@nomail.com
+                  phone: '9886098860'
+                  created_at [^6]: '2023-06-03T09:00:00.000Z'
+                  updated_at [^7]: '2023-06-03T09:00:00.000Z'
+                fulfillments:
+                  - id: F2
+                    type: Self-Pickup
+                    start:
+                      location:
+                        gps: 12.967555,77.749666
+                        address [^8]:
+                          name: 'My House/Warehouse # [^8]'
+                          building: My building name
+                          locality: My Street name
+                          city: Bengaluru
+                          state: Karnataka
+                          country: IND
+                          area_code: '560076'
+                      contact:
+                        phone: '9886098860'
+        notes: *ref_30
+      - summary: Respond to init
+        api: on_init
+        description: null
+        reference: if any
+        example:
+          summary: For other product (response to /init)
+          description: Respond to init call for other products
+          value:
+            context:
+              domain: ONDC:AGR11
+              action: on_init
+              core_version: 1.2.0
+              bap_id: buyerNP.com
+              bap_uri: https://buyerNP.com/ondc
+              bpp_id: sellerNP.com
+              bpp_uri: https://sellerNP.com/ondc
+              transaction_id: T2
+              message_id: M3
+              city: std:080
+              country: IND
+              timestamp: '2023-06-03T09:00:30.000Z'
+            message:
+              order:
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1 [^1]
+                items:
+                  - id: I1
+                    fulfillment_id: F2
+                    quantity:
+                      count: 2
+                billing [^2]:
+                  name: ONDC buyer
+                  address:
+                    name: 'My house #'
+                    building: My building name
+                    locality: My street name
+                    city: Bengaluru
+                    state: Karnataka
+                    country: IND
+                    area_code: '560001'
+                  tax_number [^3]: XXXXXXXXXXXXXXX
+                  email [^4]: nobody@nomail.com
+                  phone: '9886098860'
+                  created_at [^5]: '2023-06-03T09:00:00.000Z'
+                  updated_at [^6]: '2023-06-03T09:00:00.000Z'
+                fulfillments:
+                  - id: F1
+                    type: Self-Pickup
+                    tracking: false
+                    start:
+                      location:
+                        gps: 12.967555,77.749666
+                        address [^8]:
+                          name: 'My House/Warehouse # [^8]'
+                          building: My building name
+                          locality: My Street name
+                          city: Bengaluru
+                          state: Karnataka
+                          country: IND
+                          area_code: '560076'
+                      contact:
+                        phone: '9886098860'
+                    tags:
+                      - code: rto_action [^7]
+                        list:
+                          - code: return_to_origin
+                            value: 'Yes'
+                quote:
+                  price:
+                    currency: INR
+                    value: '105.00'
+                  breakup:
+                    - '@ondc/org/item_id [^9]': I1
+                      '@ondc/org/item_quantity':
+                        count [^10]: 1
+                      title: Maize Lot
+                      '@ondc/org/title_type [^11]': item
+                      price:
+                        currency: INR
+                        value: 80.00 [^12]
+                      item:
+                        quantity:
+                          available:
+                            count: '99'
+                          maximum:
+                            count: '99'
+                        price:
+                          currency: INR
+                          value: '80.00'
+                    - '@ondc/org/item_id': F2
+                      title: Delivery charges
+                      '@ondc/org/title_type [^13]': delivery
+                      price:
+                        currency: INR
+                        value: '0.00'
+                    - '@ondc/org/item_id': F2
+                      title: Packing charges
+                      '@ondc/org/title_type [^16]': packing
+                      price:
+                        currency: INR
+                        value: '25.00'
+                    - '@ondc/org/item_id': I1
+                      title: Tax
+                      '@ondc/org/title_type [^17]': tax
+                      price:
+                        currency: INR
+                        value: '0.00'
+                    - '@ondc/org/item_id': I1
+                      title: Discount
+                      '@ondc/org/title_type [^18]': discount
+                      price:
+                        currency: INR
+                        value: '-10.00'
+                    - '@ondc/org/item_id': F2
+                      title: Convenience Fee
+                      '@ondc/org/title_type [^19]': misc
+                      price:
+                        currency: INR
+                        value: '10.00'
+                  ttl: P1D [^20]
+                payment [^9]:
+                  type: ON-FULLFILMENT
+                  collected_by: BPP
+                  uri: https://snp.com/pg
+                  status: NOT-PAID [^10]
+                  '@ondc/org/buyer_app_finder_fee_type': percent
+                  '@ondc/org/buyer_app_finder_fee_amount': '3'
+                  '@ondc/org/settlement_basis': delivery [^11]
+                  '@ondc/org/settlement_window': P1D [^12]
+                  '@ondc/org/withholding_amount': 10.00 [^13]
+                  tags:
+                    - code: bpp_collect [^14]
+                      list:
+                        - code: success
+                          value: 'Y'
+                        - code: error
+                          value: ..
+                  '@ondc/org/settlement_details [^15]':
+                    - settlement_counterparty: buyer-app
+                      settlement_phase: sale-amount
+                      settlement_type: upi [^16]
+                      beneficiary_name: xxxxx
+                      upi_address: gft@oksbi
+                      settlement_bank_account_no: XXXXXXXXXX
+                      settlement_ifsc_code: XXXXXXXXX
+                      bank_name: xxxx
+                      branch_name: xxxx
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending [^17]
+                        short_desc [^18]: '002'
+                    cancellation_fee [^19]:
+                      percentage: '0.00'
+                      amount:
+                        currency: INR
+                        value: '0.00'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                        short_desc: 001,003
+                    cancellation_fee [^20]:
+                      percentage: '10.00'
+                      amount:
+                        currency: INR
+                        value: '42.40'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Order-picked-up
+                        short_desc: 001,003
+                    cancellation_fee:
+                      percentage: '10.00'
+                      amount:
+                        currency: INR
+                        value: '42.40'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Out-for-delivery
+                        short_desc: '009'
+                    cancellation_fee [^21]:
+                      percentage: '0.00'
+                      amount:
+                        currency: INR
+                        value: '0.00'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Out-for-delivery
+                        short_desc: 010,011,012,013,014,015 [^22]
+                    cancellation_fee [^23]:
+                      percentage: '20.00'
+                      amount:
+                        currency: INR
+                        value: '84.80'
+                    tags:
+                      - code: bpp_terms [^24]
+                        list:
+                          - code: max_liability
+                            value: '2'
+                          - code: max_liability_cap
+                            value: '10000.00'
+                          - code: mandatory_arbitration
+                            value: 'false'
+                          - code: court_jurisdiction
+                            value: Bengaluru
+                          - code: delay_interest
+                            value: '1000.00'
+                          - code: tax_number [^25]
+                            value: gst_number_of_sellerNP
+        notes: *ref_31
+      - summary: Buyer confirms product
+        api: confirm
+        description: null
+        reference: if any
+        example:
+          summary: Confirmation for Buyer on purchase of other product
+          description: Confirmation for Buyer on purchase of other product
+          value:
+            context:
+              domain: ONDC:AGR11
+              action: confirm
+              core_version: 1.2.0
+              bap_id: buyerNP.com
+              bap_uri: https://buyerNP.com/ondc
+              bpp_id: sellerNP.com
+              bpp_uri: https://sellerNP.com/ondc
+              transaction_id: T2
+              message_id: M4
+              city: std:080
+              country: IND
+              timestamp: '2023-06-03T09:30:00.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O1 [^1]
+                state: Created
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    fulfillment_id: F2
+                    quantity:
+                      count: 1
+                offers:
+                  - id: BUY2GET3
+                billing:
+                  name: ONDC buyer
+                  address:
+                    name: 'my house or door or floor #'
+                    building: 'my building name or house #'
+                    locality: my street name
+                    city: Bengaluru
+                    state: Karnataka
+                    country: IND
+                    area_code: '560037'
+                  phone: '9886098860'
+                  email [^2]: nobody@nomail.com
+                  created_at [^3]: '2023-02-03T09:00:00.000Z'
+                  updated_at [^4]: '2023-02-03T09:00:00.000Z'
+                fulfillments:
+                  - id: F2
+                    type: Self-Pickup
+                    '@ondc/org/TAT': PT5H
+                    tracking: false
+                    start:
+                      person:
+                        name: name_of_person
+                      contact:
+                        email [^6]: nobody@nomail.com
+                        phone: '9886098860'
+                      location:
+                        gps: 12.453544,77.928379
+                        address:
+                          name: 'my house or door or floor #'
+                          building: 'my building name or house #'
+                          locality: my street name
+                          city: Bengaluru
+                          state: Karnataka
+                          country: IND
+                          area_code: '560037'
+                quote:
+                  price:
+                    currency: INR
+                    value: '105.00'
+                  breakup:
+                    - '@ondc/org/item_id [^9]': I1
+                      '@ondc/org/item_quantity':
+                        count [^10]: 1
+                      title: Maize Lot
+                      '@ondc/org/title_type [^11]': item
+                      price:
+                        currency: INR
+                        value: 80.00 [^12]
+                      item:
+                        quantity:
+                          available:
+                            count: '99'
+                          maximum:
+                            count: '99'
+                        price:
+                          currency: INR
+                          value: '80.00'
+                    - '@ondc/org/item_id': F2
+                      title: Delivery charges
+                      '@ondc/org/title_type [^13]': delivery
+                      price:
+                        currency: INR
+                        value: '0.00'
+                    - '@ondc/org/item_id': F2
+                      title: Packing charges
+                      '@ondc/org/title_type [^16]': packing
+                      price:
+                        currency: INR
+                        value: '25.00'
+                    - '@ondc/org/item_id': I1
+                      title: Tax
+                      '@ondc/org/title_type [^17]': tax
+                      price:
+                        currency: INR
+                        value: '0.00'
+                    - '@ondc/org/item_id': I1
+                      title: Discount
+                      '@ondc/org/title_type [^18]': discount
+                      price:
+                        currency: INR
+                        value: '-10.00'
+                    - '@ondc/org/item_id': F2
+                      title: Convenience Fee
+                      '@ondc/org/title_type [^19]': misc
+                      price:
+                        currency: INR
+                        value: '10.00'
+                  ttl: P1D [^20]
+                payment:
+                  uri [^8]: https://snp.com/pg
+                  tl_method [^9]: http/get
+                  params:
+                    currency: INR
+                    transaction_id [^10]: '3937'
+                    amount: 134.00 [^11]
+                  status: NOT-PAID [^12]
+                  type: ON-FULFILLMENT [^13]
+                  collected_by: BPP [^14]
+                  '@ondc/org/buyer_app_finder_fee_type': percent
+                  '@ondc/org/buyer_app_finder_fee_amount': '3'
+                  '@ondc/org/settlement_basis': delivery [^15]
+                  '@ondc/org/settlement_window': P1D [^16]
+                  '@ondc/org/withholding_amount': 0.00 [^17]
+                  '@ondc/org/settlement_details [^18]':
+                    - settlement_counterparty: seller-app [^19]
+                      settlement_phase: sale-amount
+                      settlement_type: upi
+                      upi_address: gft@oksbi
+                      settlement_bank_account_no: XXXXXXXXXX
+                      settlement_ifsc_code: XXXXXXXXX
+                      beneficiary_name: xxxxx
+                      bank_name: xxxx
+                      branch_name: xxxx
+                tags:
+                  - code: bpp_terms
+                    list:
+                      - code: max_liability
+                        value: '2'
+                      - code: max_liability_cap
+                        value: '10000'
+                      - code: mandatory_arbitration
+                        value: 'false'
+                      - code: court_jurisdiction
+                        value: Bengaluru
+                      - code: delay_interest
+                        value: '1000'
+                      - code: tax_number
+                        value: gst_number_of_sellerNP
+                  - code: bap_terms
+                    list:
+                      - code: accept_bpp_terms
+                        value: 'Y'
+                      - code: static_terms
+                        value: >-
+                          https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
+                      - code: tax_number [^20]
+                        value: gst_number_of_buyerNP
+                created_at [^21]: '2023-06-03T09:30:00.000Z'
+                updated_at [^22]: '2023-06-03T09:30:00.000Z'
+        notes: *ref_32
+      - summary: Seller Accepts confirmation
+        api: on_confirm
+        description: null
+        reference: if any
+        example:
+          summary: Acceptance by Seller (Other Products)
+          description: Acceptance by Seller for other products
+          value:
+            context:
+              domain: ONDC:AGR11
+              action: on_confirm
+              core_version: 1.2.0
+              bap_id: buyerNP.com
+              bap_uri: https://buyerNP.com/ondc
+              bpp_id: sellerNP.com
+              bpp_uri: https://sellerNP.com/ondc
+              transaction_id: T2
+              message_id: M4
+              city: std:080
+              country: IND
+              timestamp: '2023-06-03T09:30:30.000Z'
+            message:
+              order:
+                id: O1
+                state: Accepted [^1]
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    fulfillment_id: F2
+                    quantity:
+                      count: 1
+                billing:
+                  name: ONDC buyer
+                  address:
+                    name: 'my house or door or floor #'
+                    building: 'my building name or house #'
+                    locality: my street name
+                    city: Bengaluru
+                    state: Karnataka
+                    country: IND
+                    area_code: '560037'
+                  email [^2]: nobody@nomail.com
+                  phone: '9886098860'
+                  created_at [^3]: '2023-06-03T09:00:00.000Z'
+                  updated_at [^4]: '2023-06-03T09:00:00.000Z'
+                fulfillments:
+                  - id: F2
+                    '@ondc/org/provider_name': Provider Name
+                    state:
+                      descriptor:
+                        code: Pending
+                    type: Self-Pickup
+                    tracking: false [^5]
+                    '@ondc/org/TAT': PT5H [^6]
+                    start:
+                      location:
+                        id: L1
+                        descriptor:
+                          name: ABC Store
+                        gps: 12.967555,77.749666
+                        address:
+                          locality: Jayanagar
+                          street: Jayanagar 4th Block
+                          city: Bengaluru
+                          area_code: '560076'
+                          state: KA
+                      time [^8]:
+                        range:
+                          start: '2023-06-03T10:00:00.000Z'
+                          end: '2023-06-03T10:30:00.000Z'
+                      instructions [^9]:
+                        code: 2 [^10]
+                        name: ONDC order
+                        short_desc: value of PCC [^11]
+                        long_desc: >-
+                          additional instructions such as register or counter no
+                          for self-pickup
+                      contact:
+                        phone: '9886098860'
+                        email [^12]: nobody@nomail.com
+                    end:
+                      location:
+                        gps: 12.453544,77.928379
+                        address:
+                          name: 'My house #'
+                          building: My building name
+                          locality: My street name
+                          city: Bengaluru
+                          state: Karnataka
+                          country: IND
+                          area_code: '560037'
+                      time [^13]:
+                        range:
+                          start: '2023-06-03T11:00:00.000Z'
+                          end: '2023-06-03T11:30:00.000Z'
+                      person:
+                        name: name_of_person
+                      contact:
+                        phone: '9886098860'
+                        email [^14]: nobody@nomail.com
+                quote:
+                  price:
+                    currency: INR
+                    value: '105.00'
+                  breakup:
+                    - '@ondc/org/item_id [^9]': I1
+                      '@ondc/org/item_quantity':
+                        count [^10]: 1
+                      title: Maize Lot
+                      '@ondc/org/title_type [^11]': item
+                      price:
+                        currency: INR
+                        value: 80.00 [^12]
+                      item:
+                        quantity:
+                          available:
+                            count: '99'
+                          maximum:
+                            count: '99'
+                        price:
+                          currency: INR
+                          value: '80.00'
+                    - '@ondc/org/item_id': F2
+                      title: Delivery charges
+                      '@ondc/org/title_type [^13]': delivery
+                      price:
+                        currency: INR
+                        value: '0.00'
+                    - '@ondc/org/item_id': F2
+                      title: Packing charges
+                      '@ondc/org/title_type [^16]': packing
+                      price:
+                        currency: INR
+                        value: '25.00'
+                    - '@ondc/org/item_id': I1
+                      title: Tax
+                      '@ondc/org/title_type [^17]': tax
+                      price:
+                        currency: INR
+                        value: '0.00'
+                    - '@ondc/org/item_id': I1
+                      title: Discount
+                      '@ondc/org/title_type [^18]': discount
+                      price:
+                        currency: INR
+                        value: '-10.00'
+                    - '@ondc/org/item_id': F2
+                      title: Convenience Fee
+                      '@ondc/org/title_type [^19]': misc
+                      price:
+                        currency: INR
+                        value: '10.00'
+                  ttl: P1D [^20]
+                payment [^15]:
+                  uri [^16]: https://snp.com/pg
+                  tl_method [^17]: http/get
+                  params:
+                    currency: INR
+                    transaction_id: '3937'
+                    amount: '105.00'
+                  status: NOT-PAID
+                  type: ON-FULFILLMENT
+                  collected_by: BPP
+                  '@ondc/org/buyer_app_finder_fee_type': percent
+                  '@ondc/org/buyer_app_finder_fee_amount': '3'
+                  '@ondc/org/settlement_basis': delivery
+                  '@ondc/org/settlement_window': P1D
+                  '@ondc/org/withholding_amount': '0.00'
+                  '@ondc/org/settlement_details':
+                    - settlement_counterparty: buyer-app
+                      settlement_phase: sale-amount
+                      beneficiary_name: xxxxx
+                      settlement_type: upi
+                      upi_address: gft@oksbi
+                      settlement_bank_account_no: XXXXXXXXXX
+                      settlement_ifsc_code: XXXXXXXXX
+                      bank_name: xxxx
+                      branch_name: xxxx
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                        short_desc: '002'
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '0.00'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                        short_desc: 001,003
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '50.00'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Order-picked-up
+                        short_desc: 001,003
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '50.00'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Out-for-delivery
+                        short_desc: '009'
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '0.00'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Out-for-delivery
+                        short_desc: 011,012,013,014,015
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '100.00'
+                tags:
+                  - code: bpp_terms
+                    list:
+                      - code: max_liability_cap
+                        value: '10000.00'
+                      - code: max_liability
+                        value: '2'
+                      - code: mandatory_arbitration
+                        value: 'false'
+                      - code: court_jurisdiction
+                        value: Bengaluru
+                      - code: delay_interest
+                        value: '1000.00'
+                      - code: np_type
+                        value: 'MSN '
+                      - code: tax_number
+                        value: gst_number_of_sellerNP
+                      - code: provider_tax_number
+                        value: PAN_number_of_provider
+                      - code: 'accept_bap_terms '
+                        value: 'Y'
+                  - code: bap_terms
+                    list:
+                      - code: static_terms
+                        value: >-
+                          https://github.com/ONDC-Official/protocol-network-extension/discussions/79
+                      - code: tax_number
+                        value: gst_number_of_buyerNP
+                created_at [^21]: '2023-06-03T09:30:00.000Z'
+                updated_at [^22]: '2023-06-03T09:31:30.000Z'
+        notes: *ref_33
+      - summary: Buyer platform requests for latest status
+        api: status
+        description: null
+        reference: if any
+        example: *ref_34
+        notes: *ref_35
+      - summary: Seller provides latest order status
+        api: on_status (In-progress)
+        description: Seller provides the updated status to the buyer for in-progress
+        reference: if any
+        example:
+          summary: >-
+            Seller updates the order status and shares Invoice for other product
+            types
+          description: >-
+            Seller updates the order status and shares Invoice for other
+            products
+          value:
+            context:
+              domain: ONDC:AGR11
+              action: on_status
+              core_version: 1.2.0
+              bap_id: buyerNP.com
+              bap_uri: https://buyerNP.com/ondc
+              bpp_id: sellerNP.com
+              bpp_uri: https://sellerNP.com/ondc
+              transaction_id: T2
+              message_id: M5
+              city: std:080
+              country: IND
+              timestamp: '2023-06-03T10:00:30.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O1
+                state: In-progress [^1]
+                cancellation [^2]:
+                  cancelled_by: buyerNP.com
+                  reason:
+                    id: '004'
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    fulfillment_id: F2
+                    quantity:
+                      count: 1
+                billing:
+                  name: ONDC buyer
+                  address:
+                    name: 'my house or door or floor #'
+                    building: 'my building name or house #'
+                    locality: my street name
+                    city: Bengaluru
+                    state: Karnataka
+                    country: IND
+                    area_code: '560037'
+                  email [^4]: nobody@nomail.com
+                  phone: '9886098860'
+                  created_at [^5]: '2023-06-03T09:00:00.000Z'
+                  updated_at: '2023-06-03T09:00:00.000Z'
+                fulfillments:
+                  - id: F2
+                    '@ondc/org/provider_name': Provider Name
+                    state:
+                      descriptor:
+                        code: Packed [^6]
+                    type: Self-Pickup
+                    tracking: false [^5]
+                    '@ondc/org/TAT': PT5H [^6]
+                    start:
+                      location:
+                        id: L1
+                        descriptor:
+                          name: ABC Store
+                        gps: 12.967555,77.749666
+                        address:
+                          locality: Jayanagar
+                          street: Jayanagar 4th Block
+                          city: Bengaluru
+                          area_code: '560076'
+                          state: KA
+                      time [^8]:
+                        range:
+                          start: '2023-06-03T10:00:00.000Z'
+                          end: '2023-06-03T10:30:00.000Z'
+                        timestamp [7^]: '2023-06-03T10:00:30.000Z'
+                      instructions [^10]:
+                        code: 2 [^8]
+                        name: ONDC order
+                        short_desc: value of PCC [^9]
+                        long_desc: >-
+                          additional instructions such as register or counter no
+                          for self-pickup
+                      contact:
+                        phone: '9886098860'
+                        email [^13]: nobody@nomail.com
+                    end:
+                      location:
+                        gps: 12.453544,77.928379
+                        address:
+                          name: 'My house #'
+                          building: My building name
+                          locality: My street name
+                          city: Bengaluru
+                          state: Karnataka
+                          country: IND
+                          area_code: '560037'
+                      time [^13]:
+                        range:
+                          start: '2023-06-03T11:00:00.000Z'
+                          end: '2023-06-03T11:30:00.000Z'
+                      instructions:
+                        code: 2 [^15]
+                        name: ONDC Order
+                        short_desc: value of DCC [^16]
+                        long_desc: additional instructions for delivery
+                        'images ':
+                          - https://lsp.com/delivery_image.png
+                          - https://lsp.com/rider_location.png
+                      person:
+                        name: name_of_person
+                      contact:
+                        phone: '9886098860'
+                        email [^14]: nobody@nomail.com
+                quote:
+                  price:
+                    currency: INR
+                    value: '105.00'
+                  breakup:
+                    - '@ondc/org/item_id [^9]': I1
+                      '@ondc/org/item_quantity':
+                        count [^10]: 1
+                      title: Maize Lot
+                      '@ondc/org/title_type [^11]': item
+                      price:
+                        currency: INR
+                        value: 80.00 [^12]
+                      item:
+                        quantity:
+                          available:
+                            count: '99'
+                          maximum:
+                            count: '99'
+                        price:
+                          currency: INR
+                          value: '80.00'
+                    - '@ondc/org/item_id': F2
+                      title: Delivery charges
+                      '@ondc/org/title_type [^13]': delivery
+                      price:
+                        currency: INR
+                        value: '0.00'
+                    - '@ondc/org/item_id': F2
+                      title: Packing charges
+                      '@ondc/org/title_type [^16]': packing
+                      price:
+                        currency: INR
+                        value: '25.00'
+                    - '@ondc/org/item_id': I1
+                      title: Tax
+                      '@ondc/org/title_type [^17]': tax
+                      price:
+                        currency: INR
+                        value: '0.00'
+                    - '@ondc/org/item_id': I1
+                      title: Discount
+                      '@ondc/org/title_type [^18]': discount
+                      price:
+                        currency: INR
+                        value: '-10.00'
+                    - '@ondc/org/item_id': F2
+                      title: Convenience Fee
+                      '@ondc/org/title_type [^19]': misc
+                      price:
+                        currency: INR
+                        value: '10.00'
+                  ttl: P1D [^20]
+                payment [^29]:
+                  uri: https://snp.com/pg
+                  tl_method [^17]: http/get
+                  params:
+                    currency: INR
+                    transaction_id: '3937'
+                    amount: '105.00'
+                  status: NOT-PAID
+                  type: ON-FULFILLMENT
+                  collected_by: BPP
+                  '@ondc/org/buyer_app_finder_fee_type': percent
+                  '@ondc/org/buyer_app_finder_fee_amount': '3'
+                  '@ondc/org/settlement_basis': delivery
+                  '@ondc/org/settlement_window': P1D
+                  '@ondc/org/withholding_amount': '0.00'
+                  '@ondc/org/settlement_details':
+                    - settlement_counterparty: buyer-app
+                      settlement_phase: sale-amount
+                      beneficiary_name: xxxxx
+                      settlement_type: upi
+                      upi_address: gft@oksbi
+                      settlement_bank_account_no: XXXXXXXXXX
+                      settlement_ifsc_code: XXXXXXXXX
+                      bank_name: xxxx
+                      branch_name: xxxx
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                        short_desc: '002'
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '0.00'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                        short_desc: 001,003
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '50.00'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Order-picked-up
+                        short_desc: 001,003
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '50.00'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Out-for-delivery
+                        short_desc: '009'
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '0.00'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Out-for-delivery
+                        short_desc: 011,012,013,014,015
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '100.00'
+                tags:
+                  - code: bpp_terms
+                    list:
+                      - code: max_liability_cap
+                        value: '10000.00'
+                      - code: max_liability
+                        value: '2'
+                      - code: mandatory_arbitration
+                        value: 'false'
+                      - code: court_jurisdiction
+                        value: Bengaluru
+                      - code: delay_interest
+                        value: '1000.00'
+                      - code: np_type
+                        value: 'MSN '
+                      - code: tax_number
+                        value: gst_number_of_sellerNP
+                      - code: provider_tax_number
+                        value: PAN_number_of_provider
+                      - code: 'accept_bap_terms '
+                        value: 'Y'
+                  - code: bap_terms
+                    list:
+                      - code: static_terms
+                        value: >-
+                          https://github.com/ONDC-Official/protocol-network-extension/discussions/79
+                      - code: tax_number
+                        value: gst_number_of_buyerNP
+                created_at [^21]: '2023-06-03T09:30:00.000Z'
+                updated_at [^22]: '2023-06-03T10:00:30.000Z'
+        notes: *ref_20
+      - summary: Seller provides latest order status
+        api: on_status (Delivered)
+        description: Seller provides the updated status to the buyer for order completion
+        reference: if any
+        example:
+          summary: >-
+            Seller updates the order status and shares Invoice for other product
+            types
+          description: >-
+            Seller updates the order status and shares Invoice for other
+            products
+          value:
+            context:
+              domain: ONDC:AGR11
+              action: on_status
+              core_version: 1.2.0
+              bap_id: buyerNP.com
+              bap_uri: https://buyerNP.com/ondc
+              bpp_id: sellerNP.com
+              bpp_uri: https://sellerNP.com/ondc
+              transaction_id: T2
+              message_id: M6
+              city: std:080
+              country: IND
+              timestamp: '2023-06-03T11:10:00.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O1
+                state: Completed [^1]
+                cancellation [^2]:
+                  cancelled_by: buyerNP.com
+                  reason:
+                    id: '004'
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    fulfillment_id: F2
+                    quantity:
+                      count: 1
+                billing:
+                  name: ONDC buyer
+                  address:
+                    name: 'my house or door or floor #'
+                    building: 'my building name or house #'
+                    locality: my street name
+                    city: Bengaluru
+                    state: Karnataka
+                    country: IND
+                    area_code: '560037'
+                  email [^4]: nobody@nomail.com
+                  phone: '9886098860'
+                  created_at [^5]: '2023-06-03T09:00:00.000Z'
+                  updated_at: '2023-06-03T09:00:00.000Z'
+                fulfillments:
+                  - id: F2
+                    '@ondc/org/provider_name': Provider Name
+                    state:
+                      descriptor:
+                        code: Packed [^6]
+                    type: Self-Pickup
+                    tracking: false [^5]
+                    '@ondc/org/TAT': PT5H [^6]
+                    start:
+                      location:
+                        id: L1
+                        descriptor:
+                          name: ABC Store
+                        gps: 12.967555,77.749666
+                        address:
+                          locality: Jayanagar
+                          street: Jayanagar 4th Block
+                          city: Bengaluru
+                          area_code: '560076'
+                          state: KA
+                      time [^8]:
+                        range:
+                          start: '2023-06-03T10:00:00.000Z'
+                          end: '2023-06-03T10:30:00.000Z'
+                        timestamp [7^]: '2023-06-03T10:00:30.000Z'
+                      instructions [^10]:
+                        code: 2 [^8]
+                        name: ONDC order
+                        short_desc: value of PCC [^9]
+                        long_desc: >-
+                          additional instructions such as register or counter no
+                          for self-pickup
+                      contact:
+                        phone: '9886098860'
+                        email [^13]: nobody@nomail.com
+                    end:
+                      location:
+                        gps: 12.453544,77.928379
+                        address:
+                          name: 'My house #'
+                          building: My building name
+                          locality: My street name
+                          city: Bengaluru
+                          state: Karnataka
+                          country: IND
+                          area_code: '560037'
+                      time [^13]:
+                        range:
+                          start: '2023-06-03T11:00:00.000Z'
+                          end: '2023-06-03T11:30:00.000Z'
+                        timestamp [^14]: '2023-06-03T11:10:00.000Z'
+                      instructions:
+                        code: 2 [^15]
+                        name: ONDC Order
+                        short_desc: value of DCC [^16]
+                        long_desc: additional instructions for delivery
+                        images:
+                          - https://lsp.com/delivery_image.png
+                          - https://lsp.com/rider_location.png
+                      person:
+                        name: name_of_person
+                      contact:
+                        phone: '9886098860'
+                        email [^14]: nobody@nomail.com
+                quote:
+                  price:
+                    currency: INR
+                    value: '105.00'
+                  breakup:
+                    - '@ondc/org/item_id [^9]': I1
+                      '@ondc/org/item_quantity':
+                        count [^10]: 1
+                      title: Maize Lot
+                      '@ondc/org/title_type [^11]': item
+                      price:
+                        currency: INR
+                        value: 80.00 [^12]
+                      item:
+                        quantity:
+                          available:
+                            count: '99'
+                          maximum:
+                            count: '99'
+                        price:
+                          currency: INR
+                          value: '80.00'
+                    - '@ondc/org/item_id': F2
+                      title: Delivery charges
+                      '@ondc/org/title_type [^13]': delivery
+                      price:
+                        currency: INR
+                        value: '0.00'
+                    - '@ondc/org/item_id': F2
+                      title: Packing charges
+                      '@ondc/org/title_type [^16]': packing
+                      price:
+                        currency: INR
+                        value: '25.00'
+                    - '@ondc/org/item_id': I1
+                      title: Tax
+                      '@ondc/org/title_type [^17]': tax
+                      price:
+                        currency: INR
+                        value: '0.00'
+                    - '@ondc/org/item_id': I1
+                      title: Discount
+                      '@ondc/org/title_type [^18]': discount
+                      price:
+                        currency: INR
+                        value: '-10.00'
+                    - '@ondc/org/item_id': F2
+                      title: Convenience Fee
+                      '@ondc/org/title_type [^19]': misc
+                      price:
+                        currency: INR
+                        value: '10.00'
+                  ttl: P1D [^20]
+                payment [^29]:
+                  uri: https://snp.com/pg
+                  tl_method [^17]: http/get
+                  params:
+                    currency: INR
+                    amount: '105.00'
+                  status: PAID
+                  type: ON-FULFILLMENT
+                  collected_by: BPP
+                  '@ondc/org/buyer_app_finder_fee_type': percent
+                  '@ondc/org/buyer_app_finder_fee_amount': '3'
+                  '@ondc/org/settlement_basis': delivery
+                  '@ondc/org/settlement_window': P1D
+                  '@ondc/org/withholding_amount': '0.00'
+                  '@ondc/org/settlement_details':
+                    - settlement_counterparty: buyer-app
+                      settlement_phase: sale-amount
+                      beneficiary_name: xxxxx
+                      settlement_type: upi
+                      upi_address: gft@oksbi
+                      settlement_bank_account_no: XXXXXXXXXX
+                      settlement_ifsc_code: XXXXXXXXX
+                      bank_name: xxxx
+                      branch_name: xxxx
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                        short_desc: '002'
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '0.00'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                        short_desc: 001,003
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '50.00'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Order-picked-up
+                        short_desc: 001,003
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '50.00'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Out-for-delivery
+                        short_desc: '009'
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '0.00'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Out-for-delivery
+                        short_desc: 011,012,013,014,015
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '100.00'
+                tags:
+                  - code: bpp_terms
+                    list:
+                      - code: max_liability_cap
+                        value: '10000.00'
+                      - code: max_liability
+                        value: '2'
+                      - code: mandatory_arbitration
+                        value: 'false'
+                      - code: court_jurisdiction
+                        value: Bengaluru
+                      - code: delay_interest
+                        value: '1000.00'
+                      - code: np_type
+                        value: 'MSN '
+                      - code: tax_number
+                        value: gst_number_of_sellerNP
+                      - code: provider_tax_number
+                        value: PAN_number_of_provider
+                      - code: 'accept_bap_terms '
+                        value: 'Y'
+                  - code: bap_terms
+                    list:
+                      - code: static_terms
+                        value: >-
+                          https://github.com/ONDC-Official/protocol-network-extension/discussions/79
+                      - code: tax_number
+                        value: gst_number_of_buyerNP
+                created_at [^21]: '2023-06-03T09:30:00.000Z'
+                updated_at [^22]: '2023-06-03T11:10:00.000Z'
+        notes:
+          value:
+            ^1: enum - "Created","Accepted","In-progress","Completed","Cancelled"
+            ^2: required if order state is "Cancelled"
+            ^3: >-
+              only if item(s) have been returned / cancelled including RTO
+              (should have the same structure as in /on_update including
+              assignment of item(s) to fulfillment created for return / cancel
+              and the corresponding fulfillment definition)
+            ^4: optional
+            ^5: same as in /init where billing object is created
+            ^6: >-
+              enum for fulfillment state & mapping to order state for hyperlocal
+              & inter-city is defined here (assuming 1 fulfillment per order,
+              but mapping will remain same for all states except
+              "Order-delivered" where order state will depend on the states of
+              other fulfillment); enum for RTO - "RTO-Initiated",
+              "RTO-Delivered", "RTO-Disposed"
+            ^7: >-
+              required if state is "Order-picked-up", "Out-for-delivery",
+              "Order-delivered"
+            ^8: only for buyer self pickup
+            ^9: >-
+              type of pickup confirmation code (PCC), enum - "1" (buyer contact
+              no (for self-pickup)), "2" (merchant order no), "3" (other pickup
+              confirmation code), "4" (OTP); required when order is "Packed"
+            ^10: >-
+              value of PCC (required when order is "Packed"): contact no - 10
+              digits; merchant order no - max 6 digits; other pickup
+              confirmation code - max 6 digits; OTP - max 6 digits
+            ^11: optional
+            ^12: required if state is "Order-delivered"
+            ^13: >-
+              optional - type of code for order delivery: enum - "1" - OTP, "2"
+              - other DCC, "3" - no delivery code; may be generated when order
+              is "Out-for-delivery"
+            ^14: >-
+              value of DCC (required for code 1 & 2): other DCC - max 6 digits;
+              OTP - max 6 digits
+            ^15: >-
+              optional, may be provided for last-mile delivery in intercity
+              shipments
+            ^16: optional, may be provided for kerb-side pickup (in self pickup)
+            ^17: optional keys here as defined in /confirm
+            ^18: required from fulfillment.state = "Order-picked-up" and thereafter
   - summary: Retail 1.2.0 (Delivered customized product)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -9101,7 +10432,7 @@ x-flows:
         api: search
         description: Search for an item
         reference: if any
-        example: &ref_26
+        example: &ref_39
           summary: search_by_item
           description: >-
             Search request for catalog from sellers that match the search item &
@@ -9145,7 +10476,7 @@ x-flows:
                           https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
                       - code: effective_date
                         value: '2023-10-01T00:00:00.000Z'
-        notes: &ref_27
+        notes: &ref_40
           value:
             ^1: >-
               updated domains defined
@@ -9987,7 +11318,7 @@ x-flows:
         api: select
         description: null
         reference: if any
-        example: &ref_33
+        example: &ref_41
           summary: Get quote for specific item (make to order products)
           description: Get quote for specific item for make to order products
           value:
@@ -10159,7 +11490,7 @@ x-flows:
                           area_code: '560001'
                 payment [^7]:
                   type: ON-FULFILLMENT [^8]
-        notes: &ref_34
+        notes: &ref_42
           value:
             ^1: >-
               dynamic item id created by buyer NP for make-to-order product;
@@ -10179,7 +11510,7 @@ x-flows:
         api: on_select
         description: null
         reference: if any
-        example: &ref_35
+        example: &ref_43
           summary: Quote for product with customizations
           description: >-
             Quote for product with customizations (response to scenario for
@@ -10791,7 +12122,7 @@ x-flows:
               type: DOMAIN-ERROR
               code: '40002'
               message: stringified json formatted as in point 7 below
-        notes: &ref_36
+        notes: &ref_44
           value:
             ^1: >-
               location could be same as what was selected by buyer or may be
@@ -10811,7 +12142,7 @@ x-flows:
         api: init
         description: null
         reference: if any
-        example: &ref_37
+        example: &ref_45
           summary: For make-to-order product - Domino’s Pizza (same as in /select)
           description: For make-to-order product - Domino’s Pizza (same as in /select)
           value:
@@ -11001,7 +12332,7 @@ x-flows:
                           area_code: '560037'
                       contact:
                         phone: 9886098860 [^10]
-        notes: &ref_38
+        notes: &ref_46
           value:
             ^1: optional, only if buyer selects offer code
             ^2: >-
@@ -11023,7 +12354,7 @@ x-flows:
         api: on_init
         description: null
         reference: if any
-        example: &ref_39
+        example: &ref_47
           summary: For make-to-order product - Domino's Pizza (response to /init)
           description: For make-to-order product - Domino's Pizza (response to /init)
           value:
@@ -11764,7 +13095,7 @@ x-flows:
                               value: '1000.00'
                             - code: tax_number [^30]
                               value: gst_number_of_sellerNP
-        notes: &ref_40
+        notes: &ref_48
           value:
             ^1: >-
               may be the same location as selected by the buyer or a different
@@ -11838,7 +13169,7 @@ x-flows:
         api: confirm
         description: null
         reference: if any
-        example: &ref_41
+        example: &ref_49
           summary: confirm for make to order
           description:
             nb:
@@ -12501,7 +13832,7 @@ x-flows:
                         value: gst_number_of_buyerNP
                 created_at [^29]: '2023-06-03T09:30:00.000Z'
                 updated_at [^30]: '2023-06-03T09:30:00.000Z'
-        notes: &ref_42
+        notes: &ref_50
           value:
             ^1: alphanumeric, up to 32 characters
             ^2: >-
@@ -12552,7 +13883,7 @@ x-flows:
         api: on_confirm
         description: null
         reference: if any
-        example: &ref_43
+        example: &ref_51
           summary: Acceptance from Seller (Make to Order products)
           description: Acceptance from Seller for Make to Order products
           value:
@@ -13284,7 +14615,7 @@ x-flows:
                         value: gst_number_of_buyerNP
                 created_at [^29]: '2023-06-03T09:30:00.000Z'
                 updated_at [^30]: '2023-06-03T09:31:30.000Z'
-        notes: &ref_44
+        notes: &ref_52
           value:
             ^1: enum - "Created", "Accepted", "Cancelled"
             ^3: optional
@@ -13341,19 +14672,19 @@ x-flows:
               ttl: PT30S
             message:
               order_id: O1
-        notes: *ref_22
+        notes: *ref_35
       - summary: Seller provides latest order status
         api: on_status
         description: Seller provides the updated status to the buyer
         reference: if any
-        example: *ref_23
+        example: *ref_36
         notes: *ref_20
       - summary: Seller provides latest order status
         api: on_status
         description: Seller provides the updated status to the buyer
         reference: if any
-        example: *ref_24
-        notes: *ref_25
+        example: *ref_37
+        notes: *ref_38
       - summary: To know real time coordinates for the rider
         api: track
         description: null
@@ -14261,8 +15592,8 @@ x-flows:
         api: search
         description: Buyer search for an item
         reference: if any
-        example: *ref_26
-        notes: *ref_27
+        example: *ref_39
+        notes: *ref_40
       - summary: Returns the item or catalog (Fashion)
         api: on_search
         description: null
@@ -15043,7 +16374,7 @@ x-flows:
         api: select
         description: null
         reference: if any
-        example: &ref_47
+        example: &ref_55
           summary: Get quote for specific item (other products)
           description: Get quote for specific item for other products
           value:
@@ -15087,12 +16418,12 @@ x-flows:
                           area_code: '560001'
                 payment [^6]:
                   type: ON-FULFILLMENT [^7]
-        notes: *ref_28
+        notes: *ref_27
       - summary: Returns item breakup when item is in stock and offer applied
         api: on_select
         description: null
         reference: if any
-        example: &ref_48
+        example: &ref_56
           summary: Send quote and breakup
           description: >-
             Send quote and breakup for items selected in select Api call with
@@ -15185,7 +16516,7 @@ x-flows:
                         currency: INR
                         value: '0'
                   ttl: PT1H
-        notes: &ref_49
+        notes: &ref_57
           value:
             ^1: >-
               may be the same location as selected by the buyer or a different
@@ -15195,7 +16526,7 @@ x-flows:
         api: init
         description: null
         reference: if any
-        example: &ref_50
+        example: &ref_58
           summary: For other product
           description: Send buyer and delivery terms for other products
           value:
@@ -15257,12 +16588,12 @@ x-flows:
                           area_code: '560037'
                       contact:
                         phone: '9886098860'
-        notes: *ref_29
+        notes: *ref_30
       - summary: Respond to init
         api: on_init
         description: null
         reference: if any
-        example: &ref_51
+        example: &ref_59
           summary: For other product (response to /init)
           description: Respond to init call for other products
           value:
@@ -15475,12 +16806,12 @@ x-flows:
                             value: '1000.00'
                           - code: tax_number [^25]
                             value: gst_number_of_sellerNP
-        notes: *ref_30
+        notes: *ref_31
       - summary: Buyer confirms product
         api: confirm
         description: null
         reference: if any
-        example: &ref_52
+        example: &ref_60
           summary: Confirmation for Buyer on purchase of other product
           description: Confirmation for Buyer on purchase of other product
           value:
@@ -15661,12 +16992,12 @@ x-flows:
                         value: gst_number_of_buyerNP
                 created_at [^21]: '2023-06-03T09:30:00.000Z'
                 updated_at [^22]: '2023-06-03T09:30:00.000Z'
-        notes: *ref_31
+        notes: *ref_32
       - summary: Seller Accepts confirmation
         api: on_confirm
         description: null
         reference: if any
-        example: &ref_53
+        example: &ref_61
           summary: Acceptance by Seller (Other Products)
           description: Acceptance by Seller for other products
           value:
@@ -15920,12 +17251,12 @@ x-flows:
                         value: gst_number_of_buyerNP
                 created_at [^21]: '2023-06-03T09:30:00.000Z'
                 updated_at [^22]: '2023-06-03T09:31:30.000Z'
-        notes: *ref_32
+        notes: *ref_33
       - summary: Seller provides latest order status
         api: on_status
         description: Seller provides the updated status to the buyer
         reference: if any
-        example: *ref_23
+        example: *ref_36
         notes: *ref_20
       - summary: >-
           Cancellation RTO initiated as buyer is not available or rejectes the
@@ -16196,7 +17527,7 @@ x-flows:
         api: search
         description: Buyer search by fulfillment end location
         reference: if any
-        example: &ref_45
+        example: &ref_53
           summary: search_by_fulfillment_end_loc
           description: >-
             Search request for catalog from sellers that provide fulfillment at
@@ -16239,7 +17570,7 @@ x-flows:
                           https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
                       - code: effective_date
                         value: '2023-10-01T00:00:00.000Z'
-        notes: &ref_46
+        notes: &ref_54
           value:
             ^1: >-
               updated domains defined
@@ -16993,38 +18324,38 @@ x-flows:
         api: select
         description: null
         reference: if any
-        example: *ref_33
-        notes: *ref_34
+        example: *ref_41
+        notes: *ref_42
       - summary: Returns item breakup for a product with customization
         api: on_select
         description: null
         reference: if any
-        example: *ref_35
-        notes: *ref_36
+        example: *ref_43
+        notes: *ref_44
       - summary: Buyer initiate the product and send the updated fulfillment id
         api: init
         description: null
         reference: if any
-        example: *ref_37
-        notes: *ref_38
+        example: *ref_45
+        notes: *ref_46
       - summary: Respond to init
         api: on_init
         description: null
         reference: if any
-        example: *ref_39
-        notes: *ref_40
+        example: *ref_47
+        notes: *ref_48
       - summary: Buyer confirms product
         api: confirm
         description: null
         reference: if any
-        example: *ref_41
-        notes: *ref_42
+        example: *ref_49
+        notes: *ref_50
       - summary: Seller Accepts confirmation
         api: on_confirm
         description: null
         reference: if any
-        example: *ref_43
-        notes: *ref_44
+        example: *ref_51
+        notes: *ref_52
       - summary: seller cancels customized product
         api: on_update
         description: null
@@ -17890,7 +19221,7 @@ x-flows:
         api: update
         description: null
         reference: if any
-        example: &ref_54
+        example: &ref_62
           summary: Settlement trail for refund initiation
           description:
             nb:
@@ -17936,8 +19267,8 @@ x-flows:
         api: search
         description: Buyer search by fulfillment end location
         reference: if any
-        example: *ref_45
-        notes: *ref_46
+        example: *ref_53
+        notes: *ref_54
       - summary: Returns the item or catalog (Electronics Desktop)
         api: on_search
         description: null
@@ -18158,38 +19489,38 @@ x-flows:
         api: select
         description: null
         reference: if any
-        example: *ref_47
-        notes: *ref_28
+        example: *ref_55
+        notes: *ref_27
       - summary: Returns item breakup when item is in stock and offer applied
         api: on_select
         description: null
         reference: if any
-        example: *ref_48
-        notes: *ref_49
+        example: *ref_56
+        notes: *ref_57
       - summary: Buyer initiate the product and send the updated fulfillment id
         api: init
         description: null
         reference: if any
-        example: *ref_50
-        notes: *ref_29
+        example: *ref_58
+        notes: *ref_30
       - summary: Respond to init
         api: on_init
         description: null
         reference: if any
-        example: *ref_51
-        notes: *ref_30
+        example: *ref_59
+        notes: *ref_31
       - summary: Buyer confirms product
         api: confirm
         description: null
         reference: if any
-        example: *ref_52
-        notes: *ref_31
+        example: *ref_60
+        notes: *ref_32
       - summary: Seller Accepts confirmation
         api: on_confirm
         description: null
         reference: if any
-        example: *ref_53
-        notes: *ref_32
+        example: *ref_61
+        notes: *ref_33
       - summary: seller cancels non customized product
         api: on_update
         description: null
@@ -18453,7 +19784,7 @@ x-flows:
         api: update
         description: null
         reference: if any
-        example: *ref_54
+        example: *ref_62
   - summary: Retail 1.2.0 (Merchant cancels full order)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -18464,8 +19795,8 @@ x-flows:
         api: search
         description: Buyer search by fulfillment end location
         reference: if any
-        example: *ref_45
-        notes: *ref_46
+        example: *ref_53
+        notes: *ref_54
       - summary: Returns the item or catalog (Electronics Smartwatch)
         api: on_search
         description: null
@@ -18682,8 +20013,8 @@ x-flows:
         api: select
         description: null
         reference: if any
-        example: *ref_47
-        notes: *ref_28
+        example: *ref_55
+        notes: *ref_27
       - summary: Returns item breakup when item has multiple pickup otions
         api: on_select
         description: null
@@ -18895,26 +20226,26 @@ x-flows:
         api: init
         description: null
         reference: if any
-        example: *ref_50
-        notes: *ref_29
+        example: *ref_58
+        notes: *ref_30
       - summary: Respond to init
         api: on_init
         description: null
         reference: if any
-        example: *ref_51
-        notes: *ref_30
+        example: *ref_59
+        notes: *ref_31
       - summary: Buyer confirms product
         api: confirm
         description: null
         reference: if any
-        example: *ref_52
-        notes: *ref_31
+        example: *ref_60
+        notes: *ref_32
       - summary: Seller Accepts confirmation
         api: on_confirm
         description: null
         reference: if any
-        example: *ref_53
-        notes: *ref_32
+        example: *ref_61
+        notes: *ref_33
       - summary: Buyer cancels the product
         api: cancel
         description: null
@@ -19198,8 +20529,8 @@ x-flows:
         api: search
         description: Buyer search by fulfillment end location
         reference: if any
-        example: *ref_45
-        notes: *ref_46
+        example: *ref_53
+        notes: *ref_54
       - summary: Returns the item or catalog (F&B_Veg_NonVeg_Pizza)
         api: on_search
         description: null
@@ -19827,8 +21158,8 @@ x-flows:
         api: select
         description: null
         reference: if any
-        example: *ref_33
-        notes: *ref_34
+        example: *ref_41
+        notes: *ref_42
       - summary: Returns item breakup for a product with self pickup enabled
         api: on_select
         description: null
@@ -20026,26 +21357,26 @@ x-flows:
         api: init
         description: null
         reference: if any
-        example: *ref_37
-        notes: *ref_38
+        example: *ref_45
+        notes: *ref_46
       - summary: Respond to init
         api: on_init
         description: null
         reference: if any
-        example: *ref_39
-        notes: *ref_40
+        example: *ref_47
+        notes: *ref_48
       - summary: Buyer confirms product
         api: confirm
         description: null
         reference: if any
-        example: *ref_41
-        notes: *ref_42
+        example: *ref_49
+        notes: *ref_50
       - summary: Seller Accepts confirmation
         api: on_confirm
         description: null
         reference: if any
-        example: *ref_43
-        notes: *ref_44
+        example: *ref_51
+        notes: *ref_52
   - summary: Retail 1.2.0 (Item not in stock)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -20057,8 +21388,8 @@ x-flows:
         api: search
         description: Buyer search by fulfillment end location
         reference: if any
-        example: *ref_45
-        notes: *ref_46
+        example: *ref_53
+        notes: *ref_54
       - summary: Returns the item or catalog (Electronics Laptop)
         api: on_search
         description: null
@@ -20279,8 +21610,8 @@ x-flows:
         api: select
         description: null
         reference: if any
-        example: *ref_47
-        notes: *ref_28
+        example: *ref_55
+        notes: *ref_27
       - summary: Returns that item is not in stock
         api: on_select
         description: null
@@ -20383,8 +21714,8 @@ x-flows:
         api: search
         description: Buyer search for an item
         reference: if any
-        example: *ref_26
-        notes: *ref_27
+        example: *ref_39
+        notes: *ref_40
       - summary: Returns the item or catalog (Electronics Keyboard)
         api: on_search
         description: null
@@ -20600,8 +21931,8 @@ x-flows:
         api: select
         description: null
         reference: if any
-        example: *ref_47
-        notes: *ref_28
+        example: *ref_55
+        notes: *ref_27
       - summary: Returns that location is not serviceable
         api: on_select
         description: null
@@ -20696,7 +22027,7 @@ x-flows:
         api: search
         description: Search by city
         reference: if any
-        example: &ref_55
+        example: &ref_63
           summary: search by city
           description: Search request for all sellers in the city identified in Context
           value:
@@ -20731,7 +22062,7 @@ x-flows:
                           https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
                       - code: effective_date
                         value: '2023-10-01T00:00:00.000Z'
-        notes: &ref_56
+        notes: &ref_64
           value:
             ^1: >-
               updated domain namespace defined
@@ -21439,8 +22770,8 @@ x-flows:
         api: search
         description: Search by city
         reference: if any
-        example: *ref_55
-        notes: *ref_56
+        example: *ref_63
+        notes: *ref_64
       - summary: Returns the item or catalog (Health_Wellness)
         api: on_search
         description: null
