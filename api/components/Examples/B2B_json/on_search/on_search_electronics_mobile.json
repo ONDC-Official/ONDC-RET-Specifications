@@ -362,7 +362,7 @@
                   }
                 }
               ],
-              "return_terms": {
+              "return_terms": [{
                 "fulfillment_state": {
                   "descriptor": {
                     "code": "Order-delivered"
@@ -377,7 +377,7 @@
                   "gps": "12.667555,77.349666"
                 },
                 "fulfillment_managed_by": "seller"
-              },
+              }],
               "replacement_terms": [
                 {
                   "replace_within": "P7D"
