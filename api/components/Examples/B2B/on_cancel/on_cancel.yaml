@@ -21,7 +21,7 @@ value:
   message:
     order:
       id: '02'
-      status: Cancelled
+      state: Cancelled
       cancellation:
         cancelled_by: buyerapp.com
         reason:
