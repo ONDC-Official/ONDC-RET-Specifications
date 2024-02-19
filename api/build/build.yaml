@@ -3525,7 +3525,7 @@ x-flows:
         api: search
         description: Search intent sent by the buyer based on the category
         reference: if any
-        example: &ref_25
+        example: &ref_24
           summary: Search by Category
           description: Search By Category
           value:
@@ -3588,7 +3588,7 @@ x-flows:
         api: on_search
         description: Catalog provided by the Seller App
         reference: if any
-        example: &ref_26
+        example: &ref_25
           summary: Return the catalog for grocery
           description: Return the catalog for grocery products
           value:
@@ -8102,7 +8102,7 @@ x-flows:
                     '@ondc/org/settlement_window': P1D
                     '@ondc/org/withholding_amount': '10.00'
                     '@ondc/org/settlement_details':
-                      - settlement_counterparty: buyer-app
+                      - settlement_counterparty: seller-app
                         settlement_phase: sale-amount
                         settlement_type: upi
                         upi_address: gft@oksbi
@@ -8314,7 +8314,7 @@ x-flows:
                     '@ondc/org/settlement_window': P1D
                     '@ondc/org/withholding_amount': '10.00'
                     '@ondc/org/settlement_details':
-                      - settlement_counterparty: buyer-app
+                      - settlement_counterparty: seller-app
                         settlement_phase: sale-amount
                         beneficiary_name: xxxxx
                         settlement_type: upi
@@ -8589,7 +8589,7 @@ x-flows:
                     '@ondc/org/settlement_window': P1D
                     '@ondc/org/withholding_amount': '10.00'
                     '@ondc/org/settlement_details':
-                      - settlement_counterparty: seller-app
+                      - settlement_counterparty: buyer-app
                         settlement_phase: sale-amount
                         beneficiary_name: xxxxx
                         settlement_reference: XXXX
@@ -8785,8 +8785,8 @@ x-flows:
         api: on_select
         description: Seller provides the quotation and breakup with logistics charges
         reference: if any
-        example: &ref_24
-          summary: Send quote and breakup - (Domestic - Non RFQ)
+        example:
+          summary: Send quote and breakup - (Prepaid BAP - Non RFQ)
           description: Seller sends quote and breakup for the selected items
           value:
             context:
@@ -8880,7 +8880,7 @@ x-flows:
                   ttl: P1D
                 payments:
                   - type: PRE-FULFILLMENT
-                    collected_by: BPP
+                    collected_by: BAP
       - summary: Initialization of Order
         api: init
         description: Initialization of Order - Billing Details added.
@@ -9530,13 +9530,6 @@ x-flows:
         description: Buyer requests for Shipment status
         reference: if any
         example: *ref_7
-      - summary: Provider platform updates the latest status - Order Picked up
-        api: on_status
-        description: >-
-          Provider platform provides the updated order status to the consumer
-          once the order is picked up
-        reference: if any
-        example: *ref_8
       - summary: Provider platform updates the latest status - Out for Delivery
         api: on_status
         description: >-
@@ -9544,13 +9537,6 @@ x-flows:
           once the order is out for delivery
         reference: if any
         example: *ref_20
-      - summary: Provider platform updates the latest status - Delivered
-        api: on_status
-        description: >-
-          Provider platform provides the updated order status to the consumer
-          once the order is delivered
-        reference: if any
-        example: *ref_21
   - summary: B2B Prepaid (Payment collected by BPP - RFQ)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -10207,7 +10193,102 @@ x-flows:
         api: on_select
         description: Seller provides the quote and breakup with logistics charges
         reference: if any
-        example: *ref_24
+        example:
+          summary: Send quote and breakup - (Domestic - Non RFQ)
+          description: Seller sends quote and breakup for the selected items
+          value:
+            context:
+              domain: ONDC:RET10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_select
+              version: 2.0.2
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/grocery
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/grocery
+              transaction_id: T1
+              message_id: M1
+              timestamp: '2023-01-08T22:00:30.000Z'
+              ttl: PT30S
+            message:
+              order:
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - fulfillment_ids:
+                      - F1
+                    id: I1
+                    quantity:
+                      selected:
+                        count: 200
+                    add-ons:
+                      - id: '78787723'
+                fulfillments:
+                  - id: F1
+                    '@ondc/org/provider_name': Loadshare
+                    tracking: false
+                    '@ondc/org/category': Express Delivery
+                    '@ondc/org/TAT': P7D
+                    state:
+                      descriptor:
+                        code: Serviceable
+                quote:
+                  price:
+                    currency: INR
+                    value: '53600'
+                  breakup:
+                    - '@ondc/org/item_id': I1
+                      '@ondc/org/item_quantity':
+                        count: 200
+                      title: Dhara Mustard Oil
+                      '@ondc/org/title_type': item
+                      price:
+                        currency: INR
+                        value: '50000'
+                      item:
+                        price:
+                          currency: INR
+                          value: '250'
+                    - '@ondc/org/item_id': F1
+                      title: Delivery charges
+                      '@ondc/org/title_type': delivery
+                      price:
+                        currency: INR
+                        value: '4000'
+                    - '@ondc/org/item_id': F1
+                      title: Packing charges
+                      '@ondc/org/title_type': packing
+                      price:
+                        currency: INR
+                        value: '500'
+                    - '@ondc/org/item_id': I1
+                      title: Tax
+                      '@ondc/org/title_type': tax
+                      price:
+                        currency: INR
+                        value: '0'
+                    - '@ondc/org/item_id': I1
+                      title: Discount
+                      '@ondc/org/title_type': discount
+                      price:
+                        currency: INR
+                        value: '-1000'
+                    - '@ondc/org/item_id': F1
+                      title: Convenience Fee
+                      '@ondc/org/title_type': misc
+                      price:
+                        currency: INR
+                        value: '100'
+                  ttl: P1D
+                payments:
+                  - type: PRE-FULFILLMENT
+                    collected_by: BPP
       - summary: Initialization of Order
         api: init
         description: Initialization of Order - Billing Details added.
@@ -11106,12 +11187,12 @@ x-flows:
         api: search
         description: Search intent sent by the buyer based on the category
         reference: if any
-        example: *ref_25
+        example: *ref_24
       - summary: Returns item/ catalog
         api: on_search
         description: Catalog provided by the Seller App
         reference: if any
-        example: *ref_26
+        example: *ref_25
       - summary: Raise an RFQ
         api: select
         description: >-
@@ -11687,12 +11768,12 @@ x-flows:
         api: search
         description: Search intent sent by the buyer based on the category
         reference: if any
-        example: *ref_25
+        example: *ref_24
       - summary: Returns item/ catalog
         api: on_search
         description: Catalog provided by the Seller App
         reference: if any
-        example: *ref_26
+        example: *ref_25
       - summary: Raise an RFQ
         api: select
         description: >-
@@ -11845,12 +11926,12 @@ x-flows:
         api: search
         description: Search intent sent by the buyer based on the category
         reference: if any
-        example: *ref_25
+        example: *ref_24
       - summary: Returns item/ catalog
         api: on_search
         description: Catalog provided by the Seller App
         reference: if any
-        example: *ref_26
+        example: *ref_25
       - summary: Raise an RFQ
         api: select
         description: >-
@@ -12049,12 +12130,12 @@ x-flows:
         api: search
         description: Search intent sent by the buyer based on the category
         reference: if any
-        example: *ref_25
+        example: *ref_24
       - summary: Returns item/ catalog
         api: on_search
         description: Catalog provided by the Seller App
         reference: if any
-        example: *ref_26
+        example: *ref_25
       - summary: Raise an RFQ
         api: select
         description: >-
@@ -21684,7 +21765,7 @@ x-examples:
                       '@ondc/org/settlement_window': P1D
                       '@ondc/org/withholding_amount': '10.00'
                       '@ondc/org/settlement_details':
-                        - settlement_counterparty: buyer-app
+                        - settlement_counterparty: seller-app
                           settlement_phase: sale-amount
                           beneficiary_name: xxxxx
                           settlement_type: upi
@@ -22981,7 +23062,7 @@ x-examples:
                       '@ondc/org/settlement_window': P1D
                       '@ondc/org/withholding_amount': '10.00'
                       '@ondc/org/settlement_details':
-                        - settlement_counterparty: seller-app
+                        - settlement_counterparty: buyer-app
                           settlement_phase: sale-amount
                           beneficiary_name: xxxxx
                           settlement_reference: XXXX

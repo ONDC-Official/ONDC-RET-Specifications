@@ -158,7 +158,7 @@ value:
         "@ondc/org/settlement_window": P1D
         "@ondc/org/withholding_amount": "10.00"
         "@ondc/org/settlement_details":
-        - settlement_counterparty: buyer-app
+        - settlement_counterparty: seller-app
           settlement_phase: sale-amount
           beneficiary_name: xxxxx
           settlement_type: upi
