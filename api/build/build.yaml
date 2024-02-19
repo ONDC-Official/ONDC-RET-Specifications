@@ -2992,6 +2992,9 @@ x-enum:
               - code: misc
                 description: convenience charges
                 reference: <PR/Issue/Discussion Links md format text>
+              - code: refund
+                description: convenience charges
+                reference: <PR/Issue/Discussion Links md format text>
   init:
     context: *ref_1
     message:
