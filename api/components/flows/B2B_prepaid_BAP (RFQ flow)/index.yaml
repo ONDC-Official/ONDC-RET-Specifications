@@ -152,7 +152,7 @@ steps:
     description: Seller accepts Purchase Order
     reference: if any
     example:
-      $ref: "../../Examples/B2B/on_confirm/on_confirm_domestic.yaml"   
+      $ref: "../../Examples/B2B/on_confirm/on_confirm_prepaid_bap_rfq.yaml"   
   - summary: Payment is collected by buyer NP (Prepaid) and details are updated
     api: update
     description: Consumer platform sends the payment details

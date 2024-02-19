@@ -157,7 +157,7 @@ steps:
     description: Seller accepts Purchase Order and shares the payment link along with TTL
     reference: if any
     example:
-      $ref: "../../Examples/B2B/on_confirm/on_confirm_prepaid_bap_rfq.yaml" 
+      $ref: "../../Examples/B2B/on_confirm/on_confirm_domestic.yaml" 
   - summary: Seller app updates the payment status and sends proforma invoice
     api: on_status
     description: Seller app updates the payment status and sends proforma invoice
