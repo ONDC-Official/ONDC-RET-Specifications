@@ -135,6 +135,7 @@ value:
           status: PAID
           type: PRE-FULFILLMENT
           collected_by: BAP
+          uri: https://snp.com/pg
           "@ondc/org/buyer_app_finder_fee_type": percent
           "@ondc/org/buyer_app_finder_fee_amount": "0"
           "@ondc/org/settlement_basis": delivery
