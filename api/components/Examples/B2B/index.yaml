@@ -79,6 +79,7 @@ on_status:
     - $ref: ./on_status/on_status_BPP_payment_error.yaml
     - $ref: ./on_status/on_status_BPP_payment.yaml
     - $ref: ./on_status/on_status_self_picked_up.yaml
+    - $ref: ./on_status/on_status_proforma_prepaid_bap.yaml
 on_update:
   examples:
     - $ref: ./on_update/on_update_prepaid.yaml
