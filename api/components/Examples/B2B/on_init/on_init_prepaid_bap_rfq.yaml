@@ -1,5 +1,5 @@
-summary: Send quote and breakup - Response to RFQ (Domestic)
-description: Send quote and breakup for items selected in RFQ
+summary: Acknowledges the initialization (Prepaid BAP - RFQ)
+description: Acknowledges the initialization
 value:
   context:
     domain: ONDC:RET10
@@ -8,26 +8,26 @@ value:
         code: std:080
       country:
         code: IND
-    action: on_select
+    action: on_init
     version: 2.0.2
     bap_id: buyerapp.com
     bap_uri: https://buyerapp.com/grocery
     bpp_id: sellerapp.com
     bpp_uri: https://sellerapp.com/grocery
     transaction_id: "9568beb3-265a-4730-be4e-c00ba2e5e30a"
-    message_id: 4e90afaf-2d02-4ed9-9659-45d702a82f8e
+    message_id: 582eb99f-a7c1-46ae-8174-936757d2d96f
     timestamp: '2023-01-08T22:00:30.000Z'
     ttl: PT30S
   message:
     order:
       provider:
         id: P1
-        locations:
-        - id: L1
+      provider_location:
+        id: L1
       items:
-      - fulfillment_ids:
+      - id: I1
+        fulfillment_ids:
         - F1
-        id: I1
         quantity:
           selected:
             count: 200
@@ -43,15 +43,37 @@ value:
           - descriptor:
               code: PACKAGING_REQ
             value: free text on packaging Customization
+      billing:
+        name: ONDC buyer
+        address: 22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar, Bengaluru, Karnataka 560001
+        state:
+          name: Karnataka
+        city:
+          name: Bengaluru
+        tax_id: XXXXXXXXXXXXXXX
+        email: nobody@nomail.com
+        phone: '9886098860'
       fulfillments:
       - id: F1
+        type: Delivery
         "@ondc/org/provider_name": Loadshare
-        tracking: false
         "@ondc/org/category": Express Delivery
         "@ondc/org/TAT": P7D
-        state:
-          descriptor:
-            code: Serviceable
+        tracking: false
+        stops:
+        - type: end
+          location:
+            gps: 12.974002,77.613458
+            address: 'My House #, My buildin'
+            city:
+              name: Bengaluru
+            country:
+              code: IND
+            area_code: '560001'
+            state:
+              name: 'Karnataka'
+          contact:
+            phone: '9886098860'
       quote:
         price:
           currency: INR
@@ -102,4 +124,38 @@ value:
         ttl: P1D
       payments:
       - type: PRE-FULFILLMENT
-        collected_by: BPP
+        collected_by: BAP
+        "@ondc/org/buyer_app_finder_fee_type": percent
+        "@ondc/org/buyer_app_finder_fee_amount": '0'
+        "@ondc/org/settlement_basis": delivery
+        "@ondc/org/settlement_window": P1D
+        "@ondc/org/withholding_amount": "10.00"
+      tags:
+      - descriptor:
+          code: buyer_id
+        list:
+        - descriptor:
+            code: buyer_id_code
+          value: gst
+        - descriptor:
+            code: buyer_id_no
+          value: xxxxxxxxxxxxxxx
+        - descriptor:
+            code: bpp_terms
+          list:
+          - descriptor:
+              code: max_liability
+            value: '2'
+          - descriptor:
+              code: max_liability_cap
+            value: '10000'
+          - descriptor:
+              code: mandatory_arbitration
+            value: 'false'
+          - descriptor:
+              code: court_jurisdiction
+            value: Bengaluru
+          - descriptor:
+              code: delay_interest
+            value: '1000'
+

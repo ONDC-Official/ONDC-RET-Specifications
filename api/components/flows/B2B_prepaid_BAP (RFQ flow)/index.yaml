@@ -128,7 +128,7 @@ steps:
     description: Seller provides the quotation and breakup with logistics charges
     reference: if any
     example:
-      $ref: "../../Examples/B2B/on_select/on_select_domestic.yaml"
+      $ref: "../../Examples/B2B/on_select/on_select_prepaid_bap.yaml"
   - summary: Initialization of Order
     api: init
     description: Initialization of Order - Billing Details added.
@@ -140,7 +140,7 @@ steps:
     description: Initialization of Order with final quote
     reference: if any
     example:
-      $ref: "../../Examples/B2B/on_init/on_init_domestic.yaml"
+      $ref: "../../Examples/B2B/on_init/on_init_prepaid_bap_rfq.yaml"
   - summary: Buyer raises PO
     api: confirm
     description: Buyer creates a Purchase Order

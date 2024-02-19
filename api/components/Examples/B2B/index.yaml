@@ -49,6 +49,8 @@ on_select:
     - $ref: "./on_select/on_select_non_serviceable.yaml"
     - $ref: "./on_select/on_select_quantity_unavailable.yaml"
     - $ref: "./on_select/on_select_domestic_self_pickup.yaml"
+    - $ref: "./on_select/on_select_prepaid_bap_non_rfq.yaml"
+    - $ref: "./on_select/on_select_prepaid_bap.yaml"
 on_init:
   examples:
     - $ref: ./on_init/on_init_domestic.yaml
@@ -57,6 +59,8 @@ on_init:
     - $ref: "./on_init/on_init_domestic_payment_BPP_Non_RFQ.yaml"
     - $ref: "./on_init/on_init_rejectRFQ.yaml"
     - $ref: "./on_init/on_init_domestic_self_pickup.yaml"
+    - $ref: "./on_init/on_init_prepaid_bap_rfq.yaml"
+
 on_confirm:
   examples:
     - $ref: ./on_confirm/on_confirm_domestic.yaml
