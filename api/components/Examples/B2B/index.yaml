@@ -16,6 +16,7 @@ init:
     - $ref: ./init/init_domestic.yaml
     - $ref: ./init/init_domestic_non_rfq.yaml
     - $ref: ./init/init_domestic_BPP_payment.yaml
+    - $ref: ./init/init_prepaid_bap_rfq.yaml
 confirm:
   examples:
     - $ref: ./confirm/confirm_domestic.yaml

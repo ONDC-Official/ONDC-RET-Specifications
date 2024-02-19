@@ -134,7 +134,7 @@ steps:
     description: Initialization of Order - Billing Details added.
     reference: if any
     example:
-      $ref: "../../Examples/B2B/init/init_domestic.yaml"
+      $ref: "../../Examples/B2B/init/init_prepaid_bap_rfq.yaml"
   - summary: Initialization of Order
     api: on_init
     description: Initialization of Order with final quote

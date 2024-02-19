@@ -50,7 +50,7 @@ value:
         - id: F2
           type: Self-Pickup
       payments:
-        - type: ON-FULFILLMENT
+        - type: PRE-FULFILLMENT
       tags:
         - descriptor:
             code: buyer_id
