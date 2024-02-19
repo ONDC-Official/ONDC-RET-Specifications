@@ -172,7 +172,7 @@ When the TTL mentioned by the seller expires with either no response or pending 
 
 ```
 "error": {
-  "code": "31004",
+  "code": "20009",
   "message": "Payment TTL Expired"
 }
 ```
