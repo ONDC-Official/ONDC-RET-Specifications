@@ -90,10 +90,10 @@ details:
       
         note over BuyerApp,SellerApp: c. TTL expires
         SellerApp ->> BuyerApp: /on_status - BPP sends status update
-        BuyerApp ->> SellerApp: NACK - BAP sends NACK with error code '31004' and message 'Payment TTL Expired'
+        BuyerApp ->> SellerApp: NACK - BAP sends NACK with error code '20009' and message 'Payment TTL Expired'
         note over BuyerApp,SellerApp: If payment fails or TTL expires
         BuyerApp ->> SellerApp: /cancel - Buyer app cancels the order
-        BuyerApp ->> SellerApp: /on_cancel - Seller app confirms the cancellation
+        SellerApp ->> BuyerApp: /on_cancel - Seller app confirms the cancellation
 
   - description: ORDER STATUS
     mermaidGraph: >-
