@@ -154,7 +154,6 @@ value:
         tl_method: http/get
         params:
           currency: INR
-          transaction_id: '3937'
           amount: '53600'
         status: PAID
         type: PRE-FULFILLMENT

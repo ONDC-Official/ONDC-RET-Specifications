@@ -123,13 +123,13 @@ steps:
     description: Buyer confirms the order
     reference: if any
     example:
-      $ref: "../../Examples/B2B/confirm/confirm_domestic_Non_RFQ.yaml"
+      $ref: "../../Examples/B2B/confirm/confirm_prepaid_bap_non_rfq.yaml"
   - summary: Seller acknowledges
     api: on_confirm
     description: Seller acknowledges
     reference: if any
     example:
-      $ref: "../../Examples/B2B/on_confirm/on_confirm_domestic_non_rfq.yaml"                                    
+      $ref: "../../Examples/B2B/on_confirm/on_confirm_prepaid_bap_non_rfq.yaml"                                    
   - summary: Consumer platform requests for latest status
     api: status
     description: Buyer requests for Shipment status
