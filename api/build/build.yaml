@@ -5006,6 +5006,7 @@ x-flows:
                   - uri: https://ondc.transaction.com/payment
                     tl_method: http/get
                     params:
+                      transaction_id: '5679'
                       currency: INR
                       amount: '53600'
                     status: PAID
@@ -22127,6 +22128,7 @@ x-examples:
                     - uri: https://ondc.transaction.com/payment
                       tl_method: http/get
                       params:
+                        transaction_id: '5679'
                         currency: INR
                         amount: '53600'
                       status: PAID
