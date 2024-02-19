@@ -138,7 +138,7 @@ value:
           transaction_id: "2920ADJCNKJ329304MM"
           currency: INR
           amount: '53600'
-        status: NOT-PAID
+        status: PAID
         type: PRE-FULFILLMENT
         collected_by: BAP
         "@ondc/org/buyer_app_finder_fee_type": percent

@@ -8616,6 +8616,13 @@ x-flows:
           once the order is out for delivery
         reference: if any
         example: *ref_20
+      - summary: Provider platform updates the latest status - Delivered
+        api: on_status
+        description: >-
+          Provider platform provides the updated order status to the consumer
+          once the order is delivered
+        reference: if any
+        example: *ref_21
   - summary: B2B Prepaid (Payment collected by BAP - Non RFQ Flow)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -9471,7 +9478,7 @@ x-flows:
                       transaction_id: 2920ADJCNKJ329304MM
                       currency: INR
                       amount: '53600'
-                    status: NOT-PAID
+                    status: PAID
                     type: PRE-FULFILLMENT
                     collected_by: BAP
                     '@ondc/org/buyer_app_finder_fee_type': percent
@@ -9537,6 +9544,13 @@ x-flows:
           once the order is out for delivery
         reference: if any
         example: *ref_20
+      - summary: Provider platform updates the latest status - Delivered
+        api: on_status
+        description: >-
+          Provider platform provides the updated order status to the consumer
+          once the order is delivered
+        reference: if any
+        example: *ref_21
   - summary: B2B Prepaid (Payment collected by BPP - RFQ)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -10054,20 +10068,6 @@ x-flows:
           once the order is picked up
         reference: if any
         example: *ref_8
-      - summary: Provider platform updates the latest status - Out for Delivery
-        api: on_status
-        description: >-
-          Provider platform provides the updated order status to the consumer
-          once the order is out for delivery
-        reference: if any
-        example: *ref_20
-      - summary: Provider platform updates the latest status - Delivered
-        api: on_status
-        description: >-
-          Provider platform provides the updated order status to the consumer
-          once the order is delivered
-        reference: if any
-        example: *ref_21
   - summary: B2B Prepaid (Payment collected by BPP - Non RFQ)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -11073,20 +11073,6 @@ x-flows:
           once the order is picked up
         reference: if any
         example: *ref_8
-      - summary: Provider platform updates the latest status - Out for Delivery
-        api: on_status
-        description: >-
-          Provider platform provides the updated order status to the consumer
-          once the order is out for delivery
-        reference: if any
-        example: *ref_20
-      - summary: Provider platform updates the latest status - Delivered
-        api: on_status
-        description: >-
-          Provider platform provides the updated order status to the consumer
-          once the order is delivered
-        reference: if any
-        example: *ref_21
   - summary: B2B Self Pickup
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -21549,7 +21535,7 @@ x-examples:
                         transaction_id: 2920ADJCNKJ329304MM
                         currency: INR
                         amount: '53600'
-                      status: NOT-PAID
+                      status: PAID
                       type: PRE-FULFILLMENT
                       collected_by: BAP
                       '@ondc/org/buyer_app_finder_fee_type': percent

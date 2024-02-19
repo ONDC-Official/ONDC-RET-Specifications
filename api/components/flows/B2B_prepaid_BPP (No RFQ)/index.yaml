@@ -168,15 +168,3 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/B2B/on_status/on_status_picked_up.yaml"
-  - summary: Provider platform updates the latest status - Out for Delivery
-    api: on_status
-    description: Provider platform provides the updated order status to the consumer once the order is out for delivery
-    reference: if any
-    example:
-      $ref: "../../Examples/B2B/on_status/on_status_out_for_delivery.yaml"
-  - summary: Provider platform updates the latest status - Delivered
-    api: on_status
-    description: Provider platform provides the updated order status to the consumer once the order is delivered
-    reference: if any
-    example:
-      $ref: "../../Examples/B2B/on_status/on_status_delivered.yaml"
