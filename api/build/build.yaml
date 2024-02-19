@@ -4759,7 +4759,7 @@ x-flows:
                     '@ondc/org/settlement_window': P1D
                     '@ondc/org/withholding_amount': '10.00'
                     '@ondc/org/settlement_details':
-                      - settlement_counterparty: seller-app
+                      - settlement_counterparty: buyer-app
                         settlement_phase: sale-amount
                         beneficiary_name: xxxxx
                         settlement_type: upi
@@ -5013,12 +5013,12 @@ x-flows:
                     type: PRE-FULFILLMENT
                     collected_by: BPP
                     '@ondc/org/buyer_app_finder_fee_type': percent
-                    '@ondc/org/buyer_app_finder_fee_amount': '3'
+                    '@ondc/org/buyer_app_finder_fee_amount': '3.0'
                     '@ondc/org/settlement_basis': delivery
                     '@ondc/org/settlement_window': P1D
                     '@ondc/org/withholding_amount': '10.00'
                     '@ondc/org/settlement_details':
-                      - settlement_counterparty: seller-app
+                      - settlement_counterparty: buyer-app
                         settlement_phase: sale-amount
                         beneficiary_name: xxxxx
                         settlement_reference: XXXX
@@ -6412,7 +6412,7 @@ x-flows:
                     '@ondc/org/settlement_window': P1D
                     '@ondc/org/withholding_amount': '10.00'
                     '@ondc/org/settlement_details':
-                      - settlement_counterparty: seller-app
+                      - settlement_counterparty: buyer-app
                         settlement_phase: sale-amount
                         beneficiary_name: xxxxx
                         settlement_type: upi
@@ -6623,12 +6623,12 @@ x-flows:
                     type: PRE-FULFILLMENT
                     collected_by: BPP
                     '@ondc/org/buyer_app_finder_fee_type': percent
-                    '@ondc/org/buyer_app_finder_fee_amount': '3'
+                    '@ondc/org/buyer_app_finder_fee_amount': '3.0'
                     '@ondc/org/settlement_basis': delivery
                     '@ondc/org/settlement_window': P1D
                     '@ondc/org/withholding_amount': '10.00'
                     '@ondc/org/settlement_details':
-                      - settlement_counterparty: seller-app
+                      - settlement_counterparty: buyer-app
                         settlement_phase: sale-amount
                         beneficiary_name: xxxxx
                         settlement_reference: XXXX
@@ -7065,12 +7065,12 @@ x-flows:
                     type: PRE-FULFILLMENT
                     collected_by: BPP
                     '@ondc/org/buyer_app_finder_fee_type': percent
-                    '@ondc/org/buyer_app_finder_fee_amount': '3'
+                    '@ondc/org/buyer_app_finder_fee_amount': '3.0'
                     '@ondc/org/settlement_basis': delivery
                     '@ondc/org/settlement_window': P1D
                     '@ondc/org/withholding_amount': '10.00'
                     '@ondc/org/settlement_details':
-                      - settlement_counterparty: seller-app
+                      - settlement_counterparty: buyer-app
                         settlement_phase: sale-amount
                         beneficiary_name: xxxxx
                         settlement_reference: XXXX
@@ -7254,7 +7254,7 @@ x-flows:
                     type: PRE-FULFILLMENT
                     collected_by: BAP
                     '@ondc/org/buyer_app_finder_fee_type': percent
-                    '@ondc/org/buyer_app_finder_fee_amount': '3'
+                    '@ondc/org/buyer_app_finder_fee_amount': '3.0'
                     '@ondc/org/settlement_basis': delivery
                     '@ondc/org/settlement_window': P1D
                     '@ondc/org/withholding_amount': '10.00'
@@ -8568,7 +8568,7 @@ x-flows:
                     '@ondc/org/settlement_window': P1D
                     '@ondc/org/withholding_amount': '10.00'
                     '@ondc/org/settlement_details':
-                      - settlement_counterparty: seller-app
+                      - settlement_counterparty: buyer-app
                         settlement_phase: sale-amount
                         beneficiary_name: xxxxx
                         settlement_type: upi
@@ -8729,10 +8729,10 @@ x-flows:
 
             note over BuyerApp,SellerApp: c. TTL expires
             SellerApp ->> BuyerApp: /on_status - BPP sends status update
-            BuyerApp ->> SellerApp: NACK - BAP sends NACK with error code '31004' and message 'Payment TTL Expired'
+            BuyerApp ->> SellerApp: NACK - BAP sends NACK with error code '20009' and message 'Payment TTL Expired'
             note over BuyerApp,SellerApp: If payment fails or TTL expires
             BuyerApp ->> SellerApp: /cancel - Buyer app cancels the order
-            BuyerApp ->> SellerApp: /on_cancel - Seller app confirms the cancellation
+            SellerApp ->> BuyerApp: /on_cancel - Seller app confirms the cancellation
       - description: ORDER STATUS
         mermaidGraph: |-
           sequenceDiagram
@@ -9255,10 +9255,10 @@ x-flows:
 
             note over BuyerApp,SellerApp: c. TTL expires
             SellerApp ->> BuyerApp: /on_status - BPP sends status update
-            BuyerApp ->> SellerApp: NACK - BAP sends NACK with error code '31004' and message 'Payment TTL Expired'
+            BuyerApp ->> SellerApp: NACK - BAP sends NACK with error code '20009' and message 'Payment TTL Expired'
             note over BuyerApp,SellerApp: If payment fails or TTL expires
             BuyerApp ->> SellerApp: /cancel - Buyer app cancels the order
-            BuyerApp ->> SellerApp: /on_cancel - Seller app confirms the cancellation
+            SellerApp ->> BuyerApp: /on_cancel - Seller app confirms the cancellation
       - description: ORDER STATUS
         mermaidGraph: |-
           sequenceDiagram
@@ -9670,7 +9670,7 @@ x-flows:
                     type: PRE-FULFILLMENT
                     collected_by: BPP
                     '@ondc/org/buyer_app_finder_fee_type': percent
-                    '@ondc/org/buyer_app_finder_fee_amount': '3'
+                    '@ondc/org/buyer_app_finder_fee_amount': '3.0'
                     '@ondc/org/settlement_basis': delivery
                     '@ondc/org/settlement_window': P1D
                     '@ondc/org/withholding_amount': '10.00'
@@ -10321,12 +10321,12 @@ x-flows:
                     type: PRE-FULFILLMENT
                     collected_by: BPP
                     '@ondc/org/buyer_app_finder_fee_type': percent
-                    '@ondc/org/buyer_app_finder_fee_amount': '3'
+                    '@ondc/org/buyer_app_finder_fee_amount': '3.0'
                     '@ondc/org/settlement_basis': delivery
                     '@ondc/org/settlement_window': P1D
                     '@ondc/org/withholding_amount': '10.00'
                     '@ondc/org/settlement_details':
-                      - settlement_counterparty: seller-app
+                      - settlement_counterparty: buyer-app
                         settlement_phase: sale-amount
                         beneficiary_name: xxxxx
                         settlement_reference: XXXX
@@ -10951,7 +10951,7 @@ x-flows:
                     '@ondc/org/settlement_window': P1D
                     '@ondc/org/withholding_amount': '10.00'
                     '@ondc/org/settlement_details':
-                      - settlement_counterparty: seller-app
+                      - settlement_counterparty: buyer-app
                         settlement_phase: sale-amount
                         beneficiary_name: xxxxx
                         settlement_type: upi
@@ -18711,7 +18711,7 @@ x-examples:
                       '@ondc/org/settlement_window': P1D
                       '@ondc/org/withholding_amount': '10.00'
                       '@ondc/org/settlement_details':
-                        - settlement_counterparty: seller-app
+                        - settlement_counterparty: buyer-app
                           settlement_phase: sale-amount
                           beneficiary_name: xxxxx
                           settlement_type: upi
@@ -18938,7 +18938,7 @@ x-examples:
                       '@ondc/org/settlement_window': P1D
                       '@ondc/org/withholding_amount': '10.00'
                       '@ondc/org/settlement_details':
-                        - settlement_counterparty: seller-app
+                        - settlement_counterparty: buyer-app
                           settlement_phase: sale-amount
                           beneficiary_name: xxxxx
                           settlement_type: upi
@@ -19133,7 +19133,7 @@ x-examples:
                       '@ondc/org/settlement_window': P1D
                       '@ondc/org/withholding_amount': '10.00'
                       '@ondc/org/settlement_details':
-                        - settlement_counterparty: seller-app
+                        - settlement_counterparty: buyer-app
                           settlement_phase: sale-amount
                           beneficiary_name: xxxxx
                           settlement_type: upi
@@ -19332,7 +19332,7 @@ x-examples:
                       '@ondc/org/settlement_window': P1D
                       '@ondc/org/withholding_amount': '10.00'
                       '@ondc/org/settlement_details':
-                        - settlement_counterparty: seller-app
+                        - settlement_counterparty: buyer-app
                           settlement_phase: sale-amount
                           beneficiary_name: xxxxx
                           settlement_type: upi
@@ -19550,12 +19550,12 @@ x-examples:
                       type: PRE-FULFILLMENT
                       collected_by: BPP
                       '@ondc/org/buyer_app_finder_fee_type': percent
-                      '@ondc/org/buyer_app_finder_fee_amount': '3'
+                      '@ondc/org/buyer_app_finder_fee_amount': '3.0'
                       '@ondc/org/settlement_basis': delivery
                       '@ondc/org/settlement_window': P1D
                       '@ondc/org/withholding_amount': '10.00'
                       '@ondc/org/settlement_details':
-                        - settlement_counterparty: seller-app
+                        - settlement_counterparty: buyer-app
                           settlement_phase: sale-amount
                           beneficiary_name: xxxxx
                           settlement_reference: XXXX
@@ -19732,12 +19732,12 @@ x-examples:
                       type: PRE-FULFILLMENT
                       collected_by: BPP
                       '@ondc/org/buyer_app_finder_fee_type': percent
-                      '@ondc/org/buyer_app_finder_fee_amount': '3'
+                      '@ondc/org/buyer_app_finder_fee_amount': '3.0'
                       '@ondc/org/settlement_basis': delivery
                       '@ondc/org/settlement_window': P1D
                       '@ondc/org/withholding_amount': '10.00'
                       '@ondc/org/settlement_details':
-                        - settlement_counterparty: seller-app
+                        - settlement_counterparty: buyer-app
                           settlement_phase: sale-amount
                           beneficiary_name: xxxxx
                           settlement_reference: XXXX
@@ -19913,12 +19913,12 @@ x-examples:
                       type: PRE-FULFILLMENT
                       collected_by: BPP
                       '@ondc/org/buyer_app_finder_fee_type': percent
-                      '@ondc/org/buyer_app_finder_fee_amount': '3'
+                      '@ondc/org/buyer_app_finder_fee_amount': '3.0'
                       '@ondc/org/settlement_basis': delivery
                       '@ondc/org/settlement_window': P1D
                       '@ondc/org/withholding_amount': '10.00'
                       '@ondc/org/settlement_details':
-                        - settlement_counterparty: seller-app
+                        - settlement_counterparty: buyer-app
                           settlement_phase: sale-amount
                           beneficiary_name: xxxxx
                           settlement_reference: XXXX
@@ -20095,7 +20095,7 @@ x-examples:
                       type: PRE-FULFILLMENT
                       collected_by: BAP
                       '@ondc/org/buyer_app_finder_fee_type': percent
-                      '@ondc/org/buyer_app_finder_fee_amount': '3'
+                      '@ondc/org/buyer_app_finder_fee_amount': '3.0'
                       '@ondc/org/settlement_basis': delivery
                       '@ondc/org/settlement_window': P1D
                       '@ondc/org/withholding_amount': '10.00'
@@ -20209,7 +20209,7 @@ x-examples:
                       type: PRE-FULFILLMENT
                       collected_by: BPP
                       '@ondc/org/buyer_app_finder_fee_type': percent
-                      '@ondc/org/buyer_app_finder_fee_amount': '3'
+                      '@ondc/org/buyer_app_finder_fee_amount': '3.0'
                       '@ondc/org/settlement_basis': delivery
                       '@ondc/org/settlement_window': P1D
                       '@ondc/org/withholding_amount': '10.00'
@@ -20320,7 +20320,7 @@ x-examples:
                       type: PRE-FULFILLMENT
                       collected_by: BPP
                       '@ondc/org/buyer_app_finder_fee_type': percent
-                      '@ondc/org/buyer_app_finder_fee_amount': '3'
+                      '@ondc/org/buyer_app_finder_fee_amount': '3.0'
                       '@ondc/org/settlement_basis': delivery
                       '@ondc/org/settlement_window': P1D
                       '@ondc/org/withholding_amount': '10.00'
@@ -20469,12 +20469,12 @@ x-examples:
                       type: PRE-FULFILLMENT
                       collected_by: BPP
                       '@ondc/org/buyer_app_finder_fee_type': percent
-                      '@ondc/org/buyer_app_finder_fee_amount': '3'
+                      '@ondc/org/buyer_app_finder_fee_amount': '3.0'
                       '@ondc/org/settlement_basis': delivery
                       '@ondc/org/settlement_window': P1D
                       '@ondc/org/withholding_amount': '10.00'
                       '@ondc/org/settlement_details':
-                        - settlement_counterparty: seller-app
+                        - settlement_counterparty: buyer-app
                           settlement_phase: sale-amount
                           beneficiary_name: xxxxx
                           settlement_reference: XXXX
@@ -24339,6 +24339,10 @@ x-errors:
         Type: Seller App
         Message: Order processing in progress
         Description: Order processing in progress
+      - Code: 31004
+        Type: Seller App
+        Message: Payment Failed
+        Description: Payment fails
       - Code: 40000
         Type: Seller App
         Message: Business Error

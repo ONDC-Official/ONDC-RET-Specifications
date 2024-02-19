@@ -233,6 +233,10 @@ ErrorCodes:
     Type: Seller App
     Message: Order processing in progress
     Description: Order processing in progress
+  - Code: 31004
+    Type: Seller App
+    Message: Payment Failed
+    Description: Payment fails
   - Code: 40000
     Type: Seller App
     Message: Business Error
