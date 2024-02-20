@@ -4367,11 +4367,25 @@ x-flows:
                 payments:
                   - type: PRE-FULFILLMENT
                     collected_by: BPP
+                    uri: https://snp.com/pg
                     '@ondc/org/buyer_app_finder_fee_type': percent
                     '@ondc/org/buyer_app_finder_fee_amount': '0'
                     '@ondc/org/settlement_basis': delivery
                     '@ondc/org/settlement_window': P1D
                     '@ondc/org/withholding_amount': '10.00'
+                    tags:
+                      - descriptor:
+                          code: BPP_payment
+                        list:
+                          - descriptor:
+                              code: signature
+                            value: xxxxxxxxxxxxxx
+                          - descriptor:
+                              code: dsa
+                            value: ED25519
+                          - descriptor:
+                              code: ttl
+                            value: PT30M
                 tags:
                   - descriptor:
                       code: buyer_id
@@ -6008,11 +6022,25 @@ x-flows:
                 payments:
                   - type: PRE-FULFILLMENT
                     collected_by: BPP
+                    uri: https://snp.com/pg
                     '@ondc/org/buyer_app_finder_fee_type': percent
                     '@ondc/org/buyer_app_finder_fee_amount': '0'
                     '@ondc/org/settlement_basis': delivery
                     '@ondc/org/settlement_window': P1D
                     '@ondc/org/withholding_amount': '10.00'
+                    tags:
+                      - descriptor:
+                          code: BPP_payment
+                        list:
+                          - descriptor:
+                              code: signature
+                            value: xxxxxxxxxxxxxx
+                          - descriptor:
+                              code: dsa
+                            value: ED25519
+                          - descriptor:
+                              code: ttl
+                            value: PT30M
                 tags:
                   - descriptor:
                       code: buyer_id
@@ -6424,6 +6452,19 @@ x-flows:
                         settlement_ifsc_code: XXXXXXXXX
                         bank_name: xxxx
                         branch_name: xxxx
+                    tags:
+                      - descriptor:
+                          code: BPP_payment
+                        list:
+                          - descriptor:
+                              code: signature
+                            value: xxxxxxxxxxxxxx
+                          - descriptor:
+                              code: dsa
+                            value: ED25519
+                          - descriptor:
+                              code: ttl
+                            value: PT30M
                 tags:
                   - descriptor:
                       code: buyer_id
@@ -9097,22 +9138,26 @@ x-flows:
                   ttl: P1D
                 payments:
                   - type: PRE-FULFILLMENT
-                    collected_by: BAP
+                    collected_by: BPP
+                    uri: https://snp.com/pg
                     '@ondc/org/buyer_app_finder_fee_type': percent
                     '@ondc/org/buyer_app_finder_fee_amount': '0'
                     '@ondc/org/settlement_basis': delivery
                     '@ondc/org/settlement_window': P1D
                     '@ondc/org/withholding_amount': '10.00'
-                    '@ondc/org/settlement_details':
-                      - settlement_counterparty: seller-app
-                        settlement_phase: sale-amount
-                        settlement_type: upi
-                        upi_address: gft@oksbi
-                        settlement_bank_account_no: XXXXXXXXXX
-                        settlement_ifsc_code: XXXXXXXXX
-                        beneficiary_name: xxxxx
-                        bank_name: xxxx
-                        branch_name: xxxx
+                    tags:
+                      - descriptor:
+                          code: BPP_payment
+                        list:
+                          - descriptor:
+                              code: signature
+                            value: xxxxxxxxxxxxxx
+                          - descriptor:
+                              code: dsa
+                            value: ED25519
+                          - descriptor:
+                              code: ttl
+                            value: PT30M
                 tags:
                   - descriptor:
                       code: buyer_id
@@ -10898,7 +10943,8 @@ x-flows:
                   - params:
                       currency: INR
                       amount: '53600'
-                    status: NOT-PAID
+                    status: NOT-PAID\
+                    uri: https://snp.com/pg
                     type: PRE-FULFILLMENT
                     collected_by: BPP
                     '@ondc/org/buyer_app_finder_fee_type': percent
@@ -10916,6 +10962,19 @@ x-flows:
                         settlement_ifsc_code: XXXXXXXXX
                         bank_name: xxxx
                         branch_name: xxxx
+                    tags:
+                      - descriptor:
+                          code: BPP_payment
+                        list:
+                          - descriptor:
+                              code: signature
+                            value: xxxxxxxxxxxxxx
+                          - descriptor:
+                              code: dsa
+                            value: ED25519
+                          - descriptor:
+                              code: ttl
+                            value: PT30M
                 tags:
                   - descriptor:
                       code: buyer_id
@@ -19524,11 +19583,25 @@ x-examples:
                   payments:
                     - type: PRE-FULFILLMENT
                       collected_by: BPP
+                      uri: https://snp.com/pg
                       '@ondc/org/buyer_app_finder_fee_type': percent
                       '@ondc/org/buyer_app_finder_fee_amount': '0'
                       '@ondc/org/settlement_basis': delivery
                       '@ondc/org/settlement_window': P1D
                       '@ondc/org/withholding_amount': '10.00'
+                      tags:
+                        - descriptor:
+                            code: BPP_payment
+                          list:
+                            - descriptor:
+                                code: signature
+                              value: xxxxxxxxxxxxxx
+                            - descriptor:
+                                code: dsa
+                              value: ED25519
+                            - descriptor:
+                                code: ttl
+                              value: PT30M
                   tags:
                     - descriptor:
                         code: buyer_id
@@ -19675,22 +19748,26 @@ x-examples:
                     ttl: P1D
                   payments:
                     - type: PRE-FULFILLMENT
-                      collected_by: BAP
+                      collected_by: BPP
+                      uri: https://snp.com/pg
                       '@ondc/org/buyer_app_finder_fee_type': percent
                       '@ondc/org/buyer_app_finder_fee_amount': '0'
                       '@ondc/org/settlement_basis': delivery
                       '@ondc/org/settlement_window': P1D
                       '@ondc/org/withholding_amount': '10.00'
-                      '@ondc/org/settlement_details':
-                        - settlement_counterparty: seller-app
-                          settlement_phase: sale-amount
-                          settlement_type: upi
-                          upi_address: gft@oksbi
-                          settlement_bank_account_no: XXXXXXXXXX
-                          settlement_ifsc_code: XXXXXXXXX
-                          beneficiary_name: xxxxx
-                          bank_name: xxxx
-                          branch_name: xxxx
+                      tags:
+                        - descriptor:
+                            code: BPP_payment
+                          list:
+                            - descriptor:
+                                code: signature
+                              value: xxxxxxxxxxxxxx
+                            - descriptor:
+                                code: dsa
+                              value: ED25519
+                            - descriptor:
+                                code: ttl
+                              value: PT30M
                   tags:
                     - descriptor:
                         code: buyer_id
@@ -19856,11 +19933,25 @@ x-examples:
                   payments:
                     - type: PRE-FULFILLMENT
                       collected_by: BPP
+                      uri: https://snp.com/pg
                       '@ondc/org/buyer_app_finder_fee_type': percent
                       '@ondc/org/buyer_app_finder_fee_amount': '0'
                       '@ondc/org/settlement_basis': delivery
                       '@ondc/org/settlement_window': P1D
                       '@ondc/org/withholding_amount': '10.00'
+                      tags:
+                        - descriptor:
+                            code: BPP_payment
+                          list:
+                            - descriptor:
+                                code: signature
+                              value: xxxxxxxxxxxxxx
+                            - descriptor:
+                                code: dsa
+                              value: ED25519
+                            - descriptor:
+                                code: ttl
+                              value: PT30M
                   tags:
                     - descriptor:
                         code: buyer_id
@@ -20191,7 +20282,9 @@ x-examples:
                           value: '100'
                     ttl: P1D
                   payments:
-                    - '@ondc/org/buyer_app_finder_fee_type': percent
+                    - type: ON-FULFILLMENT
+                      collected_by: BPP
+                      '@ondc/org/buyer_app_finder_fee_type': percent
                       '@ondc/org/buyer_app_finder_fee_amount': '0'
                       '@ondc/org/settlement_basis': delivery
                       '@ondc/org/settlement_window': P1D
@@ -20950,6 +21043,19 @@ x-examples:
                           settlement_ifsc_code: XXXXXXXXX
                           bank_name: xxxx
                           branch_name: xxxx
+                      tags:
+                        - descriptor:
+                            code: BPP_payment
+                          list:
+                            - descriptor:
+                                code: signature
+                              value: xxxxxxxxxxxxxx
+                            - descriptor:
+                                code: dsa
+                              value: ED25519
+                            - descriptor:
+                                code: ttl
+                              value: PT30M
                   tags:
                     - descriptor:
                         code: buyer_id
@@ -21127,7 +21233,8 @@ x-examples:
                     - params:
                         currency: INR
                         amount: '53600'
-                      status: NOT-PAID
+                      status: NOT-PAID\
+                      uri: https://snp.com/pg
                       type: PRE-FULFILLMENT
                       collected_by: BPP
                       '@ondc/org/buyer_app_finder_fee_type': percent
@@ -21145,6 +21252,19 @@ x-examples:
                           settlement_ifsc_code: XXXXXXXXX
                           bank_name: xxxx
                           branch_name: xxxx
+                      tags:
+                        - descriptor:
+                            code: BPP_payment
+                          list:
+                            - descriptor:
+                                code: signature
+                              value: xxxxxxxxxxxxxx
+                            - descriptor:
+                                code: dsa
+                              value: ED25519
+                            - descriptor:
+                                code: ttl
+                              value: PT30M
                   tags:
                     - descriptor:
                         code: buyer_id
@@ -23732,7 +23852,7 @@ x-attributes:
                 description: type of payment option buyer wants to avail
                 usage: ON-FULFILLMENT
                 reference: if any
-                required: required
+                required: optional
             item:
               parent: true
               name:
@@ -23762,7 +23882,10 @@ x-attributes:
                 reference: if any
               stops:
                 type:
-                  description: location(s) where the buyer wants the delivery to be made
+                  description: >-
+                    location(s) where the buyer wants the delivery to be made,
+                    single location is mandatory, multiple locations are
+                    optional
                   required: required
                   usage: end
                   reference: if any
@@ -23931,7 +24054,7 @@ x-attributes:
                   reference: if any
                 contact.email:
                   description: email id of merchant or seller NP
-                  required: required
+                  required: optional
                   usage: abc@xyz.com
                   reference: if any
               ttl:
