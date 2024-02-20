@@ -137,7 +137,7 @@ value:
       - params:
           currency: INR
           amount: '53600'
-        status: NOT-PAID\
+        status: NOT-PAID
         uri: https://snp.com/pg
         type: PRE-FULFILLMENT
         collected_by: BPP
