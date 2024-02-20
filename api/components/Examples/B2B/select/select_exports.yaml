@@ -81,7 +81,7 @@ value:
               code: NAMED_PLACE_OF_DELIVERY
             value: SGP
       payments:
-      - type: ON-FULFILLMENT
+      - type: PRE-FULFILLMENT
       tags:
       - descriptor:
           code: buyer_id

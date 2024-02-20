@@ -153,19 +153,19 @@ value:
       - uri: https://ondc.transaction.com/payment
         tl_method: http/get
         params:
+          transaction_id: "2920ADJCNKJ329304MM"
           currency: INR
-          transaction_id: '3937'
           amount: '53600'
         status: PAID
         type: PRE-FULFILLMENT
-        collected_by: BPP
+        collected_by: BAP
         "@ondc/org/buyer_app_finder_fee_type": percent
         "@ondc/org/buyer_app_finder_fee_amount": '3.0'
         '@ondc/org/settlement_basis': delivery
         '@ondc/org/settlement_window': P1D
         '@ondc/org/withholding_amount': '10.00'
         "@ondc/org/settlement_details":
-        - settlement_counterparty: buyer-app
+        - settlement_counterparty: seller-app
           settlement_phase: sale-amount
           beneficiary_name: xxxxx
           settlement_reference: XXXX

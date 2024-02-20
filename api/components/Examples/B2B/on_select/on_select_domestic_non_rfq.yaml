@@ -91,5 +91,5 @@ value:
             value: '100'
         ttl: P1D
       payments:
-      - type: ON-FULFILLMENT
+      - type: PRE-FULFILLMENT
         collected_by: BPP

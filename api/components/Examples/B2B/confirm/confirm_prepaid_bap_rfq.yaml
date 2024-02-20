@@ -1,5 +1,5 @@
-summary: Order confirmation (Prepaid BPP - Non RFQ)
-description: Order confirmation (Domestic - Non RFQ)
+summary: Raise PO (Domestic - RFQ)
+description: PO raised by buyer based on the RFQ response received.
 value:
   context:
     domain: ONDC:RET10
@@ -8,7 +8,7 @@ value:
         code: std:080
       country:
         code: IND
-    action: on_confirm
+    action: confirm
     version: 2.0.2
     bap_id: buyerapp.com
     bap_uri: https://buyerapp.com/grocery
@@ -21,12 +21,11 @@ value:
   message:
     order:
       id: O1
-      state: Accepted
+      state: Created
       provider:
         id: P1
         locations:
         - id: L1
-        rateable: true
       items:
       - id: I1
         fulfillment_ids:
@@ -36,6 +35,16 @@ value:
             count: 200
         add_ons:
         - id: '78787723'
+        tags:
+        - descriptor:
+            code: BUYER_TERMS
+          list:
+          - descriptor:
+              code: ITEM_REQ
+            value: free text on Item Customization
+          - descriptor:
+              code: PACKAGING_REQ
+            value: free text on packaging Customization
       billing:
         name: ONDC buyer
         address: 22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar, Bengaluru, Karnataka 560001
@@ -48,29 +57,9 @@ value:
         phone: '9886098860'
       fulfillments:
       - id: F1
-        "@ondc/org/provider_name": Loadshare
-        state:
-          descriptor:
-            code: Pending
         type: Delivery
         tracking: false
         stops:
-        - type: start
-          location:
-            id: L1
-            descriptor:
-              name: ABC Store
-            gps: 12.956399,77.636803
-          time:
-            range:
-              start: '2023-02-03T10:00:00.000Z'
-              end: '2023-02-03T10:30:00.000Z'
-          instructions:
-            name: Status for pickup
-            short_desc: Pickup Confirmation Code
-          contact:
-            phone: '9886098860'
-            email: nobody@nomail.com
         - type: end
           location:
             gps: 12.974002,77.613458
@@ -84,7 +73,10 @@ value:
               name: 'Karnataka'
           contact:
             phone: '9886098860'
-        rateable: true
+            email: nobody@nomail.com
+          customer:
+            person:
+              name: Ramu
       quote:
         price:
           currency: INR
@@ -135,24 +127,26 @@ value:
         ttl: P1D
       payments:
       - params:
+          transaction_id: "2920ADJCNKJ329304MM"
           currency: INR
           amount: '53600'
-        status: NOT-PAID
+        status: PAID
         type: PRE-FULFILLMENT
-        collected_by: BPP
+        collected_by: BAP
+        uri: https://snp.com/pg
         "@ondc/org/buyer_app_finder_fee_type": percent
         "@ondc/org/buyer_app_finder_fee_amount": '0'
         "@ondc/org/settlement_basis": delivery
         "@ondc/org/settlement_window": P1D
         "@ondc/org/withholding_amount": "10.00"
         "@ondc/org/settlement_details":
-        - settlement_counterparty: buyer-app
+        - settlement_counterparty: seller-app
           settlement_phase: sale-amount
-          beneficiary_name: xxxxx
           settlement_type: upi
           upi_address: gft@oksbi
           settlement_bank_account_no: XXXXXXXXXX
           settlement_ifsc_code: XXXXXXXXX
+          beneficiary_name: xxxxx
           bank_name: xxxx
           branch_name: xxxx
       tags:
@@ -190,4 +184,4 @@ value:
                 code: accept_bpp_terms
               value: "Y"
       created_at: '2023-02-03T09:30:00.000Z'
-      updated_at: '2023-02-03T09:31:30.000Z'
+      updated_at: '2023-02-03T09:30:00.000Z'

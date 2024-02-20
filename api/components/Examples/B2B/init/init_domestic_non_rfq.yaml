@@ -61,8 +61,8 @@ value:
           contact:
             phone: '9886098860'
       payments:
-      - type: ON-FULFILLMENT
-        collected_by: BPP
+      - type: PRE-FULFILLMENT
+        collected_by: BAP
       tags:
       - descriptor:
           code: buyer_id

@@ -105,7 +105,7 @@ steps:
     description: Seller provides the quotation and breakup with logistics charges
     reference: if any
     example:
-      $ref: "../../Examples/B2B/on_select/on_select_domestic_non_rfq.yaml"
+      $ref: "../../Examples/B2B/on_select/on_select_prepaid_bap_non_rfq.yaml"
   - summary: Initialization of Order
     api: init
     description: Initialization of Order - Billing Details added.
@@ -123,25 +123,19 @@ steps:
     description: Buyer confirms the order
     reference: if any
     example:
-      $ref: "../../Examples/B2B/confirm/confirm_domestic_Non_RFQ.yaml"
+      $ref: "../../Examples/B2B/confirm/confirm_prepaid_bap_non_rfq.yaml"
   - summary: Seller acknowledges
     api: on_confirm
     description: Seller acknowledges
     reference: if any
     example:
-      $ref: "../../Examples/B2B/on_confirm/on_confirm_domestic_non_rfq.yaml"                                    
+      $ref: "../../Examples/B2B/on_confirm/on_confirm_prepaid_bap_non_rfq.yaml"                                    
   - summary: Consumer platform requests for latest status
     api: status
     description: Buyer requests for Shipment status
     reference: if any
     example:
       $ref: "../../Examples/B2B/status/status.yaml"
-  - summary: Provider platform updates the latest status - Order Picked up
-    api: on_status
-    description: Provider platform provides the updated order status to the consumer once the order is picked up
-    reference: if any
-    example:
-      $ref: "../../Examples/B2B/on_status/on_status_picked_up.yaml"
   - summary: Provider platform updates the latest status - Out for Delivery
     api: on_status
     description: Provider platform provides the updated order status to the consumer once the order is out for delivery

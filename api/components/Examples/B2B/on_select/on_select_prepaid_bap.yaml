@@ -1,4 +1,4 @@
-summary: Send quote and breakup - Response to RFQ (Domestic)
+summary: Send quote and breakup - Response to RFQ (Prepaid BAP)
 description: Send quote and breakup for items selected in RFQ
 value:
   context:
@@ -102,4 +102,4 @@ value:
         ttl: P1D
       payments:
       - type: PRE-FULFILLMENT
-        collected_by: BPP
+        collected_by: BAP

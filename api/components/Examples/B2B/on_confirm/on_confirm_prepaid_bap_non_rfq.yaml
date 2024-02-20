@@ -1,4 +1,4 @@
-summary: Order confirmation (Prepaid BPP - Non RFQ)
+summary: Order confirmation (Prepaid BAP - Non RFQ)
 description: Order confirmation (Domestic - Non RFQ)
 value:
   context:
@@ -135,18 +135,19 @@ value:
         ttl: P1D
       payments:
       - params:
+          transaction_id: "2920ADJCNKJ329304MM"
           currency: INR
           amount: '53600'
-        status: NOT-PAID
+        status: PAID
         type: PRE-FULFILLMENT
-        collected_by: BPP
+        collected_by: BAP
         "@ondc/org/buyer_app_finder_fee_type": percent
-        "@ondc/org/buyer_app_finder_fee_amount": '0'
+        "@ondc/org/buyer_app_finder_fee_amount": '0.0'
         "@ondc/org/settlement_basis": delivery
         "@ondc/org/settlement_window": P1D
         "@ondc/org/withholding_amount": "10.00"
         "@ondc/org/settlement_details":
-        - settlement_counterparty: buyer-app
+        - settlement_counterparty: seller-app
           settlement_phase: sale-amount
           beneficiary_name: xxxxx
           settlement_type: upi

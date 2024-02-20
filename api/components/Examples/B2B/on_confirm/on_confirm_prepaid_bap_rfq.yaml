@@ -1,5 +1,5 @@
-summary: Order confirmation (Prepaid BPP - Non RFQ)
-description: Order confirmation (Domestic - Non RFQ)
+summary: Accept PO (Prepaid BAP - RFQ)
+description: PO acceptance by Seller
 value:
   context:
     domain: ONDC:RET10
@@ -36,6 +36,16 @@ value:
             count: 200
         add_ons:
         - id: '78787723'
+        tags:
+        - descriptor:
+            code: BUYER_TERMS
+          list:
+          - descriptor:
+              code: ITEM_REQ
+            value: free text on Item Customization
+          - descriptor:
+              code: PACKAGING_REQ
+            value: free text on packaging Customization
       billing:
         name: ONDC buyer
         address: 22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar, Bengaluru, Karnataka 560001
@@ -135,18 +145,20 @@ value:
         ttl: P1D
       payments:
       - params:
+          transaction_id: "2920ADJCNKJ329304MM"
           currency: INR
           amount: '53600'
-        status: NOT-PAID
+        status: PAID
+        uri: https://snp.com/pg
         type: PRE-FULFILLMENT
-        collected_by: BPP
+        collected_by: BAP
         "@ondc/org/buyer_app_finder_fee_type": percent
-        "@ondc/org/buyer_app_finder_fee_amount": '0'
+        "@ondc/org/buyer_app_finder_fee_amount": '0.0'
         "@ondc/org/settlement_basis": delivery
         "@ondc/org/settlement_window": P1D
         "@ondc/org/withholding_amount": "10.00"
         "@ondc/org/settlement_details":
-        - settlement_counterparty: buyer-app
+        - settlement_counterparty: seller-app
           settlement_phase: sale-amount
           beneficiary_name: xxxxx
           settlement_type: upi
