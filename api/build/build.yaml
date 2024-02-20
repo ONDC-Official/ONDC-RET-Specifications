@@ -2992,6 +2992,9 @@ x-enum:
               - code: misc
                 description: convenience charges
                 reference: <PR/Issue/Discussion Links md format text>
+              - code: refund
+                description: convenience charges
+                reference: <PR/Issue/Discussion Links md format text>
   init:
     context: *ref_1
     message:
@@ -3525,7 +3528,7 @@ x-flows:
         api: search
         description: Search intent sent by the buyer based on the category
         reference: if any
-        example: &ref_27
+        example: &ref_24
           summary: Search by Category
           description: Search By Category
           value:
@@ -3588,7 +3591,7 @@ x-flows:
         api: on_search
         description: Catalog provided by the Seller App
         reference: if any
-        example: &ref_28
+        example: &ref_25
           summary: Return the catalog for grocery
           description: Return the catalog for grocery products
           value:
@@ -4017,7 +4020,7 @@ x-flows:
                         contact:
                           phone: '9886098860'
                 payments:
-                  - type: ON-FULFILLMENT
+                  - type: PRE-FULFILLMENT
                 tags:
                   - descriptor:
                       code: buyer_id
@@ -4136,7 +4139,7 @@ x-flows:
                         value: '100'
                   ttl: P1D
                 payments:
-                  - type: ON-FULFILLMENT
+                  - type: PRE-FULFILLMENT
                     collected_by: BPP
       - summary: Initialization of Order
         api: init
@@ -4218,7 +4221,7 @@ x-flows:
                         contact:
                           phone: '9886098860'
                 payments:
-                  - type: ON-FULFILLMENT
+                  - type: PRE-FULFILLMENT
                     collected_by: BPP
                 tags:
                   - descriptor:
@@ -4364,11 +4367,25 @@ x-flows:
                 payments:
                   - type: PRE-FULFILLMENT
                     collected_by: BPP
+                    uri: https://snp.com/pg
                     '@ondc/org/buyer_app_finder_fee_type': percent
                     '@ondc/org/buyer_app_finder_fee_amount': '0'
                     '@ondc/org/settlement_basis': delivery
                     '@ondc/org/settlement_window': P1D
                     '@ondc/org/withholding_amount': '10.00'
+                    tags:
+                      - descriptor:
+                          code: BPP_payment
+                        list:
+                          - descriptor:
+                              code: signature
+                            value: xxxxxxxxxxxxxx
+                          - descriptor:
+                              code: dsa
+                            value: ED25519
+                          - descriptor:
+                              code: ttl
+                            value: PT30M
                 tags:
                   - descriptor:
                       code: buyer_id
@@ -4598,7 +4615,7 @@ x-flows:
           acceptance.
         reference: if any
         example: &ref_16
-          summary: Accept PO (Domestic)
+          summary: Accept PO (Prepaid BPP - RFQ)
           description: PO acceptance by Seller
           value:
             context:
@@ -5006,8 +5023,8 @@ x-flows:
                   - uri: https://ondc.transaction.com/payment
                     tl_method: http/get
                     params:
+                      transaction_id: '5679'
                       currency: INR
-                      transaction_id: '3937'
                       amount: '53600'
                     status: PAID
                     type: PRE-FULFILLMENT
@@ -5624,7 +5641,7 @@ x-flows:
                               code: NAMED_PLACE_OF_DELIVERY
                             value: SGP
                 payments:
-                  - type: ON-FULFILLMENT
+                  - type: PRE-FULFILLMENT
                 tags:
                   - descriptor:
                       code: buyer_id
@@ -5851,7 +5868,7 @@ x-flows:
                               code: NAMED_PLACE_OF_DELIVERY
                             value: SGP
                 payments:
-                  - type: ON-FULFILLMENT
+                  - type: PRE-FULFILLMENT
                     collected_by: BPP
                 tags:
                   - descriptor:
@@ -6005,11 +6022,25 @@ x-flows:
                 payments:
                   - type: PRE-FULFILLMENT
                     collected_by: BPP
+                    uri: https://snp.com/pg
                     '@ondc/org/buyer_app_finder_fee_type': percent
                     '@ondc/org/buyer_app_finder_fee_amount': '0'
                     '@ondc/org/settlement_basis': delivery
                     '@ondc/org/settlement_window': P1D
                     '@ondc/org/withholding_amount': '10.00'
+                    tags:
+                      - descriptor:
+                          code: BPP_payment
+                        list:
+                          - descriptor:
+                              code: signature
+                            value: xxxxxxxxxxxxxx
+                          - descriptor:
+                              code: dsa
+                            value: ED25519
+                          - descriptor:
+                              code: ttl
+                            value: PT30M
                 tags:
                   - descriptor:
                       code: buyer_id
@@ -6421,6 +6452,19 @@ x-flows:
                         settlement_ifsc_code: XXXXXXXXX
                         bank_name: xxxx
                         branch_name: xxxx
+                    tags:
+                      - descriptor:
+                          code: BPP_payment
+                        list:
+                          - descriptor:
+                              code: signature
+                            value: xxxxxxxxxxxxxx
+                          - descriptor:
+                              code: dsa
+                            value: ED25519
+                          - descriptor:
+                              code: ttl
+                            value: PT30M
                 tags:
                   - descriptor:
                       code: buyer_id
@@ -7058,19 +7102,19 @@ x-flows:
                   - uri: https://ondc.transaction.com/payment
                     tl_method: http/get
                     params:
+                      transaction_id: 2920ADJCNKJ329304MM
                       currency: INR
-                      transaction_id: '3937'
                       amount: '53600'
                     status: PAID
                     type: PRE-FULFILLMENT
-                    collected_by: BPP
+                    collected_by: BAP
                     '@ondc/org/buyer_app_finder_fee_type': percent
                     '@ondc/org/buyer_app_finder_fee_amount': '3.0'
                     '@ondc/org/settlement_basis': delivery
                     '@ondc/org/settlement_window': P1D
                     '@ondc/org/withholding_amount': '10.00'
                     '@ondc/org/settlement_details':
-                      - settlement_counterparty: buyer-app
+                      - settlement_counterparty: seller-app
                         settlement_phase: sale-amount
                         beneficiary_name: xxxxx
                         settlement_reference: XXXX
@@ -7589,27 +7633,777 @@ x-flows:
         api: on_select
         description: Seller provides the quotation and breakup with logistics charges
         reference: if any
-        example: *ref_12
+        example:
+          summary: Send quote and breakup - Response to RFQ (Prepaid BAP)
+          description: Send quote and breakup for items selected in RFQ
+          value:
+            context:
+              domain: ONDC:RET10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_select
+              version: 2.0.2
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/grocery
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/grocery
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 4e90afaf-2d02-4ed9-9659-45d702a82f8e
+              timestamp: '2023-01-08T22:00:30.000Z'
+              ttl: PT30S
+            message:
+              order:
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - fulfillment_ids:
+                      - F1
+                    id: I1
+                    quantity:
+                      selected:
+                        count: 200
+                    add_ons:
+                      - id: '78787723'
+                    tags:
+                      - descriptor:
+                          code: BUYER_TERMS
+                        list:
+                          - descriptor:
+                              code: ITEM_REQ
+                            value: free text on Item Customization
+                          - descriptor:
+                              code: PACKAGING_REQ
+                            value: free text on packaging Customization
+                fulfillments:
+                  - id: F1
+                    '@ondc/org/provider_name': Loadshare
+                    tracking: false
+                    '@ondc/org/category': Express Delivery
+                    '@ondc/org/TAT': P7D
+                    state:
+                      descriptor:
+                        code: Serviceable
+                quote:
+                  price:
+                    currency: INR
+                    value: '53600'
+                  breakup:
+                    - '@ondc/org/item_id': I1
+                      '@ondc/org/item_quantity':
+                        count: 200
+                      title: Dhara Mustard Oil
+                      '@ondc/org/title_type': item
+                      price:
+                        currency: INR
+                        value: '50000'
+                      item:
+                        price:
+                          currency: INR
+                          value: '250'
+                    - '@ondc/org/item_id': F1
+                      title: Delivery charges
+                      '@ondc/org/title_type': delivery
+                      price:
+                        currency: INR
+                        value: '4000'
+                    - '@ondc/org/item_id': F1
+                      title: Packing charges
+                      '@ondc/org/title_type': packing
+                      price:
+                        currency: INR
+                        value: '500'
+                    - '@ondc/org/item_id': I1
+                      title: Tax
+                      '@ondc/org/title_type': tax
+                      price:
+                        currency: INR
+                        value: '0'
+                    - '@ondc/org/item_id': I1
+                      title: Discount
+                      '@ondc/org/title_type': discount
+                      price:
+                        currency: INR
+                        value: '-1000'
+                    - '@ondc/org/item_id': F1
+                      title: Convenience Fee
+                      '@ondc/org/title_type': misc
+                      price:
+                        currency: INR
+                        value: '100'
+                  ttl: P1D
+                payments:
+                  - type: PRE-FULFILLMENT
+                    collected_by: BAP
       - summary: Initialization of Order
         api: init
         description: Initialization of Order - Billing Details added.
         reference: if any
-        example: *ref_13
+        example:
+          summary: Intializing the order (Domestic)
+          description: Intializing the order
+          value:
+            context:
+              domain: ONDC:RET10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: init
+              version: 2.0.2
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/grocery
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/grocery
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 582eb99f-a7c1-46ae-8174-936757d2d96f
+              timestamp: '2023-01-08T22:00:30.000Z'
+              ttl: PT30S
+            message:
+              order:
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 200
+                    add_ons:
+                      - id: '78787723'
+                    tags:
+                      - descriptor:
+                          code: BUYER_TERMS
+                        list:
+                          - descriptor:
+                              code: ITEM_REQ
+                            value: free text on Item Customization
+                          - descriptor:
+                              code: PACKAGING_REQ
+                            value: free text on packaging Customization
+                billing:
+                  name: ONDC buyer
+                  address: >-
+                    22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                    Bengaluru, Karnataka 560001
+                  state:
+                    name: Karnataka
+                  city:
+                    name: Bengaluru
+                  tax_id: XXXXXXXXXXXXXXX
+                  email: nobody@nomail.com
+                  phone: '9886098860'
+                fulfillments:
+                  - id: F1
+                    type: Delivery
+                    stops:
+                      - type: end
+                        location:
+                          gps: 12.974002,77.613458
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Bengaluru
+                          country:
+                            code: IND
+                          area_code: '560001'
+                          state:
+                            name: Karnataka
+                        contact:
+                          phone: '9886098860'
+                payments:
+                  - type: PRE-FULFILLMENT
+                    collected_by: BAP
+                tags:
+                  - descriptor:
+                      code: buyer_id
+                    list:
+                      - descriptor:
+                          code: buyer_id_code
+                        value: gst
+                      - descriptor:
+                          code: buyer_id_no
+                        value: xxxxxxxxxxxxxxx
       - summary: Initialization of Order
         api: on_init
         description: Initialization of Order with final quote
         reference: if any
-        example: *ref_14
+        example:
+          summary: Acknowledges the initialization (Prepaid BAP - RFQ)
+          description: Acknowledges the initialization
+          value:
+            context:
+              domain: ONDC:RET10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_init
+              version: 2.0.2
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/grocery
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/grocery
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 582eb99f-a7c1-46ae-8174-936757d2d96f
+              timestamp: '2023-01-08T22:00:30.000Z'
+              ttl: PT30S
+            message:
+              order:
+                provider:
+                  id: P1
+                provider_location:
+                  id: L1
+                items:
+                  - id: I1
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 200
+                    add_ons:
+                      - id: '78787723'
+                    tags:
+                      - descriptor:
+                          code: BUYER_TERMS
+                        list:
+                          - descriptor:
+                              code: ITEM_REQ
+                            value: free text on Item Customization
+                          - descriptor:
+                              code: PACKAGING_REQ
+                            value: free text on packaging Customization
+                billing:
+                  name: ONDC buyer
+                  address: >-
+                    22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                    Bengaluru, Karnataka 560001
+                  state:
+                    name: Karnataka
+                  city:
+                    name: Bengaluru
+                  tax_id: XXXXXXXXXXXXXXX
+                  email: nobody@nomail.com
+                  phone: '9886098860'
+                fulfillments:
+                  - id: F1
+                    type: Delivery
+                    '@ondc/org/provider_name': Loadshare
+                    '@ondc/org/category': Express Delivery
+                    '@ondc/org/TAT': P7D
+                    tracking: false
+                    stops:
+                      - type: end
+                        location:
+                          gps: 12.974002,77.613458
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Bengaluru
+                          country:
+                            code: IND
+                          area_code: '560001'
+                          state:
+                            name: Karnataka
+                        contact:
+                          phone: '9886098860'
+                quote:
+                  price:
+                    currency: INR
+                    value: '53600'
+                  breakup:
+                    - '@ondc/org/item_id': I1
+                      '@ondc/org/item_quantity':
+                        count: 200
+                      title: Dhara Mustard Oil
+                      '@ondc/org/title_type': item
+                      price:
+                        currency: INR
+                        value: '50000'
+                      item:
+                        price:
+                          currency: INR
+                          value: '250'
+                    - '@ondc/org/item_id': F1
+                      title: Delivery charges
+                      '@ondc/org/title_type': delivery
+                      price:
+                        currency: INR
+                        value: '4000'
+                    - '@ondc/org/item_id': F1
+                      title: Packing charges
+                      '@ondc/org/title_type': packing
+                      price:
+                        currency: INR
+                        value: '500'
+                    - '@ondc/org/item_id': I1
+                      title: Tax
+                      '@ondc/org/title_type': tax
+                      price:
+                        currency: INR
+                        value: '0'
+                    - '@ondc/org/item_id': I1
+                      title: Discount
+                      '@ondc/org/title_type': discount
+                      price:
+                        currency: INR
+                        value: '-1000'
+                    - '@ondc/org/item_id': F1
+                      title: Convenience Fee
+                      '@ondc/org/title_type': misc
+                      price:
+                        currency: INR
+                        value: '100'
+                  ttl: P1D
+                payments:
+                  - type: PRE-FULFILLMENT
+                    collected_by: BAP
+                    '@ondc/org/buyer_app_finder_fee_type': percent
+                    '@ondc/org/buyer_app_finder_fee_amount': '0'
+                    '@ondc/org/settlement_basis': delivery
+                    '@ondc/org/settlement_window': P1D
+                    '@ondc/org/withholding_amount': '10.00'
+                tags:
+                  - descriptor:
+                      code: buyer_id
+                    list:
+                      - descriptor:
+                          code: buyer_id_code
+                        value: gst
+                      - descriptor:
+                          code: buyer_id_no
+                        value: xxxxxxxxxxxxxxx
+                      - descriptor:
+                          code: bpp_terms
+                        list:
+                          - descriptor:
+                              code: max_liability
+                            value: '2'
+                          - descriptor:
+                              code: max_liability_cap
+                            value: '10000'
+                          - descriptor:
+                              code: mandatory_arbitration
+                            value: 'false'
+                          - descriptor:
+                              code: court_jurisdiction
+                            value: Bengaluru
+                          - descriptor:
+                              code: delay_interest
+                            value: '1000'
       - summary: Buyer raises PO
         api: confirm
         description: Buyer creates a Purchase Order
         reference: if any
-        example: *ref_15
+        example:
+          summary: Raise PO (Domestic - RFQ)
+          description: PO raised by buyer based on the RFQ response received.
+          value:
+            context:
+              domain: ONDC:RET10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: confirm
+              version: 2.0.2
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/grocery
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/grocery
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: ad33f8db-cc87-4470-961a-e5555869fd3c
+              timestamp: '2023-01-08T22:00:30.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O1
+                state: Created
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 200
+                    add_ons:
+                      - id: '78787723'
+                    tags:
+                      - descriptor:
+                          code: BUYER_TERMS
+                        list:
+                          - descriptor:
+                              code: ITEM_REQ
+                            value: free text on Item Customization
+                          - descriptor:
+                              code: PACKAGING_REQ
+                            value: free text on packaging Customization
+                billing:
+                  name: ONDC buyer
+                  address: >-
+                    22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                    Bengaluru, Karnataka 560001
+                  state:
+                    name: Karnataka
+                  city:
+                    name: Bengaluru
+                  tax_id: XXXXXXXXXXXXXXX
+                  email: nobody@nomail.com
+                  phone: '9886098860'
+                fulfillments:
+                  - id: F1
+                    type: Delivery
+                    tracking: false
+                    stops:
+                      - type: end
+                        location:
+                          gps: 12.974002,77.613458
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Bengaluru
+                          country:
+                            code: IND
+                          area_code: '560001'
+                          state:
+                            name: Karnataka
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                        customer:
+                          person:
+                            name: Ramu
+                quote:
+                  price:
+                    currency: INR
+                    value: '53600'
+                  breakup:
+                    - '@ondc/org/item_id': I1
+                      '@ondc/org/item_quantity':
+                        count: 200
+                      title: Dhara Mustard Oil
+                      '@ondc/org/title_type': item
+                      price:
+                        currency: INR
+                        value: '50000'
+                      item:
+                        price:
+                          currency: INR
+                          value: '250'
+                    - '@ondc/org/item_id': F1
+                      title: Delivery charges
+                      '@ondc/org/title_type': delivery
+                      price:
+                        currency: INR
+                        value: '4000'
+                    - '@ondc/org/item_id': F1
+                      title: Packing charges
+                      '@ondc/org/title_type': packing
+                      price:
+                        currency: INR
+                        value: '500'
+                    - '@ondc/org/item_id': I1
+                      title: Tax
+                      '@ondc/org/title_type': tax
+                      price:
+                        currency: INR
+                        value: '0'
+                    - '@ondc/org/item_id': I1
+                      title: Discount
+                      '@ondc/org/title_type': discount
+                      price:
+                        currency: INR
+                        value: '-1000'
+                    - '@ondc/org/item_id': F1
+                      title: Convenience Fee
+                      '@ondc/org/title_type': misc
+                      price:
+                        currency: INR
+                        value: '100'
+                  ttl: P1D
+                payments:
+                  - params:
+                      transaction_id: 2920ADJCNKJ329304MM
+                      currency: INR
+                      amount: '53600'
+                    status: PAID
+                    type: PRE-FULFILLMENT
+                    collected_by: BAP
+                    uri: https://snp.com/pg
+                    '@ondc/org/buyer_app_finder_fee_type': percent
+                    '@ondc/org/buyer_app_finder_fee_amount': '0'
+                    '@ondc/org/settlement_basis': delivery
+                    '@ondc/org/settlement_window': P1D
+                    '@ondc/org/withholding_amount': '10.00'
+                    '@ondc/org/settlement_details':
+                      - settlement_counterparty: seller-app
+                        settlement_phase: sale-amount
+                        settlement_type: upi
+                        upi_address: gft@oksbi
+                        settlement_bank_account_no: XXXXXXXXXX
+                        settlement_ifsc_code: XXXXXXXXX
+                        beneficiary_name: xxxxx
+                        bank_name: xxxx
+                        branch_name: xxxx
+                tags:
+                  - descriptor:
+                      code: buyer_id
+                    list:
+                      - descriptor:
+                          code: buyer_id_code
+                        value: gst
+                      - descriptor:
+                          code: buyer_id_no
+                        value: xxxxxxxxxxxxxxx
+                  - descriptor:
+                      code: bpp_terms
+                    list:
+                      - descriptor:
+                          code: max_liability
+                        value: '2'
+                      - descriptor:
+                          code: max_liability_cap
+                        value: '10000'
+                      - descriptor:
+                          code: mandatory_arbitration
+                        value: 'false'
+                      - descriptor:
+                          code: court_jurisdiction
+                        value: Bengaluru
+                      - descriptor:
+                          code: delay_interest
+                        value: '1000'
+                  - descriptor:
+                      code: bap_terms
+                    list:
+                      - descriptor:
+                          code: accept_bpp_terms
+                        value: 'Y'
+                created_at: '2023-02-03T09:30:00.000Z'
+                updated_at: '2023-02-03T09:30:00.000Z'
       - summary: Seller Accepts PO
         api: on_confirm
         description: Seller accepts Purchase Order
         reference: if any
-        example: *ref_16
+        example:
+          summary: Accept PO (Prepaid BAP - RFQ)
+          description: PO acceptance by Seller
+          value:
+            context:
+              domain: ONDC:RET10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_confirm
+              version: 2.0.2
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/grocery
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/grocery
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: ad33f8db-cc87-4470-961a-e5555869fd3c
+              timestamp: '2023-01-08T22:00:30.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O1
+                state: Accepted
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                  rateable: true
+                items:
+                  - id: I1
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 200
+                    add_ons:
+                      - id: '78787723'
+                    tags:
+                      - descriptor:
+                          code: BUYER_TERMS
+                        list:
+                          - descriptor:
+                              code: ITEM_REQ
+                            value: free text on Item Customization
+                          - descriptor:
+                              code: PACKAGING_REQ
+                            value: free text on packaging Customization
+                billing:
+                  name: ONDC buyer
+                  address: >-
+                    22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                    Bengaluru, Karnataka 560001
+                  state:
+                    name: Karnataka
+                  city:
+                    name: Bengaluru
+                  tax_id: XXXXXXXXXXXXXXX
+                  email: nobody@nomail.com
+                  phone: '9886098860'
+                fulfillments:
+                  - id: F1
+                    '@ondc/org/provider_name': Loadshare
+                    state:
+                      descriptor:
+                        code: Pending
+                    type: Delivery
+                    tracking: false
+                    stops:
+                      - type: start
+                        location:
+                          id: L1
+                          descriptor:
+                            name: ABC Store
+                          gps: 12.956399,77.636803
+                        time:
+                          range:
+                            start: '2023-02-03T10:00:00.000Z'
+                            end: '2023-02-03T10:30:00.000Z'
+                        instructions:
+                          name: Status for pickup
+                          short_desc: Pickup Confirmation Code
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                      - type: end
+                        location:
+                          gps: 12.974002,77.613458
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Bengaluru
+                          country:
+                            code: IND
+                          area_code: '560001'
+                          state:
+                            name: Karnataka
+                        contact:
+                          phone: '9886098860'
+                    rateable: true
+                quote:
+                  price:
+                    currency: INR
+                    value: '53600'
+                  breakup:
+                    - '@ondc/org/item_id': I1
+                      '@ondc/org/item_quantity':
+                        count: 200
+                      title: Dhara Mustard Oil
+                      '@ondc/org/title_type': item
+                      price:
+                        currency: INR
+                        value: '50000'
+                      item:
+                        price:
+                          currency: INR
+                          value: '250'
+                    - '@ondc/org/item_id': F1
+                      title: Delivery charges
+                      '@ondc/org/title_type': delivery
+                      price:
+                        currency: INR
+                        value: '4000'
+                    - '@ondc/org/item_id': F1
+                      title: Packing charges
+                      '@ondc/org/title_type': packing
+                      price:
+                        currency: INR
+                        value: '500'
+                    - '@ondc/org/item_id': I1
+                      title: Tax
+                      '@ondc/org/title_type': tax
+                      price:
+                        currency: INR
+                        value: '0'
+                    - '@ondc/org/item_id': I1
+                      title: Discount
+                      '@ondc/org/title_type': discount
+                      price:
+                        currency: INR
+                        value: '-1000'
+                    - '@ondc/org/item_id': F1
+                      title: Convenience Fee
+                      '@ondc/org/title_type': misc
+                      price:
+                        currency: INR
+                        value: '100'
+                  ttl: P1D
+                payments:
+                  - params:
+                      transaction_id: 2920ADJCNKJ329304MM
+                      currency: INR
+                      amount: '53600'
+                    status: PAID
+                    uri: https://snp.com/pg
+                    type: PRE-FULFILLMENT
+                    collected_by: BAP
+                    '@ondc/org/buyer_app_finder_fee_type': percent
+                    '@ondc/org/buyer_app_finder_fee_amount': '0.0'
+                    '@ondc/org/settlement_basis': delivery
+                    '@ondc/org/settlement_window': P1D
+                    '@ondc/org/withholding_amount': '10.00'
+                    '@ondc/org/settlement_details':
+                      - settlement_counterparty: seller-app
+                        settlement_phase: sale-amount
+                        beneficiary_name: xxxxx
+                        settlement_type: upi
+                        upi_address: gft@oksbi
+                        settlement_bank_account_no: XXXXXXXXXX
+                        settlement_ifsc_code: XXXXXXXXX
+                        bank_name: xxxx
+                        branch_name: xxxx
+                tags:
+                  - descriptor:
+                      code: buyer_id
+                    list:
+                      - descriptor:
+                          code: buyer_id_code
+                        value: gst
+                      - descriptor:
+                          code: buyer_id_no
+                        value: xxxxxxxxxxxxxxx
+                  - descriptor:
+                      code: bpp_terms
+                    list:
+                      - descriptor:
+                          code: max_liability
+                        value: '2'
+                      - descriptor:
+                          code: max_liability_cap
+                        value: '10000'
+                      - descriptor:
+                          code: mandatory_arbitration
+                        value: 'false'
+                      - descriptor:
+                          code: court_jurisdiction
+                        value: Bengaluru
+                      - descriptor:
+                          code: delay_interest
+                        value: '1000'
+                  - descriptor:
+                      code: bap_terms
+                    list:
+                      - descriptor:
+                          code: accept_bpp_terms
+                        value: 'Y'
+                created_at: '2023-02-03T09:30:00.000Z'
+                updated_at: '2023-02-03T09:31:30.000Z'
       - summary: Payment is collected by buyer NP (Prepaid) and details are updated
         api: update
         description: Consumer platform sends the payment details
@@ -7680,19 +8474,186 @@ x-flows:
         api: on_status
         description: Provider platform sends the proforma invoice to the consumer
         reference: if any
-        example: *ref_17
+        example:
+          summary: Seller updates the order status (Proforma Invoice - Prepaid BAP)
+          description: Seller updates the order status and shares Invoice
+          value:
+            context:
+              domain: ONDC:RET10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_status
+              version: 2.0.2
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/grocery
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/grocery
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 2052ef5e-2ec7-4c21-96f7-dec4b2309010
+              timestamp: '2023-01-08T22:00:30.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O1
+                state: Accepted
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 200
+                billing:
+                  name: ONDC buyer
+                  address: B005 aaspire heights, Jurong East, SGP, 680230
+                  state:
+                    name: Jurong East
+                  city:
+                    name: Jurong East
+                  email: nobody@nomail.com
+                  phone: '9886098860'
+                fulfillments:
+                  - id: F1
+                    '@ondc/org/provider_name': Loadshare
+                    type: Delivery
+                    tracking: false
+                    state:
+                      descriptor:
+                        code: Pending
+                    stops:
+                      - type: start
+                        location:
+                          id: L1
+                          descriptor:
+                            name: ABC Store
+                            images:
+                              - https://gf-integration/images/5.png
+                          gps: 12.956399,77.636803
+                        time:
+                          range:
+                            start: '2023-02-03T10:00:00.000Z'
+                            end: '2023-02-03T10:30:00.000Z'
+                        instructions:
+                          name: Proof of pickup
+                          short_desc: Proof of pickup details
+                          long_desc: Proof of pickup details
+                          images:
+                            - https://image1_url.png
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                      - type: end
+                        location:
+                          gps: 1.3806217468119772, 103.74636438437074
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Jurong East
+                          country:
+                            code: SGP
+                          area_code: '680230'
+                          state:
+                            name: ''
+                        time:
+                          range:
+                            start: '2023-02-03T11:00:00.000Z'
+                            end: '2023-02-03T11:30:00.000Z'
+                        instructions:
+                          name: Proof of delivery
+                          short_desc: Proof of delivery details
+                          long_desc: Proof of delivery details
+                          images:
+                            - https://image1_url.png
+                        contact:
+                          phone: '9886098860'
+                quote:
+                  price:
+                    currency: INR
+                    value: '53600'
+                  breakup:
+                    - '@ondc/org/item_id': I1
+                      '@ondc/org/item_quantity':
+                        count: 200
+                      title: Dhara Mustard Oil
+                      '@ondc/org/title_type': item
+                      price:
+                        currency: INR
+                        value: '50000'
+                      item:
+                        price:
+                          currency: INR
+                          value: '250'
+                    - '@ondc/org/item_id': F1
+                      title: Delivery charges
+                      '@ondc/org/title_type': delivery
+                      price:
+                        currency: INR
+                        value: '4000'
+                    - '@ondc/org/item_id': F1
+                      title: Packing charges
+                      '@ondc/org/title_type': packing
+                      price:
+                        currency: INR
+                        value: '500'
+                    - '@ondc/org/item_id': I1
+                      title: Tax
+                      '@ondc/org/title_type': tax
+                      price:
+                        currency: INR
+                        value: '0'
+                    - '@ondc/org/item_id': I1
+                      title: Discount
+                      '@ondc/org/title_type': discount
+                      price:
+                        currency: INR
+                        value: '-1000'
+                    - '@ondc/org/item_id': F1
+                      title: Convenience Fee
+                      '@ondc/org/title_type': misc
+                      price:
+                        currency: INR
+                        value: '100'
+                  ttl: P1D
+                payments:
+                  - params:
+                      currency: INR
+                      transaction_id: '3937'
+                      amount: '53600'
+                    status: PAID
+                    type: PRE-FULFILLMENT
+                    collected_by: BAP
+                    '@ondc/org/buyer_app_finder_fee_type': percent
+                    '@ondc/org/buyer_app_finder_fee_amount': '3.0'
+                    '@ondc/org/settlement_basis': delivery
+                    '@ondc/org/settlement_window': P1D
+                    '@ondc/org/withholding_amount': '10.00'
+                    '@ondc/org/settlement_details':
+                      - settlement_counterparty: buyer-app
+                        settlement_phase: sale-amount
+                        beneficiary_name: xxxxx
+                        settlement_reference: XXXX
+                        settlement_type: upi
+                        upi_address: gft@oksbi
+                        settlement_bank_account_no: XXXXXXXXXX
+                        settlement_ifsc_code: XXXXXXXXX
+                        bank_name: xxxx
+                        branch_name: xxxx
+                documents:
+                  - url: https://invoice_url
+                    label: PROFORMA_INVOICE
+                created_at: '2023-02-03T09:30:00.000Z'
+                updated_at: '2023-02-03T10:00:00.201Z'
       - summary: Consumer platform requests for latest status
         api: status
         description: Buyer requests for Shipment status
         reference: if any
         example: *ref_7
-      - summary: Provider platform updates the latest status - Order Picked up
-        api: on_status
-        description: >-
-          Provider platform provides the updated order status to the consumer
-          once the order is picked up
-        reference: if any
-        example: *ref_8
       - summary: Provider platform updates the latest status - Out for Delivery
         api: on_status
         description: >-
@@ -7861,7 +8822,7 @@ x-flows:
                         contact:
                           phone: '9886098860'
                 payments:
-                  - type: ON-FULFILLMENT
+                  - type: PRE-FULFILLMENT
                 tags:
                   - descriptor:
                       code: buyer_id
@@ -7876,8 +8837,8 @@ x-flows:
         api: on_select
         description: Seller provides the quotation and breakup with logistics charges
         reference: if any
-        example: &ref_24
-          summary: Send quote and breakup - (Domestic - Non RFQ)
+        example:
+          summary: Send quote and breakup - (Prepaid BAP - Non RFQ)
           description: Seller sends quote and breakup for the selected items
           value:
             context:
@@ -7970,8 +8931,8 @@ x-flows:
                         value: '100'
                   ttl: P1D
                 payments:
-                  - type: ON-FULFILLMENT
-                    collected_by: BPP
+                  - type: PRE-FULFILLMENT
+                    collected_by: BAP
       - summary: Initialization of Order
         api: init
         description: Initialization of Order - Billing Details added.
@@ -8042,8 +9003,8 @@ x-flows:
                         contact:
                           phone: '9886098860'
                 payments:
-                  - type: ON-FULFILLMENT
-                    collected_by: BPP
+                  - type: PRE-FULFILLMENT
+                    collected_by: BAP
                 tags:
                   - descriptor:
                       code: buyer_id
@@ -8177,22 +9138,26 @@ x-flows:
                   ttl: P1D
                 payments:
                   - type: PRE-FULFILLMENT
-                    collected_by: BAP
+                    collected_by: BPP
+                    uri: https://snp.com/pg
                     '@ondc/org/buyer_app_finder_fee_type': percent
                     '@ondc/org/buyer_app_finder_fee_amount': '0'
                     '@ondc/org/settlement_basis': delivery
                     '@ondc/org/settlement_window': P1D
                     '@ondc/org/withholding_amount': '10.00'
-                    '@ondc/org/settlement_details':
-                      - settlement_counterparty: seller-app
-                        settlement_phase: sale-amount
-                        settlement_type: upi
-                        upi_address: gft@oksbi
-                        settlement_bank_account_no: XXXXXXXXXX
-                        settlement_ifsc_code: XXXXXXXXX
-                        beneficiary_name: xxxxx
-                        bank_name: xxxx
-                        branch_name: xxxx
+                    tags:
+                      - descriptor:
+                          code: BPP_payment
+                        list:
+                          - descriptor:
+                              code: signature
+                            value: xxxxxxxxxxxxxx
+                          - descriptor:
+                              code: dsa
+                            value: ED25519
+                          - descriptor:
+                              code: ttl
+                            value: PT30M
                 tags:
                   - descriptor:
                       code: buyer_id
@@ -8225,8 +9190,8 @@ x-flows:
         api: confirm
         description: Buyer confirms the order
         reference: if any
-        example: &ref_25
-          summary: Confirms the order (Domestic - Non RFQ)
+        example:
+          summary: Confirms the order (Prepaid BAP - Non RFQ)
           description: Confirms the order (Domestic)
           value:
             context:
@@ -8357,18 +9322,20 @@ x-flows:
                   ttl: P1D
                 payments:
                   - params:
+                      transaction_id: 2920ADJCNKJ329304MM
                       currency: INR
                       amount: '53600'
                     status: PAID
                     type: PRE-FULFILLMENT
-                    collected_by: BPP
+                    collected_by: BAP
+                    uri: https://snp.com/pg
                     '@ondc/org/buyer_app_finder_fee_type': percent
                     '@ondc/org/buyer_app_finder_fee_amount': '0'
                     '@ondc/org/settlement_basis': delivery
                     '@ondc/org/settlement_window': P1D
                     '@ondc/org/withholding_amount': '10.00'
                     '@ondc/org/settlement_details':
-                      - settlement_counterparty: buyer-app
+                      - settlement_counterparty: seller-app
                         settlement_phase: sale-amount
                         settlement_type: upi
                         upi_address: gft@oksbi
@@ -8417,8 +9384,8 @@ x-flows:
         api: on_confirm
         description: Seller acknowledges
         reference: if any
-        example: &ref_26
-          summary: Order confirmation (Domestic - Non RFQ)
+        example:
+          summary: Order confirmation (Prepaid BAP - Non RFQ)
           description: Order confirmation (Domestic - Non RFQ)
           value:
             context:
@@ -8557,18 +9524,19 @@ x-flows:
                   ttl: P1D
                 payments:
                   - params:
+                      transaction_id: 2920ADJCNKJ329304MM
                       currency: INR
                       amount: '53600'
-                    status: NOT-PAID
+                    status: PAID
                     type: PRE-FULFILLMENT
-                    collected_by: BPP
+                    collected_by: BAP
                     '@ondc/org/buyer_app_finder_fee_type': percent
-                    '@ondc/org/buyer_app_finder_fee_amount': '0'
+                    '@ondc/org/buyer_app_finder_fee_amount': '0.0'
                     '@ondc/org/settlement_basis': delivery
                     '@ondc/org/settlement_window': P1D
                     '@ondc/org/withholding_amount': '10.00'
                     '@ondc/org/settlement_details':
-                      - settlement_counterparty: buyer-app
+                      - settlement_counterparty: seller-app
                         settlement_phase: sale-amount
                         beneficiary_name: xxxxx
                         settlement_type: upi
@@ -8618,13 +9586,6 @@ x-flows:
         description: Buyer requests for Shipment status
         reference: if any
         example: *ref_7
-      - summary: Provider platform updates the latest status - Order Picked up
-        api: on_status
-        description: >-
-          Provider platform provides the updated order status to the consumer
-          once the order is picked up
-        reference: if any
-        example: *ref_8
       - summary: Provider platform updates the latest status - Out for Delivery
         api: on_status
         description: >-
@@ -9156,20 +10117,6 @@ x-flows:
           once the order is picked up
         reference: if any
         example: *ref_8
-      - summary: Provider platform updates the latest status - Out for Delivery
-        api: on_status
-        description: >-
-          Provider platform provides the updated order status to the consumer
-          once the order is out for delivery
-        reference: if any
-        example: *ref_20
-      - summary: Provider platform updates the latest status - Delivered
-        api: on_status
-        description: >-
-          Provider platform provides the updated order status to the consumer
-          once the order is delivered
-        reference: if any
-        example: *ref_21
   - summary: B2B Prepaid (Payment collected by BPP - Non RFQ)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -9295,7 +10242,102 @@ x-flows:
         api: on_select
         description: Seller provides the quote and breakup with logistics charges
         reference: if any
-        example: *ref_24
+        example:
+          summary: Send quote and breakup - (Domestic - Non RFQ)
+          description: Seller sends quote and breakup for the selected items
+          value:
+            context:
+              domain: ONDC:RET10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_select
+              version: 2.0.2
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/grocery
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/grocery
+              transaction_id: T1
+              message_id: M1
+              timestamp: '2023-01-08T22:00:30.000Z'
+              ttl: PT30S
+            message:
+              order:
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - fulfillment_ids:
+                      - F1
+                    id: I1
+                    quantity:
+                      selected:
+                        count: 200
+                    add-ons:
+                      - id: '78787723'
+                fulfillments:
+                  - id: F1
+                    '@ondc/org/provider_name': Loadshare
+                    tracking: false
+                    '@ondc/org/category': Express Delivery
+                    '@ondc/org/TAT': P7D
+                    state:
+                      descriptor:
+                        code: Serviceable
+                quote:
+                  price:
+                    currency: INR
+                    value: '53600'
+                  breakup:
+                    - '@ondc/org/item_id': I1
+                      '@ondc/org/item_quantity':
+                        count: 200
+                      title: Dhara Mustard Oil
+                      '@ondc/org/title_type': item
+                      price:
+                        currency: INR
+                        value: '50000'
+                      item:
+                        price:
+                          currency: INR
+                          value: '250'
+                    - '@ondc/org/item_id': F1
+                      title: Delivery charges
+                      '@ondc/org/title_type': delivery
+                      price:
+                        currency: INR
+                        value: '4000'
+                    - '@ondc/org/item_id': F1
+                      title: Packing charges
+                      '@ondc/org/title_type': packing
+                      price:
+                        currency: INR
+                        value: '500'
+                    - '@ondc/org/item_id': I1
+                      title: Tax
+                      '@ondc/org/title_type': tax
+                      price:
+                        currency: INR
+                        value: '0'
+                    - '@ondc/org/item_id': I1
+                      title: Discount
+                      '@ondc/org/title_type': discount
+                      price:
+                        currency: INR
+                        value: '-1000'
+                    - '@ondc/org/item_id': F1
+                      title: Convenience Fee
+                      '@ondc/org/title_type': misc
+                      price:
+                        currency: INR
+                        value: '100'
+                  ttl: P1D
+                payments:
+                  - type: PRE-FULFILLMENT
+                    collected_by: BPP
       - summary: Initialization of Order
         api: init
         description: Initialization of Order - Billing Details added.
@@ -9567,12 +10609,408 @@ x-flows:
         api: confirm
         description: Buyer makes the payment and then confirms the order
         reference: if any
-        example: *ref_25
+        example:
+          summary: Confirms the order (Prepaid BPP - Non RFQ)
+          description: Confirms the order (Domestic)
+          value:
+            context:
+              domain: ONDC:RET10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: confirm
+              version: 2.0.2
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/grocery
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/grocery
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: ad33f8db-cc87-4470-961a-e5555869fd3c
+              timestamp: '2023-01-08T22:00:30.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O1
+                state: Created
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 200
+                    add_ons:
+                      - id: '78787723'
+                    tags:
+                      - descriptor:
+                          code: BUYER_TERMS
+                        list:
+                          - descriptor:
+                              code: ITEM_REQ
+                            value: free text on Item Customization
+                          - descriptor:
+                              code: PACKAGING_REQ
+                            value: free text on packaging Customization
+                billing:
+                  name: ONDC buyer
+                  address: >-
+                    22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                    Bengaluru, Karnataka 560001
+                  state:
+                    name: Karnataka
+                  city:
+                    name: Bengaluru
+                  tax_id: XXXXXXXXXXXXXXX
+                  email: nobody@nomail.com
+                  phone: '9886098860'
+                fulfillments:
+                  - id: F1
+                    type: Delivery
+                    tracking: false
+                    stops:
+                      - type: end
+                        location:
+                          gps: 12.974002,77.613458
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Bengaluru
+                          country:
+                            code: IND
+                          area_code: '560001'
+                          state:
+                            name: Karnataka
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                        customer:
+                          person:
+                            name: Ramu
+                quote:
+                  price:
+                    currency: INR
+                    value: '53600'
+                  breakup:
+                    - '@ondc/org/item_id': I1
+                      '@ondc/org/item_quantity':
+                        count: 200
+                      title: Dhara Mustard Oil
+                      '@ondc/org/title_type': item
+                      price:
+                        currency: INR
+                        value: '50000'
+                      item:
+                        price:
+                          currency: INR
+                          value: '250'
+                    - '@ondc/org/item_id': F1
+                      title: Delivery charges
+                      '@ondc/org/title_type': delivery
+                      price:
+                        currency: INR
+                        value: '4000'
+                    - '@ondc/org/item_id': F1
+                      title: Packing charges
+                      '@ondc/org/title_type': packing
+                      price:
+                        currency: INR
+                        value: '500'
+                    - '@ondc/org/item_id': I1
+                      title: Tax
+                      '@ondc/org/title_type': tax
+                      price:
+                        currency: INR
+                        value: '0'
+                    - '@ondc/org/item_id': I1
+                      title: Discount
+                      '@ondc/org/title_type': discount
+                      price:
+                        currency: INR
+                        value: '-1000'
+                    - '@ondc/org/item_id': F1
+                      title: Convenience Fee
+                      '@ondc/org/title_type': misc
+                      price:
+                        currency: INR
+                        value: '100'
+                  ttl: P1D
+                payments:
+                  - params:
+                      currency: INR
+                      amount: '53600'
+                    status: NOT-PAID
+                    type: PRE-FULFILLMENT
+                    collected_by: BPP
+                    '@ondc/org/buyer_app_finder_fee_type': percent
+                    '@ondc/org/buyer_app_finder_fee_amount': '0'
+                    '@ondc/org/settlement_basis': delivery
+                    '@ondc/org/settlement_window': P1D
+                    '@ondc/org/withholding_amount': '10.00'
+                    '@ondc/org/settlement_details':
+                      - settlement_counterparty: buyer-app
+                        settlement_phase: sale-amount
+                        settlement_type: upi
+                        upi_address: gft@oksbi
+                        settlement_bank_account_no: XXXXXXXXXX
+                        settlement_ifsc_code: XXXXXXXXX
+                        beneficiary_name: xxxxx
+                        bank_name: xxxx
+                        branch_name: xxxx
+                tags:
+                  - descriptor:
+                      code: buyer_id
+                    list:
+                      - descriptor:
+                          code: buyer_id_code
+                        value: gst
+                      - descriptor:
+                          code: buyer_id_no
+                        value: xxxxxxxxxxxxxxx
+                  - descriptor:
+                      code: bpp_terms
+                    list:
+                      - descriptor:
+                          code: max_liability
+                        value: '2'
+                      - descriptor:
+                          code: max_liability_cap
+                        value: '10000'
+                      - descriptor:
+                          code: mandatory_arbitration
+                        value: 'false'
+                      - descriptor:
+                          code: court_jurisdiction
+                        value: Bengaluru
+                      - descriptor:
+                          code: delay_interest
+                        value: '1000'
+                  - descriptor:
+                      code: bap_terms
+                    list:
+                      - descriptor:
+                          code: accept_bpp_terms
+                        value: 'Y'
+                created_at: '2023-02-03T09:30:00.000Z'
+                updated_at: '2023-02-03T09:30:00.000Z'
       - summary: Seller provides acknowledgment to the order confirmation
         api: on_confirm
         description: Seller provides acknowledgment to the order confirmation
         reference: if any
-        example: *ref_26
+        example:
+          summary: Order confirmation (Prepaid BPP - Non RFQ)
+          description: Order confirmation (Domestic - Non RFQ)
+          value:
+            context:
+              domain: ONDC:RET10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_confirm
+              version: 2.0.2
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/grocery
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/grocery
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: ad33f8db-cc87-4470-961a-e5555869fd3c
+              timestamp: '2023-01-08T22:00:30.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O1
+                state: Accepted
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                  rateable: true
+                items:
+                  - id: I1
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 200
+                    add_ons:
+                      - id: '78787723'
+                billing:
+                  name: ONDC buyer
+                  address: >-
+                    22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                    Bengaluru, Karnataka 560001
+                  state:
+                    name: Karnataka
+                  city:
+                    name: Bengaluru
+                  tax_id: XXXXXXXXXXXXXXX
+                  email: nobody@nomail.com
+                  phone: '9886098860'
+                fulfillments:
+                  - id: F1
+                    '@ondc/org/provider_name': Loadshare
+                    state:
+                      descriptor:
+                        code: Pending
+                    type: Delivery
+                    tracking: false
+                    stops:
+                      - type: start
+                        location:
+                          id: L1
+                          descriptor:
+                            name: ABC Store
+                          gps: 12.956399,77.636803
+                        time:
+                          range:
+                            start: '2023-02-03T10:00:00.000Z'
+                            end: '2023-02-03T10:30:00.000Z'
+                        instructions:
+                          name: Status for pickup
+                          short_desc: Pickup Confirmation Code
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                      - type: end
+                        location:
+                          gps: 12.974002,77.613458
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Bengaluru
+                          country:
+                            code: IND
+                          area_code: '560001'
+                          state:
+                            name: Karnataka
+                        contact:
+                          phone: '9886098860'
+                    rateable: true
+                quote:
+                  price:
+                    currency: INR
+                    value: '53600'
+                  breakup:
+                    - '@ondc/org/item_id': I1
+                      '@ondc/org/item_quantity':
+                        count: 200
+                      title: Dhara Mustard Oil
+                      '@ondc/org/title_type': item
+                      price:
+                        currency: INR
+                        value: '50000'
+                      item:
+                        price:
+                          currency: INR
+                          value: '250'
+                    - '@ondc/org/item_id': F1
+                      title: Delivery charges
+                      '@ondc/org/title_type': delivery
+                      price:
+                        currency: INR
+                        value: '4000'
+                    - '@ondc/org/item_id': F1
+                      title: Packing charges
+                      '@ondc/org/title_type': packing
+                      price:
+                        currency: INR
+                        value: '500'
+                    - '@ondc/org/item_id': I1
+                      title: Tax
+                      '@ondc/org/title_type': tax
+                      price:
+                        currency: INR
+                        value: '0'
+                    - '@ondc/org/item_id': I1
+                      title: Discount
+                      '@ondc/org/title_type': discount
+                      price:
+                        currency: INR
+                        value: '-1000'
+                    - '@ondc/org/item_id': F1
+                      title: Convenience Fee
+                      '@ondc/org/title_type': misc
+                      price:
+                        currency: INR
+                        value: '100'
+                  ttl: P1D
+                payments:
+                  - params:
+                      currency: INR
+                      amount: '53600'
+                    status: NOT-PAID\
+                    uri: https://snp.com/pg
+                    type: PRE-FULFILLMENT
+                    collected_by: BPP
+                    '@ondc/org/buyer_app_finder_fee_type': percent
+                    '@ondc/org/buyer_app_finder_fee_amount': '0'
+                    '@ondc/org/settlement_basis': delivery
+                    '@ondc/org/settlement_window': P1D
+                    '@ondc/org/withholding_amount': '10.00'
+                    '@ondc/org/settlement_details':
+                      - settlement_counterparty: buyer-app
+                        settlement_phase: sale-amount
+                        beneficiary_name: xxxxx
+                        settlement_type: upi
+                        upi_address: gft@oksbi
+                        settlement_bank_account_no: XXXXXXXXXX
+                        settlement_ifsc_code: XXXXXXXXX
+                        bank_name: xxxx
+                        branch_name: xxxx
+                    tags:
+                      - descriptor:
+                          code: BPP_payment
+                        list:
+                          - descriptor:
+                              code: signature
+                            value: xxxxxxxxxxxxxx
+                          - descriptor:
+                              code: dsa
+                            value: ED25519
+                          - descriptor:
+                              code: ttl
+                            value: PT30M
+                tags:
+                  - descriptor:
+                      code: buyer_id
+                    list:
+                      - descriptor:
+                          code: buyer_id_code
+                        value: gst
+                      - descriptor:
+                          code: buyer_id_no
+                        value: xxxxxxxxxxxxxxx
+                  - descriptor:
+                      code: bpp_terms
+                    list:
+                      - descriptor:
+                          code: max_liability
+                        value: '2'
+                      - descriptor:
+                          code: max_liability_cap
+                        value: '10000'
+                      - descriptor:
+                          code: mandatory_arbitration
+                        value: 'false'
+                      - descriptor:
+                          code: court_jurisdiction
+                        value: Bengaluru
+                      - descriptor:
+                          code: delay_interest
+                        value: '1000'
+                  - descriptor:
+                      code: bap_terms
+                    list:
+                      - descriptor:
+                          code: accept_bpp_terms
+                        value: 'Y'
+                created_at: '2023-02-03T09:30:00.000Z'
+                updated_at: '2023-02-03T09:31:30.000Z'
       - summary: Seller app updates the payment status
         api: on_status
         description: Seller app updates the payment status
@@ -9698,20 +11136,6 @@ x-flows:
           once the order is picked up
         reference: if any
         example: *ref_8
-      - summary: Provider platform updates the latest status - Out for Delivery
-        api: on_status
-        description: >-
-          Provider platform provides the updated order status to the consumer
-          once the order is out for delivery
-        reference: if any
-        example: *ref_20
-      - summary: Provider platform updates the latest status - Delivered
-        api: on_status
-        description: >-
-          Provider platform provides the updated order status to the consumer
-          once the order is delivered
-        reference: if any
-        example: *ref_21
   - summary: B2B Self Pickup
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -9812,12 +11236,12 @@ x-flows:
         api: search
         description: Search intent sent by the buyer based on the category
         reference: if any
-        example: *ref_27
+        example: *ref_24
       - summary: Returns item/ catalog
         api: on_search
         description: Catalog provided by the Seller App
         reference: if any
-        example: *ref_28
+        example: *ref_25
       - summary: Raise an RFQ
         api: select
         description: >-
@@ -9877,7 +11301,7 @@ x-flows:
                   - id: F2
                     type: Self-Pickup
                 payments:
-                  - type: ON-FULFILLMENT
+                  - type: PRE-FULFILLMENT
                 tags:
                   - descriptor:
                       code: buyer_id
@@ -10393,12 +11817,12 @@ x-flows:
         api: search
         description: Search intent sent by the buyer based on the category
         reference: if any
-        example: *ref_27
+        example: *ref_24
       - summary: Returns item/ catalog
         api: on_search
         description: Catalog provided by the Seller App
         reference: if any
-        example: *ref_28
+        example: *ref_25
       - summary: Raise an RFQ
         api: select
         description: >-
@@ -10551,12 +11975,12 @@ x-flows:
         api: search
         description: Search intent sent by the buyer based on the category
         reference: if any
-        example: *ref_27
+        example: *ref_24
       - summary: Returns item/ catalog
         api: on_search
         description: Catalog provided by the Seller App
         reference: if any
-        example: *ref_28
+        example: *ref_25
       - summary: Raise an RFQ
         api: select
         description: >-
@@ -10755,12 +12179,12 @@ x-flows:
         api: search
         description: Search intent sent by the buyer based on the category
         reference: if any
-        example: *ref_27
+        example: *ref_24
       - summary: Returns item/ catalog
         api: on_search
         description: Catalog provided by the Seller App
         reference: if any
-        example: *ref_28
+        example: *ref_25
       - summary: Raise an RFQ
         api: select
         description: >-
@@ -11268,7 +12692,7 @@ x-examples:
                           contact:
                             phone: '9886098860'
                   payments:
-                    - type: ON-FULFILLMENT
+                    - type: PRE-FULFILLMENT
                   tags:
                     - descriptor:
                         code: buyer_id
@@ -11362,7 +12786,7 @@ x-examples:
                                 code: NAMED_PLACE_OF_DELIVERY
                               value: SGP
                   payments:
-                    - type: ON-FULFILLMENT
+                    - type: PRE-FULFILLMENT
                   tags:
                     - descriptor:
                         code: buyer_id
@@ -11456,7 +12880,7 @@ x-examples:
                                 code: NAMED_PLACE_OF_DELIVERY
                               value: SGP
                   payments:
-                    - type: ON-FULFILLMENT
+                    - type: PRE-FULFILLMENT
                   tags:
                     - descriptor:
                         code: buyer_id
@@ -11525,7 +12949,7 @@ x-examples:
                     - id: F2
                       type: Self-Pickup
                   payments:
-                    - type: ON-FULFILLMENT
+                    - type: PRE-FULFILLMENT
                   tags:
                     - descriptor:
                         code: buyer_id
@@ -11590,7 +13014,7 @@ x-examples:
                           contact:
                             phone: '9886098860'
                   payments:
-                    - type: ON-FULFILLMENT
+                    - type: PRE-FULFILLMENT
                   tags:
                     - descriptor:
                         code: buyer_id
@@ -11694,7 +13118,7 @@ x-examples:
                                 code: NAMED_PLACE_OF_DELIVERY
                               value: SGP
                   payments:
-                    - type: ON-FULFILLMENT
+                    - type: PRE-FULFILLMENT
                       collected_by: BPP
                   tags:
                     - descriptor:
@@ -11781,7 +13205,7 @@ x-examples:
                           contact:
                             phone: '9886098860'
                   payments:
-                    - type: ON-FULFILLMENT
+                    - type: PRE-FULFILLMENT
                       collected_by: BPP
                   tags:
                     - descriptor:
@@ -11858,8 +13282,8 @@ x-examples:
                           contact:
                             phone: '9886098860'
                   payments:
-                    - type: ON-FULFILLMENT
-                      collected_by: BPP
+                    - type: PRE-FULFILLMENT
+                      collected_by: BAP
                   tags:
                     - descriptor:
                         code: buyer_id
@@ -11947,6 +13371,93 @@ x-examples:
                   payments:
                     - type: PRE-FULFILLMENT
                       collected_by: BPP
+                  tags:
+                    - descriptor:
+                        code: buyer_id
+                      list:
+                        - descriptor:
+                            code: buyer_id_code
+                          value: gst
+                        - descriptor:
+                            code: buyer_id_no
+                          value: xxxxxxxxxxxxxxx
+          - summary: Intializing the order (Domestic)
+            description: Intializing the order
+            value:
+              context:
+                domain: ONDC:RET10
+                location:
+                  city:
+                    code: std:080
+                  country:
+                    code: IND
+                action: init
+                version: 2.0.2
+                bap_id: buyerapp.com
+                bap_uri: https://buyerapp.com/grocery
+                bpp_id: sellerapp.com
+                bpp_uri: https://sellerapp.com/grocery
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 582eb99f-a7c1-46ae-8174-936757d2d96f
+                timestamp: '2023-01-08T22:00:30.000Z'
+                ttl: PT30S
+              message:
+                order:
+                  provider:
+                    id: P1
+                    locations:
+                      - id: L1
+                  items:
+                    - id: I1
+                      fulfillment_ids:
+                        - F1
+                      quantity:
+                        selected:
+                          count: 200
+                      add_ons:
+                        - id: '78787723'
+                      tags:
+                        - descriptor:
+                            code: BUYER_TERMS
+                          list:
+                            - descriptor:
+                                code: ITEM_REQ
+                              value: free text on Item Customization
+                            - descriptor:
+                                code: PACKAGING_REQ
+                              value: free text on packaging Customization
+                  billing:
+                    name: ONDC buyer
+                    address: >-
+                      22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                      Bengaluru, Karnataka 560001
+                    state:
+                      name: Karnataka
+                    city:
+                      name: Bengaluru
+                    tax_id: XXXXXXXXXXXXXXX
+                    email: nobody@nomail.com
+                    phone: '9886098860'
+                  fulfillments:
+                    - id: F1
+                      type: Delivery
+                      stops:
+                        - type: end
+                          location:
+                            gps: 12.974002,77.613458
+                            address: 'My House #, My buildin'
+                            city:
+                              name: Bengaluru
+                            country:
+                              code: IND
+                            area_code: '560001'
+                            state:
+                              name: Karnataka
+                          contact:
+                            phone: '9886098860'
+                  payments:
+                    - type: PRE-FULFILLMENT
+                      collected_by: BAP
                   tags:
                     - descriptor:
                         code: buyer_id
@@ -12341,7 +13852,7 @@ x-examples:
                           value: 'Y'
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T09:30:00.000Z'
-          - summary: Confirms the order (Domestic - Non RFQ)
+          - summary: Confirms the order (Prepaid BPP - Non RFQ)
             description: Confirms the order (Domestic)
             value:
               context:
@@ -12474,7 +13985,7 @@ x-examples:
                     - params:
                         currency: INR
                         amount: '53600'
-                      status: PAID
+                      status: NOT-PAID
                       type: PRE-FULFILLMENT
                       collected_by: BPP
                       '@ondc/org/buyer_app_finder_fee_type': percent
@@ -12484,6 +13995,195 @@ x-examples:
                       '@ondc/org/withholding_amount': '10.00'
                       '@ondc/org/settlement_details':
                         - settlement_counterparty: buyer-app
+                          settlement_phase: sale-amount
+                          settlement_type: upi
+                          upi_address: gft@oksbi
+                          settlement_bank_account_no: XXXXXXXXXX
+                          settlement_ifsc_code: XXXXXXXXX
+                          beneficiary_name: xxxxx
+                          bank_name: xxxx
+                          branch_name: xxxx
+                  tags:
+                    - descriptor:
+                        code: buyer_id
+                      list:
+                        - descriptor:
+                            code: buyer_id_code
+                          value: gst
+                        - descriptor:
+                            code: buyer_id_no
+                          value: xxxxxxxxxxxxxxx
+                    - descriptor:
+                        code: bpp_terms
+                      list:
+                        - descriptor:
+                            code: max_liability
+                          value: '2'
+                        - descriptor:
+                            code: max_liability_cap
+                          value: '10000'
+                        - descriptor:
+                            code: mandatory_arbitration
+                          value: 'false'
+                        - descriptor:
+                            code: court_jurisdiction
+                          value: Bengaluru
+                        - descriptor:
+                            code: delay_interest
+                          value: '1000'
+                    - descriptor:
+                        code: bap_terms
+                      list:
+                        - descriptor:
+                            code: accept_bpp_terms
+                          value: 'Y'
+                  created_at: '2023-02-03T09:30:00.000Z'
+                  updated_at: '2023-02-03T09:30:00.000Z'
+          - summary: Confirms the order (Prepaid BAP - Non RFQ)
+            description: Confirms the order (Domestic)
+            value:
+              context:
+                domain: ONDC:RET10
+                location:
+                  city:
+                    code: std:080
+                  country:
+                    code: IND
+                action: confirm
+                version: 2.0.2
+                bap_id: buyerapp.com
+                bap_uri: https://buyerapp.com/grocery
+                bpp_id: sellerapp.com
+                bpp_uri: https://sellerapp.com/grocery
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: ad33f8db-cc87-4470-961a-e5555869fd3c
+                timestamp: '2023-01-08T22:00:30.000Z'
+                ttl: PT30S
+              message:
+                order:
+                  id: O1
+                  state: Created
+                  provider:
+                    id: P1
+                    locations:
+                      - id: L1
+                  items:
+                    - id: I1
+                      fulfillment_ids:
+                        - F1
+                      quantity:
+                        selected:
+                          count: 200
+                      add_ons:
+                        - id: '78787723'
+                      tags:
+                        - descriptor:
+                            code: BUYER_TERMS
+                          list:
+                            - descriptor:
+                                code: ITEM_REQ
+                              value: free text on Item Customization
+                            - descriptor:
+                                code: PACKAGING_REQ
+                              value: free text on packaging Customization
+                  billing:
+                    name: ONDC buyer
+                    address: >-
+                      22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                      Bengaluru, Karnataka 560001
+                    state:
+                      name: Karnataka
+                    city:
+                      name: Bengaluru
+                    tax_id: XXXXXXXXXXXXXXX
+                    email: nobody@nomail.com
+                    phone: '9886098860'
+                  fulfillments:
+                    - id: F1
+                      type: Delivery
+                      tracking: false
+                      stops:
+                        - type: end
+                          location:
+                            gps: 12.974002,77.613458
+                            address: 'My House #, My buildin'
+                            city:
+                              name: Bengaluru
+                            country:
+                              code: IND
+                            area_code: '560001'
+                            state:
+                              name: Karnataka
+                          contact:
+                            phone: '9886098860'
+                            email: nobody@nomail.com
+                          customer:
+                            person:
+                              name: Ramu
+                  quote:
+                    price:
+                      currency: INR
+                      value: '53600'
+                    breakup:
+                      - '@ondc/org/item_id': I1
+                        '@ondc/org/item_quantity':
+                          count: 200
+                        title: Dhara Mustard Oil
+                        '@ondc/org/title_type': item
+                        price:
+                          currency: INR
+                          value: '50000'
+                        item:
+                          price:
+                            currency: INR
+                            value: '250'
+                      - '@ondc/org/item_id': F1
+                        title: Delivery charges
+                        '@ondc/org/title_type': delivery
+                        price:
+                          currency: INR
+                          value: '4000'
+                      - '@ondc/org/item_id': F1
+                        title: Packing charges
+                        '@ondc/org/title_type': packing
+                        price:
+                          currency: INR
+                          value: '500'
+                      - '@ondc/org/item_id': I1
+                        title: Tax
+                        '@ondc/org/title_type': tax
+                        price:
+                          currency: INR
+                          value: '0'
+                      - '@ondc/org/item_id': I1
+                        title: Discount
+                        '@ondc/org/title_type': discount
+                        price:
+                          currency: INR
+                          value: '-1000'
+                      - '@ondc/org/item_id': F1
+                        title: Convenience Fee
+                        '@ondc/org/title_type': misc
+                        price:
+                          currency: INR
+                          value: '100'
+                    ttl: P1D
+                  payments:
+                    - params:
+                        transaction_id: 2920ADJCNKJ329304MM
+                        currency: INR
+                        amount: '53600'
+                      status: PAID
+                      type: PRE-FULFILLMENT
+                      collected_by: BAP
+                      uri: https://snp.com/pg
+                      '@ondc/org/buyer_app_finder_fee_type': percent
+                      '@ondc/org/buyer_app_finder_fee_amount': '0'
+                      '@ondc/org/settlement_basis': delivery
+                      '@ondc/org/settlement_window': P1D
+                      '@ondc/org/withholding_amount': '10.00'
+                      '@ondc/org/settlement_details':
+                        - settlement_counterparty: seller-app
                           settlement_phase: sale-amount
                           settlement_type: upi
                           upi_address: gft@oksbi
@@ -17050,7 +18750,7 @@ x-examples:
                           value: '100'
                     ttl: P1D
                   payments:
-                    - type: ON-FULFILLMENT
+                    - type: PRE-FULFILLMENT
                       collected_by: BPP
           - summary: Send quote and breakup - (Domestic - Non RFQ)
             description: Seller sends quote and breakup for the selected items
@@ -17145,7 +18845,7 @@ x-examples:
                           value: '100'
                     ttl: P1D
                   payments:
-                    - type: ON-FULFILLMENT
+                    - type: PRE-FULFILLMENT
                       collected_by: BPP
           - summary: Send quote and breakup - Response to RFQ (Exports)
             description: Send quote and breakup for items selected in RFQ
@@ -17552,6 +19252,206 @@ x-examples:
                   payments:
                     - type: ON-FULFILLMENT
                       collected_by: BPP
+          - summary: Send quote and breakup - (Prepaid BAP - Non RFQ)
+            description: Seller sends quote and breakup for the selected items
+            value:
+              context:
+                domain: ONDC:RET10
+                location:
+                  city:
+                    code: std:080
+                  country:
+                    code: IND
+                action: on_select
+                version: 2.0.2
+                bap_id: buyerapp.com
+                bap_uri: https://buyerapp.com/grocery
+                bpp_id: sellerapp.com
+                bpp_uri: https://sellerapp.com/grocery
+                transaction_id: T1
+                message_id: M1
+                timestamp: '2023-01-08T22:00:30.000Z'
+                ttl: PT30S
+              message:
+                order:
+                  provider:
+                    id: P1
+                    locations:
+                      - id: L1
+                  items:
+                    - fulfillment_ids:
+                        - F1
+                      id: I1
+                      quantity:
+                        selected:
+                          count: 200
+                      add-ons:
+                        - id: '78787723'
+                  fulfillments:
+                    - id: F1
+                      '@ondc/org/provider_name': Loadshare
+                      tracking: false
+                      '@ondc/org/category': Express Delivery
+                      '@ondc/org/TAT': P7D
+                      state:
+                        descriptor:
+                          code: Serviceable
+                  quote:
+                    price:
+                      currency: INR
+                      value: '53600'
+                    breakup:
+                      - '@ondc/org/item_id': I1
+                        '@ondc/org/item_quantity':
+                          count: 200
+                        title: Dhara Mustard Oil
+                        '@ondc/org/title_type': item
+                        price:
+                          currency: INR
+                          value: '50000'
+                        item:
+                          price:
+                            currency: INR
+                            value: '250'
+                      - '@ondc/org/item_id': F1
+                        title: Delivery charges
+                        '@ondc/org/title_type': delivery
+                        price:
+                          currency: INR
+                          value: '4000'
+                      - '@ondc/org/item_id': F1
+                        title: Packing charges
+                        '@ondc/org/title_type': packing
+                        price:
+                          currency: INR
+                          value: '500'
+                      - '@ondc/org/item_id': I1
+                        title: Tax
+                        '@ondc/org/title_type': tax
+                        price:
+                          currency: INR
+                          value: '0'
+                      - '@ondc/org/item_id': I1
+                        title: Discount
+                        '@ondc/org/title_type': discount
+                        price:
+                          currency: INR
+                          value: '-1000'
+                      - '@ondc/org/item_id': F1
+                        title: Convenience Fee
+                        '@ondc/org/title_type': misc
+                        price:
+                          currency: INR
+                          value: '100'
+                    ttl: P1D
+                  payments:
+                    - type: PRE-FULFILLMENT
+                      collected_by: BAP
+          - summary: Send quote and breakup - Response to RFQ (Prepaid BAP)
+            description: Send quote and breakup for items selected in RFQ
+            value:
+              context:
+                domain: ONDC:RET10
+                location:
+                  city:
+                    code: std:080
+                  country:
+                    code: IND
+                action: on_select
+                version: 2.0.2
+                bap_id: buyerapp.com
+                bap_uri: https://buyerapp.com/grocery
+                bpp_id: sellerapp.com
+                bpp_uri: https://sellerapp.com/grocery
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 4e90afaf-2d02-4ed9-9659-45d702a82f8e
+                timestamp: '2023-01-08T22:00:30.000Z'
+                ttl: PT30S
+              message:
+                order:
+                  provider:
+                    id: P1
+                    locations:
+                      - id: L1
+                  items:
+                    - fulfillment_ids:
+                        - F1
+                      id: I1
+                      quantity:
+                        selected:
+                          count: 200
+                      add_ons:
+                        - id: '78787723'
+                      tags:
+                        - descriptor:
+                            code: BUYER_TERMS
+                          list:
+                            - descriptor:
+                                code: ITEM_REQ
+                              value: free text on Item Customization
+                            - descriptor:
+                                code: PACKAGING_REQ
+                              value: free text on packaging Customization
+                  fulfillments:
+                    - id: F1
+                      '@ondc/org/provider_name': Loadshare
+                      tracking: false
+                      '@ondc/org/category': Express Delivery
+                      '@ondc/org/TAT': P7D
+                      state:
+                        descriptor:
+                          code: Serviceable
+                  quote:
+                    price:
+                      currency: INR
+                      value: '53600'
+                    breakup:
+                      - '@ondc/org/item_id': I1
+                        '@ondc/org/item_quantity':
+                          count: 200
+                        title: Dhara Mustard Oil
+                        '@ondc/org/title_type': item
+                        price:
+                          currency: INR
+                          value: '50000'
+                        item:
+                          price:
+                            currency: INR
+                            value: '250'
+                      - '@ondc/org/item_id': F1
+                        title: Delivery charges
+                        '@ondc/org/title_type': delivery
+                        price:
+                          currency: INR
+                          value: '4000'
+                      - '@ondc/org/item_id': F1
+                        title: Packing charges
+                        '@ondc/org/title_type': packing
+                        price:
+                          currency: INR
+                          value: '500'
+                      - '@ondc/org/item_id': I1
+                        title: Tax
+                        '@ondc/org/title_type': tax
+                        price:
+                          currency: INR
+                          value: '0'
+                      - '@ondc/org/item_id': I1
+                        title: Discount
+                        '@ondc/org/title_type': discount
+                        price:
+                          currency: INR
+                          value: '-1000'
+                      - '@ondc/org/item_id': F1
+                        title: Convenience Fee
+                        '@ondc/org/title_type': misc
+                        price:
+                          currency: INR
+                          value: '100'
+                    ttl: P1D
+                  payments:
+                    - type: PRE-FULFILLMENT
+                      collected_by: BAP
       on_init:
         examples:
           - summary: Acknowledges the initialization (Domestic - RFQ)
@@ -17683,11 +19583,25 @@ x-examples:
                   payments:
                     - type: PRE-FULFILLMENT
                       collected_by: BPP
+                      uri: https://snp.com/pg
                       '@ondc/org/buyer_app_finder_fee_type': percent
                       '@ondc/org/buyer_app_finder_fee_amount': '0'
                       '@ondc/org/settlement_basis': delivery
                       '@ondc/org/settlement_window': P1D
                       '@ondc/org/withholding_amount': '10.00'
+                      tags:
+                        - descriptor:
+                            code: BPP_payment
+                          list:
+                            - descriptor:
+                                code: signature
+                              value: xxxxxxxxxxxxxx
+                            - descriptor:
+                                code: dsa
+                              value: ED25519
+                            - descriptor:
+                                code: ttl
+                              value: PT30M
                   tags:
                     - descriptor:
                         code: buyer_id
@@ -17834,22 +19748,26 @@ x-examples:
                     ttl: P1D
                   payments:
                     - type: PRE-FULFILLMENT
-                      collected_by: BAP
+                      collected_by: BPP
+                      uri: https://snp.com/pg
                       '@ondc/org/buyer_app_finder_fee_type': percent
                       '@ondc/org/buyer_app_finder_fee_amount': '0'
                       '@ondc/org/settlement_basis': delivery
                       '@ondc/org/settlement_window': P1D
                       '@ondc/org/withholding_amount': '10.00'
-                      '@ondc/org/settlement_details':
-                        - settlement_counterparty: seller-app
-                          settlement_phase: sale-amount
-                          settlement_type: upi
-                          upi_address: gft@oksbi
-                          settlement_bank_account_no: XXXXXXXXXX
-                          settlement_ifsc_code: XXXXXXXXX
-                          beneficiary_name: xxxxx
-                          bank_name: xxxx
-                          branch_name: xxxx
+                      tags:
+                        - descriptor:
+                            code: BPP_payment
+                          list:
+                            - descriptor:
+                                code: signature
+                              value: xxxxxxxxxxxxxx
+                            - descriptor:
+                                code: dsa
+                              value: ED25519
+                            - descriptor:
+                                code: ttl
+                              value: PT30M
                   tags:
                     - descriptor:
                         code: buyer_id
@@ -18015,11 +19933,25 @@ x-examples:
                   payments:
                     - type: PRE-FULFILLMENT
                       collected_by: BPP
+                      uri: https://snp.com/pg
                       '@ondc/org/buyer_app_finder_fee_type': percent
                       '@ondc/org/buyer_app_finder_fee_amount': '0'
                       '@ondc/org/settlement_basis': delivery
                       '@ondc/org/settlement_window': P1D
                       '@ondc/org/withholding_amount': '10.00'
+                      tags:
+                        - descriptor:
+                            code: BPP_payment
+                          list:
+                            - descriptor:
+                                code: signature
+                              value: xxxxxxxxxxxxxx
+                            - descriptor:
+                                code: dsa
+                              value: ED25519
+                            - descriptor:
+                                code: ttl
+                              value: PT30M
                   tags:
                     - descriptor:
                         code: buyer_id
@@ -18350,7 +20282,9 @@ x-examples:
                           value: '100'
                     ttl: P1D
                   payments:
-                    - '@ondc/org/buyer_app_finder_fee_type': percent
+                    - type: ON-FULFILLMENT
+                      collected_by: BPP
+                      '@ondc/org/buyer_app_finder_fee_type': percent
                       '@ondc/org/buyer_app_finder_fee_amount': '0'
                       '@ondc/org/settlement_basis': delivery
                       '@ondc/org/settlement_window': P1D
@@ -18548,9 +20482,171 @@ x-examples:
                         - descriptor:
                             code: delay_interest
                           value: '1000'
+          - summary: Acknowledges the initialization (Prepaid BAP - RFQ)
+            description: Acknowledges the initialization
+            value:
+              context:
+                domain: ONDC:RET10
+                location:
+                  city:
+                    code: std:080
+                  country:
+                    code: IND
+                action: on_init
+                version: 2.0.2
+                bap_id: buyerapp.com
+                bap_uri: https://buyerapp.com/grocery
+                bpp_id: sellerapp.com
+                bpp_uri: https://sellerapp.com/grocery
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 582eb99f-a7c1-46ae-8174-936757d2d96f
+                timestamp: '2023-01-08T22:00:30.000Z'
+                ttl: PT30S
+              message:
+                order:
+                  provider:
+                    id: P1
+                  provider_location:
+                    id: L1
+                  items:
+                    - id: I1
+                      fulfillment_ids:
+                        - F1
+                      quantity:
+                        selected:
+                          count: 200
+                      add_ons:
+                        - id: '78787723'
+                      tags:
+                        - descriptor:
+                            code: BUYER_TERMS
+                          list:
+                            - descriptor:
+                                code: ITEM_REQ
+                              value: free text on Item Customization
+                            - descriptor:
+                                code: PACKAGING_REQ
+                              value: free text on packaging Customization
+                  billing:
+                    name: ONDC buyer
+                    address: >-
+                      22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                      Bengaluru, Karnataka 560001
+                    state:
+                      name: Karnataka
+                    city:
+                      name: Bengaluru
+                    tax_id: XXXXXXXXXXXXXXX
+                    email: nobody@nomail.com
+                    phone: '9886098860'
+                  fulfillments:
+                    - id: F1
+                      type: Delivery
+                      '@ondc/org/provider_name': Loadshare
+                      '@ondc/org/category': Express Delivery
+                      '@ondc/org/TAT': P7D
+                      tracking: false
+                      stops:
+                        - type: end
+                          location:
+                            gps: 12.974002,77.613458
+                            address: 'My House #, My buildin'
+                            city:
+                              name: Bengaluru
+                            country:
+                              code: IND
+                            area_code: '560001'
+                            state:
+                              name: Karnataka
+                          contact:
+                            phone: '9886098860'
+                  quote:
+                    price:
+                      currency: INR
+                      value: '53600'
+                    breakup:
+                      - '@ondc/org/item_id': I1
+                        '@ondc/org/item_quantity':
+                          count: 200
+                        title: Dhara Mustard Oil
+                        '@ondc/org/title_type': item
+                        price:
+                          currency: INR
+                          value: '50000'
+                        item:
+                          price:
+                            currency: INR
+                            value: '250'
+                      - '@ondc/org/item_id': F1
+                        title: Delivery charges
+                        '@ondc/org/title_type': delivery
+                        price:
+                          currency: INR
+                          value: '4000'
+                      - '@ondc/org/item_id': F1
+                        title: Packing charges
+                        '@ondc/org/title_type': packing
+                        price:
+                          currency: INR
+                          value: '500'
+                      - '@ondc/org/item_id': I1
+                        title: Tax
+                        '@ondc/org/title_type': tax
+                        price:
+                          currency: INR
+                          value: '0'
+                      - '@ondc/org/item_id': I1
+                        title: Discount
+                        '@ondc/org/title_type': discount
+                        price:
+                          currency: INR
+                          value: '-1000'
+                      - '@ondc/org/item_id': F1
+                        title: Convenience Fee
+                        '@ondc/org/title_type': misc
+                        price:
+                          currency: INR
+                          value: '100'
+                    ttl: P1D
+                  payments:
+                    - type: PRE-FULFILLMENT
+                      collected_by: BAP
+                      '@ondc/org/buyer_app_finder_fee_type': percent
+                      '@ondc/org/buyer_app_finder_fee_amount': '0'
+                      '@ondc/org/settlement_basis': delivery
+                      '@ondc/org/settlement_window': P1D
+                      '@ondc/org/withholding_amount': '10.00'
+                  tags:
+                    - descriptor:
+                        code: buyer_id
+                      list:
+                        - descriptor:
+                            code: buyer_id_code
+                          value: gst
+                        - descriptor:
+                            code: buyer_id_no
+                          value: xxxxxxxxxxxxxxx
+                        - descriptor:
+                            code: bpp_terms
+                          list:
+                            - descriptor:
+                                code: max_liability
+                              value: '2'
+                            - descriptor:
+                                code: max_liability_cap
+                              value: '10000'
+                            - descriptor:
+                                code: mandatory_arbitration
+                              value: 'false'
+                            - descriptor:
+                                code: court_jurisdiction
+                              value: Bengaluru
+                            - descriptor:
+                                code: delay_interest
+                              value: '1000'
       on_confirm:
         examples:
-          - summary: Accept PO (Domestic)
+          - summary: Accept PO (Prepaid BPP - RFQ)
             description: PO acceptance by Seller
             value:
               context:
@@ -18947,6 +21043,19 @@ x-examples:
                           settlement_ifsc_code: XXXXXXXXX
                           bank_name: xxxx
                           branch_name: xxxx
+                      tags:
+                        - descriptor:
+                            code: BPP_payment
+                          list:
+                            - descriptor:
+                                code: signature
+                              value: xxxxxxxxxxxxxx
+                            - descriptor:
+                                code: dsa
+                              value: ED25519
+                            - descriptor:
+                                code: ttl
+                              value: PT30M
                   tags:
                     - descriptor:
                         code: buyer_id
@@ -18983,7 +21092,7 @@ x-examples:
                           value: 'Y'
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T09:31:30.000Z'
-          - summary: Order confirmation (Domestic - Non RFQ)
+          - summary: Order confirmation (Prepaid BPP - Non RFQ)
             description: Order confirmation (Domestic - Non RFQ)
             value:
               context:
@@ -19124,7 +21233,8 @@ x-examples:
                     - params:
                         currency: INR
                         amount: '53600'
-                      status: NOT-PAID
+                      status: NOT-PAID\
+                      uri: https://snp.com/pg
                       type: PRE-FULFILLMENT
                       collected_by: BPP
                       '@ondc/org/buyer_app_finder_fee_type': percent
@@ -19142,6 +21252,19 @@ x-examples:
                           settlement_ifsc_code: XXXXXXXXX
                           bank_name: xxxx
                           branch_name: xxxx
+                      tags:
+                        - descriptor:
+                            code: BPP_payment
+                          list:
+                            - descriptor:
+                                code: signature
+                              value: xxxxxxxxxxxxxx
+                            - descriptor:
+                                code: dsa
+                              value: ED25519
+                            - descriptor:
+                                code: ttl
+                              value: PT30M
                   tags:
                     - descriptor:
                         code: buyer_id
@@ -19394,6 +21517,409 @@ x-examples:
                 type: DOMAIN-ERROR
                 code: '30019'
                 message: PO rejected due to xx reason
+          - summary: Order confirmation (Prepaid BAP - Non RFQ)
+            description: Order confirmation (Domestic - Non RFQ)
+            value:
+              context:
+                domain: ONDC:RET10
+                location:
+                  city:
+                    code: std:080
+                  country:
+                    code: IND
+                action: on_confirm
+                version: 2.0.2
+                bap_id: buyerapp.com
+                bap_uri: https://buyerapp.com/grocery
+                bpp_id: sellerapp.com
+                bpp_uri: https://sellerapp.com/grocery
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: ad33f8db-cc87-4470-961a-e5555869fd3c
+                timestamp: '2023-01-08T22:00:30.000Z'
+                ttl: PT30S
+              message:
+                order:
+                  id: O1
+                  state: Accepted
+                  provider:
+                    id: P1
+                    locations:
+                      - id: L1
+                    rateable: true
+                  items:
+                    - id: I1
+                      fulfillment_ids:
+                        - F1
+                      quantity:
+                        selected:
+                          count: 200
+                      add_ons:
+                        - id: '78787723'
+                  billing:
+                    name: ONDC buyer
+                    address: >-
+                      22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                      Bengaluru, Karnataka 560001
+                    state:
+                      name: Karnataka
+                    city:
+                      name: Bengaluru
+                    tax_id: XXXXXXXXXXXXXXX
+                    email: nobody@nomail.com
+                    phone: '9886098860'
+                  fulfillments:
+                    - id: F1
+                      '@ondc/org/provider_name': Loadshare
+                      state:
+                        descriptor:
+                          code: Pending
+                      type: Delivery
+                      tracking: false
+                      stops:
+                        - type: start
+                          location:
+                            id: L1
+                            descriptor:
+                              name: ABC Store
+                            gps: 12.956399,77.636803
+                          time:
+                            range:
+                              start: '2023-02-03T10:00:00.000Z'
+                              end: '2023-02-03T10:30:00.000Z'
+                          instructions:
+                            name: Status for pickup
+                            short_desc: Pickup Confirmation Code
+                          contact:
+                            phone: '9886098860'
+                            email: nobody@nomail.com
+                        - type: end
+                          location:
+                            gps: 12.974002,77.613458
+                            address: 'My House #, My buildin'
+                            city:
+                              name: Bengaluru
+                            country:
+                              code: IND
+                            area_code: '560001'
+                            state:
+                              name: Karnataka
+                          contact:
+                            phone: '9886098860'
+                      rateable: true
+                  quote:
+                    price:
+                      currency: INR
+                      value: '53600'
+                    breakup:
+                      - '@ondc/org/item_id': I1
+                        '@ondc/org/item_quantity':
+                          count: 200
+                        title: Dhara Mustard Oil
+                        '@ondc/org/title_type': item
+                        price:
+                          currency: INR
+                          value: '50000'
+                        item:
+                          price:
+                            currency: INR
+                            value: '250'
+                      - '@ondc/org/item_id': F1
+                        title: Delivery charges
+                        '@ondc/org/title_type': delivery
+                        price:
+                          currency: INR
+                          value: '4000'
+                      - '@ondc/org/item_id': F1
+                        title: Packing charges
+                        '@ondc/org/title_type': packing
+                        price:
+                          currency: INR
+                          value: '500'
+                      - '@ondc/org/item_id': I1
+                        title: Tax
+                        '@ondc/org/title_type': tax
+                        price:
+                          currency: INR
+                          value: '0'
+                      - '@ondc/org/item_id': I1
+                        title: Discount
+                        '@ondc/org/title_type': discount
+                        price:
+                          currency: INR
+                          value: '-1000'
+                      - '@ondc/org/item_id': F1
+                        title: Convenience Fee
+                        '@ondc/org/title_type': misc
+                        price:
+                          currency: INR
+                          value: '100'
+                    ttl: P1D
+                  payments:
+                    - params:
+                        transaction_id: 2920ADJCNKJ329304MM
+                        currency: INR
+                        amount: '53600'
+                      status: PAID
+                      type: PRE-FULFILLMENT
+                      collected_by: BAP
+                      '@ondc/org/buyer_app_finder_fee_type': percent
+                      '@ondc/org/buyer_app_finder_fee_amount': '0.0'
+                      '@ondc/org/settlement_basis': delivery
+                      '@ondc/org/settlement_window': P1D
+                      '@ondc/org/withholding_amount': '10.00'
+                      '@ondc/org/settlement_details':
+                        - settlement_counterparty: seller-app
+                          settlement_phase: sale-amount
+                          beneficiary_name: xxxxx
+                          settlement_type: upi
+                          upi_address: gft@oksbi
+                          settlement_bank_account_no: XXXXXXXXXX
+                          settlement_ifsc_code: XXXXXXXXX
+                          bank_name: xxxx
+                          branch_name: xxxx
+                  tags:
+                    - descriptor:
+                        code: buyer_id
+                      list:
+                        - descriptor:
+                            code: buyer_id_code
+                          value: gst
+                        - descriptor:
+                            code: buyer_id_no
+                          value: xxxxxxxxxxxxxxx
+                    - descriptor:
+                        code: bpp_terms
+                      list:
+                        - descriptor:
+                            code: max_liability
+                          value: '2'
+                        - descriptor:
+                            code: max_liability_cap
+                          value: '10000'
+                        - descriptor:
+                            code: mandatory_arbitration
+                          value: 'false'
+                        - descriptor:
+                            code: court_jurisdiction
+                          value: Bengaluru
+                        - descriptor:
+                            code: delay_interest
+                          value: '1000'
+                    - descriptor:
+                        code: bap_terms
+                      list:
+                        - descriptor:
+                            code: accept_bpp_terms
+                          value: 'Y'
+                  created_at: '2023-02-03T09:30:00.000Z'
+                  updated_at: '2023-02-03T09:31:30.000Z'
+          - summary: Accept PO (Prepaid BAP - RFQ)
+            description: PO acceptance by Seller
+            value:
+              context:
+                domain: ONDC:RET10
+                location:
+                  city:
+                    code: std:080
+                  country:
+                    code: IND
+                action: on_confirm
+                version: 2.0.2
+                bap_id: buyerapp.com
+                bap_uri: https://buyerapp.com/grocery
+                bpp_id: sellerapp.com
+                bpp_uri: https://sellerapp.com/grocery
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: ad33f8db-cc87-4470-961a-e5555869fd3c
+                timestamp: '2023-01-08T22:00:30.000Z'
+                ttl: PT30S
+              message:
+                order:
+                  id: O1
+                  state: Accepted
+                  provider:
+                    id: P1
+                    locations:
+                      - id: L1
+                    rateable: true
+                  items:
+                    - id: I1
+                      fulfillment_ids:
+                        - F1
+                      quantity:
+                        selected:
+                          count: 200
+                      add_ons:
+                        - id: '78787723'
+                      tags:
+                        - descriptor:
+                            code: BUYER_TERMS
+                          list:
+                            - descriptor:
+                                code: ITEM_REQ
+                              value: free text on Item Customization
+                            - descriptor:
+                                code: PACKAGING_REQ
+                              value: free text on packaging Customization
+                  billing:
+                    name: ONDC buyer
+                    address: >-
+                      22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                      Bengaluru, Karnataka 560001
+                    state:
+                      name: Karnataka
+                    city:
+                      name: Bengaluru
+                    tax_id: XXXXXXXXXXXXXXX
+                    email: nobody@nomail.com
+                    phone: '9886098860'
+                  fulfillments:
+                    - id: F1
+                      '@ondc/org/provider_name': Loadshare
+                      state:
+                        descriptor:
+                          code: Pending
+                      type: Delivery
+                      tracking: false
+                      stops:
+                        - type: start
+                          location:
+                            id: L1
+                            descriptor:
+                              name: ABC Store
+                            gps: 12.956399,77.636803
+                          time:
+                            range:
+                              start: '2023-02-03T10:00:00.000Z'
+                              end: '2023-02-03T10:30:00.000Z'
+                          instructions:
+                            name: Status for pickup
+                            short_desc: Pickup Confirmation Code
+                          contact:
+                            phone: '9886098860'
+                            email: nobody@nomail.com
+                        - type: end
+                          location:
+                            gps: 12.974002,77.613458
+                            address: 'My House #, My buildin'
+                            city:
+                              name: Bengaluru
+                            country:
+                              code: IND
+                            area_code: '560001'
+                            state:
+                              name: Karnataka
+                          contact:
+                            phone: '9886098860'
+                      rateable: true
+                  quote:
+                    price:
+                      currency: INR
+                      value: '53600'
+                    breakup:
+                      - '@ondc/org/item_id': I1
+                        '@ondc/org/item_quantity':
+                          count: 200
+                        title: Dhara Mustard Oil
+                        '@ondc/org/title_type': item
+                        price:
+                          currency: INR
+                          value: '50000'
+                        item:
+                          price:
+                            currency: INR
+                            value: '250'
+                      - '@ondc/org/item_id': F1
+                        title: Delivery charges
+                        '@ondc/org/title_type': delivery
+                        price:
+                          currency: INR
+                          value: '4000'
+                      - '@ondc/org/item_id': F1
+                        title: Packing charges
+                        '@ondc/org/title_type': packing
+                        price:
+                          currency: INR
+                          value: '500'
+                      - '@ondc/org/item_id': I1
+                        title: Tax
+                        '@ondc/org/title_type': tax
+                        price:
+                          currency: INR
+                          value: '0'
+                      - '@ondc/org/item_id': I1
+                        title: Discount
+                        '@ondc/org/title_type': discount
+                        price:
+                          currency: INR
+                          value: '-1000'
+                      - '@ondc/org/item_id': F1
+                        title: Convenience Fee
+                        '@ondc/org/title_type': misc
+                        price:
+                          currency: INR
+                          value: '100'
+                    ttl: P1D
+                  payments:
+                    - params:
+                        transaction_id: 2920ADJCNKJ329304MM
+                        currency: INR
+                        amount: '53600'
+                      status: PAID
+                      uri: https://snp.com/pg
+                      type: PRE-FULFILLMENT
+                      collected_by: BAP
+                      '@ondc/org/buyer_app_finder_fee_type': percent
+                      '@ondc/org/buyer_app_finder_fee_amount': '0.0'
+                      '@ondc/org/settlement_basis': delivery
+                      '@ondc/org/settlement_window': P1D
+                      '@ondc/org/withholding_amount': '10.00'
+                      '@ondc/org/settlement_details':
+                        - settlement_counterparty: seller-app
+                          settlement_phase: sale-amount
+                          beneficiary_name: xxxxx
+                          settlement_type: upi
+                          upi_address: gft@oksbi
+                          settlement_bank_account_no: XXXXXXXXXX
+                          settlement_ifsc_code: XXXXXXXXX
+                          bank_name: xxxx
+                          branch_name: xxxx
+                  tags:
+                    - descriptor:
+                        code: buyer_id
+                      list:
+                        - descriptor:
+                            code: buyer_id_code
+                          value: gst
+                        - descriptor:
+                            code: buyer_id_no
+                          value: xxxxxxxxxxxxxxx
+                    - descriptor:
+                        code: bpp_terms
+                      list:
+                        - descriptor:
+                            code: max_liability
+                          value: '2'
+                        - descriptor:
+                            code: max_liability_cap
+                          value: '10000'
+                        - descriptor:
+                            code: mandatory_arbitration
+                          value: 'false'
+                        - descriptor:
+                            code: court_jurisdiction
+                          value: Bengaluru
+                        - descriptor:
+                            code: delay_interest
+                          value: '1000'
+                    - descriptor:
+                        code: bap_terms
+                      list:
+                        - descriptor:
+                            code: accept_bpp_terms
+                          value: 'Y'
+                  created_at: '2023-02-03T09:30:00.000Z'
+                  updated_at: '2023-02-03T09:31:30.000Z'
       on_status:
         examples:
           - summary: Seller updates the order status (Proforma Invoice)
@@ -19725,8 +22251,8 @@ x-examples:
                     - uri: https://ondc.transaction.com/payment
                       tl_method: http/get
                       params:
+                        transaction_id: '5679'
                         currency: INR
-                        transaction_id: '3937'
                         amount: '53600'
                       status: PAID
                       type: PRE-FULFILLMENT
@@ -19906,19 +22432,19 @@ x-examples:
                     - uri: https://ondc.transaction.com/payment
                       tl_method: http/get
                       params:
+                        transaction_id: 2920ADJCNKJ329304MM
                         currency: INR
-                        transaction_id: '3937'
                         amount: '53600'
                       status: PAID
                       type: PRE-FULFILLMENT
-                      collected_by: BPP
+                      collected_by: BAP
                       '@ondc/org/buyer_app_finder_fee_type': percent
                       '@ondc/org/buyer_app_finder_fee_amount': '3.0'
                       '@ondc/org/settlement_basis': delivery
                       '@ondc/org/settlement_window': P1D
                       '@ondc/org/withholding_amount': '10.00'
                       '@ondc/org/settlement_details':
-                        - settlement_counterparty: buyer-app
+                        - settlement_counterparty: seller-app
                           settlement_phase: sale-amount
                           beneficiary_name: xxxxx
                           settlement_reference: XXXX
@@ -20486,6 +23012,180 @@ x-examples:
                           settlement_ifsc_code: XXXXXXXXX
                           bank_name: xxxx
                           branch_name: xxxx
+                  created_at: '2023-02-03T09:30:00.000Z'
+                  updated_at: '2023-02-03T10:00:00.201Z'
+          - summary: Seller updates the order status (Proforma Invoice - Prepaid BAP)
+            description: Seller updates the order status and shares Invoice
+            value:
+              context:
+                domain: ONDC:RET10
+                location:
+                  city:
+                    code: std:080
+                  country:
+                    code: IND
+                action: on_status
+                version: 2.0.2
+                bap_id: buyerapp.com
+                bap_uri: https://buyerapp.com/grocery
+                bpp_id: sellerapp.com
+                bpp_uri: https://sellerapp.com/grocery
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 2052ef5e-2ec7-4c21-96f7-dec4b2309010
+                timestamp: '2023-01-08T22:00:30.000Z'
+                ttl: PT30S
+              message:
+                order:
+                  id: O1
+                  state: Accepted
+                  provider:
+                    id: P1
+                    locations:
+                      - id: L1
+                  items:
+                    - id: I1
+                      fulfillment_ids:
+                        - F1
+                      quantity:
+                        selected:
+                          count: 200
+                  billing:
+                    name: ONDC buyer
+                    address: B005 aaspire heights, Jurong East, SGP, 680230
+                    state:
+                      name: Jurong East
+                    city:
+                      name: Jurong East
+                    email: nobody@nomail.com
+                    phone: '9886098860'
+                  fulfillments:
+                    - id: F1
+                      '@ondc/org/provider_name': Loadshare
+                      type: Delivery
+                      tracking: false
+                      state:
+                        descriptor:
+                          code: Pending
+                      stops:
+                        - type: start
+                          location:
+                            id: L1
+                            descriptor:
+                              name: ABC Store
+                              images:
+                                - https://gf-integration/images/5.png
+                            gps: 12.956399,77.636803
+                          time:
+                            range:
+                              start: '2023-02-03T10:00:00.000Z'
+                              end: '2023-02-03T10:30:00.000Z'
+                          instructions:
+                            name: Proof of pickup
+                            short_desc: Proof of pickup details
+                            long_desc: Proof of pickup details
+                            images:
+                              - https://image1_url.png
+                          contact:
+                            phone: '9886098860'
+                            email: nobody@nomail.com
+                        - type: end
+                          location:
+                            gps: 1.3806217468119772, 103.74636438437074
+                            address: 'My House #, My buildin'
+                            city:
+                              name: Jurong East
+                            country:
+                              code: SGP
+                            area_code: '680230'
+                            state:
+                              name: ''
+                          time:
+                            range:
+                              start: '2023-02-03T11:00:00.000Z'
+                              end: '2023-02-03T11:30:00.000Z'
+                          instructions:
+                            name: Proof of delivery
+                            short_desc: Proof of delivery details
+                            long_desc: Proof of delivery details
+                            images:
+                              - https://image1_url.png
+                          contact:
+                            phone: '9886098860'
+                  quote:
+                    price:
+                      currency: INR
+                      value: '53600'
+                    breakup:
+                      - '@ondc/org/item_id': I1
+                        '@ondc/org/item_quantity':
+                          count: 200
+                        title: Dhara Mustard Oil
+                        '@ondc/org/title_type': item
+                        price:
+                          currency: INR
+                          value: '50000'
+                        item:
+                          price:
+                            currency: INR
+                            value: '250'
+                      - '@ondc/org/item_id': F1
+                        title: Delivery charges
+                        '@ondc/org/title_type': delivery
+                        price:
+                          currency: INR
+                          value: '4000'
+                      - '@ondc/org/item_id': F1
+                        title: Packing charges
+                        '@ondc/org/title_type': packing
+                        price:
+                          currency: INR
+                          value: '500'
+                      - '@ondc/org/item_id': I1
+                        title: Tax
+                        '@ondc/org/title_type': tax
+                        price:
+                          currency: INR
+                          value: '0'
+                      - '@ondc/org/item_id': I1
+                        title: Discount
+                        '@ondc/org/title_type': discount
+                        price:
+                          currency: INR
+                          value: '-1000'
+                      - '@ondc/org/item_id': F1
+                        title: Convenience Fee
+                        '@ondc/org/title_type': misc
+                        price:
+                          currency: INR
+                          value: '100'
+                    ttl: P1D
+                  payments:
+                    - params:
+                        currency: INR
+                        transaction_id: '3937'
+                        amount: '53600'
+                      status: PAID
+                      type: PRE-FULFILLMENT
+                      collected_by: BAP
+                      '@ondc/org/buyer_app_finder_fee_type': percent
+                      '@ondc/org/buyer_app_finder_fee_amount': '3.0'
+                      '@ondc/org/settlement_basis': delivery
+                      '@ondc/org/settlement_window': P1D
+                      '@ondc/org/withholding_amount': '10.00'
+                      '@ondc/org/settlement_details':
+                        - settlement_counterparty: buyer-app
+                          settlement_phase: sale-amount
+                          beneficiary_name: xxxxx
+                          settlement_reference: XXXX
+                          settlement_type: upi
+                          upi_address: gft@oksbi
+                          settlement_bank_account_no: XXXXXXXXXX
+                          settlement_ifsc_code: XXXXXXXXX
+                          bank_name: xxxx
+                          branch_name: xxxx
+                  documents:
+                    - url: https://invoice_url
+                      label: PROFORMA_INVOICE
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T10:00:00.201Z'
       on_update:
@@ -21152,7 +23852,7 @@ x-attributes:
                 description: type of payment option buyer wants to avail
                 usage: ON-FULFILLMENT
                 reference: if any
-                required: required
+                required: optional
             item:
               parent: true
               name:
@@ -21182,7 +23882,10 @@ x-attributes:
                 reference: if any
               stops:
                 type:
-                  description: location(s) where the buyer wants the delivery to be made
+                  description: >-
+                    location(s) where the buyer wants the delivery to be made,
+                    single location is mandatory, multiple locations are
+                    optional
                   required: required
                   usage: end
                   reference: if any
@@ -21351,7 +24054,7 @@ x-attributes:
                   reference: if any
                 contact.email:
                   description: email id of merchant or seller NP
-                  required: required
+                  required: optional
                   usage: abc@xyz.com
                   reference: if any
               ttl:

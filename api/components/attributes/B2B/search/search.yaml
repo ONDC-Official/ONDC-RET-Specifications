@@ -56,7 +56,7 @@ message:
         description: type of payment option buyer wants to avail
         usage: "ON-FULFILLMENT"
         reference: if any
-        required: required
+        required: optional
     item:
       parent: true
       name:
@@ -84,7 +84,7 @@ message:
         reference: if any
       stops:
         type:
-         description: location(s) where the buyer wants the delivery to be made
+         description: location(s) where the buyer wants the delivery to be made, single location is mandatory, multiple locations are optional
          required: required
          usage: end
          reference: if any

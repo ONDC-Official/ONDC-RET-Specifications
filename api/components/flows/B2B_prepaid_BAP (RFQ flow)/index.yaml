@@ -128,31 +128,31 @@ steps:
     description: Seller provides the quotation and breakup with logistics charges
     reference: if any
     example:
-      $ref: "../../Examples/B2B/on_select/on_select_domestic.yaml"
+      $ref: "../../Examples/B2B/on_select/on_select_prepaid_bap.yaml"
   - summary: Initialization of Order
     api: init
     description: Initialization of Order - Billing Details added.
     reference: if any
     example:
-      $ref: "../../Examples/B2B/init/init_domestic.yaml"
+      $ref: "../../Examples/B2B/init/init_prepaid_bap_rfq.yaml"
   - summary: Initialization of Order
     api: on_init
     description: Initialization of Order with final quote
     reference: if any
     example:
-      $ref: "../../Examples/B2B/on_init/on_init_domestic.yaml"
+      $ref: "../../Examples/B2B/on_init/on_init_prepaid_bap_rfq.yaml"
   - summary: Buyer raises PO
     api: confirm
     description: Buyer creates a Purchase Order
     reference: if any
     example:
-      $ref: "../../Examples/B2B/confirm/confirm_domestic.yaml"
+      $ref: "../../Examples/B2B/confirm/confirm_prepaid_bap_rfq.yaml"
   - summary: Seller Accepts PO
     api: on_confirm
     description: Seller accepts Purchase Order
     reference: if any
     example:
-      $ref: "../../Examples/B2B/on_confirm/on_confirm_domestic.yaml"   
+      $ref: "../../Examples/B2B/on_confirm/on_confirm_prepaid_bap_rfq.yaml"   
   - summary: Payment is collected by buyer NP (Prepaid) and details are updated
     api: update
     description: Consumer platform sends the payment details
@@ -170,19 +170,13 @@ steps:
     description: Provider platform sends the proforma invoice to the consumer
     reference: if any
     example:
-      $ref: "../../Examples/B2B/on_status/on_status_proforma_invoice.yaml"                                  
+      $ref: "../../Examples/B2B/on_status/on_status_proforma_prepaid_bap.yaml"                                  
   - summary: Consumer platform requests for latest status
     api: status
     description: Buyer requests for Shipment status
     reference: if any
     example:
       $ref: "../../Examples/B2B/status/status.yaml"
-  - summary: Provider platform updates the latest status - Order Picked up
-    api: on_status
-    description: Provider platform provides the updated order status to the consumer once the order is picked up
-    reference: if any
-    example:
-      $ref: "../../Examples/B2B/on_status/on_status_picked_up.yaml"
   - summary: Provider platform updates the latest status - Out for Delivery
     api: on_status
     description: Provider platform provides the updated order status to the consumer once the order is out for delivery
