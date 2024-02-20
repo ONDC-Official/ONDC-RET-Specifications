@@ -75,7 +75,7 @@
             ]
           },
           "rating": "4.4",
-          "ttl": "PT1D",
+          "ttl": "P1D",
           "locations": [
             {
               "id": "L1",
@@ -295,14 +295,21 @@
                   "unit": "unit",
                   "value": "1"
                 },
-                "count": "99"
+                "count": 99
               },
               "maximum": {
                 "measure": {
                   "unit": "unit",
                   "value": "1"
                 },
-                "count": "99"
+                "count": 99
+              },
+              "minimum": {
+                "measure": {
+                  "unit": "unit",
+                  "value": "1"
+                },
+                "count": 99
               }
               },
               "category_ids": [

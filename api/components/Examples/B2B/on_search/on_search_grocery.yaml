@@ -51,7 +51,7 @@ value:
           images:
           - url: https://abc.com/images/1-shop-img
         rating: '4.4'
-        ttl: PT1D
+        ttl: P1D
         locations:
         - id: L1
           gps: 12.967555,77.749666
