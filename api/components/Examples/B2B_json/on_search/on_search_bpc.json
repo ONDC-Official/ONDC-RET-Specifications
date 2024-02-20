@@ -75,7 +75,7 @@
             ]
           },
           "rating": "4.4",
-          "ttl": "PT1D",
+          "ttl": "P1D",
           "locations": [
             {
               "id": "L1",
@@ -203,21 +203,21 @@
                     "unit": "millilitre",
                     "value": "500"
                   },
-                  "count": "2000"
+                  "count": 2000
                 },
                 "maximum": {
                   "measure": {
                     "unit": "millilitre",
                     "value": "500"
                   },
-                  "count": "4000"
+                  "count": 4000
                 },
                 "minimum": {
                   "measure": {
                     "unit": "millilitre",
                     "value": "500"
                   },
-                  "count": "4000"
+                  "count": 4000
                 }
               },
 

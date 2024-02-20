@@ -75,11 +75,13 @@
       ],
       "fulfillments": [
         {
+          "id": "F1",
+          "type": "Delivery",
           "stops": [
             {
               "type": "end",
               "location": {
-                "gps": "1.3806217468119772, 103.74636438437074",
+                "gps": "10.380619772, 13.74437074",
                 "area_code": "680230",
                 "city": {
                   "name": "Jurong East"

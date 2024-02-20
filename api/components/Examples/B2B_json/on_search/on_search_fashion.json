@@ -75,7 +75,7 @@
             ]
           },
           "rating": "4.4",
-          "ttl": "PT1D",
+          "ttl": "P1D",
           "locations": [
             {
               "id": "L1",
@@ -248,21 +248,21 @@
                     "unit": "unit",
                     "value": "1"
                   },
-                  "count": "99"
+                  "count": 99
                 },
                 "maximum": {
                   "measure": {
                     "unit": "unit",
                     "value": "1"
                   },
-                  "count": "99"
+                  "count": 99
                 },
                 "minimum": {
                   "measure": {
                     "unit": "millilitre",
                     "value": "500"
                   },
-                  "count": "4000"
+                  "count": 4000
                 }
               },
               "category_ids": ["RET12-102F"],

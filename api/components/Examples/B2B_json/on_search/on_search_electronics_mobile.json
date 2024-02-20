@@ -75,7 +75,7 @@
             ]
           },
           "rating": "4.4",
-          "ttl": "PT1D",
+          "ttl": "P1D",
           "locations": [
             {
               "id": "L1",
