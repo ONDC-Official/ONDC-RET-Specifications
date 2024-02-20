@@ -130,7 +130,9 @@ value:
             value: '100'
         ttl: P1D
       payments:
-      - "@ondc/org/buyer_app_finder_fee_type": percent
+      - type: ON-FULFILLMENT
+        collected_by: BPP
+        "@ondc/org/buyer_app_finder_fee_type": percent
         "@ondc/org/buyer_app_finder_fee_amount": '0'
         "@ondc/org/settlement_basis": delivery
         "@ondc/org/settlement_window": P1D
