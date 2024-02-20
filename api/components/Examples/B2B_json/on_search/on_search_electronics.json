@@ -104,48 +104,70 @@
           ],
           "tags": [
             {
-              "code": "serviceability",
+              "descriptor": {
+                "code": "serviceability"
+              },
               "list": [
                 {
-                  "code": "location",
+                  "descriptor": {
+                    "code": "location"
+                  },
                   "value": "L1"
                 },
                 {
-                  "code": "category",
-                  "value": "RET10-1042"
+                  "descriptor": {
+                    "code": "category"
+                  },
+                  "value": "RET1A-1012"
                 },
                 {
-                  "code": "type",
+                  "descriptor": {
+                    "code": "type"
+                  },
                   "value": "12"
                 },
                 {
-                  "code": "val",
-                  "value": "SGP"
+                  "descriptor": {
+                    "code": "val"
+                  },
+                  "value": "IND"
                 },
                 {
-                  "code": "unit",
+                  "descriptor": {
+                    "code": "unit"
+                  },
                   "value": "country"
                 }
               ]
             },
             {
-              "code": "seller_terms",
+              "descriptor": {
+                "code": "seller_terms"
+              },
               "list": [
                 {
-                  "code": "gst_credit_invoice",
+                  "descriptor": {
+                    "code": "gst_credit_invoice"
+                  },
                   "value": "Y"
                 }
               ]
             },
             {
-              "code": "seller_id",
+              "descriptor": {
+                "code": "seller_id"
+              },
               "list": [
                 {
-                  "code": "seller_id_code",
+                  "descriptor": {
+                    "code": "seller_id_code"
+                  },
                   "value": "gst"
                 },
                 {
-                  "code": "seller_id_no",
+                  "descriptor": {
+                    "code": "seller_id_no"
+                  },
                   "value": "xxxxxxxxxxxxxxx"
                 }
               ]
