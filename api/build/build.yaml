@@ -11195,8 +11195,8 @@ x-flows:
 
             note over Buyer, SellerApp: **ORDER CANCELLATION**
 
-            Buyer->>BuyerApp: If the product is non cancellable, buyer app may <br/>choose to gray out the cancel button on UI. However an option<br/> to force cancel may be provided to the buyer.<br/> Cancellation charges should be visible to the buyer.
-            BuyerApp->>SellerApp: **/cancel** - Buyer app force cancels the order.
+            Buyer->>BuyerApp: If the product is non cancellable, buyer app may <br/>choose to gray out the cancel button on UI. However an option<br/> to force cancel may be provided to the buyer.<br/> Cancellation terms and charges shall apply be visible to the buyer.
+            BuyerApp->>SellerApp: **/cancel** - Buyer app force cancels the order. In case the payment is already made by the buyer, seller app will calculate partial or full refund based on cancellation terms and should initiate refund post /on_cancel.
             SellerApp->>BuyerApp: **/on_cancel** - Seller app cancels the order at its end and updates <br/>the final quote, buyer may incur some charges based on the cancellation terms.
     reference: if any
     steps:
@@ -11270,7 +11270,7 @@ x-flows:
           charges shall apply which should be visible to the buyer. In case the
           payment is already made by the buyer, seller app will calculate
           partial or full refund based on cancellation terms and should initiate
-          post /on_cancel.
+          refund post /on_cancel.
         example:
           summary: Buyer initiates cancellation of the order
           description: Buyer initiates cancellation of the order
@@ -11300,7 +11300,7 @@ x-flows:
         description: >-
           Seller app cancels the order at its end, if a product is
           non-cancellable, the seller app may cancel the order, potentially
-          resulting in cancellation charges for the buyer app. Subsequently, the
+          resulting in cancellation charges for the buyer. Subsequently, the
           seller app updates the quote. If the order was prepaid, the seller app
           may issue a refund for either the full or partial amount, depending on
           the cancellation terms.
