@@ -3094,8 +3094,11 @@ x-tags:
       intent:
         tags:
           - code: BAP_TERMS
-            description: Description about the tags
+            description: >-
+              The buyer terms, including the type and amount of the buyer finder
+              fee, are communicated.
             reference: <PR/Issue/Discussion Links md format text>
+            required: required
             list:
               - code: FINDER_FEE_AMOUNT
                 description: >-
@@ -3112,8 +3115,9 @@ x-tags:
                   set as a percentage of the Total Order Value.
                 reference: <PR/Issue/Discussion Links md format text>
           - code: BUYER_ID
-            description: Description about the tags
+            description: Buyer identification information like GST, etc.
             reference: <PR/Issue/Discussion Links md format text>
+            required: required
             list: &ref_6
               - code: BUYER_ID_CODE
                 description: The type of Buyer ID, such as GST, etc.
@@ -3128,8 +3132,11 @@ x-tags:
           items:
             tags:
               - code: VARIANT
-                description: Description about the tags
+                description: >-
+                  Details related to variant groups for the items are speicfied
+                  here.
                 reference: <PR/Issue/Discussion Links md format text>
+                required: optional
                 list:
                   - code: VARIANT_GROUP_ID
                     description: The identifier for a variant group.
@@ -3142,6 +3149,7 @@ x-tags:
               - code: IMAGE
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list:
                   - code: TYPE
                     description: The type of image.
@@ -3150,8 +3158,11 @@ x-tags:
                     description: The URL of the image.
                     reference: <PR/Issue/Discussion Links md format text>
               - code: ATTRIBUTE
-                description: Description about the tags
+                description: >-
+                  Attributes specific to the items as per taxonomy are specified
+                  here.
                 reference: <PR/Issue/Discussion Links md format text>
+                required: optional
                 list:
                   - code: BRAND
                     description: The brand of the item.
@@ -3256,8 +3267,11 @@ x-tags:
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
               - code: G2
-                description: Description about the tags
+                description: >-
+                  Tag group for details like when the item will be shipped, if
+                  it is cancellable or not, tax rate applicable.
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list:
                   - code: TIME_TO_SHIP
                     description: time duration within which the seller will ship the item
@@ -3269,8 +3283,9 @@ x-tags:
                     description: if the item is cancellable or not
                     reference: <PR/Issue/Discussion Links md format text>
               - code: G3
-                description: Description about the tags
+                description: Tag group for details like brand, pack size, etc.
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list:
                   - code: BRAND
                     description: brand of the item
@@ -3282,13 +3297,20 @@ x-tags:
                     description: different price slabs available for the item
                     reference: <PR/Issue/Discussion Links md format text>
               - code: PRICE_SLAB
-                description: Description about the tags
+                description: >-
+                  The different price slabs availble for the item and their
+                  respective prices.
                 reference: <PR/Issue/Discussion Links md format text>
+                required: optional
                 list: null
           tags:
             - code: SERVICEABILITY
-              description: Description about the tags
+              description: >-
+                The provider's serviceability, indicating where and for which
+                category they are able to provide their services, is specified
+                here.
               reference: <PR/Issue/Discussion Links md format text>
+              required: required
               list:
                 - code: LOCATION
                   description: The location at which this provider is serviceable.
@@ -3334,8 +3356,11 @@ x-tags:
                       description: If type is 12 - Pan-India
                       reference: <PR/Issue/Discussion Links md format text>
             - code: SELLER_TERMS
-              description: Description about the tags
+              description: >-
+                Seller terms like if they provide GST Credit invoice is
+                specified here.
               reference: <PR/Issue/Discussion Links md format text>
+              required: required
               list:
                 - code: GST_CREDIT_INVOICE
                   description: >-
@@ -3350,8 +3375,9 @@ x-tags:
                       description: GST credit invoice not available
                       reference: <PR/Issue/Discussion Links md format text>
             - code: SELLER_ID
-              description: Description about the tags
+              description: Seller identification information is specified here.
               reference: <PR/Issue/Discussion Links md format text>
+              required: required
               list:
                 - code: SELLER_ID_CODE
                   description: The type of Seller ID.
@@ -3367,6 +3393,7 @@ x-tags:
             - code: ITEM_DETAILS
               description: Description about the tags
               reference: <PR/Issue/Discussion Links md format text>
+              required: optional
               list:
                 - code: ITEM_ID
                   description: A unique identifier for the item.
@@ -3381,8 +3408,11 @@ x-tags:
                   description: The value of the item in the specified measurement unit.
                   reference: <PR/Issue/Discussion Links md format text>
             - code: DELIVERY_TERMS
-              description: Description about the tags
+              description: >-
+                Information about delivery terms and responsbilities like
+                incoterms, etc.
               reference: <PR/Issue/Discussion Links md format text>
+              required: optional
               list:
                 - code: INCOTERMS
                   description: Description about the tags
@@ -3432,8 +3462,11 @@ x-tags:
         items:
           tags:
             - code: BUYER_TERMS
-              description: Description about the tags
+              description: >-
+                Any requirement related to item or packaging can be specified
+                here.
               reference: <PR/Issue/Discussion Links md format text>
+              required: required
               list:
                 - code: ITEM_REQ
                   description: >-
@@ -3447,15 +3480,19 @@ x-tags:
                   reference: <PR/Issue/Discussion Links md format text>
         tags:
           - code: BUYER_ID
-            description: Description about the tags
+            description: Buyer identification information.
             reference: <PR/Issue/Discussion Links md format text>
+            required: required
             list: *ref_6
           - code: COMM_CHANNEL
-            description: Description about the tags
+            description: >-
+              Communication channel is provided for buyer and seller to discuss
+              customizations or price negotiation, etc.
             reference: <PR/Issue/Discussion Links md format text>
+            required: optional
             list:
               - code: CHAT_URL
-                description: Chat url link is provided for buyer or seller to discuss
+                description: Chat url link is provided for buyer and seller to discuss
                 reference: <PR/Issue/Discussion Links md format text>
   on_select: *ref_7
   init: *ref_7

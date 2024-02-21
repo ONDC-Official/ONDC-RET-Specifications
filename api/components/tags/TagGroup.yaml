@@ -1,81 +1,95 @@
 intent:
   tags:
     - code: BAP_TERMS
-      description: Description about the tags
+      description: The buyer terms, including the type and amount of the buyer finder fee, are communicated.
       reference: <PR/Issue/Discussion Links md format text>
+      required: required
       list:
         $ref: "./Tag.yaml#/bap_terms"
     - code: BUYER_ID
-      description: Description about the tags
+      description: Buyer identification information like GST, etc. 
       reference: <PR/Issue/Discussion Links md format text>
+      required: required
       list:
         $ref: "./Tag.yaml#/buyer_id"
 providers:
   tags:
     - code: SERVICEABILITY
-      description: Description about the tags
+      description: The provider's serviceability, indicating where and for which category they are able to provide their services, is specified here.
       reference: <PR/Issue/Discussion Links md format text>
+      required: required
       list:
         $ref: "./Tag.yaml#/serviceability"
     - code: SELLER_TERMS
-      description: Description about the tags
+      description: Seller terms like if they provide GST Credit invoice is specified here.
       reference: <PR/Issue/Discussion Links md format text>
+      required: required
       list:
         $ref: "./Tag.yaml#/seller_terms"
     - code: SELLER_ID
-      description: Description about the tags
+      description: Seller identification information is specified here.
       reference: <PR/Issue/Discussion Links md format text>
+      required: required
       list:
         $ref: "./Tag.yaml#/seller_id"
 catalog:
   items:
     tags:
       - code: VARIANT
-        description: Description about the tags
+        description: Details related to variant groups for the items are speicfied here.
         reference: <PR/Issue/Discussion Links md format text>
+        required: optional
         list:
           $ref: "./Tag.yaml#/variant"
       - code: IMAGE
         description: Description about the tags
         reference: <PR/Issue/Discussion Links md format text>
+        required: required
         list:
           $ref: "./Tag.yaml#/image"
       - code: ATTRIBUTE
-        description: Description about the tags
+        description: Attributes specific to the items as per taxonomy are specified here. 
         reference: <PR/Issue/Discussion Links md format text>
+        required: optional
         list:
           $ref: "./Tag.yaml#/attribute"
       - code: G2
-        description: Description about the tags
+        description: Tag group for details like when the item will be shipped, if it is cancellable or not, tax rate applicable.
         reference: <PR/Issue/Discussion Links md format text>
+        required: required
         list:
           $ref: "./Tag.yaml#/g2"
       - code: G3
-        description: Description about the tags
+        description: Tag group for details like brand, pack size, etc.
         reference: <PR/Issue/Discussion Links md format text>
+        required: required
         list:
           $ref: "./Tag.yaml#/g3"
       - code: PRICE_SLAB
-        description: Description about the tags
+        description: The different price slabs availble for the item and their respective prices.
         reference: <PR/Issue/Discussion Links md format text>
+        required: optional
         list:
 order:
   items:
     tags:
       - code: BUYER_TERMS
-        description: Description about the tags
+        description: Any requirement related to item or packaging can be specified here.
         reference: <PR/Issue/Discussion Links md format text>
+        required: required
         list:
           $ref: "./Tag.yaml#/buyer_terms"
   tags:
     - code: BUYER_ID
-      description: Description about the tags
+      description: Buyer identification information.
       reference: <PR/Issue/Discussion Links md format text>
+      required: required
       list:
         $ref: "./Tag.yaml#/buyer_id"
     - code: COMM_CHANNEL
-      description: Description about the tags
+      description: Communication channel is provided for buyer and seller to discuss customizations or price negotiation, etc.
       reference: <PR/Issue/Discussion Links md format text>
+      required: optional
       list:
         $ref: "./Tag.yaml#/comm_channel"
 fulfillments:
@@ -83,10 +97,12 @@ fulfillments:
     - code: ITEM_DETAILS
       description: Description about the tags
       reference: <PR/Issue/Discussion Links md format text>
+      required: optional
       list:
         $ref: "./Tag.yaml#/item_details"
     - code: DELIVERY_TERMS
-      description: Description about the tags
+      description: Information about delivery terms and responsbilities like incoterms, etc.
       reference: <PR/Issue/Discussion Links md format text>
+      required: optional
       list:
         $ref: "./Tag.yaml#/delivery_terms"

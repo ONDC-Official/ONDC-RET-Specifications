@@ -259,5 +259,5 @@ delivery_terms:
     reference: <PR/Issue/Discussion Links md format text>
 comm_channel:
   - code: CHAT_URL
-    description: Chat url link is provided for buyer or seller to discuss
+    description: Chat url link is provided for buyer and seller to discuss
     reference: <PR/Issue/Discussion Links md format text>
