@@ -36,7 +36,7 @@ catalog:
   items:
     tags:
       - code: VARIANT
-        description: Details related to variant groups for the items are speicfied here.
+        description: Variants may be used by buyer NPs to group multiple items for display.
         reference: <PR/Issue/Discussion Links md format text>
         required: optional
         list:
