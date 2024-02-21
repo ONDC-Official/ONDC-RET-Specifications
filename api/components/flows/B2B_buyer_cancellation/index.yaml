@@ -76,8 +76,8 @@ details:
 
         note over Buyer, SellerApp: **ORDER CANCELLATION**
 
-        Buyer->>BuyerApp: If the product is non cancellable, buyer app may <br/>choose to gray out the cancel button on UI. However an option<br/> to force cancel may be provided to the buyer.<br/> Cancellation terms and charges shall apply be visible to the buyer.
-        BuyerApp->>SellerApp: **/cancel** - Buyer app force cancels the order. In case the payment is already made by the buyer, seller app will calculate partial or full refund based on cancellation terms and should initiate refund post /on_cancel.
+        Buyer->>BuyerApp: If the product is non cancellable, buyer app may <br/>choose to gray out the cancel button on UI. However an option<br/> to force cancel may be provided to the buyer.<br/> Cancellation terms and charges shall apply which<br/> should be visible to the buyer.
+        BuyerApp->>SellerApp: **/cancel** - Buyer app force cancels the order. In case the payment <br/> is already made by the buyer, seller app will calculate<br/> partial or full refund based on cancellation terms and should initiate <br/>refund post /on_cancel.
         SellerApp->>BuyerApp: **/on_cancel** - Seller app cancels the order at its end and updates <br/>the final quote, buyer may incur some charges based on the cancellation terms.
 reference: if any
 steps:
