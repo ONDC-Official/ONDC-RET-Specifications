@@ -46,6 +46,7 @@ value:
       fulfillments:
         - id: F2
           tracking: false
+          '@ondc/org/provider_name': ''
           '@ondc/org/category': Self-Pickup
           '@ondc/org/TAT': P3D
           state:
