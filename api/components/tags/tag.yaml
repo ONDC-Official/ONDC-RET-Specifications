@@ -1,46 +1,46 @@
 bap_terms:
   - code: FINDER_FEE_AMOUNT
-    description: Description about the tags
+    description: The amount of the Buyer App’s fee, to be interpreted in conjunction with the “type” field. If the “type” is set to “Amount”, this value represents the fixed fee in INR. If the “type” is set to “percent”, this value represents the percentage of the Total Order Value.
     reference: <PR/Issue/Discussion Links md format text>
   - code: FINDER_FEE_TYPE
-    description: Description about the tags
+    description: If set to “amount” it means Buyer App’s fee is a flat amount in INR. If set to “percent” it means the Buyer App’s fee is set as a percentage of the Total Order Value.
     reference: <PR/Issue/Discussion Links md format text>
 buyer_id:
   - code: BUYER_ID_CODE
-    description: Description about the tags
+    description: The type of Buyer ID, such as GST, etc.
     reference: <PR/Issue/Discussion Links md format text>
   - code: BUYER_ID_NO
-    description: Description about the tags
+    description: The actual Buyer ID number. 
     reference: <PR/Issue/Discussion Links md format text>
 buyer_terms:
   - code: ITEM_REQ
-    description: Description about the tags
+    description: Any requirement related to item can be put over here, e.g. customizations, etc.
     reference: <PR/Issue/Discussion Links md format text>
   - code: PACKAGING_REQ
-    description: Description about the tags
+    description: Any specific requirements related to the fulfillment or packaging of the item. 
     reference: <PR/Issue/Discussion Links md format text>
 item_details:
   - code: ITEM_ID
-    description: Description about the tags
+    description: A unique identifier for the item.
     reference: <PR/Issue/Discussion Links md format text>
   - code: COUNT
-    description: Description about the tags
+    description: The quantity of the item.
     reference: <PR/Issue/Discussion Links md format text>
   - code: MEASURE_UNIT
-    description: Description about the tags
+    description: The unit of measurement for the item. 
     reference: <PR/Issue/Discussion Links md format text>
   - code: MEASURE_VALUE
-    description: Description about the tags
+    description: The value of the item in the specified measurement unit.
     reference: <PR/Issue/Discussion Links md format text>
 serviceability:
   - code: LOCATION
-    description: Description about the tags
+    description: The location at which this provider is serviceable.
     reference: <PR/Issue/Discussion Links md format text>
   - code: CATEGORY
-    description: Description about the tags
+    description: The category serviceable by the provider.
     reference: <PR/Issue/Discussion Links md format text>
   - code: TYPE
-    description: Description about the tags
+    description: 'The type of serviceability, with values representing Hyperlocal (code: 10), Intercity (code: 11), and Pan-India (code: 12).'
     reference: <PR/Issue/Discussion Links md format text>
     value:
       - code: 10
@@ -53,10 +53,10 @@ serviceability:
         description: Pan-India
         reference: <PR/Issue/Discussion Links md format text>
   - code: VAL
-    description: Description about the tags
+    description: The value associated with the serviceability type, i.e in how much radius it is serviceable, eg. for hyperlocal - within 60 km raidus from the store location.
     reference: <PR/Issue/Discussion Links md format text>
   - code: UNIT
-    description: Description about the tags
+    description: The unit of measurement for the serviceability value, e.g. km.
     reference: <PR/Issue/Discussion Links md format text>
     value:
       - code: 'km'
@@ -71,7 +71,7 @@ serviceability:
 
 seller_terms:
   - code: GST_CREDIT_INVOICE
-    description: Description about the tags
+    description: 'Indicates whether a GST credit invoice is available (code: Y) or not (code: N).'
     reference: <PR/Issue/Discussion Links md format text>
     value:
     - code: 'Y'
@@ -82,31 +82,31 @@ seller_terms:
       reference: <PR/Issue/Discussion Links md format text>
 seller_id:
   - code: SELLER_ID_CODE
-    description: Description about the tags
+    description: The type of Seller ID.
     reference: <PR/Issue/Discussion Links md format text>
   - code: SELLER_ID_NO
-    description: Description about the tags
+    description: The actual Seller ID number.
     reference: <PR/Issue/Discussion Links md format text>
 variant:
   - code: VARIANT_GROUP_ID
-    description: Description about the tags
+    description: The identifier for a variant group.
     reference: <PR/Issue/Discussion Links md format text>
   - code: VARIANT_ATTR
-    description: Description about the tags
+    description: The attribute of the item based on which group variant is created.
     reference: <PR/Issue/Discussion Links md format text>
 image:
   - code: TYPE
-    description: Description about the tags
+    description: The type of image.
     reference: <PR/Issue/Discussion Links md format text>
   - code: URL
-    description: Description about the tags
+    description: The URL of the image.
     reference: <PR/Issue/Discussion Links md format text>
 attribute:
   - code: BRAND
-    description: Description about the tags
+    description: The brand of the item.
     reference: <PR/Issue/Discussion Links md format text>
   - code: COLOUR
-    description: Description about the tags
+    description: The color of the item.
     reference: <PR/Issue/Discussion Links md format text>
   - code: SIZE
     description: Description about the tags
@@ -206,20 +206,23 @@ attribute:
     reference: <PR/Issue/Discussion Links md format text>
 g2:
   - code: TIME_TO_SHIP
-    description: Description about the tags
+    description: time duration within which the seller will ship the item
     reference: <PR/Issue/Discussion Links md format text>
   - code: TAX_RATE
-    description: Description about the tags
+    description: tax rate applicable on the item
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: CANCELLABLE
+    description: if the item is cancellable or not
     reference: <PR/Issue/Discussion Links md format text>
 g3:
   - code: BRAND
-    description: Description about the tags
+    description: brand of the item
     reference: <PR/Issue/Discussion Links md format text>
   - code: PACK_SIZE
-    description: Description about the tags
+    description: item is available in the pack size of
     reference: <PR/Issue/Discussion Links md format text>
   - code: NUM_PRICE_SLABS
-    description: Description about the tags
+    description: different price slabs available for the item
     reference: <PR/Issue/Discussion Links md format text>
 price_slab:
   - code: MIN_PACK_SIZE

@@ -3,7 +3,7 @@ examples:
 enum:
   $ref: "./enums/index.yaml"
 tags:
-  $ref: "./tags/TagGroup.yaml"
+  $ref: "./tags/index.yaml"
 dictionary:
   $ref: "./dictionary/index.yaml"
 flows:

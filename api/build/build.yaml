@@ -3089,339 +3089,382 @@ x-enum:
   on_track:
     context: *ref_1
 x-tags:
-  intent:
-    tags:
-      - code: BAP_TERMS
-        description: Description about the tags
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          - code: FINDER_FEE_AMOUNT
+  search:
+    message:
+      intent:
+        tags:
+          - code: BAP_TERMS
             description: Description about the tags
             reference: <PR/Issue/Discussion Links md format text>
-          - code: FINDER_FEE_TYPE
-            description: Description about the tags
-            reference: <PR/Issue/Discussion Links md format text>
-      - code: BUYER_ID
-        description: Description about the tags
-        reference: <PR/Issue/Discussion Links md format text>
-        list: &ref_6
-          - code: BUYER_ID_CODE
-            description: Description about the tags
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: BUYER_ID_NO
-            description: Description about the tags
-            reference: <PR/Issue/Discussion Links md format text>
-  providers:
-    tags:
-      - code: SERVICEABILITY
-        description: Description about the tags
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          - code: LOCATION
-            description: Description about the tags
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: CATEGORY
-            description: Description about the tags
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: TYPE
-            description: Description about the tags
-            reference: <PR/Issue/Discussion Links md format text>
-            value:
-              - code: 10
-                description: Hyperlocal
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: 11
-                description: Intercity
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: 12
-                description: Pan-India
-                reference: <PR/Issue/Discussion Links md format text>
-          - code: VAL
-            description: Description about the tags
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: UNIT
-            description: Description about the tags
-            reference: <PR/Issue/Discussion Links md format text>
-            value:
-              - code: km
-                description: If type is 10 - Hyperlocal
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: pincode
-                description: If type is 11 - Intercity
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: country
-                description: If type is 12 - Pan-India
-                reference: <PR/Issue/Discussion Links md format text>
-      - code: SELLER_TERMS
-        description: Description about the tags
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          - code: GST_CREDIT_INVOICE
-            description: Description about the tags
-            reference: <PR/Issue/Discussion Links md format text>
-            value:
-              - code: 'Y'
-                description: GST credit invoice available
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: 'N'
-                description: GST credit invoice not available
-                reference: <PR/Issue/Discussion Links md format text>
-      - code: SELLER_ID
-        description: Description about the tags
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          - code: SELLER_ID_CODE
-            description: Description about the tags
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: SELLER_ID_NO
-            description: Description about the tags
-            reference: <PR/Issue/Discussion Links md format text>
-  catalog:
-    items:
-      tags:
-        - code: VARIANT
-          description: Description about the tags
-          reference: <PR/Issue/Discussion Links md format text>
-          list:
-            - code: VARIANT_GROUP_ID
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: VARIANT_ATTR
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-        - code: IMAGE
-          description: Description about the tags
-          reference: <PR/Issue/Discussion Links md format text>
-          list:
-            - code: TYPE
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: URL
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-        - code: ATTRIBUTE
-          description: Description about the tags
-          reference: <PR/Issue/Discussion Links md format text>
-          list:
-            - code: BRAND
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: COLOUR
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: SIZE
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: GENDER
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: PATTERN
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: MATERIAL
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: OCCASION
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: SEASON
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: TREND
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: FEATURES
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: MATERIAL_FINISH
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: SIZE_CHART
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: CONCERN
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: INGREDIENT
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: CONSCIOUS
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: PREFERENCE
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: FORMULATION
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: SKIN_TYPE
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: STYLE
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: MODEL
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: SCREEN_SIZE
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: MEMORY
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: CPU
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: CPU_MFR
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: STORAGE
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: OS
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: INCLUDES
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: FORM_FACTOR
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: COMPATIBLE_DEVICES
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: CONNECTIVITY
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: TYPE
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: SPECIAL_FEATURE
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: DISPLAY
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: REFRESH
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-        - code: G2
-          description: Description about the tags
-          reference: <PR/Issue/Discussion Links md format text>
-          list:
-            - code: TIME_TO_SHIP
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: TAX_RATE
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-        - code: G3
-          description: Description about the tags
-          reference: <PR/Issue/Discussion Links md format text>
-          list:
-            - code: BRAND
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: PACK_SIZE
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: NUM_PRICE_SLABS
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-        - code: PRICE_SLAB
-          description: Description about the tags
-          reference: <PR/Issue/Discussion Links md format text>
-          list: null
-  order:
-    items:
-      tags:
-        - code: BUYER_TERMS
-          description: Description about the tags
-          reference: <PR/Issue/Discussion Links md format text>
-          list:
-            - code: ITEM_REQ
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: PACKAGING_REQ
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-    tags:
-      - code: BUYER_ID
-        description: Description about the tags
-        reference: <PR/Issue/Discussion Links md format text>
-        list: *ref_6
-      - code: COMM_CHANNEL
-        description: Description about the tags
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          - code: CHAT_URL
-            description: Chat url link is provided for buyer or seller to discuss
-            reference: <PR/Issue/Discussion Links md format text>
-  fulfillments:
-    tags:
-      - code: ITEM_DETAILS
-        description: Description about the tags
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          - code: ITEM_ID
-            description: Description about the tags
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: COUNT
-            description: Description about the tags
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: MEASURE_UNIT
-            description: Description about the tags
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: MEASURE_VALUE
-            description: Description about the tags
-            reference: <PR/Issue/Discussion Links md format text>
-      - code: DELIVERY_TERMS
-        description: Description about the tags
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          - code: INCOTERMS
-            description: Description about the tags
-            reference: <PR/Issue/Discussion Links md format text>
-            value:
-              - code: CIF
+            list:
+              - code: FINDER_FEE_AMOUNT
                 description: >-
-                  CIF (Cost, Insurance, and Freight) indicates that the seller
-                  has the responsibility to deliver the goods to the named port
-                  of destination, covering the cost of transportation,
-                  insurance, and freight charges.
+                  The amount of the Buyer App’s fee, to be interpreted in
+                  conjunction with the “type” field. If the “type” is set to
+                  “Amount”, this value represents the fixed fee in INR. If the
+                  “type” is set to “percent”, this value represents the
+                  percentage of the Total Order Value.
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: EXW
+              - code: FINDER_FEE_TYPE
                 description: >-
-                  EXW (Ex Works) represents the point at which the seller's
-                  responsibility for the goods ends and the buyer's
-                  responsibility begins in an international transaction.
+                  If set to “amount” it means Buyer App’s fee is a flat amount
+                  in INR. If set to “percent” it means the Buyer App’s fee is
+                  set as a percentage of the Total Order Value.
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: FOB
-                description: >-
-                  FOB (Free On Board) terms define the point at which the seller
-                  fulfills their obligation to deliver the goods, and the buyer
-                  takes on the responsibility and costs associated with
-                  transporting the goods from the named port of shipment to the
-                  final destination
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: DAP
-                description: >-
-                  under DAP (Delivered at Place) terms, the seller takes on the
-                  responsibility and costs of delivering the goods to a named
-                  place at the buyer's destination.
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: DDP
-                description: >-
-                  Under DDP (Delivered Duty Paid) terms, the seller assumes a
-                  high level of responsibility and covers all costs associated
-                  with delivering the goods to the buyer's destination. The
-                  buyer, on the other hand, is responsible for unloading the
-                  goods and any subsequent transportation from the named place
-                  to their final destination.
-                reference: <PR/Issue/Discussion Links md format text>
-          - code: NAMED_PLACE_OF_DELIVERY
-            description: Place of delivery based on the incoterm used.
+          - code: BUYER_ID
+            description: Description about the tags
             reference: <PR/Issue/Discussion Links md format text>
+            list: &ref_6
+              - code: BUYER_ID_CODE
+                description: The type of Buyer ID, such as GST, etc.
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: BUYER_ID_NO
+                description: The actual Buyer ID number.
+                reference: <PR/Issue/Discussion Links md format text>
+  on_search:
+    message:
+      catalog:
+        providers:
+          items:
+            tags:
+              - code: VARIANT
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+                list:
+                  - code: VARIANT_GROUP_ID
+                    description: The identifier for a variant group.
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: VARIANT_ATTR
+                    description: >-
+                      The attribute of the item based on which group variant is
+                      created.
+                    reference: <PR/Issue/Discussion Links md format text>
+              - code: IMAGE
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+                list:
+                  - code: TYPE
+                    description: The type of image.
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: URL
+                    description: The URL of the image.
+                    reference: <PR/Issue/Discussion Links md format text>
+              - code: ATTRIBUTE
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+                list:
+                  - code: BRAND
+                    description: The brand of the item.
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: COLOUR
+                    description: The color of the item.
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: SIZE
+                    description: Description about the tags
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: GENDER
+                    description: Description about the tags
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: PATTERN
+                    description: Description about the tags
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: MATERIAL
+                    description: Description about the tags
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: OCCASION
+                    description: Description about the tags
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: SEASON
+                    description: Description about the tags
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: TREND
+                    description: Description about the tags
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: FEATURES
+                    description: Description about the tags
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: MATERIAL_FINISH
+                    description: Description about the tags
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: SIZE_CHART
+                    description: Description about the tags
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: CONCERN
+                    description: Description about the tags
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: INGREDIENT
+                    description: Description about the tags
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: CONSCIOUS
+                    description: Description about the tags
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: PREFERENCE
+                    description: Description about the tags
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: FORMULATION
+                    description: Description about the tags
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: SKIN_TYPE
+                    description: Description about the tags
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: STYLE
+                    description: Description about the tags
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: MODEL
+                    description: Description about the tags
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: SCREEN_SIZE
+                    description: Description about the tags
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: MEMORY
+                    description: Description about the tags
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: CPU
+                    description: Description about the tags
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: CPU_MFR
+                    description: Description about the tags
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: STORAGE
+                    description: Description about the tags
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: OS
+                    description: Description about the tags
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: INCLUDES
+                    description: Description about the tags
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: FORM_FACTOR
+                    description: Description about the tags
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: COMPATIBLE_DEVICES
+                    description: Description about the tags
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: CONNECTIVITY
+                    description: Description about the tags
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: TYPE
+                    description: Description about the tags
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: SPECIAL_FEATURE
+                    description: Description about the tags
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: DISPLAY
+                    description: Description about the tags
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: REFRESH
+                    description: Description about the tags
+                    reference: <PR/Issue/Discussion Links md format text>
+              - code: G2
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+                list:
+                  - code: TIME_TO_SHIP
+                    description: time duration within which the seller will ship the item
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: TAX_RATE
+                    description: tax rate applicable on the item
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: CANCELLABLE
+                    description: if the item is cancellable or not
+                    reference: <PR/Issue/Discussion Links md format text>
+              - code: G3
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+                list:
+                  - code: BRAND
+                    description: brand of the item
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: PACK_SIZE
+                    description: item is available in the pack size of
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: NUM_PRICE_SLABS
+                    description: different price slabs available for the item
+                    reference: <PR/Issue/Discussion Links md format text>
+              - code: PRICE_SLAB
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+                list: null
+          tags:
+            - code: SERVICEABILITY
+              description: Description about the tags
+              reference: <PR/Issue/Discussion Links md format text>
+              list:
+                - code: LOCATION
+                  description: The location at which this provider is serviceable.
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: CATEGORY
+                  description: The category serviceable by the provider.
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: TYPE
+                  description: >-
+                    The type of serviceability, with values representing
+                    Hyperlocal (code: 10), Intercity (code: 11), and Pan-India
+                    (code: 12).
+                  reference: <PR/Issue/Discussion Links md format text>
+                  value:
+                    - code: 10
+                      description: Hyperlocal
+                      reference: <PR/Issue/Discussion Links md format text>
+                    - code: 11
+                      description: Intercity
+                      reference: <PR/Issue/Discussion Links md format text>
+                    - code: 12
+                      description: Pan-India
+                      reference: <PR/Issue/Discussion Links md format text>
+                - code: VAL
+                  description: >-
+                    The value associated with the serviceability type, i.e in
+                    how much radius it is serviceable, eg. for hyperlocal -
+                    within 60 km raidus from the store location.
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: UNIT
+                  description: >-
+                    The unit of measurement for the serviceability value, e.g.
+                    km.
+                  reference: <PR/Issue/Discussion Links md format text>
+                  value:
+                    - code: km
+                      description: If type is 10 - Hyperlocal
+                      reference: <PR/Issue/Discussion Links md format text>
+                    - code: pincode
+                      description: If type is 11 - Intercity
+                      reference: <PR/Issue/Discussion Links md format text>
+                    - code: country
+                      description: If type is 12 - Pan-India
+                      reference: <PR/Issue/Discussion Links md format text>
+            - code: SELLER_TERMS
+              description: Description about the tags
+              reference: <PR/Issue/Discussion Links md format text>
+              list:
+                - code: GST_CREDIT_INVOICE
+                  description: >-
+                    Indicates whether a GST credit invoice is available (code:
+                    Y) or not (code: N).
+                  reference: <PR/Issue/Discussion Links md format text>
+                  value:
+                    - code: 'Y'
+                      description: GST credit invoice available
+                      reference: <PR/Issue/Discussion Links md format text>
+                    - code: 'N'
+                      description: GST credit invoice not available
+                      reference: <PR/Issue/Discussion Links md format text>
+            - code: SELLER_ID
+              description: Description about the tags
+              reference: <PR/Issue/Discussion Links md format text>
+              list:
+                - code: SELLER_ID_CODE
+                  description: The type of Seller ID.
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: SELLER_ID_NO
+                  description: The actual Seller ID number.
+                  reference: <PR/Issue/Discussion Links md format text>
+  select: &ref_7
+    message:
+      order:
+        fulfillments:
+          tags:
+            - code: ITEM_DETAILS
+              description: Description about the tags
+              reference: <PR/Issue/Discussion Links md format text>
+              list:
+                - code: ITEM_ID
+                  description: A unique identifier for the item.
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: COUNT
+                  description: The quantity of the item.
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: MEASURE_UNIT
+                  description: The unit of measurement for the item.
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: MEASURE_VALUE
+                  description: The value of the item in the specified measurement unit.
+                  reference: <PR/Issue/Discussion Links md format text>
+            - code: DELIVERY_TERMS
+              description: Description about the tags
+              reference: <PR/Issue/Discussion Links md format text>
+              list:
+                - code: INCOTERMS
+                  description: Description about the tags
+                  reference: <PR/Issue/Discussion Links md format text>
+                  value:
+                    - code: CIF
+                      description: >-
+                        CIF (Cost, Insurance, and Freight) indicates that the
+                        seller has the responsibility to deliver the goods to
+                        the named port of destination, covering the cost of
+                        transportation, insurance, and freight charges.
+                      reference: <PR/Issue/Discussion Links md format text>
+                    - code: EXW
+                      description: >-
+                        EXW (Ex Works) represents the point at which the
+                        seller's responsibility for the goods ends and the
+                        buyer's responsibility begins in an international
+                        transaction.
+                      reference: <PR/Issue/Discussion Links md format text>
+                    - code: FOB
+                      description: >-
+                        FOB (Free On Board) terms define the point at which the
+                        seller fulfills their obligation to deliver the goods,
+                        and the buyer takes on the responsibility and costs
+                        associated with transporting the goods from the named
+                        port of shipment to the final destination
+                      reference: <PR/Issue/Discussion Links md format text>
+                    - code: DAP
+                      description: >-
+                        under DAP (Delivered at Place) terms, the seller takes
+                        on the responsibility and costs of delivering the goods
+                        to a named place at the buyer's destination.
+                      reference: <PR/Issue/Discussion Links md format text>
+                    - code: DDP
+                      description: >-
+                        Under DDP (Delivered Duty Paid) terms, the seller
+                        assumes a high level of responsibility and covers all
+                        costs associated with delivering the goods to the
+                        buyer's destination. The buyer, on the other hand, is
+                        responsible for unloading the goods and any subsequent
+                        transportation from the named place to their final
+                        destination.
+                      reference: <PR/Issue/Discussion Links md format text>
+                - code: NAMED_PLACE_OF_DELIVERY
+                  description: Place of delivery based on the incoterm used.
+                  reference: <PR/Issue/Discussion Links md format text>
+        items:
+          tags:
+            - code: BUYER_TERMS
+              description: Description about the tags
+              reference: <PR/Issue/Discussion Links md format text>
+              list:
+                - code: ITEM_REQ
+                  description: >-
+                    Any requirement related to item can be put over here, e.g.
+                    customizations, etc.
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: PACKAGING_REQ
+                  description: >-
+                    Any specific requirements related to the fulfillment or
+                    packaging of the item.
+                  reference: <PR/Issue/Discussion Links md format text>
+        tags:
+          - code: BUYER_ID
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+            list: *ref_6
+          - code: COMM_CHANNEL
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+            list:
+              - code: CHAT_URL
+                description: Chat url link is provided for buyer or seller to discuss
+                reference: <PR/Issue/Discussion Links md format text>
+  on_select: *ref_7
+  init: *ref_7
+  on_init: *ref_7
+  confirm: *ref_7
+  on_confirm: *ref_7
+  on_status: *ref_7
+  on_cancel: *ref_7
+  on_update: *ref_7
 x-flows:
   - summary: B2B Domestic
     description: >-
@@ -3528,7 +3571,7 @@ x-flows:
         api: search
         description: Search intent sent by the buyer based on the category
         reference: if any
-        example: &ref_24
+        example: &ref_25
           summary: Search by Category
           description: Search By Category
           value:
@@ -3591,7 +3634,7 @@ x-flows:
         api: on_search
         description: Catalog provided by the Seller App
         reference: if any
-        example: &ref_25
+        example: &ref_26
           summary: Return the catalog for grocery
           description: Return the catalog for grocery products
           value:
@@ -3952,7 +3995,7 @@ x-flows:
           Buyer requests for quotation for the selected item with all the
           customizations and the quantity of items required
         reference: if any
-        example: &ref_11
+        example: &ref_12
           summary: Get quote for specific item (RFQ)
           description: >-
             RFQ - Get quote for selected items with Buyer and Delivery terms
@@ -4035,7 +4078,7 @@ x-flows:
         api: on_select
         description: Seller provides the quotation and breakup with logistics charges
         reference: if any
-        example: &ref_12
+        example: &ref_13
           summary: Send quote and breakup - Response to RFQ (Domestic)
           description: Send quote and breakup for items selected in RFQ
           value:
@@ -4145,7 +4188,7 @@ x-flows:
         api: init
         description: Initialization of Order - Billing Details added.
         reference: if any
-        example: &ref_13
+        example: &ref_14
           summary: Intializing the order (Domestic)
           description: Intializing the order
           value:
@@ -4237,7 +4280,7 @@ x-flows:
         api: on_init
         description: Initialization of Order with final quote
         reference: if any
-        example: &ref_14
+        example: &ref_15
           summary: Acknowledges the initialization (Domestic - RFQ)
           description: Acknowledges the initialization
           value:
@@ -4396,31 +4439,31 @@ x-flows:
                       - descriptor:
                           code: buyer_id_no
                         value: xxxxxxxxxxxxxxx
+                  - descriptor:
+                      code: bpp_terms
+                    list:
                       - descriptor:
-                          code: bpp_terms
-                        list:
-                          - descriptor:
-                              code: max_liability
-                            value: '2'
-                          - descriptor:
-                              code: max_liability_cap
-                            value: '10000'
-                          - descriptor:
-                              code: mandatory_arbitration
-                            value: 'false'
-                          - descriptor:
-                              code: court_jurisdiction
-                            value: Bengaluru
-                          - descriptor:
-                              code: delay_interest
-                            value: '1000'
+                          code: max_liability
+                        value: '2'
+                      - descriptor:
+                          code: max_liability_cap
+                        value: '10000'
+                      - descriptor:
+                          code: mandatory_arbitration
+                        value: 'false'
+                      - descriptor:
+                          code: court_jurisdiction
+                        value: Bengaluru
+                      - descriptor:
+                          code: delay_interest
+                        value: '1000'
       - summary: Buyer raises PO
         api: confirm
         description: >-
           Buyer receives the quotation and once agreed to go ahead with the
           quotation received, creates a PO and sends the PO
         reference: if any
-        example: &ref_15
+        example: &ref_16
           summary: Raise PO (Domestic - RFQ)
           description: PO raised by buyer based on the RFQ response received.
           value:
@@ -4614,7 +4657,7 @@ x-flows:
           Seller app sends an on_confirm call to the buyer app relaying the PO
           acceptance.
         reference: if any
-        example: &ref_16
+        example: &ref_17
           summary: Accept PO (Prepaid BPP - RFQ)
           description: PO acceptance by Seller
           value:
@@ -4838,7 +4881,7 @@ x-flows:
         api: status
         description: Buyer requests for Shipment status
         reference: if any
-        example: &ref_7
+        example: &ref_8
           summary: Buyer asks for order status
           description: Buyer asks for order status
           value:
@@ -4867,7 +4910,7 @@ x-flows:
           Provider platform provides the updated order status to the consumer
           once the order is picked up
         reference: if any
-        example: &ref_8
+        example: &ref_9
           summary: Seller updates the order status (Order-picked-up)
           description: Seller updates the order status and shares Invoice
           value:
@@ -4945,7 +4988,7 @@ x-flows:
                           email: nobody@nomail.com
                       - type: end
                         location:
-                          gps: 1.3806217468119772, 103.74636438437074
+                          gps: 1.380621746811, 103.7463643843
                           address: 'My House #, My buildin'
                           city:
                             name: Jurong East
@@ -5159,7 +5202,7 @@ x-flows:
         api: search
         description: Buyer outside India searches for a product
         reference: if any
-        example: &ref_9
+        example: &ref_10
           summary: Search by Item
           description: Search By Item
           value:
@@ -5188,15 +5231,15 @@ x-flows:
                   stops:
                     - type: end
                       location:
-                        gps: 1.3806217468119772, 103.74636438437074
+                        gps: 1.3806217468, 103.74636438
                         area_code: '680230'
                     - type: end
                       location:
-                        gps: 1.3813081446741677, 103.74788789072721
+                        gps: 1.3813081446, 103.7478878907
                         area_code: '680207'
                     - type: end
                       location:
-                        gps: 1.3826059101531494, 103.743617819222
+                        gps: 1.3826059101531, 103.743617819
                         area_code: '680354'
                 payment:
                   type: ON-FULFILLMENT
@@ -5223,7 +5266,7 @@ x-flows:
         api: on_search
         description: Seller responds with catalog + communication channel
         reference: if any
-        example: &ref_10
+        example: &ref_11
           summary: Return the catalog
           description: Return the catalog
           value:
@@ -5612,7 +5655,7 @@ x-flows:
                     stops:
                       - type: end
                         location:
-                          gps: 1.3806217468119772, 103.74636438437074
+                          gps: 1.38119772, 103.74437074
                           area_code: '680230'
                           city:
                             name: Jurong East
@@ -5838,7 +5881,7 @@ x-flows:
                     stops:
                       - type: end
                         location:
-                          gps: 1.3806217468119772, 103.74636438437074
+                          gps: 1.380621746811, 103.7463643843
                           address: 'My House #, My buildin'
                           city:
                             name: Jurong East
@@ -5950,7 +5993,7 @@ x-flows:
                     stops:
                       - type: end
                         location:
-                          gps: 1.3806217468119772, 103.74636438437074
+                          gps: 1.380621746811, 103.7463643843
                           address: 'My House #, My buildin'
                           city:
                             name: Jurong East
@@ -6051,24 +6094,24 @@ x-flows:
                       - descriptor:
                           code: buyer_id_no
                         value: xxxxxxxxxxxxxxx
+                  - descriptor:
+                      code: bpp_terms
+                    list:
                       - descriptor:
-                          code: bpp_terms
-                        list:
-                          - descriptor:
-                              code: max_liability
-                            value: '2'
-                          - descriptor:
-                              code: max_liability_cap
-                            value: '10000'
-                          - descriptor:
-                              code: mandatory_arbitration
-                            value: 'false'
-                          - descriptor:
-                              code: court_jurisdiction
-                            value: Bengaluru
-                          - descriptor:
-                              code: delay_interest
-                            value: '1000'
+                          code: max_liability
+                        value: '2'
+                      - descriptor:
+                          code: max_liability_cap
+                        value: '10000'
+                      - descriptor:
+                          code: mandatory_arbitration
+                        value: 'false'
+                      - descriptor:
+                          code: court_jurisdiction
+                        value: Bengaluru
+                      - descriptor:
+                          code: delay_interest
+                        value: '1000'
       - summary: Buyer raises PO
         api: confirm
         description: Buyer creates a Purchase Order
@@ -6138,7 +6181,7 @@ x-flows:
                     stops:
                       - type: end
                         location:
-                          gps: 1.3806217468119772, 103.74636438437074
+                          gps: 1.380621746811, 103.7463643843
                           address: 'My House #, My buildin'
                           city:
                             name: Jurong East
@@ -6359,7 +6402,7 @@ x-flows:
                           email: nobody@nomail.com
                       - type: end
                         location:
-                          gps: 1.3806217468119772, 103.74636438437074
+                          gps: 1.380621746811, 103.7463643843
                           address: 'My House #, My buildin'
                           city:
                             name: Jurong East
@@ -6505,14 +6548,14 @@ x-flows:
         api: status
         description: Buyer requests for Shipment status
         reference: if any
-        example: *ref_7
+        example: *ref_8
       - summary: Provider platform provides latest order status and sends invoice
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           and sends invoice
         reference: if any
-        example: &ref_17
+        example: &ref_18
           summary: Seller updates the order status (Proforma Invoice)
           description: Seller updates the order status and shares Invoice
           value:
@@ -6589,7 +6632,7 @@ x-flows:
                           email: nobody@nomail.com
                       - type: end
                         location:
-                          gps: 1.3806217468119772, 103.74636438437074
+                          gps: 1.380621746811, 103.7463643843
                           address: 'My House #, My buildin'
                           city:
                             name: Jurong East
@@ -6691,7 +6734,7 @@ x-flows:
         api: update
         description: Payment status is sent (If collected by BAP) + requests for Invoice
         reference: if any
-        example: &ref_18
+        example: &ref_19
           summary: Buyer updates payment status
           description: Buyer updates payment status (CollectedBy BAP)
           value:
@@ -6753,7 +6796,7 @@ x-flows:
         api: on_update
         description: seller updates fulfilments - Multiple fulfillments for Single PO
         reference: if any
-        example: &ref_19
+        example: &ref_20
           summary: Single PO - Multiple Fulfillment
           description: Single PO - Multiple Fulfillment
           value:
@@ -6939,14 +6982,14 @@ x-flows:
           Provider platform provides the updated order status to the consumer
           once the order is picked up
         reference: if any
-        example: *ref_8
+        example: *ref_9
       - summary: Provider platform provides latest order status
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           once the order is out for delivery
         reference: if any
-        example: &ref_20
+        example: &ref_21
           summary: Seller updates the order status (Out-for-delivery)
           description: Seller updates the order status and shares Invoice
           value:
@@ -7024,7 +7067,7 @@ x-flows:
                           email: nobody@nomail.com
                       - type: end
                         location:
-                          gps: 1.3806217468119772, 103.74636438437074
+                          gps: 1.380621746811, 103.7463643843
                           address: 'My House #, My buildin'
                           city:
                             name: Jurong East
@@ -7134,7 +7177,7 @@ x-flows:
           Provider platform provides the updated order status to the consumer
           after the order is delivered
         reference: if any
-        example: &ref_21
+        example: &ref_22
           summary: Seller updates the order status (Order-delivered)
           description: Seller updates the order status and shares Invoice
           value:
@@ -7212,7 +7255,7 @@ x-flows:
                           email: nobody@nomail.com
                       - type: end
                         location:
-                          gps: 1.3806217468119772, 103.74636438437074
+                          gps: 1.388119772, 103.748437074
                           address: 'My House #, My buildin'
                           city:
                             name: Jurong East
@@ -7431,85 +7474,85 @@ x-flows:
         api: search
         description: Buyer searches for an item
         reference: if any
-        example: *ref_9
+        example: *ref_10
       - summary: Returns item/ catalog
         api: on_search
         description: Seller responds back with the catalog
         reference: if any
-        example: *ref_10
+        example: *ref_11
       - summary: Raise an RFQ
         api: select
         description: >-
           Buyer requests for quotation for the selected item with all the
           customizations and the quantity of items required
         reference: if any
-        example: *ref_11
+        example: *ref_12
       - summary: Returns item breakup/ Quote
         api: on_select
         description: Seller provides the quotation and breakup with logistics charges
         reference: if any
-        example: *ref_12
+        example: *ref_13
       - summary: Initialization of Order
         api: init
         description: Initialization of Order - Billing Details added.
         reference: if any
-        example: *ref_13
+        example: *ref_14
       - summary: Initialization of Order
         api: on_init
         description: Initialization of Order with final quote
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Buyer raises PO
         api: confirm
         description: Buyer creates a Purchase Order
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: Seller Accepts PO
         api: on_confirm
         description: Seller accepts Purchase Order
         reference: if any
-        example: *ref_16
+        example: *ref_17
       - summary: Consumer platform requests for latest status
         api: status
         description: Buyer requests for Shipment status
         reference: if any
-        example: *ref_7
+        example: *ref_8
       - summary: Provider platform provides latest order status and sends invoice
         api: on_status
         description: Provider platform provides the updated order status to the consumer
         reference: if any
-        example: *ref_17
+        example: *ref_18
       - summary: Payment details are updated in case BAP collects the payment
         api: update
         description: Payment status is sent (If collected by BAP) + requests for Invoice
         reference: if any
-        example: *ref_18
+        example: *ref_19
       - summary: seller updates fulfilments - Multiple fulfillments for Single PO
         api: on_update
         description: seller updates fulfilments - Multiple fulfillments for Single PO
-        reference: if any
-        example: *ref_19
-      - summary: Provider platform provides latest order status
-        api: on_status
-        description: >-
-          Provider platform provides the updated order status to the consumer
-          once order is picked up
-        reference: if any
-        example: *ref_8
-      - summary: Provider platform provides latest order status
-        api: on_status
-        description: >-
-          Provider platform provides the updated order status to the consumer
-          when the order is out for delivery
         reference: if any
         example: *ref_20
       - summary: Provider platform provides latest order status
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
-          after the order is delivered
+          once order is picked up
+        reference: if any
+        example: *ref_9
+      - summary: Provider platform provides latest order status
+        api: on_status
+        description: >-
+          Provider platform provides the updated order status to the consumer
+          when the order is out for delivery
         reference: if any
         example: *ref_21
+      - summary: Provider platform provides latest order status
+        api: on_status
+        description: >-
+          Provider platform provides the updated order status to the consumer
+          after the order is delivered
+        reference: if any
+        example: *ref_22
   - summary: B2B Prepaid (Payment collected by BAP - RFQ Flow)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -7616,19 +7659,19 @@ x-flows:
         api: search
         description: Buyer searches for an item
         reference: if any
-        example: *ref_9
+        example: *ref_10
       - summary: Seller returns item/ catalog with communication channel
         api: on_search
         description: Seller responds back with the catalog
         reference: if any
-        example: *ref_10
+        example: *ref_11
       - summary: Raise an RFQ
         api: select
         description: >-
           Buyer requests for quotation for the selected item with all the
           customizations and the quantity of items required
         reference: if any
-        example: *ref_11
+        example: *ref_12
       - summary: Returns item breakup/ Quote
         api: on_select
         description: Seller provides the quotation and breakup with logistics charges
@@ -8408,7 +8451,7 @@ x-flows:
         api: update
         description: Consumer platform sends the payment details
         reference: if any
-        example: *ref_18
+        example: *ref_19
       - summary: Seller app acknowledges the payment confirmation
         api: on_update
         description: Seller app acknowledges the payment confirmation
@@ -8653,21 +8696,21 @@ x-flows:
         api: status
         description: Buyer requests for Shipment status
         reference: if any
-        example: *ref_7
+        example: *ref_8
       - summary: Provider platform updates the latest status - Out for Delivery
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           once the order is out for delivery
         reference: if any
-        example: *ref_20
+        example: *ref_21
       - summary: Provider platform updates the latest status - Delivered
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           once the order is delivered
         reference: if any
-        example: *ref_21
+        example: *ref_22
   - summary: B2B Prepaid (Payment collected by BAP - Non RFQ Flow)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -8755,19 +8798,19 @@ x-flows:
         api: search
         description: Buyer searches for an item
         reference: if any
-        example: *ref_9
+        example: *ref_10
       - summary: Seller returns item/ catalog with communication channel
         api: on_search
         description: Seller responds back with the catalog
         reference: if any
-        example: *ref_10
+        example: *ref_11
       - summary: Raise an RFQ
         api: select
         description: >-
           Buyer requests for quotation for the selected item with all the
           customizations and the quantity of items required
         reference: if any
-        example: &ref_23
+        example: &ref_24
           summary: Get quote for specific item (Non RFQ)
           description: RFQ - Get quote for selected items with Buyer and Delivery terms
           value:
@@ -9585,21 +9628,21 @@ x-flows:
         api: status
         description: Buyer requests for Shipment status
         reference: if any
-        example: *ref_7
+        example: *ref_8
       - summary: Provider platform updates the latest status - Out for Delivery
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           once the order is out for delivery
         reference: if any
-        example: *ref_20
+        example: *ref_21
       - summary: Provider platform updates the latest status - Delivered
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           once the order is delivered
         reference: if any
-        example: *ref_21
+        example: *ref_22
   - summary: B2B Prepaid (Payment collected by BPP - RFQ)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -9713,14 +9756,14 @@ x-flows:
         api: search
         description: Buyer searches for an item
         reference: if any
-        example: *ref_9
+        example: *ref_10
       - summary: Seller returns item/ catalog with communication channel
         api: on_search
         description: >-
           Seller responds back with the catalog and intimates that BPP will be
           collecting the payment
         reference: if any
-        example: &ref_22
+        example: &ref_23
           summary: Return the catalog for grocery (BPP collects the payment)
           description: >-
             Return the catalog for grocery products and intimates that BPP will
@@ -10072,51 +10115,51 @@ x-flows:
           Buyer requests for quotation for the selected item with all the
           customizations and the quantity of items required
         reference: if any
-        example: *ref_11
+        example: *ref_12
       - summary: Returns item breakup/ Quote
         api: on_select
         description: Seller provides the quotation and breakup with logistics charges
         reference: if any
-        example: *ref_12
+        example: *ref_13
       - summary: Initialization of Order
         api: init
         description: Initialization of Order - Billing Details added.
         reference: if any
-        example: *ref_13
+        example: *ref_14
       - summary: Initialization of Order
         api: on_init
         description: Initialization of Order with final quote
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Buyer raises PO
         api: confirm
         description: Buyer creates a Purchase Order
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: Seller Accepts PO
         api: on_confirm
         description: >-
           Seller accepts Purchase Order and shares the payment link along with
           TTL
         reference: if any
-        example: *ref_16
+        example: *ref_17
       - summary: Seller app updates the payment status and sends proforma invoice
         api: on_status
         description: Seller app updates the payment status and sends proforma invoice
         reference: if any
-        example: *ref_17
+        example: *ref_18
       - summary: Consumer platform requests for latest status
         api: status
         description: Buyer requests for Shipment status
         reference: if any
-        example: *ref_7
+        example: *ref_8
       - summary: Provider platform updates the latest status - Order Picked up
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           once the order is picked up
         reference: if any
-        example: *ref_8
+        example: *ref_9
   - summary: B2B Prepaid (Payment collected by BPP - Non RFQ)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -10223,21 +10266,21 @@ x-flows:
         api: search
         description: Buyer searches for an item
         reference: if any
-        example: *ref_9
+        example: *ref_10
       - summary: Seller returns item/ catalog
         api: on_search
         description: >-
           Seller responds back with the catalog and intimates that BPP will be
           collecting the payment
         reference: if any
-        example: *ref_22
+        example: *ref_23
       - summary: Selection of items
         api: select
         description: >-
           Buyer selects the items with all the customizations and the quantity
           of items required
         reference: if any
-        example: *ref_23
+        example: *ref_24
       - summary: Returns item breakup/ Quote
         api: on_select
         description: Seller provides the quote and breakup with logistics charges
@@ -10943,7 +10986,7 @@ x-flows:
                   - params:
                       currency: INR
                       amount: '53600'
-                    status: NOT-PAID\
+                    status: NOT-PAID
                     uri: https://snp.com/pg
                     type: PRE-FULFILLMENT
                     collected_by: BPP
@@ -11199,14 +11242,14 @@ x-flows:
         api: status
         description: Buyer requests for Shipment status
         reference: if any
-        example: *ref_7
+        example: *ref_8
       - summary: Provider platform updates the latest status - Order Picked up
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           once the order is picked up
         reference: if any
-        example: *ref_8
+        example: *ref_9
   - summary: B2B Self Pickup
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -11307,12 +11350,12 @@ x-flows:
         api: search
         description: Search intent sent by the buyer based on the category
         reference: if any
-        example: *ref_24
+        example: *ref_25
       - summary: Returns item/ catalog
         api: on_search
         description: Catalog provided by the Seller App
         reference: if any
-        example: *ref_25
+        example: *ref_26
       - summary: Raise an RFQ
         api: select
         description: >-
@@ -11436,6 +11479,7 @@ x-flows:
                 fulfillments:
                   - id: F2
                     tracking: false
+                    '@ondc/org/provider_name': ''
                     '@ondc/org/category': Self-Pickup
                     '@ondc/org/TAT': P3D
                     state:
@@ -11490,7 +11534,7 @@ x-flows:
         api: init
         description: Initialization of Order - Billing Details added.
         reference: if any
-        example: *ref_13
+        example: *ref_14
       - summary: Initialization of Order
         api: on_init
         description: Initialization of Order with final quote
@@ -11663,19 +11707,19 @@ x-flows:
           Buyer receives the quotation and once agreed to go ahead with the
           quotation received, creates a PO and sends the PO
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: Seller Accepts PO
         api: on_confirm
         description: >-
           Seller app sends an on_confirm call to the buyer app relaying the PO
           acceptance.
         reference: if any
-        example: *ref_16
+        example: *ref_17
       - summary: Seller app updates the payment status and sends proforma invoice
         api: on_status
         description: Seller app updates the payment status and sends proforma invoice
         reference: if any
-        example: *ref_17
+        example: *ref_18
       - summary: Seller updates the status of order
         api: on_status
         description: >-
@@ -11730,6 +11774,7 @@ x-flows:
                 fulfillments:
                   - id: F2
                     type: Self-Pickup
+                    '@ondc/org/provider_name': ''
                     tracking: false
                     state:
                       descriptor:
@@ -11888,19 +11933,19 @@ x-flows:
         api: search
         description: Search intent sent by the buyer based on the category
         reference: if any
-        example: *ref_24
+        example: *ref_25
       - summary: Returns item/ catalog
         api: on_search
         description: Catalog provided by the Seller App
         reference: if any
-        example: *ref_25
+        example: *ref_26
       - summary: Raise an RFQ
         api: select
         description: >-
           Buyer requests for quotation for the selected item with all the
           customizations and the quantity of items required
         reference: if any
-        example: *ref_11
+        example: *ref_12
       - summary: Returns item breakup/ Quote
         api: on_select
         description: Seller provides the quotation and breakup along with error object
@@ -12046,19 +12091,19 @@ x-flows:
         api: search
         description: Search intent sent by the buyer based on the category
         reference: if any
-        example: *ref_24
+        example: *ref_25
       - summary: Returns item/ catalog
         api: on_search
         description: Catalog provided by the Seller App
         reference: if any
-        example: *ref_25
+        example: *ref_26
       - summary: Raise an RFQ
         api: select
         description: >-
           Buyer requests for quotation for the selected item with all the
           customizations and the quantity of items required
         reference: if any
-        example: *ref_11
+        example: *ref_12
       - summary: Returns item breakup/ Quote
         api: on_select
         description: >-
@@ -12250,41 +12295,41 @@ x-flows:
         api: search
         description: Search intent sent by the buyer based on the category
         reference: if any
-        example: *ref_24
+        example: *ref_25
       - summary: Returns item/ catalog
         api: on_search
         description: Catalog provided by the Seller App
         reference: if any
-        example: *ref_25
+        example: *ref_26
       - summary: Raise an RFQ
         api: select
         description: >-
           Buyer requests for quotation for the selected item with all the
           customizations and the quantity of items required
         reference: if any
-        example: *ref_11
+        example: *ref_12
       - summary: Returns item breakup/ Quote
         api: on_select
         description: Seller provides the quotation and breakup with logistics charges
         reference: if any
-        example: *ref_12
+        example: *ref_13
       - summary: Initialization of Order
         api: init
         description: Initialization of Order - Billing Details added.
         reference: if any
-        example: *ref_13
+        example: *ref_14
       - summary: Initialization of Order
         api: on_init
         description: Initialization of Order with final quote
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Buyer raises PO
         api: confirm
         description: >-
           Buyer receives the quotation and once agreed to go ahead with the
           quotation received, creates a PO and sends the PO
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: Seller rejects PO
         api: on_confirm
         description: >-
@@ -12549,15 +12594,15 @@ x-examples:
                     stops:
                       - type: end
                         location:
-                          gps: 1.3806217468119772, 103.74636438437074
+                          gps: 1.3806217468, 103.74636438
                           area_code: '680230'
                       - type: end
                         location:
-                          gps: 1.3813081446741677, 103.74788789072721
+                          gps: 1.3813081446, 103.7478878907
                           area_code: '680207'
                       - type: end
                         location:
-                          gps: 1.3826059101531494, 103.743617819222
+                          gps: 1.3826059101531, 103.743617819
                           area_code: '680354'
                   payment:
                     type: ON-FULFILLMENT
@@ -12828,7 +12873,7 @@ x-examples:
                       stops:
                         - type: end
                           location:
-                            gps: 1.3806217468119772, 103.74636438437074
+                            gps: 1.38119772, 103.74437074
                             area_code: '680230'
                             city:
                               name: Jurong East
@@ -12919,10 +12964,12 @@ x-examples:
                                 code: PACKAGING_REQ
                               value: free text on packaging Customization
                   fulfillments:
-                    - stops:
+                    - id: F1
+                      type: Delivery
+                      stops:
                         - type: end
                           location:
-                            gps: 1.3806217468119772, 103.74636438437074
+                            gps: 10.380619772, 13.74437074
                             area_code: '680230'
                             city:
                               name: Jurong East
@@ -13159,7 +13206,7 @@ x-examples:
                       stops:
                         - type: end
                           location:
-                            gps: 1.3806217468119772, 103.74636438437074
+                            gps: 1.380621746811, 103.7463643843
                             address: 'My House #, My buildin'
                             city:
                               name: Jurong East
@@ -13792,7 +13839,7 @@ x-examples:
                       stops:
                         - type: end
                           location:
-                            gps: 1.3806217468119772, 103.74636438437074
+                            gps: 1.380621746811, 103.7463643843
                             address: 'My House #, My buildin'
                             city:
                               name: Jurong East
@@ -19273,6 +19320,7 @@ x-examples:
                   fulfillments:
                     - id: F2
                       tracking: false
+                      '@ondc/org/provider_name': ''
                       '@ondc/org/category': Self-Pickup
                       '@ondc/org/TAT': P3D
                       state:
@@ -19683,24 +19731,24 @@ x-examples:
                         - descriptor:
                             code: buyer_id_no
                           value: xxxxxxxxxxxxxxx
+                    - descriptor:
+                        code: bpp_terms
+                      list:
                         - descriptor:
-                            code: bpp_terms
-                          list:
-                            - descriptor:
-                                code: max_liability
-                              value: '2'
-                            - descriptor:
-                                code: max_liability_cap
-                              value: '10000'
-                            - descriptor:
-                                code: mandatory_arbitration
-                              value: 'false'
-                            - descriptor:
-                                code: court_jurisdiction
-                              value: Bengaluru
-                            - descriptor:
-                                code: delay_interest
-                              value: '1000'
+                            code: max_liability
+                          value: '2'
+                        - descriptor:
+                            code: max_liability_cap
+                          value: '10000'
+                        - descriptor:
+                            code: mandatory_arbitration
+                          value: 'false'
+                        - descriptor:
+                            code: court_jurisdiction
+                          value: Bengaluru
+                        - descriptor:
+                            code: delay_interest
+                          value: '1000'
           - summary: Acknowledges the initialization (Domestic - Non RFQ)
             description: Acknowledges the initialization
             value:
@@ -19932,7 +19980,7 @@ x-examples:
                       stops:
                         - type: end
                           location:
-                            gps: 1.3806217468119772, 103.74636438437074
+                            gps: 1.380621746811, 103.7463643843
                             address: 'My House #, My buildin'
                             city:
                               name: Jurong East
@@ -20033,24 +20081,24 @@ x-examples:
                         - descriptor:
                             code: buyer_id_no
                           value: xxxxxxxxxxxxxxx
+                    - descriptor:
+                        code: bpp_terms
+                      list:
                         - descriptor:
-                            code: bpp_terms
-                          list:
-                            - descriptor:
-                                code: max_liability
-                              value: '2'
-                            - descriptor:
-                                code: max_liability_cap
-                              value: '10000'
-                            - descriptor:
-                                code: mandatory_arbitration
-                              value: 'false'
-                            - descriptor:
-                                code: court_jurisdiction
-                              value: Bengaluru
-                            - descriptor:
-                                code: delay_interest
-                              value: '1000'
+                            code: max_liability
+                          value: '2'
+                        - descriptor:
+                            code: max_liability_cap
+                          value: '10000'
+                        - descriptor:
+                            code: mandatory_arbitration
+                          value: 'false'
+                        - descriptor:
+                            code: court_jurisdiction
+                          value: Bengaluru
+                        - descriptor:
+                            code: delay_interest
+                          value: '1000'
           - summary: >-
               Acknowledges the initialization (Non RFQ and BPP collecting the
               payment)
@@ -20283,7 +20331,7 @@ x-examples:
                       stops:
                         - type: end
                           location:
-                            gps: 1.3806217468119772, 103.74636438437074
+                            gps: 1.380621746811, 103.7463643843
                             address: 'My House #, My buildin'
                             city:
                               name: Jurong East
@@ -20370,24 +20418,24 @@ x-examples:
                         - descriptor:
                             code: buyer_id_no
                           value: xxxxxxxxxxxxxxx
+                    - descriptor:
+                        code: bpp_terms
+                      list:
                         - descriptor:
-                            code: bpp_terms
-                          list:
-                            - descriptor:
-                                code: max_liability
-                              value: '2'
-                            - descriptor:
-                                code: max_liability_cap
-                              value: '10000'
-                            - descriptor:
-                                code: mandatory_arbitration
-                              value: 'false'
-                            - descriptor:
-                                code: court_jurisdiction
-                              value: Bengaluru
-                            - descriptor:
-                                code: delay_interest
-                              value: '1000'
+                            code: max_liability
+                          value: '2'
+                        - descriptor:
+                            code: max_liability_cap
+                          value: '10000'
+                        - descriptor:
+                            code: mandatory_arbitration
+                          value: 'false'
+                        - descriptor:
+                            code: court_jurisdiction
+                          value: Bengaluru
+                        - descriptor:
+                            code: delay_interest
+                          value: '1000'
               error:
                 type: DOMAIN-ERROR
                 code: '50005'
@@ -21021,7 +21069,7 @@ x-examples:
                             email: nobody@nomail.com
                         - type: end
                           location:
-                            gps: 1.3806217468119772, 103.74636438437074
+                            gps: 1.380621746811, 103.7463643843
                             address: 'My House #, My buildin'
                             city:
                               name: Jurong East
@@ -21304,7 +21352,7 @@ x-examples:
                     - params:
                         currency: INR
                         amount: '53600'
-                      status: NOT-PAID\
+                      status: NOT-PAID
                       uri: https://snp.com/pg
                       type: PRE-FULFILLMENT
                       collected_by: BPP
@@ -22069,7 +22117,7 @@ x-examples:
                             email: nobody@nomail.com
                         - type: end
                           location:
-                            gps: 1.3806217468119772, 103.74636438437074
+                            gps: 1.380621746811, 103.7463643843
                             address: 'My House #, My buildin'
                             city:
                               name: Jurong East
@@ -22244,7 +22292,7 @@ x-examples:
                             email: nobody@nomail.com
                         - type: end
                           location:
-                            gps: 1.3806217468119772, 103.74636438437074
+                            gps: 1.380621746811, 103.7463643843
                             address: 'My House #, My buildin'
                             city:
                               name: Jurong East
@@ -22425,7 +22473,7 @@ x-examples:
                             email: nobody@nomail.com
                         - type: end
                           location:
-                            gps: 1.3806217468119772, 103.74636438437074
+                            gps: 1.380621746811, 103.7463643843
                             address: 'My House #, My buildin'
                             city:
                               name: Jurong East
@@ -22606,7 +22654,7 @@ x-examples:
                             email: nobody@nomail.com
                         - type: end
                           location:
-                            gps: 1.3806217468119772, 103.74636438437074
+                            gps: 1.388119772, 103.748437074
                             address: 'My House #, My buildin'
                             city:
                               name: Jurong East
@@ -23122,6 +23170,7 @@ x-examples:
                   fulfillments:
                     - id: F2
                       type: Self-Pickup
+                      '@ondc/org/provider_name': ''
                       tracking: false
                       state:
                         descriptor:
