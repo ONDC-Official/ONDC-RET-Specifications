@@ -11117,7 +11117,7 @@ x-flows:
           once the order is picked up
         reference: if any
         example: *ref_10
-  - summary: B2B Merchant Cancellation
+  - summary: B2B Buyer Cancellation
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to order bulk items and makes prepaid payment to
@@ -11172,7 +11172,7 @@ x-flows:
 
             BuyerApp->>SellerApp: **/init** - Initializing the order
             note right of SellerApp: Logistics order initialization with billing details
-            SellerApp->>BuyerApp: **/on_init** - Order initialization + payment url (if payment.collected_by is BPP) + TTL for payment, this TTL is calculated w.r.t context/ttl and it should be less than or equal to TTL defined at payment gateway for payment confirmation. In case of TTL expiry, Payment gateway should automatically cancel the payment and refund the source if payment is debited from the source.
+            SellerApp->>BuyerApp: **/on_init** - Order initialization + payment url (if payment.collected_by is BPP) + TTL for payment,<br/> this TTL is calculated w.r.t context/ttl and it should be less than or equal to TTL <br/>defined at payment gateway for payment confirmation. In case of TTL expiry, <br/>Payment gateway should automatically cancel the payment and refund the source <br/>if payment is debited from the source.
       - description: ORDER CONFIRMATION
         mermaidGraph: |-
           sequenceDiagram
@@ -11216,9 +11216,9 @@ x-flows:
 
             note over Buyer, SellerApp: **ORDER CANCELLATION**
 
-            Buyer->>BuyerApp: If the product is non cancellable, buyer app may choose to gray out the cancel button on UI. However an option to force cancel may be provided to the buyer.
-            BuyerApp->>SellerApp: **/cancel** - Buyer app force cancels the order, however before /cancel, a status call is required to check the updated payment status.
-            SellerApp->>BuyerApp: **/on_cancel** - Seller app cancels the order at its end and updates the final quote, buyer may incur some charges based on the cancellation terms.
+            Buyer->>BuyerApp: If the product is non cancellable, buyer app may <br/>choose to gray out the cancel button on UI. However an option<br/> to force cancel may be provided to the buyer.
+            BuyerApp->>SellerApp: **/cancel** - Buyer app force cancels the order, however<br/> before /cancel, a status call is required to check the updated payment status.
+            SellerApp->>BuyerApp: **/on_cancel** - Seller app cancels the order at its end and updates <br/>the final quote, buyer may incur some charges based on the cancellation terms.
     reference: if any
     steps:
       - summary: Search for an item
