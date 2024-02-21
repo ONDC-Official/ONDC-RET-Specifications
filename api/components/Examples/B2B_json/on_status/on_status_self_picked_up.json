@@ -60,6 +60,7 @@
       "fulfillments": [
         {
           "id": "F2",
+          "@ondc/org/provider_name": "",
           "type": "Self-Pickup",
           "tracking": false,
           "state": {
