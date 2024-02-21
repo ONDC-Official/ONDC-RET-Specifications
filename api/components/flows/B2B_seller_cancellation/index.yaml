@@ -75,8 +75,9 @@ details:
         participant SellerApp
 
         note over Buyer, SellerApp: **ORDER CANCELLATION**
-
+        rect rgb(247, 226, 225)
         SellerApp->>BuyerApp: **/on_cancel** - Seller app cancels the order at its end  <br/>and updates the final quote.
+        end
 reference: if any
 steps:
   - summary: Search for an item
