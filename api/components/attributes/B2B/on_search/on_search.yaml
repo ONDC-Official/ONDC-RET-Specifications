@@ -245,26 +245,26 @@ message:
         required: required for exports
         usage: "-"
         reference: if any
-        id:
-          required: required 
-          description: Human readable id
-          reference: if any
-          usage: ESG-12345678
-        type:
-          required: required
-          description: Type of creds
-          reference: if any
-          usage: License
-        desc:
-          required: optional
-          description: Description of creds
-          reference: if any
-          usage: Export License No. ESG-12345678
-        url:
-          required: optional
-          description: Physical description
-          reference: if any
-          usage: https://abcd.cdn.com/images/license-img 
+      creds.id:
+        required: required 
+        description: Human readable id
+        reference: if any
+        usage: ESG-12345678
+      creds.type:
+        required: required
+        description: Type of creds
+        reference: if any
+        usage: License
+      creds.desc:
+        required: optional
+        description: Description of creds
+        reference: if any
+        usage: Export License No. ESG-12345678
+      creds.url:
+        required: optional
+        description: Physical description
+        reference: if any
+        usage: https://abcd.cdn.com/images/license-img 
       offers:
         parent: true
         offers: 
