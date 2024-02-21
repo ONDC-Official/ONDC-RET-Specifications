@@ -70,6 +70,7 @@ catalog:
         reference: <PR/Issue/Discussion Links md format text>
         required: optional
         list:
+         $ref: "./Tag.yaml#/price_slab"
 order:
   items:
     tags:
