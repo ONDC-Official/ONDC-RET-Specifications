@@ -235,6 +235,11 @@ message:
           required: required
           usage: "3"
           reference: if any
+        quantity.minimum.count:
+          description: stringified integer value - lower limit per order (if exists) or default value
+          required: optional
+          usage: "1"
+          reference: if any
         tags.code:
           description: code = 'attribute' is required for Fashion and Electronics category
           required: required

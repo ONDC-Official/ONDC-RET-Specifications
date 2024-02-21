@@ -148,7 +148,7 @@ value:
           currency: INR
           transaction_id: '3937'
           amount: '53600'
-        status: NOT-PAID
+        status: PAID
         type: PRE-FULFILLMENT
         collected_by: BPP
         "@ondc/org/buyer_app_finder_fee_type": percent

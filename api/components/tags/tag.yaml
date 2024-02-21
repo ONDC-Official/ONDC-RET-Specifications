@@ -21,13 +21,13 @@ buyer_terms:
     reference: <PR/Issue/Discussion Links md format text>
 item_details:
   - code: ITEM_ID
-    description: A unique identifier for the item.
+    description: A unique identifier for the item to be updated
     reference: <PR/Issue/Discussion Links md format text>
   - code: COUNT
-    description: The quantity of the item.
+    description: The updated quantity of the item.
     reference: <PR/Issue/Discussion Links md format text>
   - code: MEASURE_UNIT
-    description: The unit of measurement for the item. 
+    description: The unit of measurement for the updated item. 
     reference: <PR/Issue/Discussion Links md format text>
   - code: MEASURE_VALUE
     description: The value of the item in the specified measurement unit.
@@ -96,10 +96,10 @@ variant:
     reference: <PR/Issue/Discussion Links md format text>
 image:
   - code: TYPE
-    description: The type of image.
+    description: The type of image - back_image, etc.
     reference: <PR/Issue/Discussion Links md format text>
   - code: URL
-    description: The URL of the image.
+    description: The URL for the image depicting the nutritional information of a product.
     reference: <PR/Issue/Discussion Links md format text>
 attribute:
   - code: BRAND

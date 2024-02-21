@@ -18,8 +18,8 @@ details:
         Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on city and domain in context
         Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on city and domain in context
 
-        SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
-        SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
+        SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City 
+        SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City 
         BuyerApp->>Buyer: Renders the search response
         
         note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
@@ -84,9 +84,9 @@ details:
         note over Buyer, SellerApp: **PAYMENT AND INVOICE CREATION**
 
         Buyer->>BuyerApp: Buyer makes the payment
-        BuyerApp->>SellerApp: **/update** - Buyer app sends the payment status
+        BuyerApp->>SellerApp: **/update** - Buyer app sends the payment status (in case BAP is collecting the payment)
         SellerApp->>BuyerApp: **/on_update** - Seller app updates the Payment status 
-        SellerApp->>BuyerApp: **/on_status** - Seller sends the proforma invoice
+        SellerApp->>BuyerApp: **/on_status** - Seller sends the proforma invoice (in case BPP is collecting the payment, it may update the payment status along with proforma invoice)
 
 
 
@@ -104,6 +104,7 @@ details:
         Buyer->>BuyerApp: Checks order status
         BuyerApp->>SellerApp: **/status** - Enquire Order status or Tracking info
         SellerApp->>BuyerApp: **/on_status** - Order and fulfillment status is updated
+
 reference: if any
 steps:
   - summary: Search based on the category
@@ -154,6 +155,12 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/B2B/on_confirm/on_confirm_domestic.yaml"
+  - summary: Provider platform updates payment status and send proforma invoice in case of RFQ
+    api: on_status
+    description: Provider platform updates payment status and send proforma invoice in case of RFQ
+    reference: if any
+    example:
+      $ref: "../../Examples/B2B/on_status/on_status_proforma_invoice.yaml"
   - summary: Consumer platform requests for latest status
     api: status
     description: Buyer requests for Shipment status
