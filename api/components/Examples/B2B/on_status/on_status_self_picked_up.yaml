@@ -45,7 +45,7 @@ value:
       fulfillments:
         - id: F2
           type: Self-Pickup
-          '@ondc/org/provider_name': ABC
+          '@ondc/org/provider_name': ''
           tracking: false
           state:
             descriptor:
