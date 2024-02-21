@@ -21,13 +21,13 @@ buyer_terms:
     reference: <PR/Issue/Discussion Links md format text>
 item_details:
   - code: ITEM_ID
-    description: A unique identifier for the item to be updated
+    description: A unique identifier for the item 
     reference: <PR/Issue/Discussion Links md format text>
   - code: COUNT
-    description: The updated quantity of the item.
+    description: The quantity of the item.
     reference: <PR/Issue/Discussion Links md format text>
   - code: MEASURE_UNIT
-    description: The unit of measurement for the updated item. 
+    description: The unit of measurement for the item. 
     reference: <PR/Issue/Discussion Links md format text>
   - code: MEASURE_VALUE
     description: The value of the item in the specified measurement unit.

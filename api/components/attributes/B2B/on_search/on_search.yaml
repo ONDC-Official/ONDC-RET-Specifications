@@ -295,9 +295,9 @@ message:
             usage: '60% off up to ₹120, for order value above ₹159'
             reference: if any
         descriptor.code:
-            description: offer type - discount (discount percent or amount applied to the cart value, with or without a cap, and may be based on minimum cart value) , buyXgetY ( for every "X" item count in the cart, total of "Y" items will be offered (i.e. "Y" - "X" additional items), at 0 additional value) , freebie (for a minimum order value, 1 or more free item(s) will be offered at 0 value)
+            description: offer type - disc_pct  (discount percent or amount applied to the cart value, with or without a cap, and may be based on minimum cart value) , disc_amt (flat discount amount applied to the cart value, and may be based on minimum cart value), buyXgetY ( for every "X" item count in the cart, total of "Y" items will be offered (i.e. "Y" - "X" additional items), at 0 additional value) , freebie (for a minimum order value, 1 or more free item(s) will be offered at 0 value)
             required: required
-            usage: 'discount'
+            usage: 'disc_pct'
             reference: if any
         descriptor.short_desc:
             description: short description of the offer.

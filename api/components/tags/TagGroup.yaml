@@ -96,7 +96,7 @@ order:
 fulfillments:
   tags:
     - code: ITEM_DETAILS
-      description: Details of the item to be updated in the order
+      description: Details of the item
       reference: <PR/Issue/Discussion Links md format text>
       required: optional
       list:

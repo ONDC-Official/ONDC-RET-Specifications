@@ -3402,18 +3402,18 @@ x-tags:
         fulfillments:
           tags:
             - code: ITEM_DETAILS
-              description: Details of the item to be updated in the order
+              description: Details of the item
               reference: <PR/Issue/Discussion Links md format text>
               required: optional
               list:
                 - code: ITEM_ID
-                  description: A unique identifier for the item to be updated
+                  description: A unique identifier for the item
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: COUNT
-                  description: The updated quantity of the item.
+                  description: The quantity of the item.
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: MEASURE_UNIT
-                  description: The unit of measurement for the updated item.
+                  description: The unit of measurement for the item.
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: MEASURE_VALUE
                   description: The value of the item in the specified measurement unit.
@@ -25158,15 +25158,17 @@ x-attributes:
                   reference: if any
                 descriptor.code:
                   description: >-
-                    offer type - discount (discount percent or amount applied to
-                    the cart value, with or without a cap, and may be based on
-                    minimum cart value) , buyXgetY ( for every "X" item count in
-                    the cart, total of "Y" items will be offered (i.e. "Y" - "X"
+                    offer type - disc_pct  (discount percent or amount applied
+                    to the cart value, with or without a cap, and may be based
+                    on minimum cart value) , disc_amt (flat discount amount
+                    applied to the cart value, and may be based on minimum cart
+                    value), buyXgetY ( for every "X" item count in the cart,
+                    total of "Y" items will be offered (i.e. "Y" - "X"
                     additional items), at 0 additional value) , freebie (for a
                     minimum order value, 1 or more free item(s) will be offered
                     at 0 value)
                   required: required
-                  usage: discount
+                  usage: disc_pct
                   reference: if any
                 descriptor.short_desc:
                   description: short description of the offer.
