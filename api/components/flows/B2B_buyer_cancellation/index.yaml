@@ -1,5 +1,5 @@
 summary: B2B Buyer Cancellation
-description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order bulk items and makes prepaid payment to the seller NP, however merchant cancels the order post confirmation.
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order bulk items and makes prepaid payment to the seller NP, however buyer cancels the order post confirmation. 
 details:
   - description: SEARCH AND DISCOVERY
     mermaidGraph: >-
@@ -85,7 +85,7 @@ details:
         SellerApp ->> BuyerApp: /on_status - BPP sends status update
         BuyerApp ->> SellerApp: NACK - BAP sends NACK with error code '20009' and message 'Payment TTL Expired'
         note over BuyerApp,SellerApp: If payment fails or TTL expires
-        BuyerApp ->> SellerApp: /cancel - Buyer app cancels the order
+        BuyerApp ->> SellerApp: /cancel - Buyer app cancels the order, however<br/> before /cancel, a status call is required to check the updated payment status.
         SellerApp ->> BuyerApp: /on_cancel - Seller app confirms the cancellation
 
   - description: ORDER CANCELLATION
@@ -99,7 +99,7 @@ details:
         note over Buyer, SellerApp: **ORDER CANCELLATION**
 
         Buyer->>BuyerApp: If the product is non cancellable, buyer app may <br/>choose to gray out the cancel button on UI. However an option<br/> to force cancel may be provided to the buyer.
-        BuyerApp->>SellerApp: **/cancel** - Buyer app force cancels the order, however<br/> before /cancel, a status call is required to check the updated payment status.
+        BuyerApp->>SellerApp: **/cancel** - Buyer app force cancels the order.
         SellerApp->>BuyerApp: **/on_cancel** - Seller app cancels the order at its end and updates <br/>the final quote, buyer may incur some charges based on the cancellation terms.
 reference: if any
 steps:

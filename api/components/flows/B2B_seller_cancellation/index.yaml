@@ -51,7 +51,7 @@ details:
 
         BuyerApp->>SellerApp: **/init** - Initializing the order
         note right of SellerApp: Logistics order initialization with billing details
-        SellerApp->>BuyerApp: **/on_init** - Order initialization + payment url (if payment.collected_by is BPP) + TTL for payment, this TTL is calculated w.r.t context/ttl and it should be less than or equal to TTL defined at payment gateway for payment confirmation. In case of TTL expiry, Payment gateway should automatically cancel the payment and refund the source if payment is debited from the source.
+        SellerApp->>BuyerApp: **/on_init** - Order initialization + payment url (if payment.collected_by is BPP) + TTL for payment,<br/> this TTL is calculated w.r.t context/ttl and it should be less than or equal to TTL <br/>defined at payment gateway for payment confirmation. In case of TTL expiry, <br/>Payment gateway should automatically cancel the payment and refund the source <br/>if payment is debited from the source.
 
   - description: ORDER CONFIRMATION
     mermaidGraph: >-
@@ -85,7 +85,7 @@ details:
         SellerApp ->> BuyerApp: /on_status - BPP sends status update
         BuyerApp ->> SellerApp: NACK - BAP sends NACK with error code '20009' and message 'Payment TTL Expired'
         note over BuyerApp,SellerApp: If payment fails or TTL expires
-        BuyerApp ->> SellerApp: /cancel - Buyer app cancels the order
+        BuyerApp ->> SellerApp: /cancel - Buyer app cancels the order, however<br/> before /cancel, a status call is required to check the updated payment status.
         SellerApp ->> BuyerApp: /on_cancel - Seller app confirms the cancellation
 
   - description: ORDER CANCELLATION
@@ -98,9 +98,7 @@ details:
 
         note over Buyer, SellerApp: **ORDER CANCELLATION**
 
-        Buyer->>BuyerApp: If the product is non cancellable, buyer app may choose to gray out the cancel button on UI. However an option to force cancel may be provided to the buyer.
-        BuyerApp->>SellerApp: **/cancel** - Buyer app force cancels the order, however before /cancel, a status call is required to check the updated payment status.
-        SellerApp->>BuyerApp: **/on_cancel** - Seller app cancels the order at its end and updates the final quote, buyer may incur some charges based on the cancellation terms.
+        SellerApp->>BuyerApp: **/on_cancel** - Seller app cancels the order at its end  <br/>and updates the final quote.
 reference: if any
 steps:
   - summary: Search for an item
@@ -151,31 +149,8 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/B2B/on_confirm/on_confirm_domestic_non_rfq.yaml"   
-  - summary: Seller app updates the payment status
-    api: on_status
-    description: Seller app updates the payment status
-    reference: if any
-    example:
-      $ref: "../../Examples/B2B/on_status/on_status_BPP_payment.yaml"                          
-  - summary: Consumer platform requests for latest status
-    api: status
-    description: Buyer requests for Shipment status
-    reference: if any
-    example:
-      $ref: "../../Examples/B2B/status/status.yaml"
-  - summary: Provider platform updates the latest status - Order Picked up
-    api: on_status
-    description: Provider platform provides the updated order status to the consumer once the order is picked up
-    reference: if any
-    example:
-      $ref: "../../Examples/B2B/on_status/on_status_BPP_payment.yaml"
-  - summary: Buyer app cancels the order
-    api: cancel
-    description: Buyer app cancels the order, if the product is non cancellable, buyer app may allow force cancellation, however cancellation terms and charges shall apply.
-    example:
-      $ref: "../../Examples/B2B/cancel/cancel.yaml"
-  - summary: Seller app confirms cancellation of the order
+  - summary: Seller app cancels the order
     api: on_cancel
-    description: Seller app cancels the order at its end, if a product is non-cancellable, the seller app may cancel the order, potentially resulting in cancellation charges for the buyer app. Subsequently, the seller app updates the quote. If the order was prepaid, the seller app may issue a refund for either the full or partial amount, depending on the cancellation terms.
+    description: Seller app cancels the order at its end.
     example:
       $ref: "../../Examples/B2B/on_cancel/on_cancel.yaml"
