@@ -71,7 +71,7 @@ details:
 
         Buyer->>BuyerApp: Creates PO
         BuyerApp->>SellerApp: **/confirm** - Create PO to create final digital contract
-        SellerApp->>BuyerApp: **/on_confirm** - Accept PO + payment url (if payment.collected_by is BPP) + TTL for payment
+        SellerApp->>BuyerApp: **/on_confirm** - Accept PO + payment url (if payment.collected_by is BPP) + TTL for payment<br/> this TTL is calculated w.r.t context/ttl and it should be less than or equal to TTL <br/>defined at payment gateway for payment confirmation. In case of TTL expiry, <br/>Payment gateway should automatically cancel the payment and refund the source <br/>if payment is debited from the source.
 
   - description: PAYMENT COMMUNICATION
     mermaidGraph: >-
