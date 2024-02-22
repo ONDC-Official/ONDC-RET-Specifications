@@ -35,15 +35,18 @@
       "payments": [
         {
           "id": "1",
-          "type": "PRE-FULFILLMENT"
+          "type": "PRE-FULFILLMENT",
+          "collected_by":"BPP"
         },
         {
           "id": "2",
-          "type": "ON-FULFILLMENT"
+          "type": "ON-FULFILLMENT",
+          "collected_by":"BPP"
         },
         {
           "id": "3",
-          "type": "POST-FULFILLMENT"
+          "type": "POST-FULFILLMENT",
+          "collected_by":"BPP"
         }
       ],
       "descriptor": {
