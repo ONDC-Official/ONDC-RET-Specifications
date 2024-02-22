@@ -35,18 +35,15 @@
       "payments": [
         {
           "id": "1",
-          "type": "PRE-FULFILLMENT",
-          "collected_by": "BPP"
+          "type": "PRE-FULFILLMENT"
         },
         {
           "id": "2",
-          "type": "ON-FULFILLMENT",
-          "collected_by": "BPP"
+          "type": "ON-FULFILLMENT"
         },
         {
           "id": "3",
-          "type": "POST-FULFILLMENT",
-          "collected_by": "BPP"
+          "type": "POST-FULFILLMENT"
         }
       ],
       "descriptor": {
@@ -97,14 +94,6 @@
               "area_code": "560076"
             }
           ],
-          "creds": [
-            {
-              "id": "ESG-12345678",
-              "type": "License",
-              "desc": "Export License No. ESG-12345678",
-              "url": "https://abcd.cdn.com/images/license-img"
-            }
-          ],
           "tags": [
             {
               "descriptor": {
@@ -133,7 +122,7 @@
                   "descriptor": {
                     "code": "val"
                   },
-                  "value": "SGP"
+                  "value": "IND"
                 },
                 {
                   "descriptor": {
@@ -176,10 +165,71 @@
               ]
             }
           ],
+          "categories": [
+            {
+              "id": "V1",
+              "descriptor": {
+                "name": "Variant Group 1"
+              },
+              "tags": [
+                {
+                  "descriptor": {
+                    "code": "type"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "type"
+                      },
+                      "value": "variant_group"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "code": "attr"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "name"
+                      },
+                      "value": "item.tags.attribute.colour"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "seq"
+                      },
+                      "value": "1"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "code": "attr"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "name"
+                      },
+                      "value": "item.tags.attribute.size"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "seq"
+                      },
+                      "value": "2"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
           "items": [
             {
               "id": "I1",
-              "parent_item_id": "PI1",
+              "parent_item_id": "V1",
               "descriptor": {
                 "name": "Dhara Mustard Oil",
                 "code": "UPC / EAN code",
@@ -338,8 +388,8 @@
                   "end": "2022-12-31T00:00:00.000Z"
                 }
               },
-              "matched": "true",
-              "recommended": "true",
+              "matched": true,
+              "recommended": true,
               "tags": [
                 {
                   "descriptor": {
@@ -571,23 +621,6 @@
                 "phone": "9886098860",
                 "email": "abc@xyz.com"
               }
-            }
-          ],
-          "payments": [
-            {
-              "id": "1",
-              "type": "PRE-FULFILLMENT",
-              "collected_by": "BPP"
-            },
-            {
-              "id": "2",
-              "type": "ON-FULFILLMENT",
-              "collected_by": "BPP"
-            },
-            {
-              "id": "3",
-              "type": "POST-FULFILLMENT",
-              "collected_by": "BPP"
             }
           ]
         }
