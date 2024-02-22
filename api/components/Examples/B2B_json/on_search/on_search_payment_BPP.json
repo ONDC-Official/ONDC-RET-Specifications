@@ -24,11 +24,11 @@
     "catalog": {
       "fulfillments": [
         {
-          "id": "F1",
+          "id": "1",
           "type": "Delivery"
         },
         {
-          "id": "F2",
+          "id": "2",
           "type": "Self-Pickup"
         }
       ],
@@ -97,6 +97,14 @@
               "area_code": "560076"
             }
           ],
+          "creds": [
+            {
+              "id": "ESG-12345678",
+              "type": "License",
+              "desc": "Export License No. ESG-12345678",
+              "url": "https://abcd.cdn.com/images/license-img"
+            }
+          ],
           "tags": [
             {
               "descriptor": {
@@ -125,7 +133,7 @@
                   "descriptor": {
                     "code": "val"
                   },
-                  "value": "IND"
+                  "value": "SGP"
                 },
                 {
                   "descriptor": {
@@ -168,71 +176,10 @@
               ]
             }
           ],
-          "categories": [
-            {
-              "id": "V1",
-              "descriptor": {
-                "name": "Variant Group 1"
-              },
-              "tags": [
-                {
-                  "descriptor": {
-                    "code": "type"
-                  },
-                  "list": [
-                    {
-                      "descriptor": {
-                        "code": "type"
-                      },
-                      "value": "variant_group"
-                    }
-                  ]
-                },
-                {
-                  "descriptor": {
-                    "code": "attr"
-                  },
-                  "list": [
-                    {
-                      "descriptor": {
-                        "code": "name"
-                      },
-                      "value": "item.tags.attribute.colour"
-                    },
-                    {
-                      "descriptor": {
-                        "code": "seq"
-                      },
-                      "value": "1"
-                    }
-                  ]
-                },
-                {
-                  "descriptor": {
-                    "code": "attr"
-                  },
-                  "list": [
-                    {
-                      "descriptor": {
-                        "code": "name"
-                      },
-                      "value": "item.tags.attribute.size"
-                    },
-                    {
-                      "descriptor": {
-                        "code": "seq"
-                      },
-                      "value": "2"
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
           "items": [
             {
               "id": "I1",
-              "parent_item_id": "V1",
+              "parent_item_id": "PI1",
               "descriptor": {
                 "name": "Dhara Mustard Oil",
                 "code": "UPC / EAN code",
@@ -246,7 +193,7 @@
                 "media": [
                   {
                     "mimetype": "video/mp4",
-                    "url": "video_url"
+                    "url": "https://abc.com/images/207.mp4"
                   }
                 ]
               },
@@ -298,10 +245,18 @@
                   "count": 4000
                 }
               },
-              "category_ids": ["RET10-1042"],
-              "fulfillment_ids": ["1"],
-              "location_ids": ["L1"],
-              "payment_ids": ["2"],
+              "category_ids": [
+                "RET10-1042"
+              ],
+              "fulfillment_ids": [
+                "1"
+              ],
+              "location_ids": [
+                "L1"
+              ],
+              "payment_ids": [
+                "2"
+              ],
               "add_ons": [
                 {
                   "id": "78787723",
@@ -618,6 +573,23 @@
                 "phone": "9886098860",
                 "email": "abc@xyz.com"
               }
+            }
+          ],
+          "payments": [
+            {
+              "id": "1",
+              "type": "PRE-FULFILLMENT",
+              "collected_by": "BPP"
+            },
+            {
+              "id": "2",
+              "type": "ON-FULFILLMENT",
+              "collected_by": "BPP"
+            },
+            {
+              "id": "3",
+              "type": "POST-FULFILLMENT",
+              "collected_by": "BPP"
             }
           ]
         }
