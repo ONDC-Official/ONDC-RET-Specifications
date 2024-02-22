@@ -22,7 +22,8 @@ init: *ref0
 on_init: 
   message:
     order:
-      $ref: "./TagGroup.yaml#/order/on_init"
+      tags:
+        $ref: "./TagGroup.yaml#/order/on_init"
       fulfillments:
         $ref: "./TagGroup.yaml#/fulfillments"
       payments:
@@ -30,7 +31,9 @@ on_init:
 confirm: &ref1
   message:
     order:
-    - $ref: "./TagGroup.yaml#/order/confirm"
+      tags:
+        - $ref: "./TagGroup.yaml#/order/on_init"
+        - $ref: "./TagGroup.yaml#/order/confirm"
       fulfillments:
         $ref: "./TagGroup.yaml#/fulfillments"
       payments:
