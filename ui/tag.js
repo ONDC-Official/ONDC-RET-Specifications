@@ -43,9 +43,10 @@ function loadTagGroup() {
   var dropdown1 = document.getElementById("tag-schema-dropdown");
   var dropdown2 = document.getElementById("tag-path-dropdown");
   var dropdown3 = document.getElementById("tag-group-dropdown");
+  var requiredField = document.getElementById("tag-group-required");
   dropdown3.innerHTML = "";
-
-  // Get the selected value from dropdown1
+  requiredField.innerHTML= "";
+    // Get the selected value from dropdown1
   var selectedValue1 = dropdown1.value;
   var selectedValue2 = dropdown2.value;
 
@@ -55,6 +56,7 @@ function loadTagGroup() {
     var option = document.createElement("option");
     option.text = data[key]["code"];
     dropdown3.add(option);
+    requiredField.innerHTML=data[key]["required"]
   });
   loadTag();
 }
