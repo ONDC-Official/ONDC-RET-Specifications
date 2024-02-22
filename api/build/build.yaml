@@ -5744,6 +5744,9 @@ x-flows:
                               - descriptor:
                                   code: tax_rate
                                 value: '12'
+                              - descriptor:
+                                  code: cancellable
+                                value: 'true'
                           - descriptor:
                               code: g3
                             list:
@@ -15327,6 +15330,9 @@ x-examples:
                                 - descriptor:
                                     code: tax_rate
                                   value: '12'
+                                - descriptor:
+                                    code: cancellable
+                                  value: 'true'
                             - descriptor:
                                 code: g3
                               list:
@@ -15666,8 +15672,8 @@ x-examples:
                                     code: url
                                   value: >-
                                     https://sellerNP.com/images/i1_back_image.png
-                            - descriptor: null
-                              code: attribute
+                            - descriptor:
+                                code: attribute
                               list:
                                 - descriptor:
                                     code: brand
@@ -15756,18 +15762,18 @@ x-examples:
                                 - descriptor:
                                     code: unit_sale_price
                                   value: '175'
-                        - descriptor:
-                            code: FSSAI_LICENSE_NO
-                          list:
                             - descriptor:
-                                code: BRAND_OWNER
-                              value: '12345678901234'
-                            - descriptor:
-                                code: OTHER
-                              value: '12345678901234'
-                            - descriptor:
-                                code: IMPORTER
-                              value: '12345678901234'
+                                code: FSSAI_LICENSE_NO
+                              list:
+                                - descriptor:
+                                    code: BRAND_OWNER
+                                  value: '12345678901234'
+                                - descriptor:
+                                    code: OTHER
+                                  value: '12345678901234'
+                                - descriptor:
+                                    code: IMPORTER
+                                  value: '12345678901234'
                       offers:
                         - id: offer-1
                           descriptor:
@@ -16207,16 +16213,16 @@ x-examples:
                                   currency: IND
                                   value: '0'
                           return_terms:
-                            fulfillment_state:
-                              descriptor:
-                                code: Order-delivered
-                            return_eligible: true
-                            return_time:
-                              duration: P7D
-                            return_location:
-                              address: RTO address
-                              gps: 12.667555,77.349666
-                            fulfillment_managed_by: seller
+                            - fulfillment_state:
+                                descriptor:
+                                  code: Order-delivered
+                              return_eligible: true
+                              return_time:
+                                duration: P7D
+                              return_location:
+                                address: RTO address
+                                gps: 12.667555,77.349666
+                              fulfillment_managed_by: seller
                           replacement_terms:
                             - replace_within: P7D
                           time:
@@ -16243,8 +16249,8 @@ x-examples:
                                     code: url
                                   value: >-
                                     https://sellerNP.com/images/i1_back_image.png
-                            - descriptor: null
-                              code: attribute
+                            - descriptor:
+                                code: attribute
                               list:
                                 - descriptor:
                                     code: brand
@@ -18028,12 +18034,12 @@ x-examples:
                               measure:
                                 unit: unit
                                 value: '1'
-                              count: '99'
+                              count: 99
                             maximum:
                               measure:
                                 unit: unit
                                 value: '1'
-                              count: '99'
+                              count: 99
                           category_ids:
                             - RET1A-1012
                           fulfillment_ids:
@@ -18411,12 +18417,12 @@ x-examples:
                               measure:
                                 unit: unit
                                 value: '1'
-                              count: '99'
+                              count: 99
                             maximum:
                               measure:
                                 unit: unit
                                 value: '1'
-                              count: '99'
+                              count: 99
                           category_ids:
                             - RET12-102F
                           fulfillment_ids:
@@ -18775,12 +18781,12 @@ x-examples:
                               measure:
                                 unit: unit
                                 value: '1'
-                              count: '99'
+                              count: 99
                             maximum:
                               measure:
                                 unit: unit
                                 value: '1'
-                              count: '99'
+                              count: 99
                           category_ids:
                             - RET1D-1000
                           fulfillment_ids:
@@ -19141,12 +19147,12 @@ x-examples:
                               measure:
                                 unit: unit
                                 value: '1'
-                              count: '99'
+                              count: 99
                             maximum:
                               measure:
                                 unit: unit
                                 value: '1'
-                              count: '99'
+                              count: 99
                           category_ids:
                             - RET1B-10A9
                           fulfillment_ids:
