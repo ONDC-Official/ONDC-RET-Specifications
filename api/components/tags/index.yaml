@@ -12,7 +12,9 @@ on_search:
 select: &ref0
   message:
     order:
-      $ref: "./TagGroup.yaml#/order"
+      items:
+        $ref: "./TagGroup.yaml#/order/items"
+      $ref: "./TagGroup.yaml#/order/tags"
       fulfillments:
         $ref: "./TagGroup.yaml#/fulfillments"
 on_select: *ref0
@@ -23,14 +25,14 @@ on_init:
       $ref: "./TagGroup.yaml#/order/on_init"
       fulfillments:
         $ref: "./TagGroup.yaml#/fulfillments"
-confirm: 
+confirm: &ref1
   message:
     order:
     - $ref: "./TagGroup.yaml#/order/on_init"
     - $ref: "./TagGroup.yaml#/order/confirm"
       fulfillments:
         $ref: "./TagGroup.yaml#/fulfillments"
-on_confirm: *ref0
+on_confirm: *ref1
 on_status: *ref0
 on_cancel: *ref0
 on_update: *ref0
