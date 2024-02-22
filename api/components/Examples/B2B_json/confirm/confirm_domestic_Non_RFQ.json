@@ -174,7 +174,7 @@
             "currency": "INR",
             "amount": "53600"
           },
-          "status": "Pending",
+          "status": "NOT-PAID",
           "type": "PRE-FULFILLMENT",
           "collected_by": "BPP",
           "@ondc/org/buyer_app_finder_fee_type": "percent",

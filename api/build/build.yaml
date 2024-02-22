@@ -4396,24 +4396,24 @@ x-flows:
                       - descriptor:
                           code: buyer_id_no
                         value: xxxxxxxxxxxxxxx
+                  - descriptor:
+                      code: bpp_terms
+                    list:
                       - descriptor:
-                          code: bpp_terms
-                        list:
-                          - descriptor:
-                              code: max_liability
-                            value: '2'
-                          - descriptor:
-                              code: max_liability_cap
-                            value: '10000'
-                          - descriptor:
-                              code: mandatory_arbitration
-                            value: 'false'
-                          - descriptor:
-                              code: court_jurisdiction
-                            value: Bengaluru
-                          - descriptor:
-                              code: delay_interest
-                            value: '1000'
+                          code: max_liability
+                        value: '2'
+                      - descriptor:
+                          code: max_liability_cap
+                        value: '10000'
+                      - descriptor:
+                          code: mandatory_arbitration
+                        value: 'false'
+                      - descriptor:
+                          code: court_jurisdiction
+                        value: Bengaluru
+                      - descriptor:
+                          code: delay_interest
+                        value: '1000'
       - summary: Buyer raises PO
         api: confirm
         description: >-
@@ -4945,7 +4945,7 @@ x-flows:
                           email: nobody@nomail.com
                       - type: end
                         location:
-                          gps: 1.3806217468119772, 103.74636438437074
+                          gps: 1.380621746811, 103.7463643843
                           address: 'My House #, My buildin'
                           city:
                             name: Jurong East
@@ -5188,15 +5188,15 @@ x-flows:
                   stops:
                     - type: end
                       location:
-                        gps: 1.3806217468119772, 103.74636438437074
+                        gps: 1.3806217468, 103.74636438
                         area_code: '680230'
                     - type: end
                       location:
-                        gps: 1.3813081446741677, 103.74788789072721
+                        gps: 1.3813081446, 103.7478878907
                         area_code: '680207'
                     - type: end
                       location:
-                        gps: 1.3826059101531494, 103.743617819222
+                        gps: 1.3826059101531, 103.743617819
                         area_code: '680354'
                 payment:
                   type: ON-FULFILLMENT
@@ -5612,7 +5612,7 @@ x-flows:
                     stops:
                       - type: end
                         location:
-                          gps: 1.3806217468119772, 103.74636438437074
+                          gps: 1.38119772, 103.74437074
                           area_code: '680230'
                           city:
                             name: Jurong East
@@ -5838,7 +5838,7 @@ x-flows:
                     stops:
                       - type: end
                         location:
-                          gps: 1.3806217468119772, 103.74636438437074
+                          gps: 1.380621746811, 103.7463643843
                           address: 'My House #, My buildin'
                           city:
                             name: Jurong East
@@ -5950,7 +5950,7 @@ x-flows:
                     stops:
                       - type: end
                         location:
-                          gps: 1.3806217468119772, 103.74636438437074
+                          gps: 1.380621746811, 103.7463643843
                           address: 'My House #, My buildin'
                           city:
                             name: Jurong East
@@ -6051,24 +6051,24 @@ x-flows:
                       - descriptor:
                           code: buyer_id_no
                         value: xxxxxxxxxxxxxxx
+                  - descriptor:
+                      code: bpp_terms
+                    list:
                       - descriptor:
-                          code: bpp_terms
-                        list:
-                          - descriptor:
-                              code: max_liability
-                            value: '2'
-                          - descriptor:
-                              code: max_liability_cap
-                            value: '10000'
-                          - descriptor:
-                              code: mandatory_arbitration
-                            value: 'false'
-                          - descriptor:
-                              code: court_jurisdiction
-                            value: Bengaluru
-                          - descriptor:
-                              code: delay_interest
-                            value: '1000'
+                          code: max_liability
+                        value: '2'
+                      - descriptor:
+                          code: max_liability_cap
+                        value: '10000'
+                      - descriptor:
+                          code: mandatory_arbitration
+                        value: 'false'
+                      - descriptor:
+                          code: court_jurisdiction
+                        value: Bengaluru
+                      - descriptor:
+                          code: delay_interest
+                        value: '1000'
       - summary: Buyer raises PO
         api: confirm
         description: Buyer creates a Purchase Order
@@ -6138,7 +6138,7 @@ x-flows:
                     stops:
                       - type: end
                         location:
-                          gps: 1.3806217468119772, 103.74636438437074
+                          gps: 1.380621746811, 103.7463643843
                           address: 'My House #, My buildin'
                           city:
                             name: Jurong East
@@ -6359,7 +6359,7 @@ x-flows:
                           email: nobody@nomail.com
                       - type: end
                         location:
-                          gps: 1.3806217468119772, 103.74636438437074
+                          gps: 1.380621746811, 103.7463643843
                           address: 'My House #, My buildin'
                           city:
                             name: Jurong East
@@ -6589,7 +6589,7 @@ x-flows:
                           email: nobody@nomail.com
                       - type: end
                         location:
-                          gps: 1.3806217468119772, 103.74636438437074
+                          gps: 1.380621746811, 103.7463643843
                           address: 'My House #, My buildin'
                           city:
                             name: Jurong East
@@ -6837,7 +6837,7 @@ x-flows:
                           email: nobody@nomail.com
                       - type: end
                         location:
-                          gps: 1.3806217468119772, 103.74636438437074
+                          gps: 1.380621746811, 103.7463643843
                           address: 'My House #, My buildin'
                           city:
                             name: Jurong East
@@ -6898,7 +6898,7 @@ x-flows:
                           email: nobody@nomail.com
                       - type: end
                         location:
-                          gps: 1.3806217468119772, 103.74636438437074
+                          gps: 1.380621746811, 103.7463643843
                           address: 'My House #, My buildin'
                           city:
                             name: Jurong East
@@ -7024,7 +7024,7 @@ x-flows:
                           email: nobody@nomail.com
                       - type: end
                         location:
-                          gps: 1.3806217468119772, 103.74636438437074
+                          gps: 1.380621746811, 103.7463643843
                           address: 'My House #, My buildin'
                           city:
                             name: Jurong East
@@ -7212,7 +7212,7 @@ x-flows:
                           email: nobody@nomail.com
                       - type: end
                         location:
-                          gps: 1.3806217468119772, 103.74636438437074
+                          gps: 1.388119772, 103.748437074
                           address: 'My House #, My buildin'
                           city:
                             name: Jurong East
@@ -10943,7 +10943,7 @@ x-flows:
                   - params:
                       currency: INR
                       amount: '53600'
-                    status: NOT-PAID\
+                    status: NOT-PAID
                     uri: https://snp.com/pg
                     type: PRE-FULFILLMENT
                     collected_by: BPP
@@ -11436,6 +11436,7 @@ x-flows:
                 fulfillments:
                   - id: F2
                     tracking: false
+                    '@ondc/org/provider_name': ''
                     '@ondc/org/category': Self-Pickup
                     '@ondc/org/TAT': P3D
                     state:
@@ -11730,6 +11731,7 @@ x-flows:
                 fulfillments:
                   - id: F2
                     type: Self-Pickup
+                    '@ondc/org/provider_name': ''
                     tracking: false
                     state:
                       descriptor:
@@ -12549,15 +12551,15 @@ x-examples:
                     stops:
                       - type: end
                         location:
-                          gps: 1.3806217468119772, 103.74636438437074
+                          gps: 1.3806217468, 103.74636438
                           area_code: '680230'
                       - type: end
                         location:
-                          gps: 1.3813081446741677, 103.74788789072721
+                          gps: 1.3813081446, 103.7478878907
                           area_code: '680207'
                       - type: end
                         location:
-                          gps: 1.3826059101531494, 103.743617819222
+                          gps: 1.3826059101531, 103.743617819
                           area_code: '680354'
                   payment:
                     type: ON-FULFILLMENT
@@ -12828,7 +12830,7 @@ x-examples:
                       stops:
                         - type: end
                           location:
-                            gps: 1.3806217468119772, 103.74636438437074
+                            gps: 1.38119772, 103.74437074
                             area_code: '680230'
                             city:
                               name: Jurong East
@@ -12919,10 +12921,12 @@ x-examples:
                                 code: PACKAGING_REQ
                               value: free text on packaging Customization
                   fulfillments:
-                    - stops:
+                    - id: F1
+                      type: Delivery
+                      stops:
                         - type: end
                           location:
-                            gps: 1.3806217468119772, 103.74636438437074
+                            gps: 10.380619772, 13.74437074
                             area_code: '680230'
                             city:
                               name: Jurong East
@@ -13159,7 +13163,7 @@ x-examples:
                       stops:
                         - type: end
                           location:
-                            gps: 1.3806217468119772, 103.74636438437074
+                            gps: 1.380621746811, 103.7463643843
                             address: 'My House #, My buildin'
                             city:
                               name: Jurong East
@@ -13792,7 +13796,7 @@ x-examples:
                       stops:
                         - type: end
                           location:
-                            gps: 1.3806217468119772, 103.74636438437074
+                            gps: 1.380621746811, 103.7463643843
                             address: 'My House #, My buildin'
                             city:
                               name: Jurong East
@@ -19273,6 +19277,7 @@ x-examples:
                   fulfillments:
                     - id: F2
                       tracking: false
+                      '@ondc/org/provider_name': ''
                       '@ondc/org/category': Self-Pickup
                       '@ondc/org/TAT': P3D
                       state:
@@ -19683,24 +19688,24 @@ x-examples:
                         - descriptor:
                             code: buyer_id_no
                           value: xxxxxxxxxxxxxxx
+                    - descriptor:
+                        code: bpp_terms
+                      list:
                         - descriptor:
-                            code: bpp_terms
-                          list:
-                            - descriptor:
-                                code: max_liability
-                              value: '2'
-                            - descriptor:
-                                code: max_liability_cap
-                              value: '10000'
-                            - descriptor:
-                                code: mandatory_arbitration
-                              value: 'false'
-                            - descriptor:
-                                code: court_jurisdiction
-                              value: Bengaluru
-                            - descriptor:
-                                code: delay_interest
-                              value: '1000'
+                            code: max_liability
+                          value: '2'
+                        - descriptor:
+                            code: max_liability_cap
+                          value: '10000'
+                        - descriptor:
+                            code: mandatory_arbitration
+                          value: 'false'
+                        - descriptor:
+                            code: court_jurisdiction
+                          value: Bengaluru
+                        - descriptor:
+                            code: delay_interest
+                          value: '1000'
           - summary: Acknowledges the initialization (Domestic - Non RFQ)
             description: Acknowledges the initialization
             value:
@@ -19932,7 +19937,7 @@ x-examples:
                       stops:
                         - type: end
                           location:
-                            gps: 1.3806217468119772, 103.74636438437074
+                            gps: 1.380621746811, 103.7463643843
                             address: 'My House #, My buildin'
                             city:
                               name: Jurong East
@@ -20033,24 +20038,24 @@ x-examples:
                         - descriptor:
                             code: buyer_id_no
                           value: xxxxxxxxxxxxxxx
+                    - descriptor:
+                        code: bpp_terms
+                      list:
                         - descriptor:
-                            code: bpp_terms
-                          list:
-                            - descriptor:
-                                code: max_liability
-                              value: '2'
-                            - descriptor:
-                                code: max_liability_cap
-                              value: '10000'
-                            - descriptor:
-                                code: mandatory_arbitration
-                              value: 'false'
-                            - descriptor:
-                                code: court_jurisdiction
-                              value: Bengaluru
-                            - descriptor:
-                                code: delay_interest
-                              value: '1000'
+                            code: max_liability
+                          value: '2'
+                        - descriptor:
+                            code: max_liability_cap
+                          value: '10000'
+                        - descriptor:
+                            code: mandatory_arbitration
+                          value: 'false'
+                        - descriptor:
+                            code: court_jurisdiction
+                          value: Bengaluru
+                        - descriptor:
+                            code: delay_interest
+                          value: '1000'
           - summary: >-
               Acknowledges the initialization (Non RFQ and BPP collecting the
               payment)
@@ -20283,7 +20288,7 @@ x-examples:
                       stops:
                         - type: end
                           location:
-                            gps: 1.3806217468119772, 103.74636438437074
+                            gps: 1.380621746811, 103.7463643843
                             address: 'My House #, My buildin'
                             city:
                               name: Jurong East
@@ -20370,24 +20375,24 @@ x-examples:
                         - descriptor:
                             code: buyer_id_no
                           value: xxxxxxxxxxxxxxx
+                    - descriptor:
+                        code: bpp_terms
+                      list:
                         - descriptor:
-                            code: bpp_terms
-                          list:
-                            - descriptor:
-                                code: max_liability
-                              value: '2'
-                            - descriptor:
-                                code: max_liability_cap
-                              value: '10000'
-                            - descriptor:
-                                code: mandatory_arbitration
-                              value: 'false'
-                            - descriptor:
-                                code: court_jurisdiction
-                              value: Bengaluru
-                            - descriptor:
-                                code: delay_interest
-                              value: '1000'
+                            code: max_liability
+                          value: '2'
+                        - descriptor:
+                            code: max_liability_cap
+                          value: '10000'
+                        - descriptor:
+                            code: mandatory_arbitration
+                          value: 'false'
+                        - descriptor:
+                            code: court_jurisdiction
+                          value: Bengaluru
+                        - descriptor:
+                            code: delay_interest
+                          value: '1000'
               error:
                 type: DOMAIN-ERROR
                 code: '50005'
@@ -21021,7 +21026,7 @@ x-examples:
                             email: nobody@nomail.com
                         - type: end
                           location:
-                            gps: 1.3806217468119772, 103.74636438437074
+                            gps: 1.380621746811, 103.7463643843
                             address: 'My House #, My buildin'
                             city:
                               name: Jurong East
@@ -21304,7 +21309,7 @@ x-examples:
                     - params:
                         currency: INR
                         amount: '53600'
-                      status: NOT-PAID\
+                      status: NOT-PAID
                       uri: https://snp.com/pg
                       type: PRE-FULFILLMENT
                       collected_by: BPP
@@ -22069,7 +22074,7 @@ x-examples:
                             email: nobody@nomail.com
                         - type: end
                           location:
-                            gps: 1.3806217468119772, 103.74636438437074
+                            gps: 1.380621746811, 103.7463643843
                             address: 'My House #, My buildin'
                             city:
                               name: Jurong East
@@ -22244,7 +22249,7 @@ x-examples:
                             email: nobody@nomail.com
                         - type: end
                           location:
-                            gps: 1.3806217468119772, 103.74636438437074
+                            gps: 1.380621746811, 103.7463643843
                             address: 'My House #, My buildin'
                             city:
                               name: Jurong East
@@ -22425,7 +22430,7 @@ x-examples:
                             email: nobody@nomail.com
                         - type: end
                           location:
-                            gps: 1.3806217468119772, 103.74636438437074
+                            gps: 1.380621746811, 103.7463643843
                             address: 'My House #, My buildin'
                             city:
                               name: Jurong East
@@ -22606,7 +22611,7 @@ x-examples:
                             email: nobody@nomail.com
                         - type: end
                           location:
-                            gps: 1.3806217468119772, 103.74636438437074
+                            gps: 1.388119772, 103.748437074
                             address: 'My House #, My buildin'
                             city:
                               name: Jurong East
@@ -23122,6 +23127,7 @@ x-examples:
                   fulfillments:
                     - id: F2
                       type: Self-Pickup
+                      '@ondc/org/provider_name': ''
                       tracking: false
                       state:
                         descriptor:
@@ -23542,7 +23548,7 @@ x-examples:
                             email: nobody@nomail.com
                         - type: end
                           location:
-                            gps: 1.3806217468119772, 103.74636438437074
+                            gps: 1.380621746811, 103.7463643843
                             address: 'My House #, My buildin'
                             city:
                               name: Jurong East
@@ -23603,7 +23609,7 @@ x-examples:
                             email: nobody@nomail.com
                         - type: end
                           location:
-                            gps: 1.3806217468119772, 103.74636438437074
+                            gps: 1.380621746811, 103.7463643843
                             address: 'My House #, My buildin'
                             city:
                               name: Jurong East
