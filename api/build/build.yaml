@@ -3577,15 +3577,16 @@ x-tags:
     message:
       order:
         tags:
-          - *ref_9
-          - - code: BAP_TERMS
-              description: Buyer app's acceptance of Seller app's terms (bpp_terms)
-              reference: <PR/Issue/Discussion Links md format text>
-              required: required
-              list:
-                - code: ACCEPT_BPP_TERMS
-                  description: The acceptance of seller terms by the buyer app
-                  reference: <PR/Issue/Discussion Links md format text>
+          allOf:
+            - *ref_9
+            - - code: BAP_TERMS
+                description: Buyer app's acceptance of Seller app's terms (bpp_terms)
+                reference: <PR/Issue/Discussion Links md format text>
+                required: required
+                list:
+                  - code: ACCEPT_BPP_TERMS
+                    description: The acceptance of seller terms by the buyer app
+                    reference: <PR/Issue/Discussion Links md format text>
         fulfillments: *ref_8
         payments: *ref_10
   on_confirm: *ref_11

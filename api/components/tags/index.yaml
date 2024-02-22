@@ -32,8 +32,9 @@ confirm: &ref1
   message:
     order:
       tags:
-        - $ref: "./TagGroup.yaml#/order/on_init"
-        - $ref: "./TagGroup.yaml#/order/confirm"
+        allOf:
+          - $ref: "./TagGroup.yaml#/order/on_init"
+          - $ref: "./TagGroup.yaml#/order/confirm"
       fulfillments:
         $ref: "./TagGroup.yaml#/fulfillments"
       payments:
