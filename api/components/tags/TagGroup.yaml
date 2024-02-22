@@ -5,7 +5,7 @@ intent:
       reference: <PR/Issue/Discussion Links md format text>
       required: required
       list:
-        $ref: "./Tag.yaml#/bap_terms"
+        $ref: "./Tag.yaml#/bap_terms/search"
     - code: BUYER_ID
       description: Buyer identification information like GST, etc. 
       reference: <PR/Issue/Discussion Links md format text>
@@ -75,9 +75,9 @@ order:
   items:
     tags:
       - code: BUYER_TERMS
-        description: Any requirement related to item or packaging can be specified here.
+        description: Any requirement related to item or packaging can be specified here for RFQ flow.
         reference: <PR/Issue/Discussion Links md format text>
-        required: required
+        required: optional
         list:
           $ref: "./Tag.yaml#/buyer_terms"
   tags:
@@ -93,16 +93,31 @@ order:
       required: optional
       list:
         $ref: "./Tag.yaml#/comm_channel"
+  on_init:
+    - code: BPP_TERMS
+      description: Seller app's terms and conditions
+      reference: <PR/Issue/Discussion Links md format text>
+      required: required
+      list:
+        $ref: "./Tag.yaml#/bpp_terms"
+  confirm:
+    - code: BAP_TERMS
+      description: Buyer app's acceptance of Seller app's terms (bpp_terms)
+      reference: <PR/Issue/Discussion Links md format text>
+      required: required
+      list:
+        $ref: "./Tag.yaml#/bap_terms/confirm"
+
 fulfillments:
   tags:
     - code: ITEM_DETAILS
-      description: Details of the item
+      description: Details of the item for multiple fulfillments
       reference: <PR/Issue/Discussion Links md format text>
       required: optional
       list:
         $ref: "./Tag.yaml#/item_details"
     - code: DELIVERY_TERMS
-      description: Information about delivery terms and responsbilities like incoterms, etc.
+      description: Information about delivery terms and responsbilities like incoterms, etc. for exports.
       reference: <PR/Issue/Discussion Links md format text>
       required: optional
       list:

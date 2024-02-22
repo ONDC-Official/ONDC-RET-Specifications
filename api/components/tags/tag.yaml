@@ -1,10 +1,15 @@
 bap_terms:
-  - code: FINDER_FEE_AMOUNT
-    description: The amount of the Buyer App’s fee, to be interpreted in conjunction with the “type” field. If the “type” is set to “Amount”, this value represents the fixed fee in INR. If the “type” is set to “percent”, this value represents the percentage of the Total Order Value.
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: FINDER_FEE_TYPE
-    description: If set to “amount” it means Buyer App’s fee is a flat amount in INR. If set to “percent” it means the Buyer App’s fee is set as a percentage of the Total Order Value.
-    reference: <PR/Issue/Discussion Links md format text>
+  search:
+    - code: FINDER_FEE_AMOUNT
+      description: The amount of the Buyer App’s fee, to be interpreted in conjunction with the “type” field. If the “type” is set to “Amount”, this value represents the fixed fee in INR. If the “type” is set to “percent”, this value represents the percentage of the Total Order Value.
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: FINDER_FEE_TYPE
+      description: If set to “amount” it means Buyer App’s fee is a flat amount in INR. If set to “percent” it means the Buyer App’s fee is set as a percentage of the Total Order Value.
+      reference: <PR/Issue/Discussion Links md format text>
+  confirm:
+    - code: ACCEPT_BPP_TERMS
+      description: The acceptance of seller terms by the buyer app
+      reference: <PR/Issue/Discussion Links md format text>
 buyer_id:
   - code: BUYER_ID_CODE
     description: The type of Buyer ID, such as GST, etc.
@@ -260,4 +265,20 @@ delivery_terms:
 comm_channel:
   - code: CHAT_URL
     description: Chat url link is provided for buyer and seller to discuss
+    reference: <PR/Issue/Discussion Links md format text>
+bpp_terms:
+  - code: MAX_LIABILITY
+    description: max_liability is the maximum aggregate liability of either party expressed as multiple of the total transaction value.
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: MAX_LIABILITY_CAP
+    description: max_liability_cap is the maximum aggregate liability expressed in Indian Rupees (INR). 
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: MANDATORY_ARBITRATION
+    description: If this attribute is set to true, that would mean both parties agree that in case of a dispute, both parties must resolve the dispute through arbitration.
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: COURT_JURISDICTION
+    description: The name of the city whose courts will have exclusive jurisdiction over disputes related to this contract. The list of options will only contain Indian cities which have a High Court bench.
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: DELAY_INTEREST
+    description: This is the annual rate of interest that the Payment Collector will be charged if they delay a payment to the counterparty Network Participant, calculated pro rata for each calendar day of delay.
     reference: <PR/Issue/Discussion Links md format text>
