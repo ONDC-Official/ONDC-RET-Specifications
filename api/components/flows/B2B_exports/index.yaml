@@ -18,8 +18,8 @@ details:
         Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on Country and domain in Context
         Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on Country and domain in Context
 
-        SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
-        SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
+        SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> creds, add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
+        SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> creds, add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
         BuyerApp->>Buyer: Renders the search response
         
         note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
@@ -55,7 +55,7 @@ details:
         note over Buyer, SellerApp: **ORDER INITIALIZATION**
 
         Buyer->>BuyerApp: 
-        BuyerApp->>SellerApp: **/init** - Initializing the order
+        BuyerApp->>SellerApp: **/init** - Initializing the order and includes delivery terms such as incoterms. 
         note right of SellerApp: Logistics order initialization with billing details
         SellerApp->>BuyerApp: **/on_init** - Order initialization
 
@@ -117,9 +117,9 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/B2B/search/search_by_item.yaml"
-  - summary: Returns item/ catalog
+  - summary: Returns product catalog
     api: on_search
-    description: Seller responds with catalog + communication channel
+    description: Seller responds with catalog + communication channel + creds of the seller app.
     reference: if any
     example:
       $ref: "../../Examples/B2B/on_search/on_search.yaml"
@@ -137,7 +137,7 @@ steps:
       $ref: "../../Examples/B2B/on_select/on_select_exports.yaml"
   - summary: Initialization of Order
     api: init
-    description: Initialization of Order - Billing Details added.
+    description: Initialization of Order - Billing Details added, delivery terms such as incoterms are communicated.
     reference: if any
     example:
       $ref: "../../Examples/B2B/init/init_exports.yaml"

@@ -3840,7 +3840,7 @@ x-flows:
                       - descriptor:
                           code: buyer_id_no
                         value: xxxxxxxxxxxxxxx
-      - summary: Returns item/ catalog
+      - summary: Returns product catalog
         api: on_search
         description: Catalog provided by the Seller App
         reference: if any
@@ -5507,8 +5507,8 @@ x-flows:
             Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on Country and domain in Context
             Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on Country and domain in Context
 
-            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
-            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> creds, add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> creds, add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
             BuyerApp->>Buyer: Renders the search response
             
             note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
@@ -5541,7 +5541,7 @@ x-flows:
             note over Buyer, SellerApp: **ORDER INITIALIZATION**
 
             Buyer->>BuyerApp: 
-            BuyerApp->>SellerApp: **/init** - Initializing the order
+            BuyerApp->>SellerApp: **/init** - Initializing the order and includes delivery terms such as incoterms. 
             note right of SellerApp: Logistics order initialization with billing details
             SellerApp->>BuyerApp: **/on_init** - Order initialization
       - description: PURCHASE ORDER
@@ -5655,9 +5655,11 @@ x-flows:
                       - descriptor:
                           code: buyer_id_no
                         value: xxxxxxxxxxxxxxx
-      - summary: Returns item/ catalog
+      - summary: Returns product catalog
         api: on_search
-        description: Seller responds with catalog + communication channel
+        description: >-
+          Seller responds with catalog + communication channel + creds of the
+          seller app.
         reference: if any
         example: &ref_16
           summary: Return the catalog
@@ -6213,7 +6215,9 @@ x-flows:
                     collected_by: BPP
       - summary: Initialization of Order
         api: init
-        description: Initialization of Order - Billing Details added.
+        description: >-
+          Initialization of Order - Billing Details added, delivery terms such
+          as incoterms are communicated.
         reference: if any
         example:
           summary: Intializing the order (Exports - RFQ)
@@ -11831,7 +11835,7 @@ x-flows:
         description: Buyer searches for an item
         reference: if any
         example: *ref_15
-      - summary: Seller returns item/ catalog
+      - summary: Seller returns product catalog
         api: on_search
         description: >-
           Seller responds back with the catalog and intimates that BPP will be
@@ -11975,7 +11979,7 @@ x-flows:
         description: Search intent sent by the buyer based on the category
         reference: if any
         example: *ref_35
-      - summary: Returns item/ catalog
+      - summary: Returns product catalog
         api: on_search
         description: Catalog provided by the Seller App
         reference: if any
@@ -12558,7 +12562,7 @@ x-flows:
         description: Search intent sent by the buyer based on the category
         reference: if any
         example: *ref_35
-      - summary: Returns item/ catalog
+      - summary: Returns product catalog
         api: on_search
         description: Catalog provided by the Seller App
         reference: if any
@@ -12716,7 +12720,7 @@ x-flows:
         description: Search intent sent by the buyer based on the category
         reference: if any
         example: *ref_35
-      - summary: Returns item/ catalog
+      - summary: Returns product catalog
         api: on_search
         description: Catalog provided by the Seller App
         reference: if any
@@ -12920,7 +12924,7 @@ x-flows:
         description: Search intent sent by the buyer based on the category
         reference: if any
         example: *ref_35
-      - summary: Returns item/ catalog
+      - summary: Returns product catalog
         api: on_search
         description: Catalog provided by the Seller App
         reference: if any
@@ -13289,7 +13293,7 @@ x-flows:
         description: Buyer searches for an item
         reference: if any
         example: *ref_15
-      - summary: Returns item/ catalog
+      - summary: Returns product catalog
         api: on_search
         description: Seller responds back with the catalog
         reference: if any

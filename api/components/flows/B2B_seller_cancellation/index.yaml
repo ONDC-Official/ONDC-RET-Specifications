@@ -86,7 +86,7 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/B2B/search/search_by_item.yaml"
-  - summary: Seller returns item/ catalog 
+  - summary: Seller returns product catalog 
     api: on_search
     description: Seller responds back with the catalog and intimates that BPP will be collecting the payment
     reference: if any

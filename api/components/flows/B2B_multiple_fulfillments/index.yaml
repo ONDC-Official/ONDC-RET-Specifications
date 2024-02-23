@@ -116,7 +116,7 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/B2B/search/search_by_item.yaml"
-  - summary: Returns item/ catalog
+  - summary: Returns product catalog
     api: on_search
     description:  Seller responds back with the catalog
     reference: if any
