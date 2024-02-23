@@ -67,13 +67,16 @@ message:
         reference: if any
         required: optional
     item:
+      description: item to be searched
+      required: optional
+      usage: "-"
+      reference: if any
       name:
         description: item name to be searched
         required: present if item is present
         usage: "oil"
         reference: if any
     fulfillment:
-      parent: true
       type:
         description: type of fulfillment mode buyer wants to avail
         required: required
