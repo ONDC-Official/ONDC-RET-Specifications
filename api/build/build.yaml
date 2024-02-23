@@ -24846,13 +24846,13 @@ x-attributes:
               required: optional
               usage: '-'
               reference: if any
-            category.id:
-              description: >-
-                category id will be from this list -
-                https://docs.google.com/spreadsheets/d/1lbCvhytsAbbtTKgFIOG382tkzyhRYdL4zLaNcnxB8wY/edit#gid=0
-              required: required if category is present
-              usage: RET10-*
-              reference: if any
+              id:
+                description: >-
+                  category id will be from this list -
+                  https://docs.google.com/spreadsheets/d/1lbCvhytsAbbtTKgFIOG382tkzyhRYdL4zLaNcnxB8wY/edit#gid=0
+                required: required if category is present
+                usage: RET10-*
+                reference: if any
             payment:
               type:
                 description: type of payment option buyer wants to avail
@@ -24860,15 +24860,11 @@ x-attributes:
                 reference: if any
                 required: optional
             item:
-              description: item to be searched
-              required: optional
-              usage: '-'
-              reference: if any
-            item.name:
-              description: item name to be searched
-              required: required if item is present
-              usage: oil
-              reference: if any
+              name:
+                description: item name to be searched
+                required: required if item is present
+                usage: oil
+                reference: if any
             fulfillment:
               type:
                 description: type of fulfillment mode buyer wants to avail
