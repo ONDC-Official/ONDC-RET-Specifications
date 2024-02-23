@@ -301,22 +301,26 @@
                     <select id="tag-group-dropdown" class="form-select" onchange="loadTag()"></select>
                   </td>
                 </tr>
+                <td><b>Required</b></td>
+                <td id="tag-group-required">
+                </td>
+              </tr>
                 <tr>
                   <td><b>Tag</b></td>
                   <td>
                     <select id="tag-dropdown" class="form-select" onchange="displayTag()"></select>
                   </td>
                 </tr>
-                <tr id="tag-value-row" style="display: none;">
+                <!-- <tr id="tag-value-row" style="display: none;">
                   <td><b>Tag Value</b></td>
                   <td>
-                    <select id="tag-value-dropdown" class="form-select" onchange="displayTagValue()"></select>
+                    <select id="tag-value-dropdown" class="form-select"></select>
                   </td>
-                </tr>
+                </tr> -->
               </table>
               <table id="tag-group-table" class="table"></table>
               <table id="tag-table" class="table"></table>
-              <table id="tag-value-table" class="table" style="display: none;"></table>
+              <table id="tag-value-table" class="table" ></table>
             </div>
           </div>
         </div>

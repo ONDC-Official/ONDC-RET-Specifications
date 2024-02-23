@@ -69,7 +69,7 @@ function updateSets(value, option) {
   const paths = generatePaths(object);
 
   paths.forEach(function (key) {
-    if (key.split(".").length < 4) {
+    if (key.split(".").length < 5) {
       var option = document.createElement("option");
       option.text = key;
       l1DropDown.add(option);
