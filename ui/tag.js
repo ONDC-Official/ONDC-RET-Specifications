@@ -67,9 +67,9 @@ function loadTag() {
   var dropdown2 = document.getElementById("tag-path-dropdown");
   var dropdown3 = document.getElementById("tag-group-dropdown");
   var dropdown4 = document.getElementById("tag-dropdown");
-  var dropdown5 = document.getElementById("tag-value-dropdown");
+  // var dropdown5 = document.getElementById("tag-value-dropdown");
   dropdown4.innerHTML = "";
-  dropdown5.innerHTML = "";
+  // dropdown5.innerHTML = "";
 
   // Get the selected values from dropdown1 and dropdown2
   var selectedValue1 = dropdown1.value;
