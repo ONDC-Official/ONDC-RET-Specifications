@@ -50,11 +50,12 @@ message:
   parent: true
   intent:
     parent: true
-    category:
-      description: Category of the search
-      required: optional
+    tags:
+      description: Buyer app sends information like buyer app finder fee and buyer ID.
+      required: required
       usage: "-"
       reference: if any
+    category:
       id:
         description: category id will be from this list - https://docs.google.com/spreadsheets/d/1lbCvhytsAbbtTKgFIOG382tkzyhRYdL4zLaNcnxB8wY/edit#gid=0
         required: required if category is present
@@ -95,5 +96,6 @@ message:
             required: required
             usage: "110030"
             reference: if any
+
 
   

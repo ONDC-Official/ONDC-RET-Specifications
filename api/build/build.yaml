@@ -24841,11 +24841,14 @@ x-attributes:
           parent: true
           intent:
             parent: true
-            category:
-              description: Category of the search
-              required: optional
+            tags:
+              description: >-
+                Buyer app sends information like buyer app finder fee and buyer
+                ID.
+              required: required
               usage: '-'
               reference: if any
+            category:
               id:
                 description: >-
                   category id will be from this list -
