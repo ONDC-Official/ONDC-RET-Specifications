@@ -80,7 +80,7 @@ In this case, if payment needs to be collected by BPP only for specific provider
 
 While accepting the PO, seller sends the payment gateway link. This payment gateway link has to be signed by BPP using its private key. Base64 string of the same to be sent as part of the signature. The signature algorithm used (**ED25519**) is also sent as a part of the payload.
 
-The payload sent by the seller also contains the TTL for expiration of the transaction. This is to set the transaction expiration on the Payment Gateway. If the payment is still in the pending state when TTL has expired, the payment gateway cancels the transaction and initiates refund for the buyer if amount is debited.
+The payload sent by the seller also contains the TTL for expiration of the transaction. This TTL is calculated w.r.t context/ttl and it should be less than or equal to TTL defined at payment gateway for payment confirmation. If the payment is still in the pending state when TTL has expired, the payment gateway cancels the transaction and initiates refund for the buyer if amount is debited.
 
 ```
 "payments": [
@@ -177,7 +177,7 @@ When the TTL mentioned by the seller expires with either no response or pending 
 }
 ```
 
-If buyer app has already sent `NACK` after TTL expiration but payment has succeeded then the buyer uses _cancel_ and _on\_cancel_ (seller-side) for refund of the debited amount.
+If buyer app has already sent `NACK` after TTL expiration but payment has succeeded then the buyer uses _cancel_ and _on\_cancel_ (seller-side) for refund of the debited amount. However before /cancel, a status call is required to check the updated payment status.
 
 <img src="https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-2.x/api/images/payment_rfq.svg?raw=true" alt="Sequence Diagram" width="900" >
 </div>

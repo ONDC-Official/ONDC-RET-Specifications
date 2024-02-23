@@ -172,12 +172,12 @@ value:
               measure:
                 unit: unit
                 value: '1'
-              count: '99'
+              count: 99
             maximum:
               measure:
                 unit: unit
                 value: '1'
-              count: '99'
+              count: 99
           category_ids:
           - RET1B-10A9
           fulfillment_ids:

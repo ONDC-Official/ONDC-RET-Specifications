@@ -176,16 +176,16 @@ message:
         required: optional
         usage: "-"
         reference: if any
-      "@ondc/org/settlement_details.settlement_amount":
-        description: The amount that the Payment Collector will remit to the counterparty Network Participant for the instant transaction. For clarity, if the Buyer App is the Payment Collector, the Buyer App will deduct their fee from the Buyer Price and remit the balance to the Seller App. If the Seller App is the Payment Collector, they will remit the Buyer App’s fees from the Buyer Price, deduct its own charges/commission and remit the rest to the Seller. The settlement with the Logistics Service Provider will follow this same logic if either of the Network Participants procures on-network  logistics.
-        required: optional
-        usage: "Positive Decimal Number"
-        reference: if any
-      "@ondc/org/settlement_details.settlement_type":
-        description: The Payment Collector will use the selected method to remit the due payment to the counterparty Network Participant. To illustrate, if the Buyer App collects the payment and the Settlement Type is set to “rtgs”, when the settlement is due, the Buyer App will transfer the Seller App’s share of the Buyer Price to the Seller App’s account via RTGS. 
-        required: optional
-        usage: “neft”, “rtgs”, “upi”
-        reference: if any
+        settlement_amount:
+          description: The amount that the Payment Collector will remit to the counterparty Network Participant for the instant transaction. For clarity, if the Buyer App is the Payment Collector, the Buyer App will deduct their fee from the Buyer Price and remit the balance to the Seller App. If the Seller App is the Payment Collector, they will remit the Buyer App’s fees from the Buyer Price, deduct its own charges/commission and remit the rest to the Seller. The settlement with the Logistics Service Provider will follow this same logic if either of the Network Participants procures on-network  logistics.
+          required: optional
+          usage: "Positive Decimal Number"
+          reference: if any
+        settlement_type:
+          description: The Payment Collector will use the selected method to remit the due payment to the counterparty Network Participant. To illustrate, if the Buyer App collects the payment and the Settlement Type is set to “rtgs”, when the settlement is due, the Buyer App will transfer the Seller App’s share of the Buyer Price to the Seller App’s account via RTGS. 
+          required: optional
+          usage: “neft”, “rtgs”, “upi”
+          reference: if any
       tags:
         description: Seller NP provides the signature, algorithm and ttl for the payment url provided
         required: required for prepaid payment where BPP is collecting the payment
@@ -265,42 +265,44 @@ message:
           reference: if any
           usage: Bengaluru
     tags:
-      parent: true
-      tags:  
-        description: order tags like buyer_id_code, bpp_terms, bap_terms
-        required: required
-        usage: "-"
-        reference: if any
-      bpp_terms.max_liability:    
-        description: max_liability is the maximum aggregate liability of either party expressed as multiple of the total transaction value.
-        required: required
-        usage: "Zero or Positive Decimal Number"
-        reference: if any
-      bpp_terms.max_liability_cap:    
-        description: max_liability_cap is the maximum aggregate liability expressed in Indian Rupees (INR). To illustrate, if the value of max_liability is set to “2”, the total transaction value is INR 100, and max_liability_cap is empty, that will mean the aggregate liability of either party shall not be more than INR 200 (i.e. 2 multiplied by 100). If the max_liability_cap is set as 100, and the max_liability is empty, that means the maximum aggregate liability will be INR 100. If both, max_liability_cap and max_liability are provided, then the maximum aggregate liability will be the lower of the two amounts. To illustrate, if the max_liability is set to “2”, the total transaction value is INR 100, and the max_liability_cap is set to 100. That will mean the maximum aggregate liability will be INR 100 (the lower of INR 200 and INR 100). If neither max_liability_cap nor max_liability are provided, i.e. both are empty, that would mean the contract does not have any clause related to limitation of liability. Effectively that would mean the liability is uncapped. If max_liability_cap and max_liability are both set to 0 (zero), that would mean that both parties agree that neither of them will bear any liability.
-        required: required
-        usage: "Zero or Positive Decimal Number"
-        reference: if any
-      bpp_terms.mandatory_arbitration:    
-        description: If this attribute is set to true, that would mean both parties agree that in case of a dispute, both parties must resolve the dispute through arbitration.
-        required: required
-        usage: true/ false
-        reference: if any
-      bpp_terms.court_jurisdiction:    
-        description: The name of the city whose courts will have exclusive jurisdiction over disputes related to this contract. The list of options will only contain Indian cities which have a High Court bench.
-        required: required
-        usage: "Bengaluru - Pick a city from a given list of cities which have a High Court bench"
-        reference: if any
-      bpp_terms.delay_interest:    
-        description: This is the annual rate of interest that the Payment Collector will be charged if they delay a payment to the counterparty Network Participant, calculated pro rata for each calendar day of delay. As an example, if the value is set as “7.3”, and the amount of payment due is INR 1000, that will mean the Payment Collector will pay the counterparty Network Participant an interest of 7.3% per annum (i.e. INR 100), calculated pro rata for each day of delay. So if the Payment Collector delay was 50 days, the total interest payable would be INR 10 [calculated as 1000x(7.3/100)x(50/365)]
-        required: required
-        usage: "Zero or Positive Decimal Number"
-        reference: if any
-      bap_terms.accept_bpp_terms:    
-        description: whether the buyer app accepts seller app terms
-        required: required
-        usage: "Y/N"
-        reference: if any
+        parent: true
+        tags:
+            description: order tags like buyer_id_code, bpp_terms, bap_terms
+            required: required
+            usage: "-"
+            reference: if any
+        bpp_terms:
+          max_liability:    
+            description: max_liability is the maximum aggregate liability of either party expressed as multiple of the total transaction value.
+            required: required
+            usage: "Zero or Positive Decimal Number"
+            reference: if any
+          max_liability_cap:    
+            description: max_liability_cap is the maximum aggregate liability expressed in Indian Rupees (INR). To illustrate, if the value of max_liability is set to “2”, the total transaction value is INR 100, and max_liability_cap is empty, that will mean the aggregate liability of either party shall not be more than INR 200 (i.e. 2 multiplied by 100). If the max_liability_cap is set as 100, and the max_liability is empty, that means the maximum aggregate liability will be INR 100. If both, max_liability_cap and max_liability are provided, then the maximum aggregate liability will be the lower of the two amounts. To illustrate, if the max_liability is set to “2”, the total transaction value is INR 100, and the max_liability_cap is set to 100. That will mean the maximum aggregate liability will be INR 100 (the lower of INR 200 and INR 100). If neither max_liability_cap nor max_liability are provided, i.e. both are empty, that would mean the contract does not have any clause related to limitation of liability. Effectively that would mean the liability is uncapped. If max_liability_cap and max_liability are both set to 0 (zero), that would mean that both parties agree that neither of them will bear any liability.
+            required: required
+            usage: "Zero or Positive Decimal Number"
+            reference: if any
+          mandatory_arbitration:    
+            description: If this attribute is set to true, that would mean both parties agree that in case of a dispute, both parties must resolve the dispute through arbitration.
+            required: required
+            usage: true/ false
+            reference: if any
+          court_jurisdiction:    
+            description: The name of the city whose courts will have exclusive jurisdiction over disputes related to this contract. The list of options will only contain Indian cities which have a High Court bench.
+            required: required
+            usage: "Bengaluru - Pick a city from a given list of cities which have a High Court bench"
+            reference: if any
+          delay_interest:    
+            description: This is the annual rate of interest that the Payment Collector will be charged if they delay a payment to the counterparty Network Participant, calculated pro rata for each calendar day of delay. As an example, if the value is set as “7.3”, and the amount of payment due is INR 1000, that will mean the Payment Collector will pay the counterparty Network Participant an interest of 7.3% per annum (i.e. INR 100), calculated pro rata for each day of delay. So if the Payment Collector delay was 50 days, the total interest payable would be INR 10 [calculated as 1000x(7.3/100)x(50/365)]
+            required: required
+            usage: "Zero or Positive Decimal Number"
+            reference: if any
+        bap_terms:
+          accept_bpp_terms:    
+            description: whether the buyer app accepts seller app terms
+            required: required
+            usage: "Y/N"
+            reference: if any
     quote:
       parent: true
       price:
