@@ -86,36 +86,23 @@ function loadTag() {
     var option = document.createElement("option");
     option.text = obj["code"];
     dropdown4.add(option);
-    // console.log(obj);
-    // if (obj.hasOwnProperty("value")) {
-    //   loadTagValue(obj["value"], dropdown5);
-    // }
-    // if (hasTagValue) loadTagValue();
-    
-    // let selectedObject4 = obj.find((obj) => {
-    //   if (obj["code"] === selectedValue4) return obj;
-    //    if (selectedObject4.hasOwnProperty("value")) {
-    //     console.log(selectedObject4["value"]);
-    //     loadTagValue(selectedObject4["value"], dropdown5);
-    // }
   });
-  // var selectedValue4 = dropdown4.value;
-  // console.log(selectedValue4);
+
   displayTagGroup();
 }
 
-function loadTagValue(values, dropdown) {
-  var dropdown1 = document.getElementById("tag-schema-dropdown");
-  var dropdown2 = document.getElementById("tag-path-dropdown");
-  var dropdown3 = document.getElementById("tag-group-dropdown");
-  var dropdown4 = document.getElementById("tag-dropdown");
-  var dropdown5 = document.getElementById("tag-value-dropdown");
-  values.forEach((value) => {
-    var option = document.createElement("option");
-    option.text = value.code;
-    dropdown.add(option);
-  });
-}
+// function loadTagValue(values, dropdown) {
+//   var dropdown1 = document.getElementById("tag-schema-dropdown");
+//   var dropdown2 = document.getElementById("tag-path-dropdown");
+//   var dropdown3 = document.getElementById("tag-group-dropdown");
+//   var dropdown4 = document.getElementById("tag-dropdown");
+//   var dropdown5 = document.getElementById("tag-value-dropdown");
+//   values.forEach((value) => {
+//     var option = document.createElement("option");
+//     option.text = value.code;
+//     dropdown.add(option);
+//   });
+// }
 function getAttribute(data, keyArr) {
   let key = isNaN(keyArr[0]) ? keyArr[0] : parseInt(keyArr[0]);
   if (data[key] && data[key] != undefined) {
