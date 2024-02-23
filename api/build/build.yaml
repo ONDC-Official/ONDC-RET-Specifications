@@ -3012,7 +3012,7 @@ x-enum:
               - code: item
                 description: >-
                   product cost, item price should be either inclusive or
-                  exclusive of taxes, exactly as defined in the catalog;
+                  exclusive of taxes
                 reference: <PR/Issue/Discussion Links md format text>
               - code: discount
                 description: discount applied (item level)
