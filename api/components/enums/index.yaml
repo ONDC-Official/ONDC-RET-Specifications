@@ -93,7 +93,3 @@ on_cancel:
       fulfillments:
         state: 
            $ref: "./fulfillments.yaml#/fulfillments/state"
-track:
-  context: *context
-on_track:
-  context: *context

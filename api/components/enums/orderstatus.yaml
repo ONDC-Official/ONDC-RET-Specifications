@@ -1,17 +1,17 @@
 status:
     - code: Created
-      description: about the enum
+      description: The order has been created by the buyer app.
       reference: <PR/Issue/Discussion Links md format text>
     - code: Accepted
-      description: about the enum
+      description: The order has been accepted by the seller app.
       reference: <PR/Issue/Discussion Links md format text>
     - code: In-progress
-      description: about the enum
+      description: The order is in progress.
       reference: <PR/Issue/Discussion Links md format text>
     - code: Completed
-      description: about the enum
+      description: The order has been delivered to the buyer.
       reference: <PR/Issue/Discussion Links md format text>
     - code: Cancelled
-      description: about the enum
+      description: The order has been cancelled.
       reference: <PR/Issue/Discussion Links md format text>
 

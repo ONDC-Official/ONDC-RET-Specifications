@@ -2627,21 +2627,23 @@ x-enum:
         payment: &ref_2
           type:
             - code: ON-FULFILLMENT
-              description: about the enum
+              description: Payment will be done on delivery.
               reference: <PR/Issue/Discussion Links md format text>
             - code: PRE-FULFILLMENT
-              description: about the enum
+              description: >-
+                Prepaid payment, i.e payment will be done during order
+                confirmation.
               reference: <PR/Issue/Discussion Links md format text>
             - code: POST-FULFILLMENT
-              description: about the enum
+              description: Payment will be done after the delivery.
               reference: <PR/Issue/Discussion Links md format text>
       fulfillment: &ref_0
         type:
           - code: Delivery
-            description: about the enum
+            description: When buyer wants the order to be delivered
             reference: <PR/Issue/Discussion Links md format text>
           - code: Self-Pickup
-            description: about the enum
+            description: When buyer want to self-pickup the order
             reference: <PR/Issue/Discussion Links md format text>
   on_search:
     message:
@@ -2942,16 +2944,25 @@ x-enum:
           descriptor:
             code:
               - code: Disc_Pct
-                description: about the enum
+                description: >-
+                  Discount percent or amount applied to the cart value, with or
+                  without a cap, and may be based on minimum cart value.
                 reference: <PR/Issue/Discussion Links md format text>
               - code: Disc_Amt
-                description: about the enum
+                description: >-
+                  Flat discount amount applied to the cart value, and may be
+                  based on minimum cart value).
                 reference: <PR/Issue/Discussion Links md format text>
               - code: BuyXGetY
-                description: about the enum
+                description: >-
+                  For every "X" item count in the cart, total of "Y" items will
+                  be offered (i.e. "Y" - "X" additional items), at 0 additional
+                  value.
                 reference: <PR/Issue/Discussion Links md format text>
               - code: Freebie
-                description: about the enum
+                description: >-
+                  for a minimum order value, 1 or more free item(s) will be
+                  offered at 0 value.
                 reference: <PR/Issue/Discussion Links md format text>
   select:
     context: *ref_1
@@ -2975,25 +2986,32 @@ x-enum:
           breakup:
             '@ondc/org/title_type': &ref_3
               - code: item
-                description: price of the item
+                description: >-
+                  product cost, item price should be either inclusive or
+                  exclusive of taxes, exactly as defined in the catalog;
                 reference: <PR/Issue/Discussion Links md format text>
               - code: discount
-                description: discount charges
+                description: discount applied (item level)
                 reference: <PR/Issue/Discussion Links md format text>
               - code: packing
-                description: packing charges
+                description: packing charges (fulfillment level)
                 reference: <PR/Issue/Discussion Links md format text>
               - code: tax
-                description: tax applied
+                description: >-
+                  tax applied (item or fulfillment level), tax on fulfillment
+                  level charges, to be included only if not 0 (i.e. logistics
+                  buyer NP provides tax inclusive fulfillment level charges);
                 reference: <PR/Issue/Discussion Links md format text>
               - code: delivery
-                description: delivery charges on fulfillment
+                description: >-
+                  shipping charges (fulfillment level), delivery charge to be
+                  included only if fulfillment state code is "Serviceable";
                 reference: <PR/Issue/Discussion Links md format text>
               - code: misc
-                description: convenience charges
+                description: convenience charges (fulfillment level)
                 reference: <PR/Issue/Discussion Links md format text>
               - code: refund
-                description: convenience charges
+                description: refund in case of cancellation
                 reference: <PR/Issue/Discussion Links md format text>
   init:
     context: *ref_1
@@ -3018,19 +3036,19 @@ x-enum:
         fulfillments: *ref_0
         state: &ref_4
           - code: Created
-            description: about the enum
+            description: The order has been created by the buyer app.
             reference: <PR/Issue/Discussion Links md format text>
           - code: Accepted
-            description: about the enum
+            description: The order has been accepted by the seller app.
             reference: <PR/Issue/Discussion Links md format text>
           - code: In-progress
-            description: about the enum
+            description: The order is in progress.
             reference: <PR/Issue/Discussion Links md format text>
           - code: Completed
-            description: about the enum
+            description: The order has been delivered to the buyer.
             reference: <PR/Issue/Discussion Links md format text>
           - code: Cancelled
-            description: about the enum
+            description: The order has been cancelled.
             reference: <PR/Issue/Discussion Links md format text>
   on_confirm:
     context: *ref_1
@@ -3051,28 +3069,32 @@ x-enum:
           state: &ref_5
             descriptor:
               - code: Agent-assigned
-                description: about the enum
+                description: >-
+                  The fulfillment state when the agent has been assigned for the
+                  order.
                 reference: <PR/Issue/Discussion Links md format text>
               - code: Packed
-                description: about the enum
+                description: The fulfillment has been packed.
                 reference: <PR/Issue/Discussion Links md format text>
               - code: Out-for-delivery
-                description: about the enum
+                description: The agent is out for delivery.
                 reference: <PR/Issue/Discussion Links md format text>
               - code: Order-picked-up
-                description: about the enum
+                description: The fulfillment has been picked up.
                 reference: <PR/Issue/Discussion Links md format text>
               - code: Searching-for-agent
-                description: about the enum
+                description: >-
+                  Logistics Service Provider is searching for an agent to be
+                  assigned.
                 reference: <PR/Issue/Discussion Links md format text>
               - code: Pending
-                description: about the enum
+                description: The initial state of the fulfillment.
                 reference: <PR/Issue/Discussion Links md format text>
               - code: Order-delivered
-                description: about the enum
+                description: The  fulfillment has been successfully delivered.
                 reference: <PR/Issue/Discussion Links md format text>
               - code: Cancelled
-                description: about the enum
+                description: The fulfillment has been cancelled.
                 reference: <PR/Issue/Discussion Links md format text>
   cancel:
     context: *ref_1
@@ -3084,10 +3106,6 @@ x-enum:
         state: *ref_4
         fulfillments:
           state: *ref_5
-  track:
-    context: *ref_1
-  on_track:
-    context: *ref_1
 x-tags:
   search:
     message:

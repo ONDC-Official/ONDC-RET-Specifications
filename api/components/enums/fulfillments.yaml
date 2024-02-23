@@ -1,36 +1,36 @@
 fulfillments:
   type:
     - code: Delivery
-      description: about the enum
+      description: When buyer wants the order to be delivered
       reference: <PR/Issue/Discussion Links md format text>
     - code: Self-Pickup
-      description: about the enum
+      description: When buyer want to self-pickup the order
       reference: <PR/Issue/Discussion Links md format text>
   state:
    descriptor:
     - code: Agent-assigned
-      description: about the enum
+      description: The fulfillment state when the agent has been assigned for the order.
       reference: <PR/Issue/Discussion Links md format text>
     - code: Packed
-      description: about the enum
+      description: The fulfillment has been packed.
       reference: <PR/Issue/Discussion Links md format text>
     - code: Out-for-delivery
-      description: about the enum
+      description: The agent is out for delivery.
       reference: <PR/Issue/Discussion Links md format text>
     - code: Order-picked-up
-      description: about the enum
+      description: The fulfillment has been picked up.
       reference: <PR/Issue/Discussion Links md format text>
     - code: Searching-for-agent
-      description: about the enum
+      description: Logistics Service Provider is searching for an agent to be assigned.
       reference: <PR/Issue/Discussion Links md format text>
     - code: Pending
-      description: about the enum
+      description: The initial state of the fulfillment.
       reference: <PR/Issue/Discussion Links md format text>
     - code: Order-delivered
-      description: about the enum
+      description: The  fulfillment has been successfully delivered.
       reference: <PR/Issue/Discussion Links md format text>
     - code: Cancelled
-      description: about the enum
+      description: The fulfillment has been cancelled.
       reference: <PR/Issue/Discussion Links md format text>
   pre_order_state:
     - code: Serviceable
