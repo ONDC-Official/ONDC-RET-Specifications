@@ -167,10 +167,20 @@ message:
         usage: "10.00"
         reference: if any
       "@ondc/org/settlement_details":
-        description: settlement details sent to the counterparty who will be settling the amount
+        description: Settlment details provided to counter party collecting the payment for settlement
         required: optional
         usage: "-"
         reference: if any
+        settlement_amount:
+          description: The amount that the Payment Collector will remit to the counterparty Network Participant for the instant transaction. For clarity, if the Buyer App is the Payment Collector, the Buyer App will deduct their fee from the Buyer Price and remit the balance to the Seller App. If the Seller App is the Payment Collector, they will remit the Buyer App’s fees from the Buyer Price, deduct its own charges/commission and remit the rest to the Seller. The settlement with the Logistics Service Provider will follow this same logic if either of the Network Participants procures on-network  logistics.
+          required: optional
+          usage: "Positive Decimal Number"
+          reference: if any
+        settlement_type:
+          description: The Payment Collector will use the selected method to remit the due payment to the counterparty Network Participant. To illustrate, if the Buyer App collects the payment and the Settlement Type is set to “rtgs”, when the settlement is due, the Buyer App will transfer the Seller App’s share of the Buyer Price to the Seller App’s account via RTGS. 
+          required: optional
+          usage: “neft”, “rtgs”, “upi”
+          reference: if any
     items:
       parent: true
       description: Array of items selected by the buyer.
