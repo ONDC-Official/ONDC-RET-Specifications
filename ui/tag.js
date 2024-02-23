@@ -45,8 +45,8 @@ function loadTagGroup() {
   var dropdown3 = document.getElementById("tag-group-dropdown");
   var requiredField = document.getElementById("tag-group-required");
   dropdown3.innerHTML = "";
-  requiredField.innerHTML= "";
-    // Get the selected value from dropdown1
+  requiredField.innerHTML = "";
+  // Get the selected value from dropdown1
   var selectedValue1 = dropdown1.value;
   var selectedValue2 = dropdown2.value;
 
@@ -56,7 +56,7 @@ function loadTagGroup() {
     var option = document.createElement("option");
     option.text = data[key]["code"];
     dropdown3.add(option);
-    requiredField.innerHTML=data[key]["required"]
+    requiredField.innerHTML = data[key]["required"];
   });
   loadTag();
 }
@@ -67,7 +67,9 @@ function loadTag() {
   var dropdown2 = document.getElementById("tag-path-dropdown");
   var dropdown3 = document.getElementById("tag-group-dropdown");
   var dropdown4 = document.getElementById("tag-dropdown");
+  var dropdown5 = document.getElementById("tag-value-dropdown");
   dropdown4.innerHTML = "";
+  dropdown5.innerHTML = "";
 
   // Get the selected values from dropdown1 and dropdown2
   var selectedValue1 = dropdown1.value;
@@ -84,55 +86,35 @@ function loadTag() {
     var option = document.createElement("option");
     option.text = obj["code"];
     dropdown4.add(option);
-    if (obj.value) hasTagValue = true;
+    // console.log(obj);
+    // if (obj.hasOwnProperty("value")) {
+    //   loadTagValue(obj["value"], dropdown5);
+    // }
+    // if (hasTagValue) loadTagValue();
+    
+    // let selectedObject4 = obj.find((obj) => {
+    //   if (obj["code"] === selectedValue4) return obj;
+    //    if (selectedObject4.hasOwnProperty("value")) {
+    //     console.log(selectedObject4["value"]);
+    //     loadTagValue(selectedObject4["value"], dropdown5);
+    // }
   });
-
-  if (hasTagValue) loadTagValue();
-  else displayTagGroup();
+  // var selectedValue4 = dropdown4.value;
+  // console.log(selectedValue4);
+  displayTagGroup();
 }
 
-function loadTagValue() {
+function loadTagValue(values, dropdown) {
   var dropdown1 = document.getElementById("tag-schema-dropdown");
   var dropdown2 = document.getElementById("tag-path-dropdown");
   var dropdown3 = document.getElementById("tag-group-dropdown");
   var dropdown4 = document.getElementById("tag-dropdown");
-  var dropdown5 = document.getElementById("tag-value-row");
-  dropdown4.innerHTML = "";
-
-  // Get the selected values from dropdown1 and dropdown2
-  var selectedValue1 = dropdown1.value;
-  var selectedValue2 = dropdown2.value;
-  var selectedValue3 = dropdown3.value;
-  var selectedValue4 = dropdown4.value;
-
-  // Populate dropdown5
-  let data = getAttribute(TagData[selectedValue1], selectedValue2.split("."));
-  let selectedObject3 = data.find((obj) => {
-    if (obj["code"] === selectedValue3) return obj;
+  var dropdown5 = document.getElementById("tag-value-dropdown");
+  values.forEach((value) => {
+    var option = document.createElement("option");
+    option.text = value.code;
+    dropdown.add(option);
   });
-  let list = selectedObject3.list;
-  console.log("list", list);
-  // let selectedObject4=data.find(list=>{
-  //   if(list["code"]===selectedValue4)
-  //   return list
-  // })
-
-  // console.log("object 4",selectedObject4);
-  // let selectedObject5 = data.find(selectedObject4 => {
-  //   if (selectedObject4["code"] === selectedValue4)
-  //     return obj
-  // });
-
-  // console.log(selectedObject5);
-  // let values = selectedObject5.value
-  // console.log(values);
-  // values.forEach(function (obj) {
-  //   var option = document.createElement('option');
-  //   option.text = obj["code"];
-  //   dropdown5.add(option);
-  // })
-  // displayTagValue()
-  displayTagGroup()
 }
 function getAttribute(data, keyArr) {
   let key = isNaN(keyArr[0]) ? keyArr[0] : parseInt(keyArr[0]);
@@ -211,11 +193,9 @@ function displayTag() {
   // Get the table body element
   var tableBody = document.getElementById("tag-table");
   if (tableBody && tableBody != {}) tableBody.innerHTML = "";
-  insertRow(tableBody, "Code", tableData.code);
-  insertRow(tableBody, "Description", tableData.description);
+  insertRow(tableBody, "Code", tableData?.code);
+  insertRow(tableBody, "Description", tableData?.description);
   // insertRow(tableBody, "Refrences", tableData.reference)
-
-
 }
 
 // function displayTagValue(){
