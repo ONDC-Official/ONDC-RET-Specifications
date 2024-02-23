@@ -7,7 +7,7 @@ search:
      payment: &payment
         type: 
           $ref: "./payment.yaml#/type"
-    fulfillment: &fulfillment
+    fulfillment:
         type:
           $ref: "./fulfillments.yaml#/fulfillments/type"
 on_search:
@@ -17,7 +17,11 @@ on_search:
           items:
             category_ids: 
               $ref: "./category.yaml#/category_ids"
-        fulfillments: *fulfillment
+          tags:
+              $ref: "./provider.yaml#/tags"
+        fulfillments: 
+        type:
+          $ref: "./fulfillments.yaml#/fulfillments/type"
         offers:
           $ref: "./offers.yaml#/offers"
 select:
@@ -25,7 +29,9 @@ select:
   message:
     order: &order
       payment: *payment
-      fulfillments: *fulfillment
+      fulfillments: 
+        type:
+          $ref: "./fulfillments.yaml#/fulfillments/type"
 on_select:
   context: *context
   message:
@@ -42,7 +48,11 @@ init:
   message:
     order: 
       payment: *payment
-      fulfillments: *fulfillment
+      fulfillments: &fulfillment
+        type:
+          $ref: "./fulfillments.yaml#/fulfillments/type"
+        tags:
+          $ref: "./fulfillments.yaml#/fulfillments/tags"
 on_init:
   context: *context
   message:
@@ -66,7 +76,11 @@ on_confirm:
   message:
     order: 
      payment: *payment
-     fulfillments: *fulfillment
+     fulfillments:
+        type:
+          $ref: "./fulfillments.yaml#/fulfillments/type"
+        state: 
+           $ref: "./fulfillments.yaml#/fulfillments/state"
      state: 
        $ref: "./orderstatus.yaml#/status"
 status:
