@@ -20,8 +20,8 @@ on_search:
           tags:
               $ref: "./provider.yaml#/tags"
         fulfillments: 
-        type:
-          $ref: "./fulfillments.yaml#/fulfillments/type"
+          type:
+            $ref: "./fulfillments.yaml#/fulfillments/type"
         offers:
           $ref: "./offers.yaml#/offers"
 select:

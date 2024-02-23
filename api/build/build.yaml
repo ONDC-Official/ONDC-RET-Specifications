@@ -2961,8 +2961,8 @@ x-enum:
                 - code: country
                   description: If type is 12 - Pan-India
                   reference: <PR/Issue/Discussion Links md format text>
-        fulfillments: null
-        type: *ref_0
+        fulfillments:
+          type: *ref_0
         offers:
           descriptor:
             code:
