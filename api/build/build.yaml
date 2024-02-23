@@ -2961,7 +2961,7 @@ x-enum:
                 - code: country
                   description: If type is 12 - Pan-India
                   reference: <PR/Issue/Discussion Links md format text>
-        fulfillments:
+        fulfillment:
           type: *ref_0
         offers:
           descriptor:
@@ -2991,7 +2991,7 @@ x-enum:
     context: *ref_1
     message:
       order:
-        payment: *ref_2
+        payments: *ref_2
         fulfillments:
           type: *ref_0
   on_select:
@@ -3041,7 +3041,7 @@ x-enum:
     context: *ref_1
     message:
       order:
-        payment: *ref_2
+        payments: *ref_2
         fulfillments: &ref_3
           type: *ref_0
           tags:
@@ -3087,7 +3087,7 @@ x-enum:
     context: *ref_1
     message:
       order:
-        payment: *ref_2
+        payments: *ref_2
         fulfillments: *ref_3
         quote:
           breakup: null
@@ -3096,7 +3096,7 @@ x-enum:
     context: *ref_1
     message:
       order:
-        payment: *ref_2
+        payments: *ref_2
         fulfillments: *ref_3
         state: &ref_5
           - code: Created
@@ -3118,7 +3118,7 @@ x-enum:
     context: *ref_1
     message:
       order:
-        payment: *ref_2
+        payments: *ref_2
         fulfillments:
           type: *ref_0
           state: &ref_6
@@ -3158,7 +3158,7 @@ x-enum:
     context: *ref_1
     message:
       order:
-        payment: *ref_2
+        payments: *ref_2
         state: *ref_5
         fulfillments:
           state: *ref_6
@@ -3168,7 +3168,7 @@ x-enum:
     context: *ref_1
     message:
       order:
-        payment: *ref_2
+        payments: *ref_2
         state: *ref_5
         fulfillments:
           state: *ref_6
