@@ -24841,6 +24841,18 @@ x-attributes:
           parent: true
           intent:
             parent: true
+            category:
+              description: Category of the search
+              required: optional
+              usage: '-'
+              reference: if any
+            category.id:
+              description: >-
+                category id will be from this list -
+                https://docs.google.com/spreadsheets/d/1lbCvhytsAbbtTKgFIOG382tkzyhRYdL4zLaNcnxB8wY/edit#gid=0
+              required: present if category is present
+              usage: RET10-*
+              reference: if any
             payment:
               type:
                 description: type of payment option buyer wants to avail
@@ -24852,18 +24864,6 @@ x-attributes:
                 description: item name to be searched
                 required: present if item is present
                 usage: oil
-                reference: if any
-            category:
-              description: Category of the search
-              required: optional
-              usage: '-'
-              reference: if any
-              id:
-                description: >-
-                  category id will be from this list -
-                  https://docs.google.com/spreadsheets/d/APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
-                required: present if category is present
-                usage: RET10-*
                 reference: if any
             fulfillment:
               parent: true
