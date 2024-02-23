@@ -155,14 +155,12 @@ message:
           usage: "Zero or Positive Decimal Number"
           reference: if any
     provider:
-      parent: true
       id:
         description: id of the selected provider from the catalog
         usage: "P1"
         reference: if any
         required: required
     provider_location:
-      parent: true
       id:
         description: location id of the selected provider from the catalog
         usage: "L1"

@@ -51,21 +51,18 @@ message:
   intent:
     parent: true
     payment:
-      parent: true
       type:
         description: type of payment option buyer wants to avail
         usage: "ON-FULFILLMENT"
         reference: if any
         required: optional
     item:
-      parent: true
       name:
         description: item name to be searched
         required: present if item is present
         usage: "oil"
         reference: if any
     category:
-      parent: true
       description: Category of the search
       required: optional
       usage: "-"
