@@ -12029,9 +12029,6 @@ x-flows:
                 fulfillments:
                   - id: F2
                     type: Self-Pickup
-                    '@ondc/org/category': Self-Pickup
-                    '@ondc/org/TAT': P3D
-                    tracking: false
                     stops:
                       - type: start
                         location:
@@ -14932,9 +14929,6 @@ x-examples:
                   fulfillments:
                     - id: F2
                       type: Self-Pickup
-                      '@ondc/org/category': Self-Pickup
-                      '@ondc/org/TAT': P3D
-                      tracking: false
                       stops:
                         - type: start
                           location:
