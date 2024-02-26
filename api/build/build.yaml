@@ -26120,6 +26120,7 @@ x-attributes:
                   usage: '-'
                   reference: if any
               items:
+                parent: true
                 parent_item_id:
                   description: >-
                     if variant grouping defined for provider above, this matches
