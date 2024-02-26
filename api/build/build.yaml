@@ -26211,7 +26211,7 @@ x-attributes:
                   description: >-
                     code = 'attribute' is required for Fashion, Electronics,etc
                     categories
-                  required: required
+                  required: optional
                   usage: '-'
                   reference: if any
                 add_ons:
