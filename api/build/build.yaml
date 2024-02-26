@@ -26215,10 +26215,8 @@ x-attributes:
                   usage: '-'
                   reference: if any
                 add_ons:
-                  description: >-
-                    code = 'attribute' is required for Fashion, Electronics,etc
-                    categories
-                  required: required
+                  description: add ons with the item
+                  required: optional
                   usage: '-'
                   reference: if any
                 cancellation_terms:
