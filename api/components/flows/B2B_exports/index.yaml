@@ -18,8 +18,8 @@ details:
         Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on Country and domain in Context
         Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on Country and domain in Context
 
-        SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> creds, add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
-        SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> creds, add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
+        SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> creds, add_ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
+        SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> creds, add_ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
         BuyerApp->>Buyer: Renders the search response
         
         note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
@@ -122,7 +122,7 @@ steps:
       $ref: "../../Examples/B2B/on_search/on_search.yaml"
   - summary: Requests for Quotation
     api: select
-    description: Buyer selects an item (Variants/add-ons/offers as required) + Item customization + Delivery terms and requests for quotation
+    description: Buyer selects an item (Variants/add_ons/offers as required) + Item customization + Delivery terms and requests for quotation
     reference: if any
     example:
       $ref: "../../Examples/B2B/select/select_exports.yaml"
