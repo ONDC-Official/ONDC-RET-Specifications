@@ -18,8 +18,8 @@ details:
         Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on city and domain in context
         Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on city and domain in context
 
-        SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City 
-        SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City 
+        SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + Communication channel) <br/> Servicability based on Country, City 
+        SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City 
         BuyerApp->>Buyer: Renders the search response
         
         note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
@@ -113,7 +113,7 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/B2B/search/search_by_category.yaml"
-  - summary: Returns item/ catalog
+  - summary: Returns product catalog
     api: on_search
     description: Catalog provided by the Seller App 
     reference: if any

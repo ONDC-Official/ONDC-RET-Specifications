@@ -2,14 +2,14 @@ offers:
   descriptor:
     code:
       - code: Disc_Pct
-        description: about the enum
+        description: Discount percent or amount applied to the cart value, with or without a cap, and may be based on minimum cart value.
         reference: <PR/Issue/Discussion Links md format text>
       - code: Disc_Amt
-        description: about the enum
+        description: Flat discount amount applied to the cart value, and may be based on minimum cart value).
         reference: <PR/Issue/Discussion Links md format text>
       - code: BuyXGetY
-        description: about the enum
+        description: For every "X" item count in the cart, total of "Y" items will be offered (i.e. "Y" - "X" additional items), at 0 additional value.
         reference: <PR/Issue/Discussion Links md format text>
       - code: Freebie
-        description: about the enum
+        description: for a minimum order value, 1 or more free item(s) will be offered at 0 value.
         reference: <PR/Issue/Discussion Links md format text>

@@ -1,0 +1,22 @@
+tags:
+  serviceability:
+    type:
+      - code: 10
+        description: Hyperlocal
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: 11
+        description: Intercity
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: 12
+        description: Pan-India
+        reference: <PR/Issue/Discussion Links md format text>
+    unit:
+      - code: km
+        description: If type is 10 - Hyperlocal
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: pincode
+        description: If type is 11 - Intercity
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: country
+        description: If type is 12 - Pan-India
+        reference: <PR/Issue/Discussion Links md format text>

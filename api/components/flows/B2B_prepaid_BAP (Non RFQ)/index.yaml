@@ -18,8 +18,8 @@ details:
         Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on Country and domain in Context
         Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on Country and domain in Context
 
-        SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers <br/> Servicability based on Country, City and HScode permits
-        SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers <br/>  Servicability based on Country, City and HScode permits
+        SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers <br/> Servicability based on Country, City and HScode permits
+        SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers <br/>  Servicability based on Country, City and HScode permits
         BuyerApp->>Buyer: Renders the search response
         
 

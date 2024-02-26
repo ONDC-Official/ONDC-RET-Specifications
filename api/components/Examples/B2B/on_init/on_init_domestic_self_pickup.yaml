@@ -124,7 +124,7 @@ value:
               value: '0'
         ttl: P1D
       payments:
-        - type: ON-FULFILLMENT
+        - type: PRE-FULFILLMENT
           collected_by: BPP
           '@ondc/org/buyer_app_finder_fee_type': percent
           '@ondc/org/buyer_app_finder_fee_amount': '0'

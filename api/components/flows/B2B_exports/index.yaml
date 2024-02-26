@@ -18,8 +18,8 @@ details:
         Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on Country and domain in Context
         Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on Country and domain in Context
 
-        SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
-        SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
+        SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> creds, add_ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
+        SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> creds, add_ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
         BuyerApp->>Buyer: Renders the search response
         
         note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
@@ -36,7 +36,7 @@ details:
         note over Buyer, SellerApp: **RFQ (Request For Quotation) FLOW**
 
         Buyer->>BuyerApp: Buyer requests for Quotation
-        BuyerApp->>SellerApp: **/select** - An item/s + add_ons + variants + offers is selected and <br/> RFQ is raised with a TTL to receive the response
+        BuyerApp->>SellerApp: **/select** - An item/s + add_ons + variants + offers is selected <br/>  + delivery terms such as incoterms are communicated and <br/> RFQ is raised with a TTL to receive the response
 
         note right of SellerApp: Logistics quotation + TAT received (Optional)
 
@@ -55,7 +55,7 @@ details:
         note over Buyer, SellerApp: **ORDER INITIALIZATION**
 
         Buyer->>BuyerApp: 
-        BuyerApp->>SellerApp: **/init** - Initializing the order
+        BuyerApp->>SellerApp: **/init** - Initializing the order by providing billing and address details.
         note right of SellerApp: Logistics order initialization with billing details
         SellerApp->>BuyerApp: **/on_init** - Order initialization
 
@@ -71,7 +71,7 @@ details:
 
         Buyer->>BuyerApp: Creates PO
         BuyerApp->>SellerApp: **/confirm** - Create PO to create final digital contract
-        SellerApp->>BuyerApp: **/on_confirm** - Accept PO + payment url (if payment.collected_by is BPP) + <br/> Proforma invoice is shared (if payment.type is ON-FULFILLMENT)
+        SellerApp->>BuyerApp: **/on_confirm** - Accept PO + payment url (if payment.collected_by is BPP) 
 
   - description: PAYMENT AND INVOICE CREATION
     mermaidGraph: >-
@@ -84,8 +84,11 @@ details:
         note over Buyer, SellerApp: **PAYMENT AND INVOICE CREATION**
 
         Buyer->>BuyerApp: Buyer makes the payment
-        BuyerApp->>SellerApp: /**update** - Buyer makes the payment and sends the payment status
-        SellerApp->>BuyerApp: **/on_update** - Seller updates the Payment status + Proforma invoice is shared
+        BuyerApp->>SellerApp: /**update** - BAP updates the payment status
+        SellerApp->>BuyerApp: **/on_update** - Acknowledgment of payment confirmation
+        SellerApp->>BuyerApp: **/on_status** - BPP sends the proforma invoice
+
+
 
 
 
@@ -96,17 +99,11 @@ details:
         participant Buyer
         participant BuyerApp
         participant SellerApp
-      
-        BuyerApp-->>SellerApp: **/status** - Enquire order status or Tracking info              
-
-        SellerApp->>BuyerApp: **/on_update** - Invoice is sent
-        BuyerApp->>Buyer: Invoice is sent
-
-
+    
         note over Buyer, SellerApp: **STATUS OF SHIPMENT**
 
         Buyer->>BuyerApp: Checks order status
-        BuyerApp->>SellerApp: **/status** - Enquire Order status or Tracking info
+        BuyerApp->>SellerApp: **/status** - Enquire Order status
         SellerApp->>BuyerApp: **/on_status** - Order and fulfillment status is updated
 
 reference: if any
@@ -117,15 +114,15 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/B2B/search/search_by_item.yaml"
-  - summary: Returns item/ catalog
+  - summary: Returns product catalog
     api: on_search
-    description: Seller responds with catalog + communication channel
+    description: Seller responds with catalog + communication channel + creds of the seller app.
     reference: if any
     example:
       $ref: "../../Examples/B2B/on_search/on_search.yaml"
   - summary: Requests for Quotation
     api: select
-    description: Buyer selects an item (Variants/add-ons/offers as required) + Item customization + Delivery terms and requests for quotation
+    description: Buyer selects an item (Variants/add_ons/offers as required) + Item customization + Delivery terms and requests for quotation
     reference: if any
     example:
       $ref: "../../Examples/B2B/select/select_exports.yaml"
@@ -137,7 +134,7 @@ steps:
       $ref: "../../Examples/B2B/on_select/on_select_exports.yaml"
   - summary: Initialization of Order
     api: init
-    description: Initialization of Order - Billing Details added.
+    description: Initialization of Order - Billing and address details added.
     reference: if any
     example:
       $ref: "../../Examples/B2B/init/init_exports.yaml"
@@ -160,35 +157,30 @@ steps:
     example:
       $ref: "../../Examples/B2B/on_confirm/on_confirm_exports.yaml"
   - summary: Consumer platform requests for latest status
+  - summary: Payment is collected by buyer NP (Prepaid) and details are updated
+    api: update
+    description: Consumer platform sends the payment details
+    reference: if any
+    example:
+      $ref: "../../Examples/B2B/update/update_prepaid.yaml"        
+  - summary: Seller app acknowledges the payment confirmation
+    api: on_update
+    description: Seller app acknowledges the payment confirmation
+    reference: if any
+    example:
+      $ref: "../../Examples/B2B/on_update/on_update_prepaid_BAP.yaml"             
+  - summary: Seller sends proforma invoice.
+    api: on_status
+    description: Provider platform sends the proforma invoice to the consumer
+    reference: if any
+    example:
+      $ref: "../../Examples/B2B/on_status/on_status_proforma_prepaid_bap.yaml" 
+  - summary: Consumer platform requests for latest status
     api: status
     description: Buyer requests for Shipment status
     reference: if any
     example:
       $ref: "../../Examples/B2B/status/status.yaml"
-  - summary: Provider platform provides latest order status and sends invoice
-    api: on_status
-    description: Provider platform provides the updated order status to the consumer and sends invoice
-    reference: if any
-    example:
-      $ref: "../../Examples/B2B/on_status/on_status_proforma_invoice.yaml"
-  - summary: Payment details are updated in case BAP collects the payment
-    api: update
-    description: Payment status is sent (If collected by BAP) + requests for Invoice
-    reference: if any
-    example:
-      $ref: "../../Examples/B2B/update/update_prepaid.yaml"
-  - summary: seller updates fulfilments - Multiple fulfillments for Single PO
-    api: on_update
-    description: seller updates fulfilments - Multiple fulfillments for Single PO
-    reference: if any
-    example:
-      $ref: "../../Examples/B2B/on_update/on_update_fulfillments.yaml"
-  - summary: Provider platform provides latest order status
-    api: on_status
-    description: Provider platform provides the updated order status to the consumer once the order is picked up
-    reference: if any
-    example:
-      $ref: "../../Examples/B2B/on_status/on_status_picked_up.yaml"
   - summary: Provider platform provides latest order status
     api: on_status
     description: Provider platform provides the updated order status to the consumer once the order is out for delivery

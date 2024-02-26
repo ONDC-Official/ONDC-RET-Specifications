@@ -2627,21 +2627,23 @@ x-enum:
         payment: &ref_2
           type:
             - code: ON-FULFILLMENT
-              description: about the enum
+              description: Payment will be done on delivery.
               reference: <PR/Issue/Discussion Links md format text>
             - code: PRE-FULFILLMENT
-              description: about the enum
+              description: >-
+                Prepaid payment, i.e payment will be done during order
+                confirmation.
               reference: <PR/Issue/Discussion Links md format text>
             - code: POST-FULFILLMENT
-              description: about the enum
+              description: Payment will be done after the delivery.
               reference: <PR/Issue/Discussion Links md format text>
-      fulfillment: &ref_0
-        type:
+      fulfillment:
+        type: &ref_0
           - code: Delivery
-            description: about the enum
+            description: When buyer wants the order to be delivered
             reference: <PR/Issue/Discussion Links md format text>
           - code: Self-Pickup
-            description: about the enum
+            description: When buyer want to self-pickup the order
             reference: <PR/Issue/Discussion Links md format text>
   on_search:
     message:
@@ -2937,28 +2939,61 @@ x-enum:
               - code: RET10-105F
                 description: Other Equipment
                 reference: <PR/Issue/Discussion Links md format text>
-        fulfillments: *ref_0
+          tags:
+            serviceability:
+              type:
+                - code: 10
+                  description: Hyperlocal
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: 11
+                  description: Intercity
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: 12
+                  description: Pan-India
+                  reference: <PR/Issue/Discussion Links md format text>
+              unit:
+                - code: km
+                  description: If type is 10 - Hyperlocal
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: pincode
+                  description: If type is 11 - Intercity
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: country
+                  description: If type is 12 - Pan-India
+                  reference: <PR/Issue/Discussion Links md format text>
+        fulfillment:
+          type: *ref_0
         offers:
           descriptor:
             code:
               - code: Disc_Pct
-                description: about the enum
+                description: >-
+                  Discount percent or amount applied to the cart value, with or
+                  without a cap, and may be based on minimum cart value.
                 reference: <PR/Issue/Discussion Links md format text>
               - code: Disc_Amt
-                description: about the enum
+                description: >-
+                  Flat discount amount applied to the cart value, and may be
+                  based on minimum cart value).
                 reference: <PR/Issue/Discussion Links md format text>
               - code: BuyXGetY
-                description: about the enum
+                description: >-
+                  For every "X" item count in the cart, total of "Y" items will
+                  be offered (i.e. "Y" - "X" additional items), at 0 additional
+                  value.
                 reference: <PR/Issue/Discussion Links md format text>
               - code: Freebie
-                description: about the enum
+                description: >-
+                  for a minimum order value, 1 or more free item(s) will be
+                  offered at 0 value.
                 reference: <PR/Issue/Discussion Links md format text>
   select:
     context: *ref_1
     message:
       order:
-        payment: *ref_2
-        fulfillments: *ref_0
+        payments: *ref_2
+        fulfillments:
+          type: *ref_0
   on_select:
     context: *ref_1
     message:
@@ -2973,121 +3008,170 @@ x-enum:
               reference: <PR/Issue/Discussion Links md format text>
         quote:
           breakup:
-            '@ondc/org/title_type': &ref_3
+            '@ondc/org/title_type': &ref_4
               - code: item
-                description: price of the item
+                description: >-
+                  product cost, item price should be either inclusive or
+                  exclusive of taxes
                 reference: <PR/Issue/Discussion Links md format text>
               - code: discount
-                description: discount charges
+                description: discount applied (item level)
                 reference: <PR/Issue/Discussion Links md format text>
               - code: packing
-                description: packing charges
+                description: packing charges (fulfillment level)
                 reference: <PR/Issue/Discussion Links md format text>
               - code: tax
-                description: tax applied
+                description: >-
+                  tax applied (item or fulfillment level), tax on fulfillment
+                  level charges, to be included only if not 0 (i.e. logistics
+                  buyer NP provides tax inclusive fulfillment level charges);
                 reference: <PR/Issue/Discussion Links md format text>
               - code: delivery
-                description: delivery charges on fulfillment
+                description: >-
+                  shipping charges (fulfillment level), delivery charge to be
+                  included only if fulfillment state code is "Serviceable";
                 reference: <PR/Issue/Discussion Links md format text>
               - code: misc
-                description: convenience charges
+                description: convenience charges (fulfillment level)
                 reference: <PR/Issue/Discussion Links md format text>
               - code: refund
-                description: convenience charges
+                description: refund in case of cancellation
                 reference: <PR/Issue/Discussion Links md format text>
   init:
     context: *ref_1
     message:
       order:
-        payment: *ref_2
-        fulfillments: *ref_0
+        payments: *ref_2
+        fulfillments: &ref_3
+          type: *ref_0
+          tags:
+            delivery_terms:
+              incoterms:
+                - code: CIF
+                  description: >-
+                    CIF (Cost, Insurance, and Freight) indicates that the seller
+                    has the responsibility to deliver the goods to the named
+                    port of destination, covering the cost of transportation,
+                    insurance, and freight charges.
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: EXW
+                  description: >-
+                    EXW (Ex Works) represents the point at which the seller's
+                    responsibility for the goods ends and the buyer's
+                    responsibility begins in an international transaction.
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: FOB
+                  description: >-
+                    FOB (Free On Board) terms define the point at which the
+                    seller fulfills their obligation to deliver the goods, and
+                    the buyer takes on the responsibility and costs associated
+                    with transporting the goods from the named port of shipment
+                    to the final destination
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: DAP
+                  description: >-
+                    under DAP (Delivered at Place) terms, the seller takes on
+                    the responsibility and costs of delivering the goods to a
+                    named place at the buyer's destination.
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: DDP
+                  description: >-
+                    Under DDP (Delivered Duty Paid) terms, the seller assumes a
+                    high level of responsibility and covers all costs associated
+                    with delivering the goods to the buyer's destination. The
+                    buyer, on the other hand, is responsible for unloading the
+                    goods and any subsequent transportation from the named place
+                    to their final destination.
+                  reference: <PR/Issue/Discussion Links md format text>
   on_init:
     context: *ref_1
     message:
       order:
-        payment: *ref_2
-        fulfillments: *ref_0
+        payments: *ref_2
+        fulfillments: *ref_3
         quote:
           breakup: null
-          '@ondc/org/title_type': *ref_3
+          '@ondc/org/title_type': *ref_4
   confirm:
     context: *ref_1
     message:
       order:
-        payment: *ref_2
-        fulfillments: *ref_0
-        state: &ref_4
+        payments: *ref_2
+        fulfillments: *ref_3
+        state: &ref_5
           - code: Created
-            description: about the enum
+            description: The order has been created by the buyer app.
             reference: <PR/Issue/Discussion Links md format text>
           - code: Accepted
-            description: about the enum
+            description: The order has been accepted by the seller app.
             reference: <PR/Issue/Discussion Links md format text>
           - code: In-progress
-            description: about the enum
+            description: The order is in progress.
             reference: <PR/Issue/Discussion Links md format text>
           - code: Completed
-            description: about the enum
+            description: The order has been delivered to the buyer.
             reference: <PR/Issue/Discussion Links md format text>
           - code: Cancelled
-            description: about the enum
+            description: The order has been cancelled.
             reference: <PR/Issue/Discussion Links md format text>
   on_confirm:
     context: *ref_1
     message:
       order:
-        payment: *ref_2
-        fulfillments: *ref_0
-        state: *ref_4
+        payments: *ref_2
+        fulfillments:
+          type: *ref_0
+          state: &ref_6
+            descriptor:
+              - code: Agent-assigned
+                description: >-
+                  The fulfillment state when the agent has been assigned for the
+                  order.
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: Packed
+                description: The fulfillment has been packed.
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: Out-for-delivery
+                description: The agent is out for delivery.
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: Order-picked-up
+                description: The fulfillment has been picked up.
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: Searching-for-agent
+                description: >-
+                  Logistics Service Provider is searching for an agent to be
+                  assigned.
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: Pending
+                description: The initial state of the fulfillment.
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: Order-delivered
+                description: The  fulfillment has been successfully delivered.
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: Cancelled
+                description: The fulfillment has been cancelled.
+                reference: <PR/Issue/Discussion Links md format text>
+        state: *ref_5
   status:
     context: *ref_1
   on_status:
     context: *ref_1
     message:
       order:
-        payment: *ref_2
-        state: *ref_4
+        payments: *ref_2
+        state: *ref_5
         fulfillments:
-          state: &ref_5
-            descriptor:
-              - code: Agent-assigned
-                description: about the enum
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: Packed
-                description: about the enum
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: Out-for-delivery
-                description: about the enum
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: Order-picked-up
-                description: about the enum
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: Searching-for-agent
-                description: about the enum
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: Pending
-                description: about the enum
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: Order-delivered
-                description: about the enum
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: Cancelled
-                description: about the enum
-                reference: <PR/Issue/Discussion Links md format text>
+          state: *ref_6
   cancel:
     context: *ref_1
   on_cancel:
     context: *ref_1
     message:
       order:
-        payment: *ref_2
-        state: *ref_4
+        payments: *ref_2
+        state: *ref_5
         fulfillments:
-          state: *ref_5
-  track:
-    context: *ref_1
-  on_track:
-    context: *ref_1
+          state: *ref_6
 x-tags:
   search:
     message:
@@ -3118,7 +3202,7 @@ x-tags:
             description: Buyer identification information like GST, etc.
             reference: <PR/Issue/Discussion Links md format text>
             required: required
-            list: &ref_6
+            list: &ref_7
               - code: BUYER_ID_CODE
                 description: The type of Buyer ID, such as GST, etc.
                 reference: <PR/Issue/Discussion Links md format text>
@@ -3396,7 +3480,7 @@ x-tags:
                 - code: SELLER_ID_NO
                   description: The actual Seller ID number.
                   reference: <PR/Issue/Discussion Links md format text>
-  select: &ref_7
+  select: &ref_8
     message:
       order:
         '0':
@@ -3404,7 +3488,7 @@ x-tags:
           description: Buyer identification information.
           reference: <PR/Issue/Discussion Links md format text>
           required: required
-          list: *ref_6
+          list: *ref_7
         '1':
           code: COMM_CHANNEL
           description: >-
@@ -3435,7 +3519,7 @@ x-tags:
                     Any specific requirements related to the fulfillment or
                     packaging of the item.
                   reference: <PR/Issue/Discussion Links md format text>
-        fulfillments: &ref_8
+        fulfillments: &ref_9
           tags:
             - code: ITEM_DETAILS
               description: Details of the item for multiple fulfillments
@@ -3506,8 +3590,8 @@ x-tags:
                 - code: NAMED_PLACE_OF_DELIVERY
                   description: Place of delivery based on the incoterm used.
                   reference: <PR/Issue/Discussion Links md format text>
-  on_select: *ref_7
-  init: *ref_7
+  on_select: *ref_8
+  init: *ref_8
   on_init:
     message:
       order:
@@ -3547,8 +3631,8 @@ x-tags:
                   Network Participant, calculated pro rata for each calendar day
                   of delay.
                 reference: <PR/Issue/Discussion Links md format text>
-        fulfillments: *ref_8
-        payments: &ref_9
+        fulfillments: *ref_9
+        payments: &ref_10
           - code: BPP_PAYMENT
             description: >-
               Payment information sent by the seller app in case BPP is
@@ -3573,7 +3657,7 @@ x-tags:
                   automatically cancel the payment and refund the source if
                   payment is debited from the source.
                 reference: <PR/Issue/Discussion Links md format text>
-  confirm: &ref_10
+  confirm: &ref_11
     message:
       order:
         tags:
@@ -3585,12 +3669,12 @@ x-tags:
               - code: ACCEPT_BPP_TERMS
                 description: The acceptance of seller terms by the buyer app
                 reference: <PR/Issue/Discussion Links md format text>
-        fulfillments: *ref_8
-        payments: *ref_9
-  on_confirm: *ref_10
-  on_status: *ref_7
-  on_cancel: *ref_7
-  on_update: *ref_7
+        fulfillments: *ref_9
+        payments: *ref_10
+  on_confirm: *ref_11
+  on_status: *ref_8
+  on_cancel: *ref_8
+  on_update: *ref_8
 x-flows:
   - summary: B2B Domestic
     description: >-
@@ -3614,8 +3698,8 @@ x-flows:
             Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on city and domain in context
             Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on city and domain in context
 
-            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City 
-            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City 
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + Communication channel) <br/> Servicability based on Country, City 
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City 
             BuyerApp->>Buyer: Renders the search response
             
             note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
@@ -3697,7 +3781,7 @@ x-flows:
         api: search
         description: Search intent sent by the buyer based on the category
         reference: if any
-        example: &ref_34
+        example: &ref_37
           summary: Search by Category
           description: Search By Category
           value:
@@ -3756,11 +3840,11 @@ x-flows:
                       - descriptor:
                           code: buyer_id_no
                         value: xxxxxxxxxxxxxxx
-      - summary: Returns item/ catalog
+      - summary: Returns product catalog
         api: on_search
         description: Catalog provided by the Seller App
         reference: if any
-        example: &ref_35
+        example: &ref_38
           summary: Return the catalog for grocery
           description: Return the catalog for grocery products
           value:
@@ -4121,7 +4205,7 @@ x-flows:
           Buyer requests for quotation for the selected item with all the
           customizations and the quantity of items required
         reference: if any
-        example: &ref_16
+        example: &ref_15
           summary: Get quote for specific item (RFQ)
           description: >-
             RFQ - Get quote for selected items with Buyer and Delivery terms
@@ -4204,7 +4288,7 @@ x-flows:
         api: on_select
         description: Seller provides the quotation and breakup with logistics charges
         reference: if any
-        example: &ref_20
+        example: &ref_21
           summary: Send quote and breakup - Response to RFQ (Domestic)
           description: Send quote and breakup for items selected in RFQ
           value:
@@ -4314,7 +4398,7 @@ x-flows:
         api: init
         description: Initialization of Order - Billing Details added.
         reference: if any
-        example: &ref_21
+        example: &ref_22
           summary: Intializing the order (Domestic)
           description: Intializing the order
           value:
@@ -4406,7 +4490,7 @@ x-flows:
         api: on_init
         description: Initialization of Order with final quote
         reference: if any
-        example: &ref_22
+        example: &ref_23
           summary: Acknowledges the initialization (Domestic - RFQ)
           description: Acknowledges the initialization
           value:
@@ -4589,7 +4673,7 @@ x-flows:
           Buyer receives the quotation and once agreed to go ahead with the
           quotation received, creates a PO and sends the PO
         reference: if any
-        example: &ref_23
+        example: &ref_24
           summary: Raise PO (Domestic - RFQ)
           description: PO raised by buyer based on the RFQ response received.
           value:
@@ -4783,7 +4867,7 @@ x-flows:
           Seller app sends an on_confirm call to the buyer app relaying the PO
           acceptance.
         reference: if any
-        example: &ref_24
+        example: &ref_25
           summary: Accept PO (Prepaid BPP - RFQ)
           description: PO acceptance by Seller
           value:
@@ -5011,7 +5095,7 @@ x-flows:
           Provider platform updates payment status and send proforma invoice in
           case of RFQ
         reference: if any
-        example: &ref_12
+        example: &ref_26
           summary: Seller updates the order status (Proforma Invoice)
           description: Seller updates the order status and shares Invoice
           value:
@@ -5190,7 +5274,7 @@ x-flows:
         api: status
         description: Buyer requests for Shipment status
         reference: if any
-        example: &ref_11
+        example: &ref_12
           summary: Buyer asks for order status
           description: Buyer asks for order status
           value:
@@ -5219,7 +5303,7 @@ x-flows:
           Provider platform provides the updated order status to the consumer
           once the order is picked up
         reference: if any
-        example: &ref_13
+        example: &ref_27
           summary: Seller updates the order status (Order-picked-up)
           description: Seller updates the order status and shares Invoice
           value:
@@ -5423,8 +5507,8 @@ x-flows:
             Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on Country and domain in Context
             Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on Country and domain in Context
 
-            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
-            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> creds, add_ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> creds, add_ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
             BuyerApp->>Buyer: Renders the search response
             
             note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
@@ -5440,7 +5524,7 @@ x-flows:
             note over Buyer, SellerApp: **RFQ (Request For Quotation) FLOW**
 
             Buyer->>BuyerApp: Buyer requests for Quotation
-            BuyerApp->>SellerApp: **/select** - An item/s + add_ons + variants + offers is selected and <br/> RFQ is raised with a TTL to receive the response
+            BuyerApp->>SellerApp: **/select** - An item/s + add_ons + variants + offers is selected <br/>  + delivery terms such as incoterms are communicated and <br/> RFQ is raised with a TTL to receive the response
 
             note right of SellerApp: Logistics quotation + TAT received (Optional)
 
@@ -5457,7 +5541,7 @@ x-flows:
             note over Buyer, SellerApp: **ORDER INITIALIZATION**
 
             Buyer->>BuyerApp: 
-            BuyerApp->>SellerApp: **/init** - Initializing the order
+            BuyerApp->>SellerApp: **/init** - Initializing the order by providing billing and address details.
             note right of SellerApp: Logistics order initialization with billing details
             SellerApp->>BuyerApp: **/on_init** - Order initialization
       - description: PURCHASE ORDER
@@ -5472,7 +5556,7 @@ x-flows:
 
             Buyer->>BuyerApp: Creates PO
             BuyerApp->>SellerApp: **/confirm** - Create PO to create final digital contract
-            SellerApp->>BuyerApp: **/on_confirm** - Accept PO + payment url (if payment.collected_by is BPP) + <br/> Proforma invoice is shared (if payment.type is ON-FULFILLMENT)
+            SellerApp->>BuyerApp: **/on_confirm** - Accept PO + payment url (if payment.collected_by is BPP) 
       - description: PAYMENT AND INVOICE CREATION
         mermaidGraph: |-
           sequenceDiagram
@@ -5484,8 +5568,9 @@ x-flows:
             note over Buyer, SellerApp: **PAYMENT AND INVOICE CREATION**
 
             Buyer->>BuyerApp: Buyer makes the payment
-            BuyerApp->>SellerApp: /**update** - Buyer makes the payment and sends the payment status
-            SellerApp->>BuyerApp: **/on_update** - Seller updates the Payment status + Proforma invoice is shared
+            BuyerApp->>SellerApp: /**update** - BAP updates the payment status
+            SellerApp->>BuyerApp: **/on_update** - Acknowledgment of payment confirmation
+            SellerApp->>BuyerApp: **/on_status** - BPP sends the proforma invoice
       - description: ORDER STATUS
         mermaidGraph: |-
           sequenceDiagram
@@ -5494,16 +5579,10 @@ x-flows:
             participant BuyerApp
             participant SellerApp
 
-            BuyerApp-->>SellerApp: **/status** - Enquire order status or Tracking info              
-
-            SellerApp->>BuyerApp: **/on_update** - Invoice is sent
-            BuyerApp->>Buyer: Invoice is sent
-
-
             note over Buyer, SellerApp: **STATUS OF SHIPMENT**
 
             Buyer->>BuyerApp: Checks order status
-            BuyerApp->>SellerApp: **/status** - Enquire Order status or Tracking info
+            BuyerApp->>SellerApp: **/status** - Enquire Order status
             SellerApp->>BuyerApp: **/on_status** - Order and fulfillment status is updated
     reference: if any
     steps:
@@ -5511,7 +5590,7 @@ x-flows:
         api: search
         description: Buyer outside India searches for a product
         reference: if any
-        example: &ref_14
+        example: &ref_13
           summary: Search by Item
           description: Search By Item
           value:
@@ -5571,11 +5650,13 @@ x-flows:
                       - descriptor:
                           code: buyer_id_no
                         value: xxxxxxxxxxxxxxx
-      - summary: Returns item/ catalog
+      - summary: Returns product catalog
         api: on_search
-        description: Seller responds with catalog + communication channel
+        description: >-
+          Seller responds with catalog + communication channel + creds of the
+          seller app.
         reference: if any
-        example: &ref_15
+        example: &ref_14
           summary: Return the catalog
           description: Return the catalog
           value:
@@ -5909,7 +5990,7 @@ x-flows:
       - summary: Requests for Quotation
         api: select
         description: >-
-          Buyer selects an item (Variants/add-ons/offers as required) + Item
+          Buyer selects an item (Variants/add_ons/offers as required) + Item
           customization + Delivery terms and requests for quotation
         reference: if any
         example:
@@ -6129,7 +6210,7 @@ x-flows:
                     collected_by: BPP
       - summary: Initialization of Order
         api: init
-        description: Initialization of Order - Billing Details added.
+        description: Initialization of Order - Billing and address details added.
         reference: if any
         example:
           summary: Intializing the order (Exports - RFQ)
@@ -6857,22 +6938,11 @@ x-flows:
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T09:31:30.000Z'
       - summary: Consumer platform requests for latest status
-        api: status
-        description: Buyer requests for Shipment status
-        reference: if any
-        example: *ref_11
-      - summary: Provider platform provides latest order status and sends invoice
-        api: on_status
-        description: >-
-          Provider platform provides the updated order status to the consumer
-          and sends invoice
-        reference: if any
-        example: *ref_12
-      - summary: Payment details are updated in case BAP collects the payment
+      - summary: Payment is collected by buyer NP (Prepaid) and details are updated
         api: update
-        description: Payment status is sent (If collected by BAP) + requests for Invoice
+        description: Consumer platform sends the payment details
         reference: if any
-        example: &ref_17
+        example: &ref_16
           summary: Buyer updates payment status
           description: Buyer updates payment status (CollectedBy BAP)
           value:
@@ -6930,13 +7000,13 @@ x-flows:
                         beneficiary_name: xxxxx
                         bank_name: xxxx
                         branch_name: xxxx
-      - summary: seller updates fulfilments - Multiple fulfillments for Single PO
+      - summary: Seller app acknowledges the payment confirmation
         api: on_update
-        description: seller updates fulfilments - Multiple fulfillments for Single PO
+        description: Seller app acknowledges the payment confirmation
         reference: if any
-        example: &ref_36
-          summary: Single PO - Multiple Fulfillment
-          description: Single PO - Multiple Fulfillment
+        example: &ref_17
+          summary: Seller app acknowledges (Collected by BAP)
+          description: Seller app acknowledges (Collected by BAP)
           value:
             context:
               domain: ONDC:RET10
@@ -6966,9 +7036,6 @@ x-flows:
                     quantity:
                       selected:
                         count: 200
-                    fulfillment_ids:
-                      - F1
-                      - F2
                 payments:
                   - uri: https://ondc.transaction.com/payment
                     tl_method: http/get
@@ -6978,12 +7045,15 @@ x-flows:
                       amount: '53600'
                     status: PAID
                     type: PRE-FULFILLMENT
-                    collected_by: BPP
+                    collected_by: BAP
                     '@ondc/org/buyer_app_finder_fee_type': percent
                     '@ondc/org/buyer_app_finder_fee_amount': '0'
+                    '@ondc/org/settlement_basis': delivery
+                    '@ondc/org/settlement_window': P1D
+                    '@ondc/org/withholding_amount': '10.00'
                     '@ondc/org/settlement_details':
-                      - settlement_counterparty: buyer-app
-                        settlement_phase: sale-amount
+                      - settlement_counterparty: seller-app
+                        settlement_phase: finder-fee
                         settlement_type: upi
                         upi_address: gft@oksbi
                         settlement_bank_account_no: XXXXXXXXXX
@@ -6991,34 +7061,88 @@ x-flows:
                         beneficiary_name: xxxxx
                         bank_name: xxxx
                         branch_name: xxxx
+      - summary: Seller sends proforma invoice.
+        api: on_status
+        description: Provider platform sends the proforma invoice to the consumer
+        reference: if any
+        example: &ref_18
+          summary: Seller updates the order status (Proforma Invoice - Prepaid BAP)
+          description: Seller updates the order status and shares Invoice
+          value:
+            context:
+              domain: ONDC:RET10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_status
+              version: 2.0.2
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/grocery
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/grocery
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 2052ef5e-2ec7-4c21-96f7-dec4b2309010
+              timestamp: '2023-01-08T22:00:30.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O1
+                state: Accepted
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 200
+                billing:
+                  name: ONDC buyer
+                  address: B005 aaspire heights, Jurong East, SGP, 680230
+                  state:
+                    name: Jurong East
+                  city:
+                    name: Jurong East
+                  email: nobody@nomail.com
+                  phone: '9886098860'
                 fulfillments:
                   - id: F1
                     '@ondc/org/provider_name': Loadshare
+                    type: Delivery
+                    tracking: false
                     state:
                       descriptor:
                         code: Pending
-                    type: Delivery
-                    tracking: false
                     stops:
                       - type: start
                         location:
                           id: L1
                           descriptor:
                             name: ABC Store
+                            images:
+                              - https://gf-integration/images/5.png
                           gps: 12.956399,77.636803
                         time:
                           range:
                             start: '2023-02-03T10:00:00.000Z'
                             end: '2023-02-03T10:30:00.000Z'
                         instructions:
-                          name: Status for pickup
-                          short_desc: Pickup Confirmation Code
+                          name: Proof of pickup
+                          short_desc: Proof of pickup details
+                          long_desc: Proof of pickup details
+                          images:
+                            - https://image1_url.png
                         contact:
                           phone: '9886098860'
                           email: nobody@nomail.com
                       - type: end
                         location:
-                          gps: 1.380621746811, 103.7463643843
+                          gps: 1.3806217468119772, 103.74636438437074
                           address: 'My House #, My buildin'
                           city:
                             name: Jurong East
@@ -7029,105 +7153,105 @@ x-flows:
                             name: ''
                         time:
                           range:
-                            start: '2023-02-07T11:00:00.000Z'
-                            end: '2023-02-07T11:30:00.000Z'
+                            start: '2023-02-03T11:00:00.000Z'
+                            end: '2023-02-03T11:30:00.000Z'
                         instructions:
-                          name: Status for drop
-                          short_desc: Delivery Confirmation Code
+                          name: Proof of delivery
+                          short_desc: Proof of delivery details
+                          long_desc: Proof of delivery details
+                          images:
+                            - https://image1_url.png
                         contact:
                           phone: '9886098860'
-                    rateable: true
-                    tags:
-                      - descriptor:
-                          code: ITEM_DETAILS
-                        list:
-                          - descriptor:
-                              code: ITEM_ID
-                            value: I1
-                          - descriptor:
-                              code: COUNT
-                            value: '100'
-                          - descriptor:
-                              code: MEASURE_UNIT
-                            value: millilitre
-                          - descriptor:
-                              code: MEASURE_VALUE
-                            value: '500'
-                  - id: F2
-                    '@ondc/org/provider_name': Loadshare
-                    state:
-                      descriptor:
-                        code: Pending
-                    type: Delivery
-                    tracking: false
-                    stops:
-                      - type: start
-                        location:
-                          id: L1
-                          descriptor:
-                            name: ABC Store
-                          gps: 12.956399,77.636803
-                        time:
-                          range:
-                            start: '2023-02-03T10:00:00.000Z'
-                            end: '2023-02-03T10:30:00.000Z'
-                        instructions:
-                          name: Status for pickup
-                          short_desc: Pickup Confirmation Code
-                        contact:
-                          phone: '9886098860'
-                          email: nobody@nomail.com
-                      - type: end
-                        location:
-                          gps: 1.380621746811, 103.7463643843
-                          address: 'My House #, My buildin'
-                          city:
-                            name: Jurong East
-                          country:
-                            code: SGP
-                          area_code: '680230'
-                          state:
-                            name: ''
-                        time:
-                          range:
-                            start: '2023-02-07T11:00:00.000Z'
-                            end: '2023-02-07T11:30:00.000Z'
-                        instructions:
-                          name: Status for drop
-                          short_desc: Delivery Confirmation Code
-                        contact:
-                          phone: '9886098860'
-                    rateable: true
-                    tags:
-                      - descriptor:
-                          code: ITEM_DETAILS
-                        list:
-                          - descriptor:
-                              code: ITEM_ID
-                            value: I1
-                          - descriptor:
-                              code: COUNT
-                            value: '100'
-                          - descriptor:
-                              code: MEASURE_UNIT
-                            value: millilitre
-                          - descriptor:
-                              code: MEASURE_VALUE
-                            value: '500'
-      - summary: Provider platform provides latest order status
-        api: on_status
-        description: >-
-          Provider platform provides the updated order status to the consumer
-          once the order is picked up
+                quote:
+                  price:
+                    currency: INR
+                    value: '53600'
+                  breakup:
+                    - '@ondc/org/item_id': I1
+                      '@ondc/org/item_quantity':
+                        count: 200
+                      title: Dhara Mustard Oil
+                      '@ondc/org/title_type': item
+                      price:
+                        currency: INR
+                        value: '50000'
+                      item:
+                        price:
+                          currency: INR
+                          value: '250'
+                    - '@ondc/org/item_id': F1
+                      title: Delivery charges
+                      '@ondc/org/title_type': delivery
+                      price:
+                        currency: INR
+                        value: '4000'
+                    - '@ondc/org/item_id': F1
+                      title: Packing charges
+                      '@ondc/org/title_type': packing
+                      price:
+                        currency: INR
+                        value: '500'
+                    - '@ondc/org/item_id': I1
+                      title: Tax
+                      '@ondc/org/title_type': tax
+                      price:
+                        currency: INR
+                        value: '0'
+                    - '@ondc/org/item_id': I1
+                      title: Discount
+                      '@ondc/org/title_type': discount
+                      price:
+                        currency: INR
+                        value: '-1000'
+                    - '@ondc/org/item_id': F1
+                      title: Convenience Fee
+                      '@ondc/org/title_type': misc
+                      price:
+                        currency: INR
+                        value: '100'
+                  ttl: P1D
+                payments:
+                  - params:
+                      currency: INR
+                      transaction_id: '3937'
+                      amount: '53600'
+                    status: PAID
+                    type: PRE-FULFILLMENT
+                    collected_by: BAP
+                    '@ondc/org/buyer_app_finder_fee_type': percent
+                    '@ondc/org/buyer_app_finder_fee_amount': '3.0'
+                    '@ondc/org/settlement_basis': delivery
+                    '@ondc/org/settlement_window': P1D
+                    '@ondc/org/withholding_amount': '10.00'
+                    '@ondc/org/settlement_details':
+                      - settlement_counterparty: buyer-app
+                        settlement_phase: sale-amount
+                        beneficiary_name: xxxxx
+                        settlement_reference: XXXX
+                        settlement_type: upi
+                        upi_address: gft@oksbi
+                        settlement_bank_account_no: XXXXXXXXXX
+                        settlement_ifsc_code: XXXXXXXXX
+                        bank_name: xxxx
+                        branch_name: xxxx
+                documents:
+                  - url: https://invoice_url
+                    label: PROFORMA_INVOICE
+                created_at: '2023-02-03T09:30:00.000Z'
+                updated_at: '2023-02-03T10:00:00.201Z'
+      - summary: Consumer platform requests for latest status
+        api: status
+        description: Buyer requests for Shipment status
         reference: if any
-        example: *ref_13
+        example: *ref_12
       - summary: Provider platform provides latest order status
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           once the order is out for delivery
         reference: if any
-        example: &ref_18
+        example: &ref_19
           summary: Seller updates the order status (Out-for-delivery)
           description: Seller updates the order status and shares Invoice
           value:
@@ -7315,7 +7439,7 @@ x-flows:
           Provider platform provides the updated order status to the consumer
           after the order is delivered
         reference: if any
-        example: &ref_19
+        example: &ref_20
           summary: Seller updates the order status (Order-delivered)
           description: Seller updates the order status and shares Invoice
           value:
@@ -7524,8 +7648,8 @@ x-flows:
             Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on Country and domain in Context
             Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on Country and domain in Context
 
-            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
-            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
             BuyerApp->>Buyer: Renders the search response
             
             note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
@@ -7607,19 +7731,19 @@ x-flows:
         api: search
         description: Buyer searches for an item
         reference: if any
-        example: *ref_14
+        example: *ref_13
       - summary: Seller returns item/ catalog with communication channel
         api: on_search
         description: Seller responds back with the catalog
         reference: if any
-        example: *ref_15
+        example: *ref_14
       - summary: Raise an RFQ
         api: select
         description: >-
           Buyer requests for quotation for the selected item with all the
           customizations and the quantity of items required
         reference: if any
-        example: *ref_16
+        example: *ref_15
       - summary: Returns item breakup/ Quote
         api: on_select
         description: Seller provides the quotation and breakup with logistics charges
@@ -8399,266 +8523,36 @@ x-flows:
         api: update
         description: Consumer platform sends the payment details
         reference: if any
-        example: *ref_17
+        example: *ref_16
       - summary: Seller app acknowledges the payment confirmation
         api: on_update
         description: Seller app acknowledges the payment confirmation
         reference: if any
-        example:
-          summary: Seller app acknowledges (Collected by BAP)
-          description: Seller app acknowledges (Collected by BAP)
-          value:
-            context:
-              domain: ONDC:RET10
-              location:
-                city:
-                  code: std:080
-                country:
-                  code: IND
-              action: on_update
-              version: 2.0.2
-              bap_id: buyerapp.com
-              bap_uri: https://buyerapp.com/grocery
-              bpp_id: sellerapp.com
-              bpp_uri: https://sellerapp.com/grocery
-              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
-              message_id: 21d9d8b4-723b-44b4-a205-16626cbbfe4f
-              timestamp: '2023-01-08T22:00:30.000Z'
-              ttl: PT30S
-            message:
-              order:
-                id: O1
-                state: Accepted
-                provider:
-                  id: P1
-                items:
-                  - id: I1
-                    quantity:
-                      selected:
-                        count: 200
-                payments:
-                  - uri: https://ondc.transaction.com/payment
-                    tl_method: http/get
-                    params:
-                      currency: INR
-                      transaction_id: '3937'
-                      amount: '53600'
-                    status: PAID
-                    type: PRE-FULFILLMENT
-                    collected_by: BAP
-                    '@ondc/org/buyer_app_finder_fee_type': percent
-                    '@ondc/org/buyer_app_finder_fee_amount': '0'
-                    '@ondc/org/settlement_basis': delivery
-                    '@ondc/org/settlement_window': P1D
-                    '@ondc/org/withholding_amount': '10.00'
-                    '@ondc/org/settlement_details':
-                      - settlement_counterparty: seller-app
-                        settlement_phase: finder-fee
-                        settlement_type: upi
-                        upi_address: gft@oksbi
-                        settlement_bank_account_no: XXXXXXXXXX
-                        settlement_ifsc_code: XXXXXXXXX
-                        beneficiary_name: xxxxx
-                        bank_name: xxxx
-                        branch_name: xxxx
+        example: *ref_17
       - summary: Seller sends proforma invoice.
         api: on_status
         description: Provider platform sends the proforma invoice to the consumer
         reference: if any
-        example:
-          summary: Seller updates the order status (Proforma Invoice - Prepaid BAP)
-          description: Seller updates the order status and shares Invoice
-          value:
-            context:
-              domain: ONDC:RET10
-              location:
-                city:
-                  code: std:080
-                country:
-                  code: IND
-              action: on_status
-              version: 2.0.2
-              bap_id: buyerapp.com
-              bap_uri: https://buyerapp.com/grocery
-              bpp_id: sellerapp.com
-              bpp_uri: https://sellerapp.com/grocery
-              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
-              message_id: 2052ef5e-2ec7-4c21-96f7-dec4b2309010
-              timestamp: '2023-01-08T22:00:30.000Z'
-              ttl: PT30S
-            message:
-              order:
-                id: O1
-                state: Accepted
-                provider:
-                  id: P1
-                  locations:
-                    - id: L1
-                items:
-                  - id: I1
-                    fulfillment_ids:
-                      - F1
-                    quantity:
-                      selected:
-                        count: 200
-                billing:
-                  name: ONDC buyer
-                  address: B005 aaspire heights, Jurong East, SGP, 680230
-                  state:
-                    name: Jurong East
-                  city:
-                    name: Jurong East
-                  email: nobody@nomail.com
-                  phone: '9886098860'
-                fulfillments:
-                  - id: F1
-                    '@ondc/org/provider_name': Loadshare
-                    type: Delivery
-                    tracking: false
-                    state:
-                      descriptor:
-                        code: Pending
-                    stops:
-                      - type: start
-                        location:
-                          id: L1
-                          descriptor:
-                            name: ABC Store
-                            images:
-                              - https://gf-integration/images/5.png
-                          gps: 12.956399,77.636803
-                        time:
-                          range:
-                            start: '2023-02-03T10:00:00.000Z'
-                            end: '2023-02-03T10:30:00.000Z'
-                        instructions:
-                          name: Proof of pickup
-                          short_desc: Proof of pickup details
-                          long_desc: Proof of pickup details
-                          images:
-                            - https://image1_url.png
-                        contact:
-                          phone: '9886098860'
-                          email: nobody@nomail.com
-                      - type: end
-                        location:
-                          gps: 1.3806217468119772, 103.74636438437074
-                          address: 'My House #, My buildin'
-                          city:
-                            name: Jurong East
-                          country:
-                            code: SGP
-                          area_code: '680230'
-                          state:
-                            name: ''
-                        time:
-                          range:
-                            start: '2023-02-03T11:00:00.000Z'
-                            end: '2023-02-03T11:30:00.000Z'
-                        instructions:
-                          name: Proof of delivery
-                          short_desc: Proof of delivery details
-                          long_desc: Proof of delivery details
-                          images:
-                            - https://image1_url.png
-                        contact:
-                          phone: '9886098860'
-                quote:
-                  price:
-                    currency: INR
-                    value: '53600'
-                  breakup:
-                    - '@ondc/org/item_id': I1
-                      '@ondc/org/item_quantity':
-                        count: 200
-                      title: Dhara Mustard Oil
-                      '@ondc/org/title_type': item
-                      price:
-                        currency: INR
-                        value: '50000'
-                      item:
-                        price:
-                          currency: INR
-                          value: '250'
-                    - '@ondc/org/item_id': F1
-                      title: Delivery charges
-                      '@ondc/org/title_type': delivery
-                      price:
-                        currency: INR
-                        value: '4000'
-                    - '@ondc/org/item_id': F1
-                      title: Packing charges
-                      '@ondc/org/title_type': packing
-                      price:
-                        currency: INR
-                        value: '500'
-                    - '@ondc/org/item_id': I1
-                      title: Tax
-                      '@ondc/org/title_type': tax
-                      price:
-                        currency: INR
-                        value: '0'
-                    - '@ondc/org/item_id': I1
-                      title: Discount
-                      '@ondc/org/title_type': discount
-                      price:
-                        currency: INR
-                        value: '-1000'
-                    - '@ondc/org/item_id': F1
-                      title: Convenience Fee
-                      '@ondc/org/title_type': misc
-                      price:
-                        currency: INR
-                        value: '100'
-                  ttl: P1D
-                payments:
-                  - params:
-                      currency: INR
-                      transaction_id: '3937'
-                      amount: '53600'
-                    status: PAID
-                    type: PRE-FULFILLMENT
-                    collected_by: BAP
-                    '@ondc/org/buyer_app_finder_fee_type': percent
-                    '@ondc/org/buyer_app_finder_fee_amount': '3.0'
-                    '@ondc/org/settlement_basis': delivery
-                    '@ondc/org/settlement_window': P1D
-                    '@ondc/org/withholding_amount': '10.00'
-                    '@ondc/org/settlement_details':
-                      - settlement_counterparty: buyer-app
-                        settlement_phase: sale-amount
-                        beneficiary_name: xxxxx
-                        settlement_reference: XXXX
-                        settlement_type: upi
-                        upi_address: gft@oksbi
-                        settlement_bank_account_no: XXXXXXXXXX
-                        settlement_ifsc_code: XXXXXXXXX
-                        bank_name: xxxx
-                        branch_name: xxxx
-                documents:
-                  - url: https://invoice_url
-                    label: PROFORMA_INVOICE
-                created_at: '2023-02-03T09:30:00.000Z'
-                updated_at: '2023-02-03T10:00:00.201Z'
+        example: *ref_18
       - summary: Consumer platform requests for latest status
         api: status
         description: Buyer requests for Shipment status
         reference: if any
-        example: *ref_11
+        example: *ref_12
       - summary: Provider platform updates the latest status - Out for Delivery
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           once the order is out for delivery
         reference: if any
-        example: *ref_18
+        example: *ref_19
       - summary: Provider platform updates the latest status - Delivered
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           once the order is delivered
         reference: if any
-        example: *ref_19
+        example: *ref_20
   - summary: B2B Prepaid (Payment collected by BAP - Non RFQ Flow)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -8682,8 +8576,8 @@ x-flows:
             Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on Country and domain in Context
             Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on Country and domain in Context
 
-            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers <br/> Servicability based on Country, City and HScode permits
-            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers <br/>  Servicability based on Country, City and HScode permits
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers <br/>  Servicability based on Country, City and HScode permits
             BuyerApp->>Buyer: Renders the search response
             
       - description: SELECTION OF ITEMS AND PRICE NEGOTIATION
@@ -8746,19 +8640,19 @@ x-flows:
         api: search
         description: Buyer searches for an item
         reference: if any
-        example: *ref_14
+        example: *ref_13
       - summary: Seller returns item/ catalog with communication channel
         api: on_search
         description: Seller responds back with the catalog
         reference: if any
-        example: *ref_15
+        example: *ref_14
       - summary: Raise an RFQ
         api: select
         description: >-
           Buyer requests for quotation for the selected item with all the
           customizations and the quantity of items required
         reference: if any
-        example: &ref_26
+        example: &ref_29
           summary: Get quote for specific item (Non RFQ)
           description: RFQ - Get quote for selected items with Buyer and Delivery terms
           value:
@@ -8862,7 +8756,7 @@ x-flows:
                     quantity:
                       selected:
                         count: 200
-                    add-ons:
+                    add_ons:
                       - id: '78787723'
                 fulfillments:
                   - id: F1
@@ -8962,7 +8856,7 @@ x-flows:
                     quantity:
                       selected:
                         count: 200
-                    add-ons:
+                    add_ons:
                       - id: '78787723'
                 billing:
                   name: ONDC buyer
@@ -9044,7 +8938,7 @@ x-flows:
                     quantity:
                       selected:
                         count: 200
-                    add-ons:
+                    add_ons:
                       - id: '78787723'
                 billing:
                   name: ONDC buyer
@@ -9576,21 +9470,21 @@ x-flows:
         api: status
         description: Buyer requests for Shipment status
         reference: if any
-        example: *ref_11
+        example: *ref_12
       - summary: Provider platform updates the latest status - Out for Delivery
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           once the order is out for delivery
         reference: if any
-        example: *ref_18
+        example: *ref_19
       - summary: Provider platform updates the latest status - Delivered
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           once the order is delivered
         reference: if any
-        example: *ref_19
+        example: *ref_20
   - summary: B2B Prepaid (Payment collected by BPP - RFQ)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -9614,8 +9508,8 @@ x-flows:
             Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on Country and domain in Context
             Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on Country and domain in Context
 
-            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + intimates that payment will <br/> be collected by BPP + Communication channel) <br/> Servicability based on Country, City and HScode permits
-            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + intimates that payment will <br/> be collected by BPP + Communication channel) <br/>  Servicability based on Country, City and HScode permits
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + intimates that payment will <br/> be collected by BPP + Communication channel) <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + intimates that payment will <br/> be collected by BPP + Communication channel) <br/>  Servicability based on Country, City and HScode permits
             BuyerApp->>Buyer: Renders the search response
             
             note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
@@ -9704,14 +9598,14 @@ x-flows:
         api: search
         description: Buyer searches for an item
         reference: if any
-        example: *ref_14
+        example: *ref_13
       - summary: Seller returns item/ catalog with communication channel
         api: on_search
         description: >-
           Seller responds back with the catalog and intimates that BPP will be
           collecting the payment
         reference: if any
-        example: &ref_25
+        example: &ref_28
           summary: Return the catalog for grocery (BPP collects the payment)
           description: >-
             Return the catalog for grocery products and intimates that BPP will
@@ -10063,51 +9957,51 @@ x-flows:
           Buyer requests for quotation for the selected item with all the
           customizations and the quantity of items required
         reference: if any
-        example: *ref_16
+        example: *ref_15
       - summary: Returns item breakup/ Quote
         api: on_select
         description: Seller provides the quotation and breakup with logistics charges
         reference: if any
-        example: *ref_20
+        example: *ref_21
       - summary: Initialization of Order
         api: init
         description: Initialization of Order - Billing Details added.
         reference: if any
-        example: *ref_21
+        example: *ref_22
       - summary: Initialization of Order
         api: on_init
         description: Initialization of Order with final quote
         reference: if any
-        example: *ref_22
+        example: *ref_23
       - summary: Buyer raises PO
         api: confirm
         description: Buyer creates a Purchase Order
         reference: if any
-        example: *ref_23
+        example: *ref_24
       - summary: Seller Accepts PO
         api: on_confirm
         description: >-
           Seller accepts Purchase Order and shares the payment link along with
           TTL
         reference: if any
-        example: *ref_24
+        example: *ref_25
       - summary: Seller app updates the payment status and sends proforma invoice
         api: on_status
         description: Seller app updates the payment status and sends proforma invoice
         reference: if any
-        example: *ref_12
+        example: *ref_26
       - summary: Consumer platform requests for latest status
         api: status
         description: Buyer requests for Shipment status
         reference: if any
-        example: *ref_11
+        example: *ref_12
       - summary: Provider platform updates the latest status - Order Picked up
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           once the order is picked up
         reference: if any
-        example: *ref_13
+        example: *ref_27
   - summary: B2B Prepaid (Payment collected by BPP - Non RFQ)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -10131,8 +10025,8 @@ x-flows:
             Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on Country and domain in Context
             Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on Country and domain in Context
 
-            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + intimates that payment will <br/> be collected by BPP <br/> Servicability based on Country, City and HScode permits
-            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + intimates that payment will <br/> be collected by BPP <br/>  Servicability based on Country, City and HScode permits
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + intimates that payment will <br/> be collected by BPP <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + intimates that payment will <br/> be collected by BPP <br/>  Servicability based on Country, City and HScode permits
             BuyerApp->>Buyer: Renders the search response
             
       - description: SELECTION OF ITEMS AND PRICE NEGOTIATION
@@ -10214,26 +10108,26 @@ x-flows:
         api: search
         description: Buyer searches for an item
         reference: if any
-        example: *ref_14
+        example: *ref_13
       - summary: Seller returns item/ catalog
         api: on_search
         description: >-
           Seller responds back with the catalog and intimates that BPP will be
           collecting the payment
         reference: if any
-        example: *ref_25
+        example: *ref_28
       - summary: Selection of items
         api: select
         description: >-
           Buyer selects the items with all the customizations and the quantity
           of items required
         reference: if any
-        example: *ref_26
+        example: *ref_29
       - summary: Returns item breakup/ Quote
         api: on_select
         description: Seller provides the quote and breakup with logistics charges
         reference: if any
-        example: &ref_27
+        example: &ref_30
           summary: Send quote and breakup - (Domestic - Non RFQ)
           description: Seller sends quote and breakup for the selected items
           value:
@@ -10267,7 +10161,7 @@ x-flows:
                     quantity:
                       selected:
                         count: 200
-                    add-ons:
+                    add_ons:
                       - id: '78787723'
                 fulfillments:
                   - id: F1
@@ -10333,7 +10227,7 @@ x-flows:
         api: init
         description: Initialization of Order - Billing Details added.
         reference: if any
-        example: &ref_28
+        example: &ref_31
           summary: Initializing the order (Domestic - BPP collecting the payment)
           description: Intializing the order
           value:
@@ -10425,7 +10319,7 @@ x-flows:
         api: on_init
         description: BPP acknowledges and shares the payment link along with TTL
         reference: if any
-        example: &ref_29
+        example: &ref_32
           summary: >-
             Acknowledges the initialization (Non RFQ and BPP collecting the
             payment)
@@ -10600,7 +10494,7 @@ x-flows:
         api: confirm
         description: Buyer makes the payment and then confirms the order
         reference: if any
-        example: &ref_30
+        example: &ref_33
           summary: Confirms the order (Prepaid BPP - Non RFQ)
           description: Confirms the order (Domestic)
           value:
@@ -10792,7 +10686,7 @@ x-flows:
         api: on_confirm
         description: Seller provides acknowledgment to the order confirmation
         reference: if any
-        example: &ref_31
+        example: &ref_34
           summary: Order confirmation (Prepaid BPP - Non RFQ)
           description: Order confirmation (Domestic - Non RFQ)
           value:
@@ -11006,7 +10900,7 @@ x-flows:
         api: on_status
         description: Seller app updates the payment status
         reference: if any
-        example: &ref_32
+        example: &ref_35
           summary: BPP updates the payment status (Success)
           description: BPP updates the payment status
           value:
@@ -11190,14 +11084,14 @@ x-flows:
         api: status
         description: Buyer requests for Shipment status
         reference: if any
-        example: *ref_11
+        example: *ref_12
       - summary: Provider platform updates the latest status - Order Picked up
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           once the order is picked up
         reference: if any
-        example: *ref_13
+        example: *ref_27
   - summary: B2B Buyer Cancellation
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -11221,8 +11115,8 @@ x-flows:
             Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on Country and domain in Context
             Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on Country and domain in Context
 
-            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + intimates that payment will <br/> be collected by BPP <br/> Servicability based on Country, City and HScode permits
-            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + intimates that payment will <br/> be collected by BPP <br/>  Servicability based on Country, City and HScode permits
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + intimates that payment will <br/> be collected by BPP <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + intimates that payment will <br/> be collected by BPP <br/>  Servicability based on Country, City and HScode permits
             BuyerApp->>Buyer: Renders the search response
             
       - description: SELECTION OF ITEMS AND PRICE NEGOTIATION
@@ -11286,63 +11180,63 @@ x-flows:
         api: search
         description: Buyer searches for an item
         reference: if any
-        example: *ref_14
+        example: *ref_13
       - summary: Seller returns item/ catalog
         api: on_search
         description: >-
           Seller responds back with the catalog and intimates that BPP will be
           collecting the payment
         reference: if any
-        example: *ref_25
+        example: *ref_28
       - summary: Selection of items
         api: select
         description: >-
           Buyer selects the items with all the customizations and the quantity
           of items required
         reference: if any
-        example: *ref_26
+        example: *ref_29
       - summary: Returns item breakup/ Quote
         api: on_select
         description: Seller provides the quote and breakup with logistics charges
         reference: if any
-        example: *ref_27
+        example: *ref_30
       - summary: Initialization of Order
         api: init
         description: Initialization of Order - Billing Details added.
         reference: if any
-        example: *ref_28
+        example: *ref_31
       - summary: Acknowledges the init request and shares the payment url
         api: on_init
         description: BPP acknowledges and shares the payment link along with TTL
         reference: if any
-        example: *ref_29
+        example: *ref_32
       - summary: Buyer makes the payment and then confirms the order
         api: confirm
         description: Buyer makes the payment and then confirms the order
         reference: if any
-        example: *ref_30
+        example: *ref_33
       - summary: Seller provides acknowledgment to the order confirmation
         api: on_confirm
         description: Seller provides acknowledgment to the order confirmation
         reference: if any
-        example: *ref_31
+        example: *ref_34
       - summary: Seller app updates the payment status
         api: on_status
         description: Seller app updates the payment status
         reference: if any
-        example: *ref_32
+        example: *ref_35
       - summary: Consumer platform requests for latest status
         api: status
         description: Buyer requests for Shipment status
         reference: if any
-        example: *ref_11
+        example: *ref_12
       - summary: Provider platform updates the latest status - Order Picked up
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           once the order is picked up
         reference: if any
-        example: *ref_32
+        example: *ref_35
       - summary: Buyer app cancels the order
         api: cancel
         description: >-
@@ -11386,7 +11280,7 @@ x-flows:
           seller app updates the quote. If the order was prepaid, the seller app
           may issue a refund for either the full or partial amount, depending on
           the cancellation terms.
-        example: &ref_33
+        example: &ref_36
           summary: Seller cancels the order
           description: Seller cancels the order
           value:
@@ -11683,8 +11577,8 @@ x-flows:
             Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on Country and domain in Context
             Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on Country and domain in Context
 
-            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + intimates that payment will <br/> be collected by BPP <br/> Servicability based on Country, City and HScode permits
-            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + intimates that payment will <br/> be collected by BPP <br/>  Servicability based on Country, City and HScode permits
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + intimates that payment will <br/> be collected by BPP <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + intimates that payment will <br/> be collected by BPP <br/>  Servicability based on Country, City and HScode permits
             BuyerApp->>Buyer: Renders the search response
             
       - description: SELECTION OF ITEMS AND PRICE NEGOTIATION
@@ -11746,50 +11640,50 @@ x-flows:
         api: search
         description: Buyer searches for an item
         reference: if any
-        example: *ref_14
-      - summary: Seller returns item/ catalog
+        example: *ref_13
+      - summary: Seller returns product catalog
         api: on_search
         description: >-
           Seller responds back with the catalog and intimates that BPP will be
           collecting the payment
         reference: if any
-        example: *ref_25
+        example: *ref_28
       - summary: Selection of items
         api: select
         description: >-
           Buyer selects the items with all the customizations and the quantity
           of items required
         reference: if any
-        example: *ref_26
+        example: *ref_29
       - summary: Returns item breakup/ Quote
         api: on_select
         description: Seller provides the quote and breakup with logistics charges
         reference: if any
-        example: *ref_27
+        example: *ref_30
       - summary: Initialization of Order
         api: init
         description: Initialization of Order - Billing Details added.
         reference: if any
-        example: *ref_28
+        example: *ref_31
       - summary: Acknowledges the init request and shares the payment url
         api: on_init
         description: BPP acknowledges and shares the payment link along with TTL
         reference: if any
-        example: *ref_29
+        example: *ref_32
       - summary: Buyer makes the payment and then confirms the order
         api: confirm
         description: Buyer makes the payment and then confirms the order
         reference: if any
-        example: *ref_30
+        example: *ref_33
       - summary: Seller provides acknowledgment to the order confirmation
         api: on_confirm
         description: Seller provides acknowledgment to the order confirmation
         reference: if any
-        example: *ref_31
+        example: *ref_34
       - summary: Seller app cancels the order
         api: on_cancel
         description: Seller app cancels the order at its end.
-        example: *ref_33
+        example: *ref_36
   - summary: B2B Self Pickup
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -11812,8 +11706,8 @@ x-flows:
             Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on city and domain in context
             Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on city and domain in context
 
-            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
-            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
             BuyerApp->>Buyer: Renders the search response
             
             note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
@@ -11890,12 +11784,12 @@ x-flows:
         api: search
         description: Search intent sent by the buyer based on the category
         reference: if any
-        example: *ref_34
-      - summary: Returns item/ catalog
+        example: *ref_37
+      - summary: Returns product catalog
         api: on_search
         description: Catalog provided by the Seller App
         reference: if any
-        example: *ref_35
+        example: *ref_38
       - summary: Raise an RFQ
         api: select
         description: >-
@@ -12074,7 +11968,94 @@ x-flows:
         api: init
         description: Initialization of Order - Billing Details added.
         reference: if any
-        example: *ref_21
+        example:
+          summary: Intializing the order (Self Pickup)
+          description: Intializing the order
+          value:
+            context:
+              domain: ONDC:RET10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: init
+              version: 2.0.2
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/grocery
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/grocery
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 582eb99f-a7c1-46ae-8174-936757d2d96f
+              timestamp: '2023-01-08T22:00:30.000Z'
+              ttl: PT30S
+            message:
+              order:
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    fulfillment_ids:
+                      - F2
+                    quantity:
+                      selected:
+                        count: 200
+                    add_ons:
+                      - id: '78787723'
+                    tags:
+                      - descriptor:
+                          code: BUYER_TERMS
+                        list:
+                          - descriptor:
+                              code: ITEM_REQ
+                            value: free text on Item Customization
+                          - descriptor:
+                              code: PACKAGING_REQ
+                            value: free text on packaging Customization
+                billing:
+                  name: ONDC buyer
+                  address: >-
+                    22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                    Bengaluru, Karnataka 560001
+                  state:
+                    name: Karnataka
+                  city:
+                    name: Bengaluru
+                  tax_id: XXXXXXXXXXXXXXX
+                  email: nobody@nomail.com
+                  phone: '9886098860'
+                fulfillments:
+                  - id: F2
+                    type: Self-Pickup
+                    stops:
+                      - type: start
+                        location:
+                          gps: 12.967555,77.749666
+                          address: Jayanagar 4th Block
+                          city:
+                            name: Bengaluru
+                          country:
+                            code: IND
+                          area_code: '560076'
+                          state:
+                            name: Karnataka
+                        contact:
+                          phone: '9886098860'
+                payments:
+                  - type: PRE-FULFILLMENT
+                    collected_by: BPP
+                tags:
+                  - descriptor:
+                      code: buyer_id
+                    list:
+                      - descriptor:
+                          code: buyer_id_code
+                        value: gst
+                      - descriptor:
+                          code: buyer_id_no
+                        value: xxxxxxxxxxxxxxx
       - summary: Initialization of Order
         api: on_init
         description: Initialization of Order with final quote
@@ -12206,7 +12187,7 @@ x-flows:
                         value: '0'
                   ttl: P1D
                 payments:
-                  - type: ON-FULFILLMENT
+                  - type: PRE-FULFILLMENT
                     collected_by: BPP
                     '@ondc/org/buyer_app_finder_fee_type': percent
                     '@ondc/org/buyer_app_finder_fee_amount': '0'
@@ -12247,19 +12228,410 @@ x-flows:
           Buyer receives the quotation and once agreed to go ahead with the
           quotation received, creates a PO and sends the PO
         reference: if any
-        example: *ref_23
+        example:
+          summary: Raise PO (Self pickup - RFQ)
+          description: PO raised by buyer based on the RFQ response received.
+          value:
+            context:
+              domain: ONDC:RET10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: confirm
+              version: 2.0.2
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/grocery
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/grocery
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: ad33f8db-cc87-4470-961a-e5555869fd3c
+              timestamp: '2023-01-08T22:00:30.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O1
+                state: Created
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    fulfillment_ids:
+                      - F2
+                    quantity:
+                      selected:
+                        count: 200
+                    add_ons:
+                      - id: '78787723'
+                    tags:
+                      - descriptor:
+                          code: BUYER_TERMS
+                        list:
+                          - descriptor:
+                              code: ITEM_REQ
+                            value: free text on Item Customization
+                          - descriptor:
+                              code: PACKAGING_REQ
+                            value: free text on packaging Customization
+                billing:
+                  name: ONDC buyer
+                  address: >-
+                    22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                    Bengaluru, Karnataka 560001
+                  state:
+                    name: Karnataka
+                  city:
+                    name: Bengaluru
+                  tax_id: XXXXXXXXXXXXXXX
+                  email: nobody@nomail.com
+                  phone: '9886098860'
+                fulfillments:
+                  - id: F2
+                    type: Self-Pickup
+                    '@ondc/org/category': Self-Pickup
+                    '@ondc/org/TAT': P3D
+                    tracking: false
+                    stops:
+                      - type: start
+                        location:
+                          gps: 12.967555,77.749666
+                          address: Jayanagar 4th Block
+                          city:
+                            name: Bengaluru
+                          country:
+                            code: IND
+                          area_code: '560076'
+                          state:
+                            name: Karnataka
+                        contact:
+                          phone: '9886098860'
+                quote:
+                  price:
+                    currency: INR
+                    value: '53600'
+                  breakup:
+                    - '@ondc/org/item_id': I1
+                      '@ondc/org/item_quantity':
+                        count: 200
+                      title: Dhara Mustard Oil
+                      '@ondc/org/title_type': item
+                      price:
+                        currency: INR
+                        value: '50000'
+                      item:
+                        price:
+                          currency: INR
+                          value: '250'
+                    - '@ondc/org/item_id': F2
+                      title: Delivery charges
+                      '@ondc/org/title_type': delivery
+                      price:
+                        currency: INR
+                        value: '0'
+                    - '@ondc/org/item_id': F2
+                      title: Packing charges
+                      '@ondc/org/title_type': packing
+                      price:
+                        currency: INR
+                        value: '500'
+                    - '@ondc/org/item_id': I1
+                      title: Tax
+                      '@ondc/org/title_type': tax
+                      price:
+                        currency: INR
+                        value: '0'
+                    - '@ondc/org/item_id': I1
+                      title: Discount
+                      '@ondc/org/title_type': discount
+                      price:
+                        currency: INR
+                        value: '-1000'
+                    - '@ondc/org/item_id': F2
+                      title: Convenience Fee
+                      '@ondc/org/title_type': misc
+                      price:
+                        currency: INR
+                        value: '100'
+                  ttl: P1D
+                payments:
+                  - params:
+                      currency: INR
+                      amount: '53600'
+                    status: NOT-PAID
+                    type: PRE-FULFILLMENT
+                    collected_by: BPP
+                    '@ondc/org/buyer_app_finder_fee_type': percent
+                    '@ondc/org/buyer_app_finder_fee_amount': '0'
+                    '@ondc/org/settlement_basis': delivery
+                    '@ondc/org/settlement_window': P1D
+                    '@ondc/org/withholding_amount': '10.00'
+                    '@ondc/org/settlement_details':
+                      - settlement_counterparty: buyer-app
+                        settlement_phase: sale-amount
+                        settlement_type: upi
+                        upi_address: gft@oksbi
+                        settlement_bank_account_no: XXXXXXXXXX
+                        settlement_ifsc_code: XXXXXXXXX
+                        beneficiary_name: xxxxx
+                        bank_name: xxxx
+                        branch_name: xxxx
+                tags:
+                  - descriptor:
+                      code: buyer_id
+                    list:
+                      - descriptor:
+                          code: buyer_id_code
+                        value: gst
+                      - descriptor:
+                          code: buyer_id_no
+                        value: xxxxxxxxxxxxxxx
+                  - descriptor:
+                      code: bpp_terms
+                    list:
+                      - descriptor:
+                          code: max_liability
+                        value: '2'
+                      - descriptor:
+                          code: max_liability_cap
+                        value: '10000'
+                      - descriptor:
+                          code: mandatory_arbitration
+                        value: 'false'
+                      - descriptor:
+                          code: court_jurisdiction
+                        value: Bengaluru
+                      - descriptor:
+                          code: delay_interest
+                        value: '1000'
+                  - descriptor:
+                      code: bap_terms
+                    list:
+                      - descriptor:
+                          code: accept_bpp_terms
+                        value: 'Y'
+                created_at: '2023-02-03T09:30:00.000Z'
+                updated_at: '2023-02-03T09:30:00.000Z'
       - summary: Seller Accepts PO
         api: on_confirm
         description: >-
           Seller app sends an on_confirm call to the buyer app relaying the PO
           acceptance.
         reference: if any
-        example: *ref_24
+        example:
+          summary: Accept PO (Self pickup - RFQ)
+          description: PO acceptance by Seller
+          value:
+            context:
+              domain: ONDC:RET10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_confirm
+              version: 2.0.2
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/grocery
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/grocery
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: ad33f8db-cc87-4470-961a-e5555869fd3c
+              timestamp: '2023-01-08T22:00:30.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O1
+                state: Accepted
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                  rateable: true
+                items:
+                  - id: I1
+                    fulfillment_ids:
+                      - F2
+                    quantity:
+                      selected:
+                        count: 200
+                    add_ons:
+                      - id: '78787723'
+                    tags:
+                      - descriptor:
+                          code: BUYER_TERMS
+                        list:
+                          - descriptor:
+                              code: ITEM_REQ
+                            value: free text on Item Customization
+                          - descriptor:
+                              code: PACKAGING_REQ
+                            value: free text on packaging Customization
+                billing:
+                  name: ONDC buyer
+                  address: >-
+                    22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                    Bengaluru, Karnataka 560001
+                  state:
+                    name: Karnataka
+                  city:
+                    name: Bengaluru
+                  tax_id: XXXXXXXXXXXXXXX
+                  email: nobody@nomail.com
+                  phone: '9886098860'
+                fulfillments:
+                  - id: F2
+                    '@ondc/org/provider_name': ''
+                    state:
+                      descriptor:
+                        code: Pending
+                    type: Self-Pickup
+                    tracking: false
+                    stops:
+                      - type: start
+                        location:
+                          id: L1
+                          descriptor:
+                            name: ABC Store
+                          gps: 12.956399,77.636803
+                        time:
+                          range:
+                            start: '2023-02-03T10:00:00.000Z'
+                            end: '2023-02-03T10:30:00.000Z'
+                        instructions:
+                          name: Status for pickup
+                          short_desc: Pickup Confirmation Code
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                    rateable: true
+                quote:
+                  price:
+                    currency: INR
+                    value: '53600'
+                  breakup:
+                    - '@ondc/org/item_id': I1
+                      '@ondc/org/item_quantity':
+                        count: 200
+                      title: Dhara Mustard Oil
+                      '@ondc/org/title_type': item
+                      price:
+                        currency: INR
+                        value: '50000'
+                      item:
+                        price:
+                          currency: INR
+                          value: '250'
+                    - '@ondc/org/item_id': F2
+                      title: Delivery charges
+                      '@ondc/org/title_type': delivery
+                      price:
+                        currency: INR
+                        value: '4000'
+                    - '@ondc/org/item_id': F2
+                      title: Packing charges
+                      '@ondc/org/title_type': packing
+                      price:
+                        currency: INR
+                        value: '500'
+                    - '@ondc/org/item_id': I1
+                      title: Tax
+                      '@ondc/org/title_type': tax
+                      price:
+                        currency: INR
+                        value: '0'
+                    - '@ondc/org/item_id': I1
+                      title: Discount
+                      '@ondc/org/title_type': discount
+                      price:
+                        currency: INR
+                        value: '-1000'
+                    - '@ondc/org/item_id': F2
+                      title: Convenience Fee
+                      '@ondc/org/title_type': misc
+                      price:
+                        currency: INR
+                        value: '100'
+                  ttl: P1D
+                payments:
+                  - params:
+                      currency: INR
+                      amount: '53600'
+                    status: NOT-PAID
+                    uri: https://snp.com/pg
+                    type: PRE-FULFILLMENT
+                    collected_by: BPP
+                    '@ondc/org/buyer_app_finder_fee_type': percent
+                    '@ondc/org/buyer_app_finder_fee_amount': '0'
+                    '@ondc/org/settlement_basis': delivery
+                    '@ondc/org/settlement_window': P1D
+                    '@ondc/org/withholding_amount': '10.00'
+                    '@ondc/org/settlement_details':
+                      - settlement_counterparty: buyer-app
+                        settlement_phase: sale-amount
+                        beneficiary_name: xxxxx
+                        settlement_type: upi
+                        upi_address: gft@oksbi
+                        settlement_bank_account_no: XXXXXXXXXX
+                        settlement_ifsc_code: XXXXXXXXX
+                        bank_name: xxxx
+                        branch_name: xxxx
+                    tags:
+                      - descriptor:
+                          code: BPP_payment
+                        list:
+                          - descriptor:
+                              code: signature
+                            value: xxxxxxxxxxxxxx
+                          - descriptor:
+                              code: dsa
+                            value: ED25519
+                          - descriptor:
+                              code: ttl
+                            value: PT30M
+                tags:
+                  - descriptor:
+                      code: buyer_id
+                    list:
+                      - descriptor:
+                          code: buyer_id_code
+                        value: gst
+                      - descriptor:
+                          code: buyer_id_no
+                        value: xxxxxxxxxxxxxxx
+                  - descriptor:
+                      code: bpp_terms
+                    list:
+                      - descriptor:
+                          code: max_liability
+                        value: '2'
+                      - descriptor:
+                          code: max_liability_cap
+                        value: '10000'
+                      - descriptor:
+                          code: mandatory_arbitration
+                        value: 'false'
+                      - descriptor:
+                          code: court_jurisdiction
+                        value: Bengaluru
+                      - descriptor:
+                          code: delay_interest
+                        value: '1000'
+                  - descriptor:
+                      code: bap_terms
+                    list:
+                      - descriptor:
+                          code: accept_bpp_terms
+                        value: 'Y'
+                created_at: '2023-02-03T09:30:00.000Z'
+                updated_at: '2023-02-03T09:31:30.000Z'
       - summary: Seller app updates the payment status and sends proforma invoice
         api: on_status
         description: Seller app updates the payment status and sends proforma invoice
         reference: if any
-        example: *ref_12
+        example: *ref_26
       - summary: Seller updates the status of order
         api: on_status
         description: >-
@@ -12443,8 +12815,8 @@ x-flows:
             Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on city and domain in context
             Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on city and domain in context
 
-            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
-            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
             BuyerApp->>Buyer: Renders the search response
             
             note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
@@ -12473,19 +12845,19 @@ x-flows:
         api: search
         description: Search intent sent by the buyer based on the category
         reference: if any
-        example: *ref_34
-      - summary: Returns item/ catalog
+        example: *ref_37
+      - summary: Returns product catalog
         api: on_search
         description: Catalog provided by the Seller App
         reference: if any
-        example: *ref_35
+        example: *ref_38
       - summary: Raise an RFQ
         api: select
         description: >-
           Buyer requests for quotation for the selected item with all the
           customizations and the quantity of items required
         reference: if any
-        example: *ref_16
+        example: *ref_15
       - summary: Returns item breakup/ Quote
         api: on_select
         description: Seller provides the quotation and breakup along with error object
@@ -12601,8 +12973,8 @@ x-flows:
             Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on city and domain in context
             Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on city and domain in context
 
-            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
-            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
             BuyerApp->>Buyer: Renders the search response
             
             note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
@@ -12631,19 +13003,19 @@ x-flows:
         api: search
         description: Search intent sent by the buyer based on the category
         reference: if any
-        example: *ref_34
-      - summary: Returns item/ catalog
+        example: *ref_37
+      - summary: Returns product catalog
         api: on_search
         description: Catalog provided by the Seller App
         reference: if any
-        example: *ref_35
+        example: *ref_38
       - summary: Raise an RFQ
         api: select
         description: >-
           Buyer requests for quotation for the selected item with all the
           customizations and the quantity of items required
         reference: if any
-        example: *ref_16
+        example: *ref_15
       - summary: Returns item breakup/ Quote
         api: on_select
         description: >-
@@ -12779,8 +13151,8 @@ x-flows:
             Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on city and domain in context
             Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on city and domain in context
 
-            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
-            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
             BuyerApp->>Buyer: Renders the search response
             
             note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
@@ -12835,41 +13207,41 @@ x-flows:
         api: search
         description: Search intent sent by the buyer based on the category
         reference: if any
-        example: *ref_34
-      - summary: Returns item/ catalog
+        example: *ref_37
+      - summary: Returns product catalog
         api: on_search
         description: Catalog provided by the Seller App
         reference: if any
-        example: *ref_35
+        example: *ref_38
       - summary: Raise an RFQ
         api: select
         description: >-
           Buyer requests for quotation for the selected item with all the
           customizations and the quantity of items required
         reference: if any
-        example: *ref_16
+        example: *ref_15
       - summary: Returns item breakup/ Quote
         api: on_select
         description: Seller provides the quotation and breakup with logistics charges
         reference: if any
-        example: *ref_20
+        example: *ref_21
       - summary: Initialization of Order
         api: init
         description: Initialization of Order - Billing Details added.
         reference: if any
-        example: *ref_21
+        example: *ref_22
       - summary: Initialization of Order
         api: on_init
         description: Initialization of Order with final quote
         reference: if any
-        example: *ref_22
+        example: *ref_23
       - summary: Buyer raises PO
         api: confirm
         description: >-
           Buyer receives the quotation and once agreed to go ahead with the
           quotation received, creates a PO and sends the PO
         reference: if any
-        example: *ref_23
+        example: *ref_24
       - summary: Seller rejects PO
         api: on_confirm
         description: >-
@@ -13116,8 +13488,8 @@ x-flows:
             Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on Country and domain in Context
             Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on Country and domain in Context
 
-            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
-            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
             BuyerApp->>Buyer: Renders the search response
             
             note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
@@ -13204,95 +13576,276 @@ x-flows:
         api: search
         description: Buyer searches for an item
         reference: if any
-        example: *ref_14
-      - summary: Returns item/ catalog
+        example: *ref_13
+      - summary: Returns product catalog
         api: on_search
         description: Seller responds back with the catalog
         reference: if any
-        example: *ref_15
+        example: *ref_14
       - summary: Raise an RFQ
         api: select
         description: >-
           Buyer requests for quotation for the selected item with all the
           customizations and the quantity of items required
         reference: if any
-        example: *ref_16
+        example: *ref_15
       - summary: Returns item breakup/ Quote
         api: on_select
         description: Seller provides the quotation and breakup with logistics charges
         reference: if any
-        example: *ref_20
+        example: *ref_21
       - summary: Initialization of Order
         api: init
         description: Initialization of Order - Billing Details added.
         reference: if any
-        example: *ref_21
+        example: *ref_22
       - summary: Initialization of Order
         api: on_init
         description: Initialization of Order with final quote
         reference: if any
-        example: *ref_22
+        example: *ref_23
       - summary: Buyer raises PO
         api: confirm
         description: Buyer creates a Purchase Order
         reference: if any
-        example: *ref_23
+        example: *ref_24
       - summary: Seller Accepts PO
         api: on_confirm
         description: Seller accepts Purchase Order
         reference: if any
-        example: *ref_24
+        example: *ref_25
       - summary: Consumer platform requests for latest status
         api: status
         description: Buyer requests for Shipment status
         reference: if any
-        example: *ref_11
+        example: *ref_12
       - summary: Provider platform provides latest order status and sends invoice
         api: on_status
         description: Provider platform provides the updated order status to the consumer
         reference: if any
-        example: *ref_12
+        example: *ref_26
       - summary: Payment details are updated in case BAP collects the payment
         api: update
         description: Payment status is sent (If collected by BAP) + requests for Invoice
         reference: if any
-        example: *ref_17
+        example: *ref_16
       - summary: seller updates fulfilments - Multiple fulfillments for Single PO
         api: on_update
         description: seller updates fulfilments - Multiple fulfillments for Single PO
         reference: if any
-        example: *ref_36
+        example:
+          summary: Single PO - Multiple Fulfillment
+          description: Single PO - Multiple Fulfillment
+          value:
+            context:
+              domain: ONDC:RET10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_update
+              version: 2.0.2
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/grocery
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/grocery
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 21d9d8b4-723b-44b4-a205-16626cbbfe4f
+              timestamp: '2023-01-08T22:00:30.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O1
+                state: Accepted
+                provider:
+                  id: P1
+                items:
+                  - id: I1
+                    quantity:
+                      selected:
+                        count: 200
+                    fulfillment_ids:
+                      - F1
+                      - F2
+                payments:
+                  - uri: https://ondc.transaction.com/payment
+                    tl_method: http/get
+                    params:
+                      currency: INR
+                      transaction_id: '3937'
+                      amount: '53600'
+                    status: PAID
+                    type: PRE-FULFILLMENT
+                    collected_by: BPP
+                    '@ondc/org/buyer_app_finder_fee_type': percent
+                    '@ondc/org/buyer_app_finder_fee_amount': '0'
+                    '@ondc/org/settlement_details':
+                      - settlement_counterparty: buyer-app
+                        settlement_phase: sale-amount
+                        settlement_type: upi
+                        upi_address: gft@oksbi
+                        settlement_bank_account_no: XXXXXXXXXX
+                        settlement_ifsc_code: XXXXXXXXX
+                        beneficiary_name: xxxxx
+                        bank_name: xxxx
+                        branch_name: xxxx
+                fulfillments:
+                  - id: F1
+                    '@ondc/org/provider_name': Loadshare
+                    state:
+                      descriptor:
+                        code: Pending
+                    type: Delivery
+                    tracking: false
+                    stops:
+                      - type: start
+                        location:
+                          id: L1
+                          descriptor:
+                            name: ABC Store
+                          gps: 12.956399,77.636803
+                        time:
+                          range:
+                            start: '2023-02-03T10:00:00.000Z'
+                            end: '2023-02-03T10:30:00.000Z'
+                        instructions:
+                          name: Status for pickup
+                          short_desc: Pickup Confirmation Code
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                      - type: end
+                        location:
+                          gps: 1.380621746811, 103.7463643843
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Jurong East
+                          country:
+                            code: SGP
+                          area_code: '680230'
+                          state:
+                            name: ''
+                        time:
+                          range:
+                            start: '2023-02-07T11:00:00.000Z'
+                            end: '2023-02-07T11:30:00.000Z'
+                        instructions:
+                          name: Status for drop
+                          short_desc: Delivery Confirmation Code
+                        contact:
+                          phone: '9886098860'
+                    rateable: true
+                    tags:
+                      - descriptor:
+                          code: ITEM_DETAILS
+                        list:
+                          - descriptor:
+                              code: ITEM_ID
+                            value: I1
+                          - descriptor:
+                              code: COUNT
+                            value: '100'
+                          - descriptor:
+                              code: MEASURE_UNIT
+                            value: millilitre
+                          - descriptor:
+                              code: MEASURE_VALUE
+                            value: '500'
+                  - id: F2
+                    '@ondc/org/provider_name': Loadshare
+                    state:
+                      descriptor:
+                        code: Pending
+                    type: Delivery
+                    tracking: false
+                    stops:
+                      - type: start
+                        location:
+                          id: L1
+                          descriptor:
+                            name: ABC Store
+                          gps: 12.956399,77.636803
+                        time:
+                          range:
+                            start: '2023-02-03T10:00:00.000Z'
+                            end: '2023-02-03T10:30:00.000Z'
+                        instructions:
+                          name: Status for pickup
+                          short_desc: Pickup Confirmation Code
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                      - type: end
+                        location:
+                          gps: 1.380621746811, 103.7463643843
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Jurong East
+                          country:
+                            code: SGP
+                          area_code: '680230'
+                          state:
+                            name: ''
+                        time:
+                          range:
+                            start: '2023-02-07T11:00:00.000Z'
+                            end: '2023-02-07T11:30:00.000Z'
+                        instructions:
+                          name: Status for drop
+                          short_desc: Delivery Confirmation Code
+                        contact:
+                          phone: '9886098860'
+                    rateable: true
+                    tags:
+                      - descriptor:
+                          code: ITEM_DETAILS
+                        list:
+                          - descriptor:
+                              code: ITEM_ID
+                            value: I1
+                          - descriptor:
+                              code: COUNT
+                            value: '100'
+                          - descriptor:
+                              code: MEASURE_UNIT
+                            value: millilitre
+                          - descriptor:
+                              code: MEASURE_VALUE
+                            value: '500'
       - summary: Provider platform provides latest order status
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           once order is picked up
         reference: if any
-        example: *ref_13
+        example: *ref_27
       - summary: Provider platform provides latest order status
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           when the order is out for delivery
         reference: if any
-        example: *ref_18
+        example: *ref_19
       - summary: Provider platform provides latest order status
         api: on_status
         description: >-
           Provider platform provides the updated order status to the consumer
           after the order is delivered
         reference: if any
-        example: *ref_19
+        example: *ref_20
 x-examples:
   B2B:
     summary: B2B Use Case Specification
     description: >-
-      Retail , use case on the network of different entities coming together to
-      offer products or services to buyers on one end and manage sellers on the
-      other end. Consumer Platform use these  specifications to perform
-      e-commerce operations like search, select, confirm and track.At provider
-      platform would use these specifications expose there specific invetory in
-      form of on_search, on_select etc.
+      The B2B use case specification within the ONDC network facilitates
+      seamless interoperable transactions between businesses, forming a crucial
+      part of the retail domain. It covers RFQ and Non-RFQ flows, providing
+      detailed model implemenations, flow, attributes, tags, and error handling
+      codes as outlined in the developer guide. This ensures efficiency,
+      transparency, and smooth operations throughout the procurement journey,
+      fostering collaboration and growth in the B2B landscape within the retail
+      sector.
     example_set:
       search:
         examples:
@@ -14098,7 +14651,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add-ons:
+                      add_ons:
                         - id: '78787723'
                   billing:
                     name: ONDC buyer
@@ -14306,6 +14859,93 @@ x-examples:
                   payments:
                     - type: PRE-FULFILLMENT
                       collected_by: BAP
+                  tags:
+                    - descriptor:
+                        code: buyer_id
+                      list:
+                        - descriptor:
+                            code: buyer_id_code
+                          value: gst
+                        - descriptor:
+                            code: buyer_id_no
+                          value: xxxxxxxxxxxxxxx
+          - summary: Intializing the order (Self Pickup)
+            description: Intializing the order
+            value:
+              context:
+                domain: ONDC:RET10
+                location:
+                  city:
+                    code: std:080
+                  country:
+                    code: IND
+                action: init
+                version: 2.0.2
+                bap_id: buyerapp.com
+                bap_uri: https://buyerapp.com/grocery
+                bpp_id: sellerapp.com
+                bpp_uri: https://sellerapp.com/grocery
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 582eb99f-a7c1-46ae-8174-936757d2d96f
+                timestamp: '2023-01-08T22:00:30.000Z'
+                ttl: PT30S
+              message:
+                order:
+                  provider:
+                    id: P1
+                    locations:
+                      - id: L1
+                  items:
+                    - id: I1
+                      fulfillment_ids:
+                        - F2
+                      quantity:
+                        selected:
+                          count: 200
+                      add_ons:
+                        - id: '78787723'
+                      tags:
+                        - descriptor:
+                            code: BUYER_TERMS
+                          list:
+                            - descriptor:
+                                code: ITEM_REQ
+                              value: free text on Item Customization
+                            - descriptor:
+                                code: PACKAGING_REQ
+                              value: free text on packaging Customization
+                  billing:
+                    name: ONDC buyer
+                    address: >-
+                      22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                      Bengaluru, Karnataka 560001
+                    state:
+                      name: Karnataka
+                    city:
+                      name: Bengaluru
+                    tax_id: XXXXXXXXXXXXXXX
+                    email: nobody@nomail.com
+                    phone: '9886098860'
+                  fulfillments:
+                    - id: F2
+                      type: Self-Pickup
+                      stops:
+                        - type: start
+                          location:
+                            gps: 12.967555,77.749666
+                            address: Jayanagar 4th Block
+                            city:
+                              name: Bengaluru
+                            country:
+                              code: IND
+                            area_code: '560076'
+                            state:
+                              name: Karnataka
+                          contact:
+                            phone: '9886098860'
+                  payments:
+                    - type: PRE-FULFILLMENT
+                      collected_by: BPP
                   tags:
                     - descriptor:
                         code: buyer_id
@@ -15032,6 +15672,191 @@ x-examples:
                       '@ondc/org/withholding_amount': '10.00'
                       '@ondc/org/settlement_details':
                         - settlement_counterparty: seller-app
+                          settlement_phase: sale-amount
+                          settlement_type: upi
+                          upi_address: gft@oksbi
+                          settlement_bank_account_no: XXXXXXXXXX
+                          settlement_ifsc_code: XXXXXXXXX
+                          beneficiary_name: xxxxx
+                          bank_name: xxxx
+                          branch_name: xxxx
+                  tags:
+                    - descriptor:
+                        code: buyer_id
+                      list:
+                        - descriptor:
+                            code: buyer_id_code
+                          value: gst
+                        - descriptor:
+                            code: buyer_id_no
+                          value: xxxxxxxxxxxxxxx
+                    - descriptor:
+                        code: bpp_terms
+                      list:
+                        - descriptor:
+                            code: max_liability
+                          value: '2'
+                        - descriptor:
+                            code: max_liability_cap
+                          value: '10000'
+                        - descriptor:
+                            code: mandatory_arbitration
+                          value: 'false'
+                        - descriptor:
+                            code: court_jurisdiction
+                          value: Bengaluru
+                        - descriptor:
+                            code: delay_interest
+                          value: '1000'
+                    - descriptor:
+                        code: bap_terms
+                      list:
+                        - descriptor:
+                            code: accept_bpp_terms
+                          value: 'Y'
+                  created_at: '2023-02-03T09:30:00.000Z'
+                  updated_at: '2023-02-03T09:30:00.000Z'
+          - summary: Raise PO (Self pickup - RFQ)
+            description: PO raised by buyer based on the RFQ response received.
+            value:
+              context:
+                domain: ONDC:RET10
+                location:
+                  city:
+                    code: std:080
+                  country:
+                    code: IND
+                action: confirm
+                version: 2.0.2
+                bap_id: buyerapp.com
+                bap_uri: https://buyerapp.com/grocery
+                bpp_id: sellerapp.com
+                bpp_uri: https://sellerapp.com/grocery
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: ad33f8db-cc87-4470-961a-e5555869fd3c
+                timestamp: '2023-01-08T22:00:30.000Z'
+                ttl: PT30S
+              message:
+                order:
+                  id: O1
+                  state: Created
+                  provider:
+                    id: P1
+                    locations:
+                      - id: L1
+                  items:
+                    - id: I1
+                      fulfillment_ids:
+                        - F2
+                      quantity:
+                        selected:
+                          count: 200
+                      add_ons:
+                        - id: '78787723'
+                      tags:
+                        - descriptor:
+                            code: BUYER_TERMS
+                          list:
+                            - descriptor:
+                                code: ITEM_REQ
+                              value: free text on Item Customization
+                            - descriptor:
+                                code: PACKAGING_REQ
+                              value: free text on packaging Customization
+                  billing:
+                    name: ONDC buyer
+                    address: >-
+                      22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                      Bengaluru, Karnataka 560001
+                    state:
+                      name: Karnataka
+                    city:
+                      name: Bengaluru
+                    tax_id: XXXXXXXXXXXXXXX
+                    email: nobody@nomail.com
+                    phone: '9886098860'
+                  fulfillments:
+                    - id: F2
+                      type: Self-Pickup
+                      '@ondc/org/category': Self-Pickup
+                      '@ondc/org/TAT': P3D
+                      tracking: false
+                      stops:
+                        - type: start
+                          location:
+                            gps: 12.967555,77.749666
+                            address: Jayanagar 4th Block
+                            city:
+                              name: Bengaluru
+                            country:
+                              code: IND
+                            area_code: '560076'
+                            state:
+                              name: Karnataka
+                          contact:
+                            phone: '9886098860'
+                  quote:
+                    price:
+                      currency: INR
+                      value: '53600'
+                    breakup:
+                      - '@ondc/org/item_id': I1
+                        '@ondc/org/item_quantity':
+                          count: 200
+                        title: Dhara Mustard Oil
+                        '@ondc/org/title_type': item
+                        price:
+                          currency: INR
+                          value: '50000'
+                        item:
+                          price:
+                            currency: INR
+                            value: '250'
+                      - '@ondc/org/item_id': F2
+                        title: Delivery charges
+                        '@ondc/org/title_type': delivery
+                        price:
+                          currency: INR
+                          value: '0'
+                      - '@ondc/org/item_id': F2
+                        title: Packing charges
+                        '@ondc/org/title_type': packing
+                        price:
+                          currency: INR
+                          value: '500'
+                      - '@ondc/org/item_id': I1
+                        title: Tax
+                        '@ondc/org/title_type': tax
+                        price:
+                          currency: INR
+                          value: '0'
+                      - '@ondc/org/item_id': I1
+                        title: Discount
+                        '@ondc/org/title_type': discount
+                        price:
+                          currency: INR
+                          value: '-1000'
+                      - '@ondc/org/item_id': F2
+                        title: Convenience Fee
+                        '@ondc/org/title_type': misc
+                        price:
+                          currency: INR
+                          value: '100'
+                    ttl: P1D
+                  payments:
+                    - params:
+                        currency: INR
+                        amount: '53600'
+                      status: NOT-PAID
+                      type: PRE-FULFILLMENT
+                      collected_by: BPP
+                      '@ondc/org/buyer_app_finder_fee_type': percent
+                      '@ondc/org/buyer_app_finder_fee_amount': '0'
+                      '@ondc/org/settlement_basis': delivery
+                      '@ondc/org/settlement_window': P1D
+                      '@ondc/org/withholding_amount': '10.00'
+                      '@ondc/org/settlement_details':
+                        - settlement_counterparty: buyer-app
                           settlement_phase: sale-amount
                           settlement_type: upi
                           upi_address: gft@oksbi
@@ -19636,7 +20461,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add-ons:
+                      add_ons:
                         - id: '78787723'
                   fulfillments:
                     - id: F1
@@ -20137,7 +20962,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add-ons:
+                      add_ons:
                         - id: '78787723'
                   fulfillments:
                     - id: F1
@@ -20515,7 +21340,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add-ons:
+                      add_ons:
                         - id: '78787723'
                   billing:
                     name: ONDC buyer
@@ -21299,7 +22124,7 @@ x-examples:
                           value: '0'
                     ttl: P1D
                   payments:
-                    - type: ON-FULFILLMENT
+                    - type: PRE-FULFILLMENT
                       collected_by: BPP
                       '@ondc/org/buyer_app_finder_fee_type': percent
                       '@ondc/org/buyer_app_finder_fee_amount': '0'
@@ -22736,6 +23561,212 @@ x-examples:
                           settlement_ifsc_code: XXXXXXXXX
                           bank_name: xxxx
                           branch_name: xxxx
+                  tags:
+                    - descriptor:
+                        code: buyer_id
+                      list:
+                        - descriptor:
+                            code: buyer_id_code
+                          value: gst
+                        - descriptor:
+                            code: buyer_id_no
+                          value: xxxxxxxxxxxxxxx
+                    - descriptor:
+                        code: bpp_terms
+                      list:
+                        - descriptor:
+                            code: max_liability
+                          value: '2'
+                        - descriptor:
+                            code: max_liability_cap
+                          value: '10000'
+                        - descriptor:
+                            code: mandatory_arbitration
+                          value: 'false'
+                        - descriptor:
+                            code: court_jurisdiction
+                          value: Bengaluru
+                        - descriptor:
+                            code: delay_interest
+                          value: '1000'
+                    - descriptor:
+                        code: bap_terms
+                      list:
+                        - descriptor:
+                            code: accept_bpp_terms
+                          value: 'Y'
+                  created_at: '2023-02-03T09:30:00.000Z'
+                  updated_at: '2023-02-03T09:31:30.000Z'
+          - summary: Accept PO (Self pickup - RFQ)
+            description: PO acceptance by Seller
+            value:
+              context:
+                domain: ONDC:RET10
+                location:
+                  city:
+                    code: std:080
+                  country:
+                    code: IND
+                action: on_confirm
+                version: 2.0.2
+                bap_id: buyerapp.com
+                bap_uri: https://buyerapp.com/grocery
+                bpp_id: sellerapp.com
+                bpp_uri: https://sellerapp.com/grocery
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: ad33f8db-cc87-4470-961a-e5555869fd3c
+                timestamp: '2023-01-08T22:00:30.000Z'
+                ttl: PT30S
+              message:
+                order:
+                  id: O1
+                  state: Accepted
+                  provider:
+                    id: P1
+                    locations:
+                      - id: L1
+                    rateable: true
+                  items:
+                    - id: I1
+                      fulfillment_ids:
+                        - F2
+                      quantity:
+                        selected:
+                          count: 200
+                      add_ons:
+                        - id: '78787723'
+                      tags:
+                        - descriptor:
+                            code: BUYER_TERMS
+                          list:
+                            - descriptor:
+                                code: ITEM_REQ
+                              value: free text on Item Customization
+                            - descriptor:
+                                code: PACKAGING_REQ
+                              value: free text on packaging Customization
+                  billing:
+                    name: ONDC buyer
+                    address: >-
+                      22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                      Bengaluru, Karnataka 560001
+                    state:
+                      name: Karnataka
+                    city:
+                      name: Bengaluru
+                    tax_id: XXXXXXXXXXXXXXX
+                    email: nobody@nomail.com
+                    phone: '9886098860'
+                  fulfillments:
+                    - id: F2
+                      '@ondc/org/provider_name': ''
+                      state:
+                        descriptor:
+                          code: Pending
+                      type: Self-Pickup
+                      tracking: false
+                      stops:
+                        - type: start
+                          location:
+                            id: L1
+                            descriptor:
+                              name: ABC Store
+                            gps: 12.956399,77.636803
+                          time:
+                            range:
+                              start: '2023-02-03T10:00:00.000Z'
+                              end: '2023-02-03T10:30:00.000Z'
+                          instructions:
+                            name: Status for pickup
+                            short_desc: Pickup Confirmation Code
+                          contact:
+                            phone: '9886098860'
+                            email: nobody@nomail.com
+                      rateable: true
+                  quote:
+                    price:
+                      currency: INR
+                      value: '53600'
+                    breakup:
+                      - '@ondc/org/item_id': I1
+                        '@ondc/org/item_quantity':
+                          count: 200
+                        title: Dhara Mustard Oil
+                        '@ondc/org/title_type': item
+                        price:
+                          currency: INR
+                          value: '50000'
+                        item:
+                          price:
+                            currency: INR
+                            value: '250'
+                      - '@ondc/org/item_id': F2
+                        title: Delivery charges
+                        '@ondc/org/title_type': delivery
+                        price:
+                          currency: INR
+                          value: '4000'
+                      - '@ondc/org/item_id': F2
+                        title: Packing charges
+                        '@ondc/org/title_type': packing
+                        price:
+                          currency: INR
+                          value: '500'
+                      - '@ondc/org/item_id': I1
+                        title: Tax
+                        '@ondc/org/title_type': tax
+                        price:
+                          currency: INR
+                          value: '0'
+                      - '@ondc/org/item_id': I1
+                        title: Discount
+                        '@ondc/org/title_type': discount
+                        price:
+                          currency: INR
+                          value: '-1000'
+                      - '@ondc/org/item_id': F2
+                        title: Convenience Fee
+                        '@ondc/org/title_type': misc
+                        price:
+                          currency: INR
+                          value: '100'
+                    ttl: P1D
+                  payments:
+                    - params:
+                        currency: INR
+                        amount: '53600'
+                      status: NOT-PAID
+                      uri: https://snp.com/pg
+                      type: PRE-FULFILLMENT
+                      collected_by: BPP
+                      '@ondc/org/buyer_app_finder_fee_type': percent
+                      '@ondc/org/buyer_app_finder_fee_amount': '0'
+                      '@ondc/org/settlement_basis': delivery
+                      '@ondc/org/settlement_window': P1D
+                      '@ondc/org/withholding_amount': '10.00'
+                      '@ondc/org/settlement_details':
+                        - settlement_counterparty: buyer-app
+                          settlement_phase: sale-amount
+                          beneficiary_name: xxxxx
+                          settlement_type: upi
+                          upi_address: gft@oksbi
+                          settlement_bank_account_no: XXXXXXXXXX
+                          settlement_ifsc_code: XXXXXXXXX
+                          bank_name: xxxx
+                          branch_name: xxxx
+                      tags:
+                        - descriptor:
+                            code: BPP_payment
+                          list:
+                            - descriptor:
+                                code: signature
+                              value: xxxxxxxxxxxxxx
+                            - descriptor:
+                                code: dsa
+                              value: ED25519
+                            - descriptor:
+                                code: ttl
+                              value: PT30M
                   tags:
                     - descriptor:
                         code: buyer_id
@@ -25089,6 +26120,7 @@ x-attributes:
                   usage: '-'
                   reference: if any
               items:
+                parent: true
                 parent_item_id:
                   description: >-
                     if variant grouping defined for provider above, this matches
@@ -25178,10 +26210,32 @@ x-attributes:
                   reference: if any
                 tags.code:
                   description: >-
-                    code = 'attribute' is required for Fashion and Electronics
-                    category
+                    code = 'attribute' is required for Fashion, Electronics,etc
+                    categories
+                  required: optional
+                  usage: '-'
+                  reference: if any
+                add_ons:
+                  description: add ons with the item
+                  required: optional
+                  usage: '-'
+                  reference: if any
+                cancellation_terms:
+                  description: cancellation terms applicable on cancellation of the item
                   required: required
-                  usage: '3'
+                  usage: '-'
+                  reference: if any
+                return_terms:
+                  description: return terms applicable in case of return
+                  required: required
+                  usage: '-'
+                  reference: if any
+                replacement_terms:
+                  description: >-
+                    Indicates replacement terms applicable in case buyer returns
+                    the item
+                  required: required
+                  usage: '-'
                   reference: if any
               creds:
                 parent: true
@@ -25429,7 +26483,7 @@ x-attributes:
                 usage: '-'
                 reference: if any
                 required: optional
-              add-ons:
+              add_ons:
                 id:
                   description: ID of the add-on selected from the catalog
                   usage: '3456'
@@ -25577,7 +26631,7 @@ x-attributes:
                 usage: '-'
                 reference: if any
                 required: optional
-              add-ons:
+              add_ons:
                 id:
                   description: ID of the add-on selected from the catalog
                   usage: '3456'
@@ -25750,7 +26804,7 @@ x-attributes:
                 usage: '-'
                 reference: if any
                 required: optional
-              add-ons:
+              add_ons:
                 id:
                   description: ID of the add-on selected from the catalog
                   usage: '3456'
@@ -26223,7 +27277,7 @@ x-attributes:
                 usage: '-'
                 reference: if any
                 required: optional
-              add-ons:
+              add_ons:
                 id:
                   description: ID of the add-on selected from the catalog
                   usage: '3456'
@@ -26724,7 +27778,7 @@ x-attributes:
                 usage: '-'
                 reference: if any
                 required: optional
-              add-ons:
+              add_ons:
                 id:
                   description: ID of the add-on selected from the catalog
                   usage: '3456'
@@ -27104,7 +28158,7 @@ x-attributes:
                 usage: '-'
                 reference: if any
                 required: optional
-              add-ons:
+              add_ons:
                 id:
                   description: ID of the add-on selected from the catalog
                   usage: '3456'
@@ -27628,7 +28682,7 @@ x-attributes:
                     usage: 2
                     reference: if any
                     required: required
-              add-ons:
+              add_ons:
                 id:
                   description: ID of the add-on selected from the catalog
                   usage: '3456'
