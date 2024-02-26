@@ -3698,8 +3698,8 @@ x-flows:
             Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on city and domain in context
             Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on city and domain in context
 
-            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City 
-            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City 
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + Communication channel) <br/> Servicability based on Country, City 
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City 
             BuyerApp->>Buyer: Renders the search response
             
             note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
@@ -5507,8 +5507,8 @@ x-flows:
             Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on Country and domain in Context
             Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on Country and domain in Context
 
-            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> creds, add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
-            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> creds, add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> creds, add_ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> creds, add_ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
             BuyerApp->>Buyer: Renders the search response
             
             note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
@@ -5990,7 +5990,7 @@ x-flows:
       - summary: Requests for Quotation
         api: select
         description: >-
-          Buyer selects an item (Variants/add-ons/offers as required) + Item
+          Buyer selects an item (Variants/add_ons/offers as required) + Item
           customization + Delivery terms and requests for quotation
         reference: if any
         example:
@@ -7648,8 +7648,8 @@ x-flows:
             Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on Country and domain in Context
             Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on Country and domain in Context
 
-            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
-            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
             BuyerApp->>Buyer: Renders the search response
             
             note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
@@ -8576,8 +8576,8 @@ x-flows:
             Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on Country and domain in Context
             Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on Country and domain in Context
 
-            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers <br/> Servicability based on Country, City and HScode permits
-            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers <br/>  Servicability based on Country, City and HScode permits
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers <br/>  Servicability based on Country, City and HScode permits
             BuyerApp->>Buyer: Renders the search response
             
       - description: SELECTION OF ITEMS AND PRICE NEGOTIATION
@@ -8756,7 +8756,7 @@ x-flows:
                     quantity:
                       selected:
                         count: 200
-                    add-ons:
+                    add_ons:
                       - id: '78787723'
                 fulfillments:
                   - id: F1
@@ -8856,7 +8856,7 @@ x-flows:
                     quantity:
                       selected:
                         count: 200
-                    add-ons:
+                    add_ons:
                       - id: '78787723'
                 billing:
                   name: ONDC buyer
@@ -8938,7 +8938,7 @@ x-flows:
                     quantity:
                       selected:
                         count: 200
-                    add-ons:
+                    add_ons:
                       - id: '78787723'
                 billing:
                   name: ONDC buyer
@@ -9508,8 +9508,8 @@ x-flows:
             Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on Country and domain in Context
             Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on Country and domain in Context
 
-            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + intimates that payment will <br/> be collected by BPP + Communication channel) <br/> Servicability based on Country, City and HScode permits
-            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + intimates that payment will <br/> be collected by BPP + Communication channel) <br/>  Servicability based on Country, City and HScode permits
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + intimates that payment will <br/> be collected by BPP + Communication channel) <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + intimates that payment will <br/> be collected by BPP + Communication channel) <br/>  Servicability based on Country, City and HScode permits
             BuyerApp->>Buyer: Renders the search response
             
             note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
@@ -10025,8 +10025,8 @@ x-flows:
             Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on Country and domain in Context
             Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on Country and domain in Context
 
-            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + intimates that payment will <br/> be collected by BPP <br/> Servicability based on Country, City and HScode permits
-            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + intimates that payment will <br/> be collected by BPP <br/>  Servicability based on Country, City and HScode permits
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + intimates that payment will <br/> be collected by BPP <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + intimates that payment will <br/> be collected by BPP <br/>  Servicability based on Country, City and HScode permits
             BuyerApp->>Buyer: Renders the search response
             
       - description: SELECTION OF ITEMS AND PRICE NEGOTIATION
@@ -10161,7 +10161,7 @@ x-flows:
                     quantity:
                       selected:
                         count: 200
-                    add-ons:
+                    add_ons:
                       - id: '78787723'
                 fulfillments:
                   - id: F1
@@ -11115,8 +11115,8 @@ x-flows:
             Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on Country and domain in Context
             Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on Country and domain in Context
 
-            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + intimates that payment will <br/> be collected by BPP <br/> Servicability based on Country, City and HScode permits
-            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + intimates that payment will <br/> be collected by BPP <br/>  Servicability based on Country, City and HScode permits
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + intimates that payment will <br/> be collected by BPP <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + intimates that payment will <br/> be collected by BPP <br/>  Servicability based on Country, City and HScode permits
             BuyerApp->>Buyer: Renders the search response
             
       - description: SELECTION OF ITEMS AND PRICE NEGOTIATION
@@ -11577,8 +11577,8 @@ x-flows:
             Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on Country and domain in Context
             Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on Country and domain in Context
 
-            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + intimates that payment will <br/> be collected by BPP <br/> Servicability based on Country, City and HScode permits
-            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + intimates that payment will <br/> be collected by BPP <br/>  Servicability based on Country, City and HScode permits
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + intimates that payment will <br/> be collected by BPP <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + intimates that payment will <br/> be collected by BPP <br/>  Servicability based on Country, City and HScode permits
             BuyerApp->>Buyer: Renders the search response
             
       - description: SELECTION OF ITEMS AND PRICE NEGOTIATION
@@ -11706,8 +11706,8 @@ x-flows:
             Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on city and domain in context
             Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on city and domain in context
 
-            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
-            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
             BuyerApp->>Buyer: Renders the search response
             
             note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
@@ -12815,8 +12815,8 @@ x-flows:
             Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on city and domain in context
             Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on city and domain in context
 
-            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
-            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
             BuyerApp->>Buyer: Renders the search response
             
             note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
@@ -12973,8 +12973,8 @@ x-flows:
             Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on city and domain in context
             Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on city and domain in context
 
-            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
-            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
             BuyerApp->>Buyer: Renders the search response
             
             note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
@@ -13151,8 +13151,8 @@ x-flows:
             Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on city and domain in context
             Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on city and domain in context
 
-            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
-            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
             BuyerApp->>Buyer: Renders the search response
             
             note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
@@ -13488,8 +13488,8 @@ x-flows:
             Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on Country and domain in Context
             Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on Country and domain in Context
 
-            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
-            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
             BuyerApp->>Buyer: Renders the search response
             
             note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
@@ -14651,7 +14651,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add-ons:
+                      add_ons:
                         - id: '78787723'
                   billing:
                     name: ONDC buyer
@@ -20461,7 +20461,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add-ons:
+                      add_ons:
                         - id: '78787723'
                   fulfillments:
                     - id: F1
@@ -20962,7 +20962,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add-ons:
+                      add_ons:
                         - id: '78787723'
                   fulfillments:
                     - id: F1
@@ -21340,7 +21340,7 @@ x-examples:
                       quantity:
                         selected:
                           count: 200
-                      add-ons:
+                      add_ons:
                         - id: '78787723'
                   billing:
                     name: ONDC buyer
@@ -26460,7 +26460,7 @@ x-attributes:
                 usage: '-'
                 reference: if any
                 required: optional
-              add-ons:
+              add_ons:
                 id:
                   description: ID of the add-on selected from the catalog
                   usage: '3456'
@@ -26608,7 +26608,7 @@ x-attributes:
                 usage: '-'
                 reference: if any
                 required: optional
-              add-ons:
+              add_ons:
                 id:
                   description: ID of the add-on selected from the catalog
                   usage: '3456'
@@ -26781,7 +26781,7 @@ x-attributes:
                 usage: '-'
                 reference: if any
                 required: optional
-              add-ons:
+              add_ons:
                 id:
                   description: ID of the add-on selected from the catalog
                   usage: '3456'
@@ -27254,7 +27254,7 @@ x-attributes:
                 usage: '-'
                 reference: if any
                 required: optional
-              add-ons:
+              add_ons:
                 id:
                   description: ID of the add-on selected from the catalog
                   usage: '3456'
@@ -27755,7 +27755,7 @@ x-attributes:
                 usage: '-'
                 reference: if any
                 required: optional
-              add-ons:
+              add_ons:
                 id:
                   description: ID of the add-on selected from the catalog
                   usage: '3456'
@@ -28135,7 +28135,7 @@ x-attributes:
                 usage: '-'
                 reference: if any
                 required: optional
-              add-ons:
+              add_ons:
                 id:
                   description: ID of the add-on selected from the catalog
                   usage: '3456'
@@ -28659,7 +28659,7 @@ x-attributes:
                     usage: 2
                     reference: if any
                     required: required
-              add-ons:
+              add_ons:
                 id:
                   description: ID of the add-on selected from the catalog
                   usage: '3456'
