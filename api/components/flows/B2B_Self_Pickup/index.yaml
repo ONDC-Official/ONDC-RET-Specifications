@@ -130,7 +130,7 @@ steps:
     description: Initialization of Order - Billing Details added.
     reference: if any
     example:
-      $ref: "../../Examples/B2B/init/init_domestic.yaml"
+      $ref: "../../Examples/B2B/init/init_domestic_self_pickup.yaml"
   - summary: Initialization of Order
     api: on_init
     description: Initialization of Order with final quote
@@ -142,13 +142,13 @@ steps:
     description: Buyer receives the quotation and once agreed to go ahead with the quotation received, creates a PO and sends the PO
     reference: if any
     example:
-      $ref: "../../Examples/B2B/confirm/confirm_domestic.yaml"
+      $ref: "../../Examples/B2B/confirm/confirm_domestic_self_pickup.yaml"
   - summary: Seller Accepts PO
     api: on_confirm
     description: Seller app sends an on_confirm call to the buyer app relaying the PO acceptance.
     reference: if any
     example:
-      $ref: "../../Examples/B2B/on_confirm/on_confirm_domestic.yaml"
+      $ref: "../../Examples/B2B/on_confirm/on_confirm_self_pickup.yaml"
   - summary: Seller app updates the payment status and sends proforma invoice
     api: on_status
     description: Seller app updates the payment status and sends proforma invoice
