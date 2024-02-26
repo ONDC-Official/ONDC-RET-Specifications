@@ -241,9 +241,29 @@ message:
           usage: "1"
           reference: if any
         tags.code:
-          description: code = 'attribute' is required for Fashion and Electronics category
+          description: code = 'attribute' is required for Fashion, Electronics,etc categories
           required: required
-          usage: "3"
+          usage: "-"
+          reference: if any
+        add_ons:
+          description: code = 'attribute' is required for Fashion, Electronics,etc categories
+          required: required
+          usage: "-"
+          reference: if any
+        cancellation_terms:
+          description: cancellation terms applicable on cancellation of the item
+          required: required
+          usage: "-"
+          reference: if any
+        return_terms:
+          description: return terms applicable in case of return
+          required: required
+          usage: "-"
+          reference: if any
+        replacement_terms:
+          description: Indicates replacement terms applicable in case buyer returns the item
+          required: required
+          usage: "-"
           reference: if any
       creds:
         parent: true
