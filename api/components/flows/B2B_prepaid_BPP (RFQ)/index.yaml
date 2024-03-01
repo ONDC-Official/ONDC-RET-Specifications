@@ -18,8 +18,8 @@ details:
         Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on Country and domain in Context
         Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on Country and domain in Context
 
-        SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + intimates that payment will <br/> be collected by BPP + Communication channel) <br/> Servicability based on Country, City and HScode permits
-        SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + intimates that payment will <br/> be collected by BPP + Communication channel) <br/>  Servicability based on Country, City and HScode permits
+        SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + intimates that payment will <br/> be collected by BPP + Communication channel) <br/> Servicability based on Country, City and HScode permits
+        SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add_ons, variants, offers + intimates that payment will <br/> be collected by BPP + Communication channel) <br/>  Servicability based on Country, City and HScode permits
         BuyerApp->>Buyer: Renders the search response
         
         note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
@@ -71,7 +71,7 @@ details:
 
         Buyer->>BuyerApp: Creates PO
         BuyerApp->>SellerApp: **/confirm** - Create PO to create final digital contract
-        SellerApp->>BuyerApp: **/on_confirm** - Accept PO + payment url (if payment.collected_by is BPP) + TTL for payment
+        SellerApp->>BuyerApp: **/on_confirm** - Accept PO + payment url (if payment.collected_by is BPP) + TTL for payment<br/> this TTL is calculated w.r.t context/ttl and it should be less than or equal to TTL <br/>defined at payment gateway for payment confirmation. In case of TTL expiry, <br/>Payment gateway should automatically cancel the payment and refund the source <br/>if payment is debited from the source.
 
   - description: PAYMENT COMMUNICATION
     mermaidGraph: >-

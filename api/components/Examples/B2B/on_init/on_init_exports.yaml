@@ -63,7 +63,7 @@ value:
         stops:
         - type: end
           location:
-            gps: 1.3806217468119772, 103.74636438437074
+            gps: 1.380621746811, 103.7463643843
             address: 'My House #, My buildin'
             city:
               name: Jurong East
@@ -164,22 +164,22 @@ value:
         - descriptor:
             code: buyer_id_no
           value: xxxxxxxxxxxxxxx
+      - descriptor:
+          code: bpp_terms
+        list:
         - descriptor:
-            code: bpp_terms
-          list:
-          - descriptor:
-              code: max_liability
-            value: '2'
-          - descriptor:
-              code: max_liability_cap
-            value: '10000'
-          - descriptor:
-              code: mandatory_arbitration
-            value: 'false'
-          - descriptor:
-              code: court_jurisdiction
-            value: Bengaluru
-          - descriptor:
-              code: delay_interest
-            value: '1000'
+            code: max_liability
+          value: '2'
+        - descriptor:
+            code: max_liability_cap
+          value: '10000'
+        - descriptor:
+            code: mandatory_arbitration
+          value: 'false'
+        - descriptor:
+            code: court_jurisdiction
+          value: Bengaluru
+        - descriptor:
+            code: delay_interest
+          value: '1000'
 

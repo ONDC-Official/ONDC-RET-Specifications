@@ -410,7 +410,7 @@ value:
                 currency: IND
                 value: '0'
           return_terms:
-            fulfillment_state:
+          - fulfillment_state:
               descriptor:
                 code: Order-delivered
             return_eligible: true
@@ -446,7 +446,7 @@ value:
                 code: url
               value: https://sellerNP.com/images/i1_back_image.png
           - descriptor:
-            code: attribute
+              code: attribute
             list:
             - descriptor:
                 code: brand

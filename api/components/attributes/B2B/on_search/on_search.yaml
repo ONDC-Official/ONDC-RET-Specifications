@@ -169,6 +169,7 @@ message:
               usage: "-"
               reference: if any
       items:
+        parent: true
         parent_item_id:
           description: if variant grouping defined for provider above, this matches id for variant_group definition; if not defined or id is invalid, buyer NPs may choose to display as normal SKU item
           required: required
@@ -235,16 +236,43 @@ message:
           required: required
           usage: "3"
           reference: if any
+        quantity.minimum.count:
+          description: stringified integer value - lower limit per order (if exists) or default value
+          required: optional
+          usage: "1"
+          reference: if any
         tags.code:
-          description: code = 'attribute' is required for Fashion and Electronics category
+          description: code = 'attribute' is required for Fashion, Electronics,etc categories
+          required: optional
+          usage: "-"
+          reference: if any
+        add_ons:
+          description: add ons with the item
+          required: optional
+          usage: "-"
+          reference: if any
+        cancellation_terms:
+          description: cancellation terms applicable on cancellation of the item
           required: required
-          usage: "3"
+          usage: "-"
+          reference: if any
+        return_terms:
+          description: return terms applicable in case of return
+          required: required
+          usage: "-"
+          reference: if any
+        replacement_terms:
+          description: Indicates replacement terms applicable in case buyer returns the item
+          required: required
+          usage: "-"
           reference: if any
       creds:
-        description: credentials of the seller
-        required: required for exports
-        usage: "-"
-        reference: if any
+        parent: true
+        creds:
+          description: credentials of the seller
+          required: required for exports
+          usage: "-"
+          reference: if any
         id:
           required: required 
           description: Human readable id
@@ -266,10 +294,77 @@ message:
           reference: if any
           usage: https://abcd.cdn.com/images/license-img 
       offers:
-        description: offer definition as per the template defined above
-        required: required
-        usage: "-"
-        reference: if any
+        parent: true
+        offers: 
+            description: Offers can be defined for a provider, An offer can be for - retail, logistics. An offer can be - opt-in, auto-applied. An offer will include the following info - offer id, offer type, images - may be used as banners to promote the offer from a merchant. An offer applicability criteria can include one or more of the following - location(s), categories, item(s), time period validity.
+            required: optional
+            usage: "-"
+            reference: if any
+        id:
+            description: unique offer id from provider;
+            required: required
+            usage: 'FLAT150, DISCP60, DISCA150, BUY2GET3, FREEBIE '
+            reference: if any
+        descriptor:
+            description: description of the offer.
+            required: required
+            usage: '-'
+            reference: if any
+        descriptor.name:
+            description: description of the offer.
+            required: optional
+            usage: '60% off up to ₹120, for order value above ₹159'
+            reference: if any
+        descriptor.code:
+            description: offer type - disc_pct  (discount percent or amount applied to the cart value, with or without a cap, and may be based on minimum cart value) , disc_amt (flat discount amount applied to the cart value, and may be based on minimum cart value), buyXgetY ( for every "X" item count in the cart, total of "Y" items will be offered (i.e. "Y" - "X" additional items), at 0 additional value) , freebie (for a minimum order value, 1 or more free item(s) will be offered at 0 value)
+            required: required
+            usage: 'disc_pct'
+            reference: if any
+        descriptor.short_desc:
+            description: short description of the offer.
+            required: optional
+            usage: '60% off up to ₹120'
+            reference: if any
+        descriptor.long_desc:
+            description: long description of the offer.
+            required: optional
+            usage: 'for order value above ₹159'
+            reference: if any
+        descriptor.images:
+            description: banner image from seller
+            required: optional
+            usage: 'https://sellerNP.com/images/offer2-banner.png'
+            reference: if any
+        location_ids:
+            description: location ids of the stores where the offer is applicable.
+            required: required
+            usage: 'L1'
+            reference: if any
+        category_ids:
+            description: category ids for which the offer is applicable.
+            required: required
+            usage: 'RET10-1034'
+            reference: if any
+        item_ids:
+            description: item ids for which the offer is applicable.
+            required: required
+            usage: 'I1'
+            reference: if any
+        time:
+            description: validity of the offer.
+            required: required
+            usage: '-'
+            reference: if any
+        time.label:
+            description: if the offer is valid
+            required: required
+            usage: 'valid'
+            reference: if any
+        time.range:
+            description: range of the validity of the offer
+            required: required
+            usage: '-'
+            reference: if any
     fulfillments:
        parent: true
        id:

@@ -50,33 +50,30 @@ message:
   parent: true
   intent:
     parent: true
+    tags:
+      description: Buyer app sends information like buyer app finder fee and buyer ID.
+      required: required
+      usage: "-"
+      reference: if any
+    category:
+      id:
+        description: category id will be from this list - https://docs.google.com/spreadsheets/d/1lbCvhytsAbbtTKgFIOG382tkzyhRYdL4zLaNcnxB8wY/edit#gid=0
+        required: required if category is present
+        usage: "RET10-*"
+        reference: if any
     payment:
-      parent: true
       type:
         description: type of payment option buyer wants to avail
         usage: "ON-FULFILLMENT"
         reference: if any
         required: optional
     item:
-      parent: true
       name:
         description: item name to be searched
-        required: present if item is present
+        required: required if item is present
         usage: "oil"
         reference: if any
-    category:
-      parent: true
-      description: Category of the search
-      required: optional
-      usage: "-"
-      reference: if any
-      id:
-        description: category id will be from this list - https://docs.google.com/spreadsheets/d/APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
-        required: present if category is present
-        usage: "RET10-*"
-        reference: if any
     fulfillment:
-      parent: true
       type:
         description: type of fulfillment mode buyer wants to avail
         required: required
@@ -99,5 +96,6 @@ message:
             required: required
             usage: "110030"
             reference: if any
+
 
   

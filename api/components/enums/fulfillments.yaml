@@ -1,36 +1,36 @@
 fulfillments:
   type:
     - code: Delivery
-      description: about the enum
+      description: When buyer wants the order to be delivered
       reference: <PR/Issue/Discussion Links md format text>
     - code: Self-Pickup
-      description: about the enum
+      description: When buyer want to self-pickup the order
       reference: <PR/Issue/Discussion Links md format text>
   state:
    descriptor:
     - code: Agent-assigned
-      description: about the enum
+      description: The fulfillment state when the agent has been assigned for the order.
       reference: <PR/Issue/Discussion Links md format text>
     - code: Packed
-      description: about the enum
+      description: The fulfillment has been packed.
       reference: <PR/Issue/Discussion Links md format text>
     - code: Out-for-delivery
-      description: about the enum
+      description: The agent is out for delivery.
       reference: <PR/Issue/Discussion Links md format text>
     - code: Order-picked-up
-      description: about the enum
+      description: The fulfillment has been picked up.
       reference: <PR/Issue/Discussion Links md format text>
     - code: Searching-for-agent
-      description: about the enum
+      description: Logistics Service Provider is searching for an agent to be assigned.
       reference: <PR/Issue/Discussion Links md format text>
     - code: Pending
-      description: about the enum
+      description: The initial state of the fulfillment.
       reference: <PR/Issue/Discussion Links md format text>
     - code: Order-delivered
-      description: about the enum
+      description: The  fulfillment has been successfully delivered.
       reference: <PR/Issue/Discussion Links md format text>
     - code: Cancelled
-      description: about the enum
+      description: The fulfillment has been cancelled.
       reference: <PR/Issue/Discussion Links md format text>
   pre_order_state:
     - code: Serviceable
@@ -39,4 +39,23 @@ fulfillments:
     - code: Non-serviceable
       description: if the location is non-serviceable
       reference: <PR/Issue/Discussion Links md format text>
+  tags:
+    delivery_terms:
+      incoterms:
+      - code: CIF
+        description: CIF (Cost, Insurance, and Freight) indicates that the seller has the responsibility to deliver the goods to the named port of destination, covering the cost of transportation, insurance, and freight charges.
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: EXW
+        description: EXW (Ex Works) represents the point at which the seller's responsibility for the goods ends and the buyer's responsibility begins in an international transaction.
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: FOB
+        description: FOB (Free On Board) terms define the point at which the seller fulfills their obligation to deliver the goods, and the buyer takes on the responsibility and costs associated with transporting the goods from the named port of shipment to the final destination
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: DAP
+        description: under DAP (Delivered at Place) terms, the seller takes on the responsibility and costs of delivering the goods to a named place at the buyer's destination. 
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: DDP
+        description: Under DDP (Delivered Duty Paid) terms, the seller assumes a high level of responsibility and covers all costs associated with delivering the goods to the buyer's destination. The buyer, on the other hand, is responsible for unloading the goods and any subsequent transportation from the named place to their final destination.
+        reference: <PR/Issue/Discussion Links md format text>
+        
 

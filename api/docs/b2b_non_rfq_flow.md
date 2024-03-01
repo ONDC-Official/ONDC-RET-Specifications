@@ -6,7 +6,7 @@ In the B2B (Business-to-Business) construct, the Non-RFQ flow is a straightforwa
 ## Search & Discovery
 - The buyer initiates a search request through the Buyer App (BAP).
 - The Gateway broadcasts this request to relevant seller apps (BPPs) based on country, domain, and city parameters.
-- Seller apps respond with an "on_search" callback response containing a product catalog, add-ons, variants, offers, etc.
+- Seller apps respond with an "on_search" callback response containing a product catalog, add_ons, variants, offers, etc.
 
 ## Selection of items
 - Buyer selects the items and customizations from the catalog and the seller app responds with a detailed quote, providing a breakdown that includes logistics charges (In case delivery is required) and a TTL for which this quote will be valid.

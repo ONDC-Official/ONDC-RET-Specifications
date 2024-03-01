@@ -89,7 +89,7 @@ message:
         usage: '-'
         reference: if any
         required: optional
-      add-ons:
+      add_ons:
         id: 
           description: ID of the add-on selected from the catalog
           usage: "3456"

@@ -1,23 +1,23 @@
 title_type:
       - code: item
-        description: price of the item
+        description: product cost, item price should be either inclusive or exclusive of taxes
         reference: <PR/Issue/Discussion Links md format text>
       - code: discount
-        description: discount charges
+        description: discount applied (item level)
         reference: <PR/Issue/Discussion Links md format text>
       - code: packing
-        description: packing charges
+        description: packing charges (fulfillment level)
         reference: <PR/Issue/Discussion Links md format text>
       - code: tax
-        description: tax applied
+        description: tax applied (item or fulfillment level), tax on fulfillment level charges, to be included only if not 0 (i.e. logistics buyer NP provides tax inclusive fulfillment level charges);
         reference: <PR/Issue/Discussion Links md format text>
       - code: delivery
-        description: delivery charges on fulfillment
+        description: shipping charges (fulfillment level), delivery charge to be included only if fulfillment state code is "Serviceable";
         reference: <PR/Issue/Discussion Links md format text>
       - code: misc
-        description: convenience charges
+        description: convenience charges (fulfillment level)
         reference: <PR/Issue/Discussion Links md format text>
       - code: refund
-        description: convenience charges
+        description: refund in case of cancellation
         reference: <PR/Issue/Discussion Links md format text>
  

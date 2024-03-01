@@ -1,17 +1,17 @@
 # B2B RFQ Flow
 
-The Request For Quotation (RFQ) flow is a systematic process within a B2B (Business-to-Business) environment where a buyer engages with a seller to discuss customizations, add-ons, and other details related to a potential purchase and then raises a Purchase Order (PO) for the same. The key steps in the RFQ flow are as follows:
+The Request For Quotation (RFQ) flow is a systematic process within a B2B (Business-to-Business) environment where a buyer engages with a seller to discuss customizations, add_ons, and other details related to a potential purchase and then raises a Purchase Order (PO) for the same. The key steps in the RFQ flow are as follows:
 
 
 ## Search & Discovery
 - The buyer initiates a search request through the Buyer App (BAP).
 - The Gateway broadcasts this request to relevant seller apps (BPPs) based on country, domain, and city parameters.
-- Seller apps respond with an "on_search" callback response containing a product catalog, add-ons, variants, offers, and an optional communication channel link for buyer-seller interactions.
+- Seller apps respond with an "on_search" callback response containing a product catalog, add_ons, variants, offers, and an optional communication channel link for buyer-seller interactions.
 - In case communication channel link is not provided by the seller app, buyer app can send its own link in the /select call.
 
 ## Communication and Customization
 - The buyer and seller engage in discussions through the provided communication channel.
-- Customizations, add-ons, and other specific details related to the purchase are discussed and finalized.
+- Customizations, add_ons, and other specific details related to the purchase are discussed and finalized.
 
 ## Request For Quotation (RFQ)
 - After discussions, the buyer requests a formal quotation of the items and customizations discussed (BUYER_TERMS) from the seller.

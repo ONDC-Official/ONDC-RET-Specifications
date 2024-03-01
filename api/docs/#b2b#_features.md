@@ -38,7 +38,7 @@ The diagram below illustrates the flow of discovery phase interactions:
 
 ## RFQ and PO
 
-From multiple on_search responses received, the buyer selects an item (variants, add-ons and offers as required). Post selection of an item, buyer requests for quotation for the selected item with all the customizations and the quantity of items required. Once the buyer provides these customization details, the buyer app relays this information to the seller app. Select will also include the TTL, time till which buyer wants to wait for response to RFQ.
+From multiple on_search responses received, the buyer selects an item (variants, add_ons and offers as required). Post selection of an item, buyer requests for quotation for the selected item with all the customizations and the quantity of items required. Once the buyer provides these customization details, the buyer app relays this information to the seller app. Select will also include the TTL, time till which buyer wants to wait for response to RFQ.
 
 In order to provide the quotation with logistics charges, either the exporter looks for on-network or off-network logistics and appends the logistics charges to the quotation and then responds to the buyer app with the quotation. Seller updates the final quotation and breakup in on_select call. The TTL for getting the response on RFQ will be based on the TTL defined by the buyer in the select call. Buyer receives the quotation and once agreed to go ahead with the quotation received, initializes the order and provides billing details via init call. And then creates a PO and sends the PO. Buyer app relays the PO to the seller app through confirm call. Once the PO is received, the seller accepts the PO. Seller app sends an on_confirm call to the buyer app relaying the PO acceptance.
 
@@ -101,7 +101,7 @@ Please refer to swagger and [GIT](https://ondc-official.github.io/ONDC-RET-Speci
 **/on_search:**
 
 - Communication Channel
-- Item add-ons
+- Item add_ons
 - Item variants
 - Price slabs
 - Offers

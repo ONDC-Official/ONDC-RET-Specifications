@@ -242,6 +242,9 @@ value:
             - descriptor:
                 code: tax_rate
               value: '12'
+            - descriptor:
+                code: cancellable
+              value: 'true'
           - descriptor:
               code: g3
             list:

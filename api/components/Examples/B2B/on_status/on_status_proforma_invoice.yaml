@@ -74,7 +74,7 @@ value:
             email: nobody@nomail.com
         - type: end
           location:
-            gps: 1.3806217468119772, 103.74636438437074
+            gps: 1.380621746811, 103.7463643843
             address: 'My House #, My buildin'
             city:
               name: Jurong East
@@ -148,7 +148,7 @@ value:
           currency: INR
           transaction_id: '3937'
           amount: '53600'
-        status: NOT-PAID
+        status: PAID
         type: PRE-FULFILLMENT
         collected_by: BPP
         "@ondc/org/buyer_app_finder_fee_type": percent
