@@ -27,7 +27,7 @@
       "cancellation": {
         "cancelled_by": "buyerapp.com",
         "reason": {
-          "id": "012"
+          "id": "003"
         }
       },
       "provider": {
