@@ -12150,7 +12150,7 @@ x-flows:
                             value: ED25519
                   - id: P2
                     type: PRE-FULFILLMENT
-                    collected_by: BAP
+                    collected_by: buyer
                     uri: https://snp.com/pg
                     params:
                       currency: INR
@@ -26772,7 +26772,7 @@ x-examples:
                               value: ED25519
                     - id: P2
                       type: PRE-FULFILLMENT
-                      collected_by: BAP
+                      collected_by: buyer
                       uri: https://snp.com/pg
                       params:
                         currency: INR
