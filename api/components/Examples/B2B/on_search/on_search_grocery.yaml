@@ -329,6 +329,207 @@ value:
             - descriptor:
                 code: IMPORTER
               value: '12345678901234'
+        - id: I2
+          parent_item_id: V1
+          descriptor:
+            name: Dhara Fish Oil
+            code: UPC / EAN code
+            short_desc: Dhara refined Fish oil
+            long_desc: Dhara refined Fish oil
+            images:
+            - url: https://abc.com/images/207.png
+            media:
+            - mimetype: video/mp4
+              url: https://abc.com/images/207.mp4
+          creator:
+            descriptor:
+              name: Mother Dairy
+              contact:
+                name: Raj Kumar
+                address:
+                  full: Mother Dairy Fruit & Vegetable Pvt Ltd,A-3, NDDB House, Sector-1,
+                    Noida,Uttar Pradesh-201301
+                phone: '18001801018'
+                email: consumer.services@motherdairy.com
+          price:
+            currency: INR
+            value: '300.00'
+            offered_value: '250.00'
+            maximum_value: '350.00'
+          quantity:
+            unitized:
+              measure:
+                unit: millilitre
+                value: '500'
+            available:
+              measure:
+                unit: millilitre
+                value: '500'
+              count: 2000
+            maximum:
+              measure:
+                unit: millilitre
+                value: '500'
+              count: 4000
+            minimum:
+              measure:
+                unit: millilitre
+                value: '500'
+              count: 4000
+          category_ids:
+          - RET10-1042
+          fulfillment_ids:
+          - '1'
+          location_ids:
+          - L1
+          payment_ids:
+          - '2'
+          add_ons:
+          - id: '78787723'
+            descriptor:
+              name: Dhara Sunflower Oil
+              short_desc: Dhara Sunflower Oil
+              long_desc: Dhara Sunflower Oil
+              images:
+              - url: https://abc.com/images/208.png
+            price:
+              currency: INR
+              value: '170.0'
+              offered_value: '100.0'
+              maximum_value: '170.0'
+          cancellation_terms:
+          - fulfillment_state:
+              descriptor:
+                code: Pending
+            reason_required: false
+            cancellation_fee:
+              percentage: '0'
+              amount:
+                currency: IND
+                value: '0'
+          - fulfillment_state:
+              descriptor:
+                code: Packed
+            reason_required: false
+            cancellation_fee:
+              percentage: '0'
+              amount:
+                currency: IND
+                value: '0'
+          return_terms:
+          - fulfillment_state:
+              descriptor:
+                code: Order-delivered
+            return_eligible: true
+            return_time:
+              duration: P7D
+            return_location:
+              address: RTO address
+              gps: 12.667555,77.349666
+            fulfillment_managed_by: seller
+          replacement_terms:
+          - replace_within: P7D
+          time:
+            label: validity
+            range:
+              start: '2022-12-24T00:00:00.000Z'
+              end: '2022-12-31T00:00:00.000Z'
+          matched: true
+          recommended: true
+          tags:
+          - descriptor:
+              code: origin
+            list:
+            - descriptor:
+                code: country
+              value: IND
+          - descriptor:
+              code: image
+            list:
+            - descriptor:
+                code: type
+              value: back_image
+            - descriptor:
+                code: url
+              value: https://sellerNP.com/images/i1_back_image.png
+          - descriptor:
+              code: veg_nonveg
+            list:
+            - descriptor:
+                code: non_veg
+              value: 'yes'
+          - descriptor:
+              code: g2
+            list:
+            - descriptor:
+                code: time_to_ship
+              value: P1D
+            - descriptor:
+                code: tax_rate
+              value: '12'
+            - descriptor:
+                code: cancellable
+              value: 'true'
+          - descriptor:
+              code: g3
+            list:
+            - descriptor:
+                code: brand
+              value: Dhara
+            - descriptor:
+                code: pack_size
+              value: '5'
+            - descriptor:
+                code: num_price_slabs
+              value: '3'
+          - descriptor:
+              code: price_slab
+            list:
+            - descriptor:
+                code: min_pack_size
+              value: '1'
+            - descriptor:
+                code: max_pack_size
+              value: '4'
+            - descriptor:
+                code: unit_sale_price
+              value: '250'
+          - descriptor:
+              code: price_slab
+            list:
+            - descriptor:
+                code: min_pack_size
+              value: '5'
+            - descriptor:
+                code: max_pack_size
+              value: '9'
+            - descriptor:
+                code: unit_sale_price
+              value: '200'
+          - descriptor:
+              code: price_slab
+            list:
+            - descriptor:
+                code: min_pack_size
+              value: '10'
+            - descriptor:
+                code: max_pack_size
+              value: ''
+            - descriptor:
+                code: unit_sale_price
+              value: '175'
+          - descriptor:
+              code: FSSAI_LICENSE_NO
+            list:
+            - descriptor:
+                code: BRAND_OWNER
+              value: '12345678901234'
+            - descriptor:
+                code: OTHER
+              value: '12345678901234'
+            - descriptor:
+                code: IMPORTER
+              value: '12345678901234'
         offers:
         - id: offer-1
           descriptor:
