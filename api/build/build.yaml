@@ -11270,7 +11270,7 @@ x-flows:
               ttl: PT30S
             message:
               order_id: '02'
-              cancellation_reason_id: '022'
+              cancellation_reason_id: '003'
       - summary: Seller app confirms cancellation of the order
         api: on_cancel
         description: >-
@@ -11308,7 +11308,7 @@ x-flows:
                 cancellation:
                   cancelled_by: buyerapp.com
                   reason:
-                    id: '022'
+                    id: '003'
                 provider:
                   id: P1
                   locations:
@@ -25826,7 +25826,7 @@ x-examples:
                 ttl: PT30S
               message:
                 order_id: '02'
-                cancellation_reason_id: '022'
+                cancellation_reason_id: '003'
       on_cancel:
         examples:
           - summary: Seller cancels the order
@@ -25856,7 +25856,7 @@ x-examples:
                   cancellation:
                     cancelled_by: buyerapp.com
                     reason:
-                      id: '022'
+                      id: '003'
                   provider:
                     id: P1
                     locations:
