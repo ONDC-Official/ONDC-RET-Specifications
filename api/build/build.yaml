@@ -2939,6 +2939,20 @@ x-enum:
               - code: RET10-105F
                 description: Other Equipment
                 reference: <PR/Issue/Discussion Links md format text>
+            tags:
+              veg_nonveg:
+                descriptor:
+                  code:
+                    - code: veg
+                      description: >-
+                        if the item is veg, value = yes, either or veg, non_veg
+                        to be used
+                      reference: <PR/Issue/Discussion Links md format text>
+                    - code: non_veg
+                      description: >-
+                        if the item is non-veg, value = yes, either or veg,
+                        non_veg to be used
+                      reference: <PR/Issue/Discussion Links md format text>
           tags:
             serviceability:
               type:
