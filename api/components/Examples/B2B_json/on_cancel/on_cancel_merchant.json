@@ -25,9 +25,9 @@
       "id": "02",
       "state": "Cancelled",
       "cancellation": {
-        "cancelled_by": "buyerapp.com",
+        "cancelled_by": "sellerapp.com",
         "reason": {
-          "id": "003"
+          "id": "005"
         }
       },
       "provider": {

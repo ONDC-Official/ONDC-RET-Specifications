@@ -94,3 +94,4 @@ cancel:
 on_cancel:
   examples:
     - $ref: ./on_cancel/on_cancel.yaml
+    - $ref: ./on_cancel/on_cancel_merchant.yaml

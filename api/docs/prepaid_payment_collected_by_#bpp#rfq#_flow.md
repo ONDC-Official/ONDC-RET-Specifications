@@ -168,7 +168,7 @@ It should also be noted that status will be `NOT-PAID` if payment fails.
 
 ## What happens when TTL expires ?
 
-When the TTL mentioned by the seller expires with either no response or pending status, the buyer sends `NACK` as shown below.
+When the TTL mentioned by the seller app expires without any response, buyer app can request for an updated status via /status call, upon receiving payment status as 'NOT-PAID', the buyer app sends `NACK` as shown below.
 
 ```
 "error": {
@@ -177,7 +177,7 @@ When the TTL mentioned by the seller expires with either no response or pending 
 }
 ```
 
-If buyer app has already sent `NACK` after TTL expiration but payment has succeeded then the buyer uses _cancel_ and _on\_cancel_ (seller-side) for refund of the debited amount. However before /cancel, a status call is required to check the updated payment status.
+In case of TTL expiry, Payment gateway should automatically cancel the payment and refund the source if payment is debited from the source. Also, buyer app or seller app should initiate cancellation of the order using /cancel (cancellation reason code : 023) or /on_cancel (cancellation reason code : 022). However before /cancel, a status call is required to check the updated payment status.
 
 <img src="https://github.com/ONDC-Official/ONDC-RET-Specifications/blob/draft-2.x/api/images/payment_rfq.svg?raw=true" alt="Sequence Diagram" width="900" >
 </div>
