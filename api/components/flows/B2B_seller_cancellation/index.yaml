@@ -132,4 +132,4 @@ steps:
     api: on_cancel
     description: Seller app cancels the order at its end.
     example:
-      $ref: "../../Examples/B2B/on_cancel/on_cancel.yaml"
+      $ref: "../../Examples/B2B/on_cancel/on_cancel_merchant.yaml"

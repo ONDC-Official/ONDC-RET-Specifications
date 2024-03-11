@@ -125,10 +125,16 @@ Cancellation:
       For open-box orders, the logistics rider can use this if there is a
       mismatch between the items inside the box & the items in the invoice
   - Code: '022'
-    Reason: Payment Failed
+    Reason: Payment Failed or TTL expires
     Triggers RTO?: 'No'
     Who can use code?: SNP
     Cause of cancellation & hence cost attributed to: SNP
+    Applicable for part cancel: 'No'
+  - Code: '023'
+    Reason: Payment Failed or TTL expires
+    Triggers RTO?: 'No'
+    Who can use code?: BNP
+    Cause of cancellation & hence cost attributed to: BNP
     Applicable for part cancel: 'No'
   - Code: '999'
     Reason: Order confirmation failure

@@ -17,6 +17,8 @@ on_search:
           items:
             category_ids: 
               $ref: "./category.yaml#/category_ids"
+            tags:
+              $ref: "./items.yaml#/tags"
           tags:
               $ref: "./provider.yaml#/tags"
         fulfillment:
