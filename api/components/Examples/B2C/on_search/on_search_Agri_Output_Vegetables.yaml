@@ -84,7 +84,7 @@ value:
                   - https://sellerNP.com/images/i1.png
                 additional_desc:
                   - url: "https://quality_assessment.pdf"
-                  - content_type: "text/html"
+                    content_type: "text/html"
               quantity:
                 unitized [^20]:
                   measure:
@@ -143,7 +143,7 @@ value:
                   - https://sellerNP.com/images/i1.png
                 additional_desc:
                   - url: "https://quality_assessment.pdf"
-                  - content_type: "text/html"
+                    content_type: "text/html"
               quantity:
                 unitized:
                   measure:
