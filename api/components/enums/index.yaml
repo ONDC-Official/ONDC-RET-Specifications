@@ -63,7 +63,7 @@ on_init:
       fulfillments: *fulfillment
       quote: 
         breakup: 
-        "@ondc/org/title_type":
+         "@ondc/org/title_type":
             $ref: "./quote.yaml#/title_type"
 confirm:
   context: *context
