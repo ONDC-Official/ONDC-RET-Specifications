@@ -27368,7 +27368,7 @@ x-attributes:
                   serviceability construct for providers is defined here. Refer
                   to this document
                   (https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit)
-                  for more serviceability construct.
+                  for serviceability construct.
                 required: required
                 usage: '-'
                 reference: if any
