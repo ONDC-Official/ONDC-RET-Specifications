@@ -201,7 +201,6 @@ message:
           usage: "-"
           reference: if any 
         creator.descriptor.contact.address:
-          parent: true
           description: address of the support person
           required: required
           usage: "-"
