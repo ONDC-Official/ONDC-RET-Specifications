@@ -27897,7 +27897,7 @@ x-attributes:
                   phone:
                     description: contact number of the receiver
                     required: required
-                    usage: '09212342829'
+                    usage: '9212342829'
                     reference: if any
               customer:
                 person:
