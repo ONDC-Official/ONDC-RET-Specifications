@@ -2125,8 +2125,7 @@ components:
             The time-to-live in seconds, for this object. This can be overriden
             at deeper levels. A value of -1 indicates that this object is not
             cacheable.
-          type: integer
-          minimum: -1
+          type: string
         tags:
           type: array
           items:
@@ -5991,7 +5990,7 @@ x-flows:
                             - url: https://abc.com/images/207.png
                           media:
                             - mimetype: video/mp4
-                              url: https://abc.com/videos/207.mp4
+                              url: https://abc.com/videos/207
                         creator:
                           descriptor:
                             name: Mother Dairy
@@ -6282,7 +6281,7 @@ x-flows:
                             type: License
                             desc: Import License No. ESG-12345678
                             icon: https://abcd.cdn.com/images/license-img
-                            url: https://abcd.dnb.com/verify?id=’ESG-12345678'
+                            url: https://abcd.dnb.com/verify?id=ESG-1234
                     tags:
                       - descriptor:
                           code: DELIVERY_TERMS
@@ -6509,7 +6508,7 @@ x-flows:
                             type: License
                             desc: Import License No. ESG-12345678
                             icon: https://abcd.cdn.com/images/license-img
-                            url: https://abcd.dnb.com/verify?id=’ESG-12345678'
+                            url: https://abcd.dnb.com/verify?id=ESG-1234
                     tags:
                       - descriptor:
                           code: DELIVERY_TERMS
@@ -8956,8 +8955,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -9056,8 +9055,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 582eb99f-a7c1-46ae-8174-936757d2d96f
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -9945,7 +9944,7 @@ x-flows:
                             - url: https://abc.com/images/207.png
                           media:
                             - mimetype: video/mp4
-                              url: https://abc.com/images/207.mp4
+                              url: https://abc.com/videos/207
                         creator:
                           descriptor:
                             name: Mother Dairy
@@ -10361,8 +10360,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -14685,7 +14684,7 @@ x-examples:
                               type: License
                               desc: Import License No. ESG-12345678
                               icon: https://abcd.cdn.com/images/license-img
-                              url: https://abcd.dnb.com/verify?id=’ESG-12345678'
+                              url: https://abcd.dnb.com/verify?id=ESG-1234
                       tags:
                         - descriptor:
                             code: DELIVERY_TERMS
@@ -14781,7 +14780,7 @@ x-examples:
                               type: License
                               desc: Import License No. ESG-12345678
                               icon: https://abcd.cdn.com/images/license-img
-                              url: https://abcd.dnb.com/verify?id=’ESG-12345678'
+                              url: https://abcd.dnb.com/verify?id=ESG-1234
                       tags:
                         - descriptor:
                             code: DELIVERY_TERMS
@@ -15019,7 +15018,7 @@ x-examples:
                               type: License
                               desc: Import License No. ESG-12345678
                               icon: https://abcd.cdn.com/images/license-img
-                              url: https://abcd.dnb.com/verify?id=’ESG-12345678'
+                              url: https://abcd.dnb.com/verify?id=ESG-1234
                       tags:
                         - descriptor:
                             code: DELIVERY_TERMS
@@ -15146,8 +15145,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 582eb99f-a7c1-46ae-8174-936757d2d96f
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -16615,7 +16614,7 @@ x-examples:
                               - url: https://abc.com/images/207.png
                             media:
                               - mimetype: video/mp4
-                                url: https://abc.com/videos/207.mp4
+                                url: https://abc.com/videos/207
                           creator:
                             descriptor:
                               name: Mother Dairy
@@ -16974,7 +16973,7 @@ x-examples:
                             images:
                               - url: https://abc.com/images/207.png
                             media:
-                              - mimetype: video/mp4
+                              - mimetype: https://abc.com/videos/207
                                 url: https://abc.com/images/207.mp4
                           creator:
                             descriptor:
@@ -19251,7 +19250,7 @@ x-examples:
                               - url: https://abc.com/images/207.png
                             media:
                               - mimetype: video/mp4
-                                url: https://abc.com/images/207.mp4
+                                url: https://abc.com/videos/207
                           creator:
                             descriptor:
                               name: Mother Dairy
@@ -19491,8 +19490,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/ap
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/ap
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -19627,7 +19626,7 @@ x-examples:
                               - url: https://abc.com/images/207.png
                             media:
                               - mimetype: video/mp4
-                                url: video_url
+                                url: https://abc.com/videos/207
                           creator:
                             descriptor:
                               name: xxxxx
@@ -19880,8 +19879,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/fs
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/fs
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -20010,7 +20009,7 @@ x-examples:
                               - url: https://abc.com/images/207.png
                             media:
                               - mimetype: video/mp4
-                                url: video_url
+                                url: https://abc.com/videos/207
                           creator:
                             descriptor:
                               name: xxxxx
@@ -20239,8 +20238,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/fs
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/fs
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -20373,7 +20372,7 @@ x-examples:
                               - url: https://abc.com/images/207.png
                             media:
                               - mimetype: video/mp4
-                                url: video_url
+                                url: https://abc.com/videos/207
                           creator:
                             descriptor:
                               name: xxxxx
@@ -20603,8 +20602,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/fs
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/fs
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -20739,7 +20738,7 @@ x-examples:
                               - url: https://abc.com/images/207.png
                             media:
                               - mimetype: video/mp4
-                                url: video_url
+                                url: https://abc.com/videos/207
                           creator:
                             descriptor:
                               name: xxxxx
@@ -21160,8 +21159,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -21661,8 +21660,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -29914,7 +29913,8 @@ x-attributes:
               label:
                 description: >-
                   Proforma invoice should be sent in case of RFQ Flow after the
-                  payment is received, and final invoice will be shared later
+                  payment is received, and final invoice will be shared once the
+                  order is picked up
                 required: required
                 usage: INVOICE
                 reference: if any

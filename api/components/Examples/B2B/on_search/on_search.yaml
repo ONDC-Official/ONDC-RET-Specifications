@@ -115,7 +115,7 @@ value:
             - url: https://abc.com/images/207.png
             media:
             - mimetype: video/mp4
-              url: https://abc.com/videos/207.mp4
+              url: https://abc.com/videos/207
           creator:
             descriptor:
               name: Mother Dairy
