@@ -2125,7 +2125,8 @@ components:
             The time-to-live in seconds, for this object. This can be overriden
             at deeper levels. A value of -1 indicates that this object is not
             cacheable.
-          type: string
+          type: integer
+          minimum: -1
         tags:
           type: array
           items:
@@ -27231,6 +27232,13 @@ x-attributes:
                   reference: if any
                 cancellation_terms:
                   description: cancellation terms applicable on cancellation of the item
+                  required: required
+                  usage: '-'
+                  reference: if any
+                cancellation_terms.cancellation_fee:
+                  description: >-
+                    Cancellation fees can be applied either as a percentage or
+                    as a flat amount.
                   required: required
                   usage: '-'
                   reference: if any
