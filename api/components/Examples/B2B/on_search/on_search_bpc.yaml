@@ -143,7 +143,7 @@ value:
                 images:
                   - url: https://abc.com/images/207.png
                 media:
-                  - mimetype: video/mp4
+                  - mimetype: https://abc.com/videos/207
                     url: https://abc.com/images/207.mp4
               creator:
                 descriptor:

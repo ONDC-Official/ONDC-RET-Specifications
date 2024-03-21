@@ -69,7 +69,7 @@ value:
               type: License
               desc: Import License No. ESG-12345678
               icon: https://abcd.cdn.com/images/license-img
-              url: https://abcd.dnb.com/verify?id=’ESG-12345678'
+              url: https://abcd.dnb.com/verify?id=ESG-1234
         tags:
         - descriptor:
             code: DELIVERY_TERMS

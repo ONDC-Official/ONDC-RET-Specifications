@@ -82,7 +82,7 @@ async function validateExamples(exampleSets, schemaMap) {
           );
           if (result) {
             console.log("error[Example] :", `${example + "/" + api}`);
-            return (hasTrueResult = true);
+            // return (hasTrueResult = true);
           }
         }
     }

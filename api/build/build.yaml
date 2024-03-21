@@ -3104,8 +3104,8 @@ x-enum:
         payments: *ref_2
         fulfillments: *ref_3
         quote:
-          breakup: null
-          '@ondc/org/title_type': *ref_4
+          breakup:
+            '@ondc/org/title_type': *ref_4
   confirm:
     context: *ref_1
     message:
@@ -5991,7 +5991,7 @@ x-flows:
                             - url: https://abc.com/images/207.png
                           media:
                             - mimetype: video/mp4
-                              url: https://abc.com/videos/207.mp4
+                              url: https://abc.com/videos/207
                         creator:
                           descriptor:
                             name: Mother Dairy
@@ -6282,7 +6282,7 @@ x-flows:
                             type: License
                             desc: Import License No. ESG-12345678
                             icon: https://abcd.cdn.com/images/license-img
-                            url: https://abcd.dnb.com/verify?id=’ESG-12345678'
+                            url: https://abcd.dnb.com/verify?id=ESG-1234
                     tags:
                       - descriptor:
                           code: DELIVERY_TERMS
@@ -6509,7 +6509,7 @@ x-flows:
                             type: License
                             desc: Import License No. ESG-12345678
                             icon: https://abcd.cdn.com/images/license-img
-                            url: https://abcd.dnb.com/verify?id=’ESG-12345678'
+                            url: https://abcd.dnb.com/verify?id=ESG-1234
                     tags:
                       - descriptor:
                           code: DELIVERY_TERMS
@@ -8956,8 +8956,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -9056,8 +9056,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 582eb99f-a7c1-46ae-8174-936757d2d96f
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -9945,7 +9945,7 @@ x-flows:
                             - url: https://abc.com/images/207.png
                           media:
                             - mimetype: video/mp4
-                              url: https://abc.com/images/207.mp4
+                              url: https://abc.com/videos/207
                         creator:
                           descriptor:
                             name: Mother Dairy
@@ -10361,8 +10361,8 @@ x-flows:
               bap_uri: https://buyerapp.com/grocery
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/grocery
-              transaction_id: T1
-              message_id: M1
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
               timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
@@ -14685,7 +14685,7 @@ x-examples:
                               type: License
                               desc: Import License No. ESG-12345678
                               icon: https://abcd.cdn.com/images/license-img
-                              url: https://abcd.dnb.com/verify?id=’ESG-12345678'
+                              url: https://abcd.dnb.com/verify?id=ESG-1234
                       tags:
                         - descriptor:
                             code: DELIVERY_TERMS
@@ -14781,7 +14781,7 @@ x-examples:
                               type: License
                               desc: Import License No. ESG-12345678
                               icon: https://abcd.cdn.com/images/license-img
-                              url: https://abcd.dnb.com/verify?id=’ESG-12345678'
+                              url: https://abcd.dnb.com/verify?id=ESG-1234
                       tags:
                         - descriptor:
                             code: DELIVERY_TERMS
@@ -15019,7 +15019,7 @@ x-examples:
                               type: License
                               desc: Import License No. ESG-12345678
                               icon: https://abcd.cdn.com/images/license-img
-                              url: https://abcd.dnb.com/verify?id=’ESG-12345678'
+                              url: https://abcd.dnb.com/verify?id=ESG-1234
                       tags:
                         - descriptor:
                             code: DELIVERY_TERMS
@@ -15146,8 +15146,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 582eb99f-a7c1-46ae-8174-936757d2d96f
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -16615,7 +16615,7 @@ x-examples:
                               - url: https://abc.com/images/207.png
                             media:
                               - mimetype: video/mp4
-                                url: https://abc.com/videos/207.mp4
+                                url: https://abc.com/videos/207
                           creator:
                             descriptor:
                               name: Mother Dairy
@@ -16974,7 +16974,7 @@ x-examples:
                             images:
                               - url: https://abc.com/images/207.png
                             media:
-                              - mimetype: video/mp4
+                              - mimetype: https://abc.com/videos/207
                                 url: https://abc.com/images/207.mp4
                           creator:
                             descriptor:
@@ -19251,7 +19251,7 @@ x-examples:
                               - url: https://abc.com/images/207.png
                             media:
                               - mimetype: video/mp4
-                                url: https://abc.com/images/207.mp4
+                                url: https://abc.com/videos/207
                           creator:
                             descriptor:
                               name: Mother Dairy
@@ -19491,8 +19491,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/ap
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/ap
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -19627,7 +19627,7 @@ x-examples:
                               - url: https://abc.com/images/207.png
                             media:
                               - mimetype: video/mp4
-                                url: video_url
+                                url: https://abc.com/videos/207
                           creator:
                             descriptor:
                               name: xxxxx
@@ -19880,8 +19880,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/fs
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/fs
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -20010,7 +20010,7 @@ x-examples:
                               - url: https://abc.com/images/207.png
                             media:
                               - mimetype: video/mp4
-                                url: video_url
+                                url: https://abc.com/videos/207
                           creator:
                             descriptor:
                               name: xxxxx
@@ -20239,8 +20239,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/fs
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/fs
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -20373,7 +20373,7 @@ x-examples:
                               - url: https://abc.com/images/207.png
                             media:
                               - mimetype: video/mp4
-                                url: video_url
+                                url: https://abc.com/videos/207
                           creator:
                             descriptor:
                               name: xxxxx
@@ -20603,8 +20603,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/fs
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/fs
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -20739,7 +20739,7 @@ x-examples:
                               - url: https://abc.com/images/207.png
                             media:
                               - mimetype: video/mp4
-                                url: video_url
+                                url: https://abc.com/videos/207
                           creator:
                             descriptor:
                               name: xxxxx
@@ -21160,8 +21160,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -21661,8 +21661,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+                message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -27172,7 +27172,6 @@ x-attributes:
                   usage: '-'
                   reference: if any
                 creator.descriptor.contact.address:
-                  parent: true
                   description: address of the support person
                   required: required
                   usage: '-'
@@ -27233,6 +27232,13 @@ x-attributes:
                   reference: if any
                 cancellation_terms:
                   description: cancellation terms applicable on cancellation of the item
+                  required: required
+                  usage: '-'
+                  reference: if any
+                cancellation_terms.cancellation_fee:
+                  description: >-
+                    Cancellation fees can be applied either as a percentage or
+                    as a flat amount.
                   required: required
                   usage: '-'
                   reference: if any
@@ -27363,6 +27369,15 @@ x-attributes:
                   required: required
                   usage: '-'
                   reference: if any
+              tags:
+                description: >-
+                  serviceability construct for providers is defined here. Refer
+                  to this document
+                  (https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit)
+                  for serviceability construct.
+                required: required
+                usage: '-'
+                reference: if any
             fulfillments:
               parent: true
               id:
@@ -27663,7 +27678,7 @@ x-attributes:
             fulfillments:
               parent: true
               id:
-                description: ID of the fulfillment
+                description: ID of the fulfillment generated by seller NP
                 usage: F1
                 reference: if any
                 required: required
@@ -27889,7 +27904,7 @@ x-attributes:
                   phone:
                     description: contact number of the receiver
                     required: required
-                    usage: '09212342829'
+                    usage: '9212342829'
                     reference: if any
               customer:
                 person:
@@ -29393,29 +29408,38 @@ x-attributes:
                     reference: if any
             payments:
               parent: true
-              description: payment details
-              required: required when buyer app wants to update the payment status
-              usage: '-'
-              reference: if any
               type:
-                description: Preferred payment method chosen by the buyer
-                usage: ON-FULFILLMENT
+                description: >-
+                  How payment is going to be collected from the Buyer. If this
+                  parameter is set to “PRE-FULFILLMENT”, that means it is a
+                  pre-paid order, i.e. the payment is collected at the time of
+                  order confirmation. If this parameter is set to
+                  “ON-FULFILLMENT”, that means it is pay-on-delivery order, i.e.
+                  the payment is collected at the time of delivering the product
+                  to the Buyer. If this parameter is set to “POST-FULFILLMENT”,
+                  that means it is post the order delivery/service, i.e. the
+                  payment is collected post delivery of the product to the
+                  Buyer.
+                usage: “PRE-FULFILLMENT”, “ON-FULFILLMENT”,“POST-FULFILLMENT”
                 reference: if any
                 required: required
               collected_by:
-                description: Indicates who is collecting the payment
-                usage: BPP
+                description: >-
+                  If set to “BAP”, it means that the Buyer App will collect
+                  payment from the Buyer. If set to “BPP”, it means that the
+                  Seller App will collect payment from the Buyer.
+                usage: “BAP”, “BPP”
                 reference: if any
                 required: required
-              uri:
-                description: payment gateway url provided by buyer app in case of RFQ flow
-                required: optional
-                usage: https://ondc.transaction.com/payment
-                reference: if any
               status:
                 description: status whether payment has been collected or not
                 required: required
-                usage: PAID
+                usage: PAID, NOT-PAID
+                reference: if any
+              uri:
+                description: payment gateway url if BAP is collecting the payment
+                required: optional
+                usage: https://snp.com/pg
                 reference: if any
               params:
                 transaction_id:
@@ -29433,28 +29457,103 @@ x-attributes:
                   required: required
                   usage: '3937'
                   reference: if any
-              '@ondc/org/settlement_basis':
-                description: basis of settlement
+              '@ondc/org/buyer_app_finder_fee_type':
+                description: >-
+                  If set to “amount” it means Buyer App’s fee is a flat amount
+                  in INR. If set to “percent” it means the Buyer App’s fee is
+                  set as a percentage of the Total Order Value.
                 required: required
-                usage: delivery
+                usage: “amount”, “percent”
+                reference: if any
+              '@ondc/org/buyer_app_finder_fee_amount':
+                description: >-
+                  Quantum of the Buyer App’s Fee. To be interpreted in
+                  connection with the “type” field mentioned above. For example,
+                  let’s assume the value is set at “5”. If the “type” is set to
+                  “Amount”, that means the Buyer App Fee is INR 5. If the “type”
+                  is set to “percent”, it means the Buyer App Fee is 5% of the
+                  Total Order Value.
+                required: required
+                usage: 3.0 (Positive Decimal Number)
+                reference: if any
+              '@ondc/org/settlement_basis':
+                description: >-
+                  The event that will trigger settlement from the Payment
+                  Collector to counterparty Network Participant(s). If it is set
+                  to “delivery”, that will mean settlement by the Payment
+                  Collector will be after completion of delivery.If it is set to
+                  “shipment”, that will mean settlement by the Payment Collector
+                  will be after the product is successfully shipped from the
+                  seller. If it is set to “return_window_expiry”, that will mean
+                  settlement by the Payment Collector will be on the expiry of
+                  the return window.
+                required: required
+                usage: “return_window_expiry”, “shipment”, “delivery”
                 reference: if any
               '@ondc/org/settlement_window':
-                description: time window within which settlement needs to be done
+                description: >-
+                  The time period from completion of the Settlement Basis within
+                  which the Payment Collector will settle with counterparty
+                  Network Participant(s). As an example, if the Settlement Basis
+                  is set as “Delivery” and the Settlement Window is set to 7
+                  days, and the Buyer App collects the payment, it means the
+                  Buyer App will remit funds to the Seller App on or before the
+                  completion of the 7th day after successful delivery, assuming
+                  the Buyer does not return the product within that time.
+                  ISO8601 duration notation is used to specify the value of the
+                  parameter. As an illustration, a Settlement Window of 5 days
+                  after delivery can be specified as “P5D” (i.e. period 5 days)
+                  or “PT120H” (i.e. period 120 hours).
                 required: required
-                usage: P1D
+                usage: '''P1D'' Time period (ISO8601 format)'
                 reference: if any
               '@ondc/org/withholding_amount':
-                description: amount to be settled
+                description: >-
+                  The percentage of the total order value that the Payment
+                  Collector will withhold till the return window expires. This
+                  amount will be settled if the return period is completed and
+                  the Buyer has not returned the product in that
+                  time.Explanation: This is typically most relevant where the
+                  order is pre-paid and the Buyer App is the Payment Collector.
+                  It is a mechanism to allow for easy refunds to the Buyer in
+                  case of a return.
                 required: required
-                usage: '10.00'
+                usage: 10.00 (Positive Decimal Number)
                 reference: if any
               '@ondc/org/settlement_details':
                 description: >-
-                  settlement details sent to the counterparty who will be
-                  settling the amount
+                  Settlment details provided to counter party collecting the
+                  payment for settlement
                 required: optional
                 usage: '-'
                 reference: if any
+                settlement_amount:
+                  description: >-
+                    The amount that the Payment Collector will remit to the
+                    counterparty Network Participant for the instant
+                    transaction. For clarity, if the Buyer App is the Payment
+                    Collector, the Buyer App will deduct their fee from the
+                    Buyer Price and remit the balance to the Seller App. If the
+                    Seller App is the Payment Collector, they will remit the
+                    Buyer App’s fees from the Buyer Price, deduct its own
+                    charges/commission and remit the rest to the Seller. The
+                    settlement with the Logistics Service Provider will follow
+                    this same logic if either of the Network Participants
+                    procures on-network  logistics.
+                  required: optional
+                  usage: Positive Decimal Number
+                  reference: if any
+                settlement_type:
+                  description: >-
+                    The Payment Collector will use the selected method to remit
+                    the due payment to the counterparty Network Participant. To
+                    illustrate, if the Buyer App collects the payment and the
+                    Settlement Type is set to “rtgs”, when the settlement is
+                    due, the Buyer App will transfer the Seller App’s share of
+                    the Buyer Price to the Seller App’s account via RTGS.
+                  required: optional
+                  usage: “neft”, “rtgs”, “upi”
+                  reference: if any
       on_status:
         parent: true
         message:
@@ -29822,7 +29921,8 @@ x-attributes:
               label:
                 description: >-
                   Proforma invoice should be sent in case of RFQ Flow after the
-                  payment is received, and final invoice will be shared later
+                  payment is received, and final invoice will be shared once the
+                  order is picked up
                 required: required
                 usage: INVOICE
                 reference: if any

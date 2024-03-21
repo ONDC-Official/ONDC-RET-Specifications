@@ -334,7 +334,7 @@ message:
         usage: "https://invoice_url"
         reference: if any
       label:
-        description: Proforma invoice should be sent in case of RFQ Flow after the payment is received, and final invoice will be shared later
+        description: Proforma invoice should be sent in case of RFQ Flow after the payment is received, and final invoice will be shared once the order is picked up
         required: required
         usage: "INVOICE"
         reference: if any

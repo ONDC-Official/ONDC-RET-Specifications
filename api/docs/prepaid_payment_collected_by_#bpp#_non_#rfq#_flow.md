@@ -69,6 +69,7 @@ In this case, if payment needs to be collected by BPP only for specific provider
   }
 }
 ```
+> If payment options are available at both the catalog and provider levels, those offered at the provider level will take precedence. 
 
 > Between the _/select_ and _/on\_select_ calls, the BAP and BPP negotiate the prices
 
