@@ -13998,13 +13998,14 @@ x-flows:
             SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City
             SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City
             
-            note left of Buyer: Offline communication <br/>b/w buyer and seller.
+            note left of SellerApp1: Offline communication <br/>b/w buyer and seller.
       - description: >-
           RFQ (Request For Quotation) - One time during onboarding/ Quotation -
           Multiple times
         mermaidGraph: |-
           sequenceDiagram
             
+            participant Buyer
             participant BuyerApp
             participant SellerApp
 
