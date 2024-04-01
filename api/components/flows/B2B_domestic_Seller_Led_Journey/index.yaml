@@ -5,13 +5,12 @@ details:
     mermaidGraph: >-
       sequenceDiagram
 
-        participant Buyer
         participant BuyerApp
         participant Gateway
         participant SellerApp1
         participant SellerApp2
 
-        note over Buyer, SellerApp2: **SEARCH FLOW**
+        note over BuyerApp, SellerApp2: **SEARCH FLOW**
 
         BuyerApp->>Gateway: **/search** - Search based on category
         Gateway->>SellerApp1: **/search** - Search based on category<br/>Broadcast based on city and domain in context
@@ -22,7 +21,7 @@ details:
         
         note left of Buyer: Offline communication <br/>b/w buyer and seller.
 
-  - description: RFQ (Request For Quotation) - One time during onboarding, Quotation - Multiple times
+  - description: RFQ (Request For Quotation) - One time during onboarding/ Quotation - Multiple times
     mermaidGraph: >-
       sequenceDiagram
         
@@ -30,7 +29,7 @@ details:
         participant SellerApp
       
 
-        note over Buyer, SellerApp: **RFQ (Request For Quotation) FLOW**
+        note over BuyerApp, SellerApp: **RFQ (Request For Quotation) FLOW**
 
         BuyerApp->>SellerApp: **/select** - One time RFQ request sent from buyer app for each buyer onboarded.
 
