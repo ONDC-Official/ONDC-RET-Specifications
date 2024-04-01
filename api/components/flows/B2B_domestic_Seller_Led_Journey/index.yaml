@@ -1,7 +1,7 @@
 summary: B2B Seller Led Journey
-description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order bulk items
+description: The following is an illustrative flow for seller led journey
 details:
-  - description: SEARCH AND DISCOVERY
+  - description: SEARCH AND DISCOVERY - Regularly to Fetch latest catalog
     mermaidGraph: >-
       sequenceDiagram
 
@@ -22,7 +22,7 @@ details:
         
         note left of Buyer: Offline communication <br/>b/w buyer and seller.
 
-  - description: RFQ (Request For Quotation) - One time during onboarding
+  - description: RFQ (Request For Quotation) - One time during onboarding, Quotation - Multiple times
     mermaidGraph: >-
       sequenceDiagram
         
