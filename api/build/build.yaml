@@ -3690,7 +3690,7 @@ x-tags:
   on_cancel: *ref_8
   on_update: *ref_8
 x-flows:
-  - summary: B2B Domestic Test
+  - summary: B2B Domestic
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to order bulk items
