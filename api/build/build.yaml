@@ -2634,9 +2634,6 @@ x-enum:
                 Prepaid payment, i.e payment will be done during order
                 confirmation.
               reference: <PR/Issue/Discussion Links md format text>
-            - code: POST-FULFILLMENT
-              description: Payment will be done after the delivery.
-              reference: <PR/Issue/Discussion Links md format text>
       fulfillment:
         type: &ref_0
           - code: Delivery
