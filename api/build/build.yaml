@@ -4606,7 +4606,7 @@ x-flows:
                         value: '100'
                   ttl: P1D
                 payments:
-                  - type: PRE-FULFILLMENT
+                  - type: ON-FULFILLMENT
                     collected_by: BPP
       - summary: Initialization of Order
         api: init
@@ -13974,6 +13974,219 @@ x-flows:
               type: DOMAIN-ERROR
               code: '30019'
               message: PO rejected due to xx reason
+  - summary: B2B Seller Led Journey
+    description: The following is an illustrative flow for seller led journey
+    details:
+      - description: SEARCH AND DISCOVERY - Regularly to Fetch latest catalog
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant BuyerApp
+            participant Gateway
+            participant SellerApp1
+            participant SellerApp2
+
+            note over BuyerApp, SellerApp2: **SEARCH FLOW**
+
+            BuyerApp->>Gateway: **/search** - Search based on category
+            Gateway->>SellerApp1: **/search** - Search based on category<br/>Broadcast based on city and domain in context
+            Gateway->>SellerApp2: **/search** - Search based on category <br/>Broadcast based on city and domain in context
+
+            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/> Servicability based on Country, City
+            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> add-ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City
+            
+            note left of SellerApp1: Offline communication <br/>b/w buyer and seller.
+      - description: >-
+          RFQ (Request For Quotation) - One time during onboarding/ Quotation -
+          Multiple times
+        mermaidGraph: |-
+          sequenceDiagram
+            
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+
+            note over BuyerApp, SellerApp: **RFQ (Request For Quotation) FLOW**
+
+            BuyerApp->>SellerApp: **/select** - One time RFQ request sent from buyer app for each buyer onboarded.
+
+            SellerApp->>BuyerApp: **/on_select** - Seller creates a quote specific to the buyer and <br/> sends quotations at regular intervals using the same transaction id, <br/> as sent in select call.
+            BuyerApp->>Buyer: Quotation sent to Buyer for consent
+      - description: ORDER INITIALIZATION
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+            note over Buyer, SellerApp: **ORDER INITIALIZATION**
+
+            Buyer->>BuyerApp: Agrees to go ahead with the order.
+            BuyerApp->>SellerApp: **/init** - Initializing the order
+            SellerApp->>BuyerApp: **/on_init** - Order initialization
+      - description: PURCHASE ORDER
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+            note over Buyer, SellerApp: **PURCHASE ORDER**
+
+            Buyer->>BuyerApp: Creates PO
+            BuyerApp->>SellerApp: **/confirm** - Create PO to create final digital contract
+            SellerApp->>BuyerApp: **/on_confirm** - Accept PO + payment url (if payment.collected_by is BPP) 
+      - description: PAYMENT AND INVOICE CREATION
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+            note over Buyer, SellerApp: **PAYMENT AND INVOICE CREATION**
+
+            Buyer->>BuyerApp: Buyer makes the payment (in case of prepaid payment)
+            BuyerApp->>SellerApp: **/update** - Buyer app sends the payment status
+            SellerApp->>BuyerApp: **/on_status** - Seller sends the proforma invoice
+      - description: ORDER STATUS
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant Buyer
+            participant BuyerApp
+            participant SellerApp
+
+            note over Buyer, SellerApp: **STATUS OF SHIPMENT**
+
+            Buyer->>BuyerApp: Checks order status
+            BuyerApp->>SellerApp: **/status** - Enquire Order status or Tracking info
+            SellerApp->>BuyerApp: **/on_status** - Order and fulfillment status is updated
+    reference: if any
+    steps:
+      - summary: Search based on the category
+        api: search
+        description: Search intent sent by the buyer based on the category
+        reference: if any
+        example: *ref_36
+      - summary: Returns item/ catalog
+        api: on_search
+        description: Catalog provided by the Seller App
+        reference: if any
+        example: *ref_37
+      - summary: Raise an RFQ request for a higher timeframe (Once During onboarding)
+        api: select
+        description: >-
+          Buyer app sends a quotation request for a defined TTL, for all the new
+          buyers onboarded (Once during onboarding, one select for each buyer
+          onboarded)
+        reference: if any
+        example:
+          summary: One time RFQ request sent from buyer app for each buyer onboarded.
+          description: >-
+            Buyer app sends a quotation request for a defined TTL, for all the
+            new buyers onboarded (Once during onboarding, one select for each
+            buyer onboarded)
+          value:
+            context:
+              domain: ONDC:RET10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: select
+              version: 2.0.2
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/grocery
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/grocery
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 4e90afaf-2d02-4ed9-9659-45d702a82f8e
+              timestamp: '2023-01-08T22:00:30.000Z'
+              ttl: P6M
+            message:
+              order:
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                  ttl: P6M
+                fulfillments:
+                  - id: F1
+                    type: Delivery
+                    stops:
+                      - type: end
+                        location:
+                          gps: 12.974002,77.613458
+                          area_code: '560001'
+                          city:
+                            name: Bengaluru
+                          country:
+                            code: IND
+                          state:
+                            name: Karnataka
+                        contact:
+                          phone: '9886098860'
+                payments:
+                  - type: ON-FULFILLMENT
+                tags:
+                  - descriptor:
+                      code: buyer_id
+                    list:
+                      - descriptor:
+                          code: buyer_id_code
+                        value: gst
+                      - descriptor:
+                          code: buyer_id_no
+                        value: xxxxxxxxxxxxxxx
+      - summary: Seller sends a quote to the buyer
+        api: on_select
+        description: >-
+          Seller creates a quote specific to the buyer and sends quotations at
+          regular intervals using the same transaction id, as sent in select
+          call.
+        reference: if any
+        example: *ref_21
+      - summary: Initialization of Order
+        api: init
+        description: Initialization of Order - Billing Details added.
+        reference: if any
+        example: *ref_22
+      - summary: Initialization of Order
+        api: on_init
+        description: Initialization of Order with final quote
+        reference: if any
+        example: *ref_23
+      - summary: Buyer raises PO
+        api: confirm
+        description: >-
+          Buyer receives the quotation and once agreed to go ahead with the
+          quotation received, creates a PO and sends the PO
+        reference: if any
+        example: *ref_24
+      - summary: Seller Accepts PO
+        api: on_confirm
+        description: >-
+          Seller app sends an on_confirm call to the buyer app relaying the PO
+          acceptance.
+        reference: if any
+        example: *ref_25
+      - summary: Consumer platform requests for latest status
+        api: status
+        description: Buyer requests for Shipment status
+        reference: if any
+        example: *ref_12
+      - summary: Provider platform updates the latest status - Order Picked up
+        api: on_status
+        description: >-
+          Provider platform provides the updated order status to the consumer
+          once the order is picked up
+        reference: if any
+        example: *ref_27
   - summary: B2B Multiple Fulfillments
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -21139,7 +21352,7 @@ x-examples:
                           value: '100'
                     ttl: P1D
                   payments:
-                    - type: PRE-FULFILLMENT
+                    - type: ON-FULFILLMENT
                       collected_by: BPP
           - summary: Send quote and breakup - (Domestic - Non RFQ)
             description: Seller sends quote and breakup for the selected items
