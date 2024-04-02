@@ -19,8 +19,8 @@ message:
     payments:
       parent: true
       type:
-        description: How payment is going to be collected from the Buyer. If this parameter is set to “PRE-FULFILLMENT”, that means it is a pre-paid order, i.e. the payment is collected at the time of order confirmation. If this parameter is set to “ON-FULFILLMENT”, that means it is pay-on-delivery order, i.e. the payment is collected at the time of delivering the product to the Buyer. If this parameter is set to “POST-FULFILLMENT”, that means it is post the order delivery/service, i.e. the payment is collected post delivery of the product to the Buyer.
-        usage: “PRE-FULFILLMENT”, “ON-FULFILLMENT”,“POST-FULFILLMENT”
+        description: How payment is going to be collected from the Buyer. If this parameter is set to “PRE-FULFILLMENT”, that means it is a pre-paid order, i.e. the payment is collected at the time of order confirmation. If this parameter is set to “ON-FULFILLMENT”, that means it is pay-on-delivery order, i.e. the payment is collected at the time of delivering the product to the Buyer. 
+        usage: “PRE-FULFILLMENT”, “ON-FULFILLMENT”
         reference: if any
         required: required
       collected_by:
