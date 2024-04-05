@@ -103,6 +103,18 @@ value:
                 - descriptor:
                     code: seller_id_no
                   value: xxxxxxxxxxxxxxx
+            - descriptor:
+                code: FSSAI_LICENSE_NO
+              list:
+              - descriptor:
+                  code: BRAND_OWNER
+                value: '12345678901234'
+              - descriptor:
+                  code: OTHER
+                value: '12345678901234'
+              - descriptor:
+                  code: IMPORTER
+                value: '12345678901234'
           categories:
             - id: V1
               descriptor:
@@ -345,18 +357,6 @@ value:
                     - descriptor:
                         code: unit_sale_price
                       value: "175"
-                - descriptor:
-                    code: FSSAI_LICENSE_NO
-                  list:
-                    - descriptor:
-                        code: BRAND_OWNER
-                      value: "12345678901234"
-                    - descriptor:
-                        code: OTHER
-                      value: "12345678901234"
-                    - descriptor:
-                        code: IMPORTER
-                      value: "12345678901234"
           offers:
             - id: offer-1
               descriptor:

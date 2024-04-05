@@ -4,6 +4,9 @@ search:
       $ref: "./context.yaml#/context/domain"
   message:
     intent:
+     category:
+      id:
+        $ref: "./category.yaml#/category_ids"
      payment: &payment
         type: 
           $ref: "./payment.yaml#/type"
