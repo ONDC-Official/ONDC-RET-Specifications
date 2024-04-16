@@ -31,9 +31,7 @@
       "items": [
         {
           "id": "I1",
-          "fulfillment_ids": [
-            "F1"
-          ],
+          "fulfillment_ids": ["F1"],
           "quantity": {
             "selected": {
               "count": 200
@@ -131,6 +129,50 @@
               ]
             }
           ]
+        }
+      ],
+      "cancellation_terms": [
+        {
+          "fulfillment_state": {
+            "descriptor": {
+              "code": "Pending"
+            }
+          },
+          "reason_required": false,
+          "cancellation_fee": {
+            "percentage": "0",
+            "amount": {
+              "currency": "IND",
+              "value": "0"
+            }
+          },
+          "external_ref": {
+            "mimetype": "text/html",
+            "url": "www.abc.com/cancellation_terms",
+            "signature": "xxxxxxxxxxxxxx",
+            "dsa": "ED25519"
+          }
+        },
+        {
+          "fulfillment_state": {
+            "descriptor": {
+              "code": "Packed"
+            }
+          },
+          "reason_required": false,
+          "cancellation_fee": {
+            "percentage": "0",
+            "amount": {
+              "currency": "IND",
+              "value": "0"
+            }
+          },
+          "external_ref": {
+            "mimetype": "text/html",
+            "url": "www.abc.com/cancellation_terms",
+            "signature": "xxxxxxxxxxxxxx",
+            "dsa": "ED25519"
+          }
         }
       ],
       "quote": {

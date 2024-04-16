@@ -6623,6 +6623,35 @@ x-flows:
                           - descriptor:
                               code: NAMED_PLACE_OF_DELIVERY
                             value: SGP
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
+                    external_ref:
+                      mimetype: text/html
+                      url: www.abc.com/cancellation_terms
+                      signature: xxxxxxxxxxxxxx
+                      dsa: ED25519
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
+                    external_ref:
+                      mimetype: text/html
+                      url: www.abc.com/cancellation_terms
+                      signature: xxxxxxxxxxxxxx
+                      dsa: ED25519
                 quote:
                   price:
                     currency: INR
@@ -6815,6 +6844,35 @@ x-flows:
                           - descriptor:
                               code: NAMED_PLACE_OF_DELIVERY
                             value: SGP
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
+                    external_ref:
+                      mimetype: text/html
+                      url: www.abc.com/cancellation_terms
+                      signature: xxxxxxxxxxxxxx
+                      dsa: ED25519
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
+                    external_ref:
+                      mimetype: text/html
+                      url: www.abc.com/cancellation_terms
+                      signature: xxxxxxxxxxxxxx
+                      dsa: ED25519
                 quote:
                   price:
                     currency: INR
@@ -7033,6 +7091,35 @@ x-flows:
                           - descriptor:
                               code: NAMED_PLACE_OF_DELIVERY
                             value: SGP
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
+                    external_ref:
+                      mimetype: text/html
+                      url: www.abc.com/cancellation_terms
+                      signature: xxxxxxxxxxxxxx
+                      dsa: ED25519
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
+                    external_ref:
+                      mimetype: text/html
+                      url: www.abc.com/cancellation_terms
+                      signature: xxxxxxxxxxxxxx
+                      dsa: ED25519
                 quote:
                   price:
                     currency: INR
@@ -15958,6 +16045,35 @@ x-examples:
                             - descriptor:
                                 code: NAMED_PLACE_OF_DELIVERY
                               value: SGP
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
+                      external_ref:
+                        mimetype: text/html
+                        url: www.abc.com/cancellation_terms
+                        signature: xxxxxxxxxxxxxx
+                        dsa: ED25519
+                    - fulfillment_state:
+                        descriptor:
+                          code: Packed
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
+                      external_ref:
+                        mimetype: text/html
+                        url: www.abc.com/cancellation_terms
+                        signature: xxxxxxxxxxxxxx
+                        dsa: ED25519
                   quote:
                     price:
                       currency: INR
@@ -22487,6 +22603,35 @@ x-examples:
                             - descriptor:
                                 code: NAMED_PLACE_OF_DELIVERY
                               value: SGP
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
+                      external_ref:
+                        mimetype: text/html
+                        url: www.abc.com/cancellation_terms
+                        signature: xxxxxxxxxxxxxx
+                        dsa: ED25519
+                    - fulfillment_state:
+                        descriptor:
+                          code: Packed
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
+                      external_ref:
+                        mimetype: text/html
+                        url: www.abc.com/cancellation_terms
+                        signature: xxxxxxxxxxxxxx
+                        dsa: ED25519
                   quote:
                     price:
                       currency: INR
@@ -23577,6 +23722,35 @@ x-examples:
                             - descriptor:
                                 code: NAMED_PLACE_OF_DELIVERY
                               value: SGP
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
+                      external_ref:
+                        mimetype: text/html
+                        url: www.abc.com/cancellation_terms
+                        signature: xxxxxxxxxxxxxx
+                        dsa: ED25519
+                    - fulfillment_state:
+                        descriptor:
+                          code: Packed
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
+                      external_ref:
+                        mimetype: text/html
+                        url: www.abc.com/cancellation_terms
+                        signature: xxxxxxxxxxxxxx
+                        dsa: ED25519
                   quote:
                     price:
                       currency: INR
