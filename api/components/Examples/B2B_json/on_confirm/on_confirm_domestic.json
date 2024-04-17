@@ -145,6 +145,38 @@
           "rateable": true
         }
       ],
+      "cancellation_terms": [
+        {
+          "fulfillment_state": {
+            "descriptor": {
+              "code": "Pending"
+            }
+          },
+          "reason_required": false,
+          "cancellation_fee": {
+            "percentage": "0",
+            "amount": {
+              "currency": "IND",
+              "value": "0"
+            }
+          }
+        },
+        {
+          "fulfillment_state": {
+            "descriptor": {
+              "code": "Packed"
+            }
+          },
+          "reason_required": false,
+          "cancellation_fee": {
+            "percentage": "0",
+            "amount": {
+              "currency": "IND",
+              "value": "0"
+            }
+          }
+        }
+      ],
       "quote": {
         "price": {
           "currency": "INR",
