@@ -67,9 +67,7 @@ function loadTag() {
   var dropdown2 = document.getElementById("tag-path-dropdown");
   var dropdown3 = document.getElementById("tag-group-dropdown");
   var dropdown4 = document.getElementById("tag-dropdown");
-  // var dropdown5 = document.getElementById("tag-value-dropdown");
   dropdown4.innerHTML = "";
-  // dropdown5.innerHTML = "";
 
   // Get the selected values from dropdown1 and dropdown2
   var selectedValue1 = dropdown1.value;
@@ -89,20 +87,51 @@ function loadTag() {
   });
 
   displayTagGroup();
+  loadTagValue();
 }
 
-// function loadTagValue(values, dropdown) {
-//   var dropdown1 = document.getElementById("tag-schema-dropdown");
-//   var dropdown2 = document.getElementById("tag-path-dropdown");
-//   var dropdown3 = document.getElementById("tag-group-dropdown");
-//   var dropdown4 = document.getElementById("tag-dropdown");
-//   var dropdown5 = document.getElementById("tag-value-dropdown");
-//   values.forEach((value) => {
-//     var option = document.createElement("option");
-//     option.text = value.code;
-//     dropdown.add(option);
-//   });
-// }
+function loadTagValue() {
+  var dropdown1 = document.getElementById("tag-schema-dropdown");
+  var dropdown2 = document.getElementById("tag-path-dropdown");
+  var dropdown3 = document.getElementById("tag-group-dropdown");
+  var dropdown4 = document.getElementById("tag-dropdown");
+  var dropdown5 = document.getElementById("tag-value-dropdown");
+  var tagValueRow = document.getElementById("tag-value-row");
+  dropdown5.innerHTML = "";
+
+  // Get the selected values from dropdown1 and dropdown2
+  var selectedValue1 = dropdown1.value;
+  var selectedValue2 = dropdown2.value;
+  var selectedValue3 = dropdown3.value;
+  var selectedValue4 = dropdown4.value;
+
+  // Populate dropdown5
+  let data = getAttribute(TagData[selectedValue1], selectedValue2.split("."));
+  console.log(data);
+  let selectedObject3 = data.find((obj) => {
+    if (obj["code"] === selectedValue3) return obj;
+  });
+  console.log("full obj", selectedObject3);
+  let list = selectedObject3.list;
+  list.forEach(function (obj) {
+    if (obj["code"] === selectedValue4) {
+      let values = obj?.value;
+
+      if (values) {
+        tagValueRow.style.display = "";
+        values.forEach((val) => {
+          var option = document.createElement("option");
+          option.text = val?.code;
+
+          dropdown5.add(option);
+        });
+      } else {
+        tagValueRow.style.display = "none";
+      }
+    }
+  });
+  displayTagValue();
+}
 function getAttribute(data, keyArr) {
   let key = isNaN(keyArr[0]) ? keyArr[0] : parseInt(keyArr[0]);
   if (data[key] && data[key] != undefined) {
@@ -183,39 +212,57 @@ function displayTag() {
   insertRow(tableBody, "Code", tableData?.code);
   insertRow(tableBody, "Description", tableData?.description);
   // insertRow(tableBody, "Refrences", tableData.reference)
+
+  loadTagValue();
+  displayTagValue();
 }
 
-// function displayTagValue(){
-//   var dropdown1 = document.getElementById('tag-schema-dropdown');
-//   var dropdown2 = document.getElementById('tag-path-dropdown');
-//   var dropdown3 = document.getElementById('tag-group-dropdown');
-//   var dropdown4 = document.getElementById('tag-dropdown');
+function displayTagValue() {
+  var dropdown1 = document.getElementById("tag-schema-dropdown");
+  var dropdown2 = document.getElementById("tag-path-dropdown");
+  var dropdown3 = document.getElementById("tag-group-dropdown");
+  var dropdown4 = document.getElementById("tag-dropdown");
+  var dropdown5 = document.getElementById("tag-value-dropdown");
 
-//   // Get the selected values from dropdown1, dropdown2, and dropdown4
-//   var selectedValue1 = dropdown1.value;
-//   var selectedValue2 = dropdown2.value;
-//   var selectedValue3 = dropdown3.value;
-//   var selectedValue4 = dropdown4.value;
-//   // Get the table data
-//   let data = flattenObject(TagData[selectedValue1])
-//   let selectedObject2 = data[selectedValue2]
-//   let selectedObject3 = selectedObject2.find(obj => {
-//     if (obj["code"] === selectedValue3)
-//       return obj
-//   });
-//   let list = selectedObject3["list"]
+  // Get the selected values from dropdown1, dropdown2, and dropdown4
+  var selectedValue1 = dropdown1.value;
+  var selectedValue2 = dropdown2.value;
+  var selectedValue3 = dropdown3.value;
+  var selectedValue4 = dropdown4.value;
+  var selectedValue5 = dropdown5.value;
+  var tableData = "";
+  // Get the table data
+  let data = flattenObject(TagData[selectedValue1]);
+  let selectedObject2 = data[selectedValue2];
+  let selectedObject3 = selectedObject2.find((obj) => {
+    if (obj["code"] === selectedValue3) return obj;
+  });
+  let list = selectedObject3["list"];
 
-//   var tableData = list.find(obj => {
-//     if (obj["code"] == selectedValue4)
-//       return obj
-//   });
-//   // Get the table body element
-//   var tableBody = document.getElementById('tag-table');
-//   if (tableBody && tableBody != {}) tableBody.innerHTML = '';
-//   insertRow(tableBody, "Code", tableData.code)
-//   insertRow(tableBody, "Description", tableData.description)
-//   // insertRow(tableBody, "Refrences", tableData.reference)
-// }
+  list.forEach(function (obj) {
+    if (obj["code"] === selectedValue4) {
+      let values = obj?.value;
+
+      if (values) {
+        values.forEach((val) => {
+          if (val?.code == selectedValue5) {
+            tableData = val;
+          }
+        });
+      }
+    }
+  });
+
+  console.log("tableData", tableData);
+  // Get the table body element
+  var tableBody = document.getElementById("tag-value-table");
+  if (tableBody && tableBody != {}) tableBody.innerHTML = "";
+  if (tableData == "") tableBody.style.display = "none";
+  else tableBody.style.display = "";
+  insertRow(tableBody, "Code", tableData?.code);
+  insertRow(tableBody, "Description", tableData?.description);
+  // insertRow(tableBody, "Refrences", tableData.reference)
+}
 function insertRow(tableBody, key, value) {
   var row = tableBody.insertRow();
   var cell = row.insertCell();
