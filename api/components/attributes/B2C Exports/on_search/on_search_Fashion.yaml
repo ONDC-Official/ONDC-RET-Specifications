@@ -7,29 +7,29 @@ message:
       time:
         timestamp: 
           description: timestamp when the snapshot for this provider (including provider details, items) was generated, must be <= Context.timestamp. Buyer NPs can use this to determine from when to start incremental refresh
-          required: mandatory
+          required: required
           usage: "2023-06-03T07:30:00.000Z"
           reference: if any
         label: 
           description: enum - "enable" (default), "disable" (soft delete of provider location, i.e. warehouse or store, from buyer NP cache - in this case, serviceability for the store should not be a part of the catalog), "close" (temporary closure of store with the same format for time.range as specified, for incremental refresh, here - https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.ar4y0zvk65s4 only if this event is available at the time of generating the full catalog snapshot)
-          required: mandatory
+          required: required
           usage: enable
           reference: if any
       items:
         time:
           label:
             description: enum - "enable", "disable"
-            required: mandatory
+            required: required
             usage: disable
             reference: if any
           timestamp: 
             description: timestamp for item event
-            required: mandatory
+            required: required
             usage: "2023-06-03T07:30:00.000Z"
             reference: if any
         parent_item_id:
           description: if variant grouping defined for provider above, this matches id for variant_group definition; if not defined or id is invalid, buyer NPs may choose to display as normal SKU item
-          required: mandatory
+          required: required
           usage: "parent_item_id"
           reference: if any
         descriptor:
@@ -40,17 +40,17 @@ message:
             reference: if any
         category_id: 
           description: list of fashion categories is https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=623321892
-          required: mandatory
+          required: required
           usage: Foodgrains
           reference: if any
         '@ondc/org/statutory_reqs_packaged_commodities':
           description: mapping of category to attribute key is defined https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
-          required: mandatory
+          required: required
           usage: '-'
           reference: if any
         month_year_of_manufacture_packing_import:
           description: date first available
-          required: mandatory
+          required: required
           usage: "01/2017"
           reference: if any
       creds:

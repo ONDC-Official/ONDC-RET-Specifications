@@ -2,6 +2,6 @@ context:
   parent: true
   transaction_id:
     description: status for order can be queried using same transaction id used for order /confirm
-    required: mandatory
+    required: required
     usage: "-"
     reference: if any

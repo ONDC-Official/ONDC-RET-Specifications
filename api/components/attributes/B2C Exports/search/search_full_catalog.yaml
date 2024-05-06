@@ -2,32 +2,32 @@ context:
   parent: true
   domain:
     description: updated domain namespace defined here - https://docs.google.com/document/d/brvcltG_DagZ3kGrZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
-    required: mandatory
+    required: required
     usage: "ONDC:RET12"
     reference: if any
   city:
     description: city code for search that identifies the cities where sellers have stores. List of city codes, with pincode mapping, are here - https://unece.org/trade/cefact/unlocode-code-list-country-and-territory
-    required: mandatory
+    required: required
     usage: UN:SIN
     reference: if any
   bap_id:
     description: subscriber id for buyer app
-    required: mandatory
+    required: required
     usage: buyerNP.com
     reference: if any
   bap_uri:
     description: subscriber URI for buyer app
-    required: mandatory
+    required: required
     usage: https://buyerNP.com/ondc
     reference: if any
   timestamp:
     description: RFC3339 compliant timestamp
-    required: mandatory
+    required: required
     usage: '2023-06-03T08:00:00.000Z'
     reference: if any
   ttl:
     description: validity of message
-    required: mandatory
+    required: required
     usage: PT30S
     reference: if any
 message:
@@ -62,7 +62,7 @@ message:
         location:
           gps:
             description: minimum 6 digit decimal precision for gps coordinates
-            required: mandatory
+            required: required
             usage: "1.380621, 103.746364"
             reference: if any
           address:
@@ -74,6 +74,6 @@ message:
       parent: true
       '@ondc/org/buyer_app_finder_fee_amount':
         description: buyer NP finder fee calculations are detailed - https://docs.google.com/document/d/iqLdayk488ekEzKrEs-yn6gVrevbxBkILBe5j4oIxMY/edit
-        required: mandatory
+        required: required
         usage: "3"
         reference: if any

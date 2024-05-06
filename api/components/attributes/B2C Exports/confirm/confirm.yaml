@@ -4,7 +4,7 @@ message:
     parent: true
     id:
       description: alphanumeric, up to 32 characters
-      required: mandatory
+      required: required
       usage: O1
       reference: if any
     billing:
@@ -16,12 +16,12 @@ message:
         reference: if any
       created_at:
         description: same as in /init
-        required: mandatory
+        required: required
         usage: "2023-02-03T09:00:00.000Z"
         reference: if any
       updated_at:
         description: same as /init
-        required: mandatory
+        required: required
         usage: "2023-02-03T09:00:00.000Z"
         reference: if any
     fulfillments:
@@ -29,7 +29,7 @@ message:
       "@ondc/org/TAT":
         description: same as what is proposed in /on_select; If TAT is different from what was originally quoted in /on_select, seller NP can NACK the request with error code 30013
         usage: P1D
-        required: mandatory
+        required: required
         reference: if any
       end:
         contact:
@@ -58,37 +58,37 @@ message:
           reference: if any
         amount:
           description: amount collected should match the order value
-          required: mandatory
+          required: required
           usage: "-"
           reference: if any
       status:
         description: NOT-PAID for payment on delivery
-        required: mandatory
+        required: required
         usage: "-"
         reference: if any
       type:
         description: ON-FULFILLMENT for payment on delivery
-        required: mandatory
+        required: required
         usage: ON-ORDER
         reference: if any
       collected_by:
         description: BPP for payment on delivery
-        required: mandatory
+        required: required
         usage: SOR
         reference: if any
       "@ondc/org/settlement_basis":
         description: indicates from when settlement window starts, enum - "delivery" (from delivery), "shipment" (from shipment), "return_window_expiry" (from expiry of return window)
-        required: mandatory
+        required: required
         usage: delivery
         reference: if any
       "@ondc/org/settlement_window":
         description: settlement window, as per settlement basis, in ISO8601 Duration format
-        required: mandatory
+        required: required
         usage: P1D
         reference: if any
       "@ondc/org/withholding_amount":
         description: withholding amount as % of total order value (valid values between "0.00" and "100.00")
-        required: mandatory
+        required: required
         usage: 1.00
         reference: if any
       "@ondc/org/settlement_details":
@@ -99,16 +99,16 @@ message:
           reference: if any
         settlement_counterparty:
           description: buyer-app for payment on delivery
-          required: mandatory if parent is present
+          required: required if parent is present
           usage: buyer-app
           reference: if any
       created_at:
         description: can’t be future dated timestamp
-        required: mandatory
+        required: required
         usage: "2023-06-03T09:30:00.000Z"
         reference: if any
       updated_at:
         description: can’t be future dated timestamp
-        required: mandatory
+        required: required
         usage: "2023-06-03T09:30:00.000Z"
         reference: if any

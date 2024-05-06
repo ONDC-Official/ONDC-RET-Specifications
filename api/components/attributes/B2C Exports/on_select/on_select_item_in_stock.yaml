@@ -6,76 +6,76 @@ message:
       parent: true
       provider:
         description: provider details
-        required: mandatory
+        required: required
         usage: "-"
         reference: if any
       locations:
         id:
           description: may be the same location as selected by the buyer or a different location
-          required: mandatory
+          required: required
           usage: "-"
           reference: if any
     fulfillments:
       parent: true
       fulfillments:
         description: order can have multiple fulfillments; in this case, unique fulfillment id (for provider & order) needs to be assigned by seller NP for each fulfillment & mapped to item(s) that are a part of that fulfillment
-        required: mandatory
+        required: required
         usage: "-"
         reference: if any
       id:
         description: unique fulfillment id assigned by seller NP here & mapped to item and will be persisted right through order confirm
-        required: mandatory
+        required: required
         usage: "-"
         reference: if any
       '@ondc/org/category':
         description: Maps to logistics category as defined in Logistics API contract; Value "Express Delivery" should only be used where O2D TAT <= 2 hrs
-        required: mandatory
+        required: required
         usage: "Express Delivery"
         reference: if any
       '@ondc/org/TAT':
         description: Order-to-delivery (O2D) TAT shown = max(time_to_ship for items in the fulfillment) + ship-to-delivery (S2D) time provided by LSP in TAT
-        required: mandatory
+        required: required
         usage: "P1D"
         reference: if any
       state:
         state:
           description: Seller NP performs serviceability check based on end location in /select. If non serviceable, seller app has to return the appropriate error code along with a valid /on_select response
-          required: mandatory
+          required: required
           usage: "-"
           reference: if any
         descriptor:
           code:
             description: enum - "Serviceable", "Non-serviceable"
-            required: mandatory
+            required: required
             usage: "-"
             reference: if any
     quote:
       parent: true
       ttl:
         description:  validity of quote
-        required: mandatory
+        required: required
         usage: "P1D"
         reference: if any
       breakup:
         '@ondc/org/item_id':
           description: item_id should match either item.id or fulfillment.id based on how the line item (as defined by "title_type") is assigned, i.e. "delivery", "discount_f", "tax_f", "packing", "misc" are at fulfillment level while "item", "tax", "discount" are at item level
-          required: mandatory
+          required: required
           usage: "-"
           reference: if any
         '@ondc/org/item_quantity':
           count:
             description: if required quantity (as selected by buyer) is not in stock, seller app should show the quantity available in stock (or 0 if completely out-of-stock) and show the appropriate error code (40002) in the /on_select response
-            required: mandatory
+            required: required
             usage: 2
             reference: if any
         '@ondc/org/title_type':
           description: defines the type of line item; enum - "item" (product cost), "delivery" (shipping charges), "packing" ( packing charge to be included only if not 0), "tax" (tax breakup to be included only if tax is not 0), "misc" (convenience fees, misc to be included only if not 0), "discount" (discount to be included only if not 0), discount_f, tax_f (tax on fulfillment level charges, to be included only if not 0 (i.e. seller NP provides tax inclusive fulfillment level charges)). Title text can be customized by buyer NP; if value is "delivery", then delivery charge to be included only if fulfillment state code is "Serviceable"
-          required: mandatory
+          required: required
           usage: item
           reference: if any
         price:
           value:
             description: item price should be either inclusive or exclusive of taxes, exactly as defined in the catalog
-            required: mandatory
+            required: required
             usage: "10.00"
             reference: if any

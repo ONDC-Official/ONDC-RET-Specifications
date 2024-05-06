@@ -14565,7 +14565,7 @@ x-attributes:
             description: >-
               updated domain namespace defined here -
               https://docs.google.com/document/d/brvcltG_DagZ3kGrZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
-            required: mandatory
+            required: required
             usage: ONDC:RET12
             reference: if any
           city:
@@ -14573,27 +14573,27 @@ x-attributes:
               city code for search that identifies the cities where sellers have
               stores. List of city codes, with pincode mapping, are here -
               https://unece.org/trade/cefact/unlocode-code-list-country-and-territory
-            required: mandatory
+            required: required
             usage: UN:SIN
             reference: if any
           bap_id:
             description: subscriber id for buyer app
-            required: mandatory
+            required: required
             usage: buyerNP.com
             reference: if any
           bap_uri:
             description: subscriber URI for buyer app
-            required: mandatory
+            required: required
             usage: https://buyerNP.com/ondc
             reference: if any
           timestamp:
             description: RFC3339 compliant timestamp
-            required: mandatory
+            required: required
             usage: '2023-06-03T08:00:00.000Z'
             reference: if any
           ttl:
             description: validity of message
-            required: mandatory
+            required: required
             usage: PT30S
             reference: if any
         message:
@@ -14634,7 +14634,7 @@ x-attributes:
                 location:
                   gps:
                     description: minimum 6 digit decimal precision for gps coordinates
-                    required: mandatory
+                    required: required
                     usage: 1.380621, 103.746364
                     reference: if any
                   address:
@@ -14648,7 +14648,7 @@ x-attributes:
                 description: >-
                   buyer NP finder fee calculations are detailed -
                   https://docs.google.com/document/d/iqLdayk488ekEzKrEs-yn6gVrevbxBkILBe5j4oIxMY/edit
-                required: mandatory
+                required: required
                 usage: '3'
                 reference: if any
       search_incremental_one_time_push:
@@ -14663,7 +14663,7 @@ x-attributes:
                 description: >-
                   start_time < Context.timestamp, end_time <= Context.timestamp,
                   end_time > start_time
-                required: mandatory
+                required: required
                 usage: '-'
                 reference: if any
       on_search_Fashion:
@@ -14681,7 +14681,7 @@ x-attributes:
                     provider details, items) was generated, must be <=
                     Context.timestamp. Buyer NPs can use this to determine from
                     when to start incremental refresh
-                  required: mandatory
+                  required: required
                   usage: '2023-06-03T07:30:00.000Z'
                   reference: if any
                 label:
@@ -14695,19 +14695,19 @@ x-attributes:
                     https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.ar4y0zvk65s4
                     only if this event is available at the time of generating
                     the full catalog snapshot)
-                  required: mandatory
+                  required: required
                   usage: enable
                   reference: if any
               items:
                 time:
                   label:
                     description: enum - "enable", "disable"
-                    required: mandatory
+                    required: required
                     usage: disable
                     reference: if any
                   timestamp:
                     description: timestamp for item event
-                    required: mandatory
+                    required: required
                     usage: '2023-06-03T07:30:00.000Z'
                     reference: if any
                 parent_item_id:
@@ -14715,7 +14715,7 @@ x-attributes:
                     if variant grouping defined for provider above, this matches
                     id for variant_group definition; if not defined or id is
                     invalid, buyer NPs may choose to display as normal SKU item
-                  required: mandatory
+                  required: required
                   usage: parent_item_id
                   reference: if any
                 descriptor:
@@ -14731,19 +14731,19 @@ x-attributes:
                   description: >-
                     list of fashion categories is
                     https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=623321892
-                  required: mandatory
+                  required: required
                   usage: Foodgrains
                   reference: if any
                 '@ondc/org/statutory_reqs_packaged_commodities':
                   description: >-
                     mapping of category to attribute key is defined
                     https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
-                  required: mandatory
+                  required: required
                   usage: '-'
                   reference: if any
                 month_year_of_manufacture_packing_import:
                   description: date first available
-                  required: mandatory
+                  required: required
                   usage: 01/2017
                   reference: if any
               creds:
@@ -14759,7 +14759,7 @@ x-attributes:
             description: >-
               updated domain namespace is
               https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
-            required: mandatory
+            required: required
             usage: ONDC:RET10
             reference: if any
         message:
@@ -14770,12 +14770,12 @@ x-attributes:
               parent: true
               bpp/descriptor:
                 description: descriptor for seller NP
-                required: mandatory
+                required: required
                 usage: '-'
                 reference: if any
               symbol:
                 description: logo or image for seller NP
-                required: mandatory
+                required: required
                 usage: https://sellerNP.com/images/np.png
                 reference: if any
             bpp/providers:
@@ -14784,7 +14784,7 @@ x-attributes:
                 description: >-
                   descriptor for seller (merchant) that processes & fulfills
                   orders
-                required: mandatory
+                required: required
                 usage: '-'
                 reference: if any
               id:
@@ -14794,7 +14794,7 @@ x-attributes:
                   cause an MSN being regarded as ISN and use of different
                   provider id for same legal entity will cause an ISN being
                   regarded as MSN, thus resulting in tax non-compliance
-                required: mandatory
+                required: required
                 usage: F1
                 reference: if any
               time:
@@ -14802,7 +14802,7 @@ x-attributes:
                   description: >-
                     enum - "enable" (default), "disable" (soft delete of
                     provider from buyer NP cache)
-                  required: mandatory
+                  required: required
                   usage: enable
                   reference: if any
                 timestamp:
@@ -14811,13 +14811,13 @@ x-attributes:
                     provider details, items) was generated, must be <=
                     Context.timestamp. Buyer NPs can use this to determine from
                     when to start incremental refresh
-                  required: mandatory
+                  required: required
                   usage: '2023-06-03T07:00:30.000Z'
                   reference: if any
               fulfillments:
                 fulfillments:
                   description: provider level fulfillment options
-                  required: mandatory
+                  required: required
                   usage: '-'
                   reference: if any
                 contact:
@@ -14827,28 +14827,28 @@ x-attributes:
                       locations, this will be the contact detail for merchant
                       and contact detail for the storefront (specific location)
                       will be in fulfillment.start
-                    required: mandatory
+                    required: required
                     usage: '-'
                     reference: if any
                   phone:
                     description: valid 10 digit (mobile no) or 11 digit no
-                    required: mandatory
+                    required: required
                     usage: '9886098860'
                     reference: if any
                   email:
                     description: email id of merchant or seller NP
-                    required: mandatory
+                    required: required
                     usage: abc@xyz.com
                     reference: if any
               ttl:
                 description: ISO8601 duration format for validity of provider catalog
-                required: mandatory
+                required: required
                 usage: P1D
                 reference: if any
               locations:
                 locations:
                   description: locations for provider with unique id for each location
-                  required: mandatory
+                  required: required
                   usage: '-'
                   reference: if any
                 time:
@@ -14863,14 +14863,14 @@ x-attributes:
                       https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.ar4y0zvk65s4
                       only if this event is available at the time of generating
                       the full catalog snapshot)
-                    required: mandatory
+                    required: required
                     usage: disable
                     reference: if any
                   timestamp:
                     description: >-
                       timestamp when the snapshot for location was generated,
                       must be <= Context.timestamp
-                    required: mandatory
+                    required: required
                     usage: '2023-06-03T07:30:30.000Z'
                     reference: if any
                   schedule:
@@ -14878,13 +14878,13 @@ x-attributes:
                       description: >-
                         list of future dated holidays, to be used as per holiday
                         calendar; if no holidays, empty array needs to be passed
-                      required: mandatory
+                      required: required
                       usage: '2023-08-15'
                       reference: if any
                 address:
                   locality:
                     description: locality name
-                    required: mandatory
+                    required: required
                     usage: Kadma
                     reference: if any
               categories:
@@ -14894,7 +14894,7 @@ x-attributes:
                       if code is "attr", then it defines variant attributes i.e.
                       attribute & sequence; multiple variant attributes can be
                       defined in multiple attr blocks
-                    required: mandatory
+                    required: required
                     usage: '-'
                     reference: if any
                   list:
@@ -14903,7 +14903,7 @@ x-attributes:
                         if "code" is "attr", then it is namespaced attribute,
                         above example means attribute(s) in "quantity.unitized"
                         for an item
-                      required: mandatory
+                      required: required
                       usage: '-'
                       reference: if any
                     value:
@@ -14913,7 +14913,7 @@ x-attributes:
                         item.quantity.unitized.measure.value and
                         item.quantity.unitized.measure.unit e.g. "1 kilogram",
                         "2 kilogram", "5 kilogram"
-                      required: mandatory
+                      required: required
                       usage: '-'
                       reference: if any
               items:
@@ -14922,18 +14922,18 @@ x-attributes:
                     if variant grouping defined for provider above, this matches
                     id for variant_group definition; if not defined or id is
                     invalid, buyer NPs may choose to display as normal SKU item
-                  required: mandatory
+                  required: required
                   usage: V1
                   reference: if any
                 time:
                   label:
                     description: enum - "enable", "disable"
-                    required: mandatory
+                    required: required
                     usage: enable
                     reference: if any
                   timestamp:
                     description: timestamp for item event
-                    required: mandatory
+                    required: required
                     usage: '2023-06-03T07:30:00.000Z'
                     reference: if any
                 descriptor:
@@ -14951,7 +14951,7 @@ x-attributes:
                       enhances user experience, if no image is available, seller
                       NPs shouldn’t send image (instead of sending placeholder
                       image)
-                    required: mandatory
+                    required: required
                     usage: '-'
                     reference: if any
                 quantity:
@@ -14962,7 +14962,7 @@ x-attributes:
                           enum - "unit", "dozen", "kilogram", "tonne", "litre",
                           "millilitre"
                           (https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/grocery/RET10-UOM.json)
-                        required: mandatory
+                        required: required
                         usage: unit
                         reference: if any
                   available:
@@ -14970,7 +14970,7 @@ x-attributes:
                       description: >-
                         stringified integer value - default value for item in
                         stock
-                      required: mandatory
+                      required: required
                       usage: '3'
                       reference: if any
                   maximum:
@@ -14978,54 +14978,54 @@ x-attributes:
                       description: >-
                         stringified integer value - cap per order (if exists) or
                         default value
-                      required: mandatory
+                      required: required
                       usage: '3'
                       reference: if any
                 category_id:
                   description: >-
                     enum from
                     https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
-                  required: mandatory
+                  required: required
                   usage: Foodgrains
                   reference: if any
                 '@ondc/org/returnable':
                   description: >-
                     should default to true except for specific make-to-order
                     items
-                  required: mandatory
+                  required: required
                   usage: true
                   reference: if any
                 '@ondc/org/cancellable':
                   description: >-
                     should default to true except for specific make-to-order
                     items
-                  required: mandatory
+                  required: required
                   usage: true
                   reference: if any
                 '@ondc/org/seller_pickup_return':
                   description: whether seller is responsible for pick up of item for return
-                  required: mandatory
+                  required: required
                   usage: true
                   reference: if any
                 '@ondc/org/contact_details_consumer_care':
                   description: >-
                     valid contact details exactly in this format - name, email,
                     contact no
-                  required: mandatory
+                  required: required
                   usage: Ambani,ambani@abc.com,18004254444
                   reference: if any
                 '@ondc/org/statutory_reqs_packaged_commodities':
                   description: >-
                     mapping of category to attribute key is defined
                     https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
-                  required: mandatory
+                  required: required
                   usage: '-'
                   reference: if any
                 '@ondc/org/statutory_reqs_prepackaged_food':
                   description: >-
                     mapping of category to attribute key is defined
                     https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
-                  required: mandatory
+                  required: required
                   usage: '-'
                   reference: if any
               creds:
@@ -15037,8 +15037,8 @@ x-attributes:
                 id:
                   description: >-
                     globally identifiable identity or unique ID provided by
-                    seller app; mandatory if creds are provided
-                  required: mandatory
+                    seller app; required if creds are provided
+                  required: required
                   usage: EXP-12345678
                   reference: if any
                 url:
@@ -15048,7 +15048,7 @@ x-attributes:
                   reference: if any
               offers:
                 description: offer definition as per the template defined above
-                required: mandatory
+                required: required
                 usage: '-'
                 reference: if any
       on_search_incremental_catalog_refresh:
@@ -15063,26 +15063,26 @@ x-attributes:
                 description: >-
                   descriptor for seller (merchant) that processes & fulfills
                   orders
-                required: mandatory
+                required: required
                 usage: '-'
                 reference: if any
               items:
                 time:
                   label:
                     description: enum - "enable", "disable"
-                    required: mandatory
+                    required: required
                     usage: enable
                     reference: if any
                   timestamp:
                     description: timestamp for item event
-                    required: mandatory
+                    required: required
                     usage: '2023-06-03T07:30:00.000Z'
                     reference: if any
               locations:
                 time:
                   range:
                     description: means store is closed from 4PM till rest of the day
-                    required: mandatory
+                    required: required
                     usage: '-'
                     reference: if any
       select:
@@ -15109,13 +15109,13 @@ x-attributes:
               parent: true
               fulfillments:
                 description: fulfillment details
-                required: mandatory
+                required: required
                 usage: '-'
                 reference: if any
               end:
                 end:
                   description: fulfillment end location, i.e. delivery location for buyer
-                  required: mandatory
+                  required: required
                   usage: '-'
                   reference: if any
                 location:
@@ -15123,7 +15123,7 @@ x-attributes:
                     description: >-
                       GPS coordinates & precision for fulfillment end location
                       has to be same in /confirm
-                    required: mandatory
+                    required: required
                     usage: 1.380621, 103.746364
                     reference: if any
             payment:
@@ -15150,7 +15150,7 @@ x-attributes:
               parent: true
               provider:
                 description: provider details
-                required: mandatory
+                required: required
                 usage: '-'
                 reference: if any
               locations:
@@ -15158,7 +15158,7 @@ x-attributes:
                   description: >-
                     may be the same location as selected by the buyer or a
                     different location
-                  required: mandatory
+                  required: required
                   usage: '-'
                   reference: if any
             fulfillments:
@@ -15169,14 +15169,14 @@ x-attributes:
                   fulfillment id (for provider & order) needs to be assigned by
                   seller NP for each fulfillment & mapped to item(s) that are a
                   part of that fulfillment
-                required: mandatory
+                required: required
                 usage: '-'
                 reference: if any
               id:
                 description: >-
                   unique fulfillment id assigned by seller NP here & mapped to
                   item and will be persisted right through order confirm
-                required: mandatory
+                required: required
                 usage: '-'
                 reference: if any
               '@ondc/org/category':
@@ -15184,7 +15184,7 @@ x-attributes:
                   Maps to logistics category as defined in Logistics API
                   contract; Value "Express Delivery" should only be used where
                   O2D TAT <= 2 hrs
-                required: mandatory
+                required: required
                 usage: Express Delivery
                 reference: if any
               '@ondc/org/TAT':
@@ -15192,7 +15192,7 @@ x-attributes:
                   Order-to-delivery (O2D) TAT shown = max(time_to_ship for items
                   in the fulfillment) + ship-to-delivery (S2D) time provided by
                   LSP in TAT
-                required: mandatory
+                required: required
                 usage: P1D
                 reference: if any
               state:
@@ -15202,20 +15202,20 @@ x-attributes:
                     location in /select. If non serviceable, seller app has to
                     return the appropriate error code along with a valid
                     /on_select response
-                  required: mandatory
+                  required: required
                   usage: '-'
                   reference: if any
                 descriptor:
                   code:
                     description: enum - "Serviceable", "Non-serviceable"
-                    required: mandatory
+                    required: required
                     usage: '-'
                     reference: if any
             quote:
               parent: true
               ttl:
                 description: validity of quote
-                required: mandatory
+                required: required
                 usage: P1D
                 reference: if any
               breakup:
@@ -15226,7 +15226,7 @@ x-attributes:
                     assigned, i.e. "delivery", "discount_f", "tax_f", "packing",
                     "misc" are at fulfillment level while "item", "tax",
                     "discount" are at item level
-                  required: mandatory
+                  required: required
                   usage: '-'
                   reference: if any
                 '@ondc/org/item_quantity':
@@ -15236,7 +15236,7 @@ x-attributes:
                       stock, seller app should show the quantity available in
                       stock (or 0 if completely out-of-stock) and show the
                       appropriate error code (40002) in the /on_select response
-                    required: mandatory
+                    required: required
                     usage: 2
                     reference: if any
                 '@ondc/org/title_type':
@@ -15252,7 +15252,7 @@ x-attributes:
                     charges)). Title text can be customized by buyer NP; if
                     value is "delivery", then delivery charge to be included
                     only if fulfillment state code is "Serviceable"
-                  required: mandatory
+                  required: required
                   usage: item
                   reference: if any
                 price:
@@ -15260,7 +15260,7 @@ x-attributes:
                     description: >-
                       item price should be either inclusive or exclusive of
                       taxes, exactly as defined in the catalog
-                    required: mandatory
+                    required: required
                     usage: '10.00'
                     reference: if any
       on_select_item_not_in_stock:
@@ -15273,7 +15273,7 @@ x-attributes:
               parent: true
               provider:
                 description: provider details
-                required: mandatory
+                required: required
                 usage: '-'
                 reference: if any
               location:
@@ -15281,14 +15281,14 @@ x-attributes:
                   description: >-
                     may be the same location as selected by the buyer or a
                     different location
-                  required: mandatory
+                  required: required
                   usage: '-'
                   reference: if any
             quote:
               parent: true
               quote:
                 description: quote details
-                required: mandatory
+                required: required
                 usage: 0
                 reference: if any
               breakup:
@@ -15297,14 +15297,14 @@ x-attributes:
                     description: >-
                       can be 0 (completely out of stock) or the reduced quantity
                       in stock
-                    required: mandatory
+                    required: required
                     usage: 0
                     reference: if any
                 '@ondc/org/title_type ':
                   description: >-
                     value will be "delivery" indicating delivery charge (to be
                     included only if fulfillment state code is "Serviceable")
-                  required: mandatory
+                  required: required
                   usage: 0
                   reference: if any
         error:
@@ -15314,7 +15314,7 @@ x-attributes:
               comma delimited item ids, for items out of stock, should be here,
               e.g. "I1,I2,I3" means items (with id) "I1", "I2", "I3" are out of
               stock
-            required: mandatory
+            required: required
             usage: '-'
             reference: if any
       on_select_location_not_serviceable:
@@ -15327,7 +15327,7 @@ x-attributes:
               parent: true
               provider:
                 description: provider details
-                required: mandatory
+                required: required
                 usage: '-'
                 reference: if any
               locations:
@@ -15335,14 +15335,14 @@ x-attributes:
                   description: >-
                     may be the same location as selected by the buyer or a
                     different location
-                  required: mandatory
+                  required: required
                   usage: '-'
                   reference: if any
         error:
           parent: true
           code:
             description: if merchant not available, use error code 30017
-            required: mandatory
+            required: required
             usage: '30017'
             reference: if any
       init:
@@ -15366,12 +15366,12 @@ x-attributes:
                     building is optional
                   reference: if any
                   usage: Flat 2/A
-                  required: mandatory
+                  required: required
                 locality:
                   description: street name
                   reference: if any
                   usage: Feng Shu Street
-                  required: mandatory
+                  required: required
               email:
                 description: Email
                 reference: if any
@@ -15381,25 +15381,25 @@ x-attributes:
                 description: timestamp for creation of billing object
                 reference: if any
                 usage: '2023-06-03T09:00:00.000Z'
-                required: mandatory
+                required: required
               updated_at:
                 description: same as created_at
                 reference: if any
                 usage: '2023-06-03T09:00:00.000Z'
-                required: mandatory
+                required: required
             fulfillments:
               parent: true
               fulfillments:
                 description: fullfillment details
                 reference: if any
                 usage: '-'
-                required: mandatory
+                required: required
               end:
                 location:
                   address:
                     description: name + building + locality < 190 chars, name != locality
                     reference: if any
-                    required: mandatory
+                    required: required
                     usage: '-'
                     name:
                       description: >-
@@ -15407,7 +15407,7 @@ x-attributes:
                         apartments or community dwellings) if name is house no,
                         building is optional
                       reference: if any
-                      required: mandatory
+                      required: required
                       usage: Flat 2/A
       on_init:
         parent: true
@@ -15421,7 +15421,7 @@ x-attributes:
                 description: >-
                   list of locations; may be the same location as selected by the
                   buyer or a different location.
-                required: mandatory
+                required: required
                 usage: '-'
                 reference: if any
             billing:
@@ -15430,7 +15430,7 @@ x-attributes:
                 description: >-
                   billing object timestamps (created_at, updated_at) have to be
                   the same as in /init
-                required: mandatory
+                required: required
                 usage: '-'
                 reference: if any
               tax_number:
@@ -15445,12 +15445,12 @@ x-attributes:
                 reference: if any
               created_at:
                 description: same as in /init
-                required: mandatory
+                required: required
                 usage: '2023-06-03T09:00:00.000Z'
                 reference: if any
               updated_at:
                 description: same as in /init
-                required: mandatory
+                required: required
                 usage: '2023-06-03T09:00:00.000Z'
                 reference: if any
             payment:
@@ -15461,38 +15461,38 @@ x-attributes:
                   like electronics), they may provide the following - type,
                   collected_by, uri (payment link), status, settlement_basis,
                   settlement_window, withholding_amount
-                required: mandatory
+                required: required
                 usage: '-'
                 reference: if any
               collected_by:
                 description: collected by Seller on record
-                required: mandatory
+                required: required
                 usage: SOR
                 reference: if any
               url:
                 description: OPGSP link linked to the SOR
-                required: mandatory
+                required: required
                 usage: https://snp.com/pg
                 reference: if any
               params:
                 currency:
                   description: Currency of the transaction
-                  required: mandatory
+                  required: required
                   usage: USD
                   reference: if any
                 bank_code:
                   description: Bank code for the SOR
-                  required: mandatory
+                  required: required
                   usage: '-'
                   reference: if any
                 bank_account_number:
                   description: Bank Account number of the SOR
-                  required: mandatory
+                  required: required
                   usage: '-'
                   reference: if any
               status:
                 description: enum - "PAID", "NOT-PAID"
-                required: mandatory
+                required: required
                 usage: PAID
                 reference: if any
               '@ondc/org/settlement_basis':
@@ -15500,21 +15500,21 @@ x-attributes:
                   indicates from when settlement window starts, enum -
                   "delivery" (from delivery), "shipment" (from shipment),
                   "return_window_expiry" (from expiry of return window)
-                required: mandatory
+                required: required
                 usage: delivery
                 reference: if any
               '@ondc/org/settlement_window':
                 description: >-
                   settlement window, as per settlement basis, in ISO8601
                   Duration format
-                required: mandatory
+                required: required
                 usage: P1D
                 reference: if any
               '@ondc/org/withholding_amount':
                 description: >-
                   withholding amount as % of total order value (valid values
                   between "0.00" and "100.00")
-                required: mandatory
+                required: required
                 usage: 10
                 reference: if any
               '@ondc/org/settlement_details':
@@ -15525,19 +15525,19 @@ x-attributes:
                   reference: if any
                 settlement_type:
                   description: enum; will be OPGSP for B2C Exports
-                  required: mandatory if parent is present
+                  required: required if parent is present
                   usage: OPGSP
                   reference: if any
                 tags:
                   payment_terms:
                     payment_type:
                       description: When through SOR, OPGSP will be the payment type
-                      required: mandatory
+                      required: required
                       usage: OPGSP
                       reference: if any
                     payment_provider:
                       description: Provider compliant with OPGSP
-                      required: mandatory
+                      required: required
                       usage: '-'
                       reference: if any
             tags:
@@ -15547,7 +15547,7 @@ x-attributes:
                   value for "code"; buyer NP has to accept bpp terms in
                   /confirm. If buyer NP doesn’t accept these terms, they should
                   NACK /on_init with error code 27501
-                required: mandatory
+                required: required
                 usage: '-'
                 reference: if any
       confirm:
@@ -15558,7 +15558,7 @@ x-attributes:
             parent: true
             id:
               description: alphanumeric, up to 32 characters
-              required: mandatory
+              required: required
               usage: O1
               reference: if any
             billing:
@@ -15570,12 +15570,12 @@ x-attributes:
                 reference: if any
               created_at:
                 description: same as in /init
-                required: mandatory
+                required: required
                 usage: '2023-02-03T09:00:00.000Z'
                 reference: if any
               updated_at:
                 description: same as /init
-                required: mandatory
+                required: required
                 usage: '2023-02-03T09:00:00.000Z'
                 reference: if any
             fulfillments:
@@ -15586,7 +15586,7 @@ x-attributes:
                   from what was originally quoted in /on_select, seller NP can
                   NACK the request with error code 30013
                 usage: P1D
-                required: mandatory
+                required: required
                 reference: if any
               end:
                 contact:
@@ -15617,22 +15617,22 @@ x-attributes:
                   reference: if any
                 amount:
                   description: amount collected should match the order value
-                  required: mandatory
+                  required: required
                   usage: '-'
                   reference: if any
               status:
                 description: NOT-PAID for payment on delivery
-                required: mandatory
+                required: required
                 usage: '-'
                 reference: if any
               type:
                 description: ON-FULFILLMENT for payment on delivery
-                required: mandatory
+                required: required
                 usage: ON-ORDER
                 reference: if any
               collected_by:
                 description: BPP for payment on delivery
-                required: mandatory
+                required: required
                 usage: SOR
                 reference: if any
               '@ondc/org/settlement_basis':
@@ -15640,21 +15640,21 @@ x-attributes:
                   indicates from when settlement window starts, enum -
                   "delivery" (from delivery), "shipment" (from shipment),
                   "return_window_expiry" (from expiry of return window)
-                required: mandatory
+                required: required
                 usage: delivery
                 reference: if any
               '@ondc/org/settlement_window':
                 description: >-
                   settlement window, as per settlement basis, in ISO8601
                   Duration format
-                required: mandatory
+                required: required
                 usage: P1D
                 reference: if any
               '@ondc/org/withholding_amount':
                 description: >-
                   withholding amount as % of total order value (valid values
                   between "0.00" and "100.00")
-                required: mandatory
+                required: required
                 usage: 1
                 reference: if any
               '@ondc/org/settlement_details':
@@ -15665,17 +15665,17 @@ x-attributes:
                   reference: if any
                 settlement_counterparty:
                   description: buyer-app for payment on delivery
-                  required: mandatory if parent is present
+                  required: required if parent is present
                   usage: buyer-app
                   reference: if any
               created_at:
                 description: can’t be future dated timestamp
-                required: mandatory
+                required: required
                 usage: '2023-06-03T09:30:00.000Z'
                 reference: if any
               updated_at:
                 description: can’t be future dated timestamp
-                required: mandatory
+                required: required
                 usage: '2023-06-03T09:30:00.000Z'
                 reference: if any
       on_confirm:
@@ -15686,7 +15686,7 @@ x-attributes:
             parent: true
             state:
               description: enum - "Created", "Accepted", "Cancelled"
-              required: mandatory
+              required: required
               usage: Accepted
               reference: if any
             billing:
@@ -15698,19 +15698,19 @@ x-attributes:
                 reference: if any
               created_at:
                 description: same as in /init
-                required: mandatory
+                required: required
                 usage: '2023-06-03T09:00:00.000Z'
                 reference: if any
               updated_at:
                 description: same as in /init
-                required: mandatory
+                required: required
                 usage: '2023-06-03T09:00:00.000Z'
                 reference: if any
             fulfillments:
               parent: true
               tracking:
                 description: true if tracking enabled through /on_track
-                required: mandatory
+                required: required
                 usage: 'tracking: true'
                 reference: if any
               '@ondc/org/TAT':
@@ -15719,14 +15719,14 @@ x-attributes:
                   /on_select, buyer NP can NACK the request with error code
                   22504
                 usage: P1D
-                required: mandatory
+                required: required
                 reference: if any
               start:
                 location:
                   address:
                     description: store address
                     usage: '-'
-                    required: mandatory
+                    required: required
                     reference: if any
                 time:
                   description: pickup time range may be provided if available
@@ -15747,7 +15747,7 @@ x-attributes:
                       is "Packed") - contact no - 10 digits;merchant order no -
                       max 6 digits;other pickup confirmation code - max 6
                       digits;OTP - max 6 digits
-                    required: mandatory
+                    required: required
                     usage: 3
                     reference: if any
                 contact:
@@ -15771,7 +15771,7 @@ x-attributes:
             payment:
               parent: true
               description: same values as in /confirm
-              required: mandatory
+              required: required
               usage: '-'
               reference: if any
               uri:
@@ -15788,17 +15788,17 @@ x-attributes:
               description: >-
                 if terms & conditions different from what was quoted earlier,
                 buyer NP can NACK /on_confirm with error code 22506
-              required: mandatory
+              required: required
               usage: '-'
               reference: if any
             created_at:
               description: same as in /confirm
-              required: mandatory
+              required: required
               usage: '2023-06-03T09:30:00.000Z'
               reference: if any
             updated_at:
               description: can’t be a future date
-              required: mandatory
+              required: required
               usage: '2023-06-03T09:30:00.000Z'
               reference: if any
       on_update:
@@ -15810,7 +15810,7 @@ x-attributes:
             description: >-
               shows the current state of order with the new fulfillment for part
               cancel by merchant
-            required: mandatory
+            required: required
             usage: '-'
             reference: if any
             items:
@@ -15821,7 +15821,7 @@ x-attributes:
                   forward shipment fulfillment id and new fulfillment id for
                   cancel request, must be unique for each cancellation /
                   cancellation request in consecutive list elements
-                required: mandatory
+                required: required
                 usage: '-'
                 reference: if any
                 quantity:
@@ -15843,7 +15843,7 @@ x-attributes:
         message:
           parent: true
           cancellation_reason_id:
-            required: mandatory
+            required: required
             description: >-
               cancellation reason codes are defined here, use "006" for
               cancellation of fulfillment for TAT breach
@@ -15856,7 +15856,7 @@ x-attributes:
             usage: '-'
             parent: true
             short_desc:
-              required: mandatory
+              required: required
               description: fulfillment id for cancellation of fulfillment for TAT breach
               reference: if any
               usage: F1
@@ -15871,12 +15871,12 @@ x-attributes:
                 order state will be updated to "Cancelled" if the order is
                 cancelled
               usage: Cancelled
-              required: mandatory
+              required: required
               reference: if any
             cancellation:
               description: to be used only if order is cancelled
               usage: '-'
-              required: 'mandatory if state: "Cancelled"'
+              required: 'required if state: "Cancelled"'
               reference: if any
             fulfillments:
               parent: true
@@ -15892,7 +15892,7 @@ x-attributes:
                   updated order value including cancellation charges (delivery +
                   packing charges)
                 reference: if any
-                required: mandatory
+                required: required
                 usage: '-'
       status:
         parent: true
@@ -15902,7 +15902,7 @@ x-attributes:
             description: >-
               status for order can be queried using same transaction id used for
               order /confirm
-            required: mandatory
+            required: required
             usage: '-'
             reference: if any
       on_status:
@@ -15915,7 +15915,7 @@ x-attributes:
               description: >-
                 enum -
                 "Created","Accepted","In-progress","Completed","Cancelled"
-              required: mandatory
+              required: required
               usage: Completed
               reference: if any
             cancellation:
@@ -15932,7 +15932,7 @@ x-attributes:
                 reference: if any
               created_at:
                 description: same as in /init where billing object is created
-                required: mandatory
+                required: required
                 usage: '2023-06-03T09:00:00.000Z'
                 reference: if any
             fulfillments:
@@ -15952,7 +15952,7 @@ x-attributes:
                       all states except "Order-delivered" where order state will
                       depend on the states of other fulfillment) enum for RTO -
                       "RTO-Initiated", "RTO-Delivered", "RTO-Disposed"
-                    required: mandatory
+                    required: required
                     usage: Order-delivered
                     reference: if any
               start:
@@ -15971,7 +15971,7 @@ x-attributes:
                       contact no (for self-pickup)), "2" (merchant order no),
                       "3" (other pickup confirmation code), "4" (OTP); required
                       when order is "Packed"
-                    required: mandatory
+                    required: required
                     usage: '1'
                     reference: if any
                   short_desc:
@@ -15980,7 +15980,7 @@ x-attributes:
                       no - 10 digits; merchant order no - max 6 digits; other
                       pickup confirmation code - max 6 digits; OTP - max 6
                       digits
-                    required: mandatory
+                    required: required
                     usage: '-'
                     reference: if any
                   images:
@@ -16024,7 +16024,7 @@ x-attributes:
                     description: >-
                       to be provided at the time of delivery ("Order-delivered")
                       & includes delivery image, rider delivery coordinates
-                    required: mandatory
+                    required: required
                     usage: '-'
                     reference: if any
               vehicle:
@@ -16042,13 +16042,13 @@ x-attributes:
                 description: >-
                   required for payment on delivery orders when order state is
                   "Completed"
-                required: mandatory
+                required: required
                 usage: '-'
                 reference: if any
             documents:
               description: >-
                 required from fulfillment.state = "Order-picked-up" and
                 thereafter
-              required: mandatory
+              required: required
               usage: '-'
               reference: if any
