@@ -178,12 +178,12 @@ attribute:
   - code: AGE_GROUP
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
-    list:
+    value:
       $ref: "./tags_enum/age_group.yaml#/age_group"
   - code: BENEFIT
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
-    list:
+    value:
       $ref: "./tags_enum/benefit.yaml#/benefit"
   - code: BASE_METAL
     description: Description about the tags

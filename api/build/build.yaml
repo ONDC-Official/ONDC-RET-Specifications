@@ -3840,7 +3840,7 @@ x-tags:
                   - code: AGE_GROUP
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: new born
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -3922,7 +3922,7 @@ x-tags:
                   - code: BENEFIT
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: age defying
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
