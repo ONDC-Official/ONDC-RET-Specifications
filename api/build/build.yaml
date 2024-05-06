@@ -3576,8 +3576,10 @@ x-tags:
     message:
       intent:
         tags:
-          - code: CATALOG_INC
-            description: Description about the tags
+          - code: CATALOG_FULL
+            description: >-
+              It is used communicate the intent for a full catalog refresh.
+              Required when the request is for full catalog refresh.
             reference: <PR/Issue/Discussion Links md format text>
             list:
               - code: MODE
@@ -3592,13 +3594,17 @@ x-tags:
               - code: END_TIME
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
-          - code: CATALOG_FULL
-            description: Description about the tags
+            required: required
+          - code: CATALOG_INC
+            description: >-
+              It is used communicate the intent for a incremental catalog
+              refresh. Required when the request is for incremental refresh.
             reference: <PR/Issue/Discussion Links md format text>
             list:
               - code: PAYLOAD_TYPE
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+            required: required
   on_search:
     message:
       catalog:
@@ -3607,6 +3613,7 @@ x-tags:
             - code: SERVICEABILITY
               description: Description about the tags
               reference: <PR/Issue/Discussion Links md format text>
+              required: required
               list:
                 - code: LOCATION
                   description: maps to unique location for provider
@@ -3626,6 +3633,7 @@ x-tags:
             - code: ORDER_VALUE
               description: Description about the tags
               reference: <PR/Issue/Discussion Links md format text>
+              required: required
               list:
                 - code: MIN_VALUE
                   description: minimum order value for provider
@@ -3633,6 +3641,7 @@ x-tags:
             - code: CATALOG_LINK
               description: Description about the tags
               reference: <PR/Issue/Discussion Links md format text>
+              required: required
               list:
                 - code: TYPE
                   description: >-
@@ -3657,7 +3666,7 @@ x-tags:
                     if type = "link"
                   reference: <PR/Issue/Discussion Links md format text>
             - code: TIMING
-              description: Description about the tags
+              description: Provider operation timings
               reference: <PR/Issue/Discussion Links md format text>
               list:
                 allOf:
@@ -3696,6 +3705,7 @@ x-tags:
                   - code: LOCATION
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
+              required: required
           categories:
             tags:
               - code: TYPE
@@ -3705,13 +3715,16 @@ x-tags:
                   - code: TYPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
+                required: required
               - code: TIMING
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list: *ref_11
               - code: DISPLAY
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list:
                   - code: RANK
                     description: Description about the tags
@@ -3719,6 +3732,7 @@ x-tags:
               - code: CONFIG
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list:
                   - code: MIN
                     description: Description about the tags
@@ -3735,6 +3749,7 @@ x-tags:
               - code: ATTR
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list:
                   - code: NAME
                     description: Description about the tags
@@ -3747,6 +3762,7 @@ x-tags:
               - code: ORIGIN
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list:
                   - code: COUNTRY
                     description: value will be ISO 3166-1 alpha-3 code
@@ -3754,6 +3770,7 @@ x-tags:
               - code: CUSTOM_GROUP
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list:
                   - code: ID
                     description: Description about the tags
@@ -3761,6 +3778,7 @@ x-tags:
               - code: CONFIG
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list:
                   - code: ID
                     description: Description about the tags
@@ -3777,10 +3795,12 @@ x-tags:
               - code: TIMING
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list: *ref_11
               - code: VEG_NONVEG
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list:
                   - code: VEG
                     description: on_seach_Grocery - Used Only as Applicable
@@ -3791,6 +3811,7 @@ x-tags:
               - code: PARENT
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list: &ref_14
                   - code: ID
                     description: Description about the tags
@@ -3801,6 +3822,7 @@ x-tags:
               - code: CHILD
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list: &ref_15
                   - code: ID
                     description: Description about the tags
@@ -3808,10 +3830,12 @@ x-tags:
               - code: TYPE
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list: *ref_12
               - code: ATTRIBUTE
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list:
                   - code: AGE_GROUP
                     description: Description about the tags
@@ -6213,6 +6237,7 @@ x-tags:
               - code: CART
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list:
                   - code: MIN_VALUE
                     description: Description about the tags
@@ -6223,6 +6248,7 @@ x-tags:
               - code: OFFER
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list:
                   - code: OFFERED_VALUE_TYPE
                     description: Description about the tags
@@ -6245,16 +6271,19 @@ x-tags:
               - code: PARENT
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list: *ref_14
               - code: TYPE
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list: *ref_12
           creds:
             tags:
               - code: VERIFICATION
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list:
                   - code: VERIFY_URL
                     description: Description about the tags
@@ -6272,14 +6301,17 @@ x-tags:
           - code: TYPE
             description: Description about the tags
             reference: <PR/Issue/Discussion Links md format text>
+            required: required
             list: *ref_12
           - code: CHILD
             description: Description about the tags
             reference: <PR/Issue/Discussion Links md format text>
+            required: required
             list: *ref_15
           - code: PARENT
             description: Description about the tags
             reference: <PR/Issue/Discussion Links md format text>
+            required: required
             list: *ref_14
   on_select: *ref_16
   init: *ref_16
@@ -6291,6 +6323,7 @@ x-tags:
           - code: BUYER_ID
             description: Description about the tags
             reference: <PR/Issue/Discussion Links md format text>
+            required: required
             list:
               - code: BUYER_ID_CODE
                 description: Description about the tags
@@ -6317,6 +6350,7 @@ x-tags:
           - code: BPP_TERMS
             description: Description about the tags
             reference: <PR/Issue/Discussion Links md format text>
+            required: required
             list:
               - code: MAX_LIABILITY
                 description: Description about the tags
@@ -6347,6 +6381,7 @@ x-tags:
           - code: BAP_TERMS
             description: Description about the tags
             reference: <PR/Issue/Discussion Links md format text>
+            required: required
             list:
               - code: ACCEPT_BPP_TERMS
                 description: Description about the tags
@@ -6362,6 +6397,7 @@ x-tags:
             - code: CANCEL_REQUEST
               description: Description about the tags
               reference: <PR/Issue/Discussion Links md format text>
+              required: optional
               list:
                 - code: REASON_ID
                   description: >-
@@ -6387,6 +6423,7 @@ x-tags:
             - code: QUOTE_TRAIL
               description: Description about the tags
               reference: <PR/Issue/Discussion Links md format text>
+              required: optional
               list:
                 - code: TYPE
                   description: matches order.quote.breakup[].title_type
@@ -6410,6 +6447,7 @@ x-tags:
             - code: RETURN_REQUEST
               description: Description about the tags
               reference: <PR/Issue/Discussion Links md format text>
+              required: optional
               list:
                 - code: ID
                   description: Description about the tags
@@ -6446,10 +6484,12 @@ x-tags:
             - code: TYPE
               description: Description about the tags
               reference: <PR/Issue/Discussion Links md format text>
+              required: required
               list: *ref_12
             - code: PARENT
               description: Description about the tags
               reference: <PR/Issue/Discussion Links md format text>
+              required: required
               list: *ref_14
   confirm: *ref_18
   on_confirm: *ref_18
@@ -6463,6 +6503,7 @@ x-tags:
           - code: PATH
             description: Description about the tags
             reference: <PR/Issue/Discussion Links md format text>
+            required: required
             list:
               - code: lat_lng
                 description: Description about the tags
