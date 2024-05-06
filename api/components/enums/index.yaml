@@ -33,7 +33,7 @@ on_select:
   message:
     order:
       fulfillments:
-        $ref: "./fulfillments.yaml"
+        $ref: "./fulfillments.yaml#/fulfillments"
       quote:
         breakup:
           $ref: "./title_type.yaml#/breakup"   

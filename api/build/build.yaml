@@ -3317,104 +3317,103 @@ x-enum:
     message:
       order:
         fulfillments:
-          fulfillments:
-            type: *ref_4
-            instructions: &ref_10
+          type: *ref_4
+          instructions: &ref_10
+            code:
+              - code: 1
+                description: buyer contact no (for self-pickup)
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: 2
+                description: merchant order no
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: 3
+                description: other pickup confirmation code
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: 4
+                description: (OTP) required when order is "Packed"
+                reference: <PR/Issue/Discussion Links md format text>
+          '@ondc/org/category':
+            - code: Takeaway
+              description: about the enum
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: Kerbside
+              description: about the enum
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: Express Delivery
+              description: about the enum
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: Immediate Delivery
+              description: about the enum
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: Same Day Delivery
+              description: about the enum
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: Next Day Delivery
+              description: about the enum
+              reference: <PR/Issue/Discussion Links md format text>
+          state: &ref_6
+            descriptor:
               code:
-                - code: 1
-                  description: buyer contact no (for self-pickup)
+                - code: Pending
+                  description: about the enum
                   reference: <PR/Issue/Discussion Links md format text>
-                - code: 2
-                  description: merchant order no
+                - code: Packed
+                  description: about the enum
                   reference: <PR/Issue/Discussion Links md format text>
-                - code: 3
-                  description: other pickup confirmation code
+                - code: Pickup-approved
+                  description: about the enum
                   reference: <PR/Issue/Discussion Links md format text>
-                - code: 4
-                  description: (OTP) required when order is "Packed"
+                - code: Pickup-rejected
+                  description: about the enum
                   reference: <PR/Issue/Discussion Links md format text>
-            '@ondc/org/category':
-              - code: Takeaway
-                description: about the enum
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: Kerbside
-                description: about the enum
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: Express Delivery
-                description: about the enum
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: Immediate Delivery
-                description: about the enum
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: Same Day Delivery
-                description: about the enum
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: Next Day Delivery
-                description: about the enum
-                reference: <PR/Issue/Discussion Links md format text>
-            state: &ref_6
-              descriptor:
-                code:
-                  - code: Pending
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: Packed
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: Pickup-approved
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: Pickup-rejected
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: Order-picked-up
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: In-transit
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: At-domestic-hub
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: Custom-cleared-domestic
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: Custom-rejected-domestic
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: Shipped
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: Reached-destination-country
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: Custom-cleared-destination
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: Custom-rejected-destination
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: At-destination-hub
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: Out-for-delivery
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: Order-delivered
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: Delivery-failed
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: RTO-Initiated
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: RTO-Delivered
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: RTO-Disposed
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
+                - code: Order-picked-up
+                  description: about the enum
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: In-transit
+                  description: about the enum
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: At-domestic-hub
+                  description: about the enum
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Custom-cleared-domestic
+                  description: about the enum
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Custom-rejected-domestic
+                  description: about the enum
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Shipped
+                  description: about the enum
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Reached-destination-country
+                  description: about the enum
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Custom-cleared-destination
+                  description: about the enum
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Custom-rejected-destination
+                  description: about the enum
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: At-destination-hub
+                  description: about the enum
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Out-for-delivery
+                  description: about the enum
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Order-delivered
+                  description: about the enum
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Delivery-failed
+                  description: about the enum
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: RTO-Initiated
+                  description: about the enum
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: RTO-Delivered
+                  description: about the enum
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: RTO-Disposed
+                  description: about the enum
+                  reference: <PR/Issue/Discussion Links md format text>
         quote:
           breakup: &ref_5
             '@ondc/org/title_type':
