@@ -3980,7 +3980,7 @@ x-tags:
                   - code: BASE_METAL
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: gold
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4017,7 +4017,7 @@ x-tags:
                   - code: BRISTLE_TYPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: natural
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4027,7 +4027,7 @@ x-tags:
                   - code: BRUSH_TYPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: foundation brush
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4073,7 +4073,7 @@ x-tags:
                   - code: CONCERN
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: acne_blemishes
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4185,7 +4185,7 @@ x-tags:
                   - code: CONSCIOUS
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: cruelty_free
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4198,7 +4198,7 @@ x-tags:
                   - code: COVERAGE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: full coverage
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4214,7 +4214,7 @@ x-tags:
                   - code: EXTENSION_COLOUR
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list: &ref_13
+                    value: &ref_13
                       - code: black
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4296,7 +4296,7 @@ x-tags:
                   - code: EXTENSION_TYPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: human hair
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4309,7 +4309,7 @@ x-tags:
                   - code: FINISH
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: matte
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4358,7 +4358,7 @@ x-tags:
                   - code: FORMULATION
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: cream
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4422,7 +4422,7 @@ x-tags:
                   - code: FRAGRANCE_FAMILY
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: fresh
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4441,7 +4441,7 @@ x-tags:
                   - code: HAIR_TYPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: dry
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4475,7 +4475,7 @@ x-tags:
                   - code: JEWELLERY_TYPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: statement
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4503,7 +4503,7 @@ x-tags:
                   - code: INGREDIENT
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: almond
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4606,7 +4606,7 @@ x-tags:
                   - code: MATERIAL
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: cotton
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4655,7 +4655,7 @@ x-tags:
                   - code: OCCASION
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: day
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4701,7 +4701,7 @@ x-tags:
                   - code: PACK_SIZE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: single
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4711,7 +4711,7 @@ x-tags:
                   - code: PATTERN
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: solid/plain
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4778,7 +4778,7 @@ x-tags:
                   - code: PREFERENCE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: acetone_free
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4932,7 +4932,7 @@ x-tags:
                   - code: RICE_GRAIN_TYPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: broken grain
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4948,7 +4948,7 @@ x-tags:
                   - code: PRESERVATIVES
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: benzoic acid
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5015,7 +5015,7 @@ x-tags:
                   - code: SKIN_TONE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: medium/wheatish
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5028,7 +5028,7 @@ x-tags:
                   - code: SKIN_TYPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: dry
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5050,7 +5050,7 @@ x-tags:
                   - code: SPF
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: above 50
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5069,11 +5069,11 @@ x-tags:
                   - code: COLOUR
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list: *ref_13
+                    value: *ref_13
                   - code: GENDER
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: unisex
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5092,7 +5092,7 @@ x-tags:
                   - code: FLAVOURS_SPICES
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: ajwain
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5333,7 +5333,7 @@ x-tags:
                   - code: DIAL_SHAPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: diamond
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5355,7 +5355,7 @@ x-tags:
                   - code: DISPLAY
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: analogue
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5365,7 +5365,7 @@ x-tags:
                   - code: FABRIC_FINISH
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: satin
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5396,7 +5396,7 @@ x-tags:
                   - code: FACE_SHAPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: rectangular
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5415,7 +5415,7 @@ x-tags:
                   - code: FASTENING
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: lace-up
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5428,7 +5428,7 @@ x-tags:
                   - code: FIT
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: regular
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5450,7 +5450,7 @@ x-tags:
                   - code: FRAME_MATERIAL
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: aellulose acetate
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5460,7 +5460,7 @@ x-tags:
                   - code: FRAME_SHAPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: rectangular
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5485,7 +5485,7 @@ x-tags:
                   - code: FRAME_SIZE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: extra narrow
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5504,7 +5504,7 @@ x-tags:
                   - code: FRAME_TYPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: full rim
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5517,7 +5517,7 @@ x-tags:
                   - code: GEM_TYPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: acetate
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5536,7 +5536,7 @@ x-tags:
                   - code: GLASS_MATERIAL
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: crystals
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5567,7 +5567,7 @@ x-tags:
                   - code: INSOLE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: arch support
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5601,7 +5601,7 @@ x-tags:
                   - code: KURTA_PATTERN
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: solid
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5653,7 +5653,7 @@ x-tags:
                   - code: LAPTOP_SIZE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: 11 inch
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5675,7 +5675,7 @@ x-tags:
                   - code: LENGTH
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: long
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5688,7 +5688,7 @@ x-tags:
                   - code: LENS_MATERIAL
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: glass
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5707,7 +5707,7 @@ x-tags:
                   - code: LOCK_TYPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: tsa
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5720,7 +5720,7 @@ x-tags:
                   - code: MIDSOLE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: leather
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5733,7 +5733,7 @@ x-tags:
                   - code: NECK
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: boat
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5767,7 +5767,7 @@ x-tags:
                   - code: ORNAMENTATION
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: aari work
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5801,7 +5801,7 @@ x-tags:
                   - code: OUTSOLE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: marking
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5811,7 +5811,7 @@ x-tags:
                   - code: PADDING
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: lightly padded
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5827,7 +5827,7 @@ x-tags:
                   - code: PLATING
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: brass
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5849,7 +5849,7 @@ x-tags:
                   - code: SEAM
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: cut and sew
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5859,7 +5859,7 @@ x-tags:
                   - code: SHOULDER_STRAP_TYPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: cross body
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5878,7 +5878,7 @@ x-tags:
                   - code: SEASON
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: winter
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5894,7 +5894,7 @@ x-tags:
                   - code: SLEEVE_LENGTH
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: full sleeve
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5910,7 +5910,7 @@ x-tags:
                   - code: SOLE_MATERIAL
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: crosslite
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5953,7 +5953,7 @@ x-tags:
                   - code: SPORTS_TYPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: running
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -6002,7 +6002,7 @@ x-tags:
                   - code: STONE_TYPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: precious
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -6015,7 +6015,7 @@ x-tags:
                   - code: STRAP_MATERIAL
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: canvas
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -6037,7 +6037,7 @@ x-tags:
                   - code: STRAPS
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: halter
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -6056,7 +6056,7 @@ x-tags:
                   - code: TOE_SHAPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: pointed
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -6069,7 +6069,7 @@ x-tags:
                   - code: TREND
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: abstract
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -6103,7 +6103,7 @@ x-tags:
                   - code: VOLUME
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: numeric
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -6119,7 +6119,7 @@ x-tags:
                   - code: WAIST_BAND
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: inner elastic
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -6129,7 +6129,7 @@ x-tags:
                   - code: WAIST_RISE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: low
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -6142,7 +6142,7 @@ x-tags:
                   - code: WATER_RESISTANCE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: 30 meter
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -6158,7 +6158,7 @@ x-tags:
                   - code: FEATURES
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: basic
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -6174,7 +6174,7 @@ x-tags:
                   - code: MATERIAL_FINISH
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: embossed
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
