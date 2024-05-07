@@ -3256,6 +3256,31 @@ x-tags:
                       The URL for the image depicting the nutritional
                       information of a product.
                     reference: <PR/Issue/Discussion Links md format text>
+              - code: VEG_NONVEG
+                description: It denotes whether the item is vegetarian or not.
+                reference: <PR/Issue/Discussion Links md format text>
+                required: required for food items
+                list:
+                  - code: VEG
+                    description: It indicates that the item is suitable for vegetarians.
+                    reference: <PR/Issue/Discussion Links md format text>
+                    value:
+                      - code: 'yes'
+                        description: >-
+                          It indicates that the item is suitable for
+                          vegetarians.
+                        reference: <PR/Issue/Discussion Links md format text>
+                  - code: NON_VEG
+                    description: >-
+                      It signifies that the item is not suitable for
+                      vegetarians.
+                    reference: <PR/Issue/Discussion Links md format text>
+                    value:
+                      - code: 'yes'
+                        description: >-
+                          It signifies that the item is not suitable for
+                          vegetarians.
+                        reference: <PR/Issue/Discussion Links md format text>
               - code: ATTRIBUTE
                 description: >-
                   Attributes specific to the items as per taxonomy are specified
