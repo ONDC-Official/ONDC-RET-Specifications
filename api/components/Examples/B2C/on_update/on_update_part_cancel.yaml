@@ -3,17 +3,17 @@ description: Acceptance by Seller for other products
 value:
   context:
     domain: ONDC:AGR11
-    action: on_confirm
+    action: on_update
     core_version: 1.2.0
     bap_id: buyerNP.com
     bap_uri: https://buyerNP.com/ondc
     bpp_id: sellerNP.com
     bpp_uri: https://sellerNP.com/ondc
     transaction_id: T2
-    message_id: M4
+    message_id: M5
     city: std:080
     country: IND
-    timestamp: "2023-06-03T09:30:30.000Z"
+    timestamp: "2023-06-03T09:35:30.000Z"
   message:
     order:
       id: O1
@@ -25,6 +25,10 @@ value:
       items:
         - id: I1
           fulfillment_id: F1
+          quantity:
+            count: 1
+        - id: I1
+          fulfillment_id: C1
           quantity:
             count: 1
       billing:
@@ -96,19 +100,41 @@ value:
             contact:
               phone: "9886098860"
               email [^14]: nobody@nomail.com
+        - id: C1
+          type: Cancel
+          state:
+            descriptor:
+              code: Cancelled
+          tags:
+            - code: cancel_request
+              list:
+                - code: reason_id
+                  value: 002
+                - code: initiated_by
+                  value: sellerNP.com
+            - code: quote_trail
+              list:
+                - code: type
+                  value: item
+                - code: id
+                  value: I1
+                - code: currency
+                  value: INR
+                - code: value
+                  value: "-80.00"
       quote:
         price:
           currency: INR
-          value: "284.00"
+          value: "204.00"
         breakup:
           - "@ondc/org/item_id [^9]": I1
             "@ondc/org/item_quantity":
-              count [^10]: 2
+              count [^10]: 1
             title: Maize Lot
             "@ondc/org/title_type [^11]": item
             price:
               currency: INR
-              value: "160.00 [^12]"
+              value: "80.00 [^12]"
             item:
               quantity:
                 available:
@@ -254,4 +280,4 @@ value:
             - code: tax_number
               value: gst_number_of_buyerNP
       created_at [^21]: "2023-06-03T09:30:00.000Z"
-      updated_at [^22]: "2023-06-03T09:31:30.000Z"
+      updated_at [^22]: "2023-06-03T09:32:30.000Z"

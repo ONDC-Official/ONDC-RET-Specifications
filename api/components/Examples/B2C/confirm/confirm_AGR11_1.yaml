@@ -27,7 +27,7 @@ value:
         - id: I1
           fulfillment_id: F2
           quantity:
-            count: 1
+            count: 2
       offers:
         - id: BUY2GET3
       billing:
@@ -68,16 +68,16 @@ value:
       quote:
         price:
           currency: INR
-          value: "105.00"
+          value: "185.00"
         breakup:
           - "@ondc/org/item_id [^9]": I1
             "@ondc/org/item_quantity":
-              count [^10]: 1
+              count [^10]: 2
             title: Maize Lot
             "@ondc/org/title_type [^11]": item
             price:
               currency: INR
-              value: "80.00 [^12]"
+              value: "160.00 [^12]"
             item:
               quantity:
                 available:
@@ -124,7 +124,7 @@ value:
         params:
           currency: INR
           transaction_id [^10]: "3937"
-          amount: "134.00 [^11]"
+          amount: "185.00 [^11]"
         status: NOT-PAID [^12]
         type: ON-FULFILLMENT [^13]
         collected_by: BPP [^14]
