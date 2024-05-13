@@ -25,7 +25,7 @@ value:
         - id: I1
           location_id: L1
           quantity:
-            count: 1
+            count: 2
       offers [^1]:
         - id: BUY2GET3
           tags:
