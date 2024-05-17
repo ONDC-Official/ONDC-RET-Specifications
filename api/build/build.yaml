@@ -3844,19 +3844,6 @@ x-flows:
                   id: RET10-*
                 fulfillment:
                   type: Delivery
-                  stops:
-                    - type: end
-                      location:
-                        gps: 12.974002,77.613458
-                        area_code: '560001'
-                    - type: end
-                      location:
-                        gps: 12.944002,77.603458
-                        area_code: '560004'
-                    - type: end
-                      location:
-                        gps: 12.904002,77.593458
-                        area_code: '560076'
                 payment:
                   type: ON-FULFILLMENT
                 tags:
@@ -14738,19 +14725,6 @@ x-examples:
                     id: RET10-*
                   fulfillment:
                     type: Delivery
-                    stops:
-                      - type: end
-                        location:
-                          gps: 12.974002,77.613458
-                          area_code: '560001'
-                      - type: end
-                        location:
-                          gps: 12.944002,77.603458
-                          area_code: '560004'
-                      - type: end
-                        location:
-                          gps: 12.904002,77.593458
-                          area_code: '560076'
                   payment:
                     type: ON-FULFILLMENT
                   tags:
@@ -27184,21 +27158,19 @@ x-attributes:
           location:
             city:
               description: >-
-                city code for search that identifies the cities where sellers
-                have stores. List of city codes, with pincode mapping, are here
-                -
+                The city code entered in the search indicates the serviceability
+                of the seller. For example, 'std:080' signifies that the buyer
+                app is requesting the catalog of all sellers who provide service
+                to this particular city code. List of city codes, with pincode
+                mapping, are here -
                 https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=1474472733
               required: required
               usage: std:080
               reference: if any
             country:
-              description: >-
-                country code for search that identifies the cities where sellers
-                have stores. List of city codes, with pincode mapping, are here
-                -
-                https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=1474472733
+              description: country code
               required: required
-              usage: std:080
+              usage: IND
               reference: if any
           bap_id:
             description: subscriber id for buyer app
@@ -27211,7 +27183,7 @@ x-attributes:
             usage: https://buyerNP.com/ondc
             reference: if any
           timestamp:
-            description: RFC3339 compliant timestamp
+            description: RFC3339 compliant timestamp denotes when the request was made.
             required: required
             usage: '2023-06-03T08:00:00.000Z'
             reference: if any
@@ -27263,30 +27235,38 @@ x-attributes:
                 reference: if any
             fulfillment:
               type:
-                description: type of fulfillment mode buyer wants to avail
+                description: >-
+                  type of fulfillment mode buyer wants to avail (Delivery, Self
+                  Pickup)
                 required: required
                 usage: Delivery
                 reference: if any
               stops:
-                type:
-                  description: >-
-                    location(s) where the buyer wants the delivery to be made,
-                    single location is mandatory, multiple locations are
-                    optional
+                description: >-
+                  location(s) where the buyer wants the delivery to be made,
+                  required for search by fulfillment, optional for search by
+                  city
+                required: optional
+                usage: end
+                reference: if any
+              stops.type:
+                description: >-
+                  location(s) where the buyer wants the delivery to be made,
+                  single location is mandatory, multiple locations are optional
+                required: required
+                usage: end
+                reference: if any
+              stops.location:
+                gps:
+                  description: minimum 6 digit decimal precision for gps coordinates
                   required: required
-                  usage: end
+                  usage: 1.380621, 103.746364
                   reference: if any
-                location:
-                  gps:
-                    description: minimum 6 digit decimal precision for gps coordinates
-                    required: required
-                    usage: 1.380621, 103.746364
-                    reference: if any
-                  area_code:
-                    description: area_code
-                    required: required
-                    usage: '110030'
-                    reference: if any
+              stops.area_code:
+                description: area_code
+                required: required
+                usage: '110030'
+                reference: if any
       on_search:
         parent: true
         context:
