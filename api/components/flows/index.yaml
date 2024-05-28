@@ -10,4 +10,5 @@
 - $ref: "./B2B_Item_out_of_stock/index.yaml"
 - $ref: "./B2B_non_serviceable/index.yaml"
 - $ref: "./B2B_PO_Rejection/index.yaml"
+- $ref: "./B2B_domestic_Seller_Led_Journey/index.yaml"
 - $ref: "./B2B_multiple_fulfillments/index.yaml"

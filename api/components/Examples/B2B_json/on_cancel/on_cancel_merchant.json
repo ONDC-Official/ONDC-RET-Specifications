@@ -109,9 +109,7 @@
                 "id": "L1",
                 "descriptor": {
                   "name": "ABC Store",
-                  "images": [
-                    "https://gf-integration/images/5.png"
-                  ]
+                  "images": ["https://gf-integration/images/5.png"]
                 },
                 "gps": "12.956399,77.636803"
               },
@@ -126,9 +124,7 @@
                 "name": "Proof of pickup",
                 "short_desc": "Proof of pickup details",
                 "long_desc": "Proof of pickup details",
-                "images": [
-                  "https://image1_url.png"
-                ]
+                "images": ["https://image1_url.png"]
               },
               "contact": {
                 "phone": "9886098860",
@@ -162,9 +158,7 @@
                 "name": "Proof of delivery",
                 "short_desc": "Proof of delivery details",
                 "long_desc": "Proof of delivery details",
-                "images": [
-                  "https://image1_url.png"
-                ]
+                "images": ["https://image1_url.png"]
               },
               "contact": {
                 "phone": "9886098860"
@@ -177,6 +171,20 @@
                   "phone": "9886098860"
                 }
               }
+            }
+          ],
+          "tags": [
+            {
+              "descriptor": { "code": "igm_request" },
+
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "id"
+                  },
+                  "value": "Issue1"
+                }
+              ]
             }
           ]
         }

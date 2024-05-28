@@ -201,7 +201,6 @@ message:
           usage: "-"
           reference: if any 
         creator.descriptor.contact.address:
-          parent: true
           description: address of the support person
           required: required
           usage: "-"
@@ -253,6 +252,11 @@ message:
           reference: if any
         cancellation_terms:
           description: cancellation terms applicable on cancellation of the item
+          required: required
+          usage: "-"
+          reference: if any
+        cancellation_terms.cancellation_fee:
+          description: Cancellation fees can be applied either as a percentage or as a flat amount.
           required: required
           usage: "-"
           reference: if any
@@ -365,6 +369,11 @@ message:
             required: required
             usage: '-'
             reference: if any
+      tags: 
+        description: serviceability construct for providers is defined here. Refer to this document (https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit) for serviceability construct.
+        required: required
+        usage: '-'
+        reference: if any
     fulfillments:
        parent: true
        id:

@@ -103,6 +103,18 @@ value:
           - descriptor:
               code: seller_id_no
             value: xxxxxxxxxxxxxxx
+        - descriptor:
+            code: FSSAI_LICENSE_NO
+          list:
+          - descriptor:
+              code: BRAND_OWNER
+            value: '12345678901234'
+          - descriptor:
+              code: OTHER
+            value: '12345678901234'
+          - descriptor:
+              code: IMPORTER
+            value: '12345678901234'
         items:
         - id: I1
           parent_item_id: PI1
@@ -115,7 +127,7 @@ value:
             - url: https://abc.com/images/207.png
             media:
             - mimetype: video/mp4
-              url: https://abc.com/videos/207.mp4
+              url: https://abc.com/videos/207
           creator:
             descriptor:
               name: Mother Dairy
@@ -293,18 +305,6 @@ value:
             - descriptor:
                 code: unit_sale_price
               value: '175'
-          - descriptor:
-              code: FSSAI_LICENSE_NO
-            list:
-            - descriptor:
-                code: BRAND_OWNER
-              value: '12345678901234'
-            - descriptor:
-                code: OTHER
-              value: '12345678901234'
-            - descriptor:
-                code: IMPORTER
-              value: '12345678901234'
         offers:
         - id: offer-1
           descriptor:

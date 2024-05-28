@@ -171,6 +171,31 @@
                   "value": "xxxxxxxxxxxxxxx"
                 }
               ]
+            },
+            {
+              "descriptor": {
+                "code": "FSSAI_LICENSE_NO"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "BRAND_OWNER"
+                  },
+                  "value": "12345678901234"
+                },
+                {
+                  "descriptor": {
+                    "code": "OTHER"
+                  },
+                  "value": "12345678901234"
+                },
+                {
+                  "descriptor": {
+                    "code": "IMPORTER"
+                  },
+                  "value": "12345678901234"
+                }
+              ]
             }
           ],
           "items": [
@@ -546,31 +571,6 @@
                         "code": "unit_sale_price"
                       },
                       "value": "175"
-                    }
-                  ]
-                },
-                {
-                  "descriptor": {
-                    "code": "FSSAI_LICENSE_NO"
-                  },
-                  "list": [
-                    {
-                      "descriptor": {
-                        "code": "BRAND_OWNER"
-                      },
-                      "value": "12345678901234"
-                    },
-                    {
-                      "descriptor": {
-                        "code": "OTHER"
-                      },
-                      "value": "12345678901234"
-                    },
-                    {
-                      "descriptor": {
-                        "code": "IMPORTER"
-                      },
-                      "value": "12345678901234"
                     }
                   ]
                 }
