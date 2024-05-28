@@ -21,7 +21,7 @@ details:
         
         note left of SellerApp1: Offline communication <br/>b/w buyer and seller.
 
-  - description: RFQ (Request For Quotation) - One time during onboarding/ Quotation - Multiple times
+  - description: RFQ (Request For Quotation) - One time (per order) during onboarding/ Quotation - Multiple times
     mermaidGraph: >-
       sequenceDiagram
         
@@ -32,7 +32,7 @@ details:
 
         note over BuyerApp, SellerApp: **RFQ (Request For Quotation) FLOW**
 
-        BuyerApp->>SellerApp: **/select** - One time RFQ request sent from buyer app for each buyer onboarded.
+        BuyerApp->>SellerApp: **/select** - One time RFQ request sent from buyer app for each buyer <br/>onboarded. Once the order is confirmed, there has to be <br/>another automated RFQ select request sent from buyer app <br/>to seller app/specific provider (in order to maintain a new transaction id for each order).
 
         SellerApp->>BuyerApp: **/on_select** - Seller creates a quote specific to the buyer and <br/> sends quotations at regular intervals using the same transaction id, <br/> as sent in select call.
         BuyerApp->>Buyer: Quotation sent to Buyer for consent
