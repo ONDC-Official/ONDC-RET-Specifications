@@ -34,6 +34,7 @@ status:
 on_search:
   examples:
     - $ref: ./on_search/on_search.yaml
+    - $ref: ./on_search/on_search_city.yaml
     - $ref: ./on_search/on_search_bpc.yaml
     - $ref: ./on_search/on_search_fashion.yaml
     - $ref: ./on_search/on_search_electronics.yaml

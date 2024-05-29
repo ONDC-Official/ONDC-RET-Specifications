@@ -1,11 +1,11 @@
-summary: Search by Category
-description: Search By Category
+summary: Search by Category/City
+description: Search By Category/City
 value:
   context:
     domain: ONDC:RET10
     location:
       city:
-        code: std:080
+        code: '*'
       country:
         code: IND
     action: search
