@@ -8,7 +8,7 @@ This release aims to offer a comprehensive overview of B2B retail specifications
 
 ---
 
-| ONDC Protocol Specification Version | Beckn Protocol Core Specification Version      |
+| ONDC Specifications Version | Beckn Protocol Core Specification Version      |
 |-------------------------------------|------------------------------------------------|
 | 2.0.2-release                        | release=1.x                                   |
 
