@@ -36,7 +36,7 @@ This release aims to offer a comprehensive overview of B2B retail specifications
 
 ---
 
-Please refer to the [documentation](https://github.com/Open-network-for-digital-commerce/ONDC-Protocol/wiki) for insights into the purpose, architecture, and detailed APIs. Engage in [community discussions](https://github.com/Open-network-for-digital-commerce/ONDC-Protocol/discussions) to harness the potential of the ONDC network and contribute to its development by sharing ideas, reporting issues, improving documentation, and contributing code.
+Please refer to the [documentation](https://github.com/Open-network-for-digital-commerce/ONDC-Protocol/wiki) for insights into the purpose, architecture, and detailed APIs. Engage in [community discussions](https://github.com/ONDC-Official/ONDC-RET-Specifications/discussions) to harness the potential of the ONDC network and contribute to its development by sharing ideas, reporting issues, improving documentation, and contributing code.
 
 Explore the [ONDC Retail Developer Guide](https://ondc-official.github.io/ONDC-RET-Specifications/) for comprehensive information.
 
