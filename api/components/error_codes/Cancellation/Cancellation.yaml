@@ -1,0 +1,168 @@
+Cancellation:
+  - Code: '001'
+    Reason: >-
+      Price of one or more items have changed due to which buyer was asked to
+      make additional payment
+    Triggers RTO?: 'No'
+    Who can use code?: Buyer NP (BNP)
+    Cause of cancellation & hence cost attributed to: Seller NP (SNP)
+    Applicable for part cancel: 'No'
+  - Code: '002'
+    Reason: One or more items in the Order not available
+    Triggers RTO?: 'No'
+    Who can use code?: SNP
+    Cause of cancellation & hence cost attributed to: SNP
+    Applicable for part cancel: 'Yes'
+  - Code: '003'
+    Reason: Product available at lower than order price
+    Triggers RTO?: 'Yes'
+    Who can use code?: BNP
+    Cause of cancellation & hence cost attributed to: SNP
+    Applicable for part cancel: 'No'
+  - Code: '005'
+    Reason: Merchant rejected the order
+    Triggers RTO?: 'No'
+    Who can use code?: SNP
+    Cause of cancellation & hence cost attributed to: SNP
+    Applicable for part cancel: 'No'
+  - Code: '006'
+    Reason: Order / fulfillment not received as per buyer app TAT SLA
+    Triggers RTO?: 'Yes'
+    Who can use code?: BNP
+    Cause of cancellation & hence cost attributed to: SNP / LSP
+    Applicable for part cancel: 'No'
+  - Code: '007'
+    Reason: Order / fulfillment not received as per buyer app TAT SLA
+    Triggers RTO?: 'Yes'
+    Who can use code?: Logistics Buyer NP (LBNP)
+    Cause of cancellation & hence cost attributed to: LSP
+    Applicable for part cancel: 'No'
+  - Code: '008'
+    Reason: Order / fulfillment not ready for pickup
+    Triggers RTO?: 'No'
+    Who can use code?: Logistics Service Provider (LSP)
+    Cause of cancellation & hence cost attributed to: SNP
+    Applicable for part cancel: 'No'
+  - Code: '009'
+    Reason: Wrong product delivered
+    Triggers RTO?: 'Yes'
+    Who can use code?: BNP
+    Cause of cancellation & hence cost attributed to: SNP
+    Applicable for part cancel: 'No'
+  - Code: '010'
+    Reason: Buyer wants to modify address / other order details
+    Triggers RTO?: 'Yes'
+    Who can use code?: BNP
+    Cause of cancellation & hence cost attributed to: BNP
+    Applicable for part cancel: 'No'
+  - Code: '011'
+    Reason: Buyer not found or cannot be contacted
+    Triggers RTO?: 'Yes'
+    Who can use code?: LSP / SNP (for self-fulfillment)
+    Cause of cancellation & hence cost attributed to: BNP
+    Applicable for part cancel: 'No'
+  - Code: '012'
+    Reason: Buyer does not want product any more
+    Triggers RTO?: 'Yes'
+    Who can use code?: LSP / SNP (for self-fulfillment)
+    Cause of cancellation & hence cost attributed to: BNP
+    Applicable for part cancel: 'Yes'
+  - Code: '013'
+    Reason: Buyer refused to accept delivery
+    Triggers RTO?: 'Yes'
+    Who can use code?: LSP / SNP (for self-fulfillment)
+    Cause of cancellation & hence cost attributed to: BNP
+    Applicable for part cancel: 'No'
+  - Code: '014'
+    Reason: Address not found
+    Triggers RTO?: 'Yes'
+    Who can use code?: LSP / SNP (for self-fulfillment)
+    Cause of cancellation & hence cost attributed to: BNP
+    Applicable for part cancel: 'No'
+  - Code: '015'
+    Reason: Buyer not available at location
+    Triggers RTO?: 'Yes'
+    Who can use code?: LSP / SNP (for self-fulfillment)
+    Cause of cancellation & hence cost attributed to: BNP
+    Applicable for part cancel: 'No'
+  - Code: '016'
+    Reason: Accident / rain / strike / vehicle issues
+    Triggers RTO?: 'No'
+    Who can use code?: LSP
+    Cause of cancellation & hence cost attributed to: LSP
+    Applicable for part cancel: 'No'
+  - Code: '017'
+    Reason: Order delivery delayed or not possible
+    Triggers RTO?: 'No'
+    Who can use code?: LSP
+    Cause of cancellation & hence cost attributed to: LSP
+    Applicable for part cancel: 'No'
+  - Code: '018'
+    Reason: Delivery pin code not serviceable
+    Triggers RTO?: 'No'
+    Who can use code?: SNP
+    Cause of cancellation & hence cost attributed to: SNP
+    Applicable for part cancel: 'No'
+  - Code: '019'
+    Reason: Pickup pin code not serviceable
+    Triggers RTO?: 'No'
+    Who can use code?: SNP
+    Cause of cancellation & hence cost attributed to: SNP
+    Applicable for part cancel: 'No'
+  - Code: '020'
+    Reason: Order lost in transit
+    Triggers RTO?: 'No'
+    Who can use code?: LSP / SNP
+    Cause of cancellation & hence cost attributed to: LSP
+    Applicable for part cancel: 'No'
+  - Code: '021'
+    Reason: Packed order not complete
+    Triggers RTO?: 'No'
+    Who can use code?: LSP
+    Cause of cancellation & hence cost attributed to: SNP
+    Applicable for part cancel: 'No'
+    Comment: >-
+      For open-box orders, the logistics rider can use this if there is a
+      mismatch between the items inside the box & the items in the invoice
+  - Code: '022'
+    Reason: Payment Failed or TTL expires
+    Triggers RTO?: 'No'
+    Who can use code?: SNP
+    Cause of cancellation & hence cost attributed to: SNP
+    Applicable for part cancel: 'No'
+  - Code: '023'
+    Reason: Payment Failed or TTL expires
+    Triggers RTO?: 'No'
+    Who can use code?: BNP
+    Cause of cancellation & hence cost attributed to: BNP
+    Applicable for part cancel: 'No'
+  - Code: '999'
+    Reason: Order confirmation failure
+    Triggers RTO?: N/A
+    Who can use code?: BNP
+    Cause of cancellation & hence cost attributed to: N/A
+    Applicable for part cancel: N/A
+    Comment: >-
+      Internal error codes not to be used in /cancel or /on_cancel, with the
+      following exception:
+
+      1. LBNP cancelling logistics order in draft stage, i.e. without RTS
+      (ready-to-ship) acceptance by LSP;
+  - Code: '998'
+    Reason: Order confirmation failure
+    Triggers RTO?: N/A
+    Who can use code?: SNP
+    Cause of cancellation & hence cost attributed to: N/A
+    Applicable for part cancel: N/A
+  - Code: '997'
+    Reason: Order confirmation failure
+    Triggers RTO?: N/A
+    Who can use code?: LSP
+    Cause of cancellation & hence cost attributed to: N/A
+    Applicable for part cancel: N/A
+  - Code: '996'
+    Reason: Order confirmation / completion failure
+    Triggers RTO?: N/A
+    Who can use code?: LBNP
+    Cause of cancellation & hence cost attributed to: N/A
+    Applicable for part cancel: N/A
