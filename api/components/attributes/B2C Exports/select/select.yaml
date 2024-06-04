@@ -18,19 +18,19 @@ message:
       parent: true
       fulfillments:
         description: fulfillment details
-        required: mandatory
+        required: required
         usage: "-"
         reference: if any
       end:
         end:
           description: fulfillment end location, i.e. delivery location for buyer
-          required: mandatory
+          required: required
           usage: "-"
           reference: if any
         location:
           gps:
             description: GPS coordinates & precision for fulfillment end location has to be same in /confirm
-            required: mandatory
+            required: required
             usage: 1.380621, 103.746364
             reference: if any
     payment:

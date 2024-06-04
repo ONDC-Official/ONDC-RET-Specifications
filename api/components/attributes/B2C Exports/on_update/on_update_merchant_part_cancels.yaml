@@ -3,7 +3,7 @@ message:
   order:
     parent: true
     description: shows the current state of order with the new fulfillment for part cancel by merchant
-    required: mandatory
+    required: required
     usage: "-"
     reference: if any
     items:
@@ -11,7 +11,7 @@ message:
       fulfillment_id:
         parent: true
         description: forward shipment fulfillment id and new fulfillment id for cancel request, must be unique for each cancellation / cancellation request in consecutive list elements
-        required: mandatory
+        required: required
         usage: "-"
         reference: if any
         quantity:

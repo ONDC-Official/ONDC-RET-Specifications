@@ -2,7 +2,7 @@ context:
   parent: true
   domain:
     description: updated domain namespace is https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
-    required: mandatory
+    required: required
     usage: "ONDC:RET10"
     reference: if any
 message:
@@ -13,126 +13,126 @@ message:
       parent: true
       bpp/descriptor:
         description: descriptor for seller NP
-        required: mandatory
+        required: required
         usage: "-"
         reference: if any
       symbol:
         description: logo or image for seller NP
-        required: mandatory
+        required: required
         usage: https://sellerNP.com/images/np.png
         reference: if any
     bpp/providers:
       parent: true
       bpp/providers:
         description: descriptor for seller (merchant) that processes & fulfills orders
-        required: mandatory
+        required: required
         usage: "-"
         reference: if any 
       id:
         description: unique id for provider, must be same as bpp_id for ISN seller apps. Use of same provider id for distinct legal entities will cause an MSN being regarded as ISN and use of different provider id for same legal entity will cause an ISN being regarded as MSN, thus resulting in tax non-compliance
-        required: mandatory
+        required: required
         usage: F1
         reference: if any
       time:
         label:
           description: enum - "enable" (default), "disable" (soft delete of provider from buyer NP cache)
-          required: mandatory
+          required: required
           usage: enable
           reference: if any
         timestamp:
           description: timestamp when the snapshot for this provider (including provider details, items) was generated, must be <= Context.timestamp. Buyer NPs can use this to determine from when to start incremental refresh
-          required: mandatory
+          required: required
           usage: "2023-06-03T07:00:30.000Z"
           reference: if any
       fulfillments:
         fulfillments:
           description: provider level fulfillment options
-          required: mandatory
+          required: required
           usage: "-"
           reference: if any
         contact:
           contact:
             description: contact details for merchant - if merchant is in multiple locations, this will be the contact detail for merchant and contact detail for the storefront (specific location) will be in fulfillment.start
-            required: mandatory
+            required: required
             usage: "-"
             reference: if any
           phone:
             description: valid 10 digit (mobile no) or 11 digit no
-            required: mandatory
+            required: required
             usage: "9886098860"
             reference: if any
           email:
             description: email id of merchant or seller NP
-            required: mandatory
+            required: required
             usage: abc@xyz.com
             reference: if any
       ttl:
         description: ISO8601 duration format for validity of provider catalog
-        required: mandatory
+        required: required
         usage: "P1D"
         reference: if any
       locations:
         locations:
           description: locations for provider with unique id for each location
-          required: mandatory
+          required: required
           usage: "-"
           reference: if any
         time:
           label:
             description: enum - "enable" (default), "disable" (soft delete of provider location, i.e. warehouse or store, from buyer NP cache - in this case, serviceability for the store should not be a part of the catalog), "close" (temporary closure of store with the same format for time.range as specified, for incremental refresh, here - https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.ar4y0zvk65s4 only if this event is available at the time of generating the full catalog snapshot)
-            required: mandatory
+            required: required
             usage: "disable"
             reference: if any
           timestamp:
             description: timestamp when the snapshot for location was generated, must be <= Context.timestamp
-            required: mandatory
+            required: required
             usage: "2023-06-03T07:30:30.000Z"
             reference: if any
           schedule:
             holidays:
               description: list of future dated holidays, to be used as per holiday calendar; if no holidays, empty array needs to be passed
-              required: mandatory
+              required: required
               usage: "2023-08-15"
               reference: if any
         address:
           locality:
             description: locality name
-            required: mandatory
+            required: required
             usage: "Kadma"
             reference: if any
       categories:
         tags:
           code:
             description: if code is "attr", then it defines variant attributes i.e. attribute & sequence; multiple variant attributes can be defined in multiple attr blocks
-            required: mandatory
+            required: required
             usage: "-"
             reference: if any
           list:
             code:
               description: if "code" is "attr", then it is namespaced attribute, above example means attribute(s) in "quantity.unitized" for an item
-              required: mandatory
+              required: required
               usage: "-"
               reference: if any
             value:
               description: if `tags>code` is "attr" and `tags>list>code` is "name", then it's corresponding `value` means concatenation of item.quantity.unitized.measure.value and item.quantity.unitized.measure.unit e.g. "1 kilogram", "2 kilogram", "5 kilogram"
-              required: mandatory
+              required: required
               usage: "-"
               reference: if any
       items:
         parent_item_id:
           description: if variant grouping defined for provider above, this matches id for variant_group definition; if not defined or id is invalid, buyer NPs may choose to display as normal SKU item
-          required: mandatory
+          required: required
           usage: V1
           reference: if any
         time:
           label:
             description: enum - "enable", "disable"
-            required: mandatory
+            required: required
             usage: enable
             reference: if any
           timestamp:
             description: timestamp for item event
-            required: mandatory
+            required: required
             usage: "2023-06-03T07:30:00.000Z"
             reference: if any
         descriptor:
@@ -143,7 +143,7 @@ message:
             reference: if any
           images:
             description: while item images ensures better discoverability & enhances user experience, if no image is available, seller NPs shouldn’t send image (instead of sending placeholder image)
-            required: mandatory
+            required: required
             usage: "-"
             reference: if any
         quantity:
@@ -151,54 +151,54 @@ message:
             measure:
               unit:
                 description: enum - "unit", "dozen", "kilogram", "tonne", "litre", "millilitre" (https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/grocery/RET10-UOM.json)
-                required: mandatory
+                required: required
                 usage: unit
                 reference: if any
           available:
             count:
               description: stringified integer value - default value for item in stock
-              required: mandatory
+              required: required
               usage: "3"
               reference: if any
           maximum:
             count:
               description: stringified integer value - cap per order (if exists) or default value
-              required: mandatory
+              required: required
               usage: "3"
               reference: if any
         category_id:
           description: enum from https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
-          required: mandatory
+          required: required
           usage: Foodgrains
           reference: if any
         "@ondc/org/returnable":
           description: should default to true except for specific make-to-order items
-          required: mandatory
+          required: required
           usage: true
           reference: if any
         "@ondc/org/cancellable":
           description: should default to true except for specific make-to-order items
-          required: mandatory
+          required: required
           usage: true
           reference: if any
         "@ondc/org/seller_pickup_return":
           description: whether seller is responsible for pick up of item for return
-          required: mandatory
+          required: required
           usage: true
           reference: if any
         "@ondc/org/contact_details_consumer_care":
           description: valid contact details exactly in this format - name, email, contact no
-          required: mandatory
+          required: required
           usage: "Ambani,ambani@abc.com,18004254444"
           reference: if any
         "@ondc/org/statutory_reqs_packaged_commodities":
           description: mapping of category to attribute key is defined https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
-          required: mandatory
+          required: required
           usage: "-"
           reference: if any
         "@ondc/org/statutory_reqs_prepackaged_food":
           description: mapping of category to attribute key is defined https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
-          required: mandatory
+          required: required
           usage: "-"
           reference: if any
       creds:
@@ -208,8 +208,8 @@ message:
           usage: "-"
           reference: if any
         id:
-          description: globally identifiable identity or unique ID provided by seller app; mandatory if creds are provided
-          required: mandatory
+          description: globally identifiable identity or unique ID provided by seller app; required if creds are provided
+          required: required
           usage: EXP-12345678
           reference: if any
         url:
@@ -219,6 +219,6 @@ message:
           reference: if any
       offers:
         description: offer definition as per the template defined above
-        required: mandatory
+        required: required
         usage: "-"
         reference: if any

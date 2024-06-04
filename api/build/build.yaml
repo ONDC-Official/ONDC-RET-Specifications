@@ -3317,104 +3317,103 @@ x-enum:
     message:
       order:
         fulfillments:
-          fulfillments:
-            type: *ref_4
-            instructions: &ref_10
+          type: *ref_4
+          instructions: &ref_10
+            code:
+              - code: 1
+                description: buyer contact no (for self-pickup)
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: 2
+                description: merchant order no
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: 3
+                description: other pickup confirmation code
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: 4
+                description: (OTP) required when order is "Packed"
+                reference: <PR/Issue/Discussion Links md format text>
+          '@ondc/org/category':
+            - code: Takeaway
+              description: about the enum
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: Kerbside
+              description: about the enum
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: Express Delivery
+              description: about the enum
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: Immediate Delivery
+              description: about the enum
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: Same Day Delivery
+              description: about the enum
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: Next Day Delivery
+              description: about the enum
+              reference: <PR/Issue/Discussion Links md format text>
+          state: &ref_6
+            descriptor:
               code:
-                - code: 1
-                  description: buyer contact no (for self-pickup)
+                - code: Pending
+                  description: about the enum
                   reference: <PR/Issue/Discussion Links md format text>
-                - code: 2
-                  description: merchant order no
+                - code: Packed
+                  description: about the enum
                   reference: <PR/Issue/Discussion Links md format text>
-                - code: 3
-                  description: other pickup confirmation code
+                - code: Pickup-approved
+                  description: about the enum
                   reference: <PR/Issue/Discussion Links md format text>
-                - code: 4
-                  description: (OTP) required when order is "Packed"
+                - code: Pickup-rejected
+                  description: about the enum
                   reference: <PR/Issue/Discussion Links md format text>
-            '@ondc/org/category':
-              - code: Takeaway
-                description: about the enum
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: Kerbside
-                description: about the enum
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: Express Delivery
-                description: about the enum
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: Immediate Delivery
-                description: about the enum
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: Same Day Delivery
-                description: about the enum
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: Next Day Delivery
-                description: about the enum
-                reference: <PR/Issue/Discussion Links md format text>
-            state: &ref_6
-              descriptor:
-                code:
-                  - code: Pending
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: Packed
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: Pickup-approved
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: Pickup-rejected
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: Order-picked-up
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: In-transit
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: At-domestic-hub
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: Custom-cleared-domestic
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: Custom-rejected-domestic
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: Shipped
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: Reached-destination-country
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: Custom-cleared-destination
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: Custom-rejected-destination
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: At-destination-hub
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: Out-for-delivery
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: Order-delivered
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: Delivery-failed
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: RTO-Initiated
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: RTO-Delivered
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: RTO-Disposed
-                    description: about the enum
-                    reference: <PR/Issue/Discussion Links md format text>
+                - code: Order-picked-up
+                  description: about the enum
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: In-transit
+                  description: about the enum
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: At-domestic-hub
+                  description: about the enum
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Custom-cleared-domestic
+                  description: about the enum
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Custom-rejected-domestic
+                  description: about the enum
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Shipped
+                  description: about the enum
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Reached-destination-country
+                  description: about the enum
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Custom-cleared-destination
+                  description: about the enum
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Custom-rejected-destination
+                  description: about the enum
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: At-destination-hub
+                  description: about the enum
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Out-for-delivery
+                  description: about the enum
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Order-delivered
+                  description: about the enum
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Delivery-failed
+                  description: about the enum
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: RTO-Initiated
+                  description: about the enum
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: RTO-Delivered
+                  description: about the enum
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: RTO-Disposed
+                  description: about the enum
+                  reference: <PR/Issue/Discussion Links md format text>
         quote:
           breakup: &ref_5
             '@ondc/org/title_type':
@@ -3576,8 +3575,10 @@ x-tags:
     message:
       intent:
         tags:
-          - code: CATALOG_INC
-            description: Description about the tags
+          - code: CATALOG_FULL
+            description: >-
+              It is used communicate the intent for a full catalog refresh.
+              Required when the request is for full catalog refresh.
             reference: <PR/Issue/Discussion Links md format text>
             list:
               - code: MODE
@@ -3592,13 +3593,17 @@ x-tags:
               - code: END_TIME
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
-          - code: CATALOG_FULL
-            description: Description about the tags
+            required: required
+          - code: CATALOG_INC
+            description: >-
+              It is used communicate the intent for a incremental catalog
+              refresh. Required when the request is for incremental refresh.
             reference: <PR/Issue/Discussion Links md format text>
             list:
               - code: PAYLOAD_TYPE
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+            required: required
   on_search:
     message:
       catalog:
@@ -3607,6 +3612,7 @@ x-tags:
             - code: SERVICEABILITY
               description: Description about the tags
               reference: <PR/Issue/Discussion Links md format text>
+              required: required
               list:
                 - code: LOCATION
                   description: maps to unique location for provider
@@ -3626,6 +3632,7 @@ x-tags:
             - code: ORDER_VALUE
               description: Description about the tags
               reference: <PR/Issue/Discussion Links md format text>
+              required: required
               list:
                 - code: MIN_VALUE
                   description: minimum order value for provider
@@ -3633,6 +3640,7 @@ x-tags:
             - code: CATALOG_LINK
               description: Description about the tags
               reference: <PR/Issue/Discussion Links md format text>
+              required: required
               list:
                 - code: TYPE
                   description: >-
@@ -3657,7 +3665,7 @@ x-tags:
                     if type = "link"
                   reference: <PR/Issue/Discussion Links md format text>
             - code: TIMING
-              description: Description about the tags
+              description: Provider operation timings
               reference: <PR/Issue/Discussion Links md format text>
               list:
                 allOf:
@@ -3696,6 +3704,7 @@ x-tags:
                   - code: LOCATION
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
+              required: required
           categories:
             tags:
               - code: TYPE
@@ -3705,13 +3714,16 @@ x-tags:
                   - code: TYPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
+                required: required
               - code: TIMING
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list: *ref_11
               - code: DISPLAY
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list:
                   - code: RANK
                     description: Description about the tags
@@ -3719,6 +3731,7 @@ x-tags:
               - code: CONFIG
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list:
                   - code: MIN
                     description: Description about the tags
@@ -3735,6 +3748,7 @@ x-tags:
               - code: ATTR
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list:
                   - code: NAME
                     description: Description about the tags
@@ -3747,6 +3761,7 @@ x-tags:
               - code: ORIGIN
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list:
                   - code: COUNTRY
                     description: value will be ISO 3166-1 alpha-3 code
@@ -3754,6 +3769,7 @@ x-tags:
               - code: CUSTOM_GROUP
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list:
                   - code: ID
                     description: Description about the tags
@@ -3761,6 +3777,7 @@ x-tags:
               - code: CONFIG
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list:
                   - code: ID
                     description: Description about the tags
@@ -3777,10 +3794,12 @@ x-tags:
               - code: TIMING
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list: *ref_11
               - code: VEG_NONVEG
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list:
                   - code: VEG
                     description: on_seach_Grocery - Used Only as Applicable
@@ -3791,6 +3810,7 @@ x-tags:
               - code: PARENT
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list: &ref_14
                   - code: ID
                     description: Description about the tags
@@ -3801,6 +3821,7 @@ x-tags:
               - code: CHILD
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list: &ref_15
                   - code: ID
                     description: Description about the tags
@@ -3808,15 +3829,17 @@ x-tags:
               - code: TYPE
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list: *ref_12
               - code: ATTRIBUTE
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list:
                   - code: AGE_GROUP
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: new born
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -3898,7 +3921,7 @@ x-tags:
                   - code: BENEFIT
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: age defying
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -3956,7 +3979,7 @@ x-tags:
                   - code: BASE_METAL
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: gold
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -3993,7 +4016,7 @@ x-tags:
                   - code: BRISTLE_TYPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: natural
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4003,7 +4026,7 @@ x-tags:
                   - code: BRUSH_TYPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: foundation brush
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4049,7 +4072,7 @@ x-tags:
                   - code: CONCERN
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: acne_blemishes
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4161,7 +4184,7 @@ x-tags:
                   - code: CONSCIOUS
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: cruelty_free
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4174,7 +4197,7 @@ x-tags:
                   - code: COVERAGE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: full coverage
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4190,7 +4213,7 @@ x-tags:
                   - code: EXTENSION_COLOUR
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list: &ref_13
+                    value: &ref_13
                       - code: black
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4272,7 +4295,7 @@ x-tags:
                   - code: EXTENSION_TYPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: human hair
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4285,7 +4308,7 @@ x-tags:
                   - code: FINISH
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: matte
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4334,7 +4357,7 @@ x-tags:
                   - code: FORMULATION
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: cream
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4398,7 +4421,7 @@ x-tags:
                   - code: FRAGRANCE_FAMILY
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: fresh
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4417,7 +4440,7 @@ x-tags:
                   - code: HAIR_TYPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: dry
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4451,7 +4474,7 @@ x-tags:
                   - code: JEWELLERY_TYPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: statement
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4479,7 +4502,7 @@ x-tags:
                   - code: INGREDIENT
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: almond
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4582,7 +4605,7 @@ x-tags:
                   - code: MATERIAL
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: cotton
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4631,7 +4654,7 @@ x-tags:
                   - code: OCCASION
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: day
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4677,7 +4700,7 @@ x-tags:
                   - code: PACK_SIZE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: single
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4687,7 +4710,7 @@ x-tags:
                   - code: PATTERN
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: solid/plain
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4754,7 +4777,7 @@ x-tags:
                   - code: PREFERENCE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: acetone_free
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4908,7 +4931,7 @@ x-tags:
                   - code: RICE_GRAIN_TYPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: broken grain
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4924,7 +4947,7 @@ x-tags:
                   - code: PRESERVATIVES
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: benzoic acid
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -4991,7 +5014,7 @@ x-tags:
                   - code: SKIN_TONE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: medium/wheatish
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5004,7 +5027,7 @@ x-tags:
                   - code: SKIN_TYPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: dry
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5026,7 +5049,7 @@ x-tags:
                   - code: SPF
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: above 50
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5045,11 +5068,11 @@ x-tags:
                   - code: COLOUR
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list: *ref_13
+                    value: *ref_13
                   - code: GENDER
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: unisex
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5068,7 +5091,7 @@ x-tags:
                   - code: FLAVOURS_SPICES
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: ajwain
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5309,7 +5332,7 @@ x-tags:
                   - code: DIAL_SHAPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: diamond
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5331,7 +5354,7 @@ x-tags:
                   - code: DISPLAY
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: analogue
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5341,7 +5364,7 @@ x-tags:
                   - code: FABRIC_FINISH
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: satin
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5372,7 +5395,7 @@ x-tags:
                   - code: FACE_SHAPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: rectangular
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5391,7 +5414,7 @@ x-tags:
                   - code: FASTENING
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: lace-up
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5404,7 +5427,7 @@ x-tags:
                   - code: FIT
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: regular
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5426,7 +5449,7 @@ x-tags:
                   - code: FRAME_MATERIAL
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: aellulose acetate
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5436,7 +5459,7 @@ x-tags:
                   - code: FRAME_SHAPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: rectangular
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5461,7 +5484,7 @@ x-tags:
                   - code: FRAME_SIZE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: extra narrow
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5480,7 +5503,7 @@ x-tags:
                   - code: FRAME_TYPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: full rim
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5493,7 +5516,7 @@ x-tags:
                   - code: GEM_TYPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: acetate
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5512,7 +5535,7 @@ x-tags:
                   - code: GLASS_MATERIAL
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: crystals
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5543,7 +5566,7 @@ x-tags:
                   - code: INSOLE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: arch support
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5577,7 +5600,7 @@ x-tags:
                   - code: KURTA_PATTERN
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: solid
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5629,7 +5652,7 @@ x-tags:
                   - code: LAPTOP_SIZE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: 11 inch
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5651,7 +5674,7 @@ x-tags:
                   - code: LENGTH
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: long
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5664,7 +5687,7 @@ x-tags:
                   - code: LENS_MATERIAL
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: glass
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5683,7 +5706,7 @@ x-tags:
                   - code: LOCK_TYPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: tsa
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5696,7 +5719,7 @@ x-tags:
                   - code: MIDSOLE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: leather
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5709,7 +5732,7 @@ x-tags:
                   - code: NECK
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: boat
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5743,7 +5766,7 @@ x-tags:
                   - code: ORNAMENTATION
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: aari work
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5777,7 +5800,7 @@ x-tags:
                   - code: OUTSOLE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: marking
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5787,7 +5810,7 @@ x-tags:
                   - code: PADDING
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: lightly padded
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5803,7 +5826,7 @@ x-tags:
                   - code: PLATING
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: brass
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5825,7 +5848,7 @@ x-tags:
                   - code: SEAM
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: cut and sew
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5835,7 +5858,7 @@ x-tags:
                   - code: SHOULDER_STRAP_TYPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: cross body
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5854,7 +5877,7 @@ x-tags:
                   - code: SEASON
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: winter
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5870,7 +5893,7 @@ x-tags:
                   - code: SLEEVE_LENGTH
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: full sleeve
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5886,7 +5909,7 @@ x-tags:
                   - code: SOLE_MATERIAL
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: crosslite
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5929,7 +5952,7 @@ x-tags:
                   - code: SPORTS_TYPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: running
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5978,7 +6001,7 @@ x-tags:
                   - code: STONE_TYPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: precious
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -5991,7 +6014,7 @@ x-tags:
                   - code: STRAP_MATERIAL
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: canvas
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -6013,7 +6036,7 @@ x-tags:
                   - code: STRAPS
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: halter
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -6032,7 +6055,7 @@ x-tags:
                   - code: TOE_SHAPE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: pointed
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -6045,7 +6068,7 @@ x-tags:
                   - code: TREND
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: abstract
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -6079,7 +6102,7 @@ x-tags:
                   - code: VOLUME
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: numeric
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -6095,7 +6118,7 @@ x-tags:
                   - code: WAIST_BAND
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: inner elastic
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -6105,7 +6128,7 @@ x-tags:
                   - code: WAIST_RISE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: low
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -6118,7 +6141,7 @@ x-tags:
                   - code: WATER_RESISTANCE
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: 30 meter
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -6134,7 +6157,7 @@ x-tags:
                   - code: FEATURES
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: basic
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -6150,7 +6173,7 @@ x-tags:
                   - code: MATERIAL_FINISH
                     description: Description about the tags
                     reference: <PR/Issue/Discussion Links md format text>
-                    list:
+                    value:
                       - code: embossed
                         description: about the enum
                         reference: <pr/issue/discussion links md format text>
@@ -6213,6 +6236,7 @@ x-tags:
               - code: CART
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list:
                   - code: MIN_VALUE
                     description: Description about the tags
@@ -6223,6 +6247,7 @@ x-tags:
               - code: OFFER
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list:
                   - code: OFFERED_VALUE_TYPE
                     description: Description about the tags
@@ -6245,16 +6270,19 @@ x-tags:
               - code: PARENT
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list: *ref_14
               - code: TYPE
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list: *ref_12
           creds:
             tags:
               - code: VERIFICATION
                 description: Description about the tags
                 reference: <PR/Issue/Discussion Links md format text>
+                required: required
                 list:
                   - code: VERIFY_URL
                     description: Description about the tags
@@ -6272,14 +6300,17 @@ x-tags:
           - code: TYPE
             description: Description about the tags
             reference: <PR/Issue/Discussion Links md format text>
+            required: required
             list: *ref_12
           - code: CHILD
             description: Description about the tags
             reference: <PR/Issue/Discussion Links md format text>
+            required: required
             list: *ref_15
           - code: PARENT
             description: Description about the tags
             reference: <PR/Issue/Discussion Links md format text>
+            required: required
             list: *ref_14
   on_select: *ref_16
   init: *ref_16
@@ -6291,6 +6322,7 @@ x-tags:
           - code: BUYER_ID
             description: Description about the tags
             reference: <PR/Issue/Discussion Links md format text>
+            required: required
             list:
               - code: BUYER_ID_CODE
                 description: Description about the tags
@@ -6317,6 +6349,7 @@ x-tags:
           - code: BPP_TERMS
             description: Description about the tags
             reference: <PR/Issue/Discussion Links md format text>
+            required: required
             list:
               - code: MAX_LIABILITY
                 description: Description about the tags
@@ -6347,6 +6380,7 @@ x-tags:
           - code: BAP_TERMS
             description: Description about the tags
             reference: <PR/Issue/Discussion Links md format text>
+            required: required
             list:
               - code: ACCEPT_BPP_TERMS
                 description: Description about the tags
@@ -6362,6 +6396,7 @@ x-tags:
             - code: CANCEL_REQUEST
               description: Description about the tags
               reference: <PR/Issue/Discussion Links md format text>
+              required: optional
               list:
                 - code: REASON_ID
                   description: >-
@@ -6387,6 +6422,7 @@ x-tags:
             - code: QUOTE_TRAIL
               description: Description about the tags
               reference: <PR/Issue/Discussion Links md format text>
+              required: optional
               list:
                 - code: TYPE
                   description: matches order.quote.breakup[].title_type
@@ -6410,6 +6446,7 @@ x-tags:
             - code: RETURN_REQUEST
               description: Description about the tags
               reference: <PR/Issue/Discussion Links md format text>
+              required: optional
               list:
                 - code: ID
                   description: Description about the tags
@@ -6446,10 +6483,12 @@ x-tags:
             - code: TYPE
               description: Description about the tags
               reference: <PR/Issue/Discussion Links md format text>
+              required: required
               list: *ref_12
             - code: PARENT
               description: Description about the tags
               reference: <PR/Issue/Discussion Links md format text>
+              required: required
               list: *ref_14
   confirm: *ref_18
   on_confirm: *ref_18
@@ -6463,6 +6502,7 @@ x-tags:
           - code: PATH
             description: Description about the tags
             reference: <PR/Issue/Discussion Links md format text>
+            required: required
             list:
               - code: lat_lng
                 description: Description about the tags
@@ -14513,3 +14553,1501 @@ x-examples:
                       label: Invoice
                   created_at: '2023-06-03T09:30:00.000Z'
                   updated_at: '2023-06-03T10:00:30.201Z'
+x-attributes:
+  B2C Exports:
+    attribute_set:
+      search_full_catalog:
+        parent: true
+        context:
+          parent: true
+          domain:
+            description: >-
+              updated domain namespace defined here -
+              https://docs.google.com/document/d/brvcltG_DagZ3kGrZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
+            required: required
+            usage: ONDC:RET12
+            reference: if any
+          city:
+            description: >-
+              city code for search that identifies the cities where sellers have
+              stores. List of city codes, with pincode mapping, are here -
+              https://unece.org/trade/cefact/unlocode-code-list-country-and-territory
+            required: required
+            usage: UN:SIN
+            reference: if any
+          bap_id:
+            description: subscriber id for buyer app
+            required: required
+            usage: buyerNP.com
+            reference: if any
+          bap_uri:
+            description: subscriber URI for buyer app
+            required: required
+            usage: https://buyerNP.com/ondc
+            reference: if any
+          timestamp:
+            description: RFC3339 compliant timestamp
+            required: required
+            usage: '2023-06-03T08:00:00.000Z'
+            reference: if any
+          ttl:
+            description: validity of message
+            required: required
+            usage: PT30S
+            reference: if any
+        message:
+          parent: true
+          intent:
+            parent: true
+            category:
+              parent: true
+              category:
+                description: Category of the search
+                required: optional
+                usage: '-'
+                reference: if any
+              id:
+                description: >-
+                  category id will be from this list -
+                  https://docs.google.com/spreadsheets/d/APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+                required: present if category is present
+                usage: Shirts
+                reference: if any
+            fulfillment:
+              parent: true
+              fulfillment:
+                description: >-
+                  when not specified, all fulfillment types supported by
+                  provider should be returned in response
+                required: optional
+                usage: '-'
+                reference: if any
+              type:
+                description: >-
+                  when not specified, all fulfillment types supported by
+                  provider should be returned in response
+                required: optional
+                usage: Delivery
+                reference: if any
+              end:
+                location:
+                  gps:
+                    description: minimum 6 digit decimal precision for gps coordinates
+                    required: required
+                    usage: 1.380621, 103.746364
+                    reference: if any
+                  address:
+                    description: area_code and address details
+                    required: optional
+                    usage: '-'
+                    reference: if any
+            payment:
+              parent: true
+              '@ondc/org/buyer_app_finder_fee_amount':
+                description: >-
+                  buyer NP finder fee calculations are detailed -
+                  https://docs.google.com/document/d/iqLdayk488ekEzKrEs-yn6gVrevbxBkILBe5j4oIxMY/edit
+                required: required
+                usage: '3'
+                reference: if any
+      search_incremental_one_time_push:
+        parent: true
+        message:
+          parent: true
+          intent:
+            parent: true
+            tags:
+              parent: true
+              catalog_inc:
+                description: >-
+                  start_time < Context.timestamp, end_time <= Context.timestamp,
+                  end_time > start_time
+                required: required
+                usage: '-'
+                reference: if any
+      on_search_Fashion:
+        parent: true
+        message:
+          parent: true
+          catalog:
+            parent: true
+            bpp/providers:
+              parent: true
+              time:
+                timestamp:
+                  description: >-
+                    timestamp when the snapshot for this provider (including
+                    provider details, items) was generated, must be <=
+                    Context.timestamp. Buyer NPs can use this to determine from
+                    when to start incremental refresh
+                  required: required
+                  usage: '2023-06-03T07:30:00.000Z'
+                  reference: if any
+                label:
+                  description: >-
+                    enum - "enable" (default), "disable" (soft delete of
+                    provider location, i.e. warehouse or store, from buyer NP
+                    cache - in this case, serviceability for the store should
+                    not be a part of the catalog), "close" (temporary closure of
+                    store with the same format for time.range as specified, for
+                    incremental refresh, here -
+                    https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.ar4y0zvk65s4
+                    only if this event is available at the time of generating
+                    the full catalog snapshot)
+                  required: required
+                  usage: enable
+                  reference: if any
+              items:
+                time:
+                  label:
+                    description: enum - "enable", "disable"
+                    required: required
+                    usage: disable
+                    reference: if any
+                  timestamp:
+                    description: timestamp for item event
+                    required: required
+                    usage: '2023-06-03T07:30:00.000Z'
+                    reference: if any
+                parent_item_id:
+                  description: >-
+                    if variant grouping defined for provider above, this matches
+                    id for variant_group definition; if not defined or id is
+                    invalid, buyer NPs may choose to display as normal SKU item
+                  required: required
+                  usage: parent_item_id
+                  reference: if any
+                descriptor:
+                  code:
+                    description: >-
+                      network-wide unique code for item which will be in this
+                      format - "type:code" where type is 1 - EAN, 2 - ISBN, 3 -
+                      GTIN, 4 - HSN, 5 - UPC, 6 - others
+                    required: optional
+                    usage: '-'
+                    reference: if any
+                category_id:
+                  description: >-
+                    list of fashion categories is
+                    https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=623321892
+                  required: required
+                  usage: Foodgrains
+                  reference: if any
+                '@ondc/org/statutory_reqs_packaged_commodities':
+                  description: >-
+                    mapping of category to attribute key is defined
+                    https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+                  required: required
+                  usage: '-'
+                  reference: if any
+                month_year_of_manufacture_packing_import:
+                  description: date first available
+                  required: required
+                  usage: 01/2017
+                  reference: if any
+              creds:
+                description: Creds
+                required: optional
+                usage: '-'
+                reference: if any
+      on_search_Grocery:
+        parent: true
+        context:
+          parent: true
+          domain:
+            description: >-
+              updated domain namespace is
+              https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
+            required: required
+            usage: ONDC:RET10
+            reference: if any
+        message:
+          parent: true
+          catalog:
+            parent: true
+            bpp/descriptor:
+              parent: true
+              bpp/descriptor:
+                description: descriptor for seller NP
+                required: required
+                usage: '-'
+                reference: if any
+              symbol:
+                description: logo or image for seller NP
+                required: required
+                usage: https://sellerNP.com/images/np.png
+                reference: if any
+            bpp/providers:
+              parent: true
+              bpp/providers:
+                description: >-
+                  descriptor for seller (merchant) that processes & fulfills
+                  orders
+                required: required
+                usage: '-'
+                reference: if any
+              id:
+                description: >-
+                  unique id for provider, must be same as bpp_id for ISN seller
+                  apps. Use of same provider id for distinct legal entities will
+                  cause an MSN being regarded as ISN and use of different
+                  provider id for same legal entity will cause an ISN being
+                  regarded as MSN, thus resulting in tax non-compliance
+                required: required
+                usage: F1
+                reference: if any
+              time:
+                label:
+                  description: >-
+                    enum - "enable" (default), "disable" (soft delete of
+                    provider from buyer NP cache)
+                  required: required
+                  usage: enable
+                  reference: if any
+                timestamp:
+                  description: >-
+                    timestamp when the snapshot for this provider (including
+                    provider details, items) was generated, must be <=
+                    Context.timestamp. Buyer NPs can use this to determine from
+                    when to start incremental refresh
+                  required: required
+                  usage: '2023-06-03T07:00:30.000Z'
+                  reference: if any
+              fulfillments:
+                fulfillments:
+                  description: provider level fulfillment options
+                  required: required
+                  usage: '-'
+                  reference: if any
+                contact:
+                  contact:
+                    description: >-
+                      contact details for merchant - if merchant is in multiple
+                      locations, this will be the contact detail for merchant
+                      and contact detail for the storefront (specific location)
+                      will be in fulfillment.start
+                    required: required
+                    usage: '-'
+                    reference: if any
+                  phone:
+                    description: valid 10 digit (mobile no) or 11 digit no
+                    required: required
+                    usage: '9886098860'
+                    reference: if any
+                  email:
+                    description: email id of merchant or seller NP
+                    required: required
+                    usage: abc@xyz.com
+                    reference: if any
+              ttl:
+                description: ISO8601 duration format for validity of provider catalog
+                required: required
+                usage: P1D
+                reference: if any
+              locations:
+                locations:
+                  description: locations for provider with unique id for each location
+                  required: required
+                  usage: '-'
+                  reference: if any
+                time:
+                  label:
+                    description: >-
+                      enum - "enable" (default), "disable" (soft delete of
+                      provider location, i.e. warehouse or store, from buyer NP
+                      cache - in this case, serviceability for the store should
+                      not be a part of the catalog), "close" (temporary closure
+                      of store with the same format for time.range as specified,
+                      for incremental refresh, here -
+                      https://docs.google.com/document/d/1brvcltG_DagZ3kGr1ZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.ar4y0zvk65s4
+                      only if this event is available at the time of generating
+                      the full catalog snapshot)
+                    required: required
+                    usage: disable
+                    reference: if any
+                  timestamp:
+                    description: >-
+                      timestamp when the snapshot for location was generated,
+                      must be <= Context.timestamp
+                    required: required
+                    usage: '2023-06-03T07:30:30.000Z'
+                    reference: if any
+                  schedule:
+                    holidays:
+                      description: >-
+                        list of future dated holidays, to be used as per holiday
+                        calendar; if no holidays, empty array needs to be passed
+                      required: required
+                      usage: '2023-08-15'
+                      reference: if any
+                address:
+                  locality:
+                    description: locality name
+                    required: required
+                    usage: Kadma
+                    reference: if any
+              categories:
+                tags:
+                  code:
+                    description: >-
+                      if code is "attr", then it defines variant attributes i.e.
+                      attribute & sequence; multiple variant attributes can be
+                      defined in multiple attr blocks
+                    required: required
+                    usage: '-'
+                    reference: if any
+                  list:
+                    code:
+                      description: >-
+                        if "code" is "attr", then it is namespaced attribute,
+                        above example means attribute(s) in "quantity.unitized"
+                        for an item
+                      required: required
+                      usage: '-'
+                      reference: if any
+                    value:
+                      description: >-
+                        if `tags>code` is "attr" and `tags>list>code` is "name",
+                        then it's corresponding `value` means concatenation of
+                        item.quantity.unitized.measure.value and
+                        item.quantity.unitized.measure.unit e.g. "1 kilogram",
+                        "2 kilogram", "5 kilogram"
+                      required: required
+                      usage: '-'
+                      reference: if any
+              items:
+                parent_item_id:
+                  description: >-
+                    if variant grouping defined for provider above, this matches
+                    id for variant_group definition; if not defined or id is
+                    invalid, buyer NPs may choose to display as normal SKU item
+                  required: required
+                  usage: V1
+                  reference: if any
+                time:
+                  label:
+                    description: enum - "enable", "disable"
+                    required: required
+                    usage: enable
+                    reference: if any
+                  timestamp:
+                    description: timestamp for item event
+                    required: required
+                    usage: '2023-06-03T07:30:00.000Z'
+                    reference: if any
+                descriptor:
+                  code:
+                    description: >-
+                      unique code for item which will be in this format -
+                      "type:code" where type is 1 - EAN, 2 - ISBN, 3 - GTIN, 4 -
+                      HSN, 5 - others
+                    required: optional
+                    usage: 2
+                    reference: if any
+                  images:
+                    description: >-
+                      while item images ensures better discoverability &
+                      enhances user experience, if no image is available, seller
+                      NPs shouldn’t send image (instead of sending placeholder
+                      image)
+                    required: required
+                    usage: '-'
+                    reference: if any
+                quantity:
+                  unitized:
+                    measure:
+                      unit:
+                        description: >-
+                          enum - "unit", "dozen", "kilogram", "tonne", "litre",
+                          "millilitre"
+                          (https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/grocery/RET10-UOM.json)
+                        required: required
+                        usage: unit
+                        reference: if any
+                  available:
+                    count:
+                      description: >-
+                        stringified integer value - default value for item in
+                        stock
+                      required: required
+                      usage: '3'
+                      reference: if any
+                  maximum:
+                    count:
+                      description: >-
+                        stringified integer value - cap per order (if exists) or
+                        default value
+                      required: required
+                      usage: '3'
+                      reference: if any
+                category_id:
+                  description: >-
+                    enum from
+                    https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+                  required: required
+                  usage: Foodgrains
+                  reference: if any
+                '@ondc/org/returnable':
+                  description: >-
+                    should default to true except for specific make-to-order
+                    items
+                  required: required
+                  usage: true
+                  reference: if any
+                '@ondc/org/cancellable':
+                  description: >-
+                    should default to true except for specific make-to-order
+                    items
+                  required: required
+                  usage: true
+                  reference: if any
+                '@ondc/org/seller_pickup_return':
+                  description: whether seller is responsible for pick up of item for return
+                  required: required
+                  usage: true
+                  reference: if any
+                '@ondc/org/contact_details_consumer_care':
+                  description: >-
+                    valid contact details exactly in this format - name, email,
+                    contact no
+                  required: required
+                  usage: Ambani,ambani@abc.com,18004254444
+                  reference: if any
+                '@ondc/org/statutory_reqs_packaged_commodities':
+                  description: >-
+                    mapping of category to attribute key is defined
+                    https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+                  required: required
+                  usage: '-'
+                  reference: if any
+                '@ondc/org/statutory_reqs_prepackaged_food':
+                  description: >-
+                    mapping of category to attribute key is defined
+                    https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit#gid=0
+                  required: required
+                  usage: '-'
+                  reference: if any
+              creds:
+                creds:
+                  description: credentials for provider
+                  required: optional
+                  usage: '-'
+                  reference: if any
+                id:
+                  description: >-
+                    globally identifiable identity or unique ID provided by
+                    seller app; required if creds are provided
+                  required: required
+                  usage: EXP-12345678
+                  reference: if any
+                url:
+                  description: display URL for credential
+                  required: optional
+                  usage: https://abcd.cdn.com/images/license-img
+                  reference: if any
+              offers:
+                description: offer definition as per the template defined above
+                required: required
+                usage: '-'
+                reference: if any
+      on_search_incremental_catalog_refresh:
+        parent: true
+        message:
+          parent: true
+          catalog:
+            parent: true
+            bpp/providers:
+              parent: true
+              bpp/providers:
+                description: >-
+                  descriptor for seller (merchant) that processes & fulfills
+                  orders
+                required: required
+                usage: '-'
+                reference: if any
+              items:
+                time:
+                  label:
+                    description: enum - "enable", "disable"
+                    required: required
+                    usage: enable
+                    reference: if any
+                  timestamp:
+                    description: timestamp for item event
+                    required: required
+                    usage: '2023-06-03T07:30:00.000Z'
+                    reference: if any
+              locations:
+                time:
+                  range:
+                    description: means store is closed from 4PM till rest of the day
+                    required: required
+                    usage: '-'
+                    reference: if any
+      select:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            offers:
+              parent: true
+              offers:
+                description: only if buyer selects offer code
+                required: optional
+                usage: '-'
+                reference: if any
+              id:
+                description: >-
+                  if offer code is not valid, seller NP can NACK /select with
+                  error code 30006
+                required: optional
+                usage: '-'
+                reference: if any
+            fulfillments:
+              parent: true
+              fulfillments:
+                description: fulfillment details
+                required: required
+                usage: '-'
+                reference: if any
+              end:
+                end:
+                  description: fulfillment end location, i.e. delivery location for buyer
+                  required: required
+                  usage: '-'
+                  reference: if any
+                location:
+                  gps:
+                    description: >-
+                      GPS coordinates & precision for fulfillment end location
+                      has to be same in /confirm
+                    required: required
+                    usage: 1.380621, 103.746364
+                    reference: if any
+            payment:
+              parent: true
+              payment:
+                description: payment details
+                required: optional
+                usage: '-'
+                reference: if any
+              type:
+                description: >-
+                  enum - "ON-ORDER" (prepaid), "ON-FULFILLMENT" (on delivery),
+                  "POST-FULFILLMENT" (after delivery)
+                required: optional
+                usage: ON-FULFILLMENT
+                reference: if any
+      on_select_item_in_stock:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            provider:
+              parent: true
+              provider:
+                description: provider details
+                required: required
+                usage: '-'
+                reference: if any
+              locations:
+                id:
+                  description: >-
+                    may be the same location as selected by the buyer or a
+                    different location
+                  required: required
+                  usage: '-'
+                  reference: if any
+            fulfillments:
+              parent: true
+              fulfillments:
+                description: >-
+                  order can have multiple fulfillments; in this case, unique
+                  fulfillment id (for provider & order) needs to be assigned by
+                  seller NP for each fulfillment & mapped to item(s) that are a
+                  part of that fulfillment
+                required: required
+                usage: '-'
+                reference: if any
+              id:
+                description: >-
+                  unique fulfillment id assigned by seller NP here & mapped to
+                  item and will be persisted right through order confirm
+                required: required
+                usage: '-'
+                reference: if any
+              '@ondc/org/category':
+                description: >-
+                  Maps to logistics category as defined in Logistics API
+                  contract; Value "Express Delivery" should only be used where
+                  O2D TAT <= 2 hrs
+                required: required
+                usage: Express Delivery
+                reference: if any
+              '@ondc/org/TAT':
+                description: >-
+                  Order-to-delivery (O2D) TAT shown = max(time_to_ship for items
+                  in the fulfillment) + ship-to-delivery (S2D) time provided by
+                  LSP in TAT
+                required: required
+                usage: P1D
+                reference: if any
+              state:
+                state:
+                  description: >-
+                    Seller NP performs serviceability check based on end
+                    location in /select. If non serviceable, seller app has to
+                    return the appropriate error code along with a valid
+                    /on_select response
+                  required: required
+                  usage: '-'
+                  reference: if any
+                descriptor:
+                  code:
+                    description: enum - "Serviceable", "Non-serviceable"
+                    required: required
+                    usage: '-'
+                    reference: if any
+            quote:
+              parent: true
+              ttl:
+                description: validity of quote
+                required: required
+                usage: P1D
+                reference: if any
+              breakup:
+                '@ondc/org/item_id':
+                  description: >-
+                    item_id should match either item.id or fulfillment.id based
+                    on how the line item (as defined by "title_type") is
+                    assigned, i.e. "delivery", "discount_f", "tax_f", "packing",
+                    "misc" are at fulfillment level while "item", "tax",
+                    "discount" are at item level
+                  required: required
+                  usage: '-'
+                  reference: if any
+                '@ondc/org/item_quantity':
+                  count:
+                    description: >-
+                      if required quantity (as selected by buyer) is not in
+                      stock, seller app should show the quantity available in
+                      stock (or 0 if completely out-of-stock) and show the
+                      appropriate error code (40002) in the /on_select response
+                    required: required
+                    usage: 2
+                    reference: if any
+                '@ondc/org/title_type':
+                  description: >-
+                    defines the type of line item; enum - "item" (product cost),
+                    "delivery" (shipping charges), "packing" ( packing charge to
+                    be included only if not 0), "tax" (tax breakup to be
+                    included only if tax is not 0), "misc" (convenience fees,
+                    misc to be included only if not 0), "discount" (discount to
+                    be included only if not 0), discount_f, tax_f (tax on
+                    fulfillment level charges, to be included only if not 0
+                    (i.e. seller NP provides tax inclusive fulfillment level
+                    charges)). Title text can be customized by buyer NP; if
+                    value is "delivery", then delivery charge to be included
+                    only if fulfillment state code is "Serviceable"
+                  required: required
+                  usage: item
+                  reference: if any
+                price:
+                  value:
+                    description: >-
+                      item price should be either inclusive or exclusive of
+                      taxes, exactly as defined in the catalog
+                    required: required
+                    usage: '10.00'
+                    reference: if any
+      on_select_item_not_in_stock:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            provider:
+              parent: true
+              provider:
+                description: provider details
+                required: required
+                usage: '-'
+                reference: if any
+              location:
+                id:
+                  description: >-
+                    may be the same location as selected by the buyer or a
+                    different location
+                  required: required
+                  usage: '-'
+                  reference: if any
+            quote:
+              parent: true
+              quote:
+                description: quote details
+                required: required
+                usage: 0
+                reference: if any
+              breakup:
+                '@ondc/org/item_quantity':
+                  count:
+                    description: >-
+                      can be 0 (completely out of stock) or the reduced quantity
+                      in stock
+                    required: required
+                    usage: 0
+                    reference: if any
+                '@ondc/org/title_type ':
+                  description: >-
+                    value will be "delivery" indicating delivery charge (to be
+                    included only if fulfillment state code is "Serviceable")
+                  required: required
+                  usage: 0
+                  reference: if any
+        error:
+          parent: true
+          message:
+            description: >-
+              comma delimited item ids, for items out of stock, should be here,
+              e.g. "I1,I2,I3" means items (with id) "I1", "I2", "I3" are out of
+              stock
+            required: required
+            usage: '-'
+            reference: if any
+      on_select_location_not_serviceable:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            provider:
+              parent: true
+              provider:
+                description: provider details
+                required: required
+                usage: '-'
+                reference: if any
+              locations:
+                id:
+                  description: >-
+                    may be the same location as selected by the buyer or a
+                    different location
+                  required: required
+                  usage: '-'
+                  reference: if any
+        error:
+          parent: true
+          code:
+            description: if merchant not available, use error code 30017
+            required: required
+            usage: '30017'
+            reference: if any
+      init:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            billing:
+              parent: true
+              tax_number:
+                description: Tax number
+                reference: if any
+                usage: '-'
+                required: optional, may be required for B2B
+              address:
+                name:
+                  description: >-
+                    house no (for independent dwellings) or door no (for
+                    apartments or community dwellings) if name is house no,
+                    building is optional
+                  reference: if any
+                  usage: Flat 2/A
+                  required: required
+                locality:
+                  description: street name
+                  reference: if any
+                  usage: Feng Shu Street
+                  required: required
+              email:
+                description: Email
+                reference: if any
+                usage: nobody@nomail.com
+                required: optional
+              created_at:
+                description: timestamp for creation of billing object
+                reference: if any
+                usage: '2023-06-03T09:00:00.000Z'
+                required: required
+              updated_at:
+                description: same as created_at
+                reference: if any
+                usage: '2023-06-03T09:00:00.000Z'
+                required: required
+            fulfillments:
+              parent: true
+              fulfillments:
+                description: fullfillment details
+                reference: if any
+                usage: '-'
+                required: required
+              end:
+                location:
+                  address:
+                    description: name + building + locality < 190 chars, name != locality
+                    reference: if any
+                    required: required
+                    usage: '-'
+                    name:
+                      description: >-
+                        house no (for independent dwellings) or door no (for
+                        apartments or community dwellings) if name is house no,
+                        building is optional
+                      reference: if any
+                      required: required
+                      usage: Flat 2/A
+      on_init:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            provider:
+              parent: true
+              locations:
+                description: >-
+                  list of locations; may be the same location as selected by the
+                  buyer or a different location.
+                required: required
+                usage: '-'
+                reference: if any
+            billing:
+              parent: true
+              billing:
+                description: >-
+                  billing object timestamps (created_at, updated_at) have to be
+                  the same as in /init
+                required: required
+                usage: '-'
+                reference: if any
+              tax_number:
+                description: same as provided in /init
+                required: optional
+                usage: '-'
+                reference: if any
+              email:
+                description: email
+                required: optional
+                usage: nobody@nobody.com
+                reference: if any
+              created_at:
+                description: same as in /init
+                required: required
+                usage: '2023-06-03T09:00:00.000Z'
+                reference: if any
+              updated_at:
+                description: same as in /init
+                required: required
+                usage: '2023-06-03T09:00:00.000Z'
+                reference: if any
+            payment:
+              parent: true
+              payment:
+                description: >-
+                  if seller NP is collecting pre-paid payment (for categories
+                  like electronics), they may provide the following - type,
+                  collected_by, uri (payment link), status, settlement_basis,
+                  settlement_window, withholding_amount
+                required: required
+                usage: '-'
+                reference: if any
+              collected_by:
+                description: collected by Seller on record
+                required: required
+                usage: SOR
+                reference: if any
+              url:
+                description: OPGSP link linked to the SOR
+                required: required
+                usage: https://snp.com/pg
+                reference: if any
+              params:
+                currency:
+                  description: Currency of the transaction
+                  required: required
+                  usage: USD
+                  reference: if any
+                bank_code:
+                  description: Bank code for the SOR
+                  required: required
+                  usage: '-'
+                  reference: if any
+                bank_account_number:
+                  description: Bank Account number of the SOR
+                  required: required
+                  usage: '-'
+                  reference: if any
+              status:
+                description: enum - "PAID", "NOT-PAID"
+                required: required
+                usage: PAID
+                reference: if any
+              '@ondc/org/settlement_basis':
+                description: >-
+                  indicates from when settlement window starts, enum -
+                  "delivery" (from delivery), "shipment" (from shipment),
+                  "return_window_expiry" (from expiry of return window)
+                required: required
+                usage: delivery
+                reference: if any
+              '@ondc/org/settlement_window':
+                description: >-
+                  settlement window, as per settlement basis, in ISO8601
+                  Duration format
+                required: required
+                usage: P1D
+                reference: if any
+              '@ondc/org/withholding_amount':
+                description: >-
+                  withholding amount as % of total order value (valid values
+                  between "0.00" and "100.00")
+                required: required
+                usage: 10
+                reference: if any
+              '@ondc/org/settlement_details':
+                '@ondc/org/settlement_details':
+                  description: will contain the OPGSP details of the SOR
+                  required: optional
+                  usage: '-'
+                  reference: if any
+                settlement_type:
+                  description: enum; will be OPGSP for B2C Exports
+                  required: required if parent is present
+                  usage: OPGSP
+                  reference: if any
+                tags:
+                  payment_terms:
+                    payment_type:
+                      description: When through SOR, OPGSP will be the payment type
+                      required: required
+                      usage: OPGSP
+                      reference: if any
+                    payment_provider:
+                      description: Provider compliant with OPGSP
+                      required: required
+                      usage: '-'
+                      reference: if any
+            tags:
+              parent: true
+              bpp_terms:
+                description: >-
+                  value for "code"; buyer NP has to accept bpp terms in
+                  /confirm. If buyer NP doesn’t accept these terms, they should
+                  NACK /on_init with error code 27501
+                required: required
+                usage: '-'
+                reference: if any
+      confirm:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            id:
+              description: alphanumeric, up to 32 characters
+              required: required
+              usage: O1
+              reference: if any
+            billing:
+              parent: true
+              email:
+                description: Email
+                required: optional
+                usage: nobody@nomail.com
+                reference: if any
+              created_at:
+                description: same as in /init
+                required: required
+                usage: '2023-02-03T09:00:00.000Z'
+                reference: if any
+              updated_at:
+                description: same as /init
+                required: required
+                usage: '2023-02-03T09:00:00.000Z'
+                reference: if any
+            fulfillments:
+              parent: true
+              '@ondc/org/TAT':
+                description: >-
+                  same as what is proposed in /on_select; If TAT is different
+                  from what was originally quoted in /on_select, seller NP can
+                  NACK the request with error code 30013
+                usage: P1D
+                required: required
+                reference: if any
+              end:
+                contact:
+                  email:
+                    description: Email
+                    optional: optional
+                    usage: nobody@nomail.com
+                    reference: if any
+            payment:
+              parent: true
+              uri:
+                description: Payment URI
+                required: optional
+                usage: https://ondc.transaction.com/payment
+                reference: if any
+              tl_method:
+                description: TL Method
+                required: optional
+                usage: http/get
+                reference: if any
+              params:
+                transaction_id:
+                  description: >-
+                    transaction id if prepaid payment collected by buyer NP, not
+                    required for payment on delivery
+                  required: optional
+                  usage: '-'
+                  reference: if any
+                amount:
+                  description: amount collected should match the order value
+                  required: required
+                  usage: '-'
+                  reference: if any
+              status:
+                description: NOT-PAID for payment on delivery
+                required: required
+                usage: '-'
+                reference: if any
+              type:
+                description: ON-FULFILLMENT for payment on delivery
+                required: required
+                usage: ON-ORDER
+                reference: if any
+              collected_by:
+                description: BPP for payment on delivery
+                required: required
+                usage: SOR
+                reference: if any
+              '@ondc/org/settlement_basis':
+                description: >-
+                  indicates from when settlement window starts, enum -
+                  "delivery" (from delivery), "shipment" (from shipment),
+                  "return_window_expiry" (from expiry of return window)
+                required: required
+                usage: delivery
+                reference: if any
+              '@ondc/org/settlement_window':
+                description: >-
+                  settlement window, as per settlement basis, in ISO8601
+                  Duration format
+                required: required
+                usage: P1D
+                reference: if any
+              '@ondc/org/withholding_amount':
+                description: >-
+                  withholding amount as % of total order value (valid values
+                  between "0.00" and "100.00")
+                required: required
+                usage: 1
+                reference: if any
+              '@ondc/org/settlement_details':
+                '@ondc/org/settlement_details':
+                  description: Settlement Details
+                  required: optional
+                  usage: '-'
+                  reference: if any
+                settlement_counterparty:
+                  description: buyer-app for payment on delivery
+                  required: required if parent is present
+                  usage: buyer-app
+                  reference: if any
+              created_at:
+                description: can’t be future dated timestamp
+                required: required
+                usage: '2023-06-03T09:30:00.000Z'
+                reference: if any
+              updated_at:
+                description: can’t be future dated timestamp
+                required: required
+                usage: '2023-06-03T09:30:00.000Z'
+                reference: if any
+      on_confirm:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            state:
+              description: enum - "Created", "Accepted", "Cancelled"
+              required: required
+              usage: Accepted
+              reference: if any
+            billing:
+              parent: true
+              email:
+                description: email
+                required: optional
+                usage: nobody@gmail.com
+                reference: if any
+              created_at:
+                description: same as in /init
+                required: required
+                usage: '2023-06-03T09:00:00.000Z'
+                reference: if any
+              updated_at:
+                description: same as in /init
+                required: required
+                usage: '2023-06-03T09:00:00.000Z'
+                reference: if any
+            fulfillments:
+              parent: true
+              tracking:
+                description: true if tracking enabled through /on_track
+                required: required
+                usage: 'tracking: true'
+                reference: if any
+              '@ondc/org/TAT':
+                description: >-
+                  if TAT is different from what was originally quoted in
+                  /on_select, buyer NP can NACK the request with error code
+                  22504
+                usage: P1D
+                required: required
+                reference: if any
+              start:
+                location:
+                  address:
+                    description: store address
+                    usage: '-'
+                    required: required
+                    reference: if any
+                time:
+                  description: pickup time range may be provided if available
+                  required: optional
+                  usage: '-'
+                  reference: if any
+                instructions:
+                  description: instructions for pickup
+                  required: optional
+                  usage: '-'
+                  reference: if any
+                  short_desc:
+                    description: >-
+                      type of pickup confirmation code (PCC), enum - "1" (buyer
+                      contact no (for self-pickup)), "2" (merchant order no),
+                      "3" (other pickup confirmation code), "4" (OTP); required
+                      when order is "Packed". Value of PCC (required when order
+                      is "Packed") - contact no - 10 digits;merchant order no -
+                      max 6 digits;other pickup confirmation code - max 6
+                      digits;OTP - max 6 digits
+                    required: required
+                    usage: 3
+                    reference: if any
+                contact:
+                  email:
+                    description: email
+                    required: optional
+                    usage: '-'
+                    reference: if any
+              end:
+                time:
+                  description: pickup time range may be provided if available
+                  required: optional
+                  usage: '-'
+                  reference: if any
+                contact:
+                  email:
+                    description: email
+                    required: optional
+                    usage: nobody@nobody.com
+                    reference: if any
+            payment:
+              parent: true
+              description: same values as in /confirm
+              required: required
+              usage: '-'
+              reference: if any
+              uri:
+                description: URI
+                required: optional
+                usage: '-'
+                reference: if any
+              tl_method:
+                description: TL Method
+                required: optional
+                usage: '-'
+                reference: if any
+            tags:
+              description: >-
+                if terms & conditions different from what was quoted earlier,
+                buyer NP can NACK /on_confirm with error code 22506
+              required: required
+              usage: '-'
+              reference: if any
+            created_at:
+              description: same as in /confirm
+              required: required
+              usage: '2023-06-03T09:30:00.000Z'
+              reference: if any
+            updated_at:
+              description: can’t be a future date
+              required: required
+              usage: '2023-06-03T09:30:00.000Z'
+              reference: if any
+      on_update:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            description: >-
+              shows the current state of order with the new fulfillment for part
+              cancel by merchant
+            required: required
+            usage: '-'
+            reference: if any
+            items:
+              parent: true
+              fulfillment_id:
+                parent: true
+                description: >-
+                  forward shipment fulfillment id and new fulfillment id for
+                  cancel request, must be unique for each cancellation /
+                  cancellation request in consecutive list elements
+                required: required
+                usage: '-'
+                reference: if any
+                quantity:
+                  parent: true
+                  count:
+                    description: >-
+                      for forward shipent, change in quantity (reduction) as
+                      initiated by seller NP; for new fulfillment list element,
+                      quantity for which cancel initiated, i.e. for this
+                      specific cancellation identified by unique fulfillment id
+                      "C1"
+            payment:
+              description: keys here as defined in /confirm
+              required: optional
+              usage: '-'
+              reference: if any
+      cancel:
+        parent: true
+        message:
+          parent: true
+          cancellation_reason_id:
+            required: required
+            description: >-
+              cancellation reason codes are defined here, use "006" for
+              cancellation of fulfillment for TAT breach
+            reference: if any
+            usage: 6
+          descriptor:
+            required: optional
+            description: required only if fulfillment is being cancelled
+            reference: if any
+            usage: '-'
+            parent: true
+            short_desc:
+              required: required
+              description: fulfillment id for cancellation of fulfillment for TAT breach
+              reference: if any
+              usage: F1
+      on_cancel:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            state:
+              description: >-
+                order state will be updated to "Cancelled" if the order is
+                cancelled
+              usage: Cancelled
+              required: required
+              reference: if any
+            cancellation:
+              description: to be used only if order is cancelled
+              usage: '-'
+              required: 'required if state: "Cancelled"'
+              reference: if any
+            fulfillments:
+              parent: true
+              tags:
+                description: tags for defining the order
+                reference: if any
+                required: only if fulfillment is cancelled
+                usage: '-'
+            quote:
+              parent: true
+              price:
+                description: >-
+                  updated order value including cancellation charges (delivery +
+                  packing charges)
+                reference: if any
+                required: required
+                usage: '-'
+      status:
+        parent: true
+        context:
+          parent: true
+          transaction_id:
+            description: >-
+              status for order can be queried using same transaction id used for
+              order /confirm
+            required: required
+            usage: '-'
+            reference: if any
+      on_status:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            state:
+              description: >-
+                enum -
+                "Created","Accepted","In-progress","Completed","Cancelled"
+              required: required
+              usage: Completed
+              reference: if any
+            cancellation:
+              description: Contains Cancellation reason
+              required: required if order state is "Cancelled"
+              usage: '-'
+              reference: if any
+            billing:
+              parent: true
+              email:
+                description: Email ID
+                required: optional
+                usage: nobody@nomail.com
+                reference: if any
+              created_at:
+                description: same as in /init where billing object is created
+                required: required
+                usage: '2023-06-03T09:00:00.000Z'
+                reference: if any
+            fulfillments:
+              parent: true
+              agent:
+                description: may be provided for last-mile delivery in intercity shipments
+                required: optional
+                usage: '-'
+                reference: if any
+              state:
+                descriptor:
+                  code:
+                    description: >-
+                      enum for fulfillment state & mapping to order state for
+                      hyperlocal & inter-city is defined here (assuming 1
+                      fulfillment per order, but mapping will remain same for
+                      all states except "Order-delivered" where order state will
+                      depend on the states of other fulfillment) enum for RTO -
+                      "RTO-Initiated", "RTO-Delivered", "RTO-Disposed"
+                    required: required
+                    usage: Order-delivered
+                    reference: if any
+              start:
+                time:
+                  timestamp:
+                    description: Timestamp
+                    required: >-
+                      required if state is "Order-picked-up",
+                      "Out-for-delivery", "Order-delivered"
+                    usage: '2023-06-03T10:25:00.000Z'
+                    reference: if any
+                instructions:
+                  code:
+                    description: >-
+                      type of pickup confirmation code (PCC), enum - "1" (buyer
+                      contact no (for self-pickup)), "2" (merchant order no),
+                      "3" (other pickup confirmation code), "4" (OTP); required
+                      when order is "Packed"
+                    required: required
+                    usage: '1'
+                    reference: if any
+                  short_desc:
+                    description: >-
+                      value of PCC (required when order is "Packed") - contact
+                      no - 10 digits; merchant order no - max 6 digits; other
+                      pickup confirmation code - max 6 digits; OTP - max 6
+                      digits
+                    required: required
+                    usage: '-'
+                    reference: if any
+                  images:
+                    description: >-
+                      may be provided at the time of order pickup
+                      ("Order-picked-up") & includes pickup image, rider pickup
+                      coordinates
+                    required: optional
+                    usage: '-'
+                    reference: if any
+                contact:
+                  email:
+                    description: email ID
+                    required: optional
+                    usage: nobody@nomail.com
+                    reference: if any
+              end:
+                time:
+                  timestamp:
+                    description: timestamp
+                    required: required if state is "Order-delivered"
+                    usage: '2023-06-03T11:35:00.000Z'
+                    reference: if any
+                instruction:
+                  code:
+                    description: >-
+                      type of code for order delivery - enum - "1" - OTP, "2" -
+                      no delivery code; may be generated when order is
+                      "Out-for-delivery"
+                    required: optional
+                    usage: '3'
+                    reference: if any
+                  short_desc:
+                    description: >-
+                      value of DCC  - other DCC - max 6 digits; OTP - max 6
+                      digits
+                    required: required for code 1 & 2
+                    usage: '-'
+                    reference: if any
+                  images:
+                    description: >-
+                      to be provided at the time of delivery ("Order-delivered")
+                      & includes delivery image, rider delivery coordinates
+                    required: required
+                    usage: '-'
+                    reference: if any
+              vehicle:
+                description: may be provided for kerb-side pickup (in self pickup)
+                required: optional
+                usage: '-'
+                reference: if any
+            payment:
+              parent: true
+              description: optional keys here as defined in /confirm
+              required: optional
+              usage: '-'
+              reference: if any
+              time:
+                description: >-
+                  required for payment on delivery orders when order state is
+                  "Completed"
+                required: required
+                usage: '-'
+                reference: if any
+            documents:
+              description: >-
+                required from fulfillment.state = "Order-picked-up" and
+                thereafter
+              required: required
+              usage: '-'
+              reference: if any

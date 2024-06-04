@@ -4,7 +4,7 @@ message:
     parent: true
     state:
       description: enum - "Created","Accepted","In-progress","Completed","Cancelled"
-      required: mandatory
+      required: required
       usage: "Completed"
       reference: if any
     cancellation:
@@ -21,7 +21,7 @@ message:
         reference: if any
       created_at:
         description: same as in /init where billing object is created
-        required: mandatory
+        required: required
         usage: '2023-06-03T09:00:00.000Z'
         reference: if any
     fulfillments:
@@ -35,7 +35,7 @@ message:
         descriptor:
           code:
             description: enum for fulfillment state & mapping to order state for hyperlocal & inter-city is defined here (assuming 1 fulfillment per order, but mapping will remain same for all states except "Order-delivered" where order state will depend on the states of other fulfillment) enum for RTO - "RTO-Initiated", "RTO-Delivered", "RTO-Disposed"
-            required: mandatory
+            required: required
             usage: "Order-delivered"
             reference: if any
       start:
@@ -48,12 +48,12 @@ message:
         instructions:
           code:
             description: type of pickup confirmation code (PCC), enum - "1" (buyer contact no (for self-pickup)), "2" (merchant order no), "3" (other pickup confirmation code), "4" (OTP); required when order is "Packed"
-            required: mandatory
+            required: required
             usage: '1'
             reference: if any
           short_desc:
             description: value of PCC (required when order is "Packed") - contact no - 10 digits; merchant order no - max 6 digits; other pickup confirmation code - max 6 digits; OTP - max 6 digits
-            required: mandatory
+            required: required
             usage: "-"
             reference: if any
           images:
@@ -87,7 +87,7 @@ message:
             reference: if any
           images:
             description: to be provided at the time of delivery ("Order-delivered") & includes delivery image, rider delivery coordinates
-            required: mandatory
+            required: required
             usage: "-"
             reference: if any
       vehicle:
@@ -103,11 +103,11 @@ message:
       reference: if any
       time:
         description: required for payment on delivery orders when order state is "Completed"
-        required: mandatory
+        required: required
         usage: "-"
         reference: if any
     documents:
       description: required from fulfillment.state = "Order-picked-up" and thereafter
-      required: mandatory
+      required: required
       usage: "-"
       reference: if any

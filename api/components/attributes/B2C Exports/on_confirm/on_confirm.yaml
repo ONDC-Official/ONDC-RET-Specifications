@@ -4,7 +4,7 @@ message:
     parent: true
     state:
       description: enum - "Created", "Accepted", "Cancelled"
-      required: mandatory
+      required: required
       usage: "Accepted"
       reference: if any
     billing:
@@ -16,32 +16,32 @@ message:
         reference: if any
       created_at:
         description:  same as in /init
-        required: mandatory
+        required: required
         usage: '2023-06-03T09:00:00.000Z'
         reference: if any
       updated_at:
         description: same as in /init
-        required: mandatory
+        required: required
         usage: '2023-06-03T09:00:00.000Z'
         reference: if any
     fulfillments:
       parent: true
       tracking:
         description: true if tracking enabled through /on_track
-        required: mandatory
+        required: required
         usage: 'tracking: true'
         reference: if any
       '@ondc/org/TAT':
         description: if TAT is different from what was originally quoted in /on_select, buyer NP can NACK the request with error code 22504
         usage: 'P1D'
-        required: mandatory
+        required: required
         reference: if any
       start:
         location:
          address:
           description: store address
           usage: "-"
-          required: mandatory
+          required: required
           reference: if any
         time:
           description: pickup time range may be provided if available
@@ -55,7 +55,7 @@ message:
           reference: if any
           short_desc:
             description: type of pickup confirmation code (PCC), enum - "1" (buyer contact no (for self-pickup)), "2" (merchant order no), "3" (other pickup confirmation code), "4" (OTP); required when order is "Packed". Value of PCC (required when order is "Packed") - contact no - 10 digits;merchant order no - max 6 digits;other pickup confirmation code - max 6 digits;OTP - max 6 digits
-            required: mandatory
+            required: required
             usage: 3
             reference: if any
         contact:
@@ -79,7 +79,7 @@ message:
     payment:
       parent: true
       description:  same values as in /confirm
-      required: mandatory
+      required: required
       usage: "-"
       reference: if any
       uri:
@@ -94,16 +94,16 @@ message:
         reference: if any
     tags:
       description: if terms & conditions different from what was quoted earlier, buyer NP can NACK /on_confirm with error code 22506
-      required: mandatory
+      required: required
       usage: "-"
       reference: if any
     created_at:
       description: same as in /confirm
-      required: mandatory
+      required: required
       usage: '2023-06-03T09:30:00.000Z'
       reference: if any
     updated_at:
       description: can’t be a future date
-      required: mandatory
+      required: required
       usage: '2023-06-03T09:30:00.000Z'
       reference: if any

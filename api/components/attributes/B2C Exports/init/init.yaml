@@ -14,12 +14,12 @@ message:
           description: house no (for independent dwellings) or door no (for apartments or community dwellings) if name is house no, building is optional
           reference: if any
           usage: 'Flat 2/A'
-          required: mandatory
+          required: required
         locality:
           description: street name
           reference: if any
           usage: "Feng Shu Street"
-          required: mandatory
+          required: required
       email:
         description: Email
         reference: if any
@@ -29,28 +29,28 @@ message:
         description: timestamp for creation of billing object
         reference: if any
         usage: '2023-06-03T09:00:00.000Z'
-        required: mandatory
+        required: required
       updated_at:
         description: same as created_at
         reference: if any
         usage: '2023-06-03T09:00:00.000Z'
-        required: mandatory
+        required: required
     fulfillments:
       parent: true
       fulfillments:
         description: fullfillment details
         reference: if any
         usage: "-"
-        required: mandatory
+        required: required
       end:
         location:
           address:
             description: name + building + locality < 190 chars, name != locality
             reference: if any
-            required: mandatory
+            required: required
             usage: "-"
             name:
               description: house no (for independent dwellings) or door no (for apartments or community dwellings) if name is house no, building is optional
               reference: if any
-              required: mandatory
+              required: required
               usage: "Flat 2/A"

@@ -6,6 +6,6 @@ message:
       parent: true
       catalog_inc: 
         description: start_time < Context.timestamp, end_time <= Context.timestamp, end_time > start_time
-        required: mandatory
+        required: required
         usage: "-"
         reference: if any

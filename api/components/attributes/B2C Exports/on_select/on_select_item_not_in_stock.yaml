@@ -6,38 +6,38 @@ message:
       parent: true
       provider:
         description: provider details
-        required: mandatory
+        required: required
         usage: "-"
         reference: if any
       location:
         id:
           description:  may be the same location as selected by the buyer or a different location
-          required: mandatory
+          required: required
           usage: "-"
           reference: if any
     quote:
       parent: true
       quote:
         description: quote details
-        required: mandatory
+        required: required
         usage: 0
         reference: if any
       breakup:
         '@ondc/org/item_quantity':
           count:
             description: can be 0 (completely out of stock) or the reduced quantity in stock
-            required: mandatory
+            required: required
             usage: 0
             reference: if any
         '@ondc/org/title_type ':
           description: value will be "delivery" indicating delivery charge (to be included only if fulfillment state code is "Serviceable")
-          required: mandatory
+          required: required
           usage: 0
           reference: if any
 error:
   parent: true
   message:
     description: comma delimited item ids, for items out of stock, should be here, e.g. "I1,I2,I3" means items (with id) "I1", "I2", "I3" are out of stock
-    required: mandatory
+    required: required
     usage: "-"
     reference: if any
