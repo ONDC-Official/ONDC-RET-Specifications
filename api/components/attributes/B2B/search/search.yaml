@@ -7,14 +7,14 @@ context:
     reference: if any
   location:
     city:
-      description: city code for search that identifies the cities where sellers have stores. List of city codes, with pincode mapping, are here - https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=1474472733
+      description: The city code entered in the search indicates the serviceability of the seller. For example, 'std:080' signifies that the buyer app is requesting the catalog of all sellers who provide service to this particular city code. List of city codes, with pincode mapping, are here - https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=1474472733
       required: required
       usage: std:080
       reference: if any
     country:
-      description: country code for search that identifies the cities where sellers have stores. List of city codes, with pincode mapping, are here - https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=1474472733
+      description: country code 
       required: required
-      usage: std:080
+      usage: 'IND'
       reference: if any
   bap_id:
     description: subscriber id for buyer app
@@ -27,7 +27,7 @@ context:
     usage: https://buyerNP.com/ondc
     reference: if any
   timestamp:
-    description: RFC3339 compliant timestamp
+    description: RFC3339 compliant timestamp denotes when the request was made.
     required: required
     usage: '2023-06-03T08:00:00.000Z'
     reference: if any
@@ -75,23 +75,27 @@ message:
         reference: if any
     fulfillment:
       type:
-        description: type of fulfillment mode buyer wants to avail
+        description: type of fulfillment mode buyer wants to avail (Delivery, Self Pickup)
         required: required
         usage: Delivery
         reference: if any
       stops:
-        type:
+         description: location(s) where the buyer wants the delivery to be made, required for search by fulfillment, optional for search by city
+         required: optional
+         usage: end
+         reference: if any
+      stops.type:
          description: location(s) where the buyer wants the delivery to be made, single location is mandatory, multiple locations are optional
          required: required
          usage: end
          reference: if any
-        location:
+      stops.location:
           gps:
             description: minimum 6 digit decimal precision for gps coordinates
             required: required
             usage: "1.380621, 103.746364"
             reference: if any
-          area_code:
+      stops.area_code:
             description: area_code 
             required: required
             usage: "110030"

@@ -47,6 +47,12 @@ catalog:
         required: required
         list:
           $ref: "./Tag.yaml#/image"
+      - code: VEG_NONVEG
+        description: It denotes whether the item is vegetarian or not.
+        reference: <PR/Issue/Discussion Links md format text>
+        required: required for food items
+        list:
+          $ref: "./Tag.yaml#/veg_nonveg"
       - code: ATTRIBUTE
         description: Attributes specific to the items as per taxonomy are specified here. 
         reference: <PR/Issue/Discussion Links md format text>
