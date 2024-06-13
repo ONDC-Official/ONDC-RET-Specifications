@@ -29645,7 +29645,7 @@ x-attributes:
                 contact.email:
                   description: Contact email of the seller or buyer
                   required: optional
-                  usage: '345234'
+                  usage: xyz@gmail.com
                   reference: if any
               state:
                 descriptor.code:
@@ -30277,17 +30277,17 @@ x-attributes:
                   reference: if any
                 time.range:
                   description: time range when the order would be picked up/dropped
-                  required: optional
+                  required: required once the order is packed
                   usage: '-'
                   reference: if any
                 time.range.start:
                   description: time range when the order would be picked up
-                  required: optional
+                  required: required
                   usage: '2023-02-03T09:30:00.000Z'
                   reference: if any
                 time.range.end:
                   description: time range when the order would be delivered
-                  required: optional
+                  required: required
                   usage: '2023-02-03T09:30:00.000Z'
                   reference: if any
                 time.range.timestamp:
