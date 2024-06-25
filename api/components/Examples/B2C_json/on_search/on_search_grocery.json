@@ -341,7 +341,7 @@
                 {
                   "fulfillment_state": {
                     "descriptor": {
-                      "code": "Domestic Custom Cleared"
+                      "code": "Domestic-custom-cleared"
                     }
                   },
                   "reason_required": true,

@@ -280,10 +280,18 @@
                   "count": 5
                 }
               },
-              "category_ids": ["RET12-102F"],
-              "fulfillment_ids": ["1"],
-              "location_ids": ["L1"],
-              "payment_ids": ["2"],
+              "category_ids": [
+                "RET12-102F"
+              ],
+              "fulfillment_ids": [
+                "1"
+              ],
+              "location_ids": [
+                "L1"
+              ],
+              "payment_ids": [
+                "2"
+              ],
               "cancellation_terms": [
                 {
                   "fulfillment_state": {
@@ -318,7 +326,7 @@
                 {
                   "fulfillment_state": {
                     "descriptor": {
-                      "code": "Domestic Custom Cleared"
+                      "code": "Domestic-custom-cleared"
                     }
                   },
                   "reason_required": true,
@@ -554,10 +562,18 @@
                   "count": 5
                 }
               },
-              "category_ids": ["RET12-102F"],
-              "fulfillment_ids": ["1"],
-              "location_ids": ["L1"],
-              "payment_ids": ["2"],
+              "category_ids": [
+                "RET12-102F"
+              ],
+              "fulfillment_ids": [
+                "1"
+              ],
+              "location_ids": [
+                "L1"
+              ],
+              "payment_ids": [
+                "2"
+              ],
               "cancellation_terms": [
                 {
                   "fulfillment_state": {
@@ -667,8 +683,8 @@
                   ]
                 },
                 {
-                  "descriptor": { "code": "attribute" },
-
+                  "descriptor": { "code": "attribute"},
+                 
                   "list": [
                     {
                       "descriptor": {
@@ -788,7 +804,9 @@
               },
               "location_ids": [],
               "category_ids": [],
-              "item_ids": ["I1"],
+              "item_ids": [
+                "I1"
+              ],
               "time": {
                 "label": "validity",
                 "range": {

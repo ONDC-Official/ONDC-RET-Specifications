@@ -3997,7 +3997,7 @@ x-flows:
                                 value: '0'
                           - fulfillment_state:
                               descriptor:
-                                code: Domestic Custom Cleared
+                                code: Domestic-custom-cleared
                             reason_required: true
                             cancellation_fee:
                               percentage: '100'
@@ -6236,7 +6236,7 @@ x-examples:
                                   value: '0'
                             - fulfillment_state:
                                 descriptor:
-                                  code: Domestic Custom Cleared
+                                  code: Domestic-custom-cleared
                               reason_required: true
                               cancellation_fee:
                                 percentage: '100'
@@ -6722,7 +6722,7 @@ x-examples:
                                   value: '0'
                             - fulfillment_state:
                                 descriptor:
-                                  code: Domestic Custom Cleared
+                                  code: Domestic-custom-cleared
                               reason_required: true
                               cancellation_fee:
                                 percentage: '100'
