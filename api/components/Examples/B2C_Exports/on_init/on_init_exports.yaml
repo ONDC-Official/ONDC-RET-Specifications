@@ -2,7 +2,7 @@ summary: Acknowledges the initialization (Exports)
 description: Acknowledges the initialization
 value:
   context:
-    domain: ONDC:RET10
+    domain: ONDC:RET12
     location:
       city:
         code: UN:SIN
@@ -139,6 +139,12 @@ value:
       payments:
         - type: PRE-FULFILLMENT
           collected_by: SOR
+          status: NOT-PAID
+          params:
+            currency: USD
+            amount: '15.00'
+            bank_code: xxxxxxxxx
+            bank_account_number: xxxxxxxxxxxx
           uri: https://seller.com/pg
           "@ondc/org/buyer_app_finder_fee_type": percent
           "@ondc/org/buyer_app_finder_fee_amount": "0"

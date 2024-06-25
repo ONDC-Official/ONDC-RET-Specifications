@@ -2,7 +2,7 @@ summary: Search by Item
 description: Search By Item
 value:
   context:
-    domain: ONDC:RET10
+    domain: ONDC:RET12
     location:
       city:
         code: UN:SIN
@@ -20,7 +20,7 @@ value:
     intent:
       item:
         descriptor:
-          name: oil
+          name: Shirts
       fulfillment:
         type: Delivery
         stops:

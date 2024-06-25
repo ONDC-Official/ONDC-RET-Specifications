@@ -2,7 +2,7 @@ summary: Seller updates the order status (Order-delivered)
 description: Seller updates the order status and shares Invoice
 value:
   context:
-    domain: ONDC:RET10
+    domain: ONDC:RET12
     location:
       city:
         code: UN:SIN
@@ -154,9 +154,9 @@ value:
         - uri: https://ondc.transaction.com/payment
           tl_method: http/get
           params:
-            currency: INR
+            currency: USD
             transaction_id: "3937"
-            amount: "53600"
+            amount: "15.00"
           status: PAID
           type: PRE-FULFILLMENT
           collected_by: SOR
@@ -178,11 +178,6 @@ value:
               settlement_ifsc_code: XXXXXXXXX
               bank_name: xxxx
               branch_name: xxxx
-            - settlement_counterparty: buyer
-              settlement_phase: refund
-              settlement_type: OPGSP
-              settlement_amount: '12'
-              settlement_timestamp: '2023-02-04T18:00:00.000Z'
       documents:
         - url: https://invoice_url
           label: Invoice

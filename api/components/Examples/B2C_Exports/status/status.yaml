@@ -2,7 +2,7 @@ summary: Buyer asks for order status
 description: Buyer asks for order status
 value:
   context:
-    domain: ONDC:RET10
+    domain: ONDC:RET12
     location:
       city:
         code: UN:SIN

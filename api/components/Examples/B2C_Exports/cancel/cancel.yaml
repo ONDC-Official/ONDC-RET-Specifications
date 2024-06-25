@@ -2,7 +2,7 @@ summary: Buyer initiates cancellation of the order
 description: Buyer initiates cancellation of the order
 value:
   context:
-    domain: ONDC:RET10
+    domain: ONDC:RET12
     location:
       city:
         code: std:080

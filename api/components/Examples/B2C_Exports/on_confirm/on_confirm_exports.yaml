@@ -2,7 +2,7 @@ summary: Accept PO (Exports - RFQ)
 description: PO acceptance by Seller
 value:
   context:
-    domain: ONDC:RET10
+    domain: ONDC:RET12
     location:
       city:
         code: UN:SIN
@@ -83,6 +83,14 @@ value:
                   name: ""
               contact:
                 phone: "9886098860"
+                email: buyer@nomail.com  
+              time:
+                range:
+                  start: '2023-02-03T10:00:00.000Z'
+                  end: '2023-02-03T10:30:00.000Z'
+              instructions:
+                name: Status for delivery
+                short_desc: Delivery Confirmation Code              
           rateable: true
       quote:
         price:
@@ -134,10 +142,14 @@ value:
         ttl: P1D
       payments:
         - params:
-            currency: INR
-            amount: "53600"
+            currency: USD
+            amount: "15.00"
+            transaction_id: "3937"
+            bank_code: "xxxxxxxxx"
+            bank_account_number: "xxxxxxxxxxxx"
+          uri: https://seller.com/pg
+          tl_method: http/get
           status: PAID
-          uri: https://snp.com/pg
           type: PRE-FULFILLMENT
           collected_by: SOR
           "@ondc/org/buyer_app_finder_fee_type": percent

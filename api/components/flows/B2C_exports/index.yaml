@@ -98,6 +98,12 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/B2C_Exports/on_confirm/on_confirm_exports.yaml"
+  - summary: Status Updates - Pickup Approved
+    api: on_status
+    description:
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C_Exports/on_status/on_status_pickup_approved.yaml"
   - summary: Buyer requests for order status
     api: status
     description:
@@ -110,6 +116,18 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/B2C_Exports/on_status/on_status_picked_up.yaml"
+  - summary: Status Updates - Domestic-custom-cleared
+    api: on_status
+    description:
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C_Exports/on_status/on_status_domestic_custom.yaml"
+  - summary: Status Updates - At-destination-hub
+    api: on_status
+    description:
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C_Exports/on_status/on_status_destination_hub.yaml"
   - summary: Status Updates - Out for delivery
     api: on_status
     description:

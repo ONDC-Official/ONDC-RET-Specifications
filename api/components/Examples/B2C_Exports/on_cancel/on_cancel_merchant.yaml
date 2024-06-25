@@ -2,7 +2,7 @@ summary: Merchant cancels the order
 description: Merchant cancels the order
 value:
   context:
-    domain: ONDC:RET10
+    domain: ONDC:RET12
     location:
       city:
         code: std:080

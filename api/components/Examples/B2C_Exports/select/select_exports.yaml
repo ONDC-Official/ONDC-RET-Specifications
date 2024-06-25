@@ -2,7 +2,7 @@ summary: Get quote for specific item
 description: Get quote for specific item 
 value:
   context:
-    domain: ONDC:RET10
+    domain: ONDC:RET12
     location:
       city:
         code: UN:SIN

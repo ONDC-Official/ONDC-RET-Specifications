@@ -2,7 +2,7 @@ summary: Buyer updates refund details
 description: Buyer updates the refund details (FYI call)
 value:
   context:
-    domain: ONDC:RET10
+    domain: ONDC:RET12
     location:
       city:
         code: UN:SIN

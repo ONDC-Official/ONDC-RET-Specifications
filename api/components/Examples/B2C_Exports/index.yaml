@@ -33,7 +33,10 @@ on_confirm:
     - $ref: ./on_confirm/on_confirm_exports.yaml
 on_status:
   examples:
+    - $ref: ./on_status/on_status_pickup_approved.yaml
     - $ref: ./on_status/on_status_picked_up.yaml
+    - $ref: ./on_status/on_status_domestic_custom.yaml
+    - $ref: ./on_status/on_status_destination_hub.yaml
     - $ref: ./on_status/on_status_out_for_delivery.yaml
     - $ref: ./on_status/on_status_delivered.yaml
 # cancel:

@@ -49,7 +49,7 @@ value:
           tracking: false
           state:
             descriptor:
-              code: Out-for-delivery
+              code: At-destination-hub
           stops:
             - type: start
               location:
@@ -89,13 +89,11 @@ value:
                   start: '2023-02-03T11:00:00.000Z'
                   end: '2023-02-03T11:30:00.000Z'
               instructions:
-                name: Proof of delivery
-                short_desc: Proof of delivery details
-                long_desc: Proof of delivery details
-                images:
-                  - https://image1_url.png
+                name: Status for delivery
+                short_desc: Delivery confirmation code
               contact:
                 phone: "9886098860"
+                email: buyer@nomail.com  
               agent:
                 person:
                   name: Ramu
