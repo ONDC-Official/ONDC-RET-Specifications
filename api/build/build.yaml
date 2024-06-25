@@ -3714,110 +3714,64 @@ x-tags:
   on_cancel: *ref_9
   on_update: *ref_9
 x-flows:
-  - summary: B2C Exports
+  - summary: B2C Retail Exports (Order Delivered)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
-      where a buyer would like to order bulk items
+      where a buyer from outside India would like to order item from a seller
+      within India. Considering this is an exports the payment will be directly
+      made from buyer to SOR (Seller On Record) through OPGSP. Ref Feature UI
+      (OPGSP Payment Flow) for more details.
     details:
-      - description: SEARCH AND DISCOVERY
+      - description: Buyer Search & Quotation
         mermaidGraph: |-
           sequenceDiagram
 
-            participant Buyer
-            participant BuyerApp
+            participant B2C BAP
             participant Gateway
-            participant SellerApp1
-            participant SellerApp2
+            participant B2C BPP
 
-            note over Buyer, SellerApp2: **SEARCH FLOW**
+            B2C BAP->>Gateway: **/search**  - Buyer searches from a location outside India
+            Gateway->>B2C BPP: **/search**  - Buyer searches from a location outside India
+            B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog for the specific domain and export license in creds
+      - description: Product Selection and Confirmation
+        mermaidGraph: |-
+          sequenceDiagram
 
-            Buyer->>BuyerApp: Search for a product 
-            BuyerApp->>Gateway: **/search** - Search for a product<br/>Country and City defined in Context
-            Gateway->>SellerApp1: **/search** - Search for a product<br/>Broadcast based on Country and domain in Context
-            Gateway->>SellerApp2: **/search** - Search for a product <br/>Broadcast based on Country and domain in Context
+            participant B2C BAP
+            participant B2C BPP
 
-            SellerApp1->>BuyerApp:**/on_search** - Product catalog returned (including <br/> creds, add_ons, variants, offers + Communication channel) <br/> Servicability based on Country, City and HScode permits
-            SellerApp2->>BuyerApp:**/on_search** - Product catalog returned (including <br/> creds, add_ons, variants, offers + Communication channel) <br/>  Servicability based on Country, City and HScode permits
-            BuyerApp->>Buyer: Renders the search response
+            B2C BAP ->> B2C BPP: **/select** - Buyer adds the item(s) to the card.
+            B2C BPP ->> B2C BAP: **/on_select** - Returns quote breakup (adding offers if any) when item is in stock 
+
+            B2C BAP ->> B2C BPP: **/init** - Buyer initializes the order and proceeds to checkout.
+            B2C BPP ->> B2C BAP: **/on_init** - Seller app initializes order
             
-            note left of Buyer: Offline communication <br/>b/w buyer and seller <br/>happens on the communication <br/>channel
-      - description: RFQ (Request For Quotation) FLOW
+            B2C BAP ->> B2C BPP: **/confirm** - Buyer confirms order
+            B2C BPP ->> B2C BAP: **/on_confirm** - Seller Accepts order
+      - description: Status updates till Product Delivery
         mermaidGraph: |-
           sequenceDiagram
+
+            participant B2C BAP
+            participant B2C BPP
             
-            participant Buyer
-            participant BuyerApp
-            participant SellerApp
+            B2C BAP ->> B2C BPP: **/status** - Buyer requests for a Status update
 
-
-            note over Buyer, SellerApp: **RFQ (Request For Quotation) FLOW**
-
-            Buyer->>BuyerApp: Buyer requests for Quotation
-            BuyerApp->>SellerApp: **/select** - An item/s + add_ons + variants + offers is selected <br/>  + delivery terms such as incoterms are communicated and <br/> RFQ is raised with a TTL to receive the response
-
-            note right of SellerApp: Logistics quotation + TAT received (Optional)
-
-            SellerApp->>BuyerApp: **/on_select** - Responds to RFQ with <br/> quote, breakup including logistics charges.
-            BuyerApp->>Buyer: RFQ Response
-      - description: ORDER INITIALIZATION
-        mermaidGraph: |-
-          sequenceDiagram
-
-            participant Buyer
-            participant BuyerApp
-            participant SellerApp
-
-            note over Buyer, SellerApp: **ORDER INITIALIZATION**
-
-            Buyer->>BuyerApp: 
-            BuyerApp->>SellerApp: **/init** - Initializing the order by providing billing and address details.
-            note right of SellerApp: Logistics order initialization with billing details
-            SellerApp->>BuyerApp: **/on_init** - Order initialization
-      - description: PURCHASE ORDER
-        mermaidGraph: |-
-          sequenceDiagram
-
-            participant Buyer
-            participant BuyerApp
-            participant SellerApp
-
-            note over Buyer, SellerApp: **PURCHASE ORDER**
-
-            Buyer->>BuyerApp: Creates PO
-            BuyerApp->>SellerApp: **/confirm** - Create PO to create final digital contract
-            SellerApp->>BuyerApp: **/on_confirm** - Accept PO + payment url (if payment.collected_by is BPP) 
-      - description: PAYMENT AND INVOICE CREATION
-        mermaidGraph: |-
-          sequenceDiagram
-
-            participant Buyer
-            participant BuyerApp
-            participant SellerApp
-
-            note over Buyer, SellerApp: **PAYMENT AND INVOICE CREATION**
-
-            Buyer->>BuyerApp: Buyer makes the payment
-            BuyerApp->>SellerApp: /**update** - BAP updates the payment status
-            SellerApp->>BuyerApp: **/on_update** - Acknowledgment of payment confirmation
-            SellerApp->>BuyerApp: **/on_status** - BPP sends the proforma invoice
-      - description: ORDER STATUS
-        mermaidGraph: |-
-          sequenceDiagram
-
-            participant Buyer
-            participant BuyerApp
-            participant SellerApp
-
-            note over Buyer, SellerApp: **STATUS OF SHIPMENT**
-
-            Buyer->>BuyerApp: Checks order status
-            BuyerApp->>SellerApp: **/status** - Enquire Order status
-            SellerApp->>BuyerApp: **/on_status** - Order and fulfillment status is updated
+            B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Pickup Approved
+            B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Picked up
+            B2C BPP ->> B2C BAP: **/on_status** - Status Updates - At Domestic Hub
+            B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Domestic Custom Cleared
+            B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Reached Destination Hub
+            B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Destination Custom Cleared
+            B2C BPP ->> B2C BAP: **/on_status** - Status Updates - At Destination Hub
+            B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Out for Delivery
+            B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Delivered
+            
     reference: if any
     steps:
-      - summary: Search for an item
+      - summary: Search by fulfillment end location
         api: search
-        description: Buyer outside India searches for a product
+        description: Buyer search by fulfillment end location
         reference: if any
         example:
           summary: Search by Item
@@ -3871,18 +3825,16 @@ x-flows:
                       - descriptor:
                           code: buyer_id_no
                         value: xxxxxxxxxxxxxxx
-      - summary: Returns product catalog
+      - summary: Returns the item or catalog (Fashion)
         api: on_search
-        description: >-
-          Seller responds with catalog + communication channel + creds of the
-          seller app.
+        description: null
         reference: if any
         example:
-          summary: Return the catalog for grocery
-          description: Return the catalog for grocery products
+          summary: Return the catalog for Fashion products
+          description: Return the catalog for Fashion products
           value:
             context:
-              domain: ONDC:RET10
+              domain: ONDC:RET12
               location:
                 city:
                   code: UN:SIN
@@ -3891,9 +3843,9 @@ x-flows:
               action: on_search
               version: 2.0.2
               bap_id: buyerapp.com
-              bap_uri: https://buyerapp.com/grocery
+              bap_uri: https://buyerapp.com/fs
               bpp_id: sellerapp.com
-              bpp_uri: https://sellerapp.com/grocery
+              bpp_uri: https://sellerapp.com/fs
               transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
               message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
               timestamp: '2023-01-08T22:00:30.000Z'
@@ -3901,9 +3853,9 @@ x-flows:
             message:
               catalog:
                 fulfillments:
-                  - id: F1
+                  - id: '1'
                     type: Delivery
-                  - id: F2
+                  - id: '2'
                     type: Self-Pickup
                 payments:
                   - id: '1'
@@ -3958,7 +3910,7 @@ x-flows:
                             value: L1
                           - descriptor:
                               code: category
-                            value: RET10-1042
+                            value: RET1A-1012
                           - descriptor:
                               code: type
                             value: '12'
@@ -3983,23 +3935,11 @@ x-flows:
                           - descriptor:
                               code: seller_id_no
                             value: xxxxxxxxxxxxxxx
-                      - descriptor:
-                          code: FSSAI_LICENSE_NO
-                        list:
-                          - descriptor:
-                              code: BRAND_OWNER
-                            value: '12345678901234'
-                          - descriptor:
-                              code: OTHER
-                            value: '12345678901234'
-                          - descriptor:
-                              code: IMPORTER
-                            value: '12345678901234'
                     categories:
                       - id: V1
                         descriptor:
                           name: Variant Group 1
-                        tags:
+                      - tags:
                           - descriptor:
                               code: type
                             list:
@@ -4028,27 +3968,26 @@ x-flows:
                       - id: I1
                         parent_item_id: V1
                         descriptor:
-                          name: Dhara Mustard Oil
+                          name: Allen Solly Men T-shirt
                           code: UPC / EAN code
-                          short_desc: Dhara refined mustard oil
-                          long_desc: Dhara refined mustard oil
+                          short_desc: Allen Solly Men T-shirt
+                          long_desc: Allen Solly Men T-shirt
                           images:
                             - url: https://abc.com/images/207.png
                           media:
                             - mimetype: video/mp4
-                              url: video_url
+                              url: https://abc.com/images/207.mp4
                         creator:
                           descriptor:
-                            name: Mother Dairy
+                            name: xxxxx
                             contact:
-                              name: Raj Kumar
+                              name: xxxx
                               address:
                                 full: >-
-                                  Mother Dairy Fruit & Vegetable Pvt Ltd,A-3,
-                                  NDDB House, Sector-1, Noida,Uttar
-                                  Pradesh-201301
+                                  Allen Solly Ltd,A-3, NDDB House, Sector-1,
+                                  Noida,Uttar Pradesh-201301
                               phone: '18001801018'
-                              email: consumer.services@motherdairy.com
+                              email: consumer.services@xxxx.com
                         price:
                           currency: INR
                           value: '300.00'
@@ -4057,44 +3996,31 @@ x-flows:
                         quantity:
                           unitized:
                             measure:
-                              unit: millilitre
-                              value: '500'
+                              unit: unit
+                              value: '1'
                           available:
                             measure:
-                              unit: millilitre
-                              value: '500'
-                            count: 2000
+                              unit: unit
+                              value: '1'
+                            count: 99
                           maximum:
                             measure:
-                              unit: millilitre
-                              value: '500'
-                            count: 4000
+                              unit: unit
+                              value: '1'
+                            count: 99
                           minimum:
                             measure:
-                              unit: millilitre
-                              value: '500'
-                            count: 4000
+                              unit: unit
+                              value: '1'
+                            count: 99
                         category_ids:
-                          - RET10-1042
+                          - RET12-102F
                         fulfillment_ids:
                           - '1'
                         location_ids:
                           - L1
                         payment_ids:
                           - '2'
-                        add_ons:
-                          - id: '78787723'
-                            descriptor:
-                              name: Dhara Sunflower Oil
-                              short_desc: Dhara Sunflower Oil
-                              long_desc: Dhara Sunflower Oil
-                              images:
-                                - url: https://abc.com/images/208.png
-                            price:
-                              currency: INR
-                              value: '170.0'
-                              offered_value: '100.0'
-                              maximum_value: '170.0'
                         cancellation_terms:
                           - fulfillment_state:
                               descriptor:
@@ -4151,11 +4077,249 @@ x-flows:
                                   code: url
                                 value: https://sellerNP.com/images/i1_back_image.png
                           - descriptor:
-                              code: veg_nonveg
+                              code: attribute
                             list:
                               - descriptor:
-                                  code: veg
-                                value: 'yes'
+                                  code: brand
+                                value: Allen Solly
+                              - descriptor:
+                                  code: colour
+                                value: coral
+                              - descriptor:
+                                  code: size
+                                value: M
+                              - descriptor:
+                                  code: gender
+                                value: male
+                              - descriptor:
+                                  code: pattern
+                                value: striped
+                              - descriptor:
+                                  code: material
+                                value: cotton
+                              - descriptor:
+                                  code: occasion
+                                value: casual
+                              - descriptor:
+                                  code: season
+                                value: summer
+                              - descriptor:
+                                  code: trend
+                                value: tribal
+                              - descriptor:
+                                  code: features
+                                value: alpha
+                              - descriptor:
+                                  code: material_finish
+                                value: embossed
+                              - descriptor:
+                                  code: size_chart
+                                value: https://sellerNP.com/images/i1_size_chart.png
+                          - descriptor:
+                              code: g2
+                            list:
+                              - descriptor:
+                                  code: time_to_ship
+                                value: P1D
+                              - descriptor:
+                                  code: tax_rate
+                                value: '12'
+                              - descriptor:
+                                  code: cancellable
+                                value: 'true'
+                          - descriptor:
+                              code: g3
+                            list:
+                              - descriptor:
+                                  code: brand
+                                value: Dhara
+                              - descriptor:
+                                  code: pack_size
+                                value: '5'
+                              - descriptor:
+                                  code: num_price_slabs
+                                value: '3'
+                          - descriptor:
+                              code: price_slab
+                            list:
+                              - descriptor:
+                                  code: min_pack_size
+                                value: '1'
+                              - descriptor:
+                                  code: max_pack_size
+                                value: '4'
+                              - descriptor:
+                                  code: unit_sale_price
+                                value: '250'
+                          - descriptor:
+                              code: price_slab
+                            list:
+                              - descriptor:
+                                  code: min_pack_size
+                                value: '5'
+                              - descriptor:
+                                  code: max_pack_size
+                                value: '9'
+                              - descriptor:
+                                  code: unit_sale_price
+                                value: '200'
+                          - descriptor:
+                              code: price_slab
+                            list:
+                              - descriptor:
+                                  code: min_pack_size
+                                value: '10'
+                              - descriptor:
+                                  code: max_pack_size
+                                value: ''
+                              - descriptor:
+                                  code: unit_sale_price
+                                value: '175'
+                      - id: I2
+                        parent_item_id: V1
+                        descriptor:
+                          name: Allen Solly Men T-shirt
+                          code: UPC / EAN code
+                          short_desc: Allen Solly Men T-shirt
+                          long_desc: Allen Solly Men T-shirt
+                          images:
+                            - url: https://abc.com/images/207.png
+                          media:
+                            - mimetype: video/mp4
+                              url: https://abc.com/images/207.mp4
+                        creator:
+                          descriptor:
+                            name: xxxxx
+                            contact:
+                              name: xxxx
+                              address:
+                                full: >-
+                                  Allen Solly Ltd,A-3, NDDB House, Sector-1,
+                                  Noida,Uttar Pradesh-201301
+                              phone: '18001801018'
+                              email: consumer.services@xxxx.com
+                        price:
+                          currency: INR
+                          value: '300.00'
+                          offered_value: '250.00'
+                          maximum_value: '350.00'
+                        quantity:
+                          unitized:
+                            measure:
+                              unit: unit
+                              value: '1'
+                          available:
+                            measure:
+                              unit: unit
+                              value: '1'
+                            count: 99
+                          maximum:
+                            measure:
+                              unit: unit
+                              value: '1'
+                            count: 99
+                        category_ids:
+                          - RET12-102F
+                        fulfillment_ids:
+                          - '1'
+                        location_ids:
+                          - L1
+                        payment_ids:
+                          - '2'
+                        cancellation_terms:
+                          - fulfillment_state:
+                              descriptor:
+                                code: Pending
+                            reason_required: false
+                            cancellation_fee:
+                              percentage: '0'
+                              amount:
+                                currency: IND
+                                value: '0'
+                          - fulfillment_state:
+                              descriptor:
+                                code: Packed
+                            reason_required: false
+                            cancellation_fee:
+                              percentage: '0'
+                              amount:
+                                currency: IND
+                                value: '0'
+                        return_terms:
+                          - fulfillment_state:
+                              descriptor:
+                                code: Order-delivered
+                            return_eligible: true
+                            return_time:
+                              duration: P7D
+                            return_location:
+                              address: RTO address
+                              gps: 12.667555,77.349666
+                            fulfillment_managed_by: seller
+                        replacement_terms:
+                          - replace_within: P7D
+                        time:
+                          label: validity
+                          range:
+                            start: '2022-12-24T00:00:00.000Z'
+                            end: '2022-12-31T00:00:00.000Z'
+                        matched: true
+                        recommended: true
+                        tags:
+                          - descriptor:
+                              code: origin
+                            list:
+                              - descriptor:
+                                  code: country
+                                value: IND
+                          - descriptor:
+                              code: image
+                            list:
+                              - descriptor:
+                                  code: type
+                                value: back_image
+                              - descriptor:
+                                  code: url
+                                value: https://sellerNP.com/images/i1_back_image.png
+                          - descriptor: null
+                            code: attribute
+                            list:
+                              - descriptor:
+                                  code: brand
+                                value: Allen Solly
+                              - descriptor:
+                                  code: colour
+                                value: coral
+                              - descriptor:
+                                  code: size
+                                value: M
+                              - descriptor:
+                                  code: gender
+                                value: male
+                              - descriptor:
+                                  code: pattern
+                                value: striped
+                              - descriptor:
+                                  code: material
+                                value: cotton
+                              - descriptor:
+                                  code: occasion
+                                value: casual
+                              - descriptor:
+                                  code: season
+                                value: summer
+                              - descriptor:
+                                  code: trend
+                                value: tribal
+                              - descriptor:
+                                  code: features
+                                value: alpha
+                              - descriptor:
+                                  code: material_finish
+                                value: embossed
+                              - descriptor:
+                                  code: size_chart
+                                value: https://sellerNP.com/images/i1_size_chart.png
                           - descriptor:
                               code: g2
                             list:
@@ -4219,10 +4383,10 @@ x-flows:
                     offers:
                       - id: offer-1
                         descriptor:
-                          name: Dhara Olive Oil
+                          name: Scarf
                           code: FREEBIE
-                          short_desc: Dhara Olive Oil
-                          long_desc: Dhara Olive Oil
+                          short_desc: Scarf
+                          long_desc: Scarf
                           images:
                             - url: https://abc.com/images/207.png
                         location_ids: []
@@ -4237,11 +4401,9 @@ x-flows:
                       - contact:
                           phone: '9886098860'
                           email: abc@xyz.com
-      - summary: Requests for Quotation
+      - summary: Select the item
         api: select
-        description: >-
-          Buyer selects an item (Variants/add_ons/offers as required) + Item
-          customization + Delivery terms and requests for quotation
+        description: null
         reference: if any
         example:
           summary: Get quote for specific item
@@ -4310,9 +4472,9 @@ x-flows:
                       - descriptor:
                           code: buyer_id_no
                         value: xxxxxxxxxxxxxxx
-      - summary: Returns item breakup/ quote
+      - summary: Returns item breakup when item is in stock and offer applied
         api: on_select
-        description: Seller provides the quotation and breakup with logistics charges
+        description: null
         reference: if any
         example:
           summary: Send quote and breakup - Response to RFQ (Exports)
@@ -4410,9 +4572,9 @@ x-flows:
                 payments:
                   - type: PRE-FULFILLMENT
                     collected_by: SOR
-      - summary: Initialization of Order
+      - summary: Buyer initiate the product and send the updated fulfillment id
         api: init
-        description: Initialization of Order - Billing and address details added.
+        description: null
         reference: if any
         example:
           summary: Intializing the order (Exports - RFQ)
@@ -4498,9 +4660,9 @@ x-flows:
                       - descriptor:
                           code: buyer_id_no
                         value: xxxxxxxxxxxxxxx
-      - summary: Initialization of Order
+      - summary: Respond to init
         api: on_init
-        description: Initialization of Order with final quote
+        description: null
         reference: if any
         example:
           summary: Acknowledges the initialization (Exports)
@@ -4673,9 +4835,9 @@ x-flows:
                       - descriptor:
                           code: delay_interest
                         value: '1000'
-      - summary: Buyer raises PO
+      - summary: Buyer confirms product
         api: confirm
-        description: Buyer creates a Purchase Order
+        description: null
         reference: if any
         example:
           summary: confirmation of the order
@@ -4851,9 +5013,9 @@ x-flows:
                         value: 'Y'
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T09:30:00.000Z'
-      - summary: Seller Accepts PO
+      - summary: Seller Accepts confirmation
         api: on_confirm
-        description: Seller accepts Purchase Order
+        description: null
         reference: if any
         example:
           summary: Accept PO (Exports - RFQ)
@@ -5050,9 +5212,9 @@ x-flows:
                         value: 'Y'
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T09:31:30.000Z'
-      - summary: Consumer platform requests for latest status
+      - summary: Buyer requests for order status
         api: status
-        description: Buyer requests for Shipment status
+        description: null
         reference: if any
         example:
           summary: Buyer asks for order status
@@ -5077,11 +5239,195 @@ x-flows:
               ttl: PT30S
             message:
               order_id: O1
-      - summary: Provider platform provides latest order status
+      - summary: Status Updates - Order Picked up
         api: on_status
-        description: >-
-          Provider platform provides the updated order status to the consumer
-          once the order is out for delivery
+        description: null
+        reference: if any
+        example:
+          summary: Seller updates the order status (Order-picked-up)
+          description: Seller updates the order status and shares Invoice
+          value:
+            context:
+              domain: ONDC:RET10
+              location:
+                city:
+                  code: UN:SIN
+                country:
+                  code: SGP
+              action: on_status
+              version: 2.0.2
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/grocery
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/grocery
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: M1
+              timestamp: '2023-01-08T22:00:30.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O1
+                state: In-progress
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 200
+                billing:
+                  name: ONDC buyer
+                  address: B005 aaspire heights, Jurong East, SGP, 680230
+                  state:
+                    name: Jurong East
+                  city:
+                    name: Jurong East
+                  email: nobody@nomail.com
+                  phone: '9886098860'
+                fulfillments:
+                  - id: F1
+                    '@ondc/org/provider_name': Loadshare
+                    type: Delivery
+                    tracking: false
+                    state:
+                      descriptor:
+                        code: Order-picked-up
+                    stops:
+                      - type: start
+                        location:
+                          id: L1
+                          descriptor:
+                            name: ABC Store
+                            images:
+                              - https://gf-integration/images/5.png
+                          gps: 12.956399,77.636803
+                        time:
+                          range:
+                            start: '2023-02-03T10:00:00.000Z'
+                            end: '2023-02-03T10:30:00.000Z'
+                          timestamp: '2023-02-03T10:25:00.000Z'
+                        instructions:
+                          name: Proof of pickup
+                          short_desc: Proof of pickup details
+                          long_desc: Proof of pickup details
+                          images:
+                            - https://image1_url.png
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                      - type: end
+                        location:
+                          gps: 1.380621746811, 103.7463643843
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Jurong East
+                          country:
+                            code: SGP
+                          area_code: '680230'
+                          state:
+                            name: ''
+                        time:
+                          range:
+                            start: '2023-02-03T11:00:00.000Z'
+                            end: '2023-02-03T11:30:00.000Z'
+                        instructions:
+                          name: Proof of delivery
+                          short_desc: Proof of delivery details
+                          long_desc: Proof of delivery details
+                          images:
+                            - https://image1_url.png
+                        contact:
+                          phone: '9886098860'
+                        agent:
+                          person:
+                            name: Ramu
+                          contact:
+                            phone: '9886098860'
+                quote:
+                  price:
+                    currency: INR
+                    value: '53600'
+                  breakup:
+                    - '@ondc/org/item_id': I1
+                      '@ondc/org/item_quantity':
+                        count: 200
+                      title: Dhara Mustard Oil
+                      '@ondc/org/title_type': item
+                      price:
+                        currency: INR
+                        value: '50000'
+                      item:
+                        price:
+                          currency: INR
+                          value: '250'
+                    - '@ondc/org/item_id': F1
+                      title: Delivery charges
+                      '@ondc/org/title_type': delivery
+                      price:
+                        currency: INR
+                        value: '4000'
+                    - '@ondc/org/item_id': F1
+                      title: Packing charges
+                      '@ondc/org/title_type': packing
+                      price:
+                        currency: INR
+                        value: '500'
+                    - '@ondc/org/item_id': I1
+                      title: Tax
+                      '@ondc/org/title_type': tax
+                      price:
+                        currency: INR
+                        value: '0'
+                    - '@ondc/org/item_id': I1
+                      title: Discount
+                      '@ondc/org/title_type': discount
+                      price:
+                        currency: INR
+                        value: '-1000'
+                    - '@ondc/org/item_id': F1
+                      title: Convenience Fee
+                      '@ondc/org/title_type': misc
+                      price:
+                        currency: INR
+                        value: '100'
+                  ttl: P1D
+                payments:
+                  - uri: https://ondc.transaction.com/payment
+                    tl_method: http/get
+                    params:
+                      currency: INR
+                      transaction_id: '3937'
+                      amount: '53600'
+                    status: PAID
+                    type: PRE-FULFILLMENT
+                    collected_by: SOR
+                    '@ondc/org/buyer_app_finder_fee_type': percent
+                    '@ondc/org/buyer_app_finder_fee_amount': '3'
+                    '@ondc/org/settlement_basis': delivery
+                    '@ondc/org/settlement_window': P1D
+                    '@ondc/org/withholding_amount': '10.00'
+                    '@ondc/org/settlement_details':
+                      - settlement_counterparty: buyer-app
+                        settlement_phase: sale-amount
+                        beneficiary_name: xxxxx
+                        settlement_reference: XXXX
+                        settlement_status: PAID
+                        settlement_timestamp: '2023-02-04T10:00:00.000Z'
+                        settlement_type: OPGSP
+                        upi_address: gft@oksbi
+                        settlement_bank_account_no: XXXXXXXXXX
+                        settlement_ifsc_code: XXXXXXXXX
+                        bank_name: xxxx
+                        branch_name: xxxx
+                created_at: '2023-02-03T09:30:00.000Z'
+                updated_at: '2023-02-03T10:00:00.201Z'
+      - summary: Status Updates - Out for delivery
+        api: on_status
+        description: null
         reference: if any
         example:
           summary: Seller updates the order status (Out-for-delivery)
@@ -5265,11 +5611,9 @@ x-flows:
                         branch_name: xxxx
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T10:00:00.201Z'
-      - summary: Provider platform provides latest order status
+      - summary: Status Updates - Order Delivered
         api: on_status
-        description: >-
-          Provider platform provides the updated order status to the consumer
-          after the order is delivered
+        description: null
         reference: if any
         example:
           summary: Seller updates the order status (Order-delivered)
