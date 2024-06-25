@@ -100,7 +100,7 @@ fulfillments:
         $ref: "./Tag.yaml#/item_details"
 payments:
     - code: PAYMENT_TERMS
-      description: Payment information sent by the seller app in case BPP is collecting the prepaid payment. 
+      description: Payment terms
       reference: <PR/Issue/Discussion Links md format text>
       required: required for BPP collecting prepaid payment
       list:
