@@ -8,7 +8,7 @@
       "country": {
         "code": "SGP"
       }
-    }, 
+    },
     "action": "confirm",
     "version": "2.0.2",
     "bap_id": "buyerapp.com",
@@ -183,11 +183,31 @@
               "bank_name": "xxxx",
               "branch_name": "xxxx"
             }
+          ],
+          "tags": [
+            {
+              "descriptor": {
+                "code": "payment_terms"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "payment_type"
+                  },
+                  "value": "OPGSP"
+                },
+                {
+                  "descriptor": {
+                    "code": "payment_provider"
+                  },
+                  "value": "abcd"
+                }
+              ]
+            }
           ]
         }
       ],
       "tags": [
-      
         {
           "descriptor": {
             "code": "bpp_terms"

@@ -186,6 +186,17 @@
               "value": "0"
             }
           }
+        },
+        {
+          "fulfillment_state": {
+            "descriptor": {
+              "code": "Domestic-custom-cleared"
+            }
+          },
+          "reason_required": true,
+          "cancellation_fee": {
+            "percentage": "0"
+          }
         }
       ],
       "payments": [
@@ -197,7 +208,28 @@
           "@ondc/org/buyer_app_finder_fee_amount": "0",
           "@ondc/org/settlement_basis": "delivery",
           "@ondc/org/settlement_window": "P1D",
-          "@ondc/org/withholding_amount": "10.00"
+          "@ondc/org/withholding_amount": "10.00",
+          "tags": [
+            {
+              "descriptor": {
+                "code": "payment_terms"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "payment_type"
+                  },
+                  "value": "OPGSP"
+                },
+                {
+                  "descriptor": {
+                    "code": "payment_provider"
+                  },
+                  "value": "abcd"
+                }
+              ]
+            }
+          ]
         }
       ],
       "tags": [

@@ -178,6 +178,11 @@ value:
               settlement_ifsc_code: XXXXXXXXX
               bank_name: xxxx
               branch_name: xxxx
+            - settlement_counterparty: buyer
+              settlement_phase: refund
+              settlement_type: OPGSP
+              settlement_amount: '12'
+              settlement_timestamp: '2023-02-04T18:00:00.000Z'
       documents:
         - url: https://invoice_url
           label: Invoice

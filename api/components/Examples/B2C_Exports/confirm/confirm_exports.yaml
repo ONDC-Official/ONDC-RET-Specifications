@@ -133,7 +133,16 @@ value:
               beneficiary_name: xxxxx
               bank_name: xxxx
               branch_name: xxxx
-
+          tags:
+          - descriptor:
+             code: payment_terms
+            list:
+             - descriptor:
+                code: payment_type
+               value: OPGSP
+             - descriptor:
+                code: payment_provider
+               value: abcd
         - descriptor:
             code: bpp_terms
           list:
