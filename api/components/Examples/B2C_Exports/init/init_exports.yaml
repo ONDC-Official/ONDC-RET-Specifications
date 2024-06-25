@@ -30,9 +30,8 @@ value:
             - F1
           quantity:
             selected:
-              count: 200
-          add_ons:
-            - id: "78787723"
+              count: 1
+
       billing:
         name: ONDC buyer
         address: B005 aaspire heights, Jurong East, SGP, 680230
@@ -71,13 +70,4 @@ value:
       payments:
         - type: PRE-FULFILLMENT
           collected_by: SOR
-      tags:
-        - descriptor:
-            code: buyer_id
-          list:
-            - descriptor:
-                code: buyer_id_code
-              value: tin
-            - descriptor:
-                code: buyer_id_no
-              value: xxxxxxxxxxxxxxx
+

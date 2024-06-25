@@ -32,9 +32,9 @@ value:
             - F1
           quantity:
             selected:
-              count: 200
-          add_ons:
-            - id: "78787723"
+              count: 1
+      offers:
+        id: offer-1
       fulfillments:
         - id: F1
           type: Delivery
@@ -54,13 +54,4 @@ value:
                 phone: "9886098860"
       payments:
         - type: PRE-FULFILLMENT
-      tags:
-        - descriptor:
-            code: buyer_id
-          list:
-            - descriptor:
-                code: buyer_id_code
-              value: tin
-            - descriptor:
-                code: buyer_id_no
-              value: xxxxxxxxxxxxxxx
+

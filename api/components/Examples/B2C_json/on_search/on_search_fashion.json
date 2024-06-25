@@ -118,7 +118,7 @@
                   "descriptor": {
                     "code": "category"
                   },
-                  "value": "RET1A-1012"
+                  "value": "RET12-1012"
                 },
                 {
                   "descriptor": {
@@ -130,26 +130,13 @@
                   "descriptor": {
                     "code": "val"
                   },
-                  "value": "IND"
+                  "value": "SGP"
                 },
                 {
                   "descriptor": {
                     "code": "unit"
                   },
                   "value": "country"
-                }
-              ]
-            },
-            {
-              "descriptor": {
-                "code": "seller_terms"
-              },
-              "list": [
-                {
-                  "descriptor": {
-                    "code": "gst_credit_invoice"
-                  },
-                  "value": "Y"
                 }
               ]
             },
@@ -242,7 +229,7 @@
               "parent_item_id": "V1",
               "descriptor": {
                 "name": "Allen Solly Men T-shirt",
-                "code": "UPC / EAN code",
+                "code": "4:others",
                 "short_desc": "Allen Solly Men T-shirt",
                 "long_desc": "Allen Solly Men T-shirt",
                 "images": [
@@ -271,10 +258,10 @@
                 }
               },
               "price": {
-                "currency": "INR",
-                "value": "300.00",
-                "offered_value": "250.00",
-                "maximum_value": "350.00"
+                "currency": "USD",
+                "value": "11.00",
+                "offered_value": "10.00",
+                "maximum_value": "12.00"
               },
               "quantity": {
                 "unitized": {
@@ -284,25 +271,13 @@
                   }
                 },
                 "available": {
-                  "measure": {
-                    "unit": "unit",
-                    "value": "1"
-                  },
-                  "count": 99
+                  "count": 5
                 },
                 "maximum": {
-                  "measure": {
-                    "unit": "unit",
-                    "value": "1"
-                  },
-                  "count": 99
+                  "count": 5
                 },
                 "minimum": {
-                  "measure": {
-                    "unit": "unit",
-                    "value": "1"
-                  },
-                  "count": 99
+                  "count": 5
                 }
               },
               "category_ids": ["RET12-102F"],
@@ -320,7 +295,7 @@
                   "cancellation_fee": {
                     "percentage": "0",
                     "amount": {
-                      "currency": "IND",
+                      "currency": "USD",
                       "value": "0"
                     }
                   }
@@ -335,9 +310,20 @@
                   "cancellation_fee": {
                     "percentage": "0",
                     "amount": {
-                      "currency": "IND",
+                      "currency": "USD",
                       "value": "0"
                     }
+                  }
+                },
+                {
+                  "fulfillment_state": {
+                    "descriptor": {
+                      "code": "Domestic Custom Cleared"
+                    }
+                  },
+                  "reason_required": true,
+                  "cancellation_fee": {
+                    "percentage": "100"
                   }
                 }
               ],
@@ -509,106 +495,6 @@
                       "value": "true"
                     }
                   ]
-                },
-                {
-                  "descriptor": {
-                    "code": "g3"
-                  },
-                  "list": [
-                    {
-                      "descriptor": {
-                        "code": "brand"
-                      },
-                      "value": "Dhara"
-                    },
-                    {
-                      "descriptor": {
-                        "code": "pack_size"
-                      },
-                      "value": "5"
-                    },
-                    {
-                      "descriptor": {
-                        "code": "num_price_slabs"
-                      },
-                      "value": "3"
-                    }
-                  ]
-                },
-                {
-                  "descriptor": {
-                    "code": "price_slab"
-                  },
-                  "list": [
-                    {
-                      "descriptor": {
-                        "code": "min_pack_size"
-                      },
-                      "value": "1"
-                    },
-                    {
-                      "descriptor": {
-                        "code": "max_pack_size"
-                      },
-                      "value": "4"
-                    },
-                    {
-                      "descriptor": {
-                        "code": "unit_sale_price"
-                      },
-                      "value": "250"
-                    }
-                  ]
-                },
-                {
-                  "descriptor": {
-                    "code": "price_slab"
-                  },
-                  "list": [
-                    {
-                      "descriptor": {
-                        "code": "min_pack_size"
-                      },
-                      "value": "5"
-                    },
-                    {
-                      "descriptor": {
-                        "code": "max_pack_size"
-                      },
-                      "value": "9"
-                    },
-                    {
-                      "descriptor": {
-                        "code": "unit_sale_price"
-                      },
-                      "value": "200"
-                    }
-                  ]
-                },
-                {
-                  "descriptor": {
-                    "code": "price_slab"
-                  },
-                  "list": [
-                    {
-                      "descriptor": {
-                        "code": "min_pack_size"
-                      },
-                      "value": "10"
-                    },
-                    {
-                      "descriptor": {
-                        "code": "max_pack_size"
-                      },
-                      "value": ""
-                    },
-                    {
-                      "descriptor": {
-                        "code": "unit_sale_price"
-                      },
-                      "value": "175"
-                    }
-                  ]
                 }
               ]
             },
@@ -617,7 +503,7 @@
               "parent_item_id": "V1",
               "descriptor": {
                 "name": "Allen Solly Men T-shirt",
-                "code": "UPC / EAN code",
+                "code": "4:others",
                 "short_desc": "Allen Solly Men T-shirt",
                 "long_desc": "Allen Solly Men T-shirt",
                 "images": [
@@ -646,10 +532,10 @@
                 }
               },
               "price": {
-                "currency": "INR",
-                "value": "300.00",
-                "offered_value": "250.00",
-                "maximum_value": "350.00"
+                "currency": "USD",
+                "value": "25.00",
+                "offered_value": "20.00",
+                "maximum_value": "27.00"
               },
               "quantity": {
                 "unitized": {
@@ -659,18 +545,13 @@
                   }
                 },
                 "available": {
-                  "measure": {
-                    "unit": "unit",
-                    "value": "1"
-                  },
-                  "count": 99
+                  "count": 5
                 },
                 "maximum": {
-                  "measure": {
-                    "unit": "unit",
-                    "value": "1"
-                  },
-                  "count": 99
+                  "count": 5
+                },
+                "minimum": {
+                  "count": 5
                 }
               },
               "category_ids": ["RET12-102F"],
@@ -706,6 +587,17 @@
                       "currency": "IND",
                       "value": "0"
                     }
+                  }
+                },
+                {
+                  "fulfillment_state": {
+                    "descriptor": {
+                      "code": "Domestic Custom Cleared"
+                    }
+                  },
+                  "reason_required": true,
+                  "cancellation_fee": {
+                    "percentage": "100"
                   }
                 }
               ],
@@ -775,8 +667,8 @@
                   ]
                 },
                 {
-                  "descriptor": null,
-                  "code": "attribute",
+                  "descriptor": { "code": "attribute" },
+
                   "list": [
                     {
                       "descriptor": {
@@ -876,106 +768,6 @@
                       "value": "true"
                     }
                   ]
-                },
-                {
-                  "descriptor": {
-                    "code": "g3"
-                  },
-                  "list": [
-                    {
-                      "descriptor": {
-                        "code": "brand"
-                      },
-                      "value": "Dhara"
-                    },
-                    {
-                      "descriptor": {
-                        "code": "pack_size"
-                      },
-                      "value": "5"
-                    },
-                    {
-                      "descriptor": {
-                        "code": "num_price_slabs"
-                      },
-                      "value": "3"
-                    }
-                  ]
-                },
-                {
-                  "descriptor": {
-                    "code": "price_slab"
-                  },
-                  "list": [
-                    {
-                      "descriptor": {
-                        "code": "min_pack_size"
-                      },
-                      "value": "1"
-                    },
-                    {
-                      "descriptor": {
-                        "code": "max_pack_size"
-                      },
-                      "value": "4"
-                    },
-                    {
-                      "descriptor": {
-                        "code": "unit_sale_price"
-                      },
-                      "value": "250"
-                    }
-                  ]
-                },
-                {
-                  "descriptor": {
-                    "code": "price_slab"
-                  },
-                  "list": [
-                    {
-                      "descriptor": {
-                        "code": "min_pack_size"
-                      },
-                      "value": "5"
-                    },
-                    {
-                      "descriptor": {
-                        "code": "max_pack_size"
-                      },
-                      "value": "9"
-                    },
-                    {
-                      "descriptor": {
-                        "code": "unit_sale_price"
-                      },
-                      "value": "200"
-                    }
-                  ]
-                },
-                {
-                  "descriptor": {
-                    "code": "price_slab"
-                  },
-                  "list": [
-                    {
-                      "descriptor": {
-                        "code": "min_pack_size"
-                      },
-                      "value": "10"
-                    },
-                    {
-                      "descriptor": {
-                        "code": "max_pack_size"
-                      },
-                      "value": ""
-                    },
-                    {
-                      "descriptor": {
-                        "code": "unit_sale_price"
-                      },
-                      "value": "175"
-                    }
-                  ]
                 }
               ]
             }
@@ -996,7 +788,7 @@
               },
               "location_ids": [],
               "category_ids": [],
-              "item_ids": [],
+              "item_ids": ["I1"],
               "time": {
                 "label": "validity",
                 "range": {

@@ -23,10 +23,10 @@
   "message": {
     "order": {
       "provider": {
-        "id": "P1"
-      },
-      "provider_location": {
-        "id": "L1"
+        "id": "P1",
+        "locations": {
+          "id": "L1"
+        }
       },
       "items": [
         {
@@ -36,12 +36,7 @@
             "selected": {
               "count": 200
             }
-          },
-          "add_ons": [
-            {
-              "id": "78787723"
-            }
-          ]
+          }
         }
       ],
       "billing": {
@@ -206,25 +201,6 @@
         }
       ],
       "tags": [
-        {
-          "descriptor": {
-            "code": "buyer_id"
-          },
-          "list": [
-            {
-              "descriptor": {
-                "code": "buyer_id_code"
-              },
-              "value": "tin"
-            },
-            {
-              "descriptor": {
-                "code": "buyer_id_no"
-              },
-              "value": "xxxxxxxxxxxxxxx"
-            }
-          ]
-        },
         {
           "descriptor": {
             "code": "bpp_terms"

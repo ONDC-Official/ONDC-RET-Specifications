@@ -16,23 +16,22 @@ value:
     bpp_uri: https://sellerapp.com/grocery
     transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
     message_id: 582eb99f-a7c1-46ae-8174-936757d2d96f
-    timestamp: '2023-01-08T22:00:30.000Z'
+    timestamp: "2023-01-08T22:00:30.000Z"
     ttl: PT30S
   message:
     order:
       provider:
         id: P1
-      provider_location:
-        id: L1
+        locations:
+          id: L1
       items:
         - id: I1
           fulfillment_ids:
             - F1
           quantity:
             selected:
-              count: 200
-          add_ons:
-            - id: "78787723"
+              count: 1
+
       billing:
         name: ONDC buyer
         address: B005 aaspire heights, Jurong East, SGP, 680230
@@ -66,51 +65,51 @@ value:
                 phone: "9886098860"
       quote:
         price:
-          currency: INR
-          value: "53600"
+          currency: USD
+          value: "15.00"
         breakup:
-          - "@ondc/org/item_id": I1
+          - "@ondc/org/item_id ": I1
             "@ondc/org/item_quantity":
-              count: 200
-            title: Dhara Mustard Oil
-            "@ondc/org/title_type": item
+              count: 1
+            title: Allen Solly Men T-shirt
+            "@ondc/org/title_type ": item
             price:
-              currency: INR
-              value: "50000"
+              currency: USD
+              value: "10.00"
             item:
               price:
-                currency: INR
-                value: "250"
+                currency: USD
+                value: "10.00"
           - "@ondc/org/item_id": F1
             title: Delivery charges
-            "@ondc/org/title_type": delivery
+            "@ondc/org/title_type ": delivery
             price:
-              currency: INR
-              value: "4000"
+              currency: USD
+              value: "2.00"
           - "@ondc/org/item_id": F1
             title: Packing charges
-            "@ondc/org/title_type": packing
+            "@ondc/org/title_type ": packing
             price:
-              currency: INR
-              value: "500"
+              currency: USD
+              value: "5.00"
           - "@ondc/org/item_id": I1
             title: Tax
-            "@ondc/org/title_type": tax
+            "@ondc/org/title_type ": tax
             price:
               currency: INR
-              value: "0"
+              value: "0.00"
           - "@ondc/org/item_id": I1
             title: Discount
-            "@ondc/org/title_type": discount
+            "@ondc/org/title_type ": discount
             price:
-              currency: INR
-              value: "-1000"
+              currency: USD
+              value: "-1.00"
           - "@ondc/org/item_id": F1
             title: Convenience Fee
-            "@ondc/org/title_type": misc
+            "@ondc/org/title_type ": misc
             price:
-              currency: INR
-              value: "100"
+              currency: USD
+              value: "1.00"
         ttl: P1D
       cancellation_terms:
         - fulfillment_state:
@@ -131,6 +130,12 @@ value:
             amount:
               currency: IND
               value: "0"
+        - fulfillment_state:
+            descriptor:
+              code: Domestic Custom Cleared
+          reason_required: true
+          cancellation_fee:
+            percentage: "100"
       payments:
         - type: PRE-FULFILLMENT
           collected_by: SOR
@@ -140,16 +145,7 @@ value:
           "@ondc/org/settlement_basis": delivery
           "@ondc/org/settlement_window": P1D
           "@ondc/org/withholding_amount": "10.00"
-      tags:
-        - descriptor:
-            code: buyer_id
-          list:
-            - descriptor:
-                code: buyer_id_code
-              value: tin
-            - descriptor:
-                code: buyer_id_no
-              value: xxxxxxxxxxxxxxx
+
         - descriptor:
             code: bpp_terms
           list:

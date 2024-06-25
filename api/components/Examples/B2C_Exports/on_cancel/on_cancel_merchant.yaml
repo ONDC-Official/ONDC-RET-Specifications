@@ -39,9 +39,8 @@ value:
             - P2
           quantity:
             selected:
-              count: 200
-          add_ons:
-            - id: "78787723"
+              count: 1
+
           tags:
             - descriptor:
                 code: BUYER_TERMS

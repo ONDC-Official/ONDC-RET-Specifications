@@ -84,16 +84,10 @@ value:
             value: '12'
           - descriptor:
               code: val
-            value: IND
+            value: SGP
           - descriptor:
               code: unit
             value: country
-        - descriptor:
-            code: seller_terms
-          list:
-          - descriptor:
-              code: gst_credit_invoice
-            value: Y
         - descriptor:
             code: seller_id
           list:
@@ -149,7 +143,7 @@ value:
           parent_item_id: V1
           descriptor:
             name: Dhara Mustard Oil
-            code: UPC / EAN code
+            code: 5:others
             short_desc: Dhara refined mustard oil
             long_desc: Dhara refined mustard oil
             images:
@@ -168,30 +162,21 @@ value:
                 phone: '18001801018'
                 email: consumer.services@motherdairy.com
           price:
-            currency: INR
-            value: '300.00'
-            offered_value: '250.00'
-            maximum_value: '350.00'
+            currency: USF
+            value: '25.00'
+            offered_value: '20.00'
+            maximum_value: '30.00'
           quantity:
             unitized:
               measure:
                 unit: millilitre
                 value: '500'
             available:
-              measure:
-                unit: millilitre
-                value: '500'
-              count: 2000
+              count: 5
             maximum:
-              measure:
-                unit: millilitre
-                value: '500'
-              count: 4000
+              count: 5
             minimum:
-              measure:
-                unit: millilitre
-                value: '500'
-              count: 4000
+              count: 5
           category_ids:
           - RET10-1042
           fulfillment_ids:
@@ -200,19 +185,6 @@ value:
           - L1
           payment_ids:
           - '2'
-          add_ons:
-          - id: '78787723'
-            descriptor:
-              name: Dhara Sunflower Oil
-              short_desc: Dhara Sunflower Oil
-              long_desc: Dhara Sunflower Oil
-              images:
-              - url: https://abc.com/images/208.png
-            price:
-              currency: INR
-              value: '170.0'
-              offered_value: '100.0'
-              maximum_value: '170.0'
           cancellation_terms:
           - fulfillment_state:
               descriptor:
@@ -221,7 +193,7 @@ value:
             cancellation_fee:
               percentage: '0'
               amount:
-                currency: IND
+                currency: USD
                 value: '0'
           - fulfillment_state:
               descriptor:
@@ -230,8 +202,14 @@ value:
             cancellation_fee:
               percentage: '0'
               amount:
-                currency: IND
+                currency: USD
                 value: '0'
+          - fulfillment_state:
+              descriptor:
+                code: Domestic Custom Cleared
+            reason_required: true
+            cancellation_fee:
+              percentage: '100'
           return_terms:
           - fulfillment_state:
               descriptor:
@@ -286,54 +264,6 @@ value:
             - descriptor:
                 code: cancellable
               value: 'true'
-          - descriptor:
-              code: g3
-            list:
-            - descriptor:
-                code: brand
-              value: Dhara
-            - descriptor:
-                code: pack_size
-              value: '5'
-            - descriptor:
-                code: num_price_slabs
-              value: '3'
-          - descriptor:
-              code: price_slab
-            list:
-            - descriptor:
-                code: min_pack_size
-              value: '1'
-            - descriptor:
-                code: max_pack_size
-              value: '4'
-            - descriptor:
-                code: unit_sale_price
-              value: '250'
-          - descriptor:
-              code: price_slab
-            list:
-            - descriptor:
-                code: min_pack_size
-              value: '5'
-            - descriptor:
-                code: max_pack_size
-              value: '9'
-            - descriptor:
-                code: unit_sale_price
-              value: '200'
-          - descriptor:
-              code: price_slab
-            list:
-            - descriptor:
-                code: min_pack_size
-              value: '10'
-            - descriptor:
-                code: max_pack_size
-              value: ''
-            - descriptor:
-                code: unit_sale_price
-              value: '175'
         offers:
         - id: offer-1
           descriptor:
@@ -345,7 +275,7 @@ value:
             - url: https://abc.com/images/207.png
           location_ids: []
           category_ids: []
-          item_ids: []
+          item_ids: ['I1']
           time:
             label: validity
             range:

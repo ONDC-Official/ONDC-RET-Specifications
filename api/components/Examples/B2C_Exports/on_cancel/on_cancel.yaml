@@ -39,7 +39,7 @@ value:
             - P2
           quantity:
             selected:
-              count: 200
+              count: 1
           add_ons:
             - id: '78787723'
           tags:

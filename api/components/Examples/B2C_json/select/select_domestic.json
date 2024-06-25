@@ -8,7 +8,7 @@
       "country": {
         "code": "SGP"
       }
-    }, 
+    },
     "action": "select",
     "version": "2.0.2",
     "bap_id": "buyerapp.com",
@@ -33,24 +33,18 @@
       "items": [
         {
           "id": "I1",
-          "location_ids": [
-            "L1"
-          ],
-          "fulfillment_ids": [
-            "F1"
-          ],
+          "location_ids": ["L1"],
+          "fulfillment_ids": ["F1"],
           "quantity": {
             "selected": {
               "count": 200
             }
-          },
-          "add_ons": [
-            {
-              "id": "78787723"
-            }
-          ]
+          }
         }
       ],
+      "offers": {
+        "id": "offer-1"
+      },
       "fulfillments": [
         {
           "id": "F1",
@@ -82,27 +76,6 @@
       "payments": [
         {
           "type": "PRE-FULFILLMENT"
-        }
-      ],
-      "tags": [
-        {
-          "descriptor": {
-            "code": "buyer_id"
-          },
-          "list": [
-            {
-              "descriptor": {
-                "code": "buyer_id_code"
-              },
-              "value": "tin"
-            },
-            {
-              "descriptor": {
-                "code": "buyer_id_no"
-              },
-              "value": "xxxxxxxxxxxxxxx"
-            }
-          ]
         }
       ]
     }

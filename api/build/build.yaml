@@ -3816,15 +3816,6 @@ x-flows:
                       - descriptor:
                           code: finder_fee_amount
                         value: '0'
-                  - descriptor:
-                      code: buyer_id
-                    list:
-                      - descriptor:
-                          code: buyer_id_code
-                        value: tin
-                      - descriptor:
-                          code: buyer_id_no
-                        value: xxxxxxxxxxxxxxx
       - summary: Returns the item or catalog (Fashion)
         api: on_search
         description: null
@@ -3910,22 +3901,16 @@ x-flows:
                             value: L1
                           - descriptor:
                               code: category
-                            value: RET1A-1012
+                            value: RET12-1012
                           - descriptor:
                               code: type
                             value: '12'
                           - descriptor:
                               code: val
-                            value: IND
+                            value: SGP
                           - descriptor:
                               code: unit
                             value: country
-                      - descriptor:
-                          code: seller_terms
-                        list:
-                          - descriptor:
-                              code: gst_credit_invoice
-                            value: 'Y'
                       - descriptor:
                           code: seller_id
                         list:
@@ -3969,7 +3954,7 @@ x-flows:
                         parent_item_id: V1
                         descriptor:
                           name: Allen Solly Men T-shirt
-                          code: UPC / EAN code
+                          code: 4:others
                           short_desc: Allen Solly Men T-shirt
                           long_desc: Allen Solly Men T-shirt
                           images:
@@ -3989,30 +3974,21 @@ x-flows:
                               phone: '18001801018'
                               email: consumer.services@xxxx.com
                         price:
-                          currency: INR
-                          value: '300.00'
-                          offered_value: '250.00'
-                          maximum_value: '350.00'
+                          currency: USD
+                          value: '11.00'
+                          offered_value: '10.00'
+                          maximum_value: '12.00'
                         quantity:
                           unitized:
                             measure:
                               unit: unit
                               value: '1'
                           available:
-                            measure:
-                              unit: unit
-                              value: '1'
-                            count: 99
+                            count: 5
                           maximum:
-                            measure:
-                              unit: unit
-                              value: '1'
-                            count: 99
+                            count: 5
                           minimum:
-                            measure:
-                              unit: unit
-                              value: '1'
-                            count: 99
+                            count: 5
                         category_ids:
                           - RET12-102F
                         fulfillment_ids:
@@ -4029,7 +4005,7 @@ x-flows:
                             cancellation_fee:
                               percentage: '0'
                               amount:
-                                currency: IND
+                                currency: USD
                                 value: '0'
                           - fulfillment_state:
                               descriptor:
@@ -4038,8 +4014,14 @@ x-flows:
                             cancellation_fee:
                               percentage: '0'
                               amount:
-                                currency: IND
+                                currency: USD
                                 value: '0'
+                          - fulfillment_state:
+                              descriptor:
+                                code: Domestic Custom Cleared
+                            reason_required: true
+                            cancellation_fee:
+                              percentage: '100'
                         return_terms:
                           - fulfillment_state:
                               descriptor:
@@ -4127,59 +4109,11 @@ x-flows:
                               - descriptor:
                                   code: cancellable
                                 value: 'true'
-                          - descriptor:
-                              code: g3
-                            list:
-                              - descriptor:
-                                  code: brand
-                                value: Dhara
-                              - descriptor:
-                                  code: pack_size
-                                value: '5'
-                              - descriptor:
-                                  code: num_price_slabs
-                                value: '3'
-                          - descriptor:
-                              code: price_slab
-                            list:
-                              - descriptor:
-                                  code: min_pack_size
-                                value: '1'
-                              - descriptor:
-                                  code: max_pack_size
-                                value: '4'
-                              - descriptor:
-                                  code: unit_sale_price
-                                value: '250'
-                          - descriptor:
-                              code: price_slab
-                            list:
-                              - descriptor:
-                                  code: min_pack_size
-                                value: '5'
-                              - descriptor:
-                                  code: max_pack_size
-                                value: '9'
-                              - descriptor:
-                                  code: unit_sale_price
-                                value: '200'
-                          - descriptor:
-                              code: price_slab
-                            list:
-                              - descriptor:
-                                  code: min_pack_size
-                                value: '10'
-                              - descriptor:
-                                  code: max_pack_size
-                                value: ''
-                              - descriptor:
-                                  code: unit_sale_price
-                                value: '175'
                       - id: I2
                         parent_item_id: V1
                         descriptor:
                           name: Allen Solly Men T-shirt
-                          code: UPC / EAN code
+                          code: 4:others
                           short_desc: Allen Solly Men T-shirt
                           long_desc: Allen Solly Men T-shirt
                           images:
@@ -4199,25 +4133,21 @@ x-flows:
                               phone: '18001801018'
                               email: consumer.services@xxxx.com
                         price:
-                          currency: INR
-                          value: '300.00'
-                          offered_value: '250.00'
-                          maximum_value: '350.00'
+                          currency: USD
+                          value: '25.00'
+                          offered_value: '20.00'
+                          maximum_value: '27.00'
                         quantity:
                           unitized:
                             measure:
                               unit: unit
                               value: '1'
                           available:
-                            measure:
-                              unit: unit
-                              value: '1'
-                            count: 99
+                            count: 5
                           maximum:
-                            measure:
-                              unit: unit
-                              value: '1'
-                            count: 99
+                            count: 5
+                          minimum:
+                            count: 5
                         category_ids:
                           - RET12-102F
                         fulfillment_ids:
@@ -4245,6 +4175,12 @@ x-flows:
                               amount:
                                 currency: IND
                                 value: '0'
+                          - fulfillment_state:
+                              descriptor:
+                                code: Domestic Custom Cleared
+                            reason_required: true
+                            cancellation_fee:
+                              percentage: '100'
                         return_terms:
                           - fulfillment_state:
                               descriptor:
@@ -4332,54 +4268,6 @@ x-flows:
                               - descriptor:
                                   code: cancellable
                                 value: 'true'
-                          - descriptor:
-                              code: g3
-                            list:
-                              - descriptor:
-                                  code: brand
-                                value: Dhara
-                              - descriptor:
-                                  code: pack_size
-                                value: '5'
-                              - descriptor:
-                                  code: num_price_slabs
-                                value: '3'
-                          - descriptor:
-                              code: price_slab
-                            list:
-                              - descriptor:
-                                  code: min_pack_size
-                                value: '1'
-                              - descriptor:
-                                  code: max_pack_size
-                                value: '4'
-                              - descriptor:
-                                  code: unit_sale_price
-                                value: '250'
-                          - descriptor:
-                              code: price_slab
-                            list:
-                              - descriptor:
-                                  code: min_pack_size
-                                value: '5'
-                              - descriptor:
-                                  code: max_pack_size
-                                value: '9'
-                              - descriptor:
-                                  code: unit_sale_price
-                                value: '200'
-                          - descriptor:
-                              code: price_slab
-                            list:
-                              - descriptor:
-                                  code: min_pack_size
-                                value: '10'
-                              - descriptor:
-                                  code: max_pack_size
-                                value: ''
-                              - descriptor:
-                                  code: unit_sale_price
-                                value: '175'
                     offers:
                       - id: offer-1
                         descriptor:
@@ -4391,7 +4279,8 @@ x-flows:
                             - url: https://abc.com/images/207.png
                         location_ids: []
                         category_ids: []
-                        item_ids: []
+                        item_ids:
+                          - I1
                         time:
                           label: validity
                           range:
@@ -4440,9 +4329,9 @@ x-flows:
                       - F1
                     quantity:
                       selected:
-                        count: 200
-                    add_ons:
-                      - id: '78787723'
+                        count: 1
+                offers:
+                  id: offer-1
                 fulfillments:
                   - id: F1
                     type: Delivery
@@ -4462,16 +4351,6 @@ x-flows:
                           phone: '9886098860'
                 payments:
                   - type: PRE-FULFILLMENT
-                tags:
-                  - descriptor:
-                      code: buyer_id
-                    list:
-                      - descriptor:
-                          code: buyer_id_code
-                        value: tin
-                      - descriptor:
-                          code: buyer_id_no
-                        value: xxxxxxxxxxxxxxx
       - summary: Returns item breakup when item is in stock and offer applied
         api: on_select
         description: null
@@ -4495,7 +4374,7 @@ x-flows:
               bpp_uri: https://sellerapp.com/grocery
               transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
               message_id: 4e90afaf-2d02-4ed9-9659-45d702a82f8e
-              timestamp: 2023-01-08T22:00:30.000Z
+              timestamp: '2023-01-08T22:00:30.000Z'
               ttl: PT30S
             message:
               order:
@@ -4509,9 +4388,7 @@ x-flows:
                     id: I1
                     quantity:
                       selected:
-                        count: 200
-                    add_ons:
-                      - id: '78787723'
+                        count: 1
                 fulfillments:
                   - id: F1
                     '@ondc/org/provider_name': Loadshare
@@ -4523,51 +4400,51 @@ x-flows:
                         code: Serviceable
                 quote:
                   price:
-                    currency: INR
-                    value: '53600'
+                    currency: USD
+                    value: '15.00'
                   breakup:
-                    - '@ondc/org/item_id': I1
+                    - '@ondc/org/item_id ': I1
                       '@ondc/org/item_quantity':
-                        count: 200
-                      title: Dhara Mustard Oil
-                      '@ondc/org/title_type': item
+                        count: 1
+                      title: Allen Solly Men T-shirt
+                      '@ondc/org/title_type ': item
                       price:
-                        currency: INR
-                        value: '50000'
+                        currency: USD
+                        value: '10.00'
                       item:
                         price:
-                          currency: INR
-                          value: '250'
+                          currency: USD
+                          value: '10.00'
                     - '@ondc/org/item_id': F1
                       title: Delivery charges
-                      '@ondc/org/title_type': delivery
+                      '@ondc/org/title_type ': delivery
                       price:
-                        currency: INR
-                        value: '4000'
+                        currency: USD
+                        value: '2.00'
                     - '@ondc/org/item_id': F1
                       title: Packing charges
-                      '@ondc/org/title_type': packing
+                      '@ondc/org/title_type ': packing
                       price:
-                        currency: INR
-                        value: '500'
+                        currency: USD
+                        value: '5.00'
                     - '@ondc/org/item_id': I1
                       title: Tax
-                      '@ondc/org/title_type': tax
+                      '@ondc/org/title_type ': tax
                       price:
                         currency: INR
-                        value: '0'
+                        value: '0.00'
                     - '@ondc/org/item_id': I1
                       title: Discount
-                      '@ondc/org/title_type': discount
+                      '@ondc/org/title_type ': discount
                       price:
-                        currency: INR
-                        value: '-1000'
+                        currency: USD
+                        value: '-1.00'
                     - '@ondc/org/item_id': F1
                       title: Convenience Fee
-                      '@ondc/org/title_type': misc
+                      '@ondc/org/title_type ': misc
                       price:
-                        currency: INR
-                        value: '100'
+                        currency: USD
+                        value: '1.00'
                   ttl: P1D
                 payments:
                   - type: PRE-FULFILLMENT
@@ -4609,9 +4486,7 @@ x-flows:
                       - F1
                     quantity:
                       selected:
-                        count: 200
-                    add_ons:
-                      - id: '78787723'
+                        count: 1
                 billing:
                   name: ONDC buyer
                   address: B005 aaspire heights, Jurong East, SGP, 680230
@@ -4650,16 +4525,6 @@ x-flows:
                 payments:
                   - type: PRE-FULFILLMENT
                     collected_by: SOR
-                tags:
-                  - descriptor:
-                      code: buyer_id
-                    list:
-                      - descriptor:
-                          code: buyer_id_code
-                        value: tin
-                      - descriptor:
-                          code: buyer_id_no
-                        value: xxxxxxxxxxxxxxx
       - summary: Respond to init
         api: on_init
         description: null
@@ -4689,17 +4554,15 @@ x-flows:
               order:
                 provider:
                   id: P1
-                provider_location:
-                  id: L1
+                  locations:
+                    id: L1
                 items:
                   - id: I1
                     fulfillment_ids:
                       - F1
                     quantity:
                       selected:
-                        count: 200
-                    add_ons:
-                      - id: '78787723'
+                        count: 1
                 billing:
                   name: ONDC buyer
                   address: B005 aaspire heights, Jurong East, SGP, 680230
@@ -4733,51 +4596,51 @@ x-flows:
                           phone: '9886098860'
                 quote:
                   price:
-                    currency: INR
-                    value: '53600'
+                    currency: USD
+                    value: '15.00'
                   breakup:
-                    - '@ondc/org/item_id': I1
+                    - '@ondc/org/item_id ': I1
                       '@ondc/org/item_quantity':
-                        count: 200
-                      title: Dhara Mustard Oil
-                      '@ondc/org/title_type': item
+                        count: 1
+                      title: Allen Solly Men T-shirt
+                      '@ondc/org/title_type ': item
                       price:
-                        currency: INR
-                        value: '50000'
+                        currency: USD
+                        value: '10.00'
                       item:
                         price:
-                          currency: INR
-                          value: '250'
+                          currency: USD
+                          value: '10.00'
                     - '@ondc/org/item_id': F1
                       title: Delivery charges
-                      '@ondc/org/title_type': delivery
+                      '@ondc/org/title_type ': delivery
                       price:
-                        currency: INR
-                        value: '4000'
+                        currency: USD
+                        value: '2.00'
                     - '@ondc/org/item_id': F1
                       title: Packing charges
-                      '@ondc/org/title_type': packing
+                      '@ondc/org/title_type ': packing
                       price:
-                        currency: INR
-                        value: '500'
+                        currency: USD
+                        value: '5.00'
                     - '@ondc/org/item_id': I1
                       title: Tax
-                      '@ondc/org/title_type': tax
+                      '@ondc/org/title_type ': tax
                       price:
                         currency: INR
-                        value: '0'
+                        value: '0.00'
                     - '@ondc/org/item_id': I1
                       title: Discount
-                      '@ondc/org/title_type': discount
+                      '@ondc/org/title_type ': discount
                       price:
-                        currency: INR
-                        value: '-1000'
+                        currency: USD
+                        value: '-1.00'
                     - '@ondc/org/item_id': F1
                       title: Convenience Fee
-                      '@ondc/org/title_type': misc
+                      '@ondc/org/title_type ': misc
                       price:
-                        currency: INR
-                        value: '100'
+                        currency: USD
+                        value: '1.00'
                   ttl: P1D
                 cancellation_terms:
                   - fulfillment_state:
@@ -4798,6 +4661,12 @@ x-flows:
                       amount:
                         currency: IND
                         value: '0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Domestic Custom Cleared
+                    reason_required: true
+                    cancellation_fee:
+                      percentage: '100'
                 payments:
                   - type: PRE-FULFILLMENT
                     collected_by: SOR
@@ -4807,16 +4676,6 @@ x-flows:
                     '@ondc/org/settlement_basis': delivery
                     '@ondc/org/settlement_window': P1D
                     '@ondc/org/withholding_amount': '10.00'
-                tags:
-                  - descriptor:
-                      code: buyer_id
-                    list:
-                      - descriptor:
-                          code: buyer_id_code
-                        value: tin
-                      - descriptor:
-                          code: buyer_id_no
-                        value: xxxxxxxxxxxxxxx
                   - descriptor:
                       code: bpp_terms
                     list:
@@ -4874,9 +4733,7 @@ x-flows:
                       - F1
                     quantity:
                       selected:
-                        count: 200
-                    add_ons:
-                      - id: '78787723'
+                        count: 1
                 billing:
                   name: ONDC buyer
                   address: >-
@@ -4909,51 +4766,51 @@ x-flows:
                           phone: '9886098860'
                 quote:
                   price:
-                    currency: INR
-                    value: '53600'
+                    currency: USD
+                    value: '15.00'
                   breakup:
-                    - '@ondc/org/item_id': I1
+                    - '@ondc/org/item_id ': I1
                       '@ondc/org/item_quantity':
-                        count: 200
-                      title: Dhara Mustard Oil
-                      '@ondc/org/title_type': item
+                        count: 1
+                      title: Allen Solly Men T-shirt
+                      '@ondc/org/title_type ': item
                       price:
-                        currency: INR
-                        value: '50000'
+                        currency: USD
+                        value: '10.00'
                       item:
                         price:
-                          currency: INR
-                          value: '250'
+                          currency: USD
+                          value: '10.00'
                     - '@ondc/org/item_id': F1
                       title: Delivery charges
-                      '@ondc/org/title_type': delivery
+                      '@ondc/org/title_type ': delivery
                       price:
-                        currency: INR
-                        value: '4000'
+                        currency: USD
+                        value: '2.00'
                     - '@ondc/org/item_id': F1
                       title: Packing charges
-                      '@ondc/org/title_type': packing
+                      '@ondc/org/title_type ': packing
                       price:
-                        currency: INR
-                        value: '500'
+                        currency: USD
+                        value: '5.00'
                     - '@ondc/org/item_id': I1
                       title: Tax
-                      '@ondc/org/title_type': tax
+                      '@ondc/org/title_type ': tax
                       price:
                         currency: INR
-                        value: '0'
+                        value: '0.00'
                     - '@ondc/org/item_id': I1
                       title: Discount
-                      '@ondc/org/title_type': discount
+                      '@ondc/org/title_type ': discount
                       price:
-                        currency: INR
-                        value: '-1000'
+                        currency: USD
+                        value: '-1.00'
                     - '@ondc/org/item_id': F1
                       title: Convenience Fee
-                      '@ondc/org/title_type': misc
+                      '@ondc/org/title_type ': misc
                       price:
-                        currency: INR
-                        value: '100'
+                        currency: USD
+                        value: '1.00'
                   ttl: P1D
                 payments:
                   - params:
@@ -4977,16 +4834,6 @@ x-flows:
                         beneficiary_name: xxxxx
                         bank_name: xxxx
                         branch_name: xxxx
-                tags:
-                  - descriptor:
-                      code: buyer_id
-                    list:
-                      - descriptor:
-                          code: buyer_id_code
-                        value: tin
-                      - descriptor:
-                          code: buyer_id_no
-                        value: xxxxxxxxxxxxxxx
                   - descriptor:
                       code: bpp_terms
                     list:
@@ -5053,9 +4900,7 @@ x-flows:
                       - F1
                     quantity:
                       selected:
-                        count: 200
-                    add_ons:
-                      - id: '78787723'
+                        count: 1
                 billing:
                   name: ONDC buyer
                   address: B005 aaspire heights, Jurong East, SGP, 680230
@@ -5107,51 +4952,51 @@ x-flows:
                     rateable: true
                 quote:
                   price:
-                    currency: INR
-                    value: '53600'
+                    currency: USD
+                    value: '15.00'
                   breakup:
-                    - '@ondc/org/item_id': I1
+                    - '@ondc/org/item_id ': I1
                       '@ondc/org/item_quantity':
-                        count: 200
-                      title: Dhara Mustard Oil
-                      '@ondc/org/title_type': item
+                        count: 1
+                      title: Allen Solly Men T-shirt
+                      '@ondc/org/title_type ': item
                       price:
-                        currency: INR
-                        value: '50000'
+                        currency: USD
+                        value: '10.00'
                       item:
                         price:
-                          currency: INR
-                          value: '250'
+                          currency: USD
+                          value: '10.00'
                     - '@ondc/org/item_id': F1
                       title: Delivery charges
-                      '@ondc/org/title_type': delivery
+                      '@ondc/org/title_type ': delivery
                       price:
-                        currency: INR
-                        value: '4000'
+                        currency: USD
+                        value: '2.00'
                     - '@ondc/org/item_id': F1
                       title: Packing charges
-                      '@ondc/org/title_type': packing
+                      '@ondc/org/title_type ': packing
                       price:
-                        currency: INR
-                        value: '500'
+                        currency: USD
+                        value: '5.00'
                     - '@ondc/org/item_id': I1
                       title: Tax
-                      '@ondc/org/title_type': tax
+                      '@ondc/org/title_type ': tax
                       price:
                         currency: INR
-                        value: '0'
+                        value: '0.00'
                     - '@ondc/org/item_id': I1
                       title: Discount
-                      '@ondc/org/title_type': discount
+                      '@ondc/org/title_type ': discount
                       price:
-                        currency: INR
-                        value: '-1000'
+                        currency: USD
+                        value: '-1.00'
                     - '@ondc/org/item_id': F1
                       title: Convenience Fee
-                      '@ondc/org/title_type': misc
+                      '@ondc/org/title_type ': misc
                       price:
-                        currency: INR
-                        value: '100'
+                        currency: USD
+                        value: '1.00'
                   ttl: P1D
                 payments:
                   - params:
@@ -5176,16 +5021,6 @@ x-flows:
                         settlement_ifsc_code: XXXXXXXXX
                         bank_name: xxxx
                         branch_name: xxxx
-                tags:
-                  - descriptor:
-                      code: buyer_id
-                    list:
-                      - descriptor:
-                          code: buyer_id_code
-                        value: tin
-                      - descriptor:
-                          code: buyer_id_no
-                        value: xxxxxxxxxxxxxxx
                   - descriptor:
                       code: bpp_terms
                     list:
@@ -5278,7 +5113,7 @@ x-flows:
                       - F1
                     quantity:
                       selected:
-                        count: 200
+                        count: 1
                 billing:
                   name: ONDC buyer
                   address: B005 aaspire heights, Jurong East, SGP, 680230
@@ -5349,51 +5184,51 @@ x-flows:
                             phone: '9886098860'
                 quote:
                   price:
-                    currency: INR
-                    value: '53600'
+                    currency: USD
+                    value: '15.00'
                   breakup:
-                    - '@ondc/org/item_id': I1
+                    - '@ondc/org/item_id ': I1
                       '@ondc/org/item_quantity':
-                        count: 200
-                      title: Dhara Mustard Oil
-                      '@ondc/org/title_type': item
+                        count: 1
+                      title: Allen Solly Men T-shirt
+                      '@ondc/org/title_type ': item
                       price:
-                        currency: INR
-                        value: '50000'
+                        currency: USD
+                        value: '10.00'
                       item:
                         price:
-                          currency: INR
-                          value: '250'
+                          currency: USD
+                          value: '10.00'
                     - '@ondc/org/item_id': F1
                       title: Delivery charges
-                      '@ondc/org/title_type': delivery
+                      '@ondc/org/title_type ': delivery
                       price:
-                        currency: INR
-                        value: '4000'
+                        currency: USD
+                        value: '2.00'
                     - '@ondc/org/item_id': F1
                       title: Packing charges
-                      '@ondc/org/title_type': packing
+                      '@ondc/org/title_type ': packing
                       price:
-                        currency: INR
-                        value: '500'
+                        currency: USD
+                        value: '5.00'
                     - '@ondc/org/item_id': I1
                       title: Tax
-                      '@ondc/org/title_type': tax
+                      '@ondc/org/title_type ': tax
                       price:
                         currency: INR
-                        value: '0'
+                        value: '0.00'
                     - '@ondc/org/item_id': I1
                       title: Discount
-                      '@ondc/org/title_type': discount
+                      '@ondc/org/title_type ': discount
                       price:
-                        currency: INR
-                        value: '-1000'
+                        currency: USD
+                        value: '-1.00'
                     - '@ondc/org/item_id': F1
                       title: Convenience Fee
-                      '@ondc/org/title_type': misc
+                      '@ondc/org/title_type ': misc
                       price:
-                        currency: INR
-                        value: '100'
+                        currency: USD
+                        value: '1.00'
                   ttl: P1D
                 payments:
                   - uri: https://ondc.transaction.com/payment
@@ -5464,7 +5299,7 @@ x-flows:
                       - F1
                     quantity:
                       selected:
-                        count: 200
+                        count: 1
                 billing:
                   name: ONDC buyer
                   address: B005 aaspire heights, Jurong East, SGP, 680230
@@ -5535,51 +5370,51 @@ x-flows:
                             phone: '9886098860'
                 quote:
                   price:
-                    currency: INR
-                    value: '53600'
+                    currency: USD
+                    value: '15.00'
                   breakup:
-                    - '@ondc/org/item_id': I1
+                    - '@ondc/org/item_id ': I1
                       '@ondc/org/item_quantity':
-                        count: 200
-                      title: Dhara Mustard Oil
-                      '@ondc/org/title_type': item
+                        count: 1
+                      title: Allen Solly Men T-shirt
+                      '@ondc/org/title_type ': item
                       price:
-                        currency: INR
-                        value: '50000'
+                        currency: USD
+                        value: '10.00'
                       item:
                         price:
-                          currency: INR
-                          value: '250'
+                          currency: USD
+                          value: '10.00'
                     - '@ondc/org/item_id': F1
                       title: Delivery charges
-                      '@ondc/org/title_type': delivery
+                      '@ondc/org/title_type ': delivery
                       price:
-                        currency: INR
-                        value: '4000'
+                        currency: USD
+                        value: '2.00'
                     - '@ondc/org/item_id': F1
                       title: Packing charges
-                      '@ondc/org/title_type': packing
+                      '@ondc/org/title_type ': packing
                       price:
-                        currency: INR
-                        value: '500'
+                        currency: USD
+                        value: '5.00'
                     - '@ondc/org/item_id': I1
                       title: Tax
-                      '@ondc/org/title_type': tax
+                      '@ondc/org/title_type ': tax
                       price:
                         currency: INR
-                        value: '0'
+                        value: '0.00'
                     - '@ondc/org/item_id': I1
                       title: Discount
-                      '@ondc/org/title_type': discount
+                      '@ondc/org/title_type ': discount
                       price:
-                        currency: INR
-                        value: '-1000'
+                        currency: USD
+                        value: '-1.00'
                     - '@ondc/org/item_id': F1
                       title: Convenience Fee
-                      '@ondc/org/title_type': misc
+                      '@ondc/org/title_type ': misc
                       price:
-                        currency: INR
-                        value: '100'
+                        currency: USD
+                        value: '1.00'
                   ttl: P1D
                 payments:
                   - uri: https://ondc.transaction.com/payment
@@ -5650,7 +5485,7 @@ x-flows:
                       - F1
                     quantity:
                       selected:
-                        count: 200
+                        count: 1
                 billing:
                   name: ONDC buyer
                   address: B005 aaspire heights, Jurong East, SGP, 680230
@@ -5722,51 +5557,51 @@ x-flows:
                             phone: '9886098860'
                 quote:
                   price:
-                    currency: INR
-                    value: '53600'
+                    currency: USD
+                    value: '15.00'
                   breakup:
-                    - '@ondc/org/item_id': I1
+                    - '@ondc/org/item_id ': I1
                       '@ondc/org/item_quantity':
-                        count: 200
-                      title: Dhara Mustard Oil
-                      '@ondc/org/title_type': item
+                        count: 1
+                      title: Allen Solly Men T-shirt
+                      '@ondc/org/title_type ': item
                       price:
-                        currency: INR
-                        value: '50000'
+                        currency: USD
+                        value: '10.00'
                       item:
                         price:
-                          currency: INR
-                          value: '250'
+                          currency: USD
+                          value: '10.00'
                     - '@ondc/org/item_id': F1
                       title: Delivery charges
-                      '@ondc/org/title_type': delivery
+                      '@ondc/org/title_type ': delivery
                       price:
-                        currency: INR
-                        value: '4000'
+                        currency: USD
+                        value: '2.00'
                     - '@ondc/org/item_id': F1
                       title: Packing charges
-                      '@ondc/org/title_type': packing
+                      '@ondc/org/title_type ': packing
                       price:
-                        currency: INR
-                        value: '500'
+                        currency: USD
+                        value: '5.00'
                     - '@ondc/org/item_id': I1
                       title: Tax
-                      '@ondc/org/title_type': tax
+                      '@ondc/org/title_type ': tax
                       price:
                         currency: INR
-                        value: '0'
+                        value: '0.00'
                     - '@ondc/org/item_id': I1
                       title: Discount
-                      '@ondc/org/title_type': discount
+                      '@ondc/org/title_type ': discount
                       price:
-                        currency: INR
-                        value: '-1000'
+                        currency: USD
+                        value: '-1.00'
                     - '@ondc/org/item_id': F1
                       title: Convenience Fee
-                      '@ondc/org/title_type': misc
+                      '@ondc/org/title_type ': misc
                       price:
-                        currency: INR
-                        value: '100'
+                        currency: USD
+                        value: '1.00'
                   ttl: P1D
                 payments:
                   - uri: https://ondc.transaction.com/payment
@@ -5850,15 +5685,6 @@ x-examples:
                         - descriptor:
                             code: finder_fee_amount
                           value: '0'
-                    - descriptor:
-                        code: buyer_id
-                      list:
-                        - descriptor:
-                            code: buyer_id_code
-                          value: tin
-                        - descriptor:
-                            code: buyer_id_no
-                          value: xxxxxxxxxxxxxxx
       select:
         examples:
           - summary: Get quote for specific item
@@ -5895,9 +5721,9 @@ x-examples:
                         - F1
                       quantity:
                         selected:
-                          count: 200
-                      add_ons:
-                        - id: '78787723'
+                          count: 1
+                  offers:
+                    id: offer-1
                   fulfillments:
                     - id: F1
                       type: Delivery
@@ -5917,16 +5743,6 @@ x-examples:
                             phone: '9886098860'
                   payments:
                     - type: PRE-FULFILLMENT
-                  tags:
-                    - descriptor:
-                        code: buyer_id
-                      list:
-                        - descriptor:
-                            code: buyer_id_code
-                          value: tin
-                        - descriptor:
-                            code: buyer_id_no
-                          value: xxxxxxxxxxxxxxx
       init:
         examples:
           - summary: Intializing the order (Exports - RFQ)
@@ -5961,9 +5777,7 @@ x-examples:
                         - F1
                       quantity:
                         selected:
-                          count: 200
-                      add_ons:
-                        - id: '78787723'
+                          count: 1
                   billing:
                     name: ONDC buyer
                     address: B005 aaspire heights, Jurong East, SGP, 680230
@@ -6002,16 +5816,6 @@ x-examples:
                   payments:
                     - type: PRE-FULFILLMENT
                       collected_by: SOR
-                  tags:
-                    - descriptor:
-                        code: buyer_id
-                      list:
-                        - descriptor:
-                            code: buyer_id_code
-                          value: tin
-                        - descriptor:
-                            code: buyer_id_no
-                          value: xxxxxxxxxxxxxxx
       confirm:
         examples:
           - summary: confirmation of the order
@@ -6048,9 +5852,7 @@ x-examples:
                         - F1
                       quantity:
                         selected:
-                          count: 200
-                      add_ons:
-                        - id: '78787723'
+                          count: 1
                   billing:
                     name: ONDC buyer
                     address: >-
@@ -6083,51 +5885,51 @@ x-examples:
                             phone: '9886098860'
                   quote:
                     price:
-                      currency: INR
-                      value: '53600'
+                      currency: USD
+                      value: '15.00'
                     breakup:
-                      - '@ondc/org/item_id': I1
+                      - '@ondc/org/item_id ': I1
                         '@ondc/org/item_quantity':
-                          count: 200
-                        title: Dhara Mustard Oil
-                        '@ondc/org/title_type': item
+                          count: 1
+                        title: Allen Solly Men T-shirt
+                        '@ondc/org/title_type ': item
                         price:
-                          currency: INR
-                          value: '50000'
+                          currency: USD
+                          value: '10.00'
                         item:
                           price:
-                            currency: INR
-                            value: '250'
+                            currency: USD
+                            value: '10.00'
                       - '@ondc/org/item_id': F1
                         title: Delivery charges
-                        '@ondc/org/title_type': delivery
+                        '@ondc/org/title_type ': delivery
                         price:
-                          currency: INR
-                          value: '4000'
+                          currency: USD
+                          value: '2.00'
                       - '@ondc/org/item_id': F1
                         title: Packing charges
-                        '@ondc/org/title_type': packing
+                        '@ondc/org/title_type ': packing
                         price:
-                          currency: INR
-                          value: '500'
+                          currency: USD
+                          value: '5.00'
                       - '@ondc/org/item_id': I1
                         title: Tax
-                        '@ondc/org/title_type': tax
+                        '@ondc/org/title_type ': tax
                         price:
                           currency: INR
-                          value: '0'
+                          value: '0.00'
                       - '@ondc/org/item_id': I1
                         title: Discount
-                        '@ondc/org/title_type': discount
+                        '@ondc/org/title_type ': discount
                         price:
-                          currency: INR
-                          value: '-1000'
+                          currency: USD
+                          value: '-1.00'
                       - '@ondc/org/item_id': F1
                         title: Convenience Fee
-                        '@ondc/org/title_type': misc
+                        '@ondc/org/title_type ': misc
                         price:
-                          currency: INR
-                          value: '100'
+                          currency: USD
+                          value: '1.00'
                     ttl: P1D
                   payments:
                     - params:
@@ -6151,16 +5953,6 @@ x-examples:
                           beneficiary_name: xxxxx
                           bank_name: xxxx
                           branch_name: xxxx
-                  tags:
-                    - descriptor:
-                        code: buyer_id
-                      list:
-                        - descriptor:
-                            code: buyer_id_code
-                          value: tin
-                        - descriptor:
-                            code: buyer_id_no
-                          value: xxxxxxxxxxxxxxx
                     - descriptor:
                         code: bpp_terms
                       list:
@@ -6348,22 +6140,16 @@ x-examples:
                               value: L1
                             - descriptor:
                                 code: category
-                              value: RET1A-1012
+                              value: RET12-1012
                             - descriptor:
                                 code: type
                               value: '12'
                             - descriptor:
                                 code: val
-                              value: IND
+                              value: SGP
                             - descriptor:
                                 code: unit
                               value: country
-                        - descriptor:
-                            code: seller_terms
-                          list:
-                            - descriptor:
-                                code: gst_credit_invoice
-                              value: 'Y'
                         - descriptor:
                             code: seller_id
                           list:
@@ -6407,7 +6193,7 @@ x-examples:
                           parent_item_id: V1
                           descriptor:
                             name: Allen Solly Men T-shirt
-                            code: UPC / EAN code
+                            code: 4:others
                             short_desc: Allen Solly Men T-shirt
                             long_desc: Allen Solly Men T-shirt
                             images:
@@ -6427,30 +6213,21 @@ x-examples:
                                 phone: '18001801018'
                                 email: consumer.services@xxxx.com
                           price:
-                            currency: INR
-                            value: '300.00'
-                            offered_value: '250.00'
-                            maximum_value: '350.00'
+                            currency: USD
+                            value: '11.00'
+                            offered_value: '10.00'
+                            maximum_value: '12.00'
                           quantity:
                             unitized:
                               measure:
                                 unit: unit
                                 value: '1'
                             available:
-                              measure:
-                                unit: unit
-                                value: '1'
-                              count: 99
+                              count: 5
                             maximum:
-                              measure:
-                                unit: unit
-                                value: '1'
-                              count: 99
+                              count: 5
                             minimum:
-                              measure:
-                                unit: unit
-                                value: '1'
-                              count: 99
+                              count: 5
                           category_ids:
                             - RET12-102F
                           fulfillment_ids:
@@ -6467,7 +6244,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: USD
                                   value: '0'
                             - fulfillment_state:
                                 descriptor:
@@ -6476,8 +6253,14 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: USD
                                   value: '0'
+                            - fulfillment_state:
+                                descriptor:
+                                  code: Domestic Custom Cleared
+                              reason_required: true
+                              cancellation_fee:
+                                percentage: '100'
                           return_terms:
                             - fulfillment_state:
                                 descriptor:
@@ -6567,59 +6350,11 @@ x-examples:
                                 - descriptor:
                                     code: cancellable
                                   value: 'true'
-                            - descriptor:
-                                code: g3
-                              list:
-                                - descriptor:
-                                    code: brand
-                                  value: Dhara
-                                - descriptor:
-                                    code: pack_size
-                                  value: '5'
-                                - descriptor:
-                                    code: num_price_slabs
-                                  value: '3'
-                            - descriptor:
-                                code: price_slab
-                              list:
-                                - descriptor:
-                                    code: min_pack_size
-                                  value: '1'
-                                - descriptor:
-                                    code: max_pack_size
-                                  value: '4'
-                                - descriptor:
-                                    code: unit_sale_price
-                                  value: '250'
-                            - descriptor:
-                                code: price_slab
-                              list:
-                                - descriptor:
-                                    code: min_pack_size
-                                  value: '5'
-                                - descriptor:
-                                    code: max_pack_size
-                                  value: '9'
-                                - descriptor:
-                                    code: unit_sale_price
-                                  value: '200'
-                            - descriptor:
-                                code: price_slab
-                              list:
-                                - descriptor:
-                                    code: min_pack_size
-                                  value: '10'
-                                - descriptor:
-                                    code: max_pack_size
-                                  value: ''
-                                - descriptor:
-                                    code: unit_sale_price
-                                  value: '175'
                         - id: I2
                           parent_item_id: V1
                           descriptor:
                             name: Allen Solly Men T-shirt
-                            code: UPC / EAN code
+                            code: 4:others
                             short_desc: Allen Solly Men T-shirt
                             long_desc: Allen Solly Men T-shirt
                             images:
@@ -6639,25 +6374,21 @@ x-examples:
                                 phone: '18001801018'
                                 email: consumer.services@xxxx.com
                           price:
-                            currency: INR
-                            value: '300.00'
-                            offered_value: '250.00'
-                            maximum_value: '350.00'
+                            currency: USD
+                            value: '25.00'
+                            offered_value: '20.00'
+                            maximum_value: '27.00'
                           quantity:
                             unitized:
                               measure:
                                 unit: unit
                                 value: '1'
                             available:
-                              measure:
-                                unit: unit
-                                value: '1'
-                              count: 99
+                              count: 5
                             maximum:
-                              measure:
-                                unit: unit
-                                value: '1'
-                              count: 99
+                              count: 5
+                            minimum:
+                              count: 5
                           category_ids:
                             - RET12-102F
                           fulfillment_ids:
@@ -6685,6 +6416,12 @@ x-examples:
                                 amount:
                                   currency: IND
                                   value: '0'
+                            - fulfillment_state:
+                                descriptor:
+                                  code: Domestic Custom Cleared
+                              reason_required: true
+                              cancellation_fee:
+                                percentage: '100'
                           return_terms:
                             - fulfillment_state:
                                 descriptor:
@@ -6774,54 +6511,6 @@ x-examples:
                                 - descriptor:
                                     code: cancellable
                                   value: 'true'
-                            - descriptor:
-                                code: g3
-                              list:
-                                - descriptor:
-                                    code: brand
-                                  value: Dhara
-                                - descriptor:
-                                    code: pack_size
-                                  value: '5'
-                                - descriptor:
-                                    code: num_price_slabs
-                                  value: '3'
-                            - descriptor:
-                                code: price_slab
-                              list:
-                                - descriptor:
-                                    code: min_pack_size
-                                  value: '1'
-                                - descriptor:
-                                    code: max_pack_size
-                                  value: '4'
-                                - descriptor:
-                                    code: unit_sale_price
-                                  value: '250'
-                            - descriptor:
-                                code: price_slab
-                              list:
-                                - descriptor:
-                                    code: min_pack_size
-                                  value: '5'
-                                - descriptor:
-                                    code: max_pack_size
-                                  value: '9'
-                                - descriptor:
-                                    code: unit_sale_price
-                                  value: '200'
-                            - descriptor:
-                                code: price_slab
-                              list:
-                                - descriptor:
-                                    code: min_pack_size
-                                  value: '10'
-                                - descriptor:
-                                    code: max_pack_size
-                                  value: ''
-                                - descriptor:
-                                    code: unit_sale_price
-                                  value: '175'
                       offers:
                         - id: offer-1
                           descriptor:
@@ -6833,7 +6522,8 @@ x-examples:
                               - url: https://abc.com/images/207.png
                           location_ids: []
                           category_ids: []
-                          item_ids: []
+                          item_ids:
+                            - I1
                           time:
                             label: validity
                             range:
@@ -6929,16 +6619,10 @@ x-examples:
                               value: '12'
                             - descriptor:
                                 code: val
-                              value: IND
+                              value: SGP
                             - descriptor:
                                 code: unit
                               value: country
-                        - descriptor:
-                            code: seller_terms
-                          list:
-                            - descriptor:
-                                code: gst_credit_invoice
-                              value: 'Y'
                         - descriptor:
                             code: seller_id
                           list:
@@ -6994,7 +6678,7 @@ x-examples:
                           parent_item_id: V1
                           descriptor:
                             name: Dhara Mustard Oil
-                            code: UPC / EAN code
+                            code: 5:others
                             short_desc: Dhara refined mustard oil
                             long_desc: Dhara refined mustard oil
                             images:
@@ -7015,30 +6699,21 @@ x-examples:
                                 phone: '18001801018'
                                 email: consumer.services@motherdairy.com
                           price:
-                            currency: INR
-                            value: '300.00'
-                            offered_value: '250.00'
-                            maximum_value: '350.00'
+                            currency: USF
+                            value: '25.00'
+                            offered_value: '20.00'
+                            maximum_value: '30.00'
                           quantity:
                             unitized:
                               measure:
                                 unit: millilitre
                                 value: '500'
                             available:
-                              measure:
-                                unit: millilitre
-                                value: '500'
-                              count: 2000
+                              count: 5
                             maximum:
-                              measure:
-                                unit: millilitre
-                                value: '500'
-                              count: 4000
+                              count: 5
                             minimum:
-                              measure:
-                                unit: millilitre
-                                value: '500'
-                              count: 4000
+                              count: 5
                           category_ids:
                             - RET10-1042
                           fulfillment_ids:
@@ -7047,19 +6722,6 @@ x-examples:
                             - L1
                           payment_ids:
                             - '2'
-                          add_ons:
-                            - id: '78787723'
-                              descriptor:
-                                name: Dhara Sunflower Oil
-                                short_desc: Dhara Sunflower Oil
-                                long_desc: Dhara Sunflower Oil
-                                images:
-                                  - url: https://abc.com/images/208.png
-                              price:
-                                currency: INR
-                                value: '170.0'
-                                offered_value: '100.0'
-                                maximum_value: '170.0'
                           cancellation_terms:
                             - fulfillment_state:
                                 descriptor:
@@ -7068,7 +6730,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: USD
                                   value: '0'
                             - fulfillment_state:
                                 descriptor:
@@ -7077,8 +6739,14 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: USD
                                   value: '0'
+                            - fulfillment_state:
+                                descriptor:
+                                  code: Domestic Custom Cleared
+                              reason_required: true
+                              cancellation_fee:
+                                percentage: '100'
                           return_terms:
                             - fulfillment_state:
                                 descriptor:
@@ -7134,54 +6802,6 @@ x-examples:
                                 - descriptor:
                                     code: cancellable
                                   value: 'true'
-                            - descriptor:
-                                code: g3
-                              list:
-                                - descriptor:
-                                    code: brand
-                                  value: Dhara
-                                - descriptor:
-                                    code: pack_size
-                                  value: '5'
-                                - descriptor:
-                                    code: num_price_slabs
-                                  value: '3'
-                            - descriptor:
-                                code: price_slab
-                              list:
-                                - descriptor:
-                                    code: min_pack_size
-                                  value: '1'
-                                - descriptor:
-                                    code: max_pack_size
-                                  value: '4'
-                                - descriptor:
-                                    code: unit_sale_price
-                                  value: '250'
-                            - descriptor:
-                                code: price_slab
-                              list:
-                                - descriptor:
-                                    code: min_pack_size
-                                  value: '5'
-                                - descriptor:
-                                    code: max_pack_size
-                                  value: '9'
-                                - descriptor:
-                                    code: unit_sale_price
-                                  value: '200'
-                            - descriptor:
-                                code: price_slab
-                              list:
-                                - descriptor:
-                                    code: min_pack_size
-                                  value: '10'
-                                - descriptor:
-                                    code: max_pack_size
-                                  value: ''
-                                - descriptor:
-                                    code: unit_sale_price
-                                  value: '175'
                       offers:
                         - id: offer-1
                           descriptor:
@@ -7193,7 +6813,8 @@ x-examples:
                               - url: https://abc.com/images/207.png
                           location_ids: []
                           category_ids: []
-                          item_ids: []
+                          item_ids:
+                            - I1
                           time:
                             label: validity
                             range:
@@ -7223,7 +6844,7 @@ x-examples:
                 bpp_uri: https://sellerapp.com/grocery
                 transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
                 message_id: 4e90afaf-2d02-4ed9-9659-45d702a82f8e
-                timestamp: 2023-01-08T22:00:30.000Z
+                timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
                 order:
@@ -7237,9 +6858,7 @@ x-examples:
                       id: I1
                       quantity:
                         selected:
-                          count: 200
-                      add_ons:
-                        - id: '78787723'
+                          count: 1
                   fulfillments:
                     - id: F1
                       '@ondc/org/provider_name': Loadshare
@@ -7251,51 +6870,51 @@ x-examples:
                           code: Serviceable
                   quote:
                     price:
-                      currency: INR
-                      value: '53600'
+                      currency: USD
+                      value: '15.00'
                     breakup:
-                      - '@ondc/org/item_id': I1
+                      - '@ondc/org/item_id ': I1
                         '@ondc/org/item_quantity':
-                          count: 200
-                        title: Dhara Mustard Oil
-                        '@ondc/org/title_type': item
+                          count: 1
+                        title: Allen Solly Men T-shirt
+                        '@ondc/org/title_type ': item
                         price:
-                          currency: INR
-                          value: '50000'
+                          currency: USD
+                          value: '10.00'
                         item:
                           price:
-                            currency: INR
-                            value: '250'
+                            currency: USD
+                            value: '10.00'
                       - '@ondc/org/item_id': F1
                         title: Delivery charges
-                        '@ondc/org/title_type': delivery
+                        '@ondc/org/title_type ': delivery
                         price:
-                          currency: INR
-                          value: '4000'
+                          currency: USD
+                          value: '2.00'
                       - '@ondc/org/item_id': F1
                         title: Packing charges
-                        '@ondc/org/title_type': packing
+                        '@ondc/org/title_type ': packing
                         price:
-                          currency: INR
-                          value: '500'
+                          currency: USD
+                          value: '5.00'
                       - '@ondc/org/item_id': I1
                         title: Tax
-                        '@ondc/org/title_type': tax
+                        '@ondc/org/title_type ': tax
                         price:
                           currency: INR
-                          value: '0'
+                          value: '0.00'
                       - '@ondc/org/item_id': I1
                         title: Discount
-                        '@ondc/org/title_type': discount
+                        '@ondc/org/title_type ': discount
                         price:
-                          currency: INR
-                          value: '-1000'
+                          currency: USD
+                          value: '-1.00'
                       - '@ondc/org/item_id': F1
                         title: Convenience Fee
-                        '@ondc/org/title_type': misc
+                        '@ondc/org/title_type ': misc
                         price:
-                          currency: INR
-                          value: '100'
+                          currency: USD
+                          value: '1.00'
                     ttl: P1D
                   payments:
                     - type: PRE-FULFILLMENT
@@ -7326,17 +6945,15 @@ x-examples:
                 order:
                   provider:
                     id: P1
-                  provider_location:
-                    id: L1
+                    locations:
+                      id: L1
                   items:
                     - id: I1
                       fulfillment_ids:
                         - F1
                       quantity:
                         selected:
-                          count: 200
-                      add_ons:
-                        - id: '78787723'
+                          count: 1
                   billing:
                     name: ONDC buyer
                     address: B005 aaspire heights, Jurong East, SGP, 680230
@@ -7370,51 +6987,51 @@ x-examples:
                             phone: '9886098860'
                   quote:
                     price:
-                      currency: INR
-                      value: '53600'
+                      currency: USD
+                      value: '15.00'
                     breakup:
-                      - '@ondc/org/item_id': I1
+                      - '@ondc/org/item_id ': I1
                         '@ondc/org/item_quantity':
-                          count: 200
-                        title: Dhara Mustard Oil
-                        '@ondc/org/title_type': item
+                          count: 1
+                        title: Allen Solly Men T-shirt
+                        '@ondc/org/title_type ': item
                         price:
-                          currency: INR
-                          value: '50000'
+                          currency: USD
+                          value: '10.00'
                         item:
                           price:
-                            currency: INR
-                            value: '250'
+                            currency: USD
+                            value: '10.00'
                       - '@ondc/org/item_id': F1
                         title: Delivery charges
-                        '@ondc/org/title_type': delivery
+                        '@ondc/org/title_type ': delivery
                         price:
-                          currency: INR
-                          value: '4000'
+                          currency: USD
+                          value: '2.00'
                       - '@ondc/org/item_id': F1
                         title: Packing charges
-                        '@ondc/org/title_type': packing
+                        '@ondc/org/title_type ': packing
                         price:
-                          currency: INR
-                          value: '500'
+                          currency: USD
+                          value: '5.00'
                       - '@ondc/org/item_id': I1
                         title: Tax
-                        '@ondc/org/title_type': tax
+                        '@ondc/org/title_type ': tax
                         price:
                           currency: INR
-                          value: '0'
+                          value: '0.00'
                       - '@ondc/org/item_id': I1
                         title: Discount
-                        '@ondc/org/title_type': discount
+                        '@ondc/org/title_type ': discount
                         price:
-                          currency: INR
-                          value: '-1000'
+                          currency: USD
+                          value: '-1.00'
                       - '@ondc/org/item_id': F1
                         title: Convenience Fee
-                        '@ondc/org/title_type': misc
+                        '@ondc/org/title_type ': misc
                         price:
-                          currency: INR
-                          value: '100'
+                          currency: USD
+                          value: '1.00'
                     ttl: P1D
                   cancellation_terms:
                     - fulfillment_state:
@@ -7435,6 +7052,12 @@ x-examples:
                         amount:
                           currency: IND
                           value: '0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Domestic Custom Cleared
+                      reason_required: true
+                      cancellation_fee:
+                        percentage: '100'
                   payments:
                     - type: PRE-FULFILLMENT
                       collected_by: SOR
@@ -7444,16 +7067,6 @@ x-examples:
                       '@ondc/org/settlement_basis': delivery
                       '@ondc/org/settlement_window': P1D
                       '@ondc/org/withholding_amount': '10.00'
-                  tags:
-                    - descriptor:
-                        code: buyer_id
-                      list:
-                        - descriptor:
-                            code: buyer_id_code
-                          value: tin
-                        - descriptor:
-                            code: buyer_id_no
-                          value: xxxxxxxxxxxxxxx
                     - descriptor:
                         code: bpp_terms
                       list:
@@ -7509,9 +7122,7 @@ x-examples:
                         - F1
                       quantity:
                         selected:
-                          count: 200
-                      add_ons:
-                        - id: '78787723'
+                          count: 1
                   billing:
                     name: ONDC buyer
                     address: B005 aaspire heights, Jurong East, SGP, 680230
@@ -7563,51 +7174,51 @@ x-examples:
                       rateable: true
                   quote:
                     price:
-                      currency: INR
-                      value: '53600'
+                      currency: USD
+                      value: '15.00'
                     breakup:
-                      - '@ondc/org/item_id': I1
+                      - '@ondc/org/item_id ': I1
                         '@ondc/org/item_quantity':
-                          count: 200
-                        title: Dhara Mustard Oil
-                        '@ondc/org/title_type': item
+                          count: 1
+                        title: Allen Solly Men T-shirt
+                        '@ondc/org/title_type ': item
                         price:
-                          currency: INR
-                          value: '50000'
+                          currency: USD
+                          value: '10.00'
                         item:
                           price:
-                            currency: INR
-                            value: '250'
+                            currency: USD
+                            value: '10.00'
                       - '@ondc/org/item_id': F1
                         title: Delivery charges
-                        '@ondc/org/title_type': delivery
+                        '@ondc/org/title_type ': delivery
                         price:
-                          currency: INR
-                          value: '4000'
+                          currency: USD
+                          value: '2.00'
                       - '@ondc/org/item_id': F1
                         title: Packing charges
-                        '@ondc/org/title_type': packing
+                        '@ondc/org/title_type ': packing
                         price:
-                          currency: INR
-                          value: '500'
+                          currency: USD
+                          value: '5.00'
                       - '@ondc/org/item_id': I1
                         title: Tax
-                        '@ondc/org/title_type': tax
+                        '@ondc/org/title_type ': tax
                         price:
                           currency: INR
-                          value: '0'
+                          value: '0.00'
                       - '@ondc/org/item_id': I1
                         title: Discount
-                        '@ondc/org/title_type': discount
+                        '@ondc/org/title_type ': discount
                         price:
-                          currency: INR
-                          value: '-1000'
+                          currency: USD
+                          value: '-1.00'
                       - '@ondc/org/item_id': F1
                         title: Convenience Fee
-                        '@ondc/org/title_type': misc
+                        '@ondc/org/title_type ': misc
                         price:
-                          currency: INR
-                          value: '100'
+                          currency: USD
+                          value: '1.00'
                     ttl: P1D
                   payments:
                     - params:
@@ -7632,16 +7243,6 @@ x-examples:
                           settlement_ifsc_code: XXXXXXXXX
                           bank_name: xxxx
                           branch_name: xxxx
-                  tags:
-                    - descriptor:
-                        code: buyer_id
-                      list:
-                        - descriptor:
-                            code: buyer_id_code
-                          value: tin
-                        - descriptor:
-                            code: buyer_id_no
-                          value: xxxxxxxxxxxxxxx
                     - descriptor:
                         code: bpp_terms
                       list:
@@ -7704,7 +7305,7 @@ x-examples:
                         - F1
                       quantity:
                         selected:
-                          count: 200
+                          count: 1
                   billing:
                     name: ONDC buyer
                     address: B005 aaspire heights, Jurong East, SGP, 680230
@@ -7775,51 +7376,51 @@ x-examples:
                               phone: '9886098860'
                   quote:
                     price:
-                      currency: INR
-                      value: '53600'
+                      currency: USD
+                      value: '15.00'
                     breakup:
-                      - '@ondc/org/item_id': I1
+                      - '@ondc/org/item_id ': I1
                         '@ondc/org/item_quantity':
-                          count: 200
-                        title: Dhara Mustard Oil
-                        '@ondc/org/title_type': item
+                          count: 1
+                        title: Allen Solly Men T-shirt
+                        '@ondc/org/title_type ': item
                         price:
-                          currency: INR
-                          value: '50000'
+                          currency: USD
+                          value: '10.00'
                         item:
                           price:
-                            currency: INR
-                            value: '250'
+                            currency: USD
+                            value: '10.00'
                       - '@ondc/org/item_id': F1
                         title: Delivery charges
-                        '@ondc/org/title_type': delivery
+                        '@ondc/org/title_type ': delivery
                         price:
-                          currency: INR
-                          value: '4000'
+                          currency: USD
+                          value: '2.00'
                       - '@ondc/org/item_id': F1
                         title: Packing charges
-                        '@ondc/org/title_type': packing
+                        '@ondc/org/title_type ': packing
                         price:
-                          currency: INR
-                          value: '500'
+                          currency: USD
+                          value: '5.00'
                       - '@ondc/org/item_id': I1
                         title: Tax
-                        '@ondc/org/title_type': tax
+                        '@ondc/org/title_type ': tax
                         price:
                           currency: INR
-                          value: '0'
+                          value: '0.00'
                       - '@ondc/org/item_id': I1
                         title: Discount
-                        '@ondc/org/title_type': discount
+                        '@ondc/org/title_type ': discount
                         price:
-                          currency: INR
-                          value: '-1000'
+                          currency: USD
+                          value: '-1.00'
                       - '@ondc/org/item_id': F1
                         title: Convenience Fee
-                        '@ondc/org/title_type': misc
+                        '@ondc/org/title_type ': misc
                         price:
-                          currency: INR
-                          value: '100'
+                          currency: USD
+                          value: '1.00'
                     ttl: P1D
                   payments:
                     - uri: https://ondc.transaction.com/payment
@@ -7885,7 +7486,7 @@ x-examples:
                         - F1
                       quantity:
                         selected:
-                          count: 200
+                          count: 1
                   billing:
                     name: ONDC buyer
                     address: B005 aaspire heights, Jurong East, SGP, 680230
@@ -7956,51 +7557,51 @@ x-examples:
                               phone: '9886098860'
                   quote:
                     price:
-                      currency: INR
-                      value: '53600'
+                      currency: USD
+                      value: '15.00'
                     breakup:
-                      - '@ondc/org/item_id': I1
+                      - '@ondc/org/item_id ': I1
                         '@ondc/org/item_quantity':
-                          count: 200
-                        title: Dhara Mustard Oil
-                        '@ondc/org/title_type': item
+                          count: 1
+                        title: Allen Solly Men T-shirt
+                        '@ondc/org/title_type ': item
                         price:
-                          currency: INR
-                          value: '50000'
+                          currency: USD
+                          value: '10.00'
                         item:
                           price:
-                            currency: INR
-                            value: '250'
+                            currency: USD
+                            value: '10.00'
                       - '@ondc/org/item_id': F1
                         title: Delivery charges
-                        '@ondc/org/title_type': delivery
+                        '@ondc/org/title_type ': delivery
                         price:
-                          currency: INR
-                          value: '4000'
+                          currency: USD
+                          value: '2.00'
                       - '@ondc/org/item_id': F1
                         title: Packing charges
-                        '@ondc/org/title_type': packing
+                        '@ondc/org/title_type ': packing
                         price:
-                          currency: INR
-                          value: '500'
+                          currency: USD
+                          value: '5.00'
                       - '@ondc/org/item_id': I1
                         title: Tax
-                        '@ondc/org/title_type': tax
+                        '@ondc/org/title_type ': tax
                         price:
                           currency: INR
-                          value: '0'
+                          value: '0.00'
                       - '@ondc/org/item_id': I1
                         title: Discount
-                        '@ondc/org/title_type': discount
+                        '@ondc/org/title_type ': discount
                         price:
-                          currency: INR
-                          value: '-1000'
+                          currency: USD
+                          value: '-1.00'
                       - '@ondc/org/item_id': F1
                         title: Convenience Fee
-                        '@ondc/org/title_type': misc
+                        '@ondc/org/title_type ': misc
                         price:
-                          currency: INR
-                          value: '100'
+                          currency: USD
+                          value: '1.00'
                     ttl: P1D
                   payments:
                     - uri: https://ondc.transaction.com/payment
@@ -8066,7 +7667,7 @@ x-examples:
                         - F1
                       quantity:
                         selected:
-                          count: 200
+                          count: 1
                   billing:
                     name: ONDC buyer
                     address: B005 aaspire heights, Jurong East, SGP, 680230
@@ -8138,51 +7739,51 @@ x-examples:
                               phone: '9886098860'
                   quote:
                     price:
-                      currency: INR
-                      value: '53600'
+                      currency: USD
+                      value: '15.00'
                     breakup:
-                      - '@ondc/org/item_id': I1
+                      - '@ondc/org/item_id ': I1
                         '@ondc/org/item_quantity':
-                          count: 200
-                        title: Dhara Mustard Oil
-                        '@ondc/org/title_type': item
+                          count: 1
+                        title: Allen Solly Men T-shirt
+                        '@ondc/org/title_type ': item
                         price:
-                          currency: INR
-                          value: '50000'
+                          currency: USD
+                          value: '10.00'
                         item:
                           price:
-                            currency: INR
-                            value: '250'
+                            currency: USD
+                            value: '10.00'
                       - '@ondc/org/item_id': F1
                         title: Delivery charges
-                        '@ondc/org/title_type': delivery
+                        '@ondc/org/title_type ': delivery
                         price:
-                          currency: INR
-                          value: '4000'
+                          currency: USD
+                          value: '2.00'
                       - '@ondc/org/item_id': F1
                         title: Packing charges
-                        '@ondc/org/title_type': packing
+                        '@ondc/org/title_type ': packing
                         price:
-                          currency: INR
-                          value: '500'
+                          currency: USD
+                          value: '5.00'
                       - '@ondc/org/item_id': I1
                         title: Tax
-                        '@ondc/org/title_type': tax
+                        '@ondc/org/title_type ': tax
                         price:
                           currency: INR
-                          value: '0'
+                          value: '0.00'
                       - '@ondc/org/item_id': I1
                         title: Discount
-                        '@ondc/org/title_type': discount
+                        '@ondc/org/title_type ': discount
                         price:
-                          currency: INR
-                          value: '-1000'
+                          currency: USD
+                          value: '-1.00'
                       - '@ondc/org/item_id': F1
                         title: Convenience Fee
-                        '@ondc/org/title_type': misc
+                        '@ondc/org/title_type ': misc
                         price:
-                          currency: INR
-                          value: '100'
+                          currency: USD
+                          value: '1.00'
                     ttl: P1D
                   payments:
                     - uri: https://ondc.transaction.com/payment
