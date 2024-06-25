@@ -6,12 +6,6 @@ intent:
       required: required
       list:
         $ref: "./Tag.yaml#/bap_terms/search"
-    - code: BUYER_ID
-      description: Buyer identification information like GST, etc. 
-      reference: <PR/Issue/Discussion Links md format text>
-      required: required
-      list:
-        $ref: "./Tag.yaml#/buyer_id"
 providers:
   tags:
     - code: SERVICEABILITY
@@ -23,7 +17,7 @@ providers:
     - code: SELLER_TERMS
       description: Seller terms like if they provide GST Credit invoice is specified here.
       reference: <PR/Issue/Discussion Links md format text>
-      required: required
+      required: optional
       list:
         $ref: "./Tag.yaml#/seller_terms"
     - code: SELLER_ID
@@ -65,18 +59,6 @@ catalog:
         required: required
         list:
           $ref: "./Tag.yaml#/g2"
-      - code: G3
-        description: Tag group for details like brand, pack size, etc.
-        reference: <PR/Issue/Discussion Links md format text>
-        required: required
-        list:
-          $ref: "./Tag.yaml#/g3"
-      - code: PRICE_SLAB
-        description: The different price slabs availble for the item and their respective prices.
-        reference: <PR/Issue/Discussion Links md format text>
-        required: optional
-        list:
-         $ref: "./Tag.yaml#/price_slab"
 order:
   items:
     tags:
@@ -87,12 +69,6 @@ order:
         list:
           $ref: "./Tag.yaml#/buyer_terms"
   tags:
-    - code: BUYER_ID
-      description: Buyer identification information.
-      reference: <PR/Issue/Discussion Links md format text>
-      required: required
-      list:
-        $ref: "./Tag.yaml#/buyer_id"
     - code: COMM_CHANNEL
       description: Communication channel is provided for buyer and seller to discuss customizations or price negotiation, etc.
       reference: <PR/Issue/Discussion Links md format text>
@@ -122,12 +98,6 @@ fulfillments:
       required: optional
       list:
         $ref: "./Tag.yaml#/item_details"
-    - code: DELIVERY_TERMS
-      description: Information about delivery terms and responsbilities like incoterms, etc. for exports.
-      reference: <PR/Issue/Discussion Links md format text>
-      required: optional
-      list:
-        $ref: "./Tag.yaml#/delivery_terms"
 payments:
     - code: BPP_PAYMENT
       description: Payment information sent by the seller app in case BPP is collecting the prepaid payment. 

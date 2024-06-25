@@ -3190,17 +3190,6 @@ x-tags:
                   in INR. If set to “percent” it means the Buyer App’s fee is
                   set as a percentage of the Total Order Value.
                 reference: <PR/Issue/Discussion Links md format text>
-          - code: BUYER_ID
-            description: Buyer identification information like GST, etc.
-            reference: <PR/Issue/Discussion Links md format text>
-            required: required
-            list: &ref_8
-              - code: BUYER_ID_CODE
-                description: The type of Buyer ID, such as GST, etc.
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: BUYER_ID_NO
-                description: The actual Buyer ID number.
-                reference: <PR/Issue/Discussion Links md format text>
   on_search:
     message:
       catalog:
@@ -3385,36 +3374,6 @@ x-tags:
                   - code: CANCELLABLE
                     description: if the item is cancellable or not
                     reference: <PR/Issue/Discussion Links md format text>
-              - code: G3
-                description: Tag group for details like brand, pack size, etc.
-                reference: <PR/Issue/Discussion Links md format text>
-                required: required
-                list:
-                  - code: BRAND
-                    description: brand of the item
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: PACK_SIZE
-                    description: item is available in the pack size of
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: NUM_PRICE_SLABS
-                    description: different price slabs available for the item
-                    reference: <PR/Issue/Discussion Links md format text>
-              - code: PRICE_SLAB
-                description: >-
-                  The different price slabs availble for the item and their
-                  respective prices.
-                reference: <PR/Issue/Discussion Links md format text>
-                required: optional
-                list:
-                  - code: MIN_PACK_SIZE
-                    description: Description about the tags
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: MAX_PACK_SIZE
-                    description: Description about the tags
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: UNIT_SALE_PRICE
-                    description: Description about the tags
-                    reference: <PR/Issue/Discussion Links md format text>
           tags:
             - code: SERVICEABILITY
               description: >-
@@ -3472,7 +3431,7 @@ x-tags:
                 Seller terms like if they provide GST Credit invoice is
                 specified here.
               reference: <PR/Issue/Discussion Links md format text>
-              required: required
+              required: optional
               list:
                 - code: GST_CREDIT_INVOICE
                   description: >-
@@ -3497,16 +3456,10 @@ x-tags:
                 - code: SELLER_ID_NO
                   description: The actual Seller ID number.
                   reference: <PR/Issue/Discussion Links md format text>
-  select: &ref_9
+  select: &ref_8
     message:
       order:
         '0':
-          code: BUYER_ID
-          description: Buyer identification information.
-          reference: <PR/Issue/Discussion Links md format text>
-          required: required
-          list: *ref_8
-        '1':
           code: COMM_CHANNEL
           description: >-
             Communication channel is provided for buyer and seller to discuss
@@ -3536,7 +3489,7 @@ x-tags:
                     Any specific requirements related to the fulfillment or
                     packaging of the item.
                   reference: <PR/Issue/Discussion Links md format text>
-        fulfillments: &ref_10
+        fulfillments: &ref_9
           tags:
             - code: ITEM_DETAILS
               description: Details of the item for multiple fulfillments
@@ -3555,60 +3508,8 @@ x-tags:
                 - code: MEASURE_VALUE
                   description: The value of the item in the specified measurement unit.
                   reference: <PR/Issue/Discussion Links md format text>
-            - code: DELIVERY_TERMS
-              description: >-
-                Information about delivery terms and responsbilities like
-                incoterms, etc. for exports.
-              reference: <PR/Issue/Discussion Links md format text>
-              required: optional
-              list:
-                - code: INCOTERMS
-                  description: Description about the tags
-                  reference: <PR/Issue/Discussion Links md format text>
-                  value:
-                    - code: CIF
-                      description: >-
-                        CIF (Cost, Insurance, and Freight) indicates that the
-                        seller has the responsibility to deliver the goods to
-                        the named port of destination, covering the cost of
-                        transportation, insurance, and freight charges.
-                      reference: <PR/Issue/Discussion Links md format text>
-                    - code: EXW
-                      description: >-
-                        EXW (Ex Works) represents the point at which the
-                        seller's responsibility for the goods ends and the
-                        buyer's responsibility begins in an international
-                        transaction.
-                      reference: <PR/Issue/Discussion Links md format text>
-                    - code: FOB
-                      description: >-
-                        FOB (Free On Board) terms define the point at which the
-                        seller fulfills their obligation to deliver the goods,
-                        and the buyer takes on the responsibility and costs
-                        associated with transporting the goods from the named
-                        port of shipment to the final destination
-                      reference: <PR/Issue/Discussion Links md format text>
-                    - code: DAP
-                      description: >-
-                        under DAP (Delivered at Place) terms, the seller takes
-                        on the responsibility and costs of delivering the goods
-                        to a named place at the buyer's destination.
-                      reference: <PR/Issue/Discussion Links md format text>
-                    - code: DDP
-                      description: >-
-                        Under DDP (Delivered Duty Paid) terms, the seller
-                        assumes a high level of responsibility and covers all
-                        costs associated with delivering the goods to the
-                        buyer's destination. The buyer, on the other hand, is
-                        responsible for unloading the goods and any subsequent
-                        transportation from the named place to their final
-                        destination.
-                      reference: <PR/Issue/Discussion Links md format text>
-                - code: NAMED_PLACE_OF_DELIVERY
-                  description: Place of delivery based on the incoterm used.
-                  reference: <PR/Issue/Discussion Links md format text>
-  on_select: *ref_9
-  init: *ref_9
+  on_select: *ref_8
+  init: *ref_8
   on_init:
     message:
       order:
@@ -3648,8 +3549,8 @@ x-tags:
                   Network Participant, calculated pro rata for each calendar day
                   of delay.
                 reference: <PR/Issue/Discussion Links md format text>
-        fulfillments: *ref_10
-        payments: &ref_11
+        fulfillments: *ref_9
+        payments: &ref_10
           - code: BPP_PAYMENT
             description: >-
               Payment information sent by the seller app in case BPP is
@@ -3657,24 +3558,13 @@ x-tags:
             reference: <PR/Issue/Discussion Links md format text>
             required: required for BPP collecting prepaid payment
             list:
-              - code: SIGNATURE
-                description: >-
-                  It is a base64 string generated by signing the payment gateway
-                  url with the private key.
+              - code: PAYMENT_TYPE
+                description: OPGSP
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: DSA
-                description: Algorithm used for the signature
+              - code: PAYMENT_PROVIDER
+                description: Payment provider
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: TTL
-                description: >-
-                  TTL for which the payment gateway link is valid for. This TTL
-                  is calculated w.r.t context/ttl and it should be less than or
-                  equal to TTL defined at payment gateway for payment
-                  confirmation. In case of TTL expiry, Payment gateway should
-                  automatically cancel the payment and refund the source if
-                  payment is debited from the source.
-                reference: <PR/Issue/Discussion Links md format text>
-  confirm: &ref_12
+  confirm: &ref_11
     message:
       order:
         tags:
@@ -3686,12 +3576,12 @@ x-tags:
               - code: ACCEPT_BPP_TERMS
                 description: The acceptance of seller terms by the buyer app
                 reference: <PR/Issue/Discussion Links md format text>
-        fulfillments: *ref_10
-        payments: *ref_11
-  on_confirm: *ref_12
-  on_status: *ref_9
-  on_cancel: *ref_9
-  on_update: *ref_9
+        fulfillments: *ref_9
+        payments: *ref_10
+  on_confirm: *ref_11
+  on_status: *ref_8
+  on_cancel: *ref_8
+  on_update: *ref_8
 x-flows:
   - summary: B2C Retail Exports (Order Delivered)
     description: >-
