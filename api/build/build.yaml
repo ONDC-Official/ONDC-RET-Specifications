@@ -4665,6 +4665,7 @@ x-flows:
                           - descriptor:
                               code: payment_provider
                             value: abcd
+                tags:
                   - descriptor:
                       code: bpp_terms
                     list:
@@ -4833,6 +4834,7 @@ x-flows:
                           - descriptor:
                               code: payment_provider
                             value: abcd
+                tags:
                   - descriptor:
                       code: bpp_terms
                     list:
@@ -5030,6 +5032,7 @@ x-flows:
                           - descriptor:
                               code: payment_provider
                             value: abcd
+                tags:
                   - descriptor:
                       code: bpp_terms
                     list:
@@ -5987,6 +5990,7 @@ x-examples:
                             - descriptor:
                                 code: payment_provider
                               value: abcd
+                  tags:
                     - descriptor:
                         code: bpp_terms
                       list:
@@ -7111,6 +7115,7 @@ x-examples:
                             - descriptor:
                                 code: payment_provider
                               value: abcd
+                  tags:
                     - descriptor:
                         code: bpp_terms
                       list:
@@ -7297,6 +7302,7 @@ x-examples:
                             - descriptor:
                                 code: payment_provider
                               value: abcd
+                  tags:
                     - descriptor:
                         code: bpp_terms
                       list:

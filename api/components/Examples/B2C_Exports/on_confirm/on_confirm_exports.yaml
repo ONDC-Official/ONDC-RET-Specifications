@@ -165,6 +165,7 @@ value:
              - descriptor:
                 code: payment_provider
                value: abcd
+      tags:
         - descriptor:
             code: bpp_terms
           list:
