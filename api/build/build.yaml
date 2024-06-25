@@ -8506,7 +8506,7 @@ x-attributes:
                 description: Preferred payment method chosen by the buyer
                 usage: ON-FULFILLMENT
                 reference: if any
-                required: required
+                required: optional
             fulfillments:
               parent: true
               id:
