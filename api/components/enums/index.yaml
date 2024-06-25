@@ -56,8 +56,6 @@ init:
       fulfillments: &fulfillment
         type:
           $ref: "./fulfillments.yaml#/fulfillments/type"
-        tags:
-          $ref: "./fulfillments.yaml#/fulfillments/tags"
 on_init:
   context: *context
   message:
