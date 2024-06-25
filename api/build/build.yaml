@@ -3551,7 +3551,7 @@ x-tags:
                 reference: <PR/Issue/Discussion Links md format text>
         fulfillments: *ref_9
         payments: &ref_10
-          - code: BPP_PAYMENT
+          - code: PAYMENT_TERMS
             description: >-
               Payment information sent by the seller app in case BPP is
               collecting the prepaid payment.
