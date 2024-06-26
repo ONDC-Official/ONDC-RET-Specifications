@@ -105,7 +105,7 @@ message:
         contact.email:
           description: Contact email of the seller or buyer
           required: optional
-          usage: "345234"
+          usage: "xyz@gmail.com"
           reference: if any
       state:
         descriptor.code:

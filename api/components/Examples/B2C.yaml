@@ -1,0 +1,6 @@
+B2B:
+  summary: B2C Exports Use Case Specification
+  description: >-
+   B2C Exports
+  example_set:
+    $ref: "./B2C_Exports/index.yaml"

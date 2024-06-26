@@ -1,27 +1,27 @@
-# ONDC-RET-Specifications
+# Release Notes: B2C Retail Specifications
 
-# Open Network for Digital Commerce (ONDC) Protocol Open API Specifications
+---
 
-## Latest Release
-2.0.2-draft | June 10 2023
+## Summary
 
-## Current Working Draft Version: 
-2.0.2-draft
+This release aims to offer a comprehensive overview of B2C retail specifications for export transactions. It includes API specifications with examples, flows, description of different attributes, tags, enums for buyer and seller applications, enabling seamless communication between them.
 
-## Versioning Scheme
-[Semantic Version Scheme 2.0.0](https://semver.org/)
+---
 
-## Releases
-
-| ONDC Protocol Specification Version | Beckn Protocol Core Specification Version      |
+| ONDC Specifications Version | Beckn Protocol Core Specification Version      |
 |-------------------------------------|------------------------------------------------|
-| 2.0.2-release                        | release=1.x                                   |
+| 2.0-release                        | release=1.x                                   |
 
-ONDC is an ambitious initiative to democratize digital commerce by creating a decentralized network of buyer apps and seller apps through an interoperable protocol specification. 
-ONDC Protocol is maintained by the Open Source Community to create API specifications, schemas and taxonomy for Retail, Logistics and other domains.
 
-Please see [documentation](https://github.com/Open-network-for-digital-commerce/ONDC-Protocol/wiki) for understanding purpose, architecture, and the actual APIs. Participate in the [community discussions](https://github.com/Open-network-for-digital-commerce/ONDC-Protocol/discussions) to leverage ONDC Protocol as well as to contribute towards development of ONDC Protocol by providing ideas, reporting issues, contributing to documentation, and contributing code.
+## Network Participants live on the network
 
-ONDC Retail Developer Guide [link](https://ondc-official.github.io/ONDC-RET-Specifications/)
+- You can access the live list of network participants on the network [here](https://ondc.org/network-participants/).
 
-Please go through the [features document](https://docs.google.com/document/d/1rVWtiCPzQzAVVzlnkCShpH489s8AQMYV23urzbD6ruU/edit?usp=sharing) as well, to understand the transaction flow.
+---
+
+Please refer to the [documentation](https://github.com/Open-network-for-digital-commerce/ONDC-Protocol/wiki) for insights into the purpose, architecture, and detailed APIs. Engage in [community discussions](https://github.com/ONDC-Official/ONDC-RET-Specifications/discussions) to harness the potential of the ONDC network and contribute to its development by sharing ideas, reporting issues, improving documentation, and contributing code.
+
+Explore the [ONDC Retail Developer Guide](https://ondc-official.github.io/ONDC-RET-Specifications/) for comprehensive information.
+
+
+
