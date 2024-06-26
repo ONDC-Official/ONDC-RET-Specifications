@@ -1,35 +1,35 @@
-summary: Seller cancels the order
-description: Seller cancels the order
+summary: Seller app confirms order cancellations
+description: Seller app confirms order cancellations
 value:
   context:
     domain: ONDC:RET12
     location:
       city:
-        code: std:080
+        code: UN:SIN
       country:
-        code: IND
+        code: SGP
     action: on_cancel
     version: 2.0.2
     bap_id: buyerapp.com
     bap_uri: https://buyerapp.com/grocery
     bpp_id: sellerapp.com
     bpp_uri: https://sellerapp.com/grocery
-    transaction_id: "9568beb3-265a-4730-be4e-c00ba2e5e30a"
+    transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
     message_id: 1e8db0ff-4905-4edb-8f1b-a980635e89da
     timestamp: '2023-01-08T22:00:30.000Z'
     ttl: PT30S
   message:
     order:
-      id: '02'
+      id: "02"
       state: Cancelled
       cancellation:
         cancelled_by: buyerapp.com
         reason:
-          id: '003'
+          id: "001"
       provider:
         id: P1
         locations:
-        - id: L1
+          - id: L1
       items:
         - id: I1
           fulfillment_ids:
@@ -40,213 +40,204 @@ value:
           quantity:
             selected:
               count: 1
-          add_ons:
-            - id: '78787723'
-          tags:
-            - descriptor:
-                code: BUYER_TERMS
-              list:
-                - descriptor:
-                    code: ITEM_REQ
-                  value: free text on Item Customization
-                - descriptor:
-                    code: PACKAGING_REQ
-                  value: free text on packaging Customization
+
       billing:
         name: ONDC buyer
-        address: >-
-          22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar, Bengaluru,
-          Karnataka 560001
+        address: B005 aaspire heights, Jurong East, SGP, 680230
         state:
-          name: Karnataka
+          name: Jurong East
         city:
-          name: Bengaluru
+          name: Jurong East
         tax_id: XXXXXXXXXXXXXXX
         email: nobody@nomail.com
-        phone: '9886098860'
+        phone: "9886098860"
       fulfillments:
         - id: F1
           type: Delivery
           state:
             descriptor:
               code: Cancelled
-          '@ondc/org/provider_name': Loadshare
-          '@ondc/org/category': Express Delivery
-          '@ondc/org/TAT': P7D
+          "@ondc/org/provider_name": Loadshare
+          "@ondc/org/category": Express Delivery
+          "@ondc/org/TAT": P7D
           tracking: false
           stops:
-          - type: start
-            location:
-              id: L1
-              descriptor:
-                name: ABC Store
-              gps: 12.956399,77.636803
-            time:
-              range:
-                start: '2023-02-03T10:00:00.000Z'
-                end: '2023-02-03T10:30:00.000Z'
-            instructions:
-              name: Status for pickup
-              short_desc: Pickup Confirmation Code
-            contact:
-              phone: '9886098860'
-              email: nobody@nomail.com
-          - type: end
-            location:
-              gps: 12.974002,77.613458
-              address: 'My House #, My buildin'
-              city:
-                name: Bengaluru
-              country:
-                code: IND
-              area_code: '560001'
-              state:
-                name: 'Karnataka'
-            contact:
-              phone: '9886098860'
+            - type: start
+              location:
+                id: L1
+                descriptor:
+                  name: ABC Store
+                  images:
+                    - https://gf-integration/images/5.png
+                gps: 12.956399,77.636803
+              time:
+                range:
+                  start: '2023-02-03T10:00:00.000Z'
+                  end: '2023-02-03T10:30:00.000Z'
+              instructions:
+                name: Status of pickup
+                short_desc: PCC code
+                long_desc: Status of pickup
+              contact:
+                phone: "9886098860"
+                email: nobody@nomail.com
+            - type: end
+              location:
+                gps: 1.388119772, 103.748437074
+                address: "My House #, My buildin"
+                city:
+                  name: Jurong East
+                country:
+                  code: SGP
+                area_code: "680230"
+                state:
+                  name: ""
+              time:
+                range:
+                  start: '2023-02-03T11:00:00.000Z'
+                  end: '2023-02-03T11:30:00.000Z'
+              instructions:
+                name: Status of Delivery
+                short_desc: DCC code
+                long_desc: Proof of delivery details
+              contact:
+                phone: "9886098860"
+                email: buyer@xyz.com
+              agent:
+                person:
+                  name: Ramu
+                contact:
+                  phone: "9886098860"
       quote:
         price:
           currency: INR
-          value: '0.00'
+          value: "0.00"
         breakup:
-          - '@ondc/org/item_id': I1
-            '@ondc/org/item_quantity':
-              count: 200
-            title: Dhara Mustard Oil
-            '@ondc/org/title_type': item
+          - "@ondc/org/item_id": I1
+            "@ondc/org/item_quantity":
+              count: 1
+            title: Allen Solly Men T-shirt
+            "@ondc/org/title_type": item
             price:
-              currency: INR
-              value: '50000'
+              currency: USD
+              value: "10.00"
             item:
               price:
                 currency: INR
-                value: '250'
-          - '@ondc/org/item_id': I1
-            '@ondc/org/item_quantity':
-              count: 0
+                value: "250"
+          - "@ondc/org/item_id": I1
+            "@ondc/org/item_quantity":
+              count: 1
             title: Dhara Mustard Oil
-            '@ondc/org/title_type': refund
+            "@ondc/org/title_type": refund
             price:
-              currency: INR
-              value: '-50000'
+              currency: USD
+              value: "-10.00"
             item:
               price:
-                currency: INR
-                value: '250'
-          - '@ondc/org/item_id': F1
+                currency: USD
+                value: "10.00"
+          - "@ondc/org/item_id": F1
             title: Delivery charges
-            '@ondc/org/title_type': delivery
+            "@ondc/org/title_type": delivery
             price:
-              currency: INR
-              value: '4000'
-          - '@ondc/org/item_id': F1
+              currency: USD
+              value: "2.00"
+          - "@ondc/org/item_id": F1
             title: Delivery charges
-            '@ondc/org/title_type': refund
+            "@ondc/org/title_type": refund
             price:
-              currency: INR
-              value: '-4000'
-          - '@ondc/org/item_id': F1
+              currency: USD
+              value: "-2.00"
+          - "@ondc/org/item_id": F1
             title: Packing charges
-            '@ondc/org/title_type': packing
+            "@ondc/org/title_type": packing
             price:
-              currency: INR
-              value: '500'
-          - '@ondc/org/item_id': F1
+              currency: USD
+              value: "5.00"
+          - "@ondc/org/item_id": F1
             title: Packing charges
-            '@ondc/org/title_type': refund
+            "@ondc/org/title_type": refund
             price:
-              currency: INR
-              value: '-500'
-          - '@ondc/org/item_id': I1
+              currency: USD
+              value: "-5.00"
+          - "@ondc/org/item_id": I1
             title: Tax
-            '@ondc/org/title_type': tax
+            "@ondc/org/title_type": tax
             price:
               currency: INR
-              value: '0'
-          - '@ondc/org/item_id': I1
+              value: "0"
+          - "@ondc/org/item_id": I1
             title: Discount
-            '@ondc/org/title_type': discount
+            "@ondc/org/title_type": discount
             price:
-              currency: INR
-              value: '-1000'
-          - '@ondc/org/item_id': I1
+              currency: USD
+              value: "-1.00"
+          - "@ondc/org/item_id": I1
             title: Discount
-            '@ondc/org/title_type': refund
+            "@ondc/org/title_type": refund
             price:
-              currency: INR
-              value: '1000'
-          - '@ondc/org/item_id': F1
+              currency: USD
+              value: "1.00"
+          - "@ondc/org/item_id": F1
             title: Convenience Fee
-            '@ondc/org/title_type': misc
+            "@ondc/org/title_type": misc
             price:
-              currency: INR
-              value: '100'
-          - '@ondc/org/item_id': F1
+              currency: USD
+              value: "1.00"
+          - "@ondc/org/item_id": F1
             title: Convenience Fee
-            '@ondc/org/title_type': refund
+            "@ondc/org/title_type": refund
             price:
-              currency: INR
-              value: '-100'
+              currency: USD
+              value: "-1.00"
         ttl: P1D
       payments:
-        - id: "P1"
+        - id: P1
           type: PRE-FULFILLMENT
-          collected_by: BPP
+          collected_by: SOR
           uri: https://snp.com/pg
           params:
-            currency: INR
-            transaction_id: '3937'
-            amount: '53600'
-          status: PAID
-          "@ondc/org/buyer_app_finder_fee_type": percent
-          "@ondc/org/buyer_app_finder_fee_amount": '0'
-          "@ondc/org/settlement_basis": delivery
-          "@ondc/org/settlement_window": P1D
-          "@ondc/org/withholding_amount": '10.00'
-          "@ondc/org/settlement_details":
-          - settlement_counterparty: buyer-app
-            settlement_phase: sale-amount
-            settlement_type: upi
-            beneficiary_name: xxxxx
-            upi_address: gft@oksbi
-            settlement_bank_account_no: XXXXXXXXXX
-            settlement_ifsc_code: XXXXXXXXX
-            bank_name: xxxx
-            branch_name: xxxx
-          tags:
-          - descriptor:
-              code: BPP_payment
-            list:
-            - descriptor:
-                code: signature
-              value: xxxxxxxxxxxxxx
-            - descriptor:
-                code: dsa
-              value: ED25519
-        - id: "P2"
-          type: PRE-FULFILLMENT
-          collected_by: buyer
-          uri: https://snp.com/pg
-          params:
-            currency: INR
-            transaction_id: '3937'
-            amount: '53600'
+            currency: USD
+            transaction_id: "3937"
+            amount: "15.00"
           status: PAID
           "@ondc/org/buyer_app_finder_fee_type": percent
           "@ondc/org/buyer_app_finder_fee_amount": "0"
           "@ondc/org/settlement_basis": delivery
           "@ondc/org/settlement_window": P1D
           "@ondc/org/withholding_amount": "10.00"
+          "@ondc/org/settlement_details":
+            - settlement_counterparty: buyer-app
+              settlement_phase: sale-amount
+              beneficiary_name: xxxxx
+              settlement_reference: XXXX
+              settlement_status: PAID
+              settlement_timestamp: '2023-02-04T10:00:00.000Z'
+              settlement_type: OPGSP
+              upi_address: gft@oksbi
+              settlement_bank_account_no: XXXXXXXXXX
+              settlement_ifsc_code: XXXXXXXXX
+              bank_name: xxxx
+              branch_name: xxxx
+            - settlement_counterparty: buyer
+              settlement_phase: refund
+              settlement_type: OPGSP
+              settlement_amount: '12'
+              settlement_timestamp: '2023-02-04T18:00:00.000Z'
+          tags:
+          - descriptor:
+             code: payment_terms
+            list:
+             - descriptor:
+                code: payment_type
+               value: OPGSP
+             - descriptor:
+                code: payment_provider
+               value: abcd
+      created_at: "2023-06-03T09:30:00.000Z"
+      updated_at: "2023-06-03T11:00:30.000Z"
       tags:
-        - descriptor:
-            code: buyer_id
-          list:
-            - descriptor:
-                code: buyer_id_code
-              value: gst
-            - descriptor:
-                code: buyer_id_no
-              value: xxxxxxxxxxxxxxx
         - descriptor:
             code: bpp_terms
           list:
@@ -270,4 +261,4 @@ value:
           list:
             - descriptor:
                 code: accept_bpp_terms
-              value: "Y"
+              value: 'Y'
