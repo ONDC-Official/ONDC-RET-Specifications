@@ -1,5 +1,5 @@
 summary: B2C Retail Exports (Merchant Cancels Full Order)
-description: The following is an illustrative flow to perform a transaction of a nature where a buyer (from outside India) would like to import fashion item. But after order confirmation, the merchant cancels it. The money will refunded back the buyer's account through OPGSP.
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer (from outside India) would like to order an item. The buyer builds a cart, makes the payment and confirms the order. But after order confirmation, the merchant cancels the order. The money will refunded back the buyer's account through OPGSP.
 details:
   - description: Buyer Search & Quotation
     mermaidGraph: >-

@@ -3553,15 +3553,15 @@ x-flows:
       browses the available products listed by sellers and selects the desired
       items. The seller app receives the order request and checks the stock
       availability. Seller app provides a quotation, including details on
-      pricing, shipping costs, and estimated delivery time. After order
-      confirmation, seller app provides regular order updates like Pickup
-      Approved, Order pickup up, Domestic custom cleared, At destination hub,
-      Out for delivery, Order delivered, etc.The transaction is considered
-      fulfilled when the buyer receives the items in satisfactory condition,
-      completing the end-to-end retail export process facilitated by the ONDC
-      network. Considering this is an exports the payment will be directly made
-      from buyer to SOR (Seller On Record) through OPGSP. Ref Feature UI
-      (Payment Flow) for more details.
+      pricing, shipping costs, and estimated delivery time. The buyer makes the
+      payment and confirms the order. After order confirmation, seller app
+      provides regular order updates like Pickup Approved, Order pickup up,
+      Domestic custom cleared, At destination hub, Out for delivery, Order
+      delivered, etc.The transaction is considered fulfilled when the buyer
+      receives the items in satisfactory condition, completing the end-to-end
+      retail export process facilitated by the ONDC network. Considering this is
+      an exports the payment will be directly made from buyer to SOR (Seller On
+      Record) through OPGSP. Ref Feature UI (Payment Flow) for more details.
     details:
       - description: Buyer Search & Quotation
         mermaidGraph: |-
@@ -6354,9 +6354,10 @@ x-flows:
   - summary: B2C Retail Exports (Merchant Cancels Full Order)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
-      where a buyer (from outside India) would like to import fashion item. But
-      after order confirmation, the merchant cancels it. The money will refunded
-      back the buyer's account through OPGSP.
+      where a buyer (from outside India) would like to order an item. The buyer
+      builds a cart, makes the payment and confirms the order. But after order
+      confirmation, the merchant cancels the order. The money will refunded back
+      the buyer's account through OPGSP.
     details:
       - description: Buyer Search & Quotation
         mermaidGraph: |-
@@ -6769,10 +6770,12 @@ x-flows:
   - summary: B2C Retail Exports (Buyer Cancels Full Order)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
-      where a buyer from outside India would like to buy fashion item. The Buyer
-      then cancels it. Seller may charge fee as per the cancellation terms
-      communicated to the buyer. Any refund applicable would be initiated to the
-      buyer's account directly by the seller through OPGSP.
+      where a buyer from outside India would like to buy an item. The buyer
+      selects the items, builds the cart, makes the payment and confirms the
+      order. However due to some reason, the buyer then cancels the order.
+      Seller may charge fee as per the cancellation terms communicated to the
+      buyer. Any refund applicable would be initiated to the buyer's account
+      directly by the seller through OPGSP.
     details:
       - description: Buyer Search & Quotation
         mermaidGraph: |-
