@@ -3476,60 +3476,6 @@ x-tags:
                 - code: SELLER_ID_NO
                   description: The actual Seller ID number.
                   reference: <PR/Issue/Discussion Links md format text>
-  select: &ref_8
-    message:
-      order:
-        '0':
-          code: COMM_CHANNEL
-          description: >-
-            Communication channel is provided for buyer and seller to discuss
-            customizations or price negotiation, etc.
-          reference: <PR/Issue/Discussion Links md format text>
-          required: optional
-          list:
-            - code: CHAT_URL
-              description: Chat url link is provided for buyer and seller to discuss
-              reference: <PR/Issue/Discussion Links md format text>
-        items:
-          tags:
-            - code: BUYER_TERMS
-              description: >-
-                Any requirement related to item or packaging can be specified
-                here for RFQ flow.
-              reference: <PR/Issue/Discussion Links md format text>
-              required: optional
-              list:
-                - code: ITEM_REQ
-                  description: >-
-                    Any requirement related to item can be put over here, e.g.
-                    customizations, etc.
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: PACKAGING_REQ
-                  description: >-
-                    Any specific requirements related to the fulfillment or
-                    packaging of the item.
-                  reference: <PR/Issue/Discussion Links md format text>
-        fulfillments: &ref_9
-          tags:
-            - code: ITEM_DETAILS
-              description: Details of the item for multiple fulfillments
-              reference: <PR/Issue/Discussion Links md format text>
-              required: optional
-              list:
-                - code: ITEM_ID
-                  description: A unique identifier for the item
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: COUNT
-                  description: The quantity of the item.
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: MEASURE_UNIT
-                  description: The unit of measurement for the item.
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: MEASURE_VALUE
-                  description: The value of the item in the specified measurement unit.
-                  reference: <PR/Issue/Discussion Links md format text>
-  on_select: *ref_8
-  init: *ref_8
   on_init:
     message:
       order:
@@ -3569,8 +3515,7 @@ x-tags:
                   Network Participant, calculated pro rata for each calendar day
                   of delay.
                 reference: <PR/Issue/Discussion Links md format text>
-        fulfillments: *ref_9
-        payments: &ref_10
+        payments: &ref_8
           - code: PAYMENT_TERMS
             description: Payment terms
             reference: <PR/Issue/Discussion Links md format text>
@@ -3582,7 +3527,7 @@ x-tags:
               - code: PAYMENT_PROVIDER
                 description: Payment provider
                 reference: <PR/Issue/Discussion Links md format text>
-  confirm: &ref_11
+  confirm: &ref_9
     message:
       order:
         tags:
@@ -3594,20 +3539,29 @@ x-tags:
               - code: ACCEPT_BPP_TERMS
                 description: The acceptance of seller terms by the buyer app
                 reference: <PR/Issue/Discussion Links md format text>
-        fulfillments: *ref_9
-        payments: *ref_10
-  on_confirm: *ref_11
-  on_status: *ref_8
-  on_cancel: *ref_8
-  on_update: *ref_8
+        payments: *ref_8
+  on_confirm: *ref_9
+  on_status: *ref_9
+  on_cancel: *ref_9
+  on_update: *ref_9
 x-flows:
   - summary: B2C Retail Exports (Order Delivered)
     description: >-
-      The following is an illustrative flow to perform a transaction of a nature
-      where a buyer from outside India would like to order item from a seller
-      within India. Considering this is an exports the payment will be directly
-      made from buyer to SOR (Seller On Record) through OPGSP. Ref Feature UI
-      (OPGSP Payment Flow) for more details.
+      An ONDC (Open Network for Digital Commerce) retail export transaction
+      begins with a buyer from an international market placing an order through
+      the ONDC network, which connects the buyer with various sellers. The buyer
+      browses the available products listed by sellers and selects the desired
+      items. The seller app receives the order request and checks the stock
+      availability. Seller app provides a quotation, including details on
+      pricing, shipping costs, and estimated delivery time. After order
+      confirmation, seller app provides regular order updates like Pickup
+      Approved, Order pickup up, Domestic custom cleared, At destination hub,
+      Out for delivery, Order delivered, etc.The transaction is considered
+      fulfilled when the buyer receives the items in satisfactory condition,
+      completing the end-to-end retail export process facilitated by the ONDC
+      network. Considering this is an exports the payment will be directly made
+      from buyer to SOR (Seller On Record) through OPGSP. Ref Feature UI
+      (Payment Flow) for more details.
     details:
       - description: Buyer Search & Quotation
         mermaidGraph: |-
@@ -3660,7 +3614,7 @@ x-flows:
         api: search
         description: Buyer search by fulfillment end location
         reference: if any
-        example: &ref_12
+        example: &ref_10
           summary: Search by Item
           description: Search By Item
           value:
@@ -3707,7 +3661,7 @@ x-flows:
         api: on_search
         description: null
         reference: if any
-        example: &ref_13
+        example: &ref_11
           summary: Return the catalog for Fashion products
           description: Return the catalog for Fashion products
           value:
@@ -4181,7 +4135,7 @@ x-flows:
         api: select
         description: null
         reference: if any
-        example: &ref_14
+        example: &ref_12
           summary: Get quote for specific item
           description: Get quote for specific item
           value:
@@ -4242,7 +4196,7 @@ x-flows:
         api: on_select
         description: null
         reference: if any
-        example: &ref_15
+        example: &ref_13
           summary: Send quote and breakup -(Exports)
           description: Send quote and breakup for items selected]
           value:
@@ -4340,7 +4294,7 @@ x-flows:
         api: init
         description: null
         reference: if any
-        example: &ref_16
+        example: &ref_14
           summary: Intializing the order (Exports - RFQ)
           description: Intializing the order
           value:
@@ -4416,7 +4370,7 @@ x-flows:
         api: on_init
         description: null
         reference: if any
-        example: &ref_17
+        example: &ref_15
           summary: Acknowledges the initialization (Exports)
           description: Acknowledges the initialization
           value:
@@ -4602,7 +4556,7 @@ x-flows:
         api: confirm
         description: null
         reference: if any
-        example: &ref_18
+        example: &ref_16
           summary: confirmation of the order
           description: confirmation of the order by the buyer app
           value:
@@ -4784,7 +4738,7 @@ x-flows:
         api: on_confirm
         description: null
         reference: if any
-        example: &ref_19
+        example: &ref_17
           summary: Accept PO (Exports - RFQ)
           description: PO acceptance by Seller
           value:
@@ -6131,9 +6085,11 @@ x-flows:
                 updated_at: '2023-02-03T10:00:00.201Z'
   - summary: B2C Retail Exports (Item not in stock)
     description: >-
-      The following is an illustrative flow to perform a transaction of a nature
-      where a buyer would like to order electronics item and item is not in
-      stock
+      This flow illustrates the process for a transaction where a buyer selects
+      a t-shirt that is not in stock. The seller app provides a quotation for
+      the available quantity or indicates zero quantity. Additionally, it
+      notifies which item is out of stock through an error object sent in the
+      /on_select response.
     reference: if any
     details:
       - description: Search by fulfillment end location
@@ -6161,17 +6117,17 @@ x-flows:
         api: search
         description: Buyer search by fulfillment end location
         reference: if any
-        example: *ref_12
+        example: *ref_10
       - summary: Returns the item or catalog (Fashion)
         api: on_search
         description: null
         reference: if any
-        example: *ref_13
+        example: *ref_11
       - summary: Select the item
         api: select
         description: null
         reference: if any
-        example: *ref_14
+        example: *ref_12
       - summary: Returns that item is not in stock
         api: on_select
         description: null
@@ -6253,8 +6209,8 @@ x-flows:
   - summary: B2C Retail Exports (Location not serviceable)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
-      where a buyer would like to order electronics item and location is not
-      serviceable
+      where a buyer selects an item however buyer location is not serviceable.
+      The seller app responds back with an error object.
     reference: if any
     details:
       - description: Search for an item
@@ -6282,17 +6238,17 @@ x-flows:
         api: search
         description: Buyer search for an item
         reference: if any
-        example: *ref_12
+        example: *ref_10
       - summary: Returns the item or catalog (Fashion)
         api: on_search
         description: null
         reference: if any
-        example: *ref_13
+        example: *ref_11
       - summary: Select the item
         api: select
         description: null
         reference: if any
-        example: *ref_14
+        example: *ref_12
       - summary: Returns that location is not serviceable
         api: on_select
         description: null
@@ -6399,7 +6355,8 @@ x-flows:
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer (from outside India) would like to import fashion item. But
-      after order confirmation, the merchant cancels it.
+      after order confirmation, the merchant cancels it. The money will refunded
+      back the buyer's account through OPGSP.
     details:
       - description: Buyer Search & Quotation
         mermaidGraph: |-
@@ -6441,42 +6398,42 @@ x-flows:
         api: search
         description: Buyer search by fulfillment end location
         reference: if any
-        example: *ref_12
+        example: *ref_10
       - summary: Returns the item or catalog (Fashion)
         api: on_search
         description: null
         reference: if any
-        example: *ref_13
+        example: *ref_11
       - summary: Select the item
         api: select
         description: null
         reference: if any
-        example: *ref_14
+        example: *ref_12
       - summary: Returns item breakup when item is in stock
         api: on_select
         description: null
         reference: if any
-        example: *ref_15
+        example: *ref_13
       - summary: Buyer initiate the product and send the updated fulfillment id
         api: init
         description: null
         reference: if any
-        example: *ref_16
+        example: *ref_14
       - summary: Respond to init
         api: on_init
         description: null
         reference: if any
-        example: *ref_17
+        example: *ref_15
       - summary: Buyer confirms product
         api: confirm
         description: null
         reference: if any
-        example: *ref_18
+        example: *ref_16
       - summary: Seller Accepts confirmation
         api: on_confirm
         description: null
         reference: if any
-        example: *ref_19
+        example: *ref_17
       - summary: Seller accepts the cancellation and responds to it
         api: on_cancel
         description: null
@@ -6755,7 +6712,7 @@ x-flows:
         api: update
         description: null
         reference: if any
-        example: &ref_20
+        example: &ref_18
           summary: Buyer updates refund details
           description: Buyer updates the refund details (FYI call)
           value:
@@ -6813,7 +6770,9 @@ x-flows:
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer from outside India would like to buy fashion item. The Buyer
-      then cancels it.
+      then cancels it. Seller may charge fee as per the cancellation terms
+      communicated to the buyer. Any refund applicable would be initiated to the
+      buyer's account directly by the seller through OPGSP.
     details:
       - description: Buyer Search & Quotation
         mermaidGraph: |-
@@ -6856,42 +6815,42 @@ x-flows:
         api: search
         description: Buyer search by fulfillment end location
         reference: if any
-        example: *ref_12
+        example: *ref_10
       - summary: Returns the item or catalog (Fashion)
         api: on_search
         description: null
         reference: if any
-        example: *ref_13
+        example: *ref_11
       - summary: Select the item
         api: select
         description: null
         reference: if any
-        example: *ref_14
+        example: *ref_12
       - summary: Returns item breakup when item is in stock
         api: on_select
         description: null
         reference: if any
-        example: *ref_15
+        example: *ref_13
       - summary: Buyer initiate the product and send the updated fulfillment id
         api: init
         description: null
         reference: if any
-        example: *ref_16
+        example: *ref_14
       - summary: Respond to init
         api: on_init
         description: null
         reference: if any
-        example: *ref_17
+        example: *ref_15
       - summary: Buyer confirms product
         api: confirm
         description: null
         reference: if any
-        example: *ref_18
+        example: *ref_16
       - summary: Seller Accepts confirmation
         api: on_confirm
         description: null
         reference: if any
-        example: *ref_19
+        example: *ref_17
       - summary: Buyer cancels the product
         api: cancel
         description: null
@@ -7192,7 +7151,7 @@ x-flows:
         api: update
         description: null
         reference: if any
-        example: *ref_20
+        example: *ref_18
 x-examples:
   B2B:
     summary: B2C Exports Use Case Specification

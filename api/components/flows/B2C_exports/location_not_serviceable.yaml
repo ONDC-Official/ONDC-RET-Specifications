@@ -1,5 +1,5 @@
 summary: B2C Retail Exports (Location not serviceable)
-description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order electronics item and location is not serviceable
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer selects an item however buyer location is not serviceable. The seller app responds back with an error object.
 reference: if any
 details: 
   - description: Search for an item

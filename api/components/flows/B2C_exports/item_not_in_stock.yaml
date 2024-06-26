@@ -1,5 +1,5 @@
 summary: B2C Retail Exports (Item not in stock)
-description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order electronics item and item is not in stock
+description: This flow illustrates the process for a transaction where a buyer selects a t-shirt that is not in stock. The seller app provides a quotation for the available quantity or indicates zero quantity. Additionally, it notifies which item is out of stock through an error object sent in the /on_select response.
 reference: if any
 details: 
   - description: Search by fulfillment end location 
