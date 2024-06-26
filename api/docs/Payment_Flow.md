@@ -66,4 +66,4 @@ The buyer app and seller app commissions will be provided for the quote will inc
 3. In case the buyer app is overseas , then buyer will get two refund - 
     - a. Buyer app will refund his fee locally 
     - b.  Seller app fee and charges of good will be returned by the OPGSP to the source account.
-4. Money will always be credited to source account 
+4. Money will always be credited to source account.
