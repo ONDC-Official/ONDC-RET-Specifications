@@ -50,6 +50,9 @@ serviceability:
       - code: 12
         description: Pan-India
         reference: <PR/Issue/Discussion Links md format text>
+      - code: 13
+        description: Geojson
+        reference: <PR/Issue/Discussion Links md format text>
   - code: VAL
     description: The value associated with the serviceability type, i.e in how much radius it is serviceable, eg. for hyperlocal - within 60 km raidus from the store location.
     reference: <PR/Issue/Discussion Links md format text>
