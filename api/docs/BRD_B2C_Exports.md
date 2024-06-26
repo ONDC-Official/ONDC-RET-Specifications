@@ -80,7 +80,7 @@ Payment flow doc available [here](https://github.com/ONDC-Official/ONDC-RET-Spec
     - Cancellation
         - Pre-dispatch Cancellation: Buyer or Seller may cancel the order before dispatch of the product
 - Refund
-    - Only for the cancellation scenario mentioned above: will be covered in Payment Flor linked here.
+    - Only for the cancellation scenario mentioned above: will be covered in Payment Flow linked here.
 
 - Support
     - Buyer app and seller app (Marketplace Seller NPs) are expected to also build build IGM as per API contracts
