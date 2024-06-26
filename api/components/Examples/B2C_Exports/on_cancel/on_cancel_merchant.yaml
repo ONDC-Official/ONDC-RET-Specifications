@@ -41,24 +41,13 @@ value:
             selected:
               count: 1
 
-          tags:
-            - descriptor:
-                code: BUYER_TERMS
-              list:
-                - descriptor:
-                    code: ITEM_REQ
-                  value: free text on Item Customization
-                - descriptor:
-                    code: PACKAGING_REQ
-                  value: free text on packaging Customization
       billing:
         name: ONDC buyer
-        address: 22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar, Bengaluru,
-          Karnataka 560001
+        address: B005 aaspire heights, Jurong East, SGP, 680230
         state:
-          name: Karnataka
+          name: Jurong East
         city:
-          name: Bengaluru
+          name: Jurong East
         tax_id: XXXXXXXXXXXXXXX
         email: nobody@nomail.com
         phone: "9886098860"
@@ -119,6 +108,7 @@ value:
                   - https://image1_url.png
               contact:
                 phone: "9886098860"
+                email: buyer@xyz.com
               agent:
                 person:
                   name: Ramu
@@ -211,12 +201,12 @@ value:
       payments:
         - id: P1
           type: PRE-FULFILLMENT
-          collected_by: BPP
+          collected_by: SOR
           uri: https://snp.com/pg
           params:
-            currency: INR
+            currency: USD
             transaction_id: "3937"
-            amount: "53600"
+            amount: "15.00"
           status: PAID
           "@ondc/org/buyer_app_finder_fee_type": percent
           "@ondc/org/buyer_app_finder_fee_amount": "0"
@@ -226,47 +216,34 @@ value:
           "@ondc/org/settlement_details":
             - settlement_counterparty: buyer-app
               settlement_phase: sale-amount
-              settlement_type: upi
               beneficiary_name: xxxxx
+              settlement_reference: XXXX
+              settlement_status: PAID
+              settlement_timestamp: '2023-02-04T10:00:00.000Z'
+              settlement_type: OPGSP
               upi_address: gft@oksbi
               settlement_bank_account_no: XXXXXXXXXX
               settlement_ifsc_code: XXXXXXXXX
               bank_name: xxxx
               branch_name: xxxx
+            - settlement_counterparty: buyer
+              settlement_phase: refund
+              settlement_type: OPGSP
+              settlement_amount: '12'
+              settlement_timestamp: '2023-02-04T18:00:00.000Z'
           tags:
-            - descriptor:
-                code: BPP_payment
-              list:
-                - descriptor:
-                    code: signature
-                  value: xxxxxxxxxxxxxx
-                - descriptor:
-                    code: dsa
-                  value: ED25519
-        - id: P2
-          type: PRE-FULFILLMENT
-          collected_by: buyer
-          uri: https://snp.com/pg
-          params:
-            currency: INR
-            transaction_id: "3937"
-            amount: "53600"
-          status: PAID
-          "@ondc/org/buyer_app_finder_fee_type": percent
-          "@ondc/org/buyer_app_finder_fee_amount": "0"
-          "@ondc/org/settlement_basis": delivery
-          "@ondc/org/settlement_window": P1D
-          "@ondc/org/withholding_amount": "10.00"
+          - descriptor:
+             code: payment_terms
+            list:
+             - descriptor:
+                code: payment_type
+               value: OPGSP
+             - descriptor:
+                code: payment_provider
+               value: abcd
+      created_at: "2023-06-03T09:30:00.000Z"
+      updated_at: "2023-06-03T11:00:30.000Z"
       tags:
-        - descriptor:
-            code: buyer_id
-          list:
-            - descriptor:
-                code: buyer_id_code
-              value: gst
-            - descriptor:
-                code: buyer_id_no
-              value: xxxxxxxxxxxxxxx
         - descriptor:
             code: bpp_terms
           list:
@@ -290,4 +267,4 @@ value:
           list:
             - descriptor:
                 code: accept_bpp_terms
-              value: Y
+              value: 'Y'

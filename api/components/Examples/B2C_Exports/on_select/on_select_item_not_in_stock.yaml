@@ -1,5 +1,5 @@
-summary: Send quote and breakup -(Exports)
-description: Send quote and breakup for items selected]
+summary: Send quote and breakup - item out of stock (Exports)
+description: Send quote and breakup for items out of stock
 value:
   context:
     domain: ONDC:RET12
@@ -44,16 +44,16 @@ value:
       quote:
         price:
           currency: USD
-          value: "15.00"
+          value: "00.00"
         breakup:
           - "@ondc/org/item_id ": I1
             "@ondc/org/item_quantity":
-              count: 1
+              count: 0
             title: Allen Solly Men T-shirt
             "@ondc/org/title_type ": item
             price:
               currency: USD
-              value: "10.00"
+              value: "00.00"
             item:
               price:
                 currency: USD
@@ -63,33 +63,13 @@ value:
             "@ondc/org/title_type ": delivery
             price:
               currency: USD
-              value: "2.00"
-          - "@ondc/org/item_id": F1
-            title: Packing charges
-            "@ondc/org/title_type ": packing
-            price:
-              currency: USD
-              value: "5.00"
-          - "@ondc/org/item_id": I1
-            title: Tax
-            "@ondc/org/title_type ": tax
-            price:
-              currency: INR
               value: "0.00"
-          - "@ondc/org/item_id": I1
-            title: Discount
-            "@ondc/org/title_type ": discount
-            price:
-              currency: USD
-              value: "-1.00"
-          - "@ondc/org/item_id": F1
-            title: Convenience Fee
-            "@ondc/org/title_type ": misc
-            price:
-              currency: USD
-              value: "1.00"
         ttl: P1D
 
       payments:
         - type: PRE-FULFILLMENT
           collected_by: SOR
+  error: 
+    type: "DOMAIN-ERROR"
+    code: "40002"
+    message: "I1 is not in stock"

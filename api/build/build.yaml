@@ -3660,7 +3660,7 @@ x-flows:
         api: search
         description: Buyer search by fulfillment end location
         reference: if any
-        example:
+        example: &ref_12
           summary: Search by Item
           description: Search By Item
           value:
@@ -3707,7 +3707,7 @@ x-flows:
         api: on_search
         description: null
         reference: if any
-        example:
+        example: &ref_13
           summary: Return the catalog for Fashion products
           description: Return the catalog for Fashion products
           value:
@@ -4181,7 +4181,7 @@ x-flows:
         api: select
         description: null
         reference: if any
-        example:
+        example: &ref_14
           summary: Get quote for specific item
           description: Get quote for specific item
           value:
@@ -4242,9 +4242,9 @@ x-flows:
         api: on_select
         description: null
         reference: if any
-        example:
-          summary: Send quote and breakup - Response to RFQ (Exports)
-          description: Send quote and breakup for items selected in RFQ
+        example: &ref_15
+          summary: Send quote and breakup -(Exports)
+          description: Send quote and breakup for items selected]
           value:
             context:
               domain: ONDC:RET12
@@ -4340,7 +4340,7 @@ x-flows:
         api: init
         description: null
         reference: if any
-        example:
+        example: &ref_16
           summary: Intializing the order (Exports - RFQ)
           description: Intializing the order
           value:
@@ -4416,7 +4416,7 @@ x-flows:
         api: on_init
         description: null
         reference: if any
-        example:
+        example: &ref_17
           summary: Acknowledges the initialization (Exports)
           description: Acknowledges the initialization
           value:
@@ -4602,7 +4602,7 @@ x-flows:
         api: confirm
         description: null
         reference: if any
-        example:
+        example: &ref_18
           summary: confirmation of the order
           description: confirmation of the order by the buyer app
           value:
@@ -4784,7 +4784,7 @@ x-flows:
         api: on_confirm
         description: null
         reference: if any
-        example:
+        example: &ref_19
           summary: Accept PO (Exports - RFQ)
           description: PO acceptance by Seller
           value:
@@ -6129,6 +6129,1080 @@ x-flows:
                     label: Invoice
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T10:00:00.201Z'
+  - summary: B2C Retail Exports (Item not in stock)
+    description: >-
+      The following is an illustrative flow to perform a transaction of a nature
+      where a buyer would like to order electronics item and item is not in
+      stock
+    reference: if any
+    details:
+      - description: Search by fulfillment end location
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant B2C BAP
+            participant Gateway
+            participant B2C BPP
+
+            B2C BAP->>Gateway: **/search**  - Buyer searches by fulfillment end location 
+            Gateway->>B2C BPP: **/search**  - Buyer searches by fulfillment end location 
+            B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog
+      - description: Selection of the item
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant B2C BAP
+            participant B2C BPP
+
+            B2C BAP->>B2C BPP: **/select**  - Buyer selects the item
+            B2C BPP->>B2C BAP: **/on_select** - Returns that item is not in stock
+    steps:
+      - summary: Search by fulfillment end location
+        api: search
+        description: Buyer search by fulfillment end location
+        reference: if any
+        example: *ref_12
+      - summary: Returns the item or catalog (Fashion)
+        api: on_search
+        description: null
+        reference: if any
+        example: *ref_13
+      - summary: Select the item
+        api: select
+        description: null
+        reference: if any
+        example: *ref_14
+      - summary: Returns that item is not in stock
+        api: on_select
+        description: null
+        reference: if any
+        example:
+          summary: Send quote and breakup - item out of stock (Exports)
+          description: Send quote and breakup for items out of stock
+          value:
+            context:
+              domain: ONDC:RET12
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_select
+              version: 2.0.2
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/grocery
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/grocery
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 4e90afaf-2d02-4ed9-9659-45d702a82f8e
+              timestamp: '2023-01-08T22:00:30.000Z'
+              ttl: PT30S
+            message:
+              order:
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - fulfillment_ids:
+                      - F1
+                    id: I1
+                    quantity:
+                      selected:
+                        count: 1
+                fulfillments:
+                  - id: F1
+                    '@ondc/org/provider_name': Loadshare
+                    tracking: false
+                    '@ondc/org/category': Express Delivery
+                    '@ondc/org/TAT': P7D
+                    state:
+                      descriptor:
+                        code: Serviceable
+                quote:
+                  price:
+                    currency: USD
+                    value: '00.00'
+                  breakup:
+                    - '@ondc/org/item_id ': I1
+                      '@ondc/org/item_quantity':
+                        count: 0
+                      title: Allen Solly Men T-shirt
+                      '@ondc/org/title_type ': item
+                      price:
+                        currency: USD
+                        value: '00.00'
+                      item:
+                        price:
+                          currency: USD
+                          value: '10.00'
+                    - '@ondc/org/item_id': F1
+                      title: Delivery charges
+                      '@ondc/org/title_type ': delivery
+                      price:
+                        currency: USD
+                        value: '0.00'
+                  ttl: P1D
+                payments:
+                  - type: PRE-FULFILLMENT
+                    collected_by: SOR
+            error:
+              type: DOMAIN-ERROR
+              code: '40002'
+              message: I1 is not in stock
+  - summary: B2C Retail Exports (Location not serviceable)
+    description: >-
+      The following is an illustrative flow to perform a transaction of a nature
+      where a buyer would like to order electronics item and location is not
+      serviceable
+    reference: if any
+    details:
+      - description: Search for an item
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant B2C BAP
+            participant Gateway
+            participant B2C BPP
+
+            B2C BAP->>Gateway: **/search**  - Buyer searches for an item
+            Gateway->>B2C BPP: **/search**  - Buyer searches for an item
+            B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog
+      - description: Selection of the item
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant B2C BAP
+            participant B2C BPP
+
+            B2C BAP->>B2C BPP: **/select**  - Buyer selects the item
+            B2C BPP->>B2C BAP: **/on_select** - Returns that location is not serviceable
+    steps:
+      - summary: Search for an item
+        api: search
+        description: Buyer search for an item
+        reference: if any
+        example: *ref_12
+      - summary: Returns the item or catalog (Fashion)
+        api: on_search
+        description: null
+        reference: if any
+        example: *ref_13
+      - summary: Select the item
+        api: select
+        description: null
+        reference: if any
+        example: *ref_14
+      - summary: Returns that location is not serviceable
+        api: on_select
+        description: null
+        reference: if any
+        example:
+          summary: Send quote and breakup - Location not serviceable(Exports)
+          description: Send quote and breakup for items selected]
+          value:
+            context:
+              domain: ONDC:RET12
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_select
+              version: 2.0.2
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/grocery
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/grocery
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 4e90afaf-2d02-4ed9-9659-45d702a82f8e
+              timestamp: '2023-01-08T22:00:30.000Z'
+              ttl: PT30S
+            message:
+              order:
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - fulfillment_ids:
+                      - F1
+                    id: I1
+                    quantity:
+                      selected:
+                        count: 1
+                fulfillments:
+                  - id: F1
+                    '@ondc/org/provider_name': Loadshare
+                    tracking: false
+                    '@ondc/org/category': Express Delivery
+                    '@ondc/org/TAT': P7D
+                    state:
+                      descriptor:
+                        code: Non-serviceable
+                quote:
+                  price:
+                    currency: USD
+                    value: '13.00'
+                  breakup:
+                    - '@ondc/org/item_id ': I1
+                      '@ondc/org/item_quantity':
+                        count: 1
+                      title: Allen Solly Men T-shirt
+                      '@ondc/org/title_type ': item
+                      price:
+                        currency: USD
+                        value: '10.00'
+                      item:
+                        price:
+                          currency: USD
+                          value: '10.00'
+                    - '@ondc/org/item_id': F1
+                      title: Delivery charges
+                      '@ondc/org/title_type ': delivery
+                      price:
+                        currency: USD
+                        value: '0.00'
+                    - '@ondc/org/item_id': F1
+                      title: Packing charges
+                      '@ondc/org/title_type ': packing
+                      price:
+                        currency: USD
+                        value: '5.00'
+                    - '@ondc/org/item_id': I1
+                      title: Tax
+                      '@ondc/org/title_type ': tax
+                      price:
+                        currency: INR
+                        value: '0.00'
+                    - '@ondc/org/item_id': I1
+                      title: Discount
+                      '@ondc/org/title_type ': discount
+                      price:
+                        currency: USD
+                        value: '-1.00'
+                    - '@ondc/org/item_id': F1
+                      title: Convenience Fee
+                      '@ondc/org/title_type ': misc
+                      price:
+                        currency: USD
+                        value: '1.00'
+                  ttl: P1D
+                payments:
+                  - type: PRE-FULFILLMENT
+                    collected_by: SOR
+            error:
+              type: DOMAIN-ERROR
+              code: '30009'
+              message: custom message
+  - summary: B2C Retail Exports (Merchant Cancels Full Order)
+    description: >-
+      The following is an illustrative flow to perform a transaction of a nature
+      where a buyer (from outside India) would like to import fashion item. But
+      after order confirmation, the merchant cancels it.
+    details:
+      - description: Buyer Search & Quotation
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant B2C BAP
+            participant Gateway
+            participant B2C BPP
+
+            B2C BAP->>Gateway: **/search**  - Buyer searches from a location outside India
+            Gateway->>B2C BPP: **/search**  - Buyer searches from a location outside India
+            B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog for the specific domain and export license in creds
+      - description: Product Selection and Confirmation
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant B2C BAP
+            participant B2C BPP
+
+            B2C BAP ->> B2C BPP: **/select** - Buyer adds the item(s) to the cart.
+            B2C BPP ->> B2C BAP: **/on_select** - Returns quote breakup (adding offers if any) when item is in stock 
+
+            B2C BAP ->> B2C BPP: **/init** - Buyer initializes the order and proceeds to checkout.
+            B2C BPP ->> B2C BAP: **/on_init** - Seller app initializes order
+            
+            B2C BAP ->> B2C BPP: **/confirm** - Buyer confirms order
+            B2C BPP ->> B2C BAP: **/on_confirm** - Seller Accepts order
+      - description: Merchant Cancels Full Order
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant B2C BAP
+            participant B2C BPP
+            
+            B2C BPP ->> B2C BAP: **/on_cancel** - Seller cancels full order before order pick up and updates the quote trail for refund
+    reference: if any
+    steps:
+      - summary: Search by fulfillment end location
+        api: search
+        description: Buyer search by fulfillment end location
+        reference: if any
+        example: *ref_12
+      - summary: Returns the item or catalog (Fashion)
+        api: on_search
+        description: null
+        reference: if any
+        example: *ref_13
+      - summary: Select the item
+        api: select
+        description: null
+        reference: if any
+        example: *ref_14
+      - summary: Returns item breakup when item is in stock
+        api: on_select
+        description: null
+        reference: if any
+        example: *ref_15
+      - summary: Buyer initiate the product and send the updated fulfillment id
+        api: init
+        description: null
+        reference: if any
+        example: *ref_16
+      - summary: Respond to init
+        api: on_init
+        description: null
+        reference: if any
+        example: *ref_17
+      - summary: Buyer confirms product
+        api: confirm
+        description: null
+        reference: if any
+        example: *ref_18
+      - summary: Seller Accepts confirmation
+        api: on_confirm
+        description: null
+        reference: if any
+        example: *ref_19
+      - summary: Seller accepts the cancellation and responds to it
+        api: on_cancel
+        description: null
+        reference: if any
+        example:
+          summary: Merchant cancels the order
+          description: Merchant cancels the order
+          value:
+            context:
+              domain: ONDC:RET12
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_cancel
+              version: 2.0.2
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/grocery
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/grocery
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 1e8db0ff-4905-4edb-8f1b-a980635e89da
+              timestamp: '2023-01-08T22:00:30.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: '02'
+                state: Cancelled
+                cancellation:
+                  cancelled_by: sellerapp.com
+                  reason:
+                    id: '005'
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    fulfillment_ids:
+                      - F1
+                    payment_ids:
+                      - P1
+                      - P2
+                    quantity:
+                      selected:
+                        count: 1
+                billing:
+                  name: ONDC buyer
+                  address: B005 aaspire heights, Jurong East, SGP, 680230
+                  state:
+                    name: Jurong East
+                  city:
+                    name: Jurong East
+                  tax_id: XXXXXXXXXXXXXXX
+                  email: nobody@nomail.com
+                  phone: '9886098860'
+                fulfillments:
+                  - id: F1
+                    type: Delivery
+                    state:
+                      descriptor:
+                        code: Cancelled
+                    '@ondc/org/provider_name': Loadshare
+                    '@ondc/org/category': Express Delivery
+                    '@ondc/org/TAT': P7D
+                    tracking: false
+                    stops:
+                      - type: start
+                        location:
+                          id: L1
+                          descriptor:
+                            name: ABC Store
+                            images:
+                              - https://gf-integration/images/5.png
+                          gps: 12.956399,77.636803
+                        time:
+                          range:
+                            start: '2023-02-03T10:00:00.000Z'
+                            end: '2023-02-03T10:30:00.000Z'
+                          timestamp: '2023-02-03T10:25:00.000Z'
+                        instructions:
+                          name: Proof of pickup
+                          short_desc: Proof of pickup details
+                          long_desc: Proof of pickup details
+                          images:
+                            - https://image1_url.png
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                      - type: end
+                        location:
+                          gps: 1.388119772, 103.748437074
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Jurong East
+                          country:
+                            code: SGP
+                          area_code: '680230'
+                          state:
+                            name: ''
+                        time:
+                          range:
+                            start: '2023-02-03T11:00:00.000Z'
+                            end: '2023-02-03T11:30:00.000Z'
+                          timestamp: '2023-02-03T11:35:00.000Z'
+                        instructions:
+                          name: Proof of delivery
+                          short_desc: Proof of delivery details
+                          long_desc: Proof of delivery details
+                          images:
+                            - https://image1_url.png
+                        contact:
+                          phone: '9886098860'
+                          email: buyer@xyz.com
+                        agent:
+                          person:
+                            name: Ramu
+                          contact:
+                            phone: '9886098860'
+                quote:
+                  price:
+                    currency: INR
+                    value: '0.00'
+                  breakup:
+                    - '@ondc/org/item_id': I1
+                      '@ondc/org/item_quantity':
+                        count: 200
+                      title: Dhara Mustard Oil
+                      '@ondc/org/title_type': item
+                      price:
+                        currency: INR
+                        value: '50000'
+                      item:
+                        price:
+                          currency: INR
+                          value: '250'
+                    - '@ondc/org/item_id': I1
+                      '@ondc/org/item_quantity':
+                        count: 0
+                      title: Dhara Mustard Oil
+                      '@ondc/org/title_type': refund
+                      price:
+                        currency: INR
+                        value: '-50000'
+                      item:
+                        price:
+                          currency: INR
+                          value: '250'
+                    - '@ondc/org/item_id': F1
+                      title: Delivery charges
+                      '@ondc/org/title_type': delivery
+                      price:
+                        currency: INR
+                        value: '4000'
+                    - '@ondc/org/item_id': F1
+                      title: Delivery charges
+                      '@ondc/org/title_type': refund
+                      price:
+                        currency: INR
+                        value: '-4000'
+                    - '@ondc/org/item_id': F1
+                      title: Packing charges
+                      '@ondc/org/title_type': packing
+                      price:
+                        currency: INR
+                        value: '500'
+                    - '@ondc/org/item_id': F1
+                      title: Packing charges
+                      '@ondc/org/title_type': refund
+                      price:
+                        currency: INR
+                        value: '-500'
+                    - '@ondc/org/item_id': I1
+                      title: Tax
+                      '@ondc/org/title_type': tax
+                      price:
+                        currency: INR
+                        value: '0'
+                    - '@ondc/org/item_id': I1
+                      title: Discount
+                      '@ondc/org/title_type': discount
+                      price:
+                        currency: INR
+                        value: '-1000'
+                    - '@ondc/org/item_id': I1
+                      title: Discount
+                      '@ondc/org/title_type': refund
+                      price:
+                        currency: INR
+                        value: '1000'
+                    - '@ondc/org/item_id': F1
+                      title: Convenience Fee
+                      '@ondc/org/title_type': misc
+                      price:
+                        currency: INR
+                        value: '100'
+                    - '@ondc/org/item_id': F1
+                      title: Convenience Fee
+                      '@ondc/org/title_type': refund
+                      price:
+                        currency: INR
+                        value: '-100'
+                  ttl: P1D
+                payments:
+                  - id: P1
+                    type: PRE-FULFILLMENT
+                    collected_by: SOR
+                    uri: https://snp.com/pg
+                    params:
+                      currency: USD
+                      transaction_id: '3937'
+                      amount: '15.00'
+                    status: PAID
+                    '@ondc/org/buyer_app_finder_fee_type': percent
+                    '@ondc/org/buyer_app_finder_fee_amount': '0'
+                    '@ondc/org/settlement_basis': delivery
+                    '@ondc/org/settlement_window': P1D
+                    '@ondc/org/withholding_amount': '10.00'
+                    '@ondc/org/settlement_details':
+                      - settlement_counterparty: buyer-app
+                        settlement_phase: sale-amount
+                        beneficiary_name: xxxxx
+                        settlement_reference: XXXX
+                        settlement_status: PAID
+                        settlement_timestamp: '2023-02-04T10:00:00.000Z'
+                        settlement_type: OPGSP
+                        upi_address: gft@oksbi
+                        settlement_bank_account_no: XXXXXXXXXX
+                        settlement_ifsc_code: XXXXXXXXX
+                        bank_name: xxxx
+                        branch_name: xxxx
+                      - settlement_counterparty: buyer
+                        settlement_phase: refund
+                        settlement_type: OPGSP
+                        settlement_amount: '12'
+                        settlement_timestamp: '2023-02-04T18:00:00.000Z'
+                    tags:
+                      - descriptor:
+                          code: payment_terms
+                        list:
+                          - descriptor:
+                              code: payment_type
+                            value: OPGSP
+                          - descriptor:
+                              code: payment_provider
+                            value: abcd
+                created_at: '2023-06-03T09:30:00.000Z'
+                updated_at: '2023-06-03T11:00:30.000Z'
+                tags:
+                  - descriptor:
+                      code: bpp_terms
+                    list:
+                      - descriptor:
+                          code: max_liability
+                        value: '2'
+                      - descriptor:
+                          code: max_liability_cap
+                        value: '10000'
+                      - descriptor:
+                          code: mandatory_arbitration
+                        value: 'false'
+                      - descriptor:
+                          code: court_jurisdiction
+                        value: Bengaluru
+                      - descriptor:
+                          code: delay_interest
+                        value: '1000'
+                  - descriptor:
+                      code: bap_terms
+                    list:
+                      - descriptor:
+                          code: accept_bpp_terms
+                        value: 'Y'
+      - summary: Buyer updates the refund amount through FYI update call
+        api: update
+        description: null
+        reference: if any
+        example: &ref_20
+          summary: Buyer updates refund details
+          description: Buyer updates the refund details (FYI call)
+          value:
+            context:
+              domain: ONDC:RET12
+              location:
+                city:
+                  code: UN:SIN
+                country:
+                  code: SGP
+              action: update
+              version: 2.0.2
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/grocery
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/grocery
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 21d9d8b4-723b-44b4-a205-16626cbbfe4f
+              timestamp: '2023-01-08T22:00:30.000Z'
+              ttl: PT30S
+            message:
+              update_target: payments
+              order:
+                id: O1
+                state: Accepted
+                provider:
+                  id: P1
+                items:
+                  - id: I1
+                    quantity:
+                      selected:
+                        count: 200
+                payments:
+                  - uri: https://ondc.transaction.com/payment
+                    tl_method: http/get
+                    params:
+                      currency: INR
+                      transaction_id: '3937'
+                      amount: '53600'
+                    status: PAID
+                    type: PRE-FULFILLMENT
+                    collected_by: SOR
+                    '@ondc/org/buyer_app_finder_fee_type': percent
+                    '@ondc/org/buyer_app_finder_fee_amount': '0'
+                    '@ondc/org/settlement_basis': delivery
+                    '@ondc/org/settlement_window': P1D
+                    '@ondc/org/withholding_amount': '10.00'
+                    '@ondc/org/settlement_details':
+                      - settlement_counterparty: buyer
+                        settlement_phase: refund
+                        settlement_type: OPGSP
+                        settlement_amount: '17.00'
+                        settlement_timestamp: '2023-01-08T22:00:30.000Z'
+  - summary: B2C Retail Exports (Buyer Cancels Full Order)
+    description: >-
+      The following is an illustrative flow to perform a transaction of a nature
+      where a buyer from outside India would like to buy fashion item. The Buyer
+      then cancels it.
+    details:
+      - description: Buyer Search & Quotation
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant B2C BAP
+            participant Gateway
+            participant B2C BPP
+
+            B2C BAP->>Gateway: **/search**  - Buyer searches from a location outside India
+            Gateway->>B2C BPP: **/search**  - Buyer searches from a location outside India
+            B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog for the specific domain and export license in creds
+      - description: Product Selection and Confirmation
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant B2C BAP
+            participant B2C BPP
+
+            B2C BAP ->> B2C BPP: **/select** - Buyer adds the item(s) to the card.
+            B2C BPP ->> B2C BAP: **/on_select** - Returns quote breakup (adding offers if any) when item is in stock 
+
+            B2C BAP ->> B2C BPP: **/init** - Buyer initializes the order and proceeds to checkout.
+            B2C BPP ->> B2C BAP: **/on_init** - Seller app initializes order
+            
+            B2C BAP ->> B2C BPP: **/confirm** - Buyer confirms order
+            B2C BPP ->> B2C BAP: **/on_confirm** - Seller Accepts order
+      - description: Buyer Cancels Full Order
+        mermaidGraph: |-
+          sequenceDiagram
+
+            participant B2C BAP
+            participant B2C BPP
+            
+            B2C BAP ->> B2C BPP: **/cancel** - Buyer cancels full order
+            B2C BPP ->> B2C BAP: **/on_cancel** - Seller accepts the cancellation and updates the quote trail for refund
+    reference: if any
+    steps:
+      - summary: Search by fulfillment end location
+        api: search
+        description: Buyer search by fulfillment end location
+        reference: if any
+        example: *ref_12
+      - summary: Returns the item or catalog (Fashion)
+        api: on_search
+        description: null
+        reference: if any
+        example: *ref_13
+      - summary: Select the item
+        api: select
+        description: null
+        reference: if any
+        example: *ref_14
+      - summary: Returns item breakup when item is in stock
+        api: on_select
+        description: null
+        reference: if any
+        example: *ref_15
+      - summary: Buyer initiate the product and send the updated fulfillment id
+        api: init
+        description: null
+        reference: if any
+        example: *ref_16
+      - summary: Respond to init
+        api: on_init
+        description: null
+        reference: if any
+        example: *ref_17
+      - summary: Buyer confirms product
+        api: confirm
+        description: null
+        reference: if any
+        example: *ref_18
+      - summary: Seller Accepts confirmation
+        api: on_confirm
+        description: null
+        reference: if any
+        example: *ref_19
+      - summary: Buyer cancels the product
+        api: cancel
+        description: null
+        reference: if any
+        example:
+          summary: Buyer initiates cancellation of the order
+          description: Buyer initiates cancellation of the order
+          value:
+            context:
+              domain: ONDC:RET12
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: cancel
+              version: 2.0.2
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/grocery
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/grocery
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 1e8db0ff-4905-4edb-8f1b-a980635e89da
+              timestamp: '2023-01-08T22:00:30.000Z'
+              ttl: PT30S
+            message:
+              order_id: '02'
+              cancellation_reason_id: '003'
+      - summary: Seller accepts the cancellation and responds to it
+        api: on_cancel
+        description: null
+        reference: if any
+        example:
+          summary: Seller cancels the order
+          description: Seller cancels the order
+          value:
+            context:
+              domain: ONDC:RET12
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_cancel
+              version: 2.0.2
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/grocery
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/grocery
+              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+              message_id: 1e8db0ff-4905-4edb-8f1b-a980635e89da
+              timestamp: '2023-01-08T22:00:30.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: '02'
+                state: Cancelled
+                cancellation:
+                  cancelled_by: buyerapp.com
+                  reason:
+                    id: '003'
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    fulfillment_ids:
+                      - F1
+                    payment_ids:
+                      - P1
+                      - P2
+                    quantity:
+                      selected:
+                        count: 1
+                    add_ons:
+                      - id: '78787723'
+                    tags:
+                      - descriptor:
+                          code: BUYER_TERMS
+                        list:
+                          - descriptor:
+                              code: ITEM_REQ
+                            value: free text on Item Customization
+                          - descriptor:
+                              code: PACKAGING_REQ
+                            value: free text on packaging Customization
+                billing:
+                  name: ONDC buyer
+                  address: >-
+                    22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                    Bengaluru, Karnataka 560001
+                  state:
+                    name: Karnataka
+                  city:
+                    name: Bengaluru
+                  tax_id: XXXXXXXXXXXXXXX
+                  email: nobody@nomail.com
+                  phone: '9886098860'
+                fulfillments:
+                  - id: F1
+                    type: Delivery
+                    state:
+                      descriptor:
+                        code: Cancelled
+                    '@ondc/org/provider_name': Loadshare
+                    '@ondc/org/category': Express Delivery
+                    '@ondc/org/TAT': P7D
+                    tracking: false
+                    stops:
+                      - type: start
+                        location:
+                          id: L1
+                          descriptor:
+                            name: ABC Store
+                          gps: 12.956399,77.636803
+                        time:
+                          range:
+                            start: '2023-02-03T10:00:00.000Z'
+                            end: '2023-02-03T10:30:00.000Z'
+                        instructions:
+                          name: Status for pickup
+                          short_desc: Pickup Confirmation Code
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                      - type: end
+                        location:
+                          gps: 12.974002,77.613458
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Bengaluru
+                          country:
+                            code: IND
+                          area_code: '560001'
+                          state:
+                            name: Karnataka
+                        contact:
+                          phone: '9886098860'
+                quote:
+                  price:
+                    currency: INR
+                    value: '0.00'
+                  breakup:
+                    - '@ondc/org/item_id': I1
+                      '@ondc/org/item_quantity':
+                        count: 200
+                      title: Dhara Mustard Oil
+                      '@ondc/org/title_type': item
+                      price:
+                        currency: INR
+                        value: '50000'
+                      item:
+                        price:
+                          currency: INR
+                          value: '250'
+                    - '@ondc/org/item_id': I1
+                      '@ondc/org/item_quantity':
+                        count: 0
+                      title: Dhara Mustard Oil
+                      '@ondc/org/title_type': refund
+                      price:
+                        currency: INR
+                        value: '-50000'
+                      item:
+                        price:
+                          currency: INR
+                          value: '250'
+                    - '@ondc/org/item_id': F1
+                      title: Delivery charges
+                      '@ondc/org/title_type': delivery
+                      price:
+                        currency: INR
+                        value: '4000'
+                    - '@ondc/org/item_id': F1
+                      title: Delivery charges
+                      '@ondc/org/title_type': refund
+                      price:
+                        currency: INR
+                        value: '-4000'
+                    - '@ondc/org/item_id': F1
+                      title: Packing charges
+                      '@ondc/org/title_type': packing
+                      price:
+                        currency: INR
+                        value: '500'
+                    - '@ondc/org/item_id': F1
+                      title: Packing charges
+                      '@ondc/org/title_type': refund
+                      price:
+                        currency: INR
+                        value: '-500'
+                    - '@ondc/org/item_id': I1
+                      title: Tax
+                      '@ondc/org/title_type': tax
+                      price:
+                        currency: INR
+                        value: '0'
+                    - '@ondc/org/item_id': I1
+                      title: Discount
+                      '@ondc/org/title_type': discount
+                      price:
+                        currency: INR
+                        value: '-1000'
+                    - '@ondc/org/item_id': I1
+                      title: Discount
+                      '@ondc/org/title_type': refund
+                      price:
+                        currency: INR
+                        value: '1000'
+                    - '@ondc/org/item_id': F1
+                      title: Convenience Fee
+                      '@ondc/org/title_type': misc
+                      price:
+                        currency: INR
+                        value: '100'
+                    - '@ondc/org/item_id': F1
+                      title: Convenience Fee
+                      '@ondc/org/title_type': refund
+                      price:
+                        currency: INR
+                        value: '-100'
+                  ttl: P1D
+                payments:
+                  - id: P1
+                    type: PRE-FULFILLMENT
+                    collected_by: BPP
+                    uri: https://snp.com/pg
+                    params:
+                      currency: INR
+                      transaction_id: '3937'
+                      amount: '53600'
+                    status: PAID
+                    '@ondc/org/buyer_app_finder_fee_type': percent
+                    '@ondc/org/buyer_app_finder_fee_amount': '0'
+                    '@ondc/org/settlement_basis': delivery
+                    '@ondc/org/settlement_window': P1D
+                    '@ondc/org/withholding_amount': '10.00'
+                    '@ondc/org/settlement_details':
+                      - settlement_counterparty: buyer-app
+                        settlement_phase: sale-amount
+                        settlement_type: upi
+                        beneficiary_name: xxxxx
+                        upi_address: gft@oksbi
+                        settlement_bank_account_no: XXXXXXXXXX
+                        settlement_ifsc_code: XXXXXXXXX
+                        bank_name: xxxx
+                        branch_name: xxxx
+                    tags:
+                      - descriptor:
+                          code: BPP_payment
+                        list:
+                          - descriptor:
+                              code: signature
+                            value: xxxxxxxxxxxxxx
+                          - descriptor:
+                              code: dsa
+                            value: ED25519
+                  - id: P2
+                    type: PRE-FULFILLMENT
+                    collected_by: buyer
+                    uri: https://snp.com/pg
+                    params:
+                      currency: INR
+                      transaction_id: '3937'
+                      amount: '53600'
+                    status: PAID
+                    '@ondc/org/buyer_app_finder_fee_type': percent
+                    '@ondc/org/buyer_app_finder_fee_amount': '0'
+                    '@ondc/org/settlement_basis': delivery
+                    '@ondc/org/settlement_window': P1D
+                    '@ondc/org/withholding_amount': '10.00'
+                tags:
+                  - descriptor:
+                      code: buyer_id
+                    list:
+                      - descriptor:
+                          code: buyer_id_code
+                        value: gst
+                      - descriptor:
+                          code: buyer_id_no
+                        value: xxxxxxxxxxxxxxx
+                  - descriptor:
+                      code: bpp_terms
+                    list:
+                      - descriptor:
+                          code: max_liability
+                        value: '2'
+                      - descriptor:
+                          code: max_liability_cap
+                        value: '10000'
+                      - descriptor:
+                          code: mandatory_arbitration
+                        value: 'false'
+                      - descriptor:
+                          code: court_jurisdiction
+                        value: Bengaluru
+                      - descriptor:
+                          code: delay_interest
+                        value: '1000'
+                  - descriptor:
+                      code: bap_terms
+                    list:
+                      - descriptor:
+                          code: accept_bpp_terms
+                        value: 'Y'
+      - summary: Buyer updates the refund amount through FYI update call
+        api: update
+        description: null
+        reference: if any
+        example: *ref_20
 x-examples:
   B2B:
     summary: B2C Exports Use Case Specification
@@ -7335,8 +8409,8 @@ x-examples:
                             email: abc@xyz.com
       on_select:
         examples:
-          - summary: Send quote and breakup - Response to RFQ (Exports)
-            description: Send quote and breakup for items selected in RFQ
+          - summary: Send quote and breakup -(Exports)
+            description: Send quote and breakup for items selected]
             value:
               context:
                 domain: ONDC:RET12

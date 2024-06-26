@@ -1,4 +1,4 @@
-summary: Send quote and breakup -(Exports)
+summary: Send quote and breakup - Location not serviceable(Exports)
 description: Send quote and breakup for items selected]
 value:
   context:
@@ -40,11 +40,11 @@ value:
           "@ondc/org/TAT": P7D
           state:
             descriptor:
-              code: Serviceable
+              code: Non-serviceable
       quote:
         price:
           currency: USD
-          value: "15.00"
+          value: "13.00"
         breakup:
           - "@ondc/org/item_id ": I1
             "@ondc/org/item_quantity":
@@ -63,7 +63,7 @@ value:
             "@ondc/org/title_type ": delivery
             price:
               currency: USD
-              value: "2.00"
+              value: "0.00"
           - "@ondc/org/item_id": F1
             title: Packing charges
             "@ondc/org/title_type ": packing
@@ -93,3 +93,7 @@ value:
       payments:
         - type: PRE-FULFILLMENT
           collected_by: SOR
+  error: 
+    type: "DOMAIN-ERROR"
+    code: "30009"
+    message: "custom message"
