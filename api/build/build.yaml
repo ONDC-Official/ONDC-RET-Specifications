@@ -7156,7 +7156,7 @@ x-flows:
         reference: if any
         example: *ref_18
 x-examples:
-  B2B:
+  B2C Exports:
     summary: B2C Exports Use Case Specification
     description: >-
       An ONDC (Open Network for Digital Commerce) retail export transaction
@@ -9944,7 +9944,7 @@ x-examples:
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T10:00:00.201Z'
 x-attributes:
-  B2B:
+  B2C Exports:
     attribute_set:
       search:
         parent: true
