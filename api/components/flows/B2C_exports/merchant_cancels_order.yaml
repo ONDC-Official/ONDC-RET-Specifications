@@ -86,7 +86,7 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/B2C_Exports/on_confirm/on_confirm_exports.yaml"
-  - summary: Seller accepts the cancellation and initiates the refund.
+  - summary: Seller cancels the order and initiates the refund.
     api: on_cancel
     description:
     reference: if any

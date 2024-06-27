@@ -6443,7 +6443,7 @@ x-flows:
         description: null
         reference: if any
         example: *ref_17
-      - summary: Seller accepts the cancellation and initiates the refund.
+      - summary: Seller cancels the order and initiates the refund.
         api: on_cancel
         description: null
         reference: if any
