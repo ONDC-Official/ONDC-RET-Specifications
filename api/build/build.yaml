@@ -2581,7 +2581,7 @@ x-enum:
     context: &ref_2
       domain:
         - code: ONDC:RET10
-          description: fashion
+          description: Grocery
           reference: <PR/Issue/Discussion Links md format text>
         - code: ONDC:RET11
           description: F&B
@@ -2599,7 +2599,7 @@ x-enum:
           description: Appliances
           reference: <PR/Issue/Discussion Links md format text>
         - code: ONDC:RET16
-          description: Home & Decor
+          description: Home & Kitchen
           reference: <PR/Issue/Discussion Links md format text>
         - code: ONDC:RET17
           description: Toys & Games
@@ -2611,7 +2611,7 @@ x-enum:
           description: Pharma
           reference: <PR/Issue/Discussion Links md format text>
         - code: ONDC:RET1A
-          description: Autoparts & Components
+          description: Automotives, Components & Accessories
           reference: <PR/Issue/Discussion Links md format text>
         - code: ONDC:RET1B
           description: Hardware and Industrial
