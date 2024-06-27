@@ -173,7 +173,7 @@
             "item": {
               "price": {
                 "currency": "USD",
-                "value": "250"
+                "value": "10.00"
               }
             }
           },
@@ -182,7 +182,7 @@
             "@ondc/org/item_quantity": {
               "count": 1
             },
-            "title": "Dhara Mustard Oil",
+            "title": "Allen Solly Men T-shirt",
             "@ondc/org/title_type": "refund",
             "price": {
               "currency": "USD",
