@@ -205,7 +205,7 @@
             "@ondc/org/title_type ": "discount",
             "price": {
               "currency": "USD",
-              "value": "-1.00"
+              "value": "-3.00"
             }
           },
           {
