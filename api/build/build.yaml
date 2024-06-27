@@ -6400,7 +6400,7 @@ x-flows:
             participant B2C BAP
             participant B2C BPP
             
-            B2C BPP ->> B2C BAP: **/on_cancel** - Seller cancels full order before order pick up and updates the quote trail for refund
+            B2C BPP ->> B2C BAP: **/on_cancel** - Seller cancels full order before order pick up and initiates the refund.
     reference: if any
     steps:
       - summary: Search by fulfillment end location
@@ -6443,7 +6443,7 @@ x-flows:
         description: null
         reference: if any
         example: *ref_17
-      - summary: Seller accepts the cancellation and responds to it
+      - summary: Seller accepts the cancellation and initiates the refund.
         api: on_cancel
         description: null
         reference: if any
@@ -6774,7 +6774,7 @@ x-flows:
             participant B2C BPP
             
             B2C BAP ->> B2C BPP: **/cancel** - Buyer cancels full order
-            B2C BPP ->> B2C BAP: **/on_cancel** - Seller accepts the cancellation and updates the quote trail for refund
+            B2C BPP ->> B2C BAP: **/on_cancel** - Seller accepts the cancellation and initiates the refund.
     reference: if any
     steps:
       - summary: Search by fulfillment end location
@@ -6817,7 +6817,7 @@ x-flows:
         description: null
         reference: if any
         example: *ref_17
-      - summary: Buyer cancels the product
+      - summary: Buyer cancels the order.
         api: cancel
         description: null
         reference: if any
@@ -6845,7 +6845,7 @@ x-flows:
             message:
               order_id: O1
               cancellation_reason_id: '003'
-      - summary: Seller accepts the cancellation and responds to it
+      - summary: Seller accepts the cancellation and initiates the refund.
         api: on_cancel
         description: null
         reference: if any

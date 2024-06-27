@@ -34,7 +34,7 @@ details:
         participant B2C BAP
         participant B2C BPP
         
-        B2C BPP ->> B2C BAP: **/on_cancel** - Seller cancels full order before order pick up and updates the quote trail for refund
+        B2C BPP ->> B2C BAP: **/on_cancel** - Seller cancels full order before order pick up and initiates the refund.
 
 reference: if any
 steps:
@@ -86,7 +86,7 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/B2C_Exports/on_confirm/on_confirm_exports.yaml"
-  - summary: Seller accepts the cancellation and responds to it
+  - summary: Seller accepts the cancellation and initiates the refund.
     api: on_cancel
     description:
     reference: if any
