@@ -3,18 +3,18 @@
     "domain": "ONDC:RET12",
     "location": {
       "city": {
-        "code": "std:080"
+        "code": "UN:SIN"
       },
       "country": {
-        "code": "IND"
+        "code": "SGP"
       }
     },
     "action": "on_select",
     "version": "2.0.2",
     "bap_id": "buyerapp.com",
-    "bap_uri": "https://buyerapp.com/grocery",
+    "bap_uri": "https://buyerapp.com/fashion",
     "bpp_id": "sellerapp.com",
-    "bpp_uri": "https://sellerapp.com/grocery",
+    "bpp_uri": "https://sellerapp.com/fashion",
     "transaction_id": "9568beb3-265a-4730-be4e-c00ba2e5e30a",
     "message_id": "4e90afaf-2d02-4ed9-9659-45d702a82f8e",
     "timestamp": "2023-01-08T22:00:30.000Z",

@@ -1,7 +1,7 @@
 context:
   domain: 
     - code: ONDC:RET10
-      description: Grocery
+      description: fashion
       reference: <PR/Issue/Discussion Links md format text>
     - code: ONDC:RET11
       description: F&B

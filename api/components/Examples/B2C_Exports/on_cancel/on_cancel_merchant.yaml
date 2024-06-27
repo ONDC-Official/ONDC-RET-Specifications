@@ -11,16 +11,16 @@ value:
     action: on_cancel
     version: 2.0.2
     bap_id: buyerapp.com
-    bap_uri: https://buyerapp.com/grocery
+    bap_uri: https://buyerapp.com/fashion
     bpp_id: sellerapp.com
-    bpp_uri: https://sellerapp.com/grocery
+    bpp_uri: https://sellerapp.com/fashion
     transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
     message_id: 1e8db0ff-4905-4edb-8f1b-a980635e89da
     timestamp: '2023-01-08T22:00:30.000Z'
     ttl: PT30S
   message:
     order:
-      id: "02"
+      id: "O1"
       state: Cancelled
       cancellation:
         cancelled_by: sellerapp.com

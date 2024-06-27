@@ -221,7 +221,7 @@ message:
           usage: "consumer.services@abc.com"
           reference: if any            
         quantity.unitized.measure.unit:
-          description: enum - "unit", "dozen", "kilogram", "tonne", "litre", "millilitre" (https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/grocery/RET10-UOM.json)
+          description: enum - "unit", "dozen", "kilogram", "tonne", "litre", "millilitre" (https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/fashion/RET10-UOM.json)
           required: required
           usage: unit
           reference: if any

@@ -11,9 +11,9 @@ value:
     action: on_status
     version: 2.0.2
     bap_id: buyerapp.com
-    bap_uri: https://buyerapp.com/grocery
+    bap_uri: https://buyerapp.com/fashion
     bpp_id: sellerapp.com
-    bpp_uri: https://sellerapp.com/grocery
+    bpp_uri: https://sellerapp.com/fashion
     transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
     message_id: M1
     timestamp: '2023-01-08T22:00:30.000Z'
@@ -96,6 +96,7 @@ value:
                   - https://image1_url.png
               contact:
                 phone: "9886098860"
+                email: buyer@xyz.com
               agent:
                 person:
                   name: Ramu
