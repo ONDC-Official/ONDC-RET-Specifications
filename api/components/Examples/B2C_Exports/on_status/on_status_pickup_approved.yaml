@@ -1,5 +1,5 @@
 summary: Seller updates the order status (Pickup Approved)
-description: Seller updates the order status and shares Invoice
+description: Seller updates the order status.
 value:
   context:
     domain: ONDC:RET12
