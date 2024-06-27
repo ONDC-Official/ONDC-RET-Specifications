@@ -1,6 +1,6 @@
 {
   "context": {
-    "domain": "ONDC:RET10",
+    "domain": "ONDC:RET12",
     "location": {
       "city": {
         "code": "UN:SIN"
@@ -35,10 +35,12 @@
       "items": [
         {
           "id": "I1",
-          "fulfillment_ids": ["F1"],
+          "fulfillment_ids": [
+            "F1"
+          ],
           "quantity": {
             "selected": {
-              "count": 200
+              "count": 1
             }
           }
         }
@@ -87,71 +89,71 @@
       ],
       "quote": {
         "price": {
-          "currency": "INR",
-          "value": "53600"
+          "currency": "USD",
+          "value": "15.00"
         },
         "breakup": [
           {
-            "@ondc/org/item_id": "I1",
+            "@ondc/org/item_id ": "I1",
             "@ondc/org/item_quantity": {
-              "count": 200
+              "count": 1
             },
-            "title": "Dhara Mustard Oil",
-            "@ondc/org/title_type": "item",
+            "title": "Allen Solly Men T-shirt",
+            "@ondc/org/title_type ": "item",
             "price": {
-              "currency": "INR",
-              "value": "50000"
+              "currency": "USD",
+              "value": "10.00"
             },
             "item": {
               "price": {
-                "currency": "INR",
-                "value": "250"
+                "currency": "USD",
+                "value": "10.00"
               }
             }
           },
           {
             "@ondc/org/item_id": "F1",
             "title": "Delivery charges",
-            "@ondc/org/title_type": "delivery",
+            "@ondc/org/title_type ": "delivery",
             "price": {
-              "currency": "INR",
-              "value": "4000"
+              "currency": "USD",
+              "value": "2.00"
             }
           },
           {
             "@ondc/org/item_id": "F1",
             "title": "Packing charges",
-            "@ondc/org/title_type": "packing",
+            "@ondc/org/title_type ": "packing",
             "price": {
-              "currency": "INR",
-              "value": "500"
+              "currency": "USD",
+              "value": "5.00"
             }
           },
           {
             "@ondc/org/item_id": "I1",
             "title": "Tax",
-            "@ondc/org/title_type": "tax",
+            "@ondc/org/title_type ": "tax",
             "price": {
-              "currency": "INR",
-              "value": "0"
+              "currency": "USD",
+              "value": "0.00"
             }
           },
           {
             "@ondc/org/item_id": "I1",
             "title": "Discount",
-            "@ondc/org/title_type": "discount",
+            "@ondc/org/title_type ": "discount",
             "price": {
-              "currency": "INR",
-              "value": "-1000"
+              "currency": "USD",
+              "value": "-1.00"
             }
           },
           {
             "@ondc/org/item_id": "F1",
             "title": "Convenience Fee",
-            "@ondc/org/title_type": "misc",
+            "@ondc/org/title_type ": "misc",
             "price": {
-              "currency": "INR",
-              "value": "100"
+              "currency": "USD",
+              "value": "1.00"
             }
           }
         ],
@@ -160,9 +162,14 @@
       "payments": [
         {
           "params": {
-            "currency": "INR",
-            "amount": "53600"
+            "currency": "USD",
+            "amount": "15.00",
+            "transaction_id": "3937",
+            "bank_code": "xxxxxxxxx",
+            "bank_account_number": "xxxxxxxxxxxx"
           },
+          "uri": "https://seller.com/pg",
+          "tl_method": "http/get",
           "status": "PAID",
           "type": "PRE-FULFILLMENT",
           "collected_by": "SOR",

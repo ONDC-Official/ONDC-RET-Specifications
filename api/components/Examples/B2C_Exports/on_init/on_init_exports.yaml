@@ -96,7 +96,7 @@ value:
             title: Tax
             "@ondc/org/title_type ": tax
             price:
-              currency: INR
+              currency: USD
               value: "0.00"
           - "@ondc/org/item_id": I1
             title: Discount

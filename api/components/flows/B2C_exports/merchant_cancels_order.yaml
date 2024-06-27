@@ -92,10 +92,5 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/B2C_Exports/on_cancel/on_cancel_merchant.yaml"    
-  - summary: Buyer updates the refund amount through FYI update call
-    api: update
-    description:
-    reference: if any
-    example:
-      $ref: "../../Examples/B2C_Exports/update/update_prepaid.yaml"
+
                              

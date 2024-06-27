@@ -1,6 +1,6 @@
 {
   "context": {
-    "domain": "ONDC:RET10",
+    "domain": "ONDC:RET12",
     "location": {
       "city": {
         "code": "std:080"
@@ -32,7 +32,9 @@
       },
       "items": [
         {
-          "fulfillment_ids": ["F1"],
+          "fulfillment_ids": [
+            "F1"
+          ],
           "id": "I1",
           "quantity": {
             "selected": {
@@ -73,14 +75,6 @@
               "value": "10.00"
             },
             "item": {
-              "quantity": {
-                "available": {
-                  "count": "5"
-                },
-                "maximum": {
-                  "count": "5"
-                }
-              },
               "price": {
                 "currency": "USD",
                 "value": "10.00"

@@ -110,7 +110,7 @@ value:
                   phone: "9886098860"
       quote:
         price:
-          currency: INR
+          currency: USD
           value: "0.00"
         breakup:
           - "@ondc/org/item_id": I1
@@ -123,7 +123,7 @@ value:
               value: "10.00"
             item:
               price:
-                currency: INR
+                currency: USD
                 value: "250"
           - "@ondc/org/item_id": I1
             "@ondc/org/item_quantity":
@@ -165,7 +165,7 @@ value:
             title: Tax
             "@ondc/org/title_type": tax
             price:
-              currency: INR
+              currency: USD
               value: "0"
           - "@ondc/org/item_id": I1
             title: Discount
@@ -220,11 +220,6 @@ value:
               settlement_ifsc_code: XXXXXXXXX
               bank_name: xxxx
               branch_name: xxxx
-            - settlement_counterparty: buyer
-              settlement_phase: refund
-              settlement_type: OPGSP
-              settlement_amount: '12'
-              settlement_timestamp: '2023-02-04T18:00:00.000Z'
           tags:
           - descriptor:
              code: payment_terms
@@ -235,6 +230,26 @@ value:
              - descriptor:
                 code: payment_provider
                value: abcd
+        - id: P2
+          type: PRE-FULFILLMENT
+          collected_by: buyer
+          uri: https://snp.com/pg
+          params:
+            currency: USD
+            transaction_id: "1567"
+            amount: "15.00"
+          status: PAID
+          "@ondc/org/buyer_app_finder_fee_type": percent
+          "@ondc/org/buyer_app_finder_fee_amount": "0"
+          "@ondc/org/settlement_basis": delivery
+          "@ondc/org/settlement_window": P1D
+          "@ondc/org/withholding_amount": "10.00"
+          "@ondc/org/settlement_details":
+            - settlement_counterparty: buyer
+              settlement_phase: refund
+              settlement_type: OPGSP
+              settlement_amount: '12'
+              settlement_timestamp: '2023-02-04T18:00:00.000Z'
       created_at: "2023-06-03T09:30:00.000Z"
       updated_at: "2023-06-03T11:00:30.000Z"
       tags:

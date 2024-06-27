@@ -4008,7 +4008,7 @@ x-flows:
                             cancellation_fee:
                               percentage: '0'
                               amount:
-                                currency: IND
+                                currency: USD
                                 value: '0'
                           - fulfillment_state:
                               descriptor:
@@ -4017,7 +4017,7 @@ x-flows:
                             cancellation_fee:
                               percentage: '0'
                               amount:
-                                currency: IND
+                                currency: USD
                                 value: '0'
                           - fulfillment_state:
                               descriptor:
@@ -4158,7 +4158,7 @@ x-flows:
               transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
               message_id: 4e90afaf-2d02-4ed9-9659-45d702a82f8e
               timestamp: '2023-01-08T22:00:30.000Z'
-              ttl: P1D
+              ttl: PT30S
             message:
               order:
                 provider:
@@ -4275,7 +4275,7 @@ x-flows:
                       title: Tax
                       '@ondc/org/title_type ': tax
                       price:
-                        currency: INR
+                        currency: USD
                         value: '0.00'
                     - '@ondc/org/item_id': I1
                       title: Discount
@@ -4471,7 +4471,7 @@ x-flows:
                       title: Tax
                       '@ondc/org/title_type ': tax
                       price:
-                        currency: INR
+                        currency: USD
                         value: '0.00'
                     - '@ondc/org/item_id': I1
                       title: Discount
@@ -4597,13 +4597,11 @@ x-flows:
                         count: 1
                 billing:
                   name: ONDC buyer
-                  address: >-
-                    22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
-                    Bengaluru, Karnataka 560001
+                  address: B005 aaspire heights, Jurong East, SGP, 680230
                   state:
-                    name: Karnataka
+                    name: Jurong East
                   city:
-                    name: Bengaluru
+                    name: Jurong East
                   tax_id: XXXXXXXXXXXXXXX
                   email: nobody@nomail.com
                   phone: '9886098860'
@@ -4658,7 +4656,7 @@ x-flows:
                       title: Tax
                       '@ondc/org/title_type ': tax
                       price:
-                        currency: INR
+                        currency: USD
                         value: '0.00'
                     - '@ondc/org/item_id': I1
                       title: Discount
@@ -4868,7 +4866,7 @@ x-flows:
                       title: Tax
                       '@ondc/org/title_type ': tax
                       price:
-                        currency: INR
+                        currency: USD
                         value: '0.00'
                     - '@ondc/org/item_id': I1
                       title: Discount
@@ -5084,7 +5082,7 @@ x-flows:
                       title: Tax
                       '@ondc/org/title_type ': tax
                       price:
-                        currency: INR
+                        currency: USD
                         value: '0.00'
                     - '@ondc/org/item_id': I1
                       title: Discount
@@ -5297,7 +5295,7 @@ x-flows:
                       title: Tax
                       '@ondc/org/title_type ': tax
                       price:
-                        currency: INR
+                        currency: USD
                         value: '0.00'
                     - '@ondc/org/item_id': I1
                       title: Discount
@@ -5481,7 +5479,7 @@ x-flows:
                       title: Tax
                       '@ondc/org/title_type ': tax
                       price:
-                        currency: INR
+                        currency: USD
                         value: '0.00'
                     - '@ondc/org/item_id': I1
                       title: Discount
@@ -5665,7 +5663,7 @@ x-flows:
                       title: Tax
                       '@ondc/org/title_type ': tax
                       price:
-                        currency: INR
+                        currency: USD
                         value: '0.00'
                     - '@ondc/org/item_id': I1
                       title: Discount
@@ -5851,7 +5849,7 @@ x-flows:
                       title: Tax
                       '@ondc/org/title_type ': tax
                       price:
-                        currency: INR
+                        currency: USD
                         value: '0.00'
                     - '@ondc/org/item_id': I1
                       title: Discount
@@ -6038,7 +6036,7 @@ x-flows:
                       title: Tax
                       '@ondc/org/title_type ': tax
                       price:
-                        currency: INR
+                        currency: USD
                         value: '0.00'
                     - '@ondc/org/item_id': I1
                       title: Discount
@@ -6332,7 +6330,7 @@ x-flows:
                       title: Tax
                       '@ondc/org/title_type ': tax
                       price:
-                        currency: INR
+                        currency: USD
                         value: '0.00'
                     - '@ondc/org/item_id': I1
                       title: Discount
@@ -6560,7 +6558,7 @@ x-flows:
                             phone: '9886098860'
                 quote:
                   price:
-                    currency: INR
+                    currency: USD
                     value: '0.00'
                   breakup:
                     - '@ondc/org/item_id': I1
@@ -6573,7 +6571,7 @@ x-flows:
                         value: '10.00'
                       item:
                         price:
-                          currency: INR
+                          currency: USD
                           value: '250'
                     - '@ondc/org/item_id': I1
                       '@ondc/org/item_quantity':
@@ -6615,7 +6613,7 @@ x-flows:
                       title: Tax
                       '@ondc/org/title_type': tax
                       price:
-                        currency: INR
+                        currency: USD
                         value: '0'
                     - '@ondc/org/item_id': I1
                       title: Discount
@@ -6685,6 +6683,26 @@ x-flows:
                           - descriptor:
                               code: payment_provider
                             value: abcd
+                  - id: P2
+                    type: PRE-FULFILLMENT
+                    collected_by: buyer
+                    uri: https://snp.com/pg
+                    params:
+                      currency: USD
+                      transaction_id: '1567'
+                      amount: '15.00'
+                    status: PAID
+                    '@ondc/org/buyer_app_finder_fee_type': percent
+                    '@ondc/org/buyer_app_finder_fee_amount': '0'
+                    '@ondc/org/settlement_basis': delivery
+                    '@ondc/org/settlement_window': P1D
+                    '@ondc/org/withholding_amount': '10.00'
+                    '@ondc/org/settlement_details':
+                      - settlement_counterparty: buyer
+                        settlement_phase: refund
+                        settlement_type: OPGSP
+                        settlement_amount: '12'
+                        settlement_timestamp: '2023-02-04T18:00:00.000Z'
                 created_at: '2023-06-03T09:30:00.000Z'
                 updated_at: '2023-06-03T11:00:30.000Z'
                 tags:
@@ -6712,64 +6730,6 @@ x-flows:
                       - descriptor:
                           code: accept_bpp_terms
                         value: 'Y'
-      - summary: Buyer updates the refund amount through FYI update call
-        api: update
-        description: null
-        reference: if any
-        example: &ref_18
-          summary: Buyer updates refund details
-          description: Buyer updates the refund details (FYI call)
-          value:
-            context:
-              domain: ONDC:RET12
-              location:
-                city:
-                  code: UN:SIN
-                country:
-                  code: SGP
-              action: update
-              version: 2.0.2
-              bap_id: buyerapp.com
-              bap_uri: https://buyerapp.com/grocery
-              bpp_id: sellerapp.com
-              bpp_uri: https://sellerapp.com/grocery
-              transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
-              message_id: 21d9d8b4-723b-44b4-a205-16626cbbfe4f
-              timestamp: '2023-01-08T22:00:30.000Z'
-              ttl: PT30S
-            message:
-              update_target: payments
-              order:
-                id: O1
-                state: Accepted
-                provider:
-                  id: P1
-                items:
-                  - id: I1
-                    quantity:
-                      selected:
-                        count: 200
-                payments:
-                  - uri: https://ondc.transaction.com/payment
-                    tl_method: http/get
-                    params:
-                      currency: INR
-                      transaction_id: '3937'
-                      amount: '53600'
-                    status: PAID
-                    type: PRE-FULFILLMENT
-                    collected_by: SOR
-                    '@ondc/org/buyer_app_finder_fee_type': percent
-                    '@ondc/org/buyer_app_finder_fee_amount': '0'
-                    '@ondc/org/settlement_basis': delivery
-                    '@ondc/org/settlement_window': P1D
-                    '@ondc/org/withholding_amount': '10.00'
-                    '@ondc/org/settlement_details':
-                      - settlement_counterparty: buyer
-                        settlement_phase: refund
-                        settlement_type: OPGSP
-                        settlement_amount: '17.00'
-                        settlement_timestamp: '2023-01-08T22:00:30.000Z'
   - summary: B2C Retail Exports (Buyer Cancels Full Order)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -6869,9 +6829,9 @@ x-flows:
               domain: ONDC:RET12
               location:
                 city:
-                  code: std:080
+                  code: UN:SIN
                 country:
-                  code: IND
+                  code: SGP
               action: cancel
               version: 2.0.2
               bap_id: buyerapp.com
@@ -7001,7 +6961,7 @@ x-flows:
                             phone: '9886098860'
                 quote:
                   price:
-                    currency: INR
+                    currency: USD
                     value: '0.00'
                   breakup:
                     - '@ondc/org/item_id': I1
@@ -7014,7 +6974,7 @@ x-flows:
                         value: '10.00'
                       item:
                         price:
-                          currency: INR
+                          currency: USD
                           value: '250'
                     - '@ondc/org/item_id': I1
                       '@ondc/org/item_quantity':
@@ -7056,7 +7016,7 @@ x-flows:
                       title: Tax
                       '@ondc/org/title_type': tax
                       price:
-                        currency: INR
+                        currency: USD
                         value: '0'
                     - '@ondc/org/item_id': I1
                       title: Discount
@@ -7111,11 +7071,6 @@ x-flows:
                         settlement_ifsc_code: XXXXXXXXX
                         bank_name: xxxx
                         branch_name: xxxx
-                      - settlement_counterparty: buyer
-                        settlement_phase: refund
-                        settlement_type: OPGSP
-                        settlement_amount: '12'
-                        settlement_timestamp: '2023-02-04T18:00:00.000Z'
                     tags:
                       - descriptor:
                           code: payment_terms
@@ -7126,6 +7081,26 @@ x-flows:
                           - descriptor:
                               code: payment_provider
                             value: abcd
+                  - id: P2
+                    type: PRE-FULFILLMENT
+                    collected_by: buyer
+                    uri: https://snp.com/pg
+                    params:
+                      currency: USD
+                      transaction_id: '1567'
+                      amount: '15.00'
+                    status: PAID
+                    '@ondc/org/buyer_app_finder_fee_type': percent
+                    '@ondc/org/buyer_app_finder_fee_amount': '0'
+                    '@ondc/org/settlement_basis': delivery
+                    '@ondc/org/settlement_window': P1D
+                    '@ondc/org/withholding_amount': '10.00'
+                    '@ondc/org/settlement_details':
+                      - settlement_counterparty: buyer
+                        settlement_phase: refund
+                        settlement_type: OPGSP
+                        settlement_amount: '12'
+                        settlement_timestamp: '2023-02-04T18:00:00.000Z'
                 created_at: '2023-06-03T09:30:00.000Z'
                 updated_at: '2023-06-03T11:00:30.000Z'
                 tags:
@@ -7153,11 +7128,6 @@ x-flows:
                       - descriptor:
                           code: accept_bpp_terms
                         value: 'Y'
-      - summary: Buyer updates the refund amount through FYI update call
-        api: update
-        description: null
-        reference: if any
-        example: *ref_18
 x-examples:
   B2C Exports:
     summary: B2C Exports Use Case Specification
@@ -7243,7 +7213,7 @@ x-examples:
                 transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
                 message_id: 4e90afaf-2d02-4ed9-9659-45d702a82f8e
                 timestamp: '2023-01-08T22:00:30.000Z'
-                ttl: P1D
+                ttl: PT30S
               message:
                 order:
                   provider:
@@ -7392,13 +7362,11 @@ x-examples:
                           count: 1
                   billing:
                     name: ONDC buyer
-                    address: >-
-                      22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
-                      Bengaluru, Karnataka 560001
+                    address: B005 aaspire heights, Jurong East, SGP, 680230
                     state:
-                      name: Karnataka
+                      name: Jurong East
                     city:
-                      name: Bengaluru
+                      name: Jurong East
                     tax_id: XXXXXXXXXXXXXXX
                     email: nobody@nomail.com
                     phone: '9886098860'
@@ -7453,7 +7421,7 @@ x-examples:
                         title: Tax
                         '@ondc/org/title_type ': tax
                         price:
-                          currency: INR
+                          currency: USD
                           value: '0.00'
                       - '@ondc/org/item_id': I1
                         title: Discount
@@ -7532,61 +7500,6 @@ x-examples:
                           value: 'Y'
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T09:30:00.000Z'
-      update:
-        examples:
-          - summary: Buyer updates refund details
-            description: Buyer updates the refund details (FYI call)
-            value:
-              context:
-                domain: ONDC:RET12
-                location:
-                  city:
-                    code: UN:SIN
-                  country:
-                    code: SGP
-                action: update
-                version: 2.0.2
-                bap_id: buyerapp.com
-                bap_uri: https://buyerapp.com/grocery
-                bpp_id: sellerapp.com
-                bpp_uri: https://sellerapp.com/grocery
-                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
-                message_id: 21d9d8b4-723b-44b4-a205-16626cbbfe4f
-                timestamp: '2023-01-08T22:00:30.000Z'
-                ttl: PT30S
-              message:
-                update_target: payments
-                order:
-                  id: O1
-                  state: Accepted
-                  provider:
-                    id: P1
-                  items:
-                    - id: I1
-                      quantity:
-                        selected:
-                          count: 200
-                  payments:
-                    - uri: https://ondc.transaction.com/payment
-                      tl_method: http/get
-                      params:
-                        currency: INR
-                        transaction_id: '3937'
-                        amount: '53600'
-                      status: PAID
-                      type: PRE-FULFILLMENT
-                      collected_by: SOR
-                      '@ondc/org/buyer_app_finder_fee_type': percent
-                      '@ondc/org/buyer_app_finder_fee_amount': '0'
-                      '@ondc/org/settlement_basis': delivery
-                      '@ondc/org/settlement_window': P1D
-                      '@ondc/org/withholding_amount': '10.00'
-                      '@ondc/org/settlement_details':
-                        - settlement_counterparty: buyer
-                          settlement_phase: refund
-                          settlement_type: OPGSP
-                          settlement_amount: '17.00'
-                          settlement_timestamp: '2023-01-08T22:00:30.000Z'
       status:
         examples:
           - summary: Buyer asks for order status
@@ -7958,7 +7871,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: USD
                                   value: '0'
                             - fulfillment_state:
                                 descriptor:
@@ -7967,7 +7880,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: USD
                                   value: '0'
                             - fulfillment_state:
                                 descriptor:
@@ -8252,7 +8165,7 @@ x-examples:
                                 phone: '18001801018'
                                 email: consumer.services@motherdairy.com
                           price:
-                            currency: USF
+                            currency: USD
                             value: '25.00'
                             offered_value: '20.00'
                             maximum_value: '30.00'
@@ -8454,7 +8367,7 @@ x-examples:
                         title: Tax
                         '@ondc/org/title_type ': tax
                         price:
-                          currency: INR
+                          currency: USD
                           value: '0.00'
                       - '@ondc/org/item_id': I1
                         title: Discount
@@ -8571,7 +8484,7 @@ x-examples:
                         title: Tax
                         '@ondc/org/title_type ': tax
                         price:
-                          currency: INR
+                          currency: USD
                           value: '0.00'
                       - '@ondc/org/item_id': I1
                         title: Discount
@@ -8783,7 +8696,7 @@ x-examples:
                         title: Tax
                         '@ondc/org/title_type ': tax
                         price:
-                          currency: INR
+                          currency: USD
                           value: '0.00'
                       - '@ondc/org/item_id': I1
                         title: Discount
@@ -8996,7 +8909,7 @@ x-examples:
                         title: Tax
                         '@ondc/org/title_type ': tax
                         price:
-                          currency: INR
+                          currency: USD
                           value: '0.00'
                       - '@ondc/org/item_id': I1
                         title: Discount
@@ -9177,7 +9090,7 @@ x-examples:
                         title: Tax
                         '@ondc/org/title_type ': tax
                         price:
-                          currency: INR
+                          currency: USD
                           value: '0.00'
                       - '@ondc/org/item_id': I1
                         title: Discount
@@ -9356,7 +9269,7 @@ x-examples:
                         title: Tax
                         '@ondc/org/title_type ': tax
                         price:
-                          currency: INR
+                          currency: USD
                           value: '0.00'
                       - '@ondc/org/item_id': I1
                         title: Discount
@@ -9535,7 +9448,7 @@ x-examples:
                         title: Tax
                         '@ondc/org/title_type ': tax
                         price:
-                          currency: INR
+                          currency: USD
                           value: '0.00'
                       - '@ondc/org/item_id': I1
                         title: Discount
@@ -9716,7 +9629,7 @@ x-examples:
                         title: Tax
                         '@ondc/org/title_type ': tax
                         price:
-                          currency: INR
+                          currency: USD
                           value: '0.00'
                       - '@ondc/org/item_id': I1
                         title: Discount
@@ -9898,7 +9811,7 @@ x-examples:
                         title: Tax
                         '@ondc/org/title_type ': tax
                         price:
-                          currency: INR
+                          currency: USD
                           value: '0.00'
                       - '@ondc/org/item_id': I1
                         title: Discount

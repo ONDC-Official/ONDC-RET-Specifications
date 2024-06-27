@@ -162,7 +162,7 @@ value:
                 phone: '18001801018'
                 email: consumer.services@motherdairy.com
           price:
-            currency: USF
+            currency: USD
             value: '25.00'
             offered_value: '20.00'
             maximum_value: '30.00'

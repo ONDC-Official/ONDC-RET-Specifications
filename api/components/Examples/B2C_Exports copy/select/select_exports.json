@@ -1,6 +1,6 @@
 {
   "context": {
-    "domain": "ONDC:RET10",
+    "domain": "ONDC:RET12",
     "location": {
       "city": {
         "code": "UN:SIN"
@@ -33,8 +33,12 @@
       "items": [
         {
           "id": "I1",
-          "location_ids": ["L1"],
-          "fulfillment_ids": ["F1"],
+          "location_ids": [
+            "L1"
+          ],
+          "fulfillment_ids": [
+            "F1"
+          ],
           "quantity": {
             "selected": {
               "count": 1

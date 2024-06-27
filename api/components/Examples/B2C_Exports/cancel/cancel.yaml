@@ -5,9 +5,9 @@ value:
     domain: ONDC:RET12
     location:
       city:
-        code: std:080
+        code: UN:SIN
       country:
-        code: IND
+        code: SGP
     action: cancel
     version: 2.0.2
     bap_id: buyerapp.com

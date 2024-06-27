@@ -36,12 +36,11 @@ value:
 
       billing:
         name: ONDC buyer
-        address: 22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar, Bengaluru,
-          Karnataka 560001
+        address: B005 aaspire heights, Jurong East, SGP, 680230
         state:
-          name: Karnataka
+          name: Jurong East
         city:
-          name: Bengaluru
+          name: Jurong East
         tax_id: XXXXXXXXXXXXXXX
         email: nobody@nomail.com
         phone: "9886098860"
@@ -96,7 +95,7 @@ value:
             title: Tax
             "@ondc/org/title_type ": tax
             price:
-              currency: INR
+              currency: USD
               value: "0.00"
           - "@ondc/org/item_id": I1
             title: Discount

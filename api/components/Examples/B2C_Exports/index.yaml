@@ -10,9 +10,6 @@ init:
 confirm:
   examples:
     - $ref: ./confirm/confirm_exports.yaml
-update:
-  examples:
-    - $ref: ./update/update_prepaid.yaml
 status:
   examples:
     - $ref: ./status/status.yaml
