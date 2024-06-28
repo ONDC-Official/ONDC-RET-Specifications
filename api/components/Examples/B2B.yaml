@@ -1,6 +1,0 @@
-B2B:
-  summary: B2B Use Case Specification
-  description: >-
-   The B2B use case specification within the ONDC network facilitates seamless interoperable transactions between businesses, forming a crucial part of the retail domain. It covers RFQ and Non-RFQ flows, providing detailed model implemenations, flow, attributes, tags, and error handling codes as outlined in the developer guide. This ensures efficiency, transparency, and smooth operations throughout the procurement journey, fostering collaboration and growth in the B2B landscape within the retail sector.
-  example_set:
-    $ref: "./B2B/index.yaml"

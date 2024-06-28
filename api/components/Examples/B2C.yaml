@@ -1,0 +1,6 @@
+B2C Exports:
+  summary: B2C Exports Use Case Specification
+  description: >-
+   An ONDC (Open Network for Digital Commerce) retail export transaction begins with a buyer from an international market placing an order through the ONDC network, which connects the buyer with various sellers. The buyer browses the available products listed by sellers and selects the desired items. The seller app receives the order request and checks the stock availability. Seller app provides a quotation, including details on pricing, shipping costs, and estimated delivery time. After order confirmation, seller app provides regular order updates like Pickup Approved, Order pickup up, Domestic custom cleared, At destination hub, Out for delivery, Order delivered, etc.The transaction is considered fulfilled when the buyer receives the items in satisfactory condition, completing the end-to-end retail export process facilitated by the ONDC network. Considering this is an exports the payment will be directly made from buyer to SOR (Seller On Record) through OPGSP. Ref Feature UI (Payment Flow) for more details. 
+  example_set:
+    $ref: "./B2C_Exports/index.yaml"

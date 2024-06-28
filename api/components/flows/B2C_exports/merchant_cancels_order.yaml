@@ -1,0 +1,96 @@
+summary: B2C Retail Exports (Merchant Cancels Full Order)
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer (from outside India) would like to order an item. The buyer builds a cart, makes the payment and confirms the order. But after order confirmation, the merchant cancels the order. The money will refunded back the buyer's account through OPGSP.
+details:
+  - description: Buyer Search & Quotation
+    mermaidGraph: >-
+      sequenceDiagram
+
+        participant B2C BAP
+        participant Gateway
+        participant B2C BPP
+
+        B2C BAP->>Gateway: **/search**  - Buyer searches from a location outside India
+        Gateway->>B2C BPP: **/search**  - Buyer searches from a location outside India
+        B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog for the specific domain and export license in creds
+  - description: Product Selection and Confirmation
+    mermaidGraph: >-
+      sequenceDiagram
+
+        participant B2C BAP
+        participant B2C BPP
+
+        B2C BAP ->> B2C BPP: **/select** - Buyer adds the item(s) to the cart.
+        B2C BPP ->> B2C BAP: **/on_select** - Returns quote breakup (adding offers if any) when item is in stock 
+
+        B2C BAP ->> B2C BPP: **/init** - Buyer initializes the order and proceeds to checkout.
+        B2C BPP ->> B2C BAP: **/on_init** - Seller app initializes order
+        
+        B2C BAP ->> B2C BPP: **/confirm** - Buyer confirms order
+        B2C BPP ->> B2C BAP: **/on_confirm** - Seller Accepts order
+  - description: Merchant Cancels Full Order
+    mermaidGraph: >-
+      sequenceDiagram
+
+        participant B2C BAP
+        participant B2C BPP
+        
+        B2C BPP ->> B2C BAP: **/on_cancel** - Seller cancels full order before order pick up and initiates the refund.
+
+reference: if any
+steps:
+  - summary: Search by fulfillment end location 
+    api: search
+    description:  Buyer search by fulfillment end location
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C_Exports/search/search_by_item.yaml"
+  - summary: Returns the item or catalog (Fashion)
+    api: on_search
+    description:  
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C_Exports/on_search/on_search_Fashion.yaml"
+  - summary: Select the item
+    api: select
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C_Exports/select/select_exports.yaml"
+  - summary: Returns item breakup when item is in stock
+    api: on_select
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C_Exports/on_select/on_select_exports.yaml"
+  - summary: Buyer initiate the product and send the updated fulfillment id
+    api: init
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C_Exports/init/init_exports.yaml"
+  - summary: Respond to init
+    api: on_init
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C_Exports/on_init/on_init_exports.yaml"
+  - summary: Buyer confirms product
+    api: confirm
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C_Exports/confirm/confirm_exports.yaml"
+  - summary: Seller Accepts confirmation
+    api: on_confirm
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C_Exports/on_confirm/on_confirm_exports.yaml"
+  - summary: Seller cancels the order and initiates the refund.
+    api: on_cancel
+    description:
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C_Exports/on_cancel/on_cancel_merchant.yaml"    
+
+                             

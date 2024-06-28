@@ -1,0 +1,105 @@
+context:
+  parent: true
+  domain:
+    description: domain for which the request is initiated
+    required: required
+    usage: "ONDC:RET12"
+    reference: if any
+  location:
+    city:
+      description: The city code entered in the search indicates the serviceability of the seller. For example, 'std:080' signifies that the buyer app is requesting the catalog of all sellers who provide service to this particular city code. List of city codes, with pincode mapping, are here - https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=1474472733
+      required: required
+      usage: std:080
+      reference: if any
+    country:
+      description: country code 
+      required: required
+      usage: 'IND'
+      reference: if any
+  bap_id:
+    description: subscriber id for buyer app
+    required: required
+    usage: buyerNP.com
+    reference: if any
+  bap_uri:
+    description: subscriber URI for buyer app
+    required: required
+    usage: https://buyerNP.com/ondc
+    reference: if any
+  timestamp:
+    description: RFC3339 compliant timestamp denotes when the request was made.
+    required: required
+    usage: '2023-06-03T08:00:00.000Z'
+    reference: if any
+  ttl:
+    description: validity of message
+    required: required
+    usage: PT30S
+    reference: if any
+  version:
+    description: version of the ONDC model implementation used
+    required: required
+    usage: '2.0.2'
+    reference: if any
+  action:
+    description: API call initiated
+    required: required
+    usage: search
+    reference: if any
+message:
+  parent: true
+  intent:
+    parent: true
+    tags:
+      description: Buyer app sends information like buyer app finder fee and buyer ID.
+      required: required
+      usage: "-"
+      reference: if any
+    category:
+      id:
+        description: category id will be from this list - https://docs.google.com/spreadsheets/d/1lbCvhytsAbbtTKgFIOG382tkzyhRYdL4zLaNcnxB8wY/edit#gid=0
+        required: required if category is present
+        usage: "RET10-*"
+        reference: if any
+    payment:
+      type:
+        description: type of payment option buyer wants to avail
+        usage: "ON-FULFILLMENT"
+        reference: if any
+        required: optional
+    item:
+      name:
+        description: item name to be searched
+        required: required if item is present
+        usage: "oil"
+        reference: if any
+    fulfillment:
+      type:
+        description: type of fulfillment mode buyer wants to avail (Delivery, Self Pickup)
+        required: required
+        usage: Delivery
+        reference: if any
+      stops:
+         description: location(s) where the buyer wants the delivery to be made, required for search by fulfillment, optional for search by city
+         required: optional
+         usage: end
+         reference: if any
+      stops.type:
+         description: location(s) where the buyer wants the delivery to be made, single location is mandatory, multiple locations are optional
+         required: required
+         usage: end
+         reference: if any
+      stops.location:
+          gps:
+            description: minimum 6 digit decimal precision for gps coordinates
+            required: required
+            usage: "1.380621, 103.746364"
+            reference: if any
+      stops.area_code:
+            description: area_code 
+            required: required
+            usage: "110030"
+            reference: if any
+
+
+  

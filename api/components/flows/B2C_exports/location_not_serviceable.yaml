@@ -1,0 +1,59 @@
+summary: B2C Retail Exports (Location not serviceable)
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer selects an item however buyer location is not serviceable. The seller app responds back with an error object.
+reference: if any
+details: 
+  - description: Search for an item
+    mermaidGraph: >-
+      sequenceDiagram
+
+        participant B2C BAP
+        participant Gateway
+        participant B2C BPP
+
+        B2C BAP->>Gateway: **/search**  - Buyer searches for an item
+        Gateway->>B2C BPP: **/search**  - Buyer searches for an item
+        B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog
+
+  - description: Selection of the item
+    mermaidGraph: >-
+      sequenceDiagram
+
+        participant B2C BAP
+        participant B2C BPP
+
+        B2C BAP->>B2C BPP: **/select**  - Buyer selects the item
+        B2C BPP->>B2C BAP: **/on_select** - Returns that location is not serviceable
+
+steps:
+  - summary: Search for an item
+    api: search
+    description:  Buyer search for an item
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C_Exports/search/search_by_item.yaml"
+    # notes:
+    #   $ref: "../../notes/search/search_by_item.yaml"
+  - summary: Returns the item or catalog (Fashion)
+    api: on_search
+    description:  
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C_Exports/on_search/on_search_Fashion.yaml"
+    # notes:
+    #   $ref: "../../notes/on_search/on_search_Fashion.yaml" 
+  - summary: Select the item
+    api: select
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C_Exports/select/select_exports.yaml"
+    # notes:
+    #   $ref: "../../notes/select/select_other_product.yaml"
+  - summary: Returns that location is not serviceable
+    api: on_select
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C_Exports/on_select/on_select_not_serviceable.yaml"
+    # notes:
+    #   $ref: "../../notes/on_select/on_select_location_not_serviceable.yaml" 

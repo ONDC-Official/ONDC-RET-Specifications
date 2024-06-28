@@ -19,7 +19,7 @@ context:
       description: Appliances
       reference: <PR/Issue/Discussion Links md format text>
     - code: ONDC:RET16
-      description: Home & Decor
+      description: Home & Kitchen
       reference: <PR/Issue/Discussion Links md format text>
     - code: ONDC:RET17
       description: Toys & Games
@@ -31,7 +31,7 @@ context:
       description: Pharma
       reference: <PR/Issue/Discussion Links md format text>
     - code: ONDC:RET1A
-      description: Autoparts & Components
+      description: Automotives, Components & Accessories
       reference: <PR/Issue/Discussion Links md format text>
     - code: ONDC:RET1B
       description: Hardware and Industrial

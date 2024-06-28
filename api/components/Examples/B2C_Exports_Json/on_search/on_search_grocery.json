@@ -1,0 +1,503 @@
+{
+  "context": {
+    "domain": "ONDC:RET10",
+    "location": {
+      "city": {
+        "code": "UN:SIN"
+      },
+      "country": {
+        "code": "SGP"
+      }
+    },
+    "action": "on_search",
+    "version": "2.0.2",
+    "bap_id": "buyerapp.com",
+    "bap_uri": "https://buyerapp.com/grocery",
+    "bpp_id": "sellerapp.com",
+    "bpp_uri": "https://sellerapp.com/grocery",
+    "transaction_id": "9568beb3-265a-4730-be4e-c00ba2e5e30a",
+    "message_id": "86fb6231-ea67-42d1-b1ef-e43f1719a44f",
+    "timestamp": "2023-01-08T22:00:30.000Z",
+    "ttl": "PT30S"
+  },
+  "message": {
+    "catalog": {
+      "fulfillments": [
+        {
+          "id": "F1",
+          "type": "Delivery"
+        },
+        {
+          "id": "F2",
+          "type": "Self-Pickup"
+        }
+      ],
+      "payments": [
+        {
+          "id": "1",
+          "type": "PRE-FULFILLMENT"
+        },
+        {
+          "id": "2",
+          "type": "ON-FULFILLMENT"
+        },
+        {
+          "id": "3",
+          "type": "POST-FULFILLMENT"
+        }
+      ],
+      "descriptor": {
+        "name": "ABC store",
+        "short_desc": "Online eCommerce Store",
+        "long_desc": "Online eCommerce Store",
+        "images": [
+          {
+            "url": "https://abc.com/images/1-shop-img"
+          }
+        ]
+      },
+      "providers": [
+        {
+          "id": "P1",
+          "descriptor": {
+            "name": "ABC store",
+            "code": "P001",
+            "short_desc": "ABC store",
+            "long_desc": "ABC store",
+            "images": [
+              {
+                "url": "https://abc.com/images/1-shop-img"
+              }
+            ]
+          },
+          "rating": "4.4",
+          "ttl": "P1D",
+          "locations": [
+            {
+              "id": "L1",
+              "gps": "12.967555,77.749666",
+              "address": "Jayanagar 4th Block",
+              "city": {
+                "code": "std:080",
+                "name": "Bengaluru"
+              },
+              "state": {
+                "code": "KA"
+              },
+              "country": {
+                "code": "IND"
+              },
+              "area_code": "560076"
+            }
+          ],
+          "creds": [
+            {
+              "id": "ESG-12345678",
+              "type": "License",
+              "desc": "Export License No. ESG-12345678",
+              "url": "https://abcd.cdn.com/images/license-img"
+            }
+          ],
+          "tags": [
+            {
+              "descriptor": {
+                "code": "serviceability"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "location"
+                  },
+                  "value": "L1"
+                },
+                {
+                  "descriptor": {
+                    "code": "category"
+                  },
+                  "value": "RET10-1042"
+                },
+                {
+                  "descriptor": {
+                    "code": "type"
+                  },
+                  "value": "12"
+                },
+                {
+                  "descriptor": {
+                    "code": "val"
+                  },
+                  "value": "SGP"
+                },
+                {
+                  "descriptor": {
+                    "code": "unit"
+                  },
+                  "value": "country"
+                }
+              ]
+            },
+            {
+              "descriptor": {
+                "code": "seller_id"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "seller_id_code"
+                  },
+                  "value": "gst"
+                },
+                {
+                  "descriptor": {
+                    "code": "seller_id_no"
+                  },
+                  "value": "xxxxxxxxxxxxxxx"
+                }
+              ]
+            },
+            {
+              "descriptor": {
+                "code": "FSSAI_LICENSE_NO"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "BRAND_OWNER"
+                  },
+                  "value": "12345678901234"
+                },
+                {
+                  "descriptor": {
+                    "code": "OTHER"
+                  },
+                  "value": "12345678901234"
+                },
+                {
+                  "descriptor": {
+                    "code": "IMPORTER"
+                  },
+                  "value": "12345678901234"
+                }
+              ]
+            }
+          ],
+          "categories": [
+            {
+              "id": "V1",
+              "descriptor": {
+                "name": "Variant Group 1"
+              },
+              "tags": [
+                {
+                  "descriptor": {
+                    "code": "type"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "type"
+                      },
+                      "value": "variant_group"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "code": "attr"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "name"
+                      },
+                      "value": "item.tags.attribute.colour"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "seq"
+                      },
+                      "value": "1"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "code": "attr"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "name"
+                      },
+                      "value": "item.tags.attribute.size"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "seq"
+                      },
+                      "value": "2"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "items": [
+            {
+              "id": "I1",
+              "parent_item_id": "V1",
+              "descriptor": {
+                "name": "Dhara Mustard Oil",
+                "code": "5:others",
+                "short_desc": "Dhara refined mustard oil",
+                "long_desc": "Dhara refined mustard oil",
+                "images": [
+                  {
+                    "url": "https://abc.com/images/207.png"
+                  }
+                ],
+                "media": [
+                  {
+                    "mimetype": "video/mp4",
+                    "url": "video_url"
+                  }
+                ]
+              },
+              "creator": {
+                "descriptor": {
+                  "name": "Mother Dairy",
+                  "contact": {
+                    "name": "Raj Kumar",
+                    "address": {
+                      "full": "Mother Dairy Fruit & Vegetable Pvt Ltd,A-3, NDDB House, Sector-1, Noida,Uttar Pradesh-201301"
+                    },
+                    "phone": "18001801018",
+                    "email": "consumer.services@motherdairy.com"
+                  }
+                }
+              },
+              "price": {
+                "currency": "USD",
+                "value": "25.00",
+                "offered_value": "20.00",
+                "maximum_value": "30.00"
+              },
+              "quantity": {
+                "unitized": {
+                  "measure": {
+                    "unit": "millilitre",
+                    "value": "500"
+                  }
+                },
+                "available": {
+                  "count": 5
+                },
+                "maximum": {
+                  "count": 5
+                },
+                "minimum": {
+                  "count": 5
+                }
+              },
+              "category_ids": [
+                "RET10-1042"
+              ],
+              "fulfillment_ids": [
+                "1"
+              ],
+              "location_ids": [
+                "L1"
+              ],
+              "payment_ids": [
+                "2"
+              ],
+              "cancellation_terms": [
+                {
+                  "fulfillment_state": {
+                    "descriptor": {
+                      "code": "Pending"
+                    }
+                  },
+                  "reason_required": false,
+                  "cancellation_fee": {
+                    "percentage": "0",
+                    "amount": {
+                      "currency": "USD",
+                      "value": "0"
+                    }
+                  }
+                },
+                {
+                  "fulfillment_state": {
+                    "descriptor": {
+                      "code": "Packed"
+                    }
+                  },
+                  "reason_required": false,
+                  "cancellation_fee": {
+                    "percentage": "0",
+                    "amount": {
+                      "currency": "USD",
+                      "value": "0"
+                    }
+                  }
+                },
+                {
+                  "fulfillment_state": {
+                    "descriptor": {
+                      "code": "Domestic-custom-cleared"
+                    }
+                  },
+                  "reason_required": true,
+                  "cancellation_fee": {
+                    "percentage": "100"
+                  }
+                }
+              ],
+              "return_terms": [
+                {
+                  "fulfillment_state": {
+                    "descriptor": {
+                      "code": "Order-delivered"
+                    }
+                  },
+                  "return_eligible": true,
+                  "return_time": {
+                    "duration": "P7D"
+                  },
+                  "return_location": {
+                    "address": "RTO address",
+                    "gps": "12.667555,77.349666"
+                  },
+                  "fulfillment_managed_by": "seller"
+                }
+              ],
+              "replacement_terms": [
+                {
+                  "replace_within": "P7D"
+                }
+              ],
+              "time": {
+                "label": "validity",
+                "range": {
+                  "start": "2022-12-24T00:00:00.000Z",
+                  "end": "2022-12-31T00:00:00.000Z"
+                }
+              },
+              "matched": true,
+              "recommended": true,
+              "tags": [
+                {
+                  "descriptor": {
+                    "code": "origin"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "country"
+                      },
+                      "value": "IND"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "code": "image"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "type"
+                      },
+                      "value": "back_image"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "url"
+                      },
+                      "value": "https://sellerNP.com/images/i1_back_image.png"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "code": "veg_nonveg"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "veg"
+                      },
+                      "value": "yes"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "code": "g2"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "time_to_ship"
+                      },
+                      "value": "P1D"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "tax_rate"
+                      },
+                      "value": "12"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "cancellable"
+                      },
+                      "value": "true"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "offers": [
+            {
+              "id": "offer-1",
+              "descriptor": {
+                "name": "Dhara Olive Oil",
+                "code": "FREEBIE",
+                "short_desc": "Dhara Olive Oil",
+                "long_desc": "Dhara Olive Oil",
+                "images": [
+                  {
+                    "url": "https://abc.com/images/207.png"
+                  }
+                ]
+              },
+              "location_ids": [],
+              "category_ids": [],
+              "item_ids": [
+                "I1"
+              ],
+              "time": {
+                "label": "validity",
+                "range": {
+                  "start": "2023-01-08T00:00:00.000Z",
+                  "end": "2023-01-15T00:00:00.000Z"
+                }
+              }
+            }
+          ],
+          "fulfillments": [
+            {
+              "contact": {
+                "phone": "9886098860",
+                "email": "abc@xyz.com"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

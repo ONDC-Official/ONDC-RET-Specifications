@@ -1,0 +1,382 @@
+message:
+  parent: true
+  order:
+    parent: true
+    provider:
+      parent: true
+      id:
+        description: id of the selected provider from the catalog
+        usage: "P1"
+        reference: if any
+        required: required
+      locations:
+        description: store locations of the provider
+        usage: "-"
+        reference: if any
+        required: required
+        id:
+          description: id of the store location
+          usage: "L1"
+          reference: if any
+          required: required
+      rateable:
+        description: Provider rating is enabled or not
+        required: required
+        usage: "false"
+        reference: if any
+    fulfillments:
+      parent: true
+      id:
+        description: unique fulfillment id
+        required: required
+        usage: F1
+        reference: if any
+      type:
+        description: type of fulfillment mode buyer wants to avail
+        required: required
+        usage: "Delivery"
+        reference: if any
+      "@ondc/org/provider":
+        description: Delivery provider
+        required: required
+        usage: "Loadshare"
+        reference: if any
+      tracking:
+        description: Indicates the tracking is enabled or not
+        required: required
+        usage: "false"
+        reference: if any
+      rateable:
+        description: Fulfillment rating is enabled or not
+        required: required
+        usage: "false"
+        reference: if any
+      stops:
+        type:
+          description: type of stop (start point or end point)
+          required: required
+          usage: "end"
+          reference: if any
+        location.id:
+          description: location id of the point
+          required: required
+          usage: "L1"
+          reference: if any
+        location.descriptor.name:
+          description: Name of the location
+          required: required
+          usage: "ABC Store"
+          reference: if any
+        location.gps:
+          description: GPS cordinates of the store
+          required: required
+          usage: "11.234567,34.1286443"
+          reference: if any
+        time.range:
+          description: time range when the order would be picked up/dropped
+          required: optional
+          usage: "-"
+          reference: if any
+        time.range.start:
+          description: time range when the order would be picked up
+          required: optional
+          usage: "2023-02-03T09:30:00.000Z"
+          reference: if any
+        time.range.end:
+          description: time range when the order would be delivered
+          required: optional
+          usage: "2023-02-03T09:30:00.000Z"
+          reference: if any
+        instructions.name:
+          description: Status for pickup
+          required: optional
+          usage: Status for pickup
+          reference: if any
+        instructions.short_desc:
+          description: Pickup code value
+          required: optional
+          usage: "345234"
+          reference: if any
+        contact.phone:
+          description: Contact number of the seller or buyer
+          required: required
+          usage: "9248281919"
+          reference: if any
+        contact.email:
+          description: Contact email of the seller or buyer
+          required: optional
+          usage: "xyz@gmail.com"
+          reference: if any
+      state:
+        descriptor.code:
+          description: fulfillment state
+          required: required
+          usage: Pending
+          reference: if any
+    payments:
+      parent: true
+      type:
+        description: How payment is going to be collected from the Buyer. If this parameter is set to “PRE-FULFILLMENT”, that means it is a pre-paid order, i.e. the payment is collected at the time of order confirmation. If this parameter is set to “ON-FULFILLMENT”, that means it is pay-on-delivery order, i.e. the payment is collected at the time of delivering the product to the Buyer. 
+        usage: “PRE-FULFILLMENT”, “ON-FULFILLMENT”
+        reference: if any
+        required: required
+      collected_by:
+        description: If set to “BAP”, it means that the Buyer App will collect payment from the Buyer. If set to “BPP”, it means that the Seller App will collect payment from the Buyer.
+        usage: “BAP”, “BPP”
+        reference: if any
+        required: required
+      status:
+        description: status whether payment has been collected or not
+        required: required
+        usage: PAID, NOT-PAID
+        reference: if any
+      params:
+          transaction_id:
+              description: transaction id when the payment was collected
+              required: required when payment status is PAID
+              usage: "3937"
+              reference: if any
+          currency:
+              description: currency
+              required: required
+              usage: "INR"
+              reference: if any
+          amount:
+              description: amount of payment
+              required: required
+              usage: "3937"
+              reference: if any
+      "@ondc/org/buyer_app_finder_fee_type":
+        description: If set to “amount” it means Buyer App’s fee is a flat amount in INR. If set to “percent” it means the Buyer App’s fee is set as a percentage of the Total Order Value.
+        required: required
+        usage: “amount”, “percent”
+        reference: if any
+      "@ondc/org/buyer_app_finder_fee_amount":
+        description: Quantum of the Buyer App’s Fee. To be interpreted in connection with the “type” field mentioned above. For example, let’s assume the value is set at “5”. If the “type” is set to “Amount”, that means the Buyer App Fee is INR 5. If the “type” is set to “percent”, it means the Buyer App Fee is 5% of the Total Order Value.
+        required: required
+        usage: "3.0 (Positive Decimal Number)"
+        reference: if any
+      '@ondc/org/settlement_basis':
+            description: The event that will trigger settlement from the Payment Collector to counterparty Network Participant(s). If it is set to “delivery”, that will mean settlement by the Payment Collector will be after completion of delivery.If it is set to “shipment”, that will mean settlement by the Payment Collector will be after the product is successfully shipped from the seller. If it is set to “return_window_expiry”, that will mean settlement by the Payment Collector will be on the expiry of the return window.
+            required: required
+            usage: “return_window_expiry”, “shipment”, “delivery”
+            reference: if any
+      '@ondc/org/settlement_window':
+            description: The time period from completion of the Settlement Basis within which the Payment Collector will settle with counterparty Network Participant(s). As an example, if the Settlement Basis is set as “Delivery” and the Settlement Window is set to 7 days, and the Buyer App collects the payment, it means the Buyer App will remit funds to the Seller App on or before the completion of the 7th day after successful delivery, assuming the Buyer does not return the product within that time. ISO8601 duration notation is used to specify the value of the parameter. As an illustration, a Settlement Window of 5 days after delivery can be specified as “P5D” (i.e. period 5 days) or “PT120H” (i.e. period 120 hours).
+            required: required 
+            usage: "'P1D' Time period (ISO8601 format)"
+            reference: if any
+      '@ondc/org/withholding_amount':
+            description: "The percentage of the total order value that the Payment Collector will withhold till the return window expires. This amount will be settled if the return period is completed and the Buyer has not returned the product in that time.Explanation: This is typically most relevant where the order is pre-paid and the Buyer App is the Payment Collector. It is a mechanism to allow for easy refunds to the Buyer in case of a return."
+            required: required 
+            usage: "10.00 (Positive Decimal Number)"
+            reference: if any
+      "@ondc/org/settlement_details":
+        description: Settlment details provided to counter party collecting the payment for settlement
+        required: optional
+        usage: "-"
+        reference: if any
+        settlement_amount:
+          description: The amount that the Payment Collector will remit to the counterparty Network Participant for the instant transaction. For clarity, if the Buyer App is the Payment Collector, the Buyer App will deduct their fee from the Buyer Price and remit the balance to the Seller App. If the Seller App is the Payment Collector, they will remit the Buyer App’s fees from the Buyer Price, deduct its own charges/commission and remit the rest to the Seller. The settlement with the Logistics Service Provider will follow this same logic if either of the Network Participants procures on-network  logistics.
+          required: optional
+          usage: "Positive Decimal Number"
+          reference: if any
+        settlement_type:
+          description: The Payment Collector will use the selected method to remit the due payment to the counterparty Network Participant. To illustrate, if the Buyer App collects the payment and the Settlement Type is set to “rtgs”, when the settlement is due, the Buyer App will transfer the Seller App’s share of the Buyer Price to the Seller App’s account via RTGS. 
+          required: optional
+          usage: “neft”, “rtgs”, “upi”
+          reference: if any
+      tags:
+        description: Seller NP provides the signature, algorithm and ttl for the payment url provided
+        required: required for prepaid payment where BPP is collecting the payment
+        usage: "-"
+        reference: if any
+    items:
+      parent: true
+      description: Array of items selected by the buyer.
+      usage: "-"
+      reference: if any
+      required: required
+      id:
+        description: ID of the chosen item from the catalog provided by the merchant.
+        usage: "I1"
+        reference: if any
+        required: required
+      location_ids:
+        description: List of location IDs where the item is available.
+        usage: "L1,L2"
+        reference: if any
+        required: required
+      fulfillment_ids:
+        description: List of fulfillment IDs used for item fulfillment.
+        usage: "F1,F2"
+        reference: if any
+        required: required
+      quantity:
+        selected:
+          count:
+            description: Number of units for the chosen item.
+            usage: 2
+            reference: if any
+            required: required
+      tags:
+        description: Buyer provides customization details for RFQ
+        usage: "-"
+        reference: if any
+        required: optional
+      add_ons:
+        id:
+          description: ID of the add-on selected from the catalog
+          usage: "3456"
+          reference: if any
+          required: optional
+    billing:
+      parent: true
+      phone:
+        required: required
+        description: Describes the phone information of an entity
+        reference: if any
+        usage: "9886098860"
+      email:
+        required: optional
+        description: Email address of the contact
+        reference: if any
+        usage: nobody@nomail.com
+      name:
+        required: required
+        description: Describes a person name as any individual
+        reference: if any
+        usage: ONDC buyer
+      tax_id:
+        required: required
+        description: Describes tax id
+        reference: if any
+        usage: 22AAAAA0000A1Z5
+      state:
+        name:
+          required: required
+          description: Describes the state information of an entity
+          reference: if any
+          usage: Karnataka
+      city:
+        name:
+          required: required
+          description: Describes the city information of an entity
+          reference: if any
+          usage: Bengaluru
+    tags:
+        parent: true
+        tags:
+            description: order tags like buyer_id_code, bpp_terms, bap_terms
+            required: required
+            usage: "-"
+            reference: if any
+        bpp_terms:
+          max_liability:    
+            description: max_liability is the maximum aggregate liability of either party expressed as multiple of the total transaction value.
+            required: required
+            usage: "Zero or Positive Decimal Number"
+            reference: if any
+          max_liability_cap:    
+            description: max_liability_cap is the maximum aggregate liability expressed in Indian Rupees (INR). To illustrate, if the value of max_liability is set to “2”, the total transaction value is INR 100, and max_liability_cap is empty, that will mean the aggregate liability of either party shall not be more than INR 200 (i.e. 2 multiplied by 100). If the max_liability_cap is set as 100, and the max_liability is empty, that means the maximum aggregate liability will be INR 100. If both, max_liability_cap and max_liability are provided, then the maximum aggregate liability will be the lower of the two amounts. To illustrate, if the max_liability is set to “2”, the total transaction value is INR 100, and the max_liability_cap is set to 100. That will mean the maximum aggregate liability will be INR 100 (the lower of INR 200 and INR 100). If neither max_liability_cap nor max_liability are provided, i.e. both are empty, that would mean the contract does not have any clause related to limitation of liability. Effectively that would mean the liability is uncapped. If max_liability_cap and max_liability are both set to 0 (zero), that would mean that both parties agree that neither of them will bear any liability.
+            required: required
+            usage: "Zero or Positive Decimal Number"
+            reference: if any
+          mandatory_arbitration:    
+            description: If this attribute is set to true, that would mean both parties agree that in case of a dispute, both parties must resolve the dispute through arbitration.
+            required: required
+            usage: true/ false
+            reference: if any
+          court_jurisdiction:    
+            description: The name of the city whose courts will have exclusive jurisdiction over disputes related to this contract. The list of options will only contain Indian cities which have a High Court bench.
+            required: required
+            usage: "Bengaluru - Pick a city from a given list of cities which have a High Court bench"
+            reference: if any
+          delay_interest:    
+            description: This is the annual rate of interest that the Payment Collector will be charged if they delay a payment to the counterparty Network Participant, calculated pro rata for each calendar day of delay. As an example, if the value is set as “7.3”, and the amount of payment due is INR 1000, that will mean the Payment Collector will pay the counterparty Network Participant an interest of 7.3% per annum (i.e. INR 100), calculated pro rata for each day of delay. So if the Payment Collector delay was 50 days, the total interest payable would be INR 10 [calculated as 1000x(7.3/100)x(50/365)]
+            required: required
+            usage: "Zero or Positive Decimal Number"
+            reference: if any
+        bap_terms:
+          accept_bpp_terms:    
+            description: whether the buyer app accepts seller app terms
+            required: required
+            usage: "Y/N"
+            reference: if any
+    quote:
+      parent: true
+      price:
+        description: total price quoted from seller NP
+        required: required
+        usage: "-"
+        reference: if any
+        currency:
+          description: currency of the price
+          required: required
+          usage: "INR"
+          reference: if any
+        value:
+          description: price value
+          required: required
+          usage: "345"
+          reference: if any
+      breakup:
+        "@ondc/org/title_type":
+          description: type of charge - item,packing,discount,tax,misc,delivery
+          required: required
+          usage: "delivery"
+          reference: if any
+        "@ondc/org/item_id":
+          description: item id or fulfillment id based on type of charge
+          required: required
+          usage: "F1"
+          reference: if any
+        title:
+          description: type of charge - can be customized
+          required: required
+          usage: "Packing charges"
+          reference: if any
+        "@ondc/org/item_quantity":
+          count:
+            description: Item count for which the price is provided.
+            required: required for an 'item'
+            usage: "2"
+            reference: if any
+        price:
+          currency:
+            description: currency of the price
+            required: required
+            usage: "INR"
+            reference: if any
+            value:
+              description: The overall cost of the item, calculated based on the quantity and unit price.
+              required: required
+              usage: "700"
+              reference: if any
+        item:
+          price:
+            currency:
+              description: currency of the price
+              required: required for an 'item'
+              usage: "INR"
+              reference: if any
+            value:
+              description: Unit price for the item
+              required: required for an 'item'
+              usage: "350"
+              reference: if any
+      ttl:
+        description: Time period for which the quote is valid
+        required: required
+        usage: "P1D"
+        reference: if any
+    created_at:
+      description: timestamp when the order was created
+      required: required
+      usage: "2023-02-03T09:30:00.000Z"
+      reference: if any
+    updated_at:
+      description: timestamp when the order was updated
+      required: required
+      usage: "2023-02-03T09:30:00.000Z"
+      reference: if any

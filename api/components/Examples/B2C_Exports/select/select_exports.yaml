@@ -1,0 +1,58 @@
+summary: Get quote for specific item 
+description: Get quote for specific item 
+value:
+  context:
+    domain: ONDC:RET12
+    location:
+      city:
+        code: UN:SIN
+      country:
+        code: SGP
+    action: select
+    version: 2.0.2
+    bap_id: buyerapp.com
+    bap_uri: https://buyerapp.com/fashion
+    bpp_id: sellerapp.com
+    bpp_uri: https://sellerapp.com/fashion
+    transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
+    message_id: 4e90afaf-2d02-4ed9-9659-45d702a82f8e
+    timestamp: '2023-01-08T22:00:30.000Z'
+    ttl: PT30S
+  message:
+    order:
+      provider:
+        id: P1
+        locations:
+          - id: L1
+      items:
+        - id: I1
+          location_ids:
+            - L1
+          fulfillment_ids:
+            - F1
+          quantity:
+            selected:
+              count: 1
+      offers:
+        id: offer-1
+      fulfillments:
+        - id: F1
+          type: Delivery
+          stops:
+            - type: end
+              location:
+                gps: 1.380621746811, 103.7463643843
+                address: "My House #, My buildin"
+                city:
+                  name: Jurong East
+                country:
+                  code: SGP
+                area_code: "680230"
+                state:
+                  name: ""
+              contact:
+                phone: "9886098860"
+                email: buyer@xyz.com
+      payments:
+        - type: PRE-FULFILLMENT
+

@@ -1,5 +1,5 @@
 examples:
-  $ref: "./examples/B2B.yaml"
+  $ref: "./examples/B2C.yaml"
 enum:
   $ref: "./enums/index.yaml"
 tags:

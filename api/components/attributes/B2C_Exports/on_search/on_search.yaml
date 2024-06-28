@@ -1,0 +1,405 @@
+context:
+  parent: true
+  domain:
+    description: domain for which the request is initiated
+    required: required
+    usage: "ONDC:RET12"
+    reference: if any
+  location:
+    city:
+      description: city code of the seller location
+      required: required
+      usage: std:080
+      reference: if any
+    country:
+      description: country code of the seller location
+      required: required
+      usage: IND
+      reference: if any
+  bap_id:
+    description: subscriber id for buyer app
+    required: required
+    usage: buyerNP.com
+    reference: if any
+  bap_uri:
+    description: subscriber URI for buyer app
+    required: required
+    usage: https://buyerNP.com/ondc
+    reference: if any
+  timestamp:
+    description: RFC3339 compliant timestamp
+    required: required
+    usage: '2023-06-03T08:00:00.000Z'
+    reference: if any
+  bpp_id:
+    description: subscriber id for seller app
+    required: required
+    usage: sellerNP.com
+    reference: if any
+  bpp_uri:
+    description: subscriber URI for seller app
+    required: required
+    usage: https://sellerNP.com/ondc
+    reference: if any
+  ttl:
+    description: validity of message
+    required: required
+    usage: PT30S
+    reference: if any
+  version:
+    description: version of the ONDC model implementation used
+    required: required
+    usage: '2.0.2'
+    reference: if any
+  action:
+    description: API call initiated
+    required: required
+    usage: on_search
+    reference: if any
+message:
+  parent: true
+  catalog:
+    parent: true
+    descriptor:
+      parent: true
+      name:
+        description: name of seller NP
+        required: required
+        usage: https://sellerNP.com/images/np.png
+        reference: if any
+      short_desc:
+        description: short description for seller NP
+        required: required
+        usage: eCommerce Store
+        reference: if any
+      long_desc:
+        description: long description for seller NP
+        required: required
+        usage: Online eCommerce Store
+        reference: if any
+      images:
+        description: image for seller NP
+        required: required
+        usage: https://sellerNP.com/images/np.png
+        reference: if any
+    providers:
+      parent: true
+      id:
+        description: unique id for provider, must be same as bpp_id for ISN seller apps. Use of same provider id for distinct legal entities will cause an MSN being regarded as ISN and use of different provider id for same legal entity will cause an ISN being regarded as MSN, thus resulting in tax non-compliance
+        required: required
+        usage: F1
+        reference: if any
+      descriptor:
+        name:
+          description: name of provider
+          required: required
+          usage: https://sellerNP.com/images/np.png
+          reference: if any
+        short_desc:
+          description: short description for provider
+          required: required
+          usage: eCommerce Store
+          reference: if any
+        long_desc:
+          description: long description for provider
+          required: required
+          usage: Online eCommerce Store
+          reference: if any
+        additional_desc:
+          url:
+            description: Communication channel link of the provider where the buyer and seller can discuss customizations and other details.
+            required: optional
+            usage: chat link
+            reference: if any
+          content_type:
+            description: type of content being provided
+            required: optional
+            usage: text/html
+            reference: if any
+        images:
+          description: images of provider
+          required: required
+          usage: https://sellerNP.com/images/np.png
+          reference: if any
+      rating:
+        description: rating of the provider over the network
+        required: optional
+        usage: '4.5'
+        reference: if any
+      fulfillments:
+        contact:
+          description: contact details for merchant - if merchant is in multiple locations, this will be the contact detail for merchant and contact detail for the storefront (specific location) will be in fulfillment.start
+          required: required
+          usage: "-"
+          reference: if any
+        contact.phone:
+          description: valid 10 digit (mobile no) or 11 digit no
+          required: required
+          usage: "9886098860"
+          reference: if any
+        contact.email:
+          description: email id of merchant or seller NP
+          required: optional
+          usage: abc@xyz.com
+          reference: if any
+      ttl:
+        description: ISO8601 duration format for validity of provider catalog
+        required: required
+        usage: "P1D"
+        reference: if any
+      locations:
+        description: locations of provider with unique id for each location
+        required: required
+        usage: "-"
+        reference: if any
+      categories:
+          tags.code:
+            description: if code is "attr", then it defines variant attributes i.e. attribute & sequence; multiple variant attributes can be defined in multiple attr blocks
+            required: required
+            usage: "-"
+            reference: if any
+          tags.list.code:
+              description: if "code" is "attr", then it is namespaced attribute, above example means attribute(s) in "quantity.unitized" for an item
+              required: required
+              usage: "-"
+              reference: if any
+          tags.list.value:
+              description: if `tags>code` is "attr" and `tags>list>code` is "name", then it's corresponding `value` means concatenation of item.quantity.unitized.measure.value and item.quantity.unitized.measure.unit e.g. "1 kilogram", "2 kilogram", "5 kilogram"
+              required: required
+              usage: "-"
+              reference: if any
+      items:
+        parent: true
+        parent_item_id:
+          description: if variant grouping defined for provider above, this matches id for variant_group definition; if not defined or id is invalid, buyer NPs may choose to display as normal SKU item
+          required: required
+          usage: V1
+          reference: if any
+        descriptor.code:
+            description: unique code for item which will be in this format - "type:code" where type is 1 - EAN, 2 - ISBN, 3 - GTIN, 4 - HSN, 5 - others
+            required: optional
+            usage: 2
+            reference: if any
+        descriptor.images:
+          description: while item images ensures better discoverability & enhances user experience, if no image is available, seller NPs shouldn’t send image (instead of sending placeholder image)
+          required: required
+          usage: "-"
+          reference: if any
+        creator.descriptor.name:
+          description: Manufacturer name
+          required: required
+          usage: "Iphone"
+          reference: if any
+        creator.descriptor.contact:
+          description: Manufacturer contact details
+          required: required
+          usage: "-"
+          reference: if any 
+        creator.descriptor.contact.name:
+          description: name of the support person
+          required: required
+          usage: "-"
+          reference: if any 
+        creator.descriptor.contact.address:
+          description: address of the support person
+          required: required
+          usage: "-"
+          reference: if any 
+        creator.descriptor.contact.address.full: 
+          description: full address
+          required: required
+          usage: "Iphone Ltd., Delhi"
+          reference: if any     
+        creator.descriptor.contact.phone:
+          description: phone number of the support person
+          required: required
+          usage: "18001801018"
+          reference: if any 
+        creator.descriptor.contact.email:
+          description: email of the support person
+          required: required
+          usage: "consumer.services@abc.com"
+          reference: if any            
+        quantity.unitized.measure.unit:
+          description: enum - "unit", "dozen", "kilogram", "tonne", "litre", "millilitre" (https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/fashion/RET10-UOM.json)
+          required: required
+          usage: unit
+          reference: if any
+        quantity.available.count:
+          description: stringified integer value - default value for item in stock
+          required: required
+          usage: "3"
+          reference: if any
+        quantity.maximum.count:
+          description: stringified integer value - cap per order (if exists) or default value
+          required: required
+          usage: "3"
+          reference: if any
+        quantity.minimum.count:
+          description: stringified integer value - lower limit per order (if exists) or default value
+          required: optional
+          usage: "1"
+          reference: if any
+        tags.code:
+          description: code = 'attribute' is required for Fashion, Electronics,etc categories
+          required: optional
+          usage: "-"
+          reference: if any
+        add_ons:
+          description: add ons with the item
+          required: optional
+          usage: "-"
+          reference: if any
+        cancellation_terms:
+          description: cancellation terms applicable on cancellation of the item
+          required: required
+          usage: "-"
+          reference: if any
+        cancellation_terms.cancellation_fee:
+          description: Cancellation fees can be applied either as a percentage or as a flat amount.
+          required: required
+          usage: "-"
+          reference: if any
+        return_terms:
+          description: return terms applicable in case of return
+          required: required
+          usage: "-"
+          reference: if any
+        replacement_terms:
+          description: Indicates replacement terms applicable in case buyer returns the item
+          required: required
+          usage: "-"
+          reference: if any
+      creds:
+        parent: true
+        creds:
+          description: credentials of the seller
+          required: required for exports
+          usage: "-"
+          reference: if any
+        id:
+          required: required 
+          description: Human readable id
+          reference: if any
+          usage: ESG-12345678
+        type:
+          required: required
+          description: Type of creds
+          reference: if any
+          usage: License
+        desc:
+          required: optional
+          description: Description of creds
+          reference: if any
+          usage: Export License No. ESG-12345678
+        url:
+          required: optional
+          description: Physical description
+          reference: if any
+          usage: https://abcd.cdn.com/images/license-img 
+      offers:
+        parent: true
+        offers: 
+            description: Offers can be defined for a provider, An offer can be for - retail, logistics. An offer can be - opt-in, auto-applied. An offer will include the following info - offer id, offer type, images - may be used as banners to promote the offer from a merchant. An offer applicability criteria can include one or more of the following - location(s), categories, item(s), time period validity.
+            required: optional
+            usage: "-"
+            reference: if any
+        id:
+            description: unique offer id from provider;
+            required: required
+            usage: 'FLAT150, DISCP60, DISCA150, BUY2GET3, FREEBIE '
+            reference: if any
+        descriptor:
+            description: description of the offer.
+            required: required
+            usage: '-'
+            reference: if any
+        descriptor.name:
+            description: description of the offer.
+            required: optional
+            usage: '60% off up to ₹120, for order value above ₹159'
+            reference: if any
+        descriptor.code:
+            description: offer type - disc_pct  (discount percent or amount applied to the cart value, with or without a cap, and may be based on minimum cart value) , disc_amt (flat discount amount applied to the cart value, and may be based on minimum cart value), buyXgetY ( for every "X" item count in the cart, total of "Y" items will be offered (i.e. "Y" - "X" additional items), at 0 additional value) , freebie (for a minimum order value, 1 or more free item(s) will be offered at 0 value)
+            required: required
+            usage: 'disc_pct'
+            reference: if any
+        descriptor.short_desc:
+            description: short description of the offer.
+            required: optional
+            usage: '60% off up to ₹120'
+            reference: if any
+        descriptor.long_desc:
+            description: long description of the offer.
+            required: optional
+            usage: 'for order value above ₹159'
+            reference: if any
+        descriptor.images:
+            description: banner image from seller
+            required: optional
+            usage: 'https://sellerNP.com/images/offer2-banner.png'
+            reference: if any
+        location_ids:
+            description: location ids of the stores where the offer is applicable.
+            required: required
+            usage: 'L1'
+            reference: if any
+        category_ids:
+            description: category ids for which the offer is applicable.
+            required: required
+            usage: 'RET10-1034'
+            reference: if any
+        item_ids:
+            description: item ids for which the offer is applicable.
+            required: required
+            usage: 'I1'
+            reference: if any
+        time:
+            description: validity of the offer.
+            required: required
+            usage: '-'
+            reference: if any
+        time.label:
+            description: if the offer is valid
+            required: required
+            usage: 'valid'
+            reference: if any
+        time.range:
+            description: range of the validity of the offer
+            required: required
+            usage: '-'
+            reference: if any
+      tags: 
+        description: serviceability construct for providers is defined here. Refer to this document (https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit) for serviceability construct.
+        required: required
+        usage: '-'
+        reference: if any
+    fulfillments:
+       parent: true
+       id:
+          description: id for the supported fulfillment type
+          required: required
+          usage: '1'
+          reference: if any
+       type:
+          description: type of fulfillments supported
+          required: required
+          usage: 'Delivery'
+          reference: if any
+    payments:
+        parent: true
+        id:
+            description: id for the supported payment type
+            required: required
+            usage: '1'
+            reference: if any
+        type:
+            description: type of payments supported
+            required: required
+            usage: 'PRE-FULFILLMENT'
+            reference: if any
+        collected_by:
+            description: If the BPP is collecting the payment, it can notify the buyer at this point.
+            required: optional
+            usage: 'BPP'
+            reference: if any

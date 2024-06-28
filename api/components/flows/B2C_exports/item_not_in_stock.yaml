@@ -1,0 +1,59 @@
+summary: B2C Retail Exports (Item not in stock)
+description: This flow illustrates the process for a transaction where a buyer selects a t-shirt that is not in stock. The seller app provides a quotation for the available quantity or indicates zero quantity. Additionally, it notifies which item is out of stock through an error object sent in the /on_select response.
+reference: if any
+details: 
+  - description: Search by fulfillment end location 
+    mermaidGraph: >-
+      sequenceDiagram
+
+        participant B2C BAP
+        participant Gateway
+        participant B2C BPP
+
+        B2C BAP->>Gateway: **/search**  - Buyer searches by fulfillment end location 
+        Gateway->>B2C BPP: **/search**  - Buyer searches by fulfillment end location 
+        B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog
+
+  - description: Selection of the item
+    mermaidGraph: >-
+      sequenceDiagram
+
+        participant B2C BAP
+        participant B2C BPP
+
+        B2C BAP->>B2C BPP: **/select**  - Buyer selects the item
+        B2C BPP->>B2C BAP: **/on_select** - Returns that item is not in stock
+
+steps:
+  - summary: Search by fulfillment end location 
+    api: search
+    description:  Buyer search by fulfillment end location
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C_Exports/search/search_by_item.yaml"
+    # notes:
+    #   $ref: "../../notes/search/search_by_fulfillment_end_loc.yaml"
+  - summary: Returns the item or catalog (Fashion)
+    api: on_search
+    description:  
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C_Exports/on_search/on_search_Fashion.yaml"
+    # notes:
+    #   $ref: "../../notes/on_search/on_search_Fashion.yaml" 
+  - summary: Select the item
+    api: select
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C_Exports/select/select_exports.yaml"
+    # notes:
+    #   $ref: "../../notes/select/select_other_product.yaml"
+  - summary: Returns that item is not in stock
+    api: on_select
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C_Exports/on_select/on_select_item_not_in_stock.yaml"
+    # notes:
+    #   $ref: "../../notes/on_select/on_select_item_not_in_stock.yaml" 

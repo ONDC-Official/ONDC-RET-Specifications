@@ -10,6 +10,9 @@ tags:
       - code: 12
         description: Pan-India
         reference: <PR/Issue/Discussion Links md format text>
+      - code: 13
+        description: GeoJson
+        reference: <PR/Issue/Discussion Links md format text>
     unit:
       - code: km
         description: If type is 10 - Hyperlocal
@@ -19,4 +22,7 @@ tags:
         reference: <PR/Issue/Discussion Links md format text>
       - code: country
         description: If type is 12 - Pan-India
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: geojson
+        description: If type is 13 - geojson
         reference: <PR/Issue/Discussion Links md format text>

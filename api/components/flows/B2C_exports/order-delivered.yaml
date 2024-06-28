@@ -1,0 +1,142 @@
+summary: B2C Retail Exports (Order Delivered)
+description: An ONDC (Open Network for Digital Commerce) retail export transaction begins with a buyer from an international market placing an order through the ONDC network, which connects the buyer with various sellers. The buyer browses the available products listed by sellers and selects the desired items. The seller app receives the order request and checks the stock availability. Seller app provides a quotation, including details on pricing, shipping costs, and estimated delivery time. The buyer makes the payment and confirms the order. After order confirmation, seller app provides regular order updates like Pickup Approved, Order pickup up, Domestic custom cleared, At destination hub, Out for delivery, Order delivered, etc.The transaction is considered fulfilled when the buyer receives the items in satisfactory condition, completing the end-to-end retail export process facilitated by the ONDC network. Considering this is an exports the payment will be directly made from buyer to SOR (Seller On Record) through OPGSP. Ref Feature UI (Payment Flow) for more details.
+details:
+  - description: Buyer Search & Quotation
+    mermaidGraph: >-
+      sequenceDiagram
+
+        participant B2C BAP
+        participant Gateway
+        participant B2C BPP
+
+        B2C BAP->>Gateway: **/search**  - Buyer searches from a location outside India
+        Gateway->>B2C BPP: **/search**  - Buyer searches from a location outside India
+        B2C BPP->>B2C BAP: **/on_search** - Returns the item or catalog for the specific domain and export license in creds
+  - description: Product Selection and Confirmation
+    mermaidGraph: >-
+      sequenceDiagram
+
+        participant B2C BAP
+        participant B2C BPP
+
+        B2C BAP ->> B2C BPP: **/select** - Buyer adds the item(s) to the card.
+        B2C BPP ->> B2C BAP: **/on_select** - Returns quote breakup (adding offers if any) when item is in stock 
+
+        B2C BAP ->> B2C BPP: **/init** - Buyer initializes the order and proceeds to checkout.
+        B2C BPP ->> B2C BAP: **/on_init** - Seller app initializes order
+        
+        B2C BAP ->> B2C BPP: **/confirm** - Buyer confirms order
+        B2C BPP ->> B2C BAP: **/on_confirm** - Seller Accepts order
+  - description: Status updates till Product Delivery
+    mermaidGraph: >-      
+      sequenceDiagram
+
+        participant B2C BAP
+        participant B2C BPP
+        
+        B2C BAP ->> B2C BPP: **/status** - Buyer requests for a Status update
+
+        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Pickup Approved
+        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Picked up
+        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - At Domestic Hub
+        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Domestic Custom Cleared
+        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Reached Destination Hub
+        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Destination Custom Cleared
+        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - At Destination Hub
+        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Out for Delivery
+        B2C BPP ->> B2C BAP: **/on_status** - Status Updates - Order Delivered
+        
+
+
+reference: if any
+steps:
+  - summary: Search by fulfillment end location 
+    api: search
+    description:  Buyer search by fulfillment end location
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C_Exports/search/search_by_item.yaml"
+  - summary: Returns the item or catalog (Fashion)
+    api: on_search
+    description:  
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C_Exports/on_search/on_search_Fashion.yaml"
+  - summary: Select the item
+    api: select
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C_Exports/select/select_exports.yaml"
+  - summary: Returns item breakup when item is in stock and offer applied
+    api: on_select
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C_Exports/on_select/on_select_exports.yaml"
+  - summary: Buyer initiate the product and send the updated fulfillment id
+    api: init
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C_Exports/init/init_exports.yaml"
+  - summary: Respond to init
+    api: on_init
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C_Exports/on_init/on_init_exports.yaml"
+  - summary: Buyer confirms product
+    api: confirm
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C_Exports/confirm/confirm_exports.yaml"
+  - summary: Seller Accepts confirmation
+    api: on_confirm
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C_Exports/on_confirm/on_confirm_exports.yaml"
+  - summary: Status Updates - Pickup Approved
+    api: on_status
+    description:
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C_Exports/on_status/on_status_pickup_approved.yaml"
+  - summary: Buyer requests for order status
+    api: status
+    description:
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C_Exports/status/status.yaml"
+  - summary: Status Updates - Order Picked up
+    api: on_status
+    description:
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C_Exports/on_status/on_status_picked_up.yaml"
+  - summary: Status Updates - Domestic-custom-cleared
+    api: on_status
+    description:
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C_Exports/on_status/on_status_domestic_custom.yaml"
+  - summary: Status Updates - At-destination-hub
+    api: on_status
+    description:
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C_Exports/on_status/on_status_destination_hub.yaml"
+  - summary: Status Updates - Out for delivery
+    api: on_status
+    description:
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C_Exports/on_status/on_status_out_for_delivery.yaml"
+  - summary: Status Updates - Order Delivered
+    api: on_status
+    description:
+    reference: if any
+    example:
+      $ref: "../../Examples/B2C_Exports/on_status/on_status_delivered.yaml"                             
