@@ -78,6 +78,8 @@
             }
           },
           "@ondc/org/provider_name": "Loadshare",
+          "@ondc/org/category": "Express Delivery",
+          "@ondc/org/TAT": "P7D",
           "tracking": false,
           "stops": [
             {

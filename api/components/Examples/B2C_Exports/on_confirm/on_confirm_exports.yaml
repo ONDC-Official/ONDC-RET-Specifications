@@ -48,6 +48,8 @@ value:
       fulfillments:
         - id: F1
           "@ondc/org/provider_name": Loadshare
+          "@ondc/org/category": Express Delivery
+          "@ondc/org/TAT": P7D
           state:
             descriptor:
               code: Pending

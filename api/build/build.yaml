@@ -4790,6 +4790,8 @@ x-flows:
                 fulfillments:
                   - id: F1
                     '@ondc/org/provider_name': Loadshare
+                    '@ondc/org/category': Express Delivery
+                    '@ondc/org/TAT': P7D
                     state:
                       descriptor:
                         code: Pending
@@ -4998,6 +5000,8 @@ x-flows:
                 fulfillments:
                   - id: F1
                     '@ondc/org/provider_name': Loadshare
+                    '@ondc/org/category': Express Delivery
+                    '@ondc/org/TAT': P7D
                     type: Delivery
                     tracking: false
                     state:
@@ -5206,6 +5210,8 @@ x-flows:
                 fulfillments:
                   - id: F1
                     '@ondc/org/provider_name': Loadshare
+                    '@ondc/org/category': Express Delivery
+                    '@ondc/org/TAT': P7D
                     type: Delivery
                     tracking: false
                     state:
@@ -5394,6 +5400,8 @@ x-flows:
                 fulfillments:
                   - id: F1
                     '@ondc/org/provider_name': Loadshare
+                    '@ondc/org/category': Express Delivery
+                    '@ondc/org/TAT': P7D
                     type: Delivery
                     tracking: false
                     state:
@@ -5582,6 +5590,8 @@ x-flows:
                 fulfillments:
                   - id: F1
                     '@ondc/org/provider_name': Loadshare
+                    '@ondc/org/category': Express Delivery
+                    '@ondc/org/TAT': P7D
                     type: Delivery
                     tracking: false
                     state:
@@ -5770,6 +5780,8 @@ x-flows:
                 fulfillments:
                   - id: F1
                     '@ondc/org/provider_name': Loadshare
+                    '@ondc/org/category': Express Delivery
+                    '@ondc/org/TAT': P7D
                     type: Delivery
                     tracking: false
                     state:
@@ -5958,6 +5970,8 @@ x-flows:
                 fulfillments:
                   - id: F1
                     '@ondc/org/provider_name': Loadshare
+                    '@ondc/org/category': Express Delivery
+                    '@ondc/org/TAT': P7D
                     type: Delivery
                     tracking: false
                     state:
@@ -6513,6 +6527,8 @@ x-flows:
                       descriptor:
                         code: Cancelled
                     '@ondc/org/provider_name': Loadshare
+                    '@ondc/org/category': Express Delivery
+                    '@ondc/org/TAT': P7D
                     tracking: false
                     stops:
                       - type: start
@@ -6903,6 +6919,8 @@ x-flows:
                       descriptor:
                         code: Cancelled
                     '@ondc/org/provider_name': Loadshare
+                    '@ondc/org/category': Express Delivery
+                    '@ondc/org/TAT': P7D
                     tracking: false
                     stops:
                       - type: start
@@ -8603,6 +8621,8 @@ x-examples:
                   fulfillments:
                     - id: F1
                       '@ondc/org/provider_name': Loadshare
+                      '@ondc/org/category': Express Delivery
+                      '@ondc/org/TAT': P7D
                       state:
                         descriptor:
                           code: Pending
@@ -8808,6 +8828,8 @@ x-examples:
                   fulfillments:
                     - id: F1
                       '@ondc/org/provider_name': Loadshare
+                      '@ondc/org/category': Express Delivery
+                      '@ondc/org/TAT': P7D
                       type: Delivery
                       tracking: false
                       state:
@@ -8984,6 +9006,8 @@ x-examples:
                   fulfillments:
                     - id: F1
                       '@ondc/org/provider_name': Loadshare
+                      '@ondc/org/category': Express Delivery
+                      '@ondc/org/TAT': P7D
                       type: Delivery
                       tracking: false
                       state:
@@ -9167,6 +9191,8 @@ x-examples:
                   fulfillments:
                     - id: F1
                       '@ondc/org/provider_name': Loadshare
+                      '@ondc/org/category': Express Delivery
+                      '@ondc/org/TAT': P7D
                       type: Delivery
                       tracking: false
                       state:
@@ -9350,6 +9376,8 @@ x-examples:
                   fulfillments:
                     - id: F1
                       '@ondc/org/provider_name': Loadshare
+                      '@ondc/org/category': Express Delivery
+                      '@ondc/org/TAT': P7D
                       type: Delivery
                       tracking: false
                       state:
@@ -9533,6 +9561,8 @@ x-examples:
                   fulfillments:
                     - id: F1
                       '@ondc/org/provider_name': Loadshare
+                      '@ondc/org/category': Express Delivery
+                      '@ondc/org/TAT': P7D
                       type: Delivery
                       tracking: false
                       state:
@@ -9716,6 +9746,8 @@ x-examples:
                   fulfillments:
                     - id: F1
                       '@ondc/org/provider_name': Loadshare
+                      '@ondc/org/category': Express Delivery
+                      '@ondc/org/TAT': P7D
                       type: Delivery
                       tracking: false
                       state:
