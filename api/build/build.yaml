@@ -4809,8 +4809,8 @@ x-flows:
                             start: '2023-02-03T10:00:00.000Z'
                             end: '2023-02-03T10:30:00.000Z'
                         instructions:
-                          name: Status for pickup
-                          short_desc: Pickup Confirmation Code
+                          name: Pickup instructions
+                          short_desc: Pickup confirmation code
                         contact:
                           phone: '9886098860'
                           email: nobody@nomail.com
@@ -4833,7 +4833,7 @@ x-flows:
                             start: '2023-02-03T10:00:00.000Z'
                             end: '2023-02-03T10:30:00.000Z'
                         instructions:
-                          name: Status for delivery
+                          name: Delivery instructions
                           short_desc: Delivery Confirmation Code
                     rateable: true
                 quote:
@@ -5021,7 +5021,7 @@ x-flows:
                             start: '2023-02-03T10:00:00.000Z'
                             end: '2023-02-03T10:30:00.000Z'
                         instructions:
-                          name: Status for pickup
+                          name: Pickup instructions
                           short_desc: Pickup confirmation code
                         contact:
                           phone: '9886098860'
@@ -8640,8 +8640,8 @@ x-examples:
                               start: '2023-02-03T10:00:00.000Z'
                               end: '2023-02-03T10:30:00.000Z'
                           instructions:
-                            name: Status for pickup
-                            short_desc: Pickup Confirmation Code
+                            name: Pickup instructions
+                            short_desc: Pickup confirmation code
                           contact:
                             phone: '9886098860'
                             email: nobody@nomail.com
@@ -8664,7 +8664,7 @@ x-examples:
                               start: '2023-02-03T10:00:00.000Z'
                               end: '2023-02-03T10:30:00.000Z'
                           instructions:
-                            name: Status for delivery
+                            name: Delivery instructions
                             short_desc: Delivery Confirmation Code
                       rateable: true
                   quote:
@@ -8849,7 +8849,7 @@ x-examples:
                               start: '2023-02-03T10:00:00.000Z'
                               end: '2023-02-03T10:30:00.000Z'
                           instructions:
-                            name: Status for pickup
+                            name: Pickup instructions
                             short_desc: Pickup confirmation code
                           contact:
                             phone: '9886098860'

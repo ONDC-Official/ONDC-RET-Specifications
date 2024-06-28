@@ -90,7 +90,7 @@
                 }
               },
               "instructions": {
-                "name": "Status for pickup",
+                "name": "Pickup instructions",
                 "short_desc": "Pickup confirmation code"
               },
               "contact": {

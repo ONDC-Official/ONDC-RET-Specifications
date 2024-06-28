@@ -66,7 +66,7 @@ value:
                   start: '2023-02-03T10:00:00.000Z'
                   end: '2023-02-03T10:30:00.000Z'
               instructions:
-                name: Status for pickup
+                name: Pickup instructions
                 short_desc: Pickup confirmation code
               contact:
                 phone: "9886098860"
