@@ -1,5 +1,5 @@
-summary: Seller app confirms order cancellations
-description: Seller app confirms order cancellations
+summary: Seller app confirms order cancellation
+description: Seller app confirms order cancellation
 value:
   context:
     domain: ONDC:RET12
@@ -75,9 +75,9 @@ value:
                   start: '2023-02-03T10:00:00.000Z'
                   end: '2023-02-03T10:30:00.000Z'
               instructions:
-                name: Status of pickup
+                name: Pickup instructions
                 short_desc: PCC code
-                long_desc: Status of pickup
+                long_desc: Pickup instructions
               contact:
                 phone: "9886098860"
                 email: nobody@nomail.com
