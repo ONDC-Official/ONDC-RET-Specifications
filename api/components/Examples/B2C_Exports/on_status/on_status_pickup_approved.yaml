@@ -68,6 +68,7 @@ value:
               instructions:
                 name: Pickup instructions
                 short_desc: Pickup confirmation code
+                long_desc: Pickup instructions
               contact:
                 phone: "9886098860"
                 email: nobody@nomail.com

@@ -69,6 +69,7 @@ value:
               instructions:
                 name: Pickup instructions
                 short_desc: Pickup confirmation code
+                long_desc: Pickup instructions
               contact:
                 phone: "9886098860"
                 email: nobody@nomail.com
@@ -92,7 +93,8 @@ value:
                   end: '2023-02-03T10:30:00.000Z'
               instructions:
                 name: Delivery instructions
-                short_desc: Delivery Confirmation Code              
+                short_desc: Delivery Confirmation Code 
+                long_desc: Delivery instructions             
           rateable: true
       quote:
         price:

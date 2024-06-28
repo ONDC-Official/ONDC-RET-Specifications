@@ -90,7 +90,8 @@
               },
               "instructions": {
                 "name": "Pickup instructions",
-                "short_desc": "Pickup Confirmation Code"
+                "short_desc": "Pickup Confirmation Code",
+                "long_desc": "Pickup instructions"
               },
               "contact": {
                 "phone": "9886098860",
@@ -125,7 +126,8 @@
               },
               "instructions": {
                 "name": "Status for delivery",
-                "short_desc": "Delivery Confirmation Code"
+                "short_desc": "Delivery Confirmation Code",
+                "long_desc": "Delivery instructions"
               }
             }
           ],

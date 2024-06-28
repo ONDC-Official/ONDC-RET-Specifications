@@ -4811,6 +4811,7 @@ x-flows:
                         instructions:
                           name: Pickup instructions
                           short_desc: Pickup confirmation code
+                          long_desc: Pickup instructions
                         contact:
                           phone: '9886098860'
                           email: nobody@nomail.com
@@ -4835,6 +4836,7 @@ x-flows:
                         instructions:
                           name: Delivery instructions
                           short_desc: Delivery Confirmation Code
+                          long_desc: Delivery instructions
                     rateable: true
                 quote:
                   price:
@@ -5023,6 +5025,7 @@ x-flows:
                         instructions:
                           name: Pickup instructions
                           short_desc: Pickup confirmation code
+                          long_desc: Pickup instructions
                         contact:
                           phone: '9886098860'
                           email: nobody@nomail.com
@@ -8642,6 +8645,7 @@ x-examples:
                           instructions:
                             name: Pickup instructions
                             short_desc: Pickup confirmation code
+                            long_desc: Pickup instructions
                           contact:
                             phone: '9886098860'
                             email: nobody@nomail.com
@@ -8666,6 +8670,7 @@ x-examples:
                           instructions:
                             name: Delivery instructions
                             short_desc: Delivery Confirmation Code
+                            long_desc: Delivery instructions
                       rateable: true
                   quote:
                     price:
@@ -8851,6 +8856,7 @@ x-examples:
                           instructions:
                             name: Pickup instructions
                             short_desc: Pickup confirmation code
+                            long_desc: Pickup instructions
                           contact:
                             phone: '9886098860'
                             email: nobody@nomail.com
