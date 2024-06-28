@@ -89,8 +89,9 @@ value:
                   start: '2023-02-03T11:00:00.000Z'
                   end: '2023-02-03T11:30:00.000Z'
               instructions:
-                name: Status for delivery
-                short_desc: Delivery confirmation code
+                name: Delivery instructions
+                short_desc: DCC Code
+                long_desc: Delivery instructions
               contact:
                 phone: "9886098860"
                 email: buyer@xyz.com

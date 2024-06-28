@@ -119,12 +119,9 @@
                 }
               },
               "instructions": {
-                "name": "Proof of delivery",
-                "short_desc": "Proof of delivery details",
-                "long_desc": "Proof of delivery details",
-                "images": [
-                  "https://image1_url.png"
-                ]
+                "name": "Delivery instructions",
+                "short_desc": "DCC Code",
+                "long_desc": "Delivery instructions"
               },
               "contact": {
                 "phone": "9886098860",

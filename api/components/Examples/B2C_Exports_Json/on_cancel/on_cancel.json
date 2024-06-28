@@ -78,8 +78,6 @@
             }
           },
           "@ondc/org/provider_name": "Loadshare",
-          "@ondc/org/category": "Express Delivery",
-          "@ondc/org/TAT": "P7D",
           "tracking": false,
           "stops": [
             {
@@ -101,9 +99,9 @@
                 }
               },
               "instructions": {
-                "name": "Status of pickup",
+                "name": "Pickup instructions",
                 "short_desc": "PCC code",
-                "long_desc": "Status of pickup"
+                "long_desc": "Pickup instructions"
               },
               "contact": {
                 "phone": "9886098860",

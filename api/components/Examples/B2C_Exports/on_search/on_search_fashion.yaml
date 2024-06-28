@@ -98,7 +98,7 @@ value:
         - id: V1
           descriptor:
             name: Variant Group 1
-        - tags:
+          tags:
           - descriptor:
               code: type
             list:
