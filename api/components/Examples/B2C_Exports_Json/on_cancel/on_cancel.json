@@ -133,9 +133,9 @@
                 }
               },
               "instructions": {
-                "name": "Status of Delivery",
-                "short_desc": "DCC code",
-                "long_desc": "Proof of delivery details"
+                "name": "Delivery instructions",
+                "short_desc": "DCC Code",
+                "long_desc": "Delivery instructions"
               },
               "contact": {
                 "phone": "9886098860",
@@ -349,16 +349,7 @@
           "@ondc/org/buyer_app_finder_fee_amount": "0",
           "@ondc/org/settlement_basis": "delivery",
           "@ondc/org/settlement_window": "P1D",
-          "@ondc/org/withholding_amount": "10.00",
-          "@ondc/org/settlement_details": [
-            {
-              "settlement_counterparty": "buyer",
-              "settlement_phase": "refund",
-              "settlement_type": "OPGSP",
-              "settlement_amount": "15.00",
-              "settlement_timestamp": "2023-02-04T18:00:00.000Z"
-            }
-          ]
+          "@ondc/org/withholding_amount": "10.00"
         }
       ],
       "created_at": "2023-06-03T09:30:00.000Z",

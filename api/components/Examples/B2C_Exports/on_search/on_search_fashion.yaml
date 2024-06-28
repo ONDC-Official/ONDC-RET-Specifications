@@ -45,9 +45,6 @@ value:
           code: P001
           short_desc: ABC store
           long_desc: ABC store
-          additional_desc:
-            url: chat link
-            content_type: text/html
           images:
           - url: https://abc.com/images/1-shop-img
         rating: '4.4'

@@ -59,6 +59,7 @@ value:
                   name: ""
               contact:
                 phone: "9886098860"
+                email: buyer@xyz.com
           customer:
             person:
               creds:

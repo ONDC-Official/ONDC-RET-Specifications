@@ -78,7 +78,8 @@
                 }
               },
               "contact": {
-                "phone": "9886098860"
+                "phone": "9886098860",
+                "email": "buyer@xyz.com"
               }
             }
           ],
