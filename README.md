@@ -3,7 +3,7 @@
 | Specifications                        | Branch           |
 |-------------------------------------- |------------------|
 | B2B Retail version 2.0.2              | release-2.0.2    |
-| B2C Retail Exports version 1.2.0      | draft-b2c_exports|
+| B2C Retail Exports version 2.0        | b2c_exports_2.0  |
 
 
 The Open Network for Digital Commerce (ONDC) Retail (RET) Specifications provide a comprehensive framework designed to standardize the API specifications and model implementations for the retail domain, accommodating both B2C and B2B models. These specifications aim to streamline interactions between buyers and sellers by defining clear protocols for various transaction phases, ensuring interoperability, and fostering a more integrated digital commerce ecosystem.
