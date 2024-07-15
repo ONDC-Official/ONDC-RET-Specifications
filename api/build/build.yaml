@@ -30286,12 +30286,16 @@ x-attributes:
                   usage: '-'
                   reference: if any
                 time.range.start:
-                  description: time range when the order would be picked up
+                  description: >-
+                    start time from which the order would be picked up or
+                    delivered
                   required: required
                   usage: '2023-02-03T09:30:00.000Z'
                   reference: if any
                 time.range.end:
-                  description: time range when the order would be delivered
+                  description: >-
+                    end time till which the order would be picked up or
+                    delivered
                   required: required
                   usage: '2023-02-03T09:30:00.000Z'
                   reference: if any
