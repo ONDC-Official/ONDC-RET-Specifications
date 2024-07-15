@@ -370,6 +370,11 @@ message:
         required: required
         usage: "P1D"
         reference: if any
+    documents:
+      required: optional
+      description: Document url for seller terms provided by the seller
+      reference: if any
+      usage: 'http://seller_terms_url'
     created_at:
       description: timestamp when the order was created
       required: required

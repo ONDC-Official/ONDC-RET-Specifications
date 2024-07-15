@@ -4867,25 +4867,11 @@ x-flows:
                 payments:
                   - type: PRE-FULFILLMENT
                     collected_by: BPP
-                    uri: https://snp.com/pg
                     '@ondc/org/buyer_app_finder_fee_type': percent
                     '@ondc/org/buyer_app_finder_fee_amount': '0'
                     '@ondc/org/settlement_basis': delivery
                     '@ondc/org/settlement_window': P1D
                     '@ondc/org/withholding_amount': '10.00'
-                    tags:
-                      - descriptor:
-                          code: BPP_payment
-                        list:
-                          - descriptor:
-                              code: signature
-                            value: xxxxxxxxxxxxxx
-                          - descriptor:
-                              code: dsa
-                            value: ED25519
-                          - descriptor:
-                              code: ttl
-                            value: PT30M
                 tags:
                   - descriptor:
                       code: buyer_id
@@ -6762,6 +6748,9 @@ x-flows:
                           - descriptor:
                               code: ttl
                             value: PT30M
+                documents:
+                  - url: https://seller_terms_url
+                    label: SELLER_TERMS
                 tags:
                   - descriptor:
                       code: buyer_id
@@ -6954,6 +6943,9 @@ x-flows:
                         beneficiary_name: xxxxx
                         bank_name: xxxx
                         branch_name: xxxx
+                documents:
+                  - url: https://seller_terms_url
+                    label: SELLER_TERMS
                 tags:
                   - descriptor:
                       code: buyer_id
@@ -7186,6 +7178,9 @@ x-flows:
                           - descriptor:
                               code: ttl
                             value: PT30M
+                documents:
+                  - url: https://seller_terms_url
+                    label: SELLER_TERMS
                 tags:
                   - descriptor:
                       code: buyer_id
@@ -16103,6 +16098,9 @@ x-examples:
                           beneficiary_name: xxxxx
                           bank_name: xxxx
                           branch_name: xxxx
+                  documents:
+                    - url: https://seller_terms_url
+                      label: SELLER_TERMS
                   tags:
                     - descriptor:
                         code: buyer_id
@@ -22613,25 +22611,11 @@ x-examples:
                   payments:
                     - type: PRE-FULFILLMENT
                       collected_by: BPP
-                      uri: https://snp.com/pg
                       '@ondc/org/buyer_app_finder_fee_type': percent
                       '@ondc/org/buyer_app_finder_fee_amount': '0'
                       '@ondc/org/settlement_basis': delivery
                       '@ondc/org/settlement_window': P1D
                       '@ondc/org/withholding_amount': '10.00'
-                      tags:
-                        - descriptor:
-                            code: BPP_payment
-                          list:
-                            - descriptor:
-                                code: signature
-                              value: xxxxxxxxxxxxxx
-                            - descriptor:
-                                code: dsa
-                              value: ED25519
-                            - descriptor:
-                                code: ttl
-                              value: PT30M
                   tags:
                     - descriptor:
                         code: buyer_id
@@ -22982,6 +22966,9 @@ x-examples:
                             - descriptor:
                                 code: ttl
                               value: PT30M
+                  documents:
+                    - url: https://seller_terms_url
+                      label: SELLER_TERMS
                   tags:
                     - descriptor:
                         code: buyer_id
@@ -24105,6 +24092,9 @@ x-examples:
                             - descriptor:
                                 code: ttl
                               value: PT30M
+                  documents:
+                    - url: https://seller_terms_url
+                      label: SELLER_TERMS
                   tags:
                     - descriptor:
                         code: buyer_id
@@ -28968,6 +28958,11 @@ x-attributes:
                   usage: '3456'
                   reference: if any
                   required: optional
+            documents:
+              required: optional
+              description: Document url to provide seller terms
+              reference: if any
+              usage: http://seller_terms_url
             fulfillments:
               parent: true
               id:
@@ -29308,6 +29303,11 @@ x-attributes:
                 required: required
                 usage: P1D
                 reference: if any
+            documents:
+              required: optional
+              description: Document url for seller terms provided by the seller
+              reference: if any
+              usage: http://seller_terms_url
             tags:
               parent: true
               tags:
@@ -30029,6 +30029,11 @@ x-attributes:
                 required: required
                 usage: P1D
                 reference: if any
+            documents:
+              required: optional
+              description: Document url for seller terms provided by the seller
+              reference: if any
+              usage: http://seller_terms_url
             created_at:
               description: timestamp when the order was created
               required: required

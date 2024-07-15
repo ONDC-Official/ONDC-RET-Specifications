@@ -157,6 +157,9 @@ value:
           beneficiary_name: xxxxx
           bank_name: xxxx
           branch_name: xxxx
+      documents:
+      - url: https://seller_terms_url
+        label: SELLER_TERMS
       tags:
         - descriptor:
             code: buyer_id

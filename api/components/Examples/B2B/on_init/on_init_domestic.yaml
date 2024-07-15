@@ -144,25 +144,11 @@ value:
       payments:
       - type: PRE-FULFILLMENT
         collected_by: BPP
-        uri: https://snp.com/pg
         "@ondc/org/buyer_app_finder_fee_type": percent
         "@ondc/org/buyer_app_finder_fee_amount": '0'
         "@ondc/org/settlement_basis": delivery
         "@ondc/org/settlement_window": P1D
         "@ondc/org/withholding_amount": "10.00"
-        tags:
-          - descriptor:
-              code: BPP_payment
-            list:
-              - descriptor:
-                  code: signature
-                value: xxxxxxxxxxxxxx
-              - descriptor:
-                  code: dsa
-                value: ED25519
-              - descriptor:
-                  code: ttl
-                value: PT30M
       tags:
       - descriptor:
           code: buyer_id

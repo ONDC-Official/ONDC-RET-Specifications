@@ -205,6 +205,11 @@ message:
           usage: "3456"
           reference: if any
           required: optional
+    documents:
+      required: optional
+      description: Document url to provide seller terms
+      reference: if any
+      usage: 'http://seller_terms_url'
     fulfillments:
       parent: true
       id:

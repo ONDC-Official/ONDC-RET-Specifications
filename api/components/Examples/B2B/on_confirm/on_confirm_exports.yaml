@@ -189,6 +189,9 @@ value:
                 - descriptor:
                     code: ttl
                   value: PT30M 
+      documents:
+      - url: https://seller_terms_url
+        label: SELLER_TERMS
       tags:
         - descriptor:
             code: buyer_id
