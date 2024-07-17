@@ -3,7 +3,7 @@
     "domain": "ONDC:RET10",
     "location": {
       "city": {
-        "code": "std:999"
+        "code": "std:080"
       },
       "country": {
         "code": "IND"
@@ -37,7 +37,7 @@
         {
           "id": "I1",
           "fulfillment_ids": [
-            "F1"
+            "F2"
           ],
           "quantity": {
             "selected": {
@@ -74,12 +74,12 @@
       ],
       "billing": {
         "name": "ONDC buyer",
-        "address": "B005 aaspire heights, Jurong East, SGP, 680230",
+        "address": "22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar, Bengaluru, Karnataka 560001",
         "state": {
-          "name": "Jurong East"
+          "name": "Karnataka"
         },
         "city": {
-          "name": "Jurong East"
+          "name": "Bengaluru"
         },
         "tax_id": "XXXXXXXXXXXXXXX",
         "email": "nobody@nomail.com",
@@ -87,14 +87,14 @@
       },
       "fulfillments": [
         {
-          "id": "F1",
-          "@ondc/org/provider_name": "Loadshare",
+          "id": "F2",
+          "@ondc/org/provider_name": "",
           "state": {
             "descriptor": {
               "code": "Pending"
             }
           },
-          "type": "Delivery",
+          "type": "Self-Pickup",
           "tracking": false,
           "stops": [
             {
@@ -120,50 +120,9 @@
                 "phone": "9886098860",
                 "email": "nobody@nomail.com"
               }
-            },
-            {
-              "type": "end",
-              "location": {
-                "gps": "1.380621746811, 103.7463643843",
-                "address": "My House #, My buildin",
-                "city": {
-                  "name": "Jurong East"
-                },
-                "country": {
-                  "code": "SGP"
-                },
-                "area_code": "680230",
-                "state": {
-                  "name": ""
-                }
-              },
-              "contact": {
-                "phone": "9886098860"
-              }
             }
           ],
-          "rateable": true,
-          "tags": [
-            {
-              "descriptor": {
-                "code": "DELIVERY_TERMS"
-              },
-              "list": [
-                {
-                  "descriptor": {
-                    "code": "INCOTERMS"
-                  },
-                  "value": "CIF"
-                },
-                {
-                  "descriptor": {
-                    "code": "NAMED_PLACE_OF_DELIVERY"
-                  },
-                  "value": "SGP"
-                }
-              ]
-            }
-          ]
+          "rateable": true
         }
       ],
       "quote": {
@@ -191,7 +150,7 @@
             }
           },
           {
-            "@ondc/org/item_id": "F1",
+            "@ondc/org/item_id": "F2",
             "title": "Delivery charges",
             "@ondc/org/title_type": "delivery",
             "price": {
@@ -200,7 +159,7 @@
             }
           },
           {
-            "@ondc/org/item_id": "F1",
+            "@ondc/org/item_id": "F2",
             "title": "Packing charges",
             "@ondc/org/title_type": "packing",
             "price": {
@@ -227,7 +186,7 @@
             }
           },
           {
-            "@ondc/org/item_id": "F1",
+            "@ondc/org/item_id": "F2",
             "title": "Convenience Fee",
             "@ondc/org/title_type": "misc",
             "price": {
@@ -325,12 +284,6 @@
               ]
             }
           ]
-        }
-      ],
-      "documents": [
-        {
-          "url": "https://seller_terms_url",
-          "label": "SELLER_TERMS"
         }
       ],
       "tags": [

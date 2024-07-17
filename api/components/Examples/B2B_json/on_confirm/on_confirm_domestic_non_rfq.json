@@ -196,6 +196,38 @@
         ],
         "ttl": "P1D"
       },
+      "cancellation_terms": [
+        {
+          "fulfillment_state": {
+            "descriptor": {
+              "code": "Pending"
+            }
+          },
+          "reason_required": false,
+          "cancellation_fee": {
+            "percentage": "0",
+            "amount": {
+              "currency": "IND",
+              "value": "0"
+            }
+          }
+        },
+        {
+          "fulfillment_state": {
+            "descriptor": {
+              "code": "Packed"
+            }
+          },
+          "reason_required": false,
+          "cancellation_fee": {
+            "percentage": "0",
+            "amount": {
+              "currency": "IND",
+              "value": "0"
+            }
+          }
+        }
+      ],
       "payments": [
         {
           "params": {
@@ -203,6 +235,7 @@
             "amount": "53600"
           },
           "status": "NOT-PAID",
+          "uri": "https://snp.com/pg",
           "type": "PRE-FULFILLMENT",
           "collected_by": "BPP",
           "@ondc/org/buyer_app_finder_fee_type": "percent",
@@ -212,7 +245,7 @@
           "@ondc/org/withholding_amount": "10.00",
           "@ondc/org/settlement_details": [
             {
-              "settlement_counterparty": "seller-app",
+              "settlement_counterparty": "buyer-app",
               "settlement_phase": "sale-amount",
               "beneficiary_name": "xxxxx",
               "settlement_type": "upi",
@@ -221,6 +254,33 @@
               "settlement_ifsc_code": "XXXXXXXXX",
               "bank_name": "xxxx",
               "branch_name": "xxxx"
+            }
+          ],
+          "tags": [
+            {
+              "descriptor": {
+                "code": "BPP_payment"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "signature"
+                  },
+                  "value": "xxxxxxxxxxxxxx"
+                },
+                {
+                  "descriptor": {
+                    "code": "dsa"
+                  },
+                  "value": "ED25519"
+                },
+                {
+                  "descriptor": {
+                    "code": "ttl"
+                  },
+                  "value": "PT30M"
+                }
+              ]
             }
           ]
         }
@@ -296,8 +356,8 @@
           ]
         }
       ],
-      "created_at": "2023-01-08T22:00:29.000Z",
-      "updated_at": "2023-01-08T22:00:30.000Z"
+      "created_at": "2023-02-03T09:30:00.000Z",
+      "updated_at": "2023-02-03T09:31:30.000Z"
     }
   }
 }

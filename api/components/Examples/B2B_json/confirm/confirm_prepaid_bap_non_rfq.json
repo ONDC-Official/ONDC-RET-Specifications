@@ -3,13 +3,13 @@
     "domain": "ONDC:RET10",
     "location": {
       "city": {
-        "code": "std:999"
+        "code": "std:080"
       },
       "country": {
         "code": "IND"
       }
     },
-    "action": "on_confirm",
+    "action": "confirm",
     "version": "2.0.2",
     "bap_id": "buyerapp.com",
     "bap_uri": "https://buyerapp.com/grocery",
@@ -23,15 +23,14 @@
   "message": {
     "order": {
       "id": "O1",
-      "state": "Accepted",
+      "state": "Created",
       "provider": {
         "id": "P1",
         "locations": [
           {
             "id": "L1"
           }
-        ],
-        "rateable": true
+        ]
       },
       "items": [
         {
@@ -74,12 +73,12 @@
       ],
       "billing": {
         "name": "ONDC buyer",
-        "address": "B005 aaspire heights, Jurong East, SGP, 680230",
+        "address": "22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar, Bengaluru, Karnataka 560001",
         "state": {
-          "name": "Jurong East"
+          "name": "Karnataka"
         },
         "city": {
-          "name": "Jurong East"
+          "name": "Bengaluru"
         },
         "tax_id": "XXXXXXXXXXXXXXX",
         "email": "nobody@nomail.com",
@@ -88,80 +87,34 @@
       "fulfillments": [
         {
           "id": "F1",
-          "@ondc/org/provider_name": "Loadshare",
-          "state": {
-            "descriptor": {
-              "code": "Pending"
-            }
-          },
           "type": "Delivery",
           "tracking": false,
           "stops": [
             {
-              "type": "start",
+              "type": "end",
               "location": {
-                "id": "L1",
-                "descriptor": {
-                  "name": "ABC Store"
+                "gps": "12.974002,77.613458",
+                "address": "My House #, My buildin",
+                "city": {
+                  "name": "Bengaluru"
                 },
-                "gps": "12.956399,77.636803"
-              },
-              "time": {
-                "range": {
-                  "start": "2023-02-03T10:00:00.000Z",
-                  "end": "2023-02-03T10:30:00.000Z"
+                "country": {
+                  "code": "IND"
+                },
+                "area_code": "560001",
+                "state": {
+                  "name": "Karnataka"
                 }
-              },
-              "instructions": {
-                "name": "Status for pickup",
-                "short_desc": "Pickup Confirmation Code"
               },
               "contact": {
                 "phone": "9886098860",
                 "email": "nobody@nomail.com"
-              }
-            },
-            {
-              "type": "end",
-              "location": {
-                "gps": "1.380621746811, 103.7463643843",
-                "address": "My House #, My buildin",
-                "city": {
-                  "name": "Jurong East"
-                },
-                "country": {
-                  "code": "SGP"
-                },
-                "area_code": "680230",
-                "state": {
-                  "name": ""
-                }
               },
-              "contact": {
-                "phone": "9886098860"
-              }
-            }
-          ],
-          "rateable": true,
-          "tags": [
-            {
-              "descriptor": {
-                "code": "DELIVERY_TERMS"
-              },
-              "list": [
-                {
-                  "descriptor": {
-                    "code": "INCOTERMS"
-                  },
-                  "value": "CIF"
-                },
-                {
-                  "descriptor": {
-                    "code": "NAMED_PLACE_OF_DELIVERY"
-                  },
-                  "value": "SGP"
+              "customer": {
+                "person": {
+                  "name": "Ramu"
                 }
-              ]
+              }
             }
           ]
         }
@@ -273,13 +226,14 @@
       "payments": [
         {
           "params": {
+            "transaction_id": "2920ADJCNKJ329304MM",
             "currency": "INR",
             "amount": "53600"
           },
-          "status": "NOT-PAID",
-          "uri": "https://snp.com/pg",
+          "status": "PAID",
           "type": "PRE-FULFILLMENT",
-          "collected_by": "BPP",
+          "collected_by": "BAP",
+          "uri": "https://snp.com/pg",
           "@ondc/org/buyer_app_finder_fee_type": "percent",
           "@ondc/org/buyer_app_finder_fee_amount": "0",
           "@ondc/org/settlement_basis": "delivery",
@@ -287,50 +241,17 @@
           "@ondc/org/withholding_amount": "10.00",
           "@ondc/org/settlement_details": [
             {
-              "settlement_counterparty": "buyer-app",
+              "settlement_counterparty": "seller-app",
               "settlement_phase": "sale-amount",
-              "beneficiary_name": "xxxxx",
               "settlement_type": "upi",
               "upi_address": "gft@oksbi",
               "settlement_bank_account_no": "XXXXXXXXXX",
               "settlement_ifsc_code": "XXXXXXXXX",
+              "beneficiary_name": "xxxxx",
               "bank_name": "xxxx",
               "branch_name": "xxxx"
             }
-          ],
-          "tags": [
-            {
-              "descriptor": {
-                "code": "BPP_payment"
-              },
-              "list": [
-                {
-                  "descriptor": {
-                    "code": "signature"
-                  },
-                  "value": "xxxxxxxxxxxxxx"
-                },
-                {
-                  "descriptor": {
-                    "code": "dsa"
-                  },
-                  "value": "ED25519"
-                },
-                {
-                  "descriptor": {
-                    "code": "ttl"
-                  },
-                  "value": "PT30M"
-                }
-              ]
-            }
           ]
-        }
-      ],
-      "documents": [
-        {
-          "url": "https://seller_terms_url",
-          "label": "SELLER_TERMS"
         }
       ],
       "tags": [
@@ -405,7 +326,7 @@
         }
       ],
       "created_at": "2023-02-03T09:30:00.000Z",
-      "updated_at": "2023-02-03T09:31:30.000Z"
+      "updated_at": "2023-02-03T09:30:00.000Z"
     }
   }
 }

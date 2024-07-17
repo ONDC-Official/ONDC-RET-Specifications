@@ -3,7 +3,7 @@
     "domain": "ONDC:RET10",
     "location": {
       "city": {
-        "code": "std:999"
+        "code": "std:080"
       },
       "country": {
         "code": "IND"
@@ -74,12 +74,12 @@
       ],
       "billing": {
         "name": "ONDC buyer",
-        "address": "B005 aaspire heights, Jurong East, SGP, 680230",
+        "address": "22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar, Bengaluru, Karnataka 560001",
         "state": {
-          "name": "Jurong East"
+          "name": "Karnataka"
         },
         "city": {
-          "name": "Jurong East"
+          "name": "Bengaluru"
         },
         "tax_id": "XXXXXXXXXXXXXXX",
         "email": "nobody@nomail.com",
@@ -124,17 +124,17 @@
             {
               "type": "end",
               "location": {
-                "gps": "1.380621746811, 103.7463643843",
+                "gps": "12.974002,77.613458",
                 "address": "My House #, My buildin",
                 "city": {
-                  "name": "Jurong East"
+                  "name": "Bengaluru"
                 },
                 "country": {
-                  "code": "SGP"
+                  "code": "IND"
                 },
-                "area_code": "680230",
+                "area_code": "560001",
                 "state": {
-                  "name": ""
+                  "name": "Karnataka"
                 }
               },
               "contact": {
@@ -142,28 +142,7 @@
               }
             }
           ],
-          "rateable": true,
-          "tags": [
-            {
-              "descriptor": {
-                "code": "DELIVERY_TERMS"
-              },
-              "list": [
-                {
-                  "descriptor": {
-                    "code": "INCOTERMS"
-                  },
-                  "value": "CIF"
-                },
-                {
-                  "descriptor": {
-                    "code": "NAMED_PLACE_OF_DELIVERY"
-                  },
-                  "value": "SGP"
-                }
-              ]
-            }
-          ]
+          "rateable": true
         }
       ],
       "quote": {
@@ -273,21 +252,22 @@
       "payments": [
         {
           "params": {
+            "transaction_id": "2920ADJCNKJ329304MM",
             "currency": "INR",
             "amount": "53600"
           },
-          "status": "NOT-PAID",
+          "status": "PAID",
           "uri": "https://snp.com/pg",
           "type": "PRE-FULFILLMENT",
-          "collected_by": "BPP",
+          "collected_by": "BAP",
           "@ondc/org/buyer_app_finder_fee_type": "percent",
-          "@ondc/org/buyer_app_finder_fee_amount": "0",
+          "@ondc/org/buyer_app_finder_fee_amount": "0.0",
           "@ondc/org/settlement_basis": "delivery",
           "@ondc/org/settlement_window": "P1D",
           "@ondc/org/withholding_amount": "10.00",
           "@ondc/org/settlement_details": [
             {
-              "settlement_counterparty": "buyer-app",
+              "settlement_counterparty": "seller-app",
               "settlement_phase": "sale-amount",
               "beneficiary_name": "xxxxx",
               "settlement_type": "upi",
@@ -297,40 +277,7 @@
               "bank_name": "xxxx",
               "branch_name": "xxxx"
             }
-          ],
-          "tags": [
-            {
-              "descriptor": {
-                "code": "BPP_payment"
-              },
-              "list": [
-                {
-                  "descriptor": {
-                    "code": "signature"
-                  },
-                  "value": "xxxxxxxxxxxxxx"
-                },
-                {
-                  "descriptor": {
-                    "code": "dsa"
-                  },
-                  "value": "ED25519"
-                },
-                {
-                  "descriptor": {
-                    "code": "ttl"
-                  },
-                  "value": "PT30M"
-                }
-              ]
-            }
           ]
-        }
-      ],
-      "documents": [
-        {
-          "url": "https://seller_terms_url",
-          "label": "SELLER_TERMS"
         }
       ],
       "tags": [

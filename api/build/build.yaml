@@ -6726,6 +6726,25 @@ x-flows:
                         currency: INR
                         value: '100'
                   ttl: P1D
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
                 payments:
                   - type: PRE-FULFILLMENT
                     collected_by: BPP
@@ -6921,6 +6940,25 @@ x-flows:
                         currency: INR
                         value: '100'
                   ttl: P1D
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
                 payments:
                   - params:
                       currency: INR
@@ -7142,6 +7180,25 @@ x-flows:
                         currency: INR
                         value: '100'
                   ttl: P1D
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
                 payments:
                   - params:
                       currency: INR
@@ -8357,6 +8414,25 @@ x-flows:
                         currency: INR
                         value: '100'
                   ttl: P1D
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
                 payments:
                   - type: PRE-FULFILLMENT
                     collected_by: BAP
@@ -8527,6 +8603,25 @@ x-flows:
                         currency: INR
                         value: '100'
                   ttl: P1D
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
                 payments:
                   - params:
                       transaction_id: 2920ADJCNKJ329304MM
@@ -8739,6 +8834,25 @@ x-flows:
                         currency: INR
                         value: '100'
                   ttl: P1D
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
                 payments:
                   - params:
                       transaction_id: 2920ADJCNKJ329304MM
@@ -9301,6 +9415,25 @@ x-flows:
                         currency: INR
                         value: '100'
                   ttl: P1D
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
                 payments:
                   - type: PRE-FULFILLMENT
                     collected_by: BPP
@@ -9485,6 +9618,25 @@ x-flows:
                         currency: INR
                         value: '100'
                   ttl: P1D
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
                 payments:
                   - params:
                       transaction_id: 2920ADJCNKJ329304MM
@@ -9687,6 +9839,25 @@ x-flows:
                         currency: INR
                         value: '100'
                   ttl: P1D
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
                 payments:
                   - params:
                       transaction_id: 2920ADJCNKJ329304MM
@@ -10720,6 +10891,25 @@ x-flows:
                         currency: INR
                         value: '100'
                   ttl: P1D
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
                 payments:
                   - type: PRE-FULFILLMENT
                     collected_by: BPP
@@ -10904,6 +11094,25 @@ x-flows:
                         currency: INR
                         value: '100'
                   ttl: P1D
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
                 payments:
                   - params:
                       currency: INR
@@ -11104,6 +11313,25 @@ x-flows:
                         currency: INR
                         value: '100'
                   ttl: P1D
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
                 payments:
                   - params:
                       currency: INR
@@ -12761,6 +12989,25 @@ x-flows:
                         currency: INR
                         value: '0'
                   ttl: P1D
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
                 payments:
                   - type: PRE-FULFILLMENT
                     collected_by: BPP
@@ -12931,6 +13178,25 @@ x-flows:
                         currency: INR
                         value: '100'
                   ttl: P1D
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
                 payments:
                   - params:
                       currency: INR
@@ -13130,6 +13396,25 @@ x-flows:
                         currency: INR
                         value: '100'
                   ttl: P1D
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
                 payments:
                   - params:
                       currency: INR
@@ -13964,6 +14249,25 @@ x-flows:
                         currency: INR
                         value: '100'
                   ttl: P1D
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: IND
+                        value: '0'
                 payments:
                   - params:
                       currency: INR
@@ -16076,6 +16380,25 @@ x-examples:
                           currency: INR
                           value: '100'
                     ttl: P1D
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Packed
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
                   payments:
                     - params:
                         currency: INR
@@ -16266,6 +16589,25 @@ x-examples:
                           currency: INR
                           value: '100'
                     ttl: P1D
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Packed
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
                   payments:
                     - params:
                         currency: INR
@@ -16453,6 +16795,25 @@ x-examples:
                           currency: INR
                           value: '100'
                     ttl: P1D
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Packed
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
                   payments:
                     - params:
                         transaction_id: 2920ADJCNKJ329304MM
@@ -16640,6 +17001,25 @@ x-examples:
                           currency: INR
                           value: '100'
                     ttl: P1D
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Packed
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
                   payments:
                     - params:
                         currency: INR
@@ -22760,6 +23140,25 @@ x-examples:
                           currency: INR
                           value: '100'
                     ttl: P1D
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Packed
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
                   payments:
                     - type: PRE-FULFILLMENT
                       collected_by: BPP
@@ -22944,6 +23343,25 @@ x-examples:
                           currency: INR
                           value: '100'
                     ttl: P1D
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Packed
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
                   payments:
                     - type: PRE-FULFILLMENT
                       collected_by: BPP
@@ -23117,6 +23535,25 @@ x-examples:
                           currency: INR
                           value: '100'
                     ttl: P1D
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Packed
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
                   payments:
                     - type: PRE-FULFILLMENT
                       collected_by: BPP
@@ -23298,6 +23735,25 @@ x-examples:
                           currency: INR
                           value: '100'
                     ttl: P1D
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Packed
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
                   payments:
                     - type: ON-FULFILLMENT
                       collected_by: BPP
@@ -23463,6 +23919,25 @@ x-examples:
                           currency: INR
                           value: '0'
                     ttl: P1D
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Packed
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
                   payments:
                     - type: PRE-FULFILLMENT
                       collected_by: BPP
@@ -23625,6 +24100,25 @@ x-examples:
                           currency: INR
                           value: '100'
                     ttl: P1D
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Packed
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
                   payments:
                     - type: PRE-FULFILLMENT
                       collected_by: BAP
@@ -24056,6 +24550,25 @@ x-examples:
                           currency: INR
                           value: '100'
                     ttl: P1D
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Packed
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
                   payments:
                     - params:
                         currency: INR
@@ -24268,6 +24781,25 @@ x-examples:
                           currency: INR
                           value: '100'
                     ttl: P1D
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Packed
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
                   payments:
                     - params:
                         currency: INR
@@ -24480,6 +25012,25 @@ x-examples:
                           currency: INR
                           value: '100'
                     ttl: P1D
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Packed
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
                   payments:
                     - params:
                         currency: INR
@@ -24693,6 +25244,25 @@ x-examples:
                           currency: INR
                           value: '100'
                     ttl: P1D
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Packed
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
                   payments:
                     - params:
                         transaction_id: 2920ADJCNKJ329304MM
@@ -24899,6 +25469,25 @@ x-examples:
                           currency: INR
                           value: '100'
                     ttl: P1D
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Packed
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
                   payments:
                     - params:
                         transaction_id: 2920ADJCNKJ329304MM
@@ -25093,6 +25682,25 @@ x-examples:
                           currency: INR
                           value: '100'
                     ttl: P1D
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Packed
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: IND
+                          value: '0'
                   payments:
                     - params:
                         currency: INR
@@ -27786,10 +28394,11 @@ x-attributes:
                 parent: true
                 parent_item_id:
                   description: >-
-                    if variant grouping defined for provider above, this matches
-                    id for variant_group definition; if not defined or id is
-                    invalid, buyer NPs may choose to display as normal SKU item
-                  required: required
+                    if variant grouping defined for provider in categories
+                    array, this matches id for variant_group definition; if not
+                    defined or id is invalid, buyer NPs may choose to display as
+                    normal SKU item
+                  required: optional
                   usage: V1
                   reference: if any
                 descriptor.code:
@@ -27798,7 +28407,7 @@ x-attributes:
                     "type:code" where type is 1 - EAN, 2 - ISBN, 3 - GTIN, 4 -
                     HSN, 5 - others
                   required: optional
-                  usage: 2
+                  usage: '2:23435'
                   reference: if any
                 descriptor.images:
                   description: >-

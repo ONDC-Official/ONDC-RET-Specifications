@@ -35,7 +35,9 @@
       "items": [
         {
           "id": "I1",
-          "fulfillment_ids": ["F1"],
+          "fulfillment_ids": [
+            "F1"
+          ],
           "quantity": {
             "selected": {
               "count": 200
@@ -44,6 +46,27 @@
           "add_ons": [
             {
               "id": "78787723"
+            }
+          ],
+          "tags": [
+            {
+              "descriptor": {
+                "code": "BUYER_TERMS"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "ITEM_REQ"
+                  },
+                  "value": "free text on Item Customization"
+                },
+                {
+                  "descriptor": {
+                    "code": "PACKAGING_REQ"
+                  },
+                  "value": "free text on packaging Customization"
+                }
+              ]
             }
           ]
         }
@@ -168,6 +191,38 @@
         ],
         "ttl": "P1D"
       },
+      "cancellation_terms": [
+        {
+          "fulfillment_state": {
+            "descriptor": {
+              "code": "Pending"
+            }
+          },
+          "reason_required": false,
+          "cancellation_fee": {
+            "percentage": "0",
+            "amount": {
+              "currency": "IND",
+              "value": "0"
+            }
+          }
+        },
+        {
+          "fulfillment_state": {
+            "descriptor": {
+              "code": "Packed"
+            }
+          },
+          "reason_required": false,
+          "cancellation_fee": {
+            "percentage": "0",
+            "amount": {
+              "currency": "IND",
+              "value": "0"
+            }
+          }
+        }
+      ],
       "payments": [
         {
           "params": {

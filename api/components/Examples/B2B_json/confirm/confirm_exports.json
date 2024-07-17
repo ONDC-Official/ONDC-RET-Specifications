@@ -35,7 +35,9 @@
       "items": [
         {
           "id": "I1",
-          "fulfillment_ids": ["F1"],
+          "fulfillment_ids": [
+            "F1"
+          ],
           "quantity": {
             "selected": {
               "count": 200
@@ -210,6 +212,38 @@
         ],
         "ttl": "P1D"
       },
+      "cancellation_terms": [
+        {
+          "fulfillment_state": {
+            "descriptor": {
+              "code": "Pending"
+            }
+          },
+          "reason_required": false,
+          "cancellation_fee": {
+            "percentage": "0",
+            "amount": {
+              "currency": "IND",
+              "value": "0"
+            }
+          }
+        },
+        {
+          "fulfillment_state": {
+            "descriptor": {
+              "code": "Packed"
+            }
+          },
+          "reason_required": false,
+          "cancellation_fee": {
+            "percentage": "0",
+            "amount": {
+              "currency": "IND",
+              "value": "0"
+            }
+          }
+        }
+      ],
       "payments": [
         {
           "params": {
@@ -237,6 +271,12 @@
               "branch_name": "xxxx"
             }
           ]
+        }
+      ],
+      "documents": [
+        {
+          "url": "https://seller_terms_url",
+          "label": "SELLER_TERMS"
         }
       ],
       "tags": [
@@ -310,8 +350,8 @@
           ]
         }
       ],
-      "created_at": "2023-01-08T22:00:30.000Z",
-      "updated_at": "2023-01-08T22:00:30.000Z"
+      "created_at": "2023-02-03T09:30:00.000Z",
+      "updated_at": "2023-02-03T09:30:00.000Z"
     }
   }
 }

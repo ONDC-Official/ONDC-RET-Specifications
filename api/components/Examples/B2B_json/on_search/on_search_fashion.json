@@ -305,10 +305,18 @@
                   "count": 99
                 }
               },
-              "category_ids": ["RET12-102F"],
-              "fulfillment_ids": ["1"],
-              "location_ids": ["L1"],
-              "payment_ids": ["2"],
+              "category_ids": [
+                "RET12-102F"
+              ],
+              "fulfillment_ids": [
+                "1"
+              ],
+              "location_ids": [
+                "L1"
+              ],
+              "payment_ids": [
+                "2"
+              ],
               "cancellation_terms": [
                 {
                   "fulfillment_state": {
@@ -673,10 +681,18 @@
                   "count": 99
                 }
               },
-              "category_ids": ["RET12-102F"],
-              "fulfillment_ids": ["1"],
-              "location_ids": ["L1"],
-              "payment_ids": ["2"],
+              "category_ids": [
+                "RET12-102F"
+              ],
+              "fulfillment_ids": [
+                "1"
+              ],
+              "location_ids": [
+                "L1"
+              ],
+              "payment_ids": [
+                "2"
+              ],
               "cancellation_terms": [
                 {
                   "fulfillment_state": {
@@ -775,8 +791,9 @@
                   ]
                 },
                 {
-                  "descriptor": null,
-                  "code": "attribute",
+                  "descriptor": {
+                    "code": "attribute"
+                  },
                   "list": [
                     {
                       "descriptor": {

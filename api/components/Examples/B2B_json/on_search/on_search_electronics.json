@@ -24,11 +24,11 @@
     "catalog": {
       "fulfillments": [
         {
-          "id": "F1",
+          "id": "1",
           "type": "Delivery"
         },
         {
-          "id": "F2",
+          "id": "2",
           "type": "Self-Pickup"
         }
       ],
@@ -178,7 +178,9 @@
               "id": "V1",
               "descriptor": {
                 "name": "Variant Group 1"
-              },
+              }
+            },
+            {
               "tags": [
                 {
                   "descriptor": {
@@ -297,16 +299,24 @@
                 },
                 "minimum": {
                   "measure": {
-                    "unit": "millilitre",
-                    "value": "500"
+                    "unit": "unit",
+                    "value": "1"
                   },
                   "count": 4000
                 }
               },
-              "category_ids": ["RET14-1042"],
-              "fulfillment_ids": ["1"],
-              "location_ids": ["L1"],
-              "payment_ids": ["2"],
+              "category_ids": [
+                "RET14-1042"
+              ],
+              "fulfillment_ids": [
+                "1"
+              ],
+              "location_ids": [
+                "L1"
+              ],
+              "payment_ids": [
+                "2"
+              ],
               "add_ons": [
                 {
                   "id": "78787723",

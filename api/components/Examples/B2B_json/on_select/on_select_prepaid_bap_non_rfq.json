@@ -137,7 +137,7 @@
       "payments": [
         {
           "type": "PRE-FULFILLMENT",
-          "collected_by": "BPP"
+          "collected_by": "BAP"
         }
       ]
     }

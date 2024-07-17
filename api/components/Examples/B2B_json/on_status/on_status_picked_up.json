@@ -16,7 +16,7 @@
     "bpp_id": "sellerapp.com",
     "bpp_uri": "https://sellerapp.com/grocery",
     "transaction_id": "9568beb3-265a-4730-be4e-c00ba2e5e30a",
-    "message_id": "M1",
+    "message_id": "2052ef5e-2ec7-4c21-96f7-dec4b2309010",
     "timestamp": "2023-01-08T22:00:30.000Z",
     "ttl": "PT30S"
   },
@@ -223,21 +223,21 @@
           "uri": "https://ondc.transaction.com/payment",
           "tl_method": "http/get",
           "params": {
+            "transaction_id": "5679",
             "currency": "INR",
-            "transaction_id": "3937",
             "amount": "53600"
           },
           "status": "PAID",
           "type": "PRE-FULFILLMENT",
           "collected_by": "BPP",
           "@ondc/org/buyer_app_finder_fee_type": "percent",
-          "@ondc/org/buyer_app_finder_fee_amount": "3",
+          "@ondc/org/buyer_app_finder_fee_amount": "3.0",
           "@ondc/org/settlement_basis": "delivery",
           "@ondc/org/settlement_window": "P1D",
           "@ondc/org/withholding_amount": "10.00",
           "@ondc/org/settlement_details": [
             {
-              "settlement_counterparty": "seller-app",
+              "settlement_counterparty": "buyer-app",
               "settlement_phase": "sale-amount",
               "beneficiary_name": "xxxxx",
               "settlement_reference": "XXXX",

@@ -16,7 +16,7 @@
     "bpp_id": "sellerapp.com",
     "bpp_uri": "https://sellerapp.com/grocery",
     "transaction_id": "9568beb3-265a-4730-be4e-c00ba2e5e30a",
-    "message_id": "86fb6231-ea67-42d1-b1ef-e43f1719a44f",
+    "message_id": "4e90afaf-2d02-4ed9-9659-45d702a82f8e",
     "timestamp": "2023-01-08T22:00:30.000Z",
     "ttl": "PT30S"
   },
@@ -44,6 +44,27 @@
           "add_ons": [
             {
               "id": "78787723"
+            }
+          ],
+          "tags": [
+            {
+              "descriptor": {
+                "code": "BUYER_TERMS"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "ITEM_REQ"
+                  },
+                  "value": "free text on Item Customization"
+                },
+                {
+                  "descriptor": {
+                    "code": "PACKAGING_REQ"
+                  },
+                  "value": "free text on packaging Customization"
+                }
+              ]
             }
           ]
         }
@@ -137,7 +158,7 @@
       "payments": [
         {
           "type": "PRE-FULFILLMENT",
-          "collected_by": "BPP"
+          "collected_by": "BAP"
         }
       ]
     }

@@ -1,6 +1,6 @@
 {
   "context": {
-    "domain": "ONDC:RET1C",
+    "domain": "ONDC:RET1A",
     "location": {
       "city": {
         "code": "std:080"
@@ -12,11 +12,11 @@
     "action": "on_search",
     "version": "2.0.2",
     "bap_id": "buyerapp.com",
-    "bap_uri": "https://buyerapp.com/fs",
+    "bap_uri": "https://buyerapp.com/ap",
     "bpp_id": "sellerapp.com",
-    "bpp_uri": "https://sellerapp.com/fs",
-    "transaction_id": "T1",
-    "message_id": "M1",
+    "bpp_uri": "https://sellerapp.com/ap",
+    "transaction_id": "9568beb3-265a-4730-be4e-c00ba2e5e30a",
+    "message_id": "86fb6231-ea67-42d1-b1ef-e43f1719a44f",
     "timestamp": "2023-01-08T22:00:30.000Z",
     "ttl": "PT30S"
   },
@@ -94,16 +94,14 @@
               "area_code": "560076"
             }
           ],
-          "creds":
-          [
+          "creds": [
             {
-              "id":"ESG-12345678",
+              "id": "ESG-12345678",
               "type": "License",
-              "desc":"Export License No. ESG-12345678",
-              "url":"https://abcd.cdn.com/images/license-img"
+              "desc": "Export License No. ESG-12345678",
+              "url": "https://abcd.cdn.com/images/license-img"
             }
           ],
-
           "tags": [
             {
               "descriptor": {
@@ -120,7 +118,7 @@
                   "descriptor": {
                     "code": "category"
                   },
-                  "value": "RET1C-1000"
+                  "value": "RET1A-1012"
                 },
                 {
                   "descriptor": {
@@ -175,83 +173,76 @@
               ]
             }
           ],
-          "categories":
-          [
+          "categories": [
             {
-              "id":"V1",
-              "descriptor":
-              {
-                "name":"Variant Group 1"
+              "id": "V1",
+              "descriptor": {
+                "name": "Variant Group 1"
               },
-              "tags":
-            [
-              {
-                "descriptor": {
-                  "code":"type"
+              "tags": [
+                {
+                  "descriptor": {
+                    "code": "type"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "type"
+                      },
+                      "value": "variant_group"
+                    }
+                  ]
                 },
-                "list":
-                [
-                  {
-                    "descriptor": {
-                      "code":"type"
+                {
+                  "descriptor": {
+                    "code": "attr"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "name"
+                      },
+                      "value": "item.tags.attribute.thickness"
                     },
-                    "value":"variant_group"
-                  }
-                ]
-              },
-              {
-                "descriptor": {
-                  "code":"attr"
+                    {
+                      "descriptor": {
+                        "code": "seq"
+                      },
+                      "value": "1"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "code": "attr"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "name"
+                      },
+                      "value": "item.tags.attribute.measurement"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "seq"
+                      },
+                      "value": "2"
+                    }
+                  ]
                 }
-                ,
-                "list":
-                [
-                  {
-                    "descriptor": {
-                      "code":"name"
-                    },
-                    "value":"item.tags.attribute.<variant_attribute_name>"
-                  },
-                  {
-                    "descriptor": {
-                      "code":"seq"
-                    },
-                    "value":"1"
-                  }
-                ]
-              },
-              {
-                "descriptor": {
-                  "code":"attr"
-                },
-                "list":
-                [
-                  {
-                    "descriptor": {
-                      "code":"name"
-                    },
-                    "value":"item.tags.attribute.<variant_attribute_name>"
-                  },
-                  {
-                    "descriptor": {
-                      "code":"seq"
-                    },
-                    "value":"2"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
+              ]
+            }
+          ],
           "items": [
             {
               "id": "I1",
               "parent_item_id": "V1",
               "descriptor": {
-                "name": "Gokul White PP Non Return Screwed Valve",
+                "name": "Bosch F002H234398F8 High Performance Spin-on Replacement Lube Oil Filter",
                 "code": "UPC / EAN code / SKU code",
-                "short_desc": "Gokul White PP Non Return Screwed Valve",
-                "long_desc": "Gokul White PP Non Return Screwed Valve",
+                "short_desc": "Bosch F002H234398F8 High Performance Spin-on Replacement Lube Oil Filter",
+                "long_desc": "Bosch F002H234398F8 High Performance Spin-on Replacement Lube Oil Filter",
                 "images": [
                   {
                     "url": "https://abc.com/images/207.png"
@@ -260,7 +251,7 @@
                 "media": [
                   {
                     "mimetype": "video/mp4",
-                    "url": "video_url"
+                    "url": "https://abc.com/videos/207"
                   }
                 ]
               },
@@ -270,7 +261,7 @@
                   "contact": {
                     "name": "xxxx",
                     "address": {
-                      "full": "Gokul Poly Valves Private Limited,AT Post Bakrol Bujrang, Ahmedabad, Gujarat-382430"
+                      "full": "Bosch Limited Post Box No. 3000, Hosur Road, Adugodi Bengaluru - 560030"
                     },
                     "phone": "18001801018",
                     "email": "consumer.services@xxxx.com"
@@ -291,29 +282,22 @@
                   }
                 },
                 "available": {
-                "measure": {
-                  "unit": "unit",
-                  "value": "1"
+                  "measure": {
+                    "unit": "unit",
+                    "value": "1"
+                  },
+                  "count": 99
                 },
-                "count": 99
-              },
-              "maximum": {
-                "measure": {
-                  "unit": "unit",
-                  "value": "1"
-                },
-                "count": 99
-              },
-              "minimum": {
-                "measure": {
-                  "unit": "unit",
-                  "value": "1"
-                },
-                "count": 99
-              }
+                "maximum": {
+                  "measure": {
+                    "unit": "unit",
+                    "value": "1"
+                  },
+                  "count": 99
+                }
               },
               "category_ids": [
-                "RET12-102F"
+                "RET1A-1012"
               ],
               "fulfillment_ids": [
                 "1"
@@ -356,22 +340,24 @@
                   }
                 }
               ],
-              "return_terms": [{
-                "fulfillment_state": {
-                  "descriptor": {
-                    "code": "Order-delivered"
-                  }
-                },
-                "return_eligible": true,
-                "return_time": {
-                  "duration": "P7D"
-                },
-                "return_location": {
-                  "address": "RTO address",
-                  "gps": "12.667555,77.349666"
-                },
-                "fulfillment_managed_by": "seller"
-              }],
+              "return_terms": [
+                {
+                  "fulfillment_state": {
+                    "descriptor": {
+                      "code": "Order-delivered"
+                    }
+                  },
+                  "return_eligible": true,
+                  "return_time": {
+                    "duration": "P7D"
+                  },
+                  "return_location": {
+                    "address": "RTO address",
+                    "gps": "12.667555,77.349666"
+                  },
+                  "fulfillment_managed_by": "seller"
+                }
+              ],
               "replacement_terms": [
                 {
                   "replace_within": "P7D"
@@ -389,112 +375,157 @@
               "tags": [
                 {
                   "descriptor": {
-                    "code":"origin"
+                    "code": "origin"
                   },
-                  "list":
-                  [
+                  "list": [
                     {
                       "descriptor": {
-                        "code":"country"
+                        "code": "country"
                       },
-                      "value":"IND"
+                      "value": "IND"
                     }
                   ]
                 },
                 {
                   "descriptor": {
-                    "code":"image"
+                    "code": "image"
                   },
-                  "list":
-                  [
+                  "list": [
                     {
                       "descriptor": {
-                        "code":"type"
+                        "code": "type"
                       },
-                      "value":"back_image"
+                      "value": "back_image"
                     },
                     {
                       "descriptor": {
-                        "code":"url"
+                        "code": "url"
                       },
-                      "value":"https://sellerNP.com/images/i1_back_image.png"
+                      "value": "https://sellerNP.com/images/i1_back_image.png"
                     }
                   ]
                 },
                 {
                   "descriptor": {
-                    "code":"attribute"
+                    "code": "attribute"
                   },
-                  "list":
-                  [
+                  "list": [
                     {
                       "descriptor": {
-                        "code":"brand"
+                        "code": "brand"
                       },
-                      "value":"Gokul"
+                      "value": "BOSCH"
                     },
                     {
                       "descriptor": {
-                        "code":"model"
+                        "code": "item_condition"
                       },
-                      "value":"2 PICE FLANGEND"
+                      "value": "New"
                     },
                     {
                       "descriptor": {
-                        "code":"item_condition"
+                        "code": "material"
                       },
-                      "value":"New"
+                      "value": "Resin"
                     },
                     {
                       "descriptor": {
-                        "code":"material"
+                        "code": "vehicle_make"
                       },
-                      "value":"pp"
+                      "value": "Mahindra"
                     },
                     {
                       "descriptor": {
-                        "code":"warranty"
+                        "code": "vehicle_model"
                       },
-                      "value":"2 years"
+                      "value": "Scorpio"
                     },
                     {
                       "descriptor": {
-                        "code":"mount_type"
+                        "code": "placement"
                       },
-                      "value":"wall mount"
+                      "value": "Inner"
                     },
                     {
                       "descriptor": {
-                        "code":"thickness"
+                        "code": "capacity"
                       },
-                      "value":"1 mm"
+                      "value": "1 Litres"
                     },
                     {
                       "descriptor": {
-                        "code":"power_output"
+                        "code": "rim"
                       },
-                      "value":"2 HP"
+                      "value": "10 Inches"
                     },
                     {
                       "descriptor": {
-                        "code":"hazardous"
+                        "code": "tyre_aspect_ratio"
                       },
-                      "value":"Yes"
+                      "value": "60%"
                     },
                     {
                       "descriptor": {
-                        "code":"form_factor"
+                        "code": "tyre_size"
                       },
-                      "value":"Powder"
+                      "value": "120/70 R 17"
                     },
                     {
                       "descriptor": {
-                        "code":"diameter"
+                        "code": "vehicle_model_year"
                       },
-                      "value":"15 mm"
+                      "value": "1990"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "parts_origin"
+                      },
+                      "value": "Genuine"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "new_arrivals"
+                      },
+                      "value": "Last 30 Days"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "sound_type"
+                      },
+                      "value": "Harmonic"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "load_index_rating"
+                      },
+                      "value": "0"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "ply"
+                      },
+                      "value": "2 Ply"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "section_width"
+                      },
+                      "value": "70 mm"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "number_of_cells"
+                      },
+                      "value": "0"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "warranty"
+                      },
+                      "value": "6 months"
                     }
                   ]
-                },   
+                },
                 {
                   "descriptor": {
                     "code": "g2"

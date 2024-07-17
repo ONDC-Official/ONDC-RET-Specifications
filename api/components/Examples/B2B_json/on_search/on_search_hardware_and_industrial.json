@@ -1,6 +1,6 @@
 {
   "context": {
-    "domain": "ONDC:RET1D",
+    "domain": "ONDC:RET1B",
     "location": {
       "city": {
         "code": "std:080"
@@ -15,8 +15,8 @@
     "bap_uri": "https://buyerapp.com/fs",
     "bpp_id": "sellerapp.com",
     "bpp_uri": "https://sellerapp.com/fs",
-    "transaction_id": "T1",
-    "message_id": "M1",
+    "transaction_id": "9568beb3-265a-4730-be4e-c00ba2e5e30a",
+    "message_id": "86fb6231-ea67-42d1-b1ef-e43f1719a44f",
     "timestamp": "2023-01-08T22:00:30.000Z",
     "ttl": "PT30S"
   },
@@ -94,16 +94,14 @@
               "area_code": "560076"
             }
           ],
-          "creds":
-          [
+          "creds": [
             {
-              "id":"ESG-12345678",
+              "id": "ESG-12345678",
               "type": "License",
-              "desc":"Export License No. ESG-12345678",
-              "url":"https://abcd.cdn.com/images/license-img"
+              "desc": "Export License No. ESG-12345678",
+              "url": "https://abcd.cdn.com/images/license-img"
             }
           ],
-
           "tags": [
             {
               "descriptor": {
@@ -120,7 +118,7 @@
                   "descriptor": {
                     "code": "category"
                   },
-                  "value": "RET1D-1000"
+                  "value": "RET1B-10A9"
                 },
                 {
                   "descriptor": {
@@ -175,83 +173,76 @@
               ]
             }
           ],
-          "categories":
-          [
+          "categories": [
             {
-              "id":"V1",
-              "descriptor":
-              {
-                "name":"Variant Group 1"
+              "id": "V1",
+              "descriptor": {
+                "name": "Variant Group 1"
               },
-              "tags":
-            [
-              {
-                "descriptor": {
-                  "code":"type"
+              "tags": [
+                {
+                  "descriptor": {
+                    "code": "type"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "type"
+                      },
+                      "value": "variant_group"
+                    }
+                  ]
                 },
-                "list":
-                [
-                  {
-                    "descriptor": {
-                      "code":"type"
+                {
+                  "descriptor": {
+                    "code": "attr"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "name"
+                      },
+                      "value": "item.tags.attribute.<variant_attribute_name>"
                     },
-                    "value":"variant_group"
-                  }
-                ]
-              },
-              {
-                "descriptor": {
-                  "code":"attr"
+                    {
+                      "descriptor": {
+                        "code": "seq"
+                      },
+                      "value": "1"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "code": "attr"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "name"
+                      },
+                      "value": "item.tags.attribute.<variant_attribute_name>"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "seq"
+                      },
+                      "value": "2"
+                    }
+                  ]
                 }
-                ,
-                "list":
-                [
-                  {
-                    "descriptor": {
-                      "code":"name"
-                    },
-                    "value":"item.tags.attribute.<variant_attribute_name>"
-                  },
-                  {
-                    "descriptor": {
-                      "code":"seq"
-                    },
-                    "value":"1"
-                  }
-                ]
-              },
-              {
-                "descriptor": {
-                  "code":"attr"
-                },
-                "list":
-                [
-                  {
-                    "descriptor": {
-                      "code":"name"
-                    },
-                    "value":"item.tags.attribute.<variant_attribute_name>"
-                  },
-                  {
-                    "descriptor": {
-                      "code":"seq"
-                    },
-                    "value":"2"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
+              ]
+            }
+          ],
           "items": [
             {
               "id": "I1",
               "parent_item_id": "V1",
               "descriptor": {
-                "name": "Zinc Acetate",
+                "name": "CRI 1HP 10 Stage Single Phase Submersible Pump with Digital Control Starter",
                 "code": "UPC / EAN code / SKU code",
-                "short_desc": "Zinc Acetate, 2 Normal (220 g + 870 mL Water) (120 mL)",
-                "long_desc": "Zinc Acetate, 2 Normal (220 g + 870 mL Water) (120 mL)",
+                "short_desc": "CRI 1HP 10 Stage Single Phase Submersible Pump with Digital Control Starter",
+                "long_desc": "CRI 1HP 10 Stage Single Phase Submersible Pump with Digital Control Starter",
                 "images": [
                   {
                     "url": "https://abc.com/images/207.png"
@@ -260,7 +251,7 @@
                 "media": [
                   {
                     "mimetype": "video/mp4",
-                    "url": "video_url"
+                    "url": "https://abc.com/videos/207"
                   }
                 ]
               },
@@ -270,7 +261,7 @@
                   "contact": {
                     "name": "xxxx",
                     "address": {
-                      "full": "Cole-Parmer India Pvt. Ltd. 403, A-Wing, Delphi, Hiranandani Business Park Powai, Mumbai, 400076"
+                      "full": "C.R.I. Pumps Private Limited 7/46-1, Keeranatham Road, Saravanampatti Coimbatore - 641 035. Tamilnadu"
                     },
                     "phone": "18001801018",
                     "email": "consumer.services@xxxx.com"
@@ -291,29 +282,22 @@
                   }
                 },
                 "available": {
-                "measure": {
-                  "unit": "unit",
-                  "value": "1"
+                  "measure": {
+                    "unit": "unit",
+                    "value": "1"
+                  },
+                  "count": 99
                 },
-                "count": 99
-              },
-              "maximum": {
-                "measure": {
-                  "unit": "unit",
-                  "value": "1"
-                },
-                "count": 99
-              },
-              "minimum": {
-                "measure": {
-                  "unit": "unit",
-                  "value": "1"
-                },
-                "count": 99
-              }
+                "maximum": {
+                  "measure": {
+                    "unit": "unit",
+                    "value": "1"
+                  },
+                  "count": 99
+                }
               },
               "category_ids": [
-                "RET1D-1000"
+                "RET1B-10A9"
               ],
               "fulfillment_ids": [
                 "1"
@@ -356,22 +340,24 @@
                   }
                 }
               ],
-              "return_terms": [{
-                "fulfillment_state": {
-                  "descriptor": {
-                    "code": "Order-delivered"
-                  }
-                },
-                "return_eligible": true,
-                "return_time": {
-                  "duration": "P7D"
-                },
-                "return_location": {
-                  "address": "RTO address",
-                  "gps": "12.667555,77.349666"
-                },
-                "fulfillment_managed_by": "seller"
-              }],
+              "return_terms": [
+                {
+                  "fulfillment_state": {
+                    "descriptor": {
+                      "code": "Order-delivered"
+                    }
+                  },
+                  "return_eligible": true,
+                  "return_time": {
+                    "duration": "P7D"
+                  },
+                  "return_location": {
+                    "address": "RTO address",
+                    "gps": "12.667555,77.349666"
+                  },
+                  "fulfillment_managed_by": "seller"
+                }
+              ],
               "replacement_terms": [
                 {
                   "replace_within": "P7D"
@@ -389,112 +375,277 @@
               "tags": [
                 {
                   "descriptor": {
-                    "code":"origin"
+                    "code": "origin"
                   },
-                  "list":
-                  [
+                  "list": [
                     {
                       "descriptor": {
-                        "code":"country"
+                        "code": "country"
                       },
-                      "value":"IND"
+                      "value": "IND"
                     }
                   ]
                 },
                 {
                   "descriptor": {
-                    "code":"image"
+                    "code": "image"
                   },
-                  "list":
-                  [
+                  "list": [
                     {
                       "descriptor": {
-                        "code":"type"
+                        "code": "type"
                       },
-                      "value":"back_image"
+                      "value": "back_image"
                     },
                     {
                       "descriptor": {
-                        "code":"url"
+                        "code": "url"
                       },
-                      "value":"https://sellerNP.com/images/i1_back_image.png"
+                      "value": "https://sellerNP.com/images/i1_back_image.png"
                     }
                   ]
                 },
                 {
                   "descriptor": {
-                    "code":"attribute"
+                    "code": "attribute"
                   },
-                  "list":
-                  [
+                  "list": [
                     {
                       "descriptor": {
-                        "code":"brand"
+                        "code": "brand"
                       },
-                      "value":"Ricca Chemical Company"
+                      "value": "CRI"
                     },
                     {
                       "descriptor": {
-                        "code":"model"
+                        "code": "weight"
                       },
-                      "value":"9450-4"
+                      "value": "Oz."
                     },
                     {
                       "descriptor": {
-                        "code":"chemical_name"
+                        "code": "shipping_weight"
                       },
-                      "value":"zinc diacetate"
+                      "value": "Oz."
                     },
                     {
                       "descriptor": {
-                        "code":"size"
+                        "code": "material"
                       },
-                      "value":"120 ml"
+                      "value": "Rubber"
                     },
                     {
                       "descriptor": {
-                        "code":"colour"
+                        "code": "size"
                       },
-                      "value":"crystalline"
+                      "value": "small"
                     },
                     {
                       "descriptor": {
-                        "code":"material"
+                        "code": "model"
                       },
-                      "value":""
+                      "value": "CRI 1HP 10"
                     },
                     {
                       "descriptor": {
-                        "code":"weight"
+                        "code": "warranty"
                       },
-                      "value":"120 ml"
+                      "value": "1 Years"
                     },
                     {
                       "descriptor": {
-                        "code":"chemical_state"
+                        "code": "capacity"
                       },
-                      "value":"solid"
+                      "value": "Ltr."
                     },
                     {
                       "descriptor": {
-                        "code":"containers_type"
+                        "code": "connection"
                       },
-                      "value":"Metal"
+                      "value": "1/2 inch"
                     },
                     {
                       "descriptor": {
-                        "code":"chemical_formula"
+                        "code": "finish"
                       },
-                      "value":"Zn(CH₃COO)₂"
+                      "value": "Copper"
                     },
                     {
                       "descriptor": {
-                        "code":"item_form"
+                        "code": "head_style"
                       },
-                      "value":"Solid"
+                      "value": "Box End"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "phase"
+                      },
+                      "value": "Single phase"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "horse_power"
+                      },
+                      "value": "1"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "flashlight_included"
+                      },
+                      "value": "Yes"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "power_supply"
+                      },
+                      "value": "0-30 VDC"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "output"
+                      },
+                      "value": "4-20 mA"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "rpm"
+                      },
+                      "value": "10000"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "power_source"
+                      },
+                      "value": "Battery Powered"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "wattage"
+                      },
+                      "value": "0.75"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "mount_type"
+                      },
+                      "value": "Wall mount"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "efficiency_grade"
+                      },
+                      "value": "IE1 (Standard Efficiency)"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "ip_rating"
+                      },
+                      "value": "IP55"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "water_resistance_level"
+                      },
+                      "value": "Not Water Resistant"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "fire_resistance"
+                      },
+                      "value": "Yes"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "audible_range"
+                      },
+                      "value": "0.1 Km"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "connectivity"
+                      },
+                      "value": "Bluetooth"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "battery_type"
+                      },
+                      "value": "3 AA batteries"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "battery_life"
+                      },
+                      "value": "10 hours"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "fire_rating"
+                      },
+                      "value": "1A & 13B"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "power_requirement"
+                      },
+                      "value": "200V"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "battery_included"
+                      },
+                      "value": "Yes"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "voltage"
+                      },
+                      "value": "110V"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "resolution"
+                      },
+                      "value": "0.0005 inch"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "micron_rating"
+                      },
+                      "value": "10"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "heat_time"
+                      },
+                      "value": "30 sec."
+                    },
+                    {
+                      "descriptor": {
+                        "code": "video_output"
+                      },
+                      "value": "HDMC"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "comaptible_devices"
+                      },
+                      "value": "Desktop"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "touchscreen"
+                      },
+                      "value": "No"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "product_shape"
+                      },
+                      "value": "Circle"
                     }
                   ]
-                },   
+                },
                 {
                   "descriptor": {
                     "code": "g2"
