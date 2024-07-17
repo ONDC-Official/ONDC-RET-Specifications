@@ -28782,7 +28782,7 @@ x-attributes:
                 description: Preferred payment method chosen by the buyer
                 usage: ON-FULFILLMENT
                 reference: if any
-                required: required
+                required: optional
             fulfillments:
               parent: true
               id:
@@ -28927,10 +28927,10 @@ x-attributes:
             payments:
               parent: true
               type:
-                description: Preferred payment method chosen by the buyer
+                description: Payment options
                 usage: ON-FULFILLMENT
                 reference: if any
-                required: required
+                required: optional
               collected_by:
                 description: Indicates who is collecting the payment
                 usage: BPP
@@ -29568,19 +29568,20 @@ x-attributes:
                   reference: if any
                   required: optional
             cancellation_terms:
+              parent: true
               description: >-
                 cancellation terms applicable on cancellation of the item
                 provided by seller app
               required: required
               usage: '-'
               reference: if any
-            cancellation_terms.cancellation_fee:
-              description: >-
-                Cancellation fees can be applied either as a percentage or as a
-                flat amount.
-              required: required
-              usage: '-'
-              reference: if any
+              cancellation_fee:
+                description: >-
+                  Cancellation fees can be applied either as a percentage or as
+                  a flat amount.
+                required: required
+                usage: '-'
+                reference: if any
             documents:
               required: optional
               description: Document url to provide seller terms
@@ -29927,19 +29928,20 @@ x-attributes:
                 usage: P1D
                 reference: if any
             cancellation_terms:
+              parent: true
               description: >-
                 cancellation terms applicable on cancellation of the item
                 provided by seller app
               required: required
               usage: '-'
               reference: if any
-            cancellation_terms.cancellation_fee:
-              description: >-
-                Cancellation fees can be applied either as a percentage or as a
-                flat amount.
-              required: required
-              usage: '-'
-              reference: if any
+              cancellation_fee:
+                description: >-
+                  Cancellation fees can be applied either as a percentage or as
+                  a flat amount.
+                required: required
+                usage: '-'
+                reference: if any
             documents:
               required: optional
               description: Document url for seller terms provided by the seller
@@ -30667,19 +30669,20 @@ x-attributes:
                 usage: P1D
                 reference: if any
             cancellation_terms:
+              parent: true
               description: >-
                 cancellation terms applicable on cancellation of the item
                 provided by seller app
               required: required
               usage: '-'
               reference: if any
-            cancellation_terms.cancellation_fee:
-              description: >-
-                Cancellation fees can be applied either as a percentage or as a
-                flat amount.
-              required: required
-              usage: '-'
-              reference: if any
+              cancellation_fee:
+                description: >-
+                  Cancellation fees can be applied either as a percentage or as
+                  a flat amount.
+                required: required
+                usage: '-'
+                reference: if any
             documents:
               required: optional
               description: Document url for seller terms provided by the seller

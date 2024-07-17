@@ -66,10 +66,10 @@ message:
     payments:
       parent: true
       type:
-        description: Preferred payment method chosen by the buyer
+        description: Payment options
         usage: "ON-FULFILLMENT"
         reference: if any
-        required: required
+        required: optional
       collected_by:
         description: Indicates who is collecting the payment
         usage: "BPP"
