@@ -76,7 +76,8 @@ message:
           usage: "sellerapp.com"
           reference: if any
           required: required
-        reason.id:
+        reason:
+         id:
           description: Appropriate reason code as per Error UI
           usage: "013"
           reference: if any

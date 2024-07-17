@@ -28919,6 +28919,10 @@ x-attributes:
             parent: true
             provider:
               parent: true
+              description: provider selected by the buyer
+              usage: '-'
+              reference: if any
+              required: required
               id:
                 description: id of the selected provider from the catalog
                 usage: P1
@@ -31609,11 +31613,12 @@ x-attributes:
                 usage: sellerapp.com
                 reference: if any
                 required: required
-              reason.id:
-                description: Appropriate reason code as per Error UI
-                usage: '013'
-                reference: if any
-                required: required
+              reason:
+                id:
+                  description: Appropriate reason code as per Error UI
+                  usage: '013'
+                  reference: if any
+                  required: required
             provider:
               parent: true
               id:
