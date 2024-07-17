@@ -370,6 +370,16 @@ message:
         required: required
         usage: "P1D"
         reference: if any
+    cancellation_terms:
+      description: cancellation terms applicable on cancellation of the item provided by seller app
+      required: required
+      usage: "-"
+      reference: if any
+    cancellation_terms.cancellation_fee:
+      description: Cancellation fees can be applied either as a percentage or as a flat amount.
+      required: required
+      usage: "-"
+      reference: if any
     documents:
       required: optional
       description: Document url for seller terms provided by the seller
