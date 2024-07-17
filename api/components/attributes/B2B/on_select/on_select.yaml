@@ -62,10 +62,6 @@ message:
     parent: true
     provider:
       parent: true
-      description: provider selected by the buyer
-      usage: "-"
-      reference: if any
-      required: required
       id:
         description: id of the selected provider from the catalog
         usage: "P1"

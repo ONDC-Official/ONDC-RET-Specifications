@@ -77,11 +77,11 @@ message:
           reference: if any
           required: required
         reason:
-         id:
-          description: Appropriate reason code as per Error UI
-          usage: "013"
-          reference: if any
-          required: required
+          id:
+            description: Appropriate reason code as per Error UI
+            usage: "013"
+            reference: if any
+            required: required
     provider:
       parent: true
       id:
