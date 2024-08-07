@@ -5,9 +5,9 @@ value:
     domain: ONDC:RET10
     location:
       city:
-        code: std:080
+        code: std:999
       country:
-        code: IND
+        code: SGP
     action: search
     version: 2.0.2
     bap_id: buyerapp.com
