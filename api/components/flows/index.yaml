@@ -1,5 +1,0 @@
-- $ref: "./B2B_domestic/index.yaml"
-- $ref: "./B2B_exports/index.yaml"
-- $ref: "./B2B_multiple_fulfillments/index.yaml"
-- $ref: "./B2B_prepaid_BPP/index.yaml"
-- $ref: "./B2B_prepaid_BAP/index.yaml"
