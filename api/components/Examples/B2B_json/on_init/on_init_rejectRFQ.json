@@ -213,7 +213,7 @@
           "cancellation_fee": {
             "percentage": "0",
             "amount": {
-              "currency": "IND",
+              "currency": "INR",
               "value": "0"
             }
           }
@@ -228,7 +228,7 @@
           "cancellation_fee": {
             "percentage": "0",
             "amount": {
-              "currency": "IND",
+              "currency": "INR",
               "value": "0"
             }
           }

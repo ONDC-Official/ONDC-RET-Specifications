@@ -143,7 +143,7 @@ value:
           cancellation_fee:
             percentage: "0"
             amount:
-              currency: IND
+              currency: INR       
               value: "0"
         - fulfillment_state:
             descriptor:
@@ -152,7 +152,7 @@ value:
           cancellation_fee:
             percentage: "0"
             amount:
-              currency: IND
+              currency: INR       
               value: "0"
       payments:
       - params:

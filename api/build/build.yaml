@@ -4090,7 +4090,7 @@ x-flows:
                             cancellation_fee:
                               percentage: '0'
                               amount:
-                                currency: IND
+                                currency: INR
                                 value: '0'
                           - fulfillment_state:
                               descriptor:
@@ -4099,7 +4099,7 @@ x-flows:
                             cancellation_fee:
                               percentage: '0'
                               amount:
-                                currency: IND
+                                currency: INR
                                 value: '0'
                         return_terms:
                           - fulfillment_state:
@@ -4281,7 +4281,7 @@ x-flows:
                             cancellation_fee:
                               percentage: '0'
                               amount:
-                                currency: IND
+                                currency: INR
                                 value: '0'
                           - fulfillment_state:
                               descriptor:
@@ -4290,7 +4290,7 @@ x-flows:
                             cancellation_fee:
                               percentage: '0'
                               amount:
-                                currency: IND
+                                currency: INR
                                 value: '0'
                         return_terms:
                           - fulfillment_state:
@@ -4805,7 +4805,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                   - fulfillment_state:
                       descriptor:
@@ -4814,7 +4814,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                 quote:
                   price:
@@ -4996,7 +4996,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                   - fulfillment_state:
                       descriptor:
@@ -5005,7 +5005,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                 quote:
                   price:
@@ -5227,7 +5227,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                   - fulfillment_state:
                       descriptor:
@@ -5236,7 +5236,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                 quote:
                   price:
@@ -6124,7 +6124,7 @@ x-flows:
                             cancellation_fee:
                               percentage: '0'
                               amount:
-                                currency: IND
+                                currency: INR
                                 value: '0'
                           - fulfillment_state:
                               descriptor:
@@ -6133,7 +6133,7 @@ x-flows:
                             cancellation_fee:
                               percentage: '0'
                               amount:
-                                currency: IND
+                                currency: INR
                                 value: '0'
                         return_terms:
                           - fulfillment_state:
@@ -6734,7 +6734,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                   - fulfillment_state:
                       descriptor:
@@ -6743,7 +6743,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                 payments:
                   - type: PRE-FULFILLMENT
@@ -6948,7 +6948,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                   - fulfillment_state:
                       descriptor:
@@ -6957,7 +6957,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                 payments:
                   - params:
@@ -7188,7 +7188,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                   - fulfillment_state:
                       descriptor:
@@ -7197,7 +7197,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                 payments:
                   - params:
@@ -8422,7 +8422,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                   - fulfillment_state:
                       descriptor:
@@ -8431,7 +8431,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                 payments:
                   - type: PRE-FULFILLMENT
@@ -8611,7 +8611,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                   - fulfillment_state:
                       descriptor:
@@ -8620,7 +8620,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                 payments:
                   - params:
@@ -8842,7 +8842,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                   - fulfillment_state:
                       descriptor:
@@ -8851,7 +8851,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                 payments:
                   - params:
@@ -9423,7 +9423,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                   - fulfillment_state:
                       descriptor:
@@ -9432,7 +9432,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                 payments:
                   - type: PRE-FULFILLMENT
@@ -9626,7 +9626,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                   - fulfillment_state:
                       descriptor:
@@ -9635,7 +9635,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                 payments:
                   - params:
@@ -9847,7 +9847,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                   - fulfillment_state:
                       descriptor:
@@ -9856,7 +9856,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                 payments:
                   - params:
@@ -10258,7 +10258,7 @@ x-flows:
                             cancellation_fee:
                               percentage: '0'
                               amount:
-                                currency: IND
+                                currency: INR
                                 value: '0'
                           - fulfillment_state:
                               descriptor:
@@ -10267,7 +10267,7 @@ x-flows:
                             cancellation_fee:
                               percentage: '0'
                               amount:
-                                currency: IND
+                                currency: INR
                                 value: '0'
                         return_terms:
                           - fulfillment_state:
@@ -10899,7 +10899,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                   - fulfillment_state:
                       descriptor:
@@ -10908,7 +10908,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                 payments:
                   - type: PRE-FULFILLMENT
@@ -11102,7 +11102,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                   - fulfillment_state:
                       descriptor:
@@ -11111,7 +11111,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                 payments:
                   - params:
@@ -11321,7 +11321,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                   - fulfillment_state:
                       descriptor:
@@ -11330,7 +11330,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                 payments:
                   - params:
@@ -12997,7 +12997,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                   - fulfillment_state:
                       descriptor:
@@ -13006,7 +13006,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                 payments:
                   - type: PRE-FULFILLMENT
@@ -13186,7 +13186,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                   - fulfillment_state:
                       descriptor:
@@ -13195,7 +13195,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                 payments:
                   - params:
@@ -13404,7 +13404,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                   - fulfillment_state:
                       descriptor:
@@ -13413,7 +13413,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                 payments:
                   - params:
@@ -14257,7 +14257,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                   - fulfillment_state:
                       descriptor:
@@ -14266,7 +14266,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                 payments:
                   - params:
@@ -16126,7 +16126,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                     - fulfillment_state:
                         descriptor:
@@ -16135,7 +16135,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                   quote:
                     price:
@@ -16388,7 +16388,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                     - fulfillment_state:
                         descriptor:
@@ -16397,7 +16397,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                   payments:
                     - params:
@@ -16597,7 +16597,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                     - fulfillment_state:
                         descriptor:
@@ -16606,7 +16606,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                   payments:
                     - params:
@@ -16803,7 +16803,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                     - fulfillment_state:
                         descriptor:
@@ -16812,7 +16812,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                   payments:
                     - params:
@@ -17009,7 +17009,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                     - fulfillment_state:
                         descriptor:
@@ -17018,7 +17018,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                   payments:
                     - params:
@@ -17359,7 +17359,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                             - fulfillment_state:
                                 descriptor:
@@ -17368,7 +17368,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                           return_terms:
                             - fulfillment_state:
@@ -17690,7 +17690,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                             - fulfillment_state:
                                 descriptor:
@@ -17699,7 +17699,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                           return_terms:
                             - fulfillment_state:
@@ -18047,7 +18047,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                             - fulfillment_state:
                                 descriptor:
@@ -18056,7 +18056,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                           return_terms:
                             - fulfillment_state:
@@ -18405,7 +18405,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                             - fulfillment_state:
                                 descriptor:
@@ -18414,7 +18414,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                           return_terms:
                             - fulfillment_state:
@@ -18612,7 +18612,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                             - fulfillment_state:
                                 descriptor:
@@ -18621,7 +18621,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                           return_terms:
                             - fulfillment_state:
@@ -18991,7 +18991,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                             - fulfillment_state:
                                 descriptor:
@@ -19000,7 +19000,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                           return_terms:
                             - fulfillment_state:
@@ -19373,7 +19373,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                             - fulfillment_state:
                                 descriptor:
@@ -19382,7 +19382,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                           return_terms:
                             - fulfillment_state:
@@ -19786,7 +19786,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                             - fulfillment_state:
                                 descriptor:
@@ -19795,7 +19795,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                           return_terms:
                             - fulfillment_state:
@@ -19978,7 +19978,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                             - fulfillment_state:
                                 descriptor:
@@ -19987,7 +19987,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                           return_terms:
                             - fulfillment_state:
@@ -20326,7 +20326,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                             - fulfillment_state:
                                 descriptor:
@@ -20335,7 +20335,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                           return_terms:
                             - fulfillment_state:
@@ -20671,7 +20671,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                             - fulfillment_state:
                                 descriptor:
@@ -20680,7 +20680,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                           return_terms:
                             - fulfillment_state:
@@ -21054,7 +21054,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                             - fulfillment_state:
                                 descriptor:
@@ -21063,7 +21063,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                           return_terms:
                             - fulfillment_state:
@@ -21418,7 +21418,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                             - fulfillment_state:
                                 descriptor:
@@ -21427,7 +21427,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                           return_terms:
                             - fulfillment_state:
@@ -21784,7 +21784,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                             - fulfillment_state:
                                 descriptor:
@@ -21793,7 +21793,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                           return_terms:
                             - fulfillment_state:
@@ -22929,7 +22929,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                     - fulfillment_state:
                         descriptor:
@@ -22938,7 +22938,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                   quote:
                     price:
@@ -23148,7 +23148,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                     - fulfillment_state:
                         descriptor:
@@ -23157,7 +23157,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                   payments:
                     - type: PRE-FULFILLMENT
@@ -23351,7 +23351,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                     - fulfillment_state:
                         descriptor:
@@ -23360,7 +23360,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                   payments:
                     - type: PRE-FULFILLMENT
@@ -23543,7 +23543,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                     - fulfillment_state:
                         descriptor:
@@ -23552,7 +23552,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                   payments:
                     - type: PRE-FULFILLMENT
@@ -23743,7 +23743,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                     - fulfillment_state:
                         descriptor:
@@ -23752,7 +23752,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                   payments:
                     - type: ON-FULFILLMENT
@@ -23927,7 +23927,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                     - fulfillment_state:
                         descriptor:
@@ -23936,7 +23936,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                   payments:
                     - type: PRE-FULFILLMENT
@@ -24108,7 +24108,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                     - fulfillment_state:
                         descriptor:
@@ -24117,7 +24117,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                   payments:
                     - type: PRE-FULFILLMENT
@@ -24264,7 +24264,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                     - fulfillment_state:
                         descriptor:
@@ -24273,7 +24273,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                   quote:
                     price:
@@ -24558,7 +24558,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                     - fulfillment_state:
                         descriptor:
@@ -24567,7 +24567,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                   payments:
                     - params:
@@ -24789,7 +24789,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                     - fulfillment_state:
                         descriptor:
@@ -24798,7 +24798,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                   payments:
                     - params:
@@ -25020,7 +25020,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                     - fulfillment_state:
                         descriptor:
@@ -25029,7 +25029,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                   payments:
                     - params:
@@ -25252,7 +25252,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                     - fulfillment_state:
                         descriptor:
@@ -25261,7 +25261,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                   payments:
                     - params:
@@ -25477,7 +25477,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                     - fulfillment_state:
                         descriptor:
@@ -25486,7 +25486,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                   payments:
                     - params:
@@ -25690,7 +25690,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                     - fulfillment_state:
                         descriptor:
@@ -25699,7 +25699,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                   payments:
                     - params:
