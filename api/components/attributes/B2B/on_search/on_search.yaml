@@ -171,14 +171,14 @@ message:
       items:
         parent: true
         parent_item_id:
-          description: if variant grouping defined for provider above, this matches id for variant_group definition; if not defined or id is invalid, buyer NPs may choose to display as normal SKU item
-          required: required
+          description: if variant grouping defined for provider in categories array, this matches id for variant_group definition; if not defined or id is invalid, buyer NPs may choose to display as normal SKU item
+          required: optional
           usage: V1
           reference: if any
         descriptor.code:
             description: unique code for item which will be in this format - "type:code" where type is 1 - EAN, 2 - ISBN, 3 - GTIN, 4 - HSN, 5 - others
             required: optional
-            usage: 2
+            usage: '2:23435'
             reference: if any
         descriptor.images:
           description: while item images ensures better discoverability & enhances user experience, if no image is available, seller NPs shouldn’t send image (instead of sending placeholder image)

@@ -17,7 +17,7 @@
     "bpp_uri": "https://sellerapp.com/grocery",
     "transaction_id": "9568beb3-265a-4730-be4e-c00ba2e5e30a",
     "message_id": "ad33f8db-cc87-4470-961a-e5555869fd3c",
-    "timestamp": "2023-02-03T09:31:30.000Z",
+    "timestamp": "2023-01-08T22:00:30.000Z",
     "ttl": "PT30S"
   },
   "message": {
@@ -207,6 +207,38 @@
         ],
         "ttl": "P1D"
       },
+      "cancellation_terms": [
+        {
+          "fulfillment_state": {
+            "descriptor": {
+              "code": "Pending"
+            }
+          },
+          "reason_required": false,
+          "cancellation_fee": {
+            "percentage": "0",
+            "amount": {
+              "currency": "INR",
+              "value": "0"
+            }
+          }
+        },
+        {
+          "fulfillment_state": {
+            "descriptor": {
+              "code": "Packed"
+            }
+          },
+          "reason_required": false,
+          "cancellation_fee": {
+            "percentage": "0",
+            "amount": {
+              "currency": "INR",
+              "value": "0"
+            }
+          }
+        }
+      ],
       "payments": [
         {
           "params": {
@@ -224,7 +256,7 @@
           "@ondc/org/withholding_amount": "10.00",
           "@ondc/org/settlement_details": [
             {
-              "settlement_counterparty": "seller-app",
+              "settlement_counterparty": "buyer-app",
               "settlement_phase": "sale-amount",
               "beneficiary_name": "xxxxx",
               "settlement_type": "upi",

@@ -1,6 +1,6 @@
 {
   "context": {
-    "domain": "ONDC:RET1D",
+    "domain": "ONDC:RET1C",
     "location": {
       "city": {
         "code": "std:080"
@@ -15,8 +15,8 @@
     "bap_uri": "https://buyerapp.com/fs",
     "bpp_id": "sellerapp.com",
     "bpp_uri": "https://sellerapp.com/fs",
-    "transaction_id": "T1",
-    "message_id": "M1",
+    "transaction_id": "9568beb3-265a-4730-be4e-c00ba2e5e30a",
+    "message_id": "86fb6231-ea67-42d1-b1ef-e43f1719a44f",
     "timestamp": "2023-01-08T22:00:30.000Z",
     "ttl": "PT30S"
   },
@@ -94,16 +94,14 @@
               "area_code": "560076"
             }
           ],
-          "creds":
-          [
+          "creds": [
             {
-              "id":"ESG-12345678",
+              "id": "ESG-12345678",
               "type": "License",
-              "desc":"Export License No. ESG-12345678",
-              "url":"https://abcd.cdn.com/images/license-img"
+              "desc": "Export License No. ESG-12345678",
+              "url": "https://abcd.cdn.com/images/license-img"
             }
           ],
-
           "tags": [
             {
               "descriptor": {
@@ -120,7 +118,7 @@
                   "descriptor": {
                     "code": "category"
                   },
-                  "value": "RET1D-1000"
+                  "value": "RET1C-1000"
                 },
                 {
                   "descriptor": {
@@ -175,83 +173,76 @@
               ]
             }
           ],
-          "categories":
-          [
+          "categories": [
             {
-              "id":"V1",
-              "descriptor":
-              {
-                "name":"Variant Group 1"
+              "id": "V1",
+              "descriptor": {
+                "name": "Variant Group 1"
               },
-              "tags":
-            [
-              {
-                "descriptor": {
-                  "code":"type"
+              "tags": [
+                {
+                  "descriptor": {
+                    "code": "type"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "type"
+                      },
+                      "value": "variant_group"
+                    }
+                  ]
                 },
-                "list":
-                [
-                  {
-                    "descriptor": {
-                      "code":"type"
+                {
+                  "descriptor": {
+                    "code": "attr"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "name"
+                      },
+                      "value": "item.tags.attribute.<variant_attribute_name>"
                     },
-                    "value":"variant_group"
-                  }
-                ]
-              },
-              {
-                "descriptor": {
-                  "code":"attr"
+                    {
+                      "descriptor": {
+                        "code": "seq"
+                      },
+                      "value": "1"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "code": "attr"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "name"
+                      },
+                      "value": "item.tags.attribute.<variant_attribute_name>"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "seq"
+                      },
+                      "value": "2"
+                    }
+                  ]
                 }
-                ,
-                "list":
-                [
-                  {
-                    "descriptor": {
-                      "code":"name"
-                    },
-                    "value":"item.tags.attribute.<variant_attribute_name>"
-                  },
-                  {
-                    "descriptor": {
-                      "code":"seq"
-                    },
-                    "value":"1"
-                  }
-                ]
-              },
-              {
-                "descriptor": {
-                  "code":"attr"
-                },
-                "list":
-                [
-                  {
-                    "descriptor": {
-                      "code":"name"
-                    },
-                    "value":"item.tags.attribute.<variant_attribute_name>"
-                  },
-                  {
-                    "descriptor": {
-                      "code":"seq"
-                    },
-                    "value":"2"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
+              ]
+            }
+          ],
           "items": [
             {
               "id": "I1",
               "parent_item_id": "V1",
               "descriptor": {
-                "name": "Zinc Acetate",
+                "name": "Gokul White PP Non Return Screwed Valve",
                 "code": "UPC / EAN code / SKU code",
-                "short_desc": "Zinc Acetate, 2 Normal (220 g + 870 mL Water) (120 mL)",
-                "long_desc": "Zinc Acetate, 2 Normal (220 g + 870 mL Water) (120 mL)",
+                "short_desc": "Gokul White PP Non Return Screwed Valve",
+                "long_desc": "Gokul White PP Non Return Screwed Valve",
                 "images": [
                   {
                     "url": "https://abc.com/images/207.png"
@@ -260,7 +251,7 @@
                 "media": [
                   {
                     "mimetype": "video/mp4",
-                    "url": "video_url"
+                    "url": "https://abc.com/videos/207"
                   }
                 ]
               },
@@ -270,7 +261,7 @@
                   "contact": {
                     "name": "xxxx",
                     "address": {
-                      "full": "Cole-Parmer India Pvt. Ltd. 403, A-Wing, Delphi, Hiranandani Business Park Powai, Mumbai, 400076"
+                      "full": "Gokul Poly Valves Private Limited,AT Post Bakrol Bujrang, Ahmedabad, Gujarat-382430"
                     },
                     "phone": "18001801018",
                     "email": "consumer.services@xxxx.com"
@@ -291,29 +282,22 @@
                   }
                 },
                 "available": {
-                "measure": {
-                  "unit": "unit",
-                  "value": "1"
+                  "measure": {
+                    "unit": "unit",
+                    "value": "1"
+                  },
+                  "count": 99
                 },
-                "count": 99
-              },
-              "maximum": {
-                "measure": {
-                  "unit": "unit",
-                  "value": "1"
-                },
-                "count": 99
-              },
-              "minimum": {
-                "measure": {
-                  "unit": "unit",
-                  "value": "1"
-                },
-                "count": 99
-              }
+                "maximum": {
+                  "measure": {
+                    "unit": "unit",
+                    "value": "1"
+                  },
+                  "count": 99
+                }
               },
               "category_ids": [
-                "RET1D-1000"
+                "RET12-102F"
               ],
               "fulfillment_ids": [
                 "1"
@@ -335,7 +319,7 @@
                   "cancellation_fee": {
                     "percentage": "0",
                     "amount": {
-                      "currency": "IND",
+                      "currency": "INR",
                       "value": "0"
                     }
                   }
@@ -350,28 +334,30 @@
                   "cancellation_fee": {
                     "percentage": "0",
                     "amount": {
-                      "currency": "IND",
+                      "currency": "INR",
                       "value": "0"
                     }
                   }
                 }
               ],
-              "return_terms": [{
-                "fulfillment_state": {
-                  "descriptor": {
-                    "code": "Order-delivered"
-                  }
-                },
-                "return_eligible": true,
-                "return_time": {
-                  "duration": "P7D"
-                },
-                "return_location": {
-                  "address": "RTO address",
-                  "gps": "12.667555,77.349666"
-                },
-                "fulfillment_managed_by": "seller"
-              }],
+              "return_terms": [
+                {
+                  "fulfillment_state": {
+                    "descriptor": {
+                      "code": "Order-delivered"
+                    }
+                  },
+                  "return_eligible": true,
+                  "return_time": {
+                    "duration": "P7D"
+                  },
+                  "return_location": {
+                    "address": "RTO address",
+                    "gps": "12.667555,77.349666"
+                  },
+                  "fulfillment_managed_by": "seller"
+                }
+              ],
               "replacement_terms": [
                 {
                   "replace_within": "P7D"
@@ -389,112 +375,109 @@
               "tags": [
                 {
                   "descriptor": {
-                    "code":"origin"
+                    "code": "origin"
                   },
-                  "list":
-                  [
+                  "list": [
                     {
                       "descriptor": {
-                        "code":"country"
+                        "code": "country"
                       },
-                      "value":"IND"
+                      "value": "IND"
                     }
                   ]
                 },
                 {
                   "descriptor": {
-                    "code":"image"
+                    "code": "image"
                   },
-                  "list":
-                  [
+                  "list": [
                     {
                       "descriptor": {
-                        "code":"type"
+                        "code": "type"
                       },
-                      "value":"back_image"
+                      "value": "back_image"
                     },
                     {
                       "descriptor": {
-                        "code":"url"
+                        "code": "url"
                       },
-                      "value":"https://sellerNP.com/images/i1_back_image.png"
+                      "value": "https://sellerNP.com/images/i1_back_image.png"
                     }
                   ]
                 },
                 {
                   "descriptor": {
-                    "code":"attribute"
+                    "code": "attribute"
                   },
-                  "list":
-                  [
+                  "list": [
                     {
                       "descriptor": {
-                        "code":"brand"
+                        "code": "brand"
                       },
-                      "value":"Ricca Chemical Company"
+                      "value": "Gokul"
                     },
                     {
                       "descriptor": {
-                        "code":"model"
+                        "code": "model"
                       },
-                      "value":"9450-4"
+                      "value": "2 PICE FLANGEND"
                     },
                     {
                       "descriptor": {
-                        "code":"chemical_name"
+                        "code": "item_condition"
                       },
-                      "value":"zinc diacetate"
+                      "value": "New"
                     },
                     {
                       "descriptor": {
-                        "code":"size"
+                        "code": "material"
                       },
-                      "value":"120 ml"
+                      "value": "pp"
                     },
                     {
                       "descriptor": {
-                        "code":"colour"
+                        "code": "warranty"
                       },
-                      "value":"crystalline"
+                      "value": "2 years"
                     },
                     {
                       "descriptor": {
-                        "code":"material"
+                        "code": "mount_type"
                       },
-                      "value":""
+                      "value": "wall mount"
                     },
                     {
                       "descriptor": {
-                        "code":"weight"
+                        "code": "thickness"
                       },
-                      "value":"120 ml"
+                      "value": "1 mm"
                     },
                     {
                       "descriptor": {
-                        "code":"chemical_state"
+                        "code": "power_output"
                       },
-                      "value":"solid"
+                      "value": "2 HP"
                     },
                     {
                       "descriptor": {
-                        "code":"containers_type"
+                        "code": "hazardous"
                       },
-                      "value":"Metal"
+                      "value": "Yes"
                     },
                     {
                       "descriptor": {
-                        "code":"chemical_formula"
+                        "code": "form_factor"
                       },
-                      "value":"Zn(CH₃COO)₂"
+                      "value": "Powder"
                     },
                     {
                       "descriptor": {
-                        "code":"item_form"
+                        "code": "diameter"
                       },
-                      "value":"Solid"
+                      "value": "15 mm"
                     }
                   ]
-                },   
+                },
                 {
                   "descriptor": {
                     "code": "g2"

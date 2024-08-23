@@ -1,11 +1,11 @@
-summary: Search by Category
-description: Search By Category
+summary: Search by Category/City
+description: Search By Category/City
 value:
   context:
     domain: ONDC:RET10
     location:
       city:
-        code: std:080
+        code: '*'
       country:
         code: IND
     action: search
@@ -22,19 +22,6 @@ value:
         id: RET10-*
       fulfillment:
         type: Delivery
-        stops:
-        - type: end
-          location:
-            gps: 12.974002,77.613458
-            area_code: '560001'
-        - type: end
-          location:
-            gps: 12.944002,77.603458
-            area_code: '560004'
-        - type: end
-          location:
-            gps: 12.904002,77.593458
-            area_code: '560076'
       payment:
         type: ON-FULFILLMENT
       tags:

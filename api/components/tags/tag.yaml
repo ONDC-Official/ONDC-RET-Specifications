@@ -292,3 +292,18 @@ bpp_payment:
   - code: TTL
     description: TTL for which the payment gateway link is valid for. This TTL is calculated w.r.t context/ttl and it should be less than or equal to TTL defined at payment gateway for payment confirmation. In case of TTL expiry, Payment gateway should automatically cancel the payment and refund the source if payment is debited from the source.
     reference: <PR/Issue/Discussion Links md format text>
+veg_nonveg:
+  - code: VEG
+    description: It indicates that the item is suitable for vegetarians.
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      - code: 'yes'
+        description: It indicates that the item is suitable for vegetarians.
+        reference: <PR/Issue/Discussion Links md format text>
+  - code: NON_VEG
+    description: It signifies that the item is not suitable for vegetarians.
+    reference: <PR/Issue/Discussion Links md format text>
+    value:
+      - code: 'yes'
+        description: It signifies that the item is not suitable for vegetarians.
+        reference: <PR/Issue/Discussion Links md format text>

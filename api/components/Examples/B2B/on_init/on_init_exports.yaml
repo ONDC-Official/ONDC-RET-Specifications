@@ -132,6 +132,25 @@ value:
             currency: INR
             value: '100'
         ttl: P1D
+      cancellation_terms:
+        - fulfillment_state:
+            descriptor:
+              code: Pending
+          reason_required: false
+          cancellation_fee:
+            percentage: "0"
+            amount:
+              currency: INR       
+              value: "0"
+        - fulfillment_state:
+            descriptor:
+              code: Packed
+          reason_required: false
+          cancellation_fee:
+            percentage: "0"
+            amount:
+              currency: INR       
+              value: "0"
       payments:
       - type: PRE-FULFILLMENT
         collected_by: BPP
@@ -154,6 +173,9 @@ value:
               - descriptor:
                   code: ttl
                 value: PT30M
+      documents:
+      - url: https://seller_terms_url
+        label: SELLER_TERMS
       tags:
       - descriptor:
           code: buyer_id
