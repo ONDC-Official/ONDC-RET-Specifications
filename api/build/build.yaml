@@ -4090,7 +4090,7 @@ x-flows:
                             cancellation_fee:
                               percentage: '0'
                               amount:
-                                currency: IND
+                                currency: INR
                                 value: '0'
                           - fulfillment_state:
                               descriptor:
@@ -4099,7 +4099,7 @@ x-flows:
                             cancellation_fee:
                               percentage: '0'
                               amount:
-                                currency: IND
+                                currency: INR
                                 value: '0'
                         return_terms:
                           - fulfillment_state:
@@ -4281,7 +4281,7 @@ x-flows:
                             cancellation_fee:
                               percentage: '0'
                               amount:
-                                currency: IND
+                                currency: INR
                                 value: '0'
                           - fulfillment_state:
                               descriptor:
@@ -4290,7 +4290,7 @@ x-flows:
                             cancellation_fee:
                               percentage: '0'
                               amount:
-                                currency: IND
+                                currency: INR
                                 value: '0'
                         return_terms:
                           - fulfillment_state:
@@ -4805,7 +4805,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                   - fulfillment_state:
                       descriptor:
@@ -4814,7 +4814,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                 quote:
                   price:
@@ -4867,25 +4867,11 @@ x-flows:
                 payments:
                   - type: PRE-FULFILLMENT
                     collected_by: BPP
-                    uri: https://snp.com/pg
                     '@ondc/org/buyer_app_finder_fee_type': percent
                     '@ondc/org/buyer_app_finder_fee_amount': '0'
                     '@ondc/org/settlement_basis': delivery
                     '@ondc/org/settlement_window': P1D
                     '@ondc/org/withholding_amount': '10.00'
-                    tags:
-                      - descriptor:
-                          code: BPP_payment
-                        list:
-                          - descriptor:
-                              code: signature
-                            value: xxxxxxxxxxxxxx
-                          - descriptor:
-                              code: dsa
-                            value: ED25519
-                          - descriptor:
-                              code: ttl
-                            value: PT30M
                 tags:
                   - descriptor:
                       code: buyer_id
@@ -5010,7 +4996,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                   - fulfillment_state:
                       descriptor:
@@ -5019,7 +5005,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                 quote:
                   price:
@@ -5241,7 +5227,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                   - fulfillment_state:
                       descriptor:
@@ -5250,7 +5236,7 @@ x-flows:
                     cancellation_fee:
                       percentage: '0'
                       amount:
-                        currency: IND
+                        currency: INR
                         value: '0'
                 quote:
                   price:
@@ -6138,7 +6124,7 @@ x-flows:
                             cancellation_fee:
                               percentage: '0'
                               amount:
-                                currency: IND
+                                currency: INR
                                 value: '0'
                           - fulfillment_state:
                               descriptor:
@@ -6147,7 +6133,7 @@ x-flows:
                             cancellation_fee:
                               percentage: '0'
                               amount:
-                                currency: IND
+                                currency: INR
                                 value: '0'
                         return_terms:
                           - fulfillment_state:
@@ -6740,6 +6726,25 @@ x-flows:
                         currency: INR
                         value: '100'
                   ttl: P1D
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: INR
+                        value: '0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: INR
+                        value: '0'
                 payments:
                   - type: PRE-FULFILLMENT
                     collected_by: BPP
@@ -6762,6 +6767,9 @@ x-flows:
                           - descriptor:
                               code: ttl
                             value: PT30M
+                documents:
+                  - url: https://seller_terms_url
+                    label: SELLER_TERMS
                 tags:
                   - descriptor:
                       code: buyer_id
@@ -6932,6 +6940,25 @@ x-flows:
                         currency: INR
                         value: '100'
                   ttl: P1D
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: INR
+                        value: '0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: INR
+                        value: '0'
                 payments:
                   - params:
                       currency: INR
@@ -6954,6 +6981,9 @@ x-flows:
                         beneficiary_name: xxxxx
                         bank_name: xxxx
                         branch_name: xxxx
+                documents:
+                  - url: https://seller_terms_url
+                    label: SELLER_TERMS
                 tags:
                   - descriptor:
                       code: buyer_id
@@ -7150,6 +7180,25 @@ x-flows:
                         currency: INR
                         value: '100'
                   ttl: P1D
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: INR
+                        value: '0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: INR
+                        value: '0'
                 payments:
                   - params:
                       currency: INR
@@ -7186,6 +7235,9 @@ x-flows:
                           - descriptor:
                               code: ttl
                             value: PT30M
+                documents:
+                  - url: https://seller_terms_url
+                    label: SELLER_TERMS
                 tags:
                   - descriptor:
                       code: buyer_id
@@ -8362,6 +8414,25 @@ x-flows:
                         currency: INR
                         value: '100'
                   ttl: P1D
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: INR
+                        value: '0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: INR
+                        value: '0'
                 payments:
                   - type: PRE-FULFILLMENT
                     collected_by: BAP
@@ -8532,6 +8603,25 @@ x-flows:
                         currency: INR
                         value: '100'
                   ttl: P1D
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: INR
+                        value: '0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: INR
+                        value: '0'
                 payments:
                   - params:
                       transaction_id: 2920ADJCNKJ329304MM
@@ -8744,6 +8834,25 @@ x-flows:
                         currency: INR
                         value: '100'
                   ttl: P1D
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: INR
+                        value: '0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: INR
+                        value: '0'
                 payments:
                   - params:
                       transaction_id: 2920ADJCNKJ329304MM
@@ -9306,6 +9415,25 @@ x-flows:
                         currency: INR
                         value: '100'
                   ttl: P1D
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: INR
+                        value: '0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: INR
+                        value: '0'
                 payments:
                   - type: PRE-FULFILLMENT
                     collected_by: BPP
@@ -9490,6 +9618,25 @@ x-flows:
                         currency: INR
                         value: '100'
                   ttl: P1D
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: INR
+                        value: '0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: INR
+                        value: '0'
                 payments:
                   - params:
                       transaction_id: 2920ADJCNKJ329304MM
@@ -9692,6 +9839,25 @@ x-flows:
                         currency: INR
                         value: '100'
                   ttl: P1D
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: INR
+                        value: '0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: INR
+                        value: '0'
                 payments:
                   - params:
                       transaction_id: 2920ADJCNKJ329304MM
@@ -10092,7 +10258,7 @@ x-flows:
                             cancellation_fee:
                               percentage: '0'
                               amount:
-                                currency: IND
+                                currency: INR
                                 value: '0'
                           - fulfillment_state:
                               descriptor:
@@ -10101,7 +10267,7 @@ x-flows:
                             cancellation_fee:
                               percentage: '0'
                               amount:
-                                currency: IND
+                                currency: INR
                                 value: '0'
                         return_terms:
                           - fulfillment_state:
@@ -10725,6 +10891,25 @@ x-flows:
                         currency: INR
                         value: '100'
                   ttl: P1D
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: INR
+                        value: '0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: INR
+                        value: '0'
                 payments:
                   - type: PRE-FULFILLMENT
                     collected_by: BPP
@@ -10909,6 +11094,25 @@ x-flows:
                         currency: INR
                         value: '100'
                   ttl: P1D
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: INR
+                        value: '0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: INR
+                        value: '0'
                 payments:
                   - params:
                       currency: INR
@@ -11109,6 +11313,25 @@ x-flows:
                         currency: INR
                         value: '100'
                   ttl: P1D
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: INR
+                        value: '0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: INR
+                        value: '0'
                 payments:
                   - params:
                       currency: INR
@@ -12766,6 +12989,25 @@ x-flows:
                         currency: INR
                         value: '0'
                   ttl: P1D
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: INR
+                        value: '0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: INR
+                        value: '0'
                 payments:
                   - type: PRE-FULFILLMENT
                     collected_by: BPP
@@ -12936,6 +13178,25 @@ x-flows:
                         currency: INR
                         value: '100'
                   ttl: P1D
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: INR
+                        value: '0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: INR
+                        value: '0'
                 payments:
                   - params:
                       currency: INR
@@ -13135,6 +13396,25 @@ x-flows:
                         currency: INR
                         value: '100'
                   ttl: P1D
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: INR
+                        value: '0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: INR
+                        value: '0'
                 payments:
                   - params:
                       currency: INR
@@ -13969,6 +14249,25 @@ x-flows:
                         currency: INR
                         value: '100'
                   ttl: P1D
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: INR
+                        value: '0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Packed
+                    reason_required: false
+                    cancellation_fee:
+                      percentage: '0'
+                      amount:
+                        currency: INR
+                        value: '0'
                 payments:
                   - params:
                       currency: INR
@@ -15827,7 +16126,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                     - fulfillment_state:
                         descriptor:
@@ -15836,7 +16135,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                   quote:
                     price:
@@ -16081,6 +16380,25 @@ x-examples:
                           currency: INR
                           value: '100'
                     ttl: P1D
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: INR
+                          value: '0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Packed
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: INR
+                          value: '0'
                   payments:
                     - params:
                         currency: INR
@@ -16103,6 +16421,9 @@ x-examples:
                           beneficiary_name: xxxxx
                           bank_name: xxxx
                           branch_name: xxxx
+                  documents:
+                    - url: https://seller_terms_url
+                      label: SELLER_TERMS
                   tags:
                     - descriptor:
                         code: buyer_id
@@ -16268,6 +16589,25 @@ x-examples:
                           currency: INR
                           value: '100'
                     ttl: P1D
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: INR
+                          value: '0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Packed
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: INR
+                          value: '0'
                   payments:
                     - params:
                         currency: INR
@@ -16455,6 +16795,25 @@ x-examples:
                           currency: INR
                           value: '100'
                     ttl: P1D
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: INR
+                          value: '0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Packed
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: INR
+                          value: '0'
                   payments:
                     - params:
                         transaction_id: 2920ADJCNKJ329304MM
@@ -16642,6 +17001,25 @@ x-examples:
                           currency: INR
                           value: '100'
                     ttl: P1D
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: INR
+                          value: '0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Packed
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: INR
+                          value: '0'
                   payments:
                     - params:
                         currency: INR
@@ -16981,7 +17359,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                             - fulfillment_state:
                                 descriptor:
@@ -16990,7 +17368,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                           return_terms:
                             - fulfillment_state:
@@ -17312,7 +17690,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                             - fulfillment_state:
                                 descriptor:
@@ -17321,7 +17699,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                           return_terms:
                             - fulfillment_state:
@@ -17669,7 +18047,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                             - fulfillment_state:
                                 descriptor:
@@ -17678,7 +18056,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                           return_terms:
                             - fulfillment_state:
@@ -18027,7 +18405,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                             - fulfillment_state:
                                 descriptor:
@@ -18036,7 +18414,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                           return_terms:
                             - fulfillment_state:
@@ -18234,7 +18612,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                             - fulfillment_state:
                                 descriptor:
@@ -18243,7 +18621,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                           return_terms:
                             - fulfillment_state:
@@ -18613,7 +18991,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                             - fulfillment_state:
                                 descriptor:
@@ -18622,7 +19000,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                           return_terms:
                             - fulfillment_state:
@@ -18995,7 +19373,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                             - fulfillment_state:
                                 descriptor:
@@ -19004,7 +19382,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                           return_terms:
                             - fulfillment_state:
@@ -19408,7 +19786,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                             - fulfillment_state:
                                 descriptor:
@@ -19417,7 +19795,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                           return_terms:
                             - fulfillment_state:
@@ -19600,7 +19978,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                             - fulfillment_state:
                                 descriptor:
@@ -19609,7 +19987,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                           return_terms:
                             - fulfillment_state:
@@ -19948,7 +20326,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                             - fulfillment_state:
                                 descriptor:
@@ -19957,7 +20335,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                           return_terms:
                             - fulfillment_state:
@@ -20293,7 +20671,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                             - fulfillment_state:
                                 descriptor:
@@ -20302,7 +20680,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                           return_terms:
                             - fulfillment_state:
@@ -20676,7 +21054,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                             - fulfillment_state:
                                 descriptor:
@@ -20685,7 +21063,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                           return_terms:
                             - fulfillment_state:
@@ -21040,7 +21418,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                             - fulfillment_state:
                                 descriptor:
@@ -21049,7 +21427,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                           return_terms:
                             - fulfillment_state:
@@ -21406,7 +21784,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                             - fulfillment_state:
                                 descriptor:
@@ -21415,7 +21793,7 @@ x-examples:
                               cancellation_fee:
                                 percentage: '0'
                                 amount:
-                                  currency: IND
+                                  currency: INR
                                   value: '0'
                           return_terms:
                             - fulfillment_state:
@@ -22551,7 +22929,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                     - fulfillment_state:
                         descriptor:
@@ -22560,7 +22938,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                   quote:
                     price:
@@ -22613,25 +22991,11 @@ x-examples:
                   payments:
                     - type: PRE-FULFILLMENT
                       collected_by: BPP
-                      uri: https://snp.com/pg
                       '@ondc/org/buyer_app_finder_fee_type': percent
                       '@ondc/org/buyer_app_finder_fee_amount': '0'
                       '@ondc/org/settlement_basis': delivery
                       '@ondc/org/settlement_window': P1D
                       '@ondc/org/withholding_amount': '10.00'
-                      tags:
-                        - descriptor:
-                            code: BPP_payment
-                          list:
-                            - descriptor:
-                                code: signature
-                              value: xxxxxxxxxxxxxx
-                            - descriptor:
-                                code: dsa
-                              value: ED25519
-                            - descriptor:
-                                code: ttl
-                              value: PT30M
                   tags:
                     - descriptor:
                         code: buyer_id
@@ -22776,6 +23140,25 @@ x-examples:
                           currency: INR
                           value: '100'
                     ttl: P1D
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: INR
+                          value: '0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Packed
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: INR
+                          value: '0'
                   payments:
                     - type: PRE-FULFILLMENT
                       collected_by: BPP
@@ -22960,6 +23343,25 @@ x-examples:
                           currency: INR
                           value: '100'
                     ttl: P1D
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: INR
+                          value: '0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Packed
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: INR
+                          value: '0'
                   payments:
                     - type: PRE-FULFILLMENT
                       collected_by: BPP
@@ -22982,6 +23384,9 @@ x-examples:
                             - descriptor:
                                 code: ttl
                               value: PT30M
+                  documents:
+                    - url: https://seller_terms_url
+                      label: SELLER_TERMS
                   tags:
                     - descriptor:
                         code: buyer_id
@@ -23130,6 +23535,25 @@ x-examples:
                           currency: INR
                           value: '100'
                     ttl: P1D
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: INR
+                          value: '0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Packed
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: INR
+                          value: '0'
                   payments:
                     - type: PRE-FULFILLMENT
                       collected_by: BPP
@@ -23311,6 +23735,25 @@ x-examples:
                           currency: INR
                           value: '100'
                     ttl: P1D
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: INR
+                          value: '0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Packed
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: INR
+                          value: '0'
                   payments:
                     - type: ON-FULFILLMENT
                       collected_by: BPP
@@ -23476,6 +23919,25 @@ x-examples:
                           currency: INR
                           value: '0'
                     ttl: P1D
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: INR
+                          value: '0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Packed
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: INR
+                          value: '0'
                   payments:
                     - type: PRE-FULFILLMENT
                       collected_by: BPP
@@ -23638,6 +24100,25 @@ x-examples:
                           currency: INR
                           value: '100'
                     ttl: P1D
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: INR
+                          value: '0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Packed
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: INR
+                          value: '0'
                   payments:
                     - type: PRE-FULFILLMENT
                       collected_by: BAP
@@ -23783,7 +24264,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                     - fulfillment_state:
                         descriptor:
@@ -23792,7 +24273,7 @@ x-examples:
                       cancellation_fee:
                         percentage: '0'
                         amount:
-                          currency: IND
+                          currency: INR
                           value: '0'
                   quote:
                     price:
@@ -24069,6 +24550,25 @@ x-examples:
                           currency: INR
                           value: '100'
                     ttl: P1D
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: INR
+                          value: '0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Packed
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: INR
+                          value: '0'
                   payments:
                     - params:
                         currency: INR
@@ -24105,6 +24605,9 @@ x-examples:
                             - descriptor:
                                 code: ttl
                               value: PT30M
+                  documents:
+                    - url: https://seller_terms_url
+                      label: SELLER_TERMS
                   tags:
                     - descriptor:
                         code: buyer_id
@@ -24278,6 +24781,25 @@ x-examples:
                           currency: INR
                           value: '100'
                     ttl: P1D
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: INR
+                          value: '0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Packed
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: INR
+                          value: '0'
                   payments:
                     - params:
                         currency: INR
@@ -24490,6 +25012,25 @@ x-examples:
                           currency: INR
                           value: '100'
                     ttl: P1D
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: INR
+                          value: '0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Packed
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: INR
+                          value: '0'
                   payments:
                     - params:
                         currency: INR
@@ -24703,6 +25244,25 @@ x-examples:
                           currency: INR
                           value: '100'
                     ttl: P1D
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: INR
+                          value: '0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Packed
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: INR
+                          value: '0'
                   payments:
                     - params:
                         transaction_id: 2920ADJCNKJ329304MM
@@ -24909,6 +25469,25 @@ x-examples:
                           currency: INR
                           value: '100'
                     ttl: P1D
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: INR
+                          value: '0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Packed
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: INR
+                          value: '0'
                   payments:
                     - params:
                         transaction_id: 2920ADJCNKJ329304MM
@@ -25103,6 +25682,25 @@ x-examples:
                           currency: INR
                           value: '100'
                     ttl: P1D
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: INR
+                          value: '0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Packed
+                      reason_required: false
+                      cancellation_fee:
+                        percentage: '0'
+                        amount:
+                          currency: INR
+                          value: '0'
                   payments:
                     - params:
                         currency: INR
@@ -27569,7 +28167,7 @@ x-attributes:
                 description: >-
                   type of fulfillment mode buyer wants to avail (Delivery, Self
                   Pickup)
-                required: required
+                required: optional
                 usage: Delivery
                 reference: if any
               stops:
@@ -27796,10 +28394,11 @@ x-attributes:
                 parent: true
                 parent_item_id:
                   description: >-
-                    if variant grouping defined for provider above, this matches
-                    id for variant_group definition; if not defined or id is
-                    invalid, buyer NPs may choose to display as normal SKU item
-                  required: required
+                    if variant grouping defined for provider in categories
+                    array, this matches id for variant_group definition; if not
+                    defined or id is invalid, buyer NPs may choose to display as
+                    normal SKU item
+                  required: optional
                   usage: V1
                   reference: if any
                 descriptor.code:
@@ -27808,7 +28407,7 @@ x-attributes:
                     "type:code" where type is 1 - EAN, 2 - ISBN, 3 - GTIN, 4 -
                     HSN, 5 - others
                   required: optional
-                  usage: 2
+                  usage: '2:23435'
                   reference: if any
                 descriptor.images:
                   description: >-
@@ -28183,7 +28782,7 @@ x-attributes:
                 description: Preferred payment method chosen by the buyer
                 usage: ON-FULFILLMENT
                 reference: if any
-                required: required
+                required: optional
             fulfillments:
               parent: true
               id:
@@ -28256,34 +28855,68 @@ x-attributes:
               reference: if any
       on_select:
         parent: true
+        context:
+          parent: true
+          domain:
+            description: domain for which the request is initiated
+            required: required
+            usage: ONDC:RET12
+            reference: if any
+          location:
+            city:
+              description: city code of the seller location
+              required: required
+              usage: std:080
+              reference: if any
+            country:
+              description: country code of the seller location
+              required: required
+              usage: IND
+              reference: if any
+          bap_id:
+            description: subscriber id for buyer app
+            required: required
+            usage: buyerNP.com
+            reference: if any
+          bap_uri:
+            description: subscriber URI for buyer app
+            required: required
+            usage: https://buyerNP.com/ondc
+            reference: if any
+          timestamp:
+            description: RFC3339 compliant timestamp
+            required: required
+            usage: '2023-06-03T08:00:00.000Z'
+            reference: if any
+          bpp_id:
+            description: subscriber id for seller app
+            required: required
+            usage: sellerNP.com
+            reference: if any
+          bpp_uri:
+            description: subscriber URI for seller app
+            required: required
+            usage: https://sellerNP.com/ondc
+            reference: if any
+          ttl:
+            description: validity of message
+            required: required
+            usage: PT30S
+            reference: if any
+          version:
+            description: version of the ONDC model implementation used
+            required: required
+            usage: 2.0.2
+            reference: if any
+          action:
+            description: API call initiated
+            required: required
+            usage: on_select
+            reference: if any
         message:
           parent: true
           order:
             parent: true
-            provider:
-              parent: true
-              id:
-                description: id of the selected provider from the catalog
-                usage: P1
-                reference: if any
-                required: required
-              locations:
-                description: store locations of the provider
-                usage: '-'
-                reference: if any
-                required: required
-                id:
-                  description: id of the store location
-                  usage: L1
-                  reference: if any
-                  required: required
-              ttl:
-                description: >-
-                  The time period within which the buyer expects a quotation
-                  from the provider.
-                usage: P2D
-                reference: if any
-                required: required for RFQ flow
             items:
               parent: true
               description: Array of items selected by the buyer.
@@ -28325,13 +28958,37 @@ x-attributes:
                   usage: '3456'
                   reference: if any
                   required: optional
+            provider:
+              parent: true
+              id:
+                description: id of the selected provider from the catalog
+                usage: P1
+                reference: if any
+                required: required
+              locations:
+                description: store locations of the provider
+                usage: '-'
+                reference: if any
+                required: required
+                id:
+                  description: id of the store location
+                  usage: L1
+                  reference: if any
+                  required: required
+              ttl:
+                description: >-
+                  The time period within which the buyer expects a quotation
+                  from the provider.
+                usage: P2D
+                reference: if any
+                required: required for RFQ flow
             payments:
               parent: true
               type:
-                description: Preferred payment method chosen by the buyer
+                description: Payment options
                 usage: ON-FULFILLMENT
                 reference: if any
-                required: required
+                required: optional
               collected_by:
                 description: Indicates who is collecting the payment
                 usage: BPP
@@ -28646,6 +29303,64 @@ x-attributes:
               reference: if any
       on_init:
         parent: true
+        context:
+          parent: true
+          domain:
+            description: domain for which the request is initiated
+            required: required
+            usage: ONDC:RET12
+            reference: if any
+          location:
+            city:
+              description: city code of the seller location
+              required: required
+              usage: std:080
+              reference: if any
+            country:
+              description: country code of the seller location
+              required: required
+              usage: IND
+              reference: if any
+          bap_id:
+            description: subscriber id for buyer app
+            required: required
+            usage: buyerNP.com
+            reference: if any
+          bap_uri:
+            description: subscriber URI for buyer app
+            required: required
+            usage: https://buyerNP.com/ondc
+            reference: if any
+          timestamp:
+            description: RFC3339 compliant timestamp
+            required: required
+            usage: '2023-06-03T08:00:00.000Z'
+            reference: if any
+          bpp_id:
+            description: subscriber id for seller app
+            required: required
+            usage: sellerNP.com
+            reference: if any
+          bpp_uri:
+            description: subscriber URI for seller app
+            required: required
+            usage: https://sellerNP.com/ondc
+            reference: if any
+          ttl:
+            description: validity of message
+            required: required
+            usage: PT30S
+            reference: if any
+          version:
+            description: version of the ONDC model implementation used
+            required: required
+            usage: 2.0.2
+            reference: if any
+          action:
+            description: API call initiated
+            required: required
+            usage: on_init
+            reference: if any
         message:
           parent: true
           order:
@@ -28968,6 +29683,26 @@ x-attributes:
                   usage: '3456'
                   reference: if any
                   required: optional
+            cancellation_terms:
+              parent: true
+              description: >-
+                cancellation terms applicable on cancellation of the item
+                provided by seller app
+              required: required
+              usage: '-'
+              reference: if any
+              cancellation_fee:
+                description: >-
+                  Cancellation fees can be applied either as a percentage or as
+                  a flat amount.
+                required: required
+                usage: '-'
+                reference: if any
+            documents:
+              required: optional
+              description: Document url to provide seller terms
+              reference: if any
+              usage: http://seller_terms_url
             fulfillments:
               parent: true
               id:
@@ -29053,6 +29788,64 @@ x-attributes:
                 usage: '-'
       confirm:
         parent: true
+        context:
+          parent: true
+          domain:
+            description: domain for which the request is initiated
+            required: required
+            usage: ONDC:RET12
+            reference: if any
+          location:
+            city:
+              description: city code of the seller location
+              required: required
+              usage: std:080
+              reference: if any
+            country:
+              description: country code of the seller location
+              required: required
+              usage: IND
+              reference: if any
+          bap_id:
+            description: subscriber id for buyer app
+            required: required
+            usage: buyerNP.com
+            reference: if any
+          bap_uri:
+            description: subscriber URI for buyer app
+            required: required
+            usage: https://buyerNP.com/ondc
+            reference: if any
+          timestamp:
+            description: RFC3339 compliant timestamp
+            required: required
+            usage: '2023-06-03T08:00:00.000Z'
+            reference: if any
+          bpp_id:
+            description: subscriber id for seller app
+            required: required
+            usage: sellerNP.com
+            reference: if any
+          bpp_uri:
+            description: subscriber URI for seller app
+            required: required
+            usage: https://sellerNP.com/ondc
+            reference: if any
+          ttl:
+            description: validity of message
+            required: required
+            usage: PT30S
+            reference: if any
+          version:
+            description: version of the ONDC model implementation used
+            required: required
+            usage: 2.0.2
+            reference: if any
+          action:
+            description: API call initiated
+            required: required
+            usage: confirm
+            reference: if any
         message:
           parent: true
           order:
@@ -29308,6 +30101,26 @@ x-attributes:
                 required: required
                 usage: P1D
                 reference: if any
+            cancellation_terms:
+              parent: true
+              description: >-
+                cancellation terms applicable on cancellation of the item
+                provided by seller app
+              required: required
+              usage: '-'
+              reference: if any
+              cancellation_fee:
+                description: >-
+                  Cancellation fees can be applied either as a percentage or as
+                  a flat amount.
+                required: required
+                usage: '-'
+                reference: if any
+            documents:
+              required: optional
+              description: Document url for seller terms provided by the seller
+              reference: if any
+              usage: http://seller_terms_url
             tags:
               parent: true
               tags:
@@ -29538,6 +30351,64 @@ x-attributes:
                 usage: '-'
       on_confirm:
         parent: true
+        context:
+          parent: true
+          domain:
+            description: domain for which the request is initiated
+            required: required
+            usage: ONDC:RET12
+            reference: if any
+          location:
+            city:
+              description: city code of the seller location
+              required: required
+              usage: std:080
+              reference: if any
+            country:
+              description: country code of the seller location
+              required: required
+              usage: IND
+              reference: if any
+          bap_id:
+            description: subscriber id for buyer app
+            required: required
+            usage: buyerNP.com
+            reference: if any
+          bap_uri:
+            description: subscriber URI for buyer app
+            required: required
+            usage: https://buyerNP.com/ondc
+            reference: if any
+          timestamp:
+            description: RFC3339 compliant timestamp
+            required: required
+            usage: '2023-06-03T08:00:00.000Z'
+            reference: if any
+          bpp_id:
+            description: subscriber id for seller app
+            required: required
+            usage: sellerNP.com
+            reference: if any
+          bpp_uri:
+            description: subscriber URI for seller app
+            required: required
+            usage: https://sellerNP.com/ondc
+            reference: if any
+          ttl:
+            description: validity of message
+            required: required
+            usage: PT30S
+            reference: if any
+          version:
+            description: version of the ONDC model implementation used
+            required: required
+            usage: 2.0.2
+            reference: if any
+          action:
+            description: API call initiated
+            required: required
+            usage: on_confirm
+            reference: if any
         message:
           parent: true
           order:
@@ -29645,7 +30516,7 @@ x-attributes:
                 contact.email:
                   description: Contact email of the seller or buyer
                   required: optional
-                  usage: '345234'
+                  usage: xyz@gmail.com
                   reference: if any
               state:
                 descriptor.code:
@@ -30029,6 +30900,26 @@ x-attributes:
                 required: required
                 usage: P1D
                 reference: if any
+            cancellation_terms:
+              parent: true
+              description: >-
+                cancellation terms applicable on cancellation of the item
+                provided by seller app
+              required: required
+              usage: '-'
+              reference: if any
+              cancellation_fee:
+                description: >-
+                  Cancellation fees can be applied either as a percentage or as
+                  a flat amount.
+                required: required
+                usage: '-'
+                reference: if any
+            documents:
+              required: optional
+              description: Document url for seller terms provided by the seller
+              reference: if any
+              usage: http://seller_terms_url
             created_at:
               description: timestamp when the order was created
               required: required
@@ -30206,6 +31097,64 @@ x-attributes:
                   reference: if any
       on_status:
         parent: true
+        context:
+          parent: true
+          domain:
+            description: domain for which the request is initiated
+            required: required
+            usage: ONDC:RET12
+            reference: if any
+          location:
+            city:
+              description: city code of the seller location
+              required: required
+              usage: std:080
+              reference: if any
+            country:
+              description: country code of the seller location
+              required: required
+              usage: IND
+              reference: if any
+          bap_id:
+            description: subscriber id for buyer app
+            required: required
+            usage: buyerNP.com
+            reference: if any
+          bap_uri:
+            description: subscriber URI for buyer app
+            required: required
+            usage: https://buyerNP.com/ondc
+            reference: if any
+          timestamp:
+            description: RFC3339 compliant timestamp
+            required: required
+            usage: '2023-06-03T08:00:00.000Z'
+            reference: if any
+          bpp_id:
+            description: subscriber id for seller app
+            required: required
+            usage: sellerNP.com
+            reference: if any
+          bpp_uri:
+            description: subscriber URI for seller app
+            required: required
+            usage: https://sellerNP.com/ondc
+            reference: if any
+          ttl:
+            description: validity of message
+            required: required
+            usage: PT30S
+            reference: if any
+          version:
+            description: version of the ONDC model implementation used
+            required: required
+            usage: 2.0.2
+            reference: if any
+          action:
+            description: API call initiated
+            required: required
+            usage: on_status
+            reference: if any
         message:
           parent: true
           order:
@@ -30277,17 +31226,21 @@ x-attributes:
                   reference: if any
                 time.range:
                   description: time range when the order would be picked up/dropped
-                  required: optional
+                  required: required once the order is packed
                   usage: '-'
                   reference: if any
                 time.range.start:
-                  description: time range when the order would be picked up
-                  required: optional
+                  description: >-
+                    start time from which the order would be picked up or
+                    delivered
+                  required: required
                   usage: '2023-02-03T09:30:00.000Z'
                   reference: if any
                 time.range.end:
-                  description: time range when the order would be delivered
-                  required: optional
+                  description: >-
+                    end time till which the order would be picked up or
+                    delivered
+                  required: required
                   usage: '2023-02-03T09:30:00.000Z'
                   reference: if any
                 time.range.timestamp:
@@ -30576,6 +31529,451 @@ x-attributes:
                 required: required
                 usage: INVOICE
                 reference: if any
+      on_cancel:
+        parent: true
+        context:
+          parent: true
+          domain:
+            description: domain for which the request is initiated
+            required: required
+            usage: ONDC:RET12
+            reference: if any
+          location:
+            city:
+              description: city code of the seller location
+              required: required
+              usage: std:080
+              reference: if any
+            country:
+              description: country code of the seller location
+              required: required
+              usage: IND
+              reference: if any
+          bap_id:
+            description: subscriber id for buyer app
+            required: required
+            usage: buyerNP.com
+            reference: if any
+          bap_uri:
+            description: subscriber URI for buyer app
+            required: required
+            usage: https://buyerNP.com/ondc
+            reference: if any
+          timestamp:
+            description: RFC3339 compliant timestamp
+            required: required
+            usage: '2023-06-03T08:00:00.000Z'
+            reference: if any
+          bpp_id:
+            description: subscriber id for seller app
+            required: required
+            usage: sellerNP.com
+            reference: if any
+          bpp_uri:
+            description: subscriber URI for seller app
+            required: required
+            usage: https://sellerNP.com/ondc
+            reference: if any
+          ttl:
+            description: validity of message
+            required: required
+            usage: PT30S
+            reference: if any
+          version:
+            description: version of the ONDC model implementation used
+            required: required
+            usage: 2.0.2
+            reference: if any
+          action:
+            description: API call initiated
+            required: required
+            usage: on_cancel
+            reference: if any
+        message:
+          parent: true
+          order:
+            parent: true
+            state:
+              description: updated state of the order
+              usage: Cancelled
+              reference: if any
+              required: required
+            cancellation:
+              parent: true
+              description: updated state of the order
+              usage: Cancelled
+              reference: if any
+              required: required
+              cancelled_by:
+                description: Subscriber id of the entity who cancelled the order
+                usage: sellerapp.com
+                reference: if any
+                required: required
+              reason:
+                id:
+                  description: Appropriate reason code as per Error UI
+                  usage: '013'
+                  reference: if any
+                  required: required
+            provider:
+              parent: true
+              id:
+                description: id of the selected provider from the catalog
+                usage: P1
+                reference: if any
+                required: required
+              locations:
+                description: store locations of the provider
+                usage: '-'
+                reference: if any
+                required: required
+                id:
+                  description: id of the store location
+                  usage: L1
+                  reference: if any
+                  required: required
+            fulfillments:
+              parent: true
+              id:
+                description: unique fulfillment id
+                required: required
+                usage: F1
+                reference: if any
+              type:
+                description: type of fulfillment mode buyer wants to avail
+                required: required
+                usage: Delivery
+                reference: if any
+              '@ondc/org/provider':
+                description: Delivery provider
+                required: required
+                usage: Loadshare
+                reference: if any
+              tracking:
+                description: Indicates the tracking is enabled or not
+                required: required
+                usage: 'false'
+                reference: if any
+              rateable:
+                description: Fulfillment rating is enabled or not
+                required: required
+                usage: 'false'
+                reference: if any
+              stops:
+                type:
+                  description: type of stop (start point or end point)
+                  required: required
+                  usage: end
+                  reference: if any
+                location.id:
+                  description: location id of the point
+                  required: required
+                  usage: L1
+                  reference: if any
+                location.descriptor.name:
+                  description: Name of the location
+                  required: required
+                  usage: ABC Store
+                  reference: if any
+                location.gps:
+                  description: GPS cordinates of the store
+                  required: required
+                  usage: 11.234567,34.1286443
+                  reference: if any
+                time.range:
+                  description: time range when the order would be picked up/dropped
+                  required: required once the order is packed
+                  usage: '-'
+                  reference: if any
+                time.range.start:
+                  description: >-
+                    start time from which the order would be picked up or
+                    delivered
+                  required: required
+                  usage: '2023-02-03T09:30:00.000Z'
+                  reference: if any
+                time.range.end:
+                  description: >-
+                    end time till which the order would be picked up or
+                    delivered
+                  required: required
+                  usage: '2023-02-03T09:30:00.000Z'
+                  reference: if any
+                time.range.timestamp:
+                  description: timestamp when the order is picked up or delivered
+                  required: >-
+                    required in start once the order is picked up and in end
+                    once delivered
+                  usage: '2023-02-03T09:30:00.000Z'
+                  reference: if any
+                instructions.name:
+                  description: Name of the instructions
+                  required: optional
+                  usage: Status for pickup
+                  reference: if any
+                instructions.short_desc:
+                  description: Pickup code value
+                  required: optional
+                  usage: '345234'
+                  reference: if any
+                instructions.images:
+                  description: Proof of pickup
+                  required: >-
+                    required in start once the order is picked up and in end
+                    once delivered
+                  usage: https://image1_url.png
+                  reference: if any
+                contact.phone:
+                  description: Contact number of the seller or buyer
+                  required: required
+                  usage: '9248281919'
+                  reference: if any
+                contact.email:
+                  description: Contact email of the seller or buyer
+                  required: optional
+                  usage: '345234'
+                  reference: if any
+              state:
+                descriptor.code:
+                  description: updated fulfillment state
+                  required: required
+                  usage: Cancelled
+                  reference: if any
+            payments:
+              parent: true
+              type:
+                description: Preferred payment method chosen by the buyer
+                usage: ON-FULFILLMENT
+                reference: if any
+                required: required
+              collected_by:
+                description: Indicates who is collecting the payment
+                usage: BPP
+                reference: if any
+                required: required
+              status:
+                description: status whether payment has been collected or not
+                required: required
+                usage: PAID
+                reference: if any
+              params:
+                transaction_id:
+                  description: transaction id when the payment was collected
+                  required: required when payment status is PAID
+                  usage: '3937'
+                  reference: if any
+                currency:
+                  description: currency
+                  required: required
+                  usage: INR
+                  reference: if any
+                amount:
+                  description: amount of payment
+                  required: required
+                  usage: '3937'
+                  reference: if any
+              '@ondc/org/settlement_basis':
+                description: basis of settlement
+                required: required
+                usage: delivery
+                reference: if any
+              '@ondc/org/settlement_window':
+                description: time window within which settlement needs to be done
+                required: required
+                usage: P1D
+                reference: if any
+              '@ondc/org/withholding_amount':
+                description: amount to be settled
+                required: required
+                usage: '10.00'
+                reference: if any
+              '@ondc/org/settlement_details':
+                description: >-
+                  Settlment details provided to counter party collecting the
+                  payment for settlement
+                required: optional
+                usage: '-'
+                reference: if any
+                settlement_amount:
+                  description: >-
+                    The amount that the Payment Collector will remit to the
+                    counterparty Network Participant for the instant
+                    transaction. For clarity, if the Buyer App is the Payment
+                    Collector, the Buyer App will deduct their fee from the
+                    Buyer Price and remit the balance to the Seller App. If the
+                    Seller App is the Payment Collector, they will remit the
+                    Buyer App’s fees from the Buyer Price, deduct its own
+                    charges/commission and remit the rest to the Seller. The
+                    settlement with the Logistics Service Provider will follow
+                    this same logic if either of the Network Participants
+                    procures on-network  logistics.
+                  required: optional
+                  usage: Positive Decimal Number
+                  reference: if any
+                settlement_type:
+                  description: >-
+                    The Payment Collector will use the selected method to remit
+                    the due payment to the counterparty Network Participant. To
+                    illustrate, if the Buyer App collects the payment and the
+                    Settlement Type is set to “rtgs”, when the settlement is
+                    due, the Buyer App will transfer the Seller App’s share of
+                    the Buyer Price to the Seller App’s account via RTGS.
+                  required: optional
+                  usage: “neft”, “rtgs”, “upi”
+                  reference: if any
+            items:
+              parent: true
+              description: Array of items selected by the buyer.
+              usage: '-'
+              reference: if any
+              required: required
+              id:
+                description: >-
+                  ID of the chosen item from the catalog provided by the
+                  merchant.
+                usage: I1
+                reference: if any
+                required: required
+              location_ids:
+                description: List of location IDs where the item is available.
+                usage: L1,L2
+                reference: if any
+                required: required
+              fulfillment_ids:
+                description: List of fulfillment IDs used for item fulfillment.
+                usage: F1,F2
+                reference: if any
+                required: required
+              quantity:
+                selected:
+                  count:
+                    description: Number of units for the chosen item.
+                    usage: 2
+                    reference: if any
+                    required: required
+              add_ons:
+                id:
+                  description: ID of the add-on selected from the catalog
+                  usage: '3456'
+                  reference: if any
+                  required: optional
+            billing:
+              parent: true
+              phone:
+                required: required
+                description: Describes the phone information of an entity
+                reference: if any
+                usage: '9886098860'
+              email:
+                required: optional
+                description: Email address of the contact
+                reference: if any
+                usage: nobody@nomail.com
+              name:
+                required: required
+                description: Describes a person name as any individual
+                reference: if any
+                usage: ONDC buyer
+              tax_id:
+                required: required
+                description: Describes tax id
+                reference: if any
+                usage: 22AAAAA0000A1Z5
+              state:
+                name:
+                  required: required
+                  description: Describes the state information of an entity
+                  reference: if any
+                  usage: Karnataka
+              city:
+                name:
+                  required: required
+                  description: Describes the city information of an entity
+                  reference: if any
+                  usage: Bengaluru
+            quote:
+              parent: true
+              price:
+                description: >-
+                  Updated price quoted from seller NP, it can be updated as per
+                  the applicable cancellation charges or refund
+                required: required
+                usage: '-'
+                reference: if any
+                currency:
+                  description: currency of the price
+                  required: required
+                  usage: INR
+                  reference: if any
+                value:
+                  description: price value
+                  required: required
+                  usage: '345'
+                  reference: if any
+              breakup:
+                '@ondc/org/title_type':
+                  description: >-
+                    type of charge -
+                    item,packing,discount,tax,misc,delivery,refund
+                  required: required
+                  usage: delivery
+                  reference: if any
+                '@ondc/org/item_id':
+                  description: item id or fulfillment id based on type of charge
+                  required: required
+                  usage: F1
+                  reference: if any
+                title:
+                  description: type of charge - can be customized
+                  required: required
+                  usage: Packing charges
+                  reference: if any
+                '@ondc/org/item_quantity':
+                  count:
+                    description: Item count for which the price is provided.
+                    required: required for an 'item'
+                    usage: '2'
+                    reference: if any
+                price:
+                  currency:
+                    description: currency of the price
+                    required: required
+                    usage: INR
+                    reference: if any
+                    value:
+                      description: >-
+                        The overall cost of the item, calculated based on the
+                        quantity and unit price.
+                      required: required
+                      usage: '700'
+                      reference: if any
+                item:
+                  price:
+                    currency:
+                      description: currency of the price
+                      required: required for an 'item'
+                      usage: INR
+                      reference: if any
+                    value:
+                      description: Unit price for the item
+                      required: required for an 'item'
+                      usage: '350'
+                      reference: if any
+              ttl:
+                description: Time period for which the quote is valid
+                required: required
+                usage: P1D
+                reference: if any
+            created_at:
+              description: timestamp when the order was created
+              required: required
+              usage: '2023-02-03T09:30:00.000Z'
+              reference: if any
+            updated_at:
+              description: timestamp when the order was updated
+              required: required
+              usage: '2023-02-03T09:30:00.000Z'
+              reference: if any
 x-errors:
   - Cancellation:
       - Code: '001'

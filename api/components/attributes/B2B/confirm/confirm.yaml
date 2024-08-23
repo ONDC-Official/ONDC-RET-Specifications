@@ -1,3 +1,61 @@
+context:
+  parent: true
+  domain:
+    description: domain for which the request is initiated
+    required: required
+    usage: "ONDC:RET12"
+    reference: if any
+  location:
+    city:
+      description: city code of the seller location
+      required: required
+      usage: std:080
+      reference: if any
+    country:
+      description: country code of the seller location
+      required: required
+      usage: IND
+      reference: if any
+  bap_id:
+    description: subscriber id for buyer app
+    required: required
+    usage: buyerNP.com
+    reference: if any
+  bap_uri:
+    description: subscriber URI for buyer app
+    required: required
+    usage: https://buyerNP.com/ondc
+    reference: if any
+  timestamp:
+    description: RFC3339 compliant timestamp
+    required: required
+    usage: '2023-06-03T08:00:00.000Z'
+    reference: if any
+  bpp_id:
+    description: subscriber id for seller app
+    required: required
+    usage: sellerNP.com
+    reference: if any
+  bpp_uri:
+    description: subscriber URI for seller app
+    required: required
+    usage: https://sellerNP.com/ondc
+    reference: if any
+  ttl:
+    description: validity of message
+    required: required
+    usage: PT30S
+    reference: if any
+  version:
+    description: version of the ONDC model implementation used
+    required: required
+    usage: '2.0.2'
+    reference: if any
+  action:
+    description: API call initiated
+    required: required
+    usage: confirm
+    reference: if any
 message:
   parent: true
   order:
@@ -184,6 +242,22 @@ message:
         required: required
         usage: "P1D"
         reference: if any
+    cancellation_terms:
+      parent: true
+      description: cancellation terms applicable on cancellation of the item provided by seller app
+      required: required
+      usage: "-"
+      reference: if any
+      cancellation_fee:
+        description: Cancellation fees can be applied either as a percentage or as a flat amount.
+        required: required
+        usage: "-"
+        reference: if any
+    documents:
+      required: optional
+      description: Document url for seller terms provided by the seller
+      reference: if any
+      usage: 'http://seller_terms_url'
     tags:   
       parent: true 
       tags:

@@ -202,43 +202,47 @@
         ],
         "ttl": "P1D"
       },
+      "cancellation_terms": [
+        {
+          "fulfillment_state": {
+            "descriptor": {
+              "code": "Pending"
+            }
+          },
+          "reason_required": false,
+          "cancellation_fee": {
+            "percentage": "0",
+            "amount": {
+              "currency": "INR",
+              "value": "0"
+            }
+          }
+        },
+        {
+          "fulfillment_state": {
+            "descriptor": {
+              "code": "Packed"
+            }
+          },
+          "reason_required": false,
+          "cancellation_fee": {
+            "percentage": "0",
+            "amount": {
+              "currency": "INR",
+              "value": "0"
+            }
+          }
+        }
+      ],
       "payments": [
         {
-          "type": "PRE-FULFILLMENT",
+          "type": "ON-FULFILLMENT",
           "collected_by": "BPP",
-          "uri": "https://snp.com/pg",
           "@ondc/org/buyer_app_finder_fee_type": "percent",
           "@ondc/org/buyer_app_finder_fee_amount": "0",
           "@ondc/org/settlement_basis": "delivery",
           "@ondc/org/settlement_window": "P1D",
-          "@ondc/org/withholding_amount": "10.00",
-          "tags": [
-            {
-              "descriptor": {
-                "code": "BPP_payment"
-              },
-              "list": [
-                {
-                  "descriptor": {
-                    "code": "signature"
-                  },
-                  "value": "xxxxxxxxxxxxxx"
-                },
-                {
-                  "descriptor": {
-                    "code": "dsa"
-                  },
-                  "value": "ED25519"
-                },
-                {
-                  "descriptor": {
-                    "code": "ttl"
-                  },
-                  "value": "PT30M"
-                }
-              ]
-            }
-          ]
+          "@ondc/org/withholding_amount": "10.00"
         }
       ],
       "tags": [

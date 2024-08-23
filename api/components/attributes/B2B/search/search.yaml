@@ -76,7 +76,7 @@ message:
     fulfillment:
       type:
         description: type of fulfillment mode buyer wants to avail (Delivery, Self Pickup)
-        required: required
+        required: optional
         usage: Delivery
         reference: if any
       stops:
