@@ -81,7 +81,7 @@
       ],
       "payments": [
         {
-          "type": "ON-FULFILLMENT"
+          "type": "PRE-FULFILLMENT"
         }
       ],
       "tags": [

@@ -17,7 +17,7 @@
     "bpp_uri": "https://sellerapp.com/grocery",
     "transaction_id": "9568beb3-265a-4730-be4e-c00ba2e5e30a",
     "message_id": "ad33f8db-cc87-4470-961a-e5555869fd3c",
-    "timestamp": "2023-02-03T09:31:30.000Z",
+    "timestamp": "2023-01-08T22:00:30.000Z",
     "ttl": "PT30S"
   },
   "message": {
@@ -156,7 +156,7 @@
           "cancellation_fee": {
             "percentage": "0",
             "amount": {
-              "currency": "IND",
+              "currency": "INR",
               "value": "0"
             }
           }
@@ -171,7 +171,7 @@
           "cancellation_fee": {
             "percentage": "0",
             "amount": {
-              "currency": "IND",
+              "currency": "INR",
               "value": "0"
             }
           }
