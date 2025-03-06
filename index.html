@@ -210,54 +210,54 @@
                 <td><b>Feature Set</b></td>
                 <td>
                   <select id="feature-sets-dropdown" class="form-select" onchange="markdownConverter()">
-                    <option>Feature Discovery (000)</option>
-                    <option>Other Baseline Features (000)</option>
-                    <option>Item Availability (001)</option>
-                    <option>Self Pickup (002)</option>
-                    <option>Slotted Delivery (003)</option>
-                    <option>Fulfillment By BNP (004)</option>
-                    <option>Force Cancellation (005)</option>
-                    <option>Return with Pickup (006)</option>
-                    <option>SNP Collecting Payment (007)</option>
-                    <option>Minimum Order Value (008)</option>
+                    <option>Feature Discovery 000</option>
+                    <option>Other Baseline Features 000</option>
+                    <option>Item Availability 001</option>
+                    <option>Self Pickup 002</option>
+                    <option>Slotted Delivery 003</option>
+                    <option>Fulfillment By BNP 004</option>
+                    <option>Force Cancellation 005</option>
+                    <option>Return with Pickup 006</option>
+                    <option>SNP Collecting Payment 007</option>
+                    <option>Minimum Order Value 008</option>
                     <option>Offers</option>
-                    <option>Offer Discount (0091)</option>
-                    <option>Offer BuyXGetY (0092)</option>
-                    <option>Offer Freebie (0093)</option>
-                    <option>Offer Slab (0094)</option>
-                    <option>Offer Combo (0095)</option>
-                    <option>Offer Delivery (0096)</option>
-                    <option>Offer Exchange (0097)</option>
-                    <option>Offer Financing (0098)</option>
-                    <option>Purchase Finance by BNP (0099)</option>
-                    <option>Commercial Model for BNP SNP (00A)</option>
-                    <option>Replacement Flow (00B)</option>
-                    <option>Exchange Flow (00C)</option>
-                    <option>Cancel Return Request (00D)</option>
-                    <option>Update Sale Invoice (00E)</option>
-                    <option>Update Delivery Address (00F)</option>
-                    <option>Update Delivery Auth (010)</option>
-                    <option>Buyer Instructions (011)</option>
-                    <option>Cash on Delivery Order (012)</option>
-                    <option>Order Price Adjustment Not Tied to Return or Cancel (013)</option>
-                    <option>Cross-Category Order Flow (014)</option>
-                    <option>Breakup of Fulfillment-Level Taxes in Quote (015)</option>
-                    <option>Customization of Input Type Text (016)</option>
-                    <option>Seller Creds (017)</option>
-                    <option>Cross-Linking Make-to-Order Item in Quote Trail (018)</option>
-                    <option>Streamline Fulfillment Attributes for Hyperlocal (019)</option>
-                    <option>Item Unitized Count (01A)</option>
-                    <option>Minimum Item Quantity (01B)</option>
-                    <option>Identification of On-Network LSP (01C)</option>
-                    <option>Options for Multi-Fulfillment Orders (01D)</option>
-                    <option>Cancellation Terms (01E)</option>
-                    <option>Codified Static Terms (01F)</option>
-                    <option>Fulfillment Delay (020)</option>
-                    <option>Catalog as Download Link (021)</option>
-                    <option>BNP Promotions Planned (022)</option>
-                    <option>Full Catalog Refresh - Search by Item (023)</option>
-                    <option>Full Catalog Refresh - Search by Fulfillment End Location (024)</option>
-                    <option>BNP Demand Signals (025)</option>
+                    <option>Offer Discount 0091</option>
+                    <option>Offer BuyXGetY 0092</option>
+                    <option>Offer Freebie 0093</option>
+                    <option>Offer Slab 0094</option>
+                    <option>Offer Combo 0095</option>
+                    <option>Offer Delivery 0096</option>
+                    <option>Offer Exchange 0097</option>
+                    <option>Offer Financing 0098</option>
+                    <option>Purchase Finance by BNP 0099</option>
+                    <option>Commercial Model for BNP SNP 00A</option>
+                    <option>Replacement Flow 00B</option>
+                    <option>Exchange Flow 00C</option>
+                    <option>Cancel Return Request 00D</option>
+                    <option>Update Sale Invoice 00E</option>
+                    <option>Update Delivery Address 00F</option>
+                    <option>Update Delivery Auth 010</option>
+                    <option>Buyer Instructions 011</option>
+                    <option>Cash on Delivery Order 012</option>
+                    <option>Order Price Adjustment Not Tied to Return or Cancel 013</option>
+                    <option>Cross-Category Order Flow 014</option>
+                    <option>Breakup of Fulfillment-Level Taxes in Quote 015</option>
+                    <option>Customization of Input Type Text 016</option>
+                    <option>Seller Creds 017</option>
+                    <option>Cross-Linking Make-to-Order Item in Quote Trail 018</option>
+                    <option>Streamline Fulfillment Attributes for Hyperlocal 019</option>
+                    <option>Item Unitized Count 01A</option>
+                    <option>Minimum Item Quantity 01B</option>
+                    <option>Identification of On-Network LSP 01C</option>
+                    <option>Options for Multi-Fulfillment Orders 01D</option>
+                    <option>Cancellation Terms 01E</option>
+                    <option>Codified Static Terms 01F</option>
+                    <option>Fulfillment Delay 020</option>
+                    <option>Catalog as Download Link 021</option>
+                    <option>BNP Promotions Planned 022</option>
+                    <option>Full Catalog Refresh - Search by Item 023</option>
+                    <option>Full Catalog Refresh - Search by Fulfillment End Location 024</option>
+                    <option>BNP Demand Signals 025</option>
                   </select>
                 </td>
               </tr>
@@ -384,8 +384,6 @@
 
       // Takes the name, splits it with blank space, wraps any upper case word with %23 (escape encoding of #) and then rejoins with underscore to form the file name
       const fileNameFinal = selectedOption
-        .replace(/\s*\(|\)\s*/g, ' ') // Remove only the parentheses, keep the number
-        .trim() // Remove extra spaces
         .split(' ')
         .map(word => word.toLowerCase())
         .join("_") + ".md";
