@@ -1,0 +1,3519 @@
+x-validations:
+  _TESTS_:
+    search:
+    - _NAME_: REQUIRED_CONTEXT_DOMAIN
+      attr: "$.context.domain"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - ONDC:RET10
+      - ONDC:RET11
+      - ONDC:RET12
+      - ONDC:RET13
+      - ONDC:RET14
+      - ONDC:RET15
+      - ONDC:RET16
+      - ONDC:RET17
+      - ONDC:RET18
+      - ONDC:RET19
+    - _NAME_: REQUIRED_CONTEXT_ACTION
+      attr: "$.context.action"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_COUNTRY
+      attr: "$.context.country"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_CITY
+      attr: "$.context.city"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_CORE_VERSION
+      attr: "$.context.core_version"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BAP_ID
+      attr: "$.context.bap_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BAP_URI
+      attr: "$.context.bap_uri"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TRANSACTION_ID
+      attr: "$.context.transaction_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_MESSAGE_ID
+      attr: "$.context.message_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TIMESTAMP
+      attr: "$.context.timestamp"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TTL
+      attr: "$.context.ttl"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_AREA_CODE
+      attr: "$.message.intent.fulfillment.end.location.area_code"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_AREA_CODE_13
+      attr: "$.message.intent.fulfillment.end.location.area_code"
+      _RETURN_: attr are present
+    - _NAME_: VALID_ENUM_CONTEXT_DOMAIN
+      enumList:
+      - ONDC:RET10
+      - ONDC:RET11
+      - ONDC:RET12
+      - ONDC:RET13
+      - ONDC:RET14
+      - ONDC:RET15
+      - ONDC:RET16
+      - ONDC:RET17
+      - ONDC:RET18
+      - ONDC:RET19
+      enumPath: "$.context.domain"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_TYPE
+      enumList:
+      - Delivery
+      - Self-Pickup
+      - Delivery and Self-Pickup
+      enumPath: "$.message.intent.fulfillment.type"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    select:
+    - _NAME_: REQUIRED_CONTEXT_DOMAIN
+      attr: "$.context.domain"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - ONDC:RET10
+      - ONDC:RET11
+      - ONDC:RET12
+      - ONDC:RET13
+      - ONDC:RET14
+      - ONDC:RET15
+      - ONDC:RET16
+      - ONDC:RET17
+      - ONDC:RET18
+      - ONDC:RET19
+    - _NAME_: REQUIRED_CONTEXT_ACTION
+      attr: "$.context.action"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_CORE_VERSION
+      attr: "$.context.core_version"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BAP_ID
+      attr: "$.context.bap_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BAP_URI
+      attr: "$.context.bap_uri"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BPP_ID
+      attr: "$.context.bpp_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BPP_URI
+      attr: "$.context.bpp_uri"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TRANSACTION_ID
+      attr: "$.context.transaction_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_MESSAGE_ID
+      attr: "$.context.message_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_CITY
+      attr: "$.context.city"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_COUNTRY
+      attr: "$.context.country"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TIMESTAMP
+      attr: "$.context.timestamp"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TTL
+      attr: "$.context.ttl"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID
+      attr: "$.message.order.provider.id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_15
+      attr: "$.message.order.provider.locations[*].id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_16
+      attr: "$.message.order.items[*].id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_COUNT
+      attr: "$.message.order.items[*].quantity.count"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_18
+      attr: "$.message.order.items[*].id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_GPS
+      attr: "$.message.order.fulfillments[*].end.gps"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_AREA_CODE
+      attr: "$.message.order.fulfillments[*].end.address.area_code"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_PAYMENT
+      attr: "$.message.order.payment"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - ON-ORDER
+      - ON-FULFILLMENT
+      - POST-FULFILLMENT
+    - _NAME_: REQUIRED_MESSAGE_ID_22
+      attr: "$.message.order.offers[*].id"
+      _RETURN_: attr are present
+    - _NAME_: VALID_ENUM_CONTEXT_DOMAIN
+      enumList:
+      - ONDC:RET10
+      - ONDC:RET11
+      - ONDC:RET12
+      - ONDC:RET13
+      - ONDC:RET14
+      - ONDC:RET15
+      - ONDC:RET16
+      - ONDC:RET17
+      - ONDC:RET18
+      - ONDC:RET19
+      enumPath: "$.context.domain"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_CODE
+      enumList:
+      - Disc_Pct
+      - Disc_Amt
+      - BuyXGetY
+      - Freebie
+      enumPath: "$.message.order.offers[*].tags.code"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_PAYMENT
+      enumList:
+      - ON-ORDER
+      - ON-FULFILLMENT
+      - POST-FULFILLMENT
+      enumPath: "$.message.order.payment"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    init:
+    - _NAME_: REQUIRED_CONTEXT_DOMAIN
+      attr: "$.context.domain"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - ONDC:RET10
+      - ONDC:RET11
+      - ONDC:RET12
+      - ONDC:RET13
+      - ONDC:RET14
+      - ONDC:RET15
+      - ONDC:RET16
+      - ONDC:RET17
+      - ONDC:RET18
+      - ONDC:RET19
+    - _NAME_: REQUIRED_CONTEXT_ACTION
+      attr: "$.context.action"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_CORE_VERSION
+      attr: "$.context.core_version"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BAP_ID
+      attr: "$.context.bap_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BAP_URI
+      attr: "$.context.bap_uri"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BPP_ID
+      attr: "$.context.bpp_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BPP_URI
+      attr: "$.context.bpp_uri"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TRANSACTION_ID
+      attr: "$.context.transaction_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_MESSAGE_ID
+      attr: "$.context.message_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_CITY
+      attr: "$.context.city"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_COUNTRY
+      attr: "$.context.country"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TIMESTAMP
+      attr: "$.context.timestamp"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TTL
+      attr: "$.context.ttl"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID
+      attr: "$.message.order.provider.id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_15
+      attr: "$.message.order.provider.locations[*].id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_16
+      attr: "$.message.order.items[*].id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_COUNT
+      attr: "$.message.order.items[*].quantity.count"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_18
+      attr: "$.message.order.items[*].id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_FULFILLMENT_ID
+      attr: "$.message.order.items[*].fulfillment_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_BUILDING
+      attr: "$.message.order.billing.address.building"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CITY
+      attr: "$.message.order.billing.address.city"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_STATE
+      attr: "$.message.order.billing.address.state"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_COUNTRY
+      attr: "$.message.order.billing.address.country"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_AREA_CODE
+      attr: "$.message.order.billing.address.area_code"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_LOCALITY
+      attr: "$.message.order.billing.address.locality"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_PHONE
+      attr: "$.message.order.billing.phone"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_NAME
+      attr: "$.message.order.billing.name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CREATED_AT
+      attr: "$.message.order.billing.created_at"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_UPDATED_AT
+      attr: "$.message.order.billing.updated_at"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_30
+      attr: "$.message.order.fulfillments[*].id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_EMAIL
+      attr: "$.message.order.fulfillments[*].end.contact.email"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_PHONE_32
+      attr: "$.message.order.fulfillments[*].end.contact.phone"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_GPS
+      attr: "$.message.order.fulfillments[*].end.location.gps"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_BUILDING_34
+      attr: "$.message.order.fulfillments[*].end.location.address.building"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CITY_35
+      attr: "$.message.order.fulfillments[*].end.location.address.city"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_STATE_36
+      attr: "$.message.order.fulfillments[*].end.location.address.state"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_COUNTRY_37
+      attr: "$.message.order.fulfillments[*].end.location.address.country"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_AREA_CODE_38
+      attr: "$.message.order.fulfillments[*].end.location.address.area_code"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_LOCALITY_39
+      attr: "$.message.order.fulfillments[*].end.location.address.locality"
+      _RETURN_: attr are present
+    - _NAME_: VALID_ENUM_CONTEXT_DOMAIN
+      enumList:
+      - ONDC:RET10
+      - ONDC:RET11
+      - ONDC:RET12
+      - ONDC:RET13
+      - ONDC:RET14
+      - ONDC:RET15
+      - ONDC:RET16
+      - ONDC:RET17
+      - ONDC:RET18
+      - ONDC:RET19
+      enumPath: "$.context.domain"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_TYPE
+      enumList:
+      - Delivery
+      - Self-Pickup
+      - Delivery and Self-Pickup
+      enumPath: "$.message.order.fulfillments[*].type"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    confirm:
+    - _NAME_: REQUIRED_CONTEXT_DOMAIN
+      attr: "$.context.domain"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - ONDC:RET10
+      - ONDC:RET11
+      - ONDC:RET12
+      - ONDC:RET13
+      - ONDC:RET14
+      - ONDC:RET15
+      - ONDC:RET16
+      - ONDC:RET17
+      - ONDC:RET18
+      - ONDC:RET19
+    - _NAME_: REQUIRED_CONTEXT_COUNTRY
+      attr: "$.context.country"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_CITY
+      attr: "$.context.city"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_ACTION
+      attr: "$.context.action"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_CORE_VERSION
+      attr: "$.context.core_version"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BAP_ID
+      attr: "$.context.bap_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BAP_URI
+      attr: "$.context.bap_uri"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BPP_URI
+      attr: "$.context.bpp_uri"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TRANSACTION_ID
+      attr: "$.context.transaction_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_MESSAGE_ID
+      attr: "$.context.message_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TIMESTAMP
+      attr: "$.context.timestamp"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BPP_ID
+      attr: "$.context.bpp_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TTL
+      attr: "$.context.ttl"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID
+      attr: "$.message.order.id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_STATE
+      attr: "$.message.order.state"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - Created
+      - Accepted
+      - In-progress
+      - Completed
+      - Cancelled
+    - _NAME_: REQUIRED_MESSAGE_NAME
+      attr: "$.message.order.billing.address.name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_BUILDING
+      attr: "$.message.order.billing.address.building"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_LOCALITY
+      attr: "$.message.order.billing.address.locality"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CITY
+      attr: "$.message.order.billing.address.city"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_STATE_20
+      attr: "$.message.order.billing.address.state"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_COUNTRY
+      attr: "$.message.order.billing.address.country"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_AREA_CODE
+      attr: "$.message.order.billing.address.area_code"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_PHONE
+      attr: "$.message.order.billing.phone"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_EMAIL
+      attr: "$.message.order.billing.email"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CREATED_AT
+      attr: "$.message.order.billing.created_at"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_UPDATED_AT
+      attr: "$.message.order.billing.updated_at"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_27
+      attr: "$.message.order.items[*].id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_COUNT
+      attr: "$.message.order.items[*].quantity.maximum.count"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_FULFILLMENT_ID
+      attr: "$.message.order.items[*].fulfillment_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_30
+      attr: "$.message.order.provider.id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_31
+      attr: "$.message.order.provider.locations[*].id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_URI
+      attr: "$.message.order.payment.uri"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_TL_METHOD
+      attr: "$.message.order.payment.tl_method"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_AMOUNT
+      attr: "$.message.order.payment.params.amount"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CURRENCY
+      attr: "$.message.order.payment.params.currency"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_TRANSACTION_ID
+      attr: "$.message.order.payment.params.transaction_id"
+      _RETURN_: attr are present
+    - _NAME_: VALIDATE_ENUM_MANUAL_1
+      enumList:
+      - NOT-PAID
+      - PAID
+      enumPath: "$.message.order.payments[*].status"
+      _RETURN_: enumPath all in enumList && enumPath are present
+    - _NAME_: REQUIRED_MESSAGE_BENEFICIARY_NAME
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].beneficiary_name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_BANK_NAME
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].bank_name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_SETTLEMENT_BANK_ACCOUNT_NO
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_bank_account_no"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_SETTLEMENT_IFSC_CODE
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_ifsc_code"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_UPI_ADDRESS
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].upi_address"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_SETTLEMENT_COUNTERPARTY
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_counterparty"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_SETTLEMENT_PHASE
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_phase"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_SETTLEMENT_TYPE
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_type"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - upi
+      - neft
+      - rtgs
+      - wallet
+      - netbanking
+      - paylater
+    - _NAME_: REQUIRED_MESSAGE_BRANCH_NAME
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].branch_name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_TYPE
+      attr: "$.message.order.payment.type"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - ON-ORDER
+      - ON-FULFILLMENT
+      - POST-FULFILLMENT
+    - _NAME_: VALIDATE_ENUM_MANUAL_2
+      enumList:
+      - BPP
+      - BAP
+      enumPath: "$.message.order.payments[*].collected_by"
+      _RETURN_: enumPath all in enumList && enumPath are present
+    - _NAME_: VALIDATE_ENUM_3
+      enumList:
+      - PRE-ORDER
+      - ON-FULFILLMENT
+      - POST-FULFILLMENT
+      enumPath: "$.message.order.payments[*].type"
+      _RETURN_: enumPath all in enumList && enumPath are present
+    - _NAME_: REQUIRED_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_TYPE
+      attr: "$.message.order.payment['@ondc/org/buyer_app_finder_fee_type']"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - percent
+      - amount
+    - _NAME_: REQUIRED_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_AMOUNT
+      attr: "$.message.order.payment['@ondc/org/buyer_app_finder_fee_amount']"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_PAYMENTONDCORGSETTLEMENT_BASIS
+      attr: "$.message.order.payment['@ondc/org/settlement_basis']"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - shipment
+      - delivery
+      - return_window_expiry
+    - _NAME_: REQUIRED_MESSAGE_PAYMENTONDCORGSETTLEMENT_WINDOW
+      attr: "$.message.order.payment['@ondc/org/settlement_window']"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_PAYMENTONDCORGWITHHOLDING_AMOUNT
+      attr: "$.message.order.payment['@ondc/org/withholding_amount']"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CREATED_AT_54
+      attr: "$.message.order.created_at"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_UPDATED_AT_55
+      attr: "$.message.order.updated_at"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_LOCALITY_56
+      attr: "$.message.order.billing.address.locality"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_NAME_57
+      attr: "$.message.order.billing.address.name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_TYPE_58
+      attr: "$.message.order.fulfillments[*].type"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - Delivery
+      - Self-Pickup
+      - Delivery and Self-Pickup
+    - _NAME_: REQUIRED_MESSAGE_CURRENCY_59
+      attr: "$.message.order.quote.price.currency"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_VALUE
+      attr: "$.message.order.quote.price.value"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_BREAKUPONDCORGITEM_ID
+      attr: "$.message.order.quote.breakup[*]['@ondc/org/item_id']"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_COUNT_62
+      attr: "$.message.order.quote.breakup[*]['@ondc/org/item_quantity'].count"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_TITLE
+      attr: "$.message.order.quote.breakup[*].title"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CURRENCY_64
+      attr: "$.message.order.quote.breakup[*].price.currency"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_VALUE_65
+      attr: "$.message.order.quote.breakup[*].price.value"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CURRENCY_66
+      attr: "$.message.order.quote.breakup[*].price.currency"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_VALUE_67
+      attr: "$.message.order.quote.breakup[*].price.value"
+      _RETURN_: attr are present
+    - _NAME_: VALID_ENUM_CONTEXT_DOMAIN
+      enumList:
+      - ONDC:RET10
+      - ONDC:RET11
+      - ONDC:RET12
+      - ONDC:RET13
+      - ONDC:RET14
+      - ONDC:RET15
+      - ONDC:RET16
+      - ONDC:RET17
+      - ONDC:RET18
+      - ONDC:RET19
+      enumPath: "$.context.domain"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_TYPE
+      enumList:
+      - Delivery
+      - Self-Pickup
+      - Delivery and Self-Pickup
+      enumPath: "$.message.order.fulfillments[*].type"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_BREAKUPONDCORGTITLE_TYPE
+      enumList:
+      - item
+      - delivery
+      - packing
+      - tax
+      - misc
+      - discount
+      - discount_f
+      - tax_f
+      - 0
+      enumPath: "$.message.order.quote.breakup[*]['@ondc/org/title_type']"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_COUNT
+      enumList:
+      - 0
+      - 99
+      enumPath: "$.message.order.quote.breakup[*].item.quantity.available.count"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_COUNT_5
+      enumList:
+      - 0
+      - 10
+      enumPath: "$.message.order.quote.breakup[*].item.quantity.maximum.count"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_TYPE_6
+      enumList:
+      - ON-ORDER
+      - ON-FULFILLMENT
+      - POST-FULFILLMENT
+      enumPath: "$.message.order.payment.type"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_SETTLEMENT_TYPE
+      enumList:
+      - upi
+      - neft
+      - rtgs
+      - wallet
+      - netbanking
+      - paylater
+      enumPath: "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_type"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_TYPE
+      enumList:
+      - percent
+      - amount
+      enumPath: "$.message.order.payment['@ondc/org/buyer_app_finder_fee_type']"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_COLLECTED_BY
+      enumList:
+      - BAP
+      - BPP
+      enumPath: "$.message.order.payment.collected_by"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_STATUS
+      enumList:
+      - PAID
+      - NOT-PAID
+      enumPath: "$.message.order.payment.status"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_PAYMENTONDCORGSETTLEMENT_BASIS
+      enumList:
+      - shipment
+      - delivery
+      - return_window_expiry
+      enumPath: "$.message.order.payment['@ondc/org/settlement_basis']"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_STATE
+      enumList:
+      - Created
+      - Accepted
+      - In-progress
+      - Completed
+      - Cancelled
+      enumPath: "$.message.order.state"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    track:
+    - _NAME_: REQUIRED_CONTEXT_DOMAIN
+      attr: "$.context.domain"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - ONDC:RET10
+      - ONDC:RET11
+      - ONDC:RET12
+      - ONDC:RET13
+      - ONDC:RET14
+      - ONDC:RET15
+      - ONDC:RET16
+      - ONDC:RET17
+      - ONDC:RET18
+      - ONDC:RET19
+    - _NAME_: REQUIRED_CONTEXT_ACTION
+      attr: "$.context.action"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_COUNTRY
+      attr: "$.context.country"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_CITY
+      attr: "$.context.city"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_CORE_VERSION
+      attr: "$.context.core_version"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BAP_ID
+      attr: "$.context.bap_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BAP_URI
+      attr: "$.context.bap_uri"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BPP_ID
+      attr: "$.context.bpp_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BPP_URI
+      attr: "$.context.bpp_uri"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TRANSACTION_ID
+      attr: "$.context.transaction_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_MESSAGE_ID
+      attr: "$.context.message_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TIMESTAMP
+      attr: "$.context.timestamp"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TTL
+      attr: "$.context.ttl"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ORDER_ID
+      attr: "$.message.order_id"
+      _RETURN_: attr are present
+    - _NAME_: VALID_ENUM_CONTEXT_DOMAIN
+      enumList:
+      - ONDC:RET10
+      - ONDC:RET11
+      - ONDC:RET12
+      - ONDC:RET13
+      - ONDC:RET14
+      - ONDC:RET15
+      - ONDC:RET16
+      - ONDC:RET17
+      - ONDC:RET18
+      - ONDC:RET19
+      enumPath: "$.context.domain"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    cancel:
+    - _NAME_: REQUIRED_CONTEXT_DOMAIN
+      attr: "$.context.domain"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - ONDC:RET10
+      - ONDC:RET11
+      - ONDC:RET12
+      - ONDC:RET13
+      - ONDC:RET14
+      - ONDC:RET15
+      - ONDC:RET16
+      - ONDC:RET17
+      - ONDC:RET18
+      - ONDC:RET19
+    - _NAME_: REQUIRED_CONTEXT_COUNTRY
+      attr: "$.context.country"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_CITY
+      attr: "$.context.city"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_ACTION
+      attr: "$.context.action"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_CORE_VERSION
+      attr: "$.context.core_version"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BAP_ID
+      attr: "$.context.bap_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BAP_URI
+      attr: "$.context.bap_uri"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BPP_URI
+      attr: "$.context.bpp_uri"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TRANSACTION_ID
+      attr: "$.context.transaction_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_MESSAGE_ID
+      attr: "$.context.message_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TIMESTAMP
+      attr: "$.context.timestamp"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BPP_ID
+      attr: "$.context.bpp_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TTL
+      attr: "$.context.ttl"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ORDER_ID
+      attr: "$.message.order_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CANCELLATION_REASON_ID
+      attr: "$.message.cancellation_reason_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_NAME
+      attr: "$.message.descriptor.name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_SHORT_DESC
+      attr: "$.message.descriptor.short_desc"
+      _RETURN_: attr are present
+    - _NAME_: VALID_ENUM_CONTEXT_DOMAIN
+      enumList:
+      - ONDC:RET10
+      - ONDC:RET11
+      - ONDC:RET12
+      - ONDC:RET13
+      - ONDC:RET14
+      - ONDC:RET15
+      - ONDC:RET16
+      - ONDC:RET17
+      - ONDC:RET18
+      - ONDC:RET19
+      enumPath: "$.context.domain"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    update:
+    - _NAME_: REQUIRED_CONTEXT_DOMAIN
+      attr: "$.context.domain"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - ONDC:RET10
+      - ONDC:RET11
+      - ONDC:RET12
+      - ONDC:RET13
+      - ONDC:RET14
+      - ONDC:RET15
+      - ONDC:RET16
+      - ONDC:RET17
+      - ONDC:RET18
+      - ONDC:RET19
+    - _NAME_: REQUIRED_CONTEXT_COUNTRY
+      attr: "$.context.country"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_CITY
+      attr: "$.context.city"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_ACTION
+      attr: "$.context.action"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_CORE_VERSION
+      attr: "$.context.core_version"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BAP_ID
+      attr: "$.context.bap_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BAP_URI
+      attr: "$.context.bap_uri"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BPP_ID
+      attr: "$.context.bpp_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BPP_URI
+      attr: "$.context.bpp_uri"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TRANSACTION_ID
+      attr: "$.context.transaction_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_MESSAGE_ID
+      attr: "$.context.message_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TIMESTAMP
+      attr: "$.context.timestamp"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TTL
+      attr: "$.context.ttl"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_UPDATE_TARGET
+      attr: "$.message.update_target"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - payment
+      - item
+    - _NAME_: REQUIRED_MESSAGE_ID
+      attr: "$.message.order.id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_16
+      attr: "$.message.order.fulfillments[*].id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_TYPE
+      attr: "$.message.order.fulfillments[*].type"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - Cancel
+      - Delivery
+      - Return
+    - _NAME_: REQUIRED_MESSAGE_TYPE_18
+      attr: "$.message.order.fulfillments[*].type"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - Cancel
+      - Delivery
+      - Return
+    - _NAME_: REQUIRED_MESSAGE_NAME
+      attr: "$.message.order.fulfillments[*].tags.name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CODE
+      attr: "$.message.order.fulfillments[*].tags.code"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CODE_21
+      attr: "$.message.order.fulfillments[*].tags.code"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CODE_22
+      attr: "$.message.order.fulfillments[*].tags.code"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_NAME_23
+      attr: "$.message.order.fulfillments[*].tags.name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CODE_24
+      attr: "$.message.order.fulfillments[*].tags.code"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CODE_25
+      attr: "$.message.order.fulfillments[*].tags.code"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_NAME_26
+      attr: "$.message.order.fulfillments[*].tags.name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CODE_27
+      attr: "$.message.order.fulfillments[*].tags.code"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_NAME_28
+      attr: "$.message.order.fulfillments[*].tags.name"
+      _RETURN_: attr are present
+    - _NAME_: VALID_ENUM_CONTEXT_DOMAIN
+      enumList:
+      - ONDC:RET10
+      - ONDC:RET11
+      - ONDC:RET12
+      - ONDC:RET13
+      - ONDC:RET14
+      - ONDC:RET15
+      - ONDC:RET16
+      - ONDC:RET17
+      - ONDC:RET18
+      - ONDC:RET19
+      enumPath: "$.context.domain"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_UPDATE_TARGET
+      enumList:
+      - payment
+      - item
+      enumPath: "$.message.update_target"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_STATUS
+      enumList:
+      - ON-ORDER
+      - ON-FULFILLMENT
+      - POST-FULFILLMENT
+      enumPath: "$.message.order.payment.status"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_SETTLEMENT_TYPE
+      enumList:
+      - upi
+      - neft
+      - rtgs
+      - wallet
+      - netbanking
+      - paylater
+      enumPath: "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_type"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_COLLECTED_BY
+      enumList:
+      - percent
+      - amount
+      enumPath: "$.message.order.payment.collected_by"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_COLLECTED_BY_6
+      enumList:
+      - BAP
+      - BPP
+      enumPath: "$.message.order.payment.collected_by"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_STATUS_7
+      enumList:
+      - PAID
+      - NOT-PAID
+      enumPath: "$.message.order.payment.status"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_COLLECTED_BY_8
+      enumList:
+      - shipment
+      - delivery
+      - return_window_expiry
+      enumPath: "$.message.order.payment.collected_by"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_TYPE
+      enumList:
+      - Cancel
+      - Delivery
+      - Return
+      enumPath: "$.message.order.fulfillments[*].type"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    on_search:
+    - _NAME_: REQUIRED_CONTEXT_DOMAIN
+      attr: "$.context.domain"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_ACTION
+      attr: "$.context.action"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_COUNTRY
+      attr: "$.context.country"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_CORE_VERSION
+      attr: "$.context.core_version"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BAP_ID
+      attr: "$.context.bap_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BAP_URI
+      attr: "$.context.bap_uri"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BPP_ID
+      attr: "$.context.bpp_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BPP_URI
+      attr: "$.context.bpp_uri"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TRANSACTION_ID
+      attr: "$.context.transaction_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_MESSAGE_ID
+      attr: "$.context.message_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TIMESTAMP
+      attr: "$.context.timestamp"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_CITY
+      attr: "$.context.city"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID
+      attr: "$.message.intent['bpp/fulfillments'][*].id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_TYPE
+      attr: "$.message.intent['bpp/fulfillments'][*].type"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - Delivery
+      - Self-Pickup
+      - Delivery and Self-Pickup
+    - _NAME_: REQUIRED_MESSAGE_NAME
+      attr: "$.message.intent['bpp/descriptor'].name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_SYMBOL
+      attr: "$.message.intent['bpp/descriptor'].symbol"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_SHORT_DESC
+      attr: "$.message.intent['bpp/descriptor'].short_desc"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_LONG_DESC
+      attr: "$.message.intent['bpp/descriptor'].long_desc"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_IMAGES
+      attr: "$.message.intent['bpp/descriptor'].images[*]"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_20
+      attr: "$.message.intent['bpp/providers'][*].id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_NAME_21
+      attr: "$.message.intent['bpp/providers'][*].descriptor.name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_SYMBOL_22
+      attr: "$.message.intent['bpp/providers'][*].descriptor.symbol"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_SHORT_DESC_23
+      attr: "$.message.intent['bpp/providers'][*].descriptor.short_desc"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_LONG_DESC_24
+      attr: "$.message.intent['bpp/providers'][*].descriptor.long_desc"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_IMAGES_25
+      attr: "$.message.intent['bpp/providers'][*].descriptor.images[*]"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_TTL
+      attr: "$.message.intent['bpp/providers'][*].ttl"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_NAME_27
+      attr: "$.message.intent['bpp/providers'][*].descriptor.name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_SYMBOL_28
+      attr: "$.message.intent['bpp/providers'][*].descriptor.symbol"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_SHORT_DESC_29
+      attr: "$.message.intent['bpp/providers'][*].descriptor.short_desc"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_LONG_DESC_30
+      attr: "$.message.intent['bpp/providers'][*].descriptor.long_desc"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_IMAGES_31
+      attr: "$.message.intent['bpp/providers'][*].descriptor.images[*]"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CURRENCY
+      attr: "$.message.intent['bpp/providers'][*].items[*].price.currency"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_VALUE
+      attr: "$.message.intent['bpp/providers'][*].items[*].price.value"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_MAXIMUM_VALUE
+      attr: "$.message.intent['bpp/providers'][*].items[*].price.maximum_value"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_UNIT
+      attr: "$.message.intent['bpp/providers'][*].items[*].quantity.unitized.measure.unit"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - unit
+      - gram
+      - dozen
+      - kilogram
+      - tonne
+      - litre
+      - millilitre
+    - _NAME_: REQUIRED_MESSAGE_VALUE_36
+      attr: "$.message.intent['bpp/providers'][*].items[*].quantity.unitized.measure.value"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_COUNT
+      attr: "$.message.intent['bpp/providers'][*].items[*].quantity.unitized.count"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_COUNT_38
+      attr: "$.message.intent['bpp/providers'][*].items[*].quantity.available.count"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_COUNT_39
+      attr: "$.message.intent['bpp/providers'][*].items[*].quantity.maximum.count"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_COUNT_40
+      attr: "$.message.intent['bpp/providers'][*].items[*].quantity.maximum.count"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CATEGORY_ID
+      attr: "$.message.intent['bpp/providers'][*].category_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ITEMSONDCORGRETURNABLE
+      attr: "$.message.intent['bpp/providers'][*].items[*]['@ondc/org/returnable']"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_RATING
+      attr: "$.message.intent['bpp/providers'][*].rating"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ITEMSONDCORGCANCELLABLE
+      attr: "$.message.intent['bpp/providers'][*].items[*]['@ondc/org/cancellable']"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ITEMSONDCORGAVAILABLE_ON_COD
+      attr: "$.message.intent['bpp/providers'][*].items[*]['@ondc/org/available_on_cod']"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_TIMESTAMP
+      attr: "$.message.intent['bpp/providers'][*].time.timestamp"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_DURATION
+      attr: "$.message.intent['bpp/providers'][*].items[*].replacement_terms[*].replace_within.duration"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ITEMSONDCORGRETURN_WINDOW
+      attr: "$.message.intent['bpp/providers'][*].items[*]['@ondc/org/return_window']"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ITEMSONDCORGSELLER_PICKUP_RETURN
+      attr: "$.message.intent['bpp/providers'][*].items[*]['@ondc/org/seller_pickup_return']"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ITEMSONDCORGTIME_TO_SHIP
+      attr: "$.message.intent['bpp/providers'][*].items[*]['@ondc/org/time_to_ship']"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ITEMSONDCORGCONTACT_DETAILS_CONSUMER_CARE
+      attr: "$.message.intent['bpp/providers'][*].items[*]['@ondc/org/contact_details_consumer_care']"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_RATING_52
+      attr: "$.message.intent['bpp/providers'][*].rating"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_TYPE_53
+      attr: "$.message.intent['bpp/providers'][*].fulfillments[*].type"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - Delivery
+      - Self-Pickup
+      - Delivery and Self-Pickup
+    - _NAME_: REQUIRED_MESSAGE_LABEL
+      attr: "$.message.intent['bpp/providers'][*].time.label"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_TIMESTAMP_55
+      attr: "$.message.intent['bpp/providers'][*].time.timestamp"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_56
+      attr: "$.message.intent['bpp/providers'][*].locations[*].id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_LABEL_57
+      attr: "$.message.intent['bpp/providers'][*].locations[*].time.label"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_TIMESTAMP_58
+      attr: "$.message.intent['bpp/providers'][*].locations[*].time.timestamp"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_START
+      attr: "$.message.intent['bpp/providers'][*].locations[*].time.range.start"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_60
+      attr: "$.message.intent['bpp/providers'][*].categories[*].id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_NAME_61
+      attr: "$.message.intent['bpp/providers'][*].categories[*].descriptor.name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_SHORT_DESC_62
+      attr: "$.message.intent['bpp/providers'][*].categories[*].descriptor.short_desc"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_LONG_DESC_63
+      attr: "$.message.intent['bpp/providers'][*].categories[*].descriptor.long_desc"
+      _RETURN_: attr are present
+    - _NAME_: VALID_ENUM_MESSAGE_TYPE
+      enumList:
+      - Delivery
+      - Self-Pickup
+      - Delivery and Self-Pickup
+      enumPath: "$.message.intent['bpp/fulfillments'][*].type"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_TYPE_2
+      enumList:
+      - Delivery
+      - Self-Pickup
+      - Delivery and Self-Pickup
+      enumPath: "$.message.intent['bpp/providers'][*].fulfillments[*].type"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_UNIT
+      enumList:
+      - unit
+      - gram
+      - dozen
+      - kilogram
+      - tonne
+      - litre
+      - millilitre
+      enumPath: "$.message.intent['bpp/providers'][*].items[*].quantity.unitized.measure.unit"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_CODE
+      enumList:
+      - Disc_Pct
+      - Disc_Amt
+      - BuyXGetY
+      - Freebie
+      enumPath: "$.message.intent['bpp/providers'][*].descriptor.code"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    on_select:
+    - _NAME_: REQUIRED_CONTEXT_DOMAIN
+      attr: "$.context.domain"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - ONDC:RET10
+      - ONDC:RET11
+      - ONDC:RET12
+      - ONDC:RET13
+      - ONDC:RET14
+      - ONDC:RET15
+      - ONDC:RET16
+      - ONDC:RET17
+      - ONDC:RET18
+      - ONDC:RET19
+    - _NAME_: REQUIRED_CONTEXT_ACTION
+      attr: "$.context.action"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_CORE_VERSION
+      attr: "$.context.core_version"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BAP_ID
+      attr: "$.context.bap_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BAP_URI
+      attr: "$.context.bap_uri"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BPP_ID
+      attr: "$.context.bpp_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BPP_URI
+      attr: "$.context.bpp_uri"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TRANSACTION_ID
+      attr: "$.context.transaction_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_MESSAGE_ID
+      attr: "$.context.message_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_CITY
+      attr: "$.context.city"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_COUNTRY
+      attr: "$.context.country"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TIMESTAMP
+      attr: "$.context.timestamp"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID
+      attr: "$.message.order.provider.id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_14
+      attr: "$.message.order.provider.locations[*].id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_15
+      attr: "$.message.order.items[*].id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_FULFILLMENT_ID
+      attr: "$.message.order.items[*].fulfillment_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_17
+      attr: "$.message.order.fulfillments[*].id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_TYPE
+      attr: "$.message.order.fulfillments[*].type"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_FULFILLMENTSONDCORGCATEGORY
+      attr: "$.message.order.fulfillments[*]['@ondc/org/category']"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_TRACKING
+      attr: "$.message.order.fulfillments[*].tracking"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_FULFILLMENTSONDCORGCATEGORY_21
+      attr: "$.message.order.fulfillments[*]['@ondc/org/category']"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_FULFILLMENTSONDCORGTAT
+      attr: "$.message.order.fulfillments[*]['@ondc/org/TAT']"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CODE
+      attr: "$.message.order.fulfillments[*].state.descriptor.code"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - Serviceable
+      - Non-Serviceable
+    - _NAME_: REQUIRED_MESSAGE_TTL
+      attr: "$.message.order.quote.ttl"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_VALUE
+      attr: "$.message.order.quote.price.value"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CURRENCY
+      attr: "$.message.order.quote.price.currency"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_BREAKUPONDCORGTITLE_TYPE
+      attr: "$.message.order.quote.breakup[*]['@ondc/org/title_type']"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - item
+      - delivery
+      - packing
+      - tax
+      - misc
+      - discount
+      - discount_f
+      - tax_f
+      - 0
+    - _NAME_: REQUIRED_MESSAGE_CURRENCY_28
+      attr: "$.message.order.quote.breakup[*].price.currency"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_VALUE_29
+      attr: "$.message.order.quote.breakup[*].price.value"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_TITLE
+      attr: "$.message.order.quote.breakup[*].title"
+      _RETURN_: attr are present
+    - _NAME_: VALID_ENUM_CONTEXT_DOMAIN
+      enumList:
+      - ONDC:RET10
+      - ONDC:RET11
+      - ONDC:RET12
+      - ONDC:RET13
+      - ONDC:RET14
+      - ONDC:RET15
+      - ONDC:RET16
+      - ONDC:RET17
+      - ONDC:RET18
+      - ONDC:RET19
+      enumPath: "$.context.domain"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_CODE
+      enumList:
+      - Serviceable
+      - Non-Serviceable
+      enumPath: "$.message.order.fulfillments[*].state.descriptor.code"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_BREAKUPONDCORGTITLE_TYPE
+      enumList:
+      - item
+      - delivery
+      - packing
+      - tax
+      - misc
+      - discount
+      - discount_f
+      - tax_f
+      - 0
+      enumPath: "$.message.order.quote.breakup[*]['@ondc/org/title_type']"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_COUNT
+      enumList:
+      - 0
+      - 99
+      enumPath: "$.message.order.quote.breakup[*].item.quantity.available.count"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_COUNT_5
+      enumList:
+      - 0
+      - 10
+      enumPath: "$.message.order.quote.breakup[*].item.quantity.maximum.count"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    on_init:
+    - _NAME_: REQUIRED_CONTEXT_DOMAIN
+      attr: "$.context.domain"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - ONDC:RET10
+      - ONDC:RET11
+      - ONDC:RET12
+      - ONDC:RET13
+      - ONDC:RET14
+      - ONDC:RET15
+      - ONDC:RET16
+      - ONDC:RET17
+      - ONDC:RET18
+      - ONDC:RET19
+    - _NAME_: REQUIRED_CONTEXT_ACTION
+      attr: "$.context.action"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_COUNTRY
+      attr: "$.context.country"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_CORE_VERSION
+      attr: "$.context.core_version"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BAP_ID
+      attr: "$.context.bap_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BAP_URI
+      attr: "$.context.bap_uri"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BPP_URI
+      attr: "$.context.bpp_uri"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TRANSACTION_ID
+      attr: "$.context.transaction_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_MESSAGE_ID
+      attr: "$.context.message_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TIMESTAMP
+      attr: "$.context.timestamp"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BPP_ID
+      attr: "$.context.bpp_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_CITY
+      attr: "$.context.city"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID
+      attr: "$.message.order.provider.id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_14
+      attr: "$.message.order.provider.locations[*].id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_15
+      attr: "$.message.order.items[*].id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_COUNT
+      attr: "$.message.order.items[*].quantity.count"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_FULFILLMENT_ID
+      attr: "$.message.order.items[*].fulfillment_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_NAME
+      attr: "$.message.order.billing.name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_BUILDING
+      attr: "$.message.order.billing.address.building"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CITY
+      attr: "$.message.order.billing.address.city"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_STATE
+      attr: "$.message.order.billing.address.state"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_COUNTRY
+      attr: "$.message.order.billing.address.country"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_AREA_CODE
+      attr: "$.message.order.billing.address.area_code"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_LOCALITY
+      attr: "$.message.order.billing.address.locality"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_PHONE
+      attr: "$.message.order.billing.phone"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_EMAIL
+      attr: "$.message.order.billing.email"
+      _RETURN_: attr are present
+    - _NAME_: VALID_ENUM_CONTEXT_DOMAIN
+      enumList:
+      - ONDC:RET10
+      - ONDC:RET11
+      - ONDC:RET12
+      - ONDC:RET13
+      - ONDC:RET14
+      - ONDC:RET15
+      - ONDC:RET16
+      - ONDC:RET17
+      - ONDC:RET18
+      - ONDC:RET19
+      enumPath: "$.context.domain"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_TYPE
+      enumList:
+      - Delivery
+      - Self-Pickup
+      - Delivery and Self-Pickup
+      enumPath: "$.message.order.fulfillments[*].type"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_BREAKUPONDCORGTITLE_TYPE
+      enumList:
+      - item
+      - delivery
+      - packing
+      - tax
+      - misc
+      - discount
+      - discount_f
+      - tax_f
+      - 0
+      enumPath: "$.message.order.quote.breakup[*]['@ondc/org/title_type']"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_COUNT
+      enumList:
+      - 0
+      - 99
+      enumPath: "$.message.order.quote.breakup[*].item.quantity.available.count"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_COUNT_5
+      enumList:
+      - 0
+      - 10
+      enumPath: "$.message.order.quote.breakup[*].item.quantity.maximum.count"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_CODE
+      enumList:
+      - Pending
+      - Packed
+      - Pickup-approved
+      - Pickup-rejected
+      - Order-picked-up
+      - Out-for-delivery
+      - Order-delivered
+      - RTO-Initiated
+      - RTO-Delivered
+      - RTO-Disposed
+      enumPath: "$.message.order.cancellation_terms[*].fulfillment_state.descriptor.code"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_TYPE_7
+      enumList:
+      - ON-ORDER
+      - ON-FULFILLMENT
+      - POST-FULFILLMENT
+      enumPath: "$.message.order.payment.type"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_SETTLEMENT_TYPE
+      enumList:
+      - upi
+      - neft
+      - rtgs
+      enumPath: "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_type"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_TYPE
+      enumList:
+      - percent
+      - amount
+      enumPath: "$.message.order.payment['@ondc/org/buyer_app_finder_fee_type']"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_COLLECTED_BY
+      enumList:
+      - BAP
+      - BPP
+      - SOR
+      enumPath: "$.message.order.payment.collected_by"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    on_confirm:
+    - _NAME_: REQUIRED_CONTEXT_DOMAIN
+      attr: "$.context.domain"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - ONDC:RET10
+      - ONDC:RET11
+      - ONDC:RET12
+      - ONDC:RET13
+      - ONDC:RET14
+      - ONDC:RET15
+      - ONDC:RET16
+      - ONDC:RET17
+      - ONDC:RET18
+      - ONDC:RET19
+    - _NAME_: REQUIRED_CONTEXT_COUNTRY
+      attr: "$.context.country"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_CITY
+      attr: "$.context.city"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_ACTION
+      attr: "$.context.action"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_CORE_VERSION
+      attr: "$.context.core_version"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BAP_ID
+      attr: "$.context.bap_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BAP_URI
+      attr: "$.context.bap_uri"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BPP_ID
+      attr: "$.context.bpp_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BPP_URI
+      attr: "$.context.bpp_uri"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TRANSACTION_ID
+      attr: "$.context.transaction_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_MESSAGE_ID
+      attr: "$.context.message_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TIMESTAMP
+      attr: "$.context.timestamp"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID
+      attr: "$.message.order.id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_STATE
+      attr: "$.message.order.state"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - Created
+      - Accepted
+      - In-progress
+      - Completed
+      - Cancelled
+    - _NAME_: REQUIRED_MESSAGE_ID_15
+      attr: "$.message.order.provider.id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_16
+      attr: "$.message.order.provider.locations[*].id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_17
+      attr: "$.message.order.items[*].id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_COUNT
+      attr: "$.message.order.items[*].quantity.count"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_FULFILLMENT_ID
+      attr: "$.message.order.items[*].fulfillment_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_NAME
+      attr: "$.message.order.billing.address.name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_BUILDING
+      attr: "$.message.order.billing.address.building"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_LOCALITY
+      attr: "$.message.order.billing.address.locality"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CITY
+      attr: "$.message.order.billing.address.city"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_STATE_24
+      attr: "$.message.order.billing.address.state"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_COUNTRY
+      attr: "$.message.order.billing.address.country"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_AREA_CODE
+      attr: "$.message.order.billing.address.area_code"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_PHONE
+      attr: "$.message.order.billing.phone"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_EMAIL
+      attr: "$.message.order.billing.email"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CREATED_AT
+      attr: "$.message.order.billing.created_at"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_UPDATED_AT
+      attr: "$.message.order.billing.updated_at"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_31
+      attr: "$.message.order.fulfillments[*].id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_PROVIDER_ID
+      attr: "$.message.order.fulfillments[*].provider_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_FULFILLMENTSONDCORGPROVIDER_NAME
+      attr: "$.message.order.fulfillments[*]['@ondc/org/provider_name']"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CODE
+      attr: "$.message.order.fulfillments[*].state.descriptor.code"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - Pending
+      - Packed
+      - Pickup-approved
+      - Pickup-rejected
+      - Order-picked-up
+      - Out-for-delivery
+      - Order-delivered
+      - RTO-Initiated
+      - RTO-Delivered
+      - RTO-Disposed
+    - _NAME_: REQUIRED_MESSAGE_TYPE
+      attr: "$.message.order.fulfillments[*].type"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - Delivery
+      - Self-Pickup
+      - Delivery and Self-Pickup
+    - _NAME_: REQUIRED_MESSAGE_TRACKING
+      attr: "$.message.order.fulfillments[*].tracking"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_FULFILLMENTSONDCORGTAT
+      attr: "$.message.order.fulfillments[*]['@ondc/org/TAT']"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_38
+      attr: "$.message.order.fulfillments[*].start.location.id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_NAME_39
+      attr: "$.message.order.fulfillments[*].start.location.descriptor.name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_GPS
+      attr: "$.message.order.fulfillments[*].start.location.gps"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_GPS_41
+      attr: "$.message.order.fulfillments[*].end.location.gps"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_NAME_42
+      attr: "$.message.order.fulfillments[*].end.location.address.name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_BUILDING_43
+      attr: "$.message.order.fulfillments[*].end.location.address.building"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_LOCALITY_44
+      attr: "$.message.order.fulfillments[*].end.location.address.locality"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CITY_45
+      attr: "$.message.order.fulfillments[*].end.location.address.city"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_STATE_46
+      attr: "$.message.order.fulfillments[*].end.location.address.state"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_COUNTRY_47
+      attr: "$.message.order.fulfillments[*].end.location.address.country"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_AREA_CODE_48
+      attr: "$.message.order.fulfillments[*].end.location.address.area_code"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_NAME_49
+      attr: "$.message.order.fulfillments[*].end.person.name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_PHONE_50
+      attr: "$.message.order.fulfillments[*].end.contact.phone"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_EMAIL_51
+      attr: "$.message.order.fulfillments[*].end.contact.email"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CURRENCY
+      attr: "$.message.order.quote.price.currency"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_VALUE
+      attr: "$.message.order.quote.price.value"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_BREAKUPONDCORGITEM_ID
+      attr: "$.message.order.quote.breakup[*]['@ondc/org/item_id']"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_COUNT_55
+      attr: "$.message.order.quote.breakup[*]['@ondc/org/item_quantity'].count"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_TITLE
+      attr: "$.message.order.quote.breakup[*].title"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_BREAKUPONDCORGTITLE_TYPE
+      attr: "$.message.order.quote.breakup[*]['@ondc/org/title_type']"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - item
+      - delivery
+      - packing
+      - tax
+      - misc
+      - discount
+      - discount_f
+      - tax_f
+      - 0
+    - _NAME_: REQUIRED_MESSAGE_CURRENCY_58
+      attr: "$.message.order.quote.breakup[*].price.currency"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_VALUE_59
+      attr: "$.message.order.quote.breakup[*].price.value"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CURRENCY_60
+      attr: "$.message.order.quote.breakup[*].price.currency"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_VALUE_61
+      attr: "$.message.order.quote.breakup[*].price.value"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_TTL
+      attr: "$.message.order.quote.ttl"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_URI
+      attr: "$.message.order.payment.uri"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_TL_METHOD
+      attr: "$.message.order.payment.tl_method"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_AMOUNT
+      attr: "$.message.order.payment.params.amount"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CURRENCY_66
+      attr: "$.message.order.payment.params.currency"
+      _RETURN_: attr are present
+    - _NAME_: VALIDATE_ENUM_MANUAL_1
+      enumList:
+      - NOT-PAID
+      - PAID
+      enumPath: "$.message.order.payments[*].status"
+      _RETURN_: enumPath all in enumList && enumPath are present
+    - _NAME_: REQUIRED_MESSAGE_TYPE_68
+      attr: "$.message.order.payment.type"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - ON-ORDER
+      - ON-FULFILLMENT
+      - POST-FULFILLMENT
+    - _NAME_: REQUIRED_MESSAGE_SETTLEMENT_BANK_ACCOUNT_NO
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_bank_account_no"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_SETTLEMENT_IFSC_CODE
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_ifsc_code"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_BENEFICIARY_NAME
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].beneficiary_name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_SETTLEMENT_COUNTERPARTY
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_counterparty"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_SETTLEMENT_PHASE
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_phase"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_SETTLEMENT_TYPE
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_type"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - upi
+      - neft
+      - rtgs
+      - wallet
+      - netbanking
+      - paylater
+    - _NAME_: REQUIRED_MESSAGE_BANK_NAME
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].bank_name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_BRANCH_NAME
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].branch_name"
+      _RETURN_: attr are present
+    - _NAME_: VALIDATE_ENUM_MANUAL_2
+      enumList:
+      - BPP
+      - BAP
+      enumPath: "$.message.order.payments[*].collected_by"
+      _RETURN_: enumPath all in enumList && enumPath are present
+    - _NAME_: VALIDATE_ENUM_3
+      enumList:
+      - PRE-ORDER
+      - ON-FULFILLMENT
+      - POST-FULFILLMENT
+      enumPath: "$.message.order.payments[*].type"
+      _RETURN_: enumPath all in enumList && enumPath are present
+    - _NAME_: REQUIRED_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_TYPE
+      attr: "$.message.order.payment['@ondc/org/buyer_app_finder_fee_type']"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - percent
+      - amount
+    - _NAME_: REQUIRED_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_AMOUNT
+      attr: "$.message.order.payment['@ondc/org/buyer_app_finder_fee_amount']"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CREATED_AT_80
+      attr: "$.message.order.created_at"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_UPDATED_AT_81
+      attr: "$.message.order.updated_at"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_82
+      attr: "$.message.order.offers[*].id"
+      _RETURN_: attr are present
+    - _NAME_: VALID_ENUM_CONTEXT_DOMAIN
+      enumList:
+      - ONDC:RET10
+      - ONDC:RET11
+      - ONDC:RET12
+      - ONDC:RET13
+      - ONDC:RET14
+      - ONDC:RET15
+      - ONDC:RET16
+      - ONDC:RET17
+      - ONDC:RET18
+      - ONDC:RET19
+      enumPath: "$.context.domain"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_TYPE
+      enumList:
+      - Delivery
+      - Self-Pickup
+      - Delivery and Self-Pickup
+      enumPath: "$.message.order.fulfillments[*].type"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_CODE
+      enumList:
+      - Pending
+      - Packed
+      - Pickup-approved
+      - Pickup-rejected
+      - Order-picked-up
+      - Out-for-delivery
+      - Order-delivered
+      - RTO-Initiated
+      - RTO-Delivered
+      - RTO-Disposed
+      enumPath: "$.message.order.fulfillments[*].state.descriptor.code"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_BREAKUPONDCORGTITLE_TYPE
+      enumList:
+      - item
+      - delivery
+      - packing
+      - tax
+      - misc
+      - discount
+      - discount_f
+      - tax_f
+      - 0
+      enumPath: "$.message.order.quote.breakup[*]['@ondc/org/title_type']"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_COUNT
+      enumList:
+      - 0
+      - 99
+      enumPath: "$.message.order.quote.breakup[*].item.quantity.available.count"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_COUNT_6
+      enumList:
+      - 0
+      - 10
+      enumPath: "$.message.order.quote.breakup[*].item.quantity.maximum.count"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_CODE_7
+      enumList:
+      - Pending
+      - Packed
+      - Pickup-approved
+      - Pickup-rejected
+      - Order-picked-up
+      - Out-for-delivery
+      - Order-delivered
+      - RTO-Initiated
+      - RTO-Delivered
+      - RTO-Disposed
+      enumPath: "$.message.order.cancellation_terms[*].fulfillment_state.descriptor.code"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_TYPE_8
+      enumList:
+      - ON-ORDER
+      - ON-FULFILLMENT
+      - POST-FULFILLMENT
+      enumPath: "$.message.order.payment.type"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_SETTLEMENT_TYPE
+      enumList:
+      - upi
+      - neft
+      - rtgs
+      - wallet
+      - netbanking
+      - paylater
+      enumPath: "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_type"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_TYPE
+      enumList:
+      - percent
+      - amount
+      enumPath: "$.message.order.payment['@ondc/org/buyer_app_finder_fee_type']"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_COLLECTED_BY
+      enumList:
+      - BAP
+      - BPP
+      enumPath: "$.message.order.payment.collected_by"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_STATUS
+      enumList:
+      - PAID
+      - NOT-PAID
+      enumPath: "$.message.order.payment.status"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_PAYMENTONDCORGSETTLEMENT_BASIS
+      enumList:
+      - shipment
+      - delivery
+      - return_window_expiry
+      enumPath: "$.message.order.payment['@ondc/org/settlement_basis']"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_STATE
+      enumList:
+      - Created
+      - Accepted
+      - In-progress
+      - Completed
+      - Cancelled
+      enumPath: "$.message.order.state"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    on_track:
+    - _NAME_: REQUIRED_CONTEXT_DOMAIN
+      attr: "$.context.domain"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - ONDC:RET10
+      - ONDC:RET11
+      - ONDC:RET12
+      - ONDC:RET13
+      - ONDC:RET14
+      - ONDC:RET15
+      - ONDC:RET16
+      - ONDC:RET17
+      - ONDC:RET18
+      - ONDC:RET19
+    - _NAME_: REQUIRED_CONTEXT_ACTION
+      attr: "$.context.action"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_COUNTRY
+      attr: "$.context.country"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_CITY
+      attr: "$.context.city"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_CORE_VERSION
+      attr: "$.context.core_version"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BAP_ID
+      attr: "$.context.bap_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BAP_URI
+      attr: "$.context.bap_uri"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BPP_ID
+      attr: "$.context.bpp_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BPP_URI
+      attr: "$.context.bpp_uri"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TRANSACTION_ID
+      attr: "$.context.transaction_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_MESSAGE_ID
+      attr: "$.context.message_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TIMESTAMP
+      attr: "$.context.timestamp"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_STATUS
+      attr: "$.message.tracking.status"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - active
+      - inactive
+    - _NAME_: REQUIRED_MESSAGE_ID
+      attr: "$.message.tracking.id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_GPS
+      attr: "$.message.tracking.location.gps"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_TIMESTAMP
+      attr: "$.message.tracking.location.time.timestamp"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_UPDATED_AT
+      attr: "$.message.tracking.location.updated_at"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_URL
+      attr: "$.message.tracking.url"
+      _RETURN_: attr are present
+    - _NAME_: VALID_ENUM_CONTEXT_DOMAIN
+      enumList:
+      - ONDC:RET10
+      - ONDC:RET11
+      - ONDC:RET12
+      - ONDC:RET13
+      - ONDC:RET14
+      - ONDC:RET15
+      - ONDC:RET16
+      - ONDC:RET17
+      - ONDC:RET18
+      - ONDC:RET19
+      enumPath: "$.context.domain"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_STATUS
+      enumList:
+      - active
+      - inactive
+      enumPath: "$.message.tracking.status"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    on_cancel:
+    - _NAME_: REQUIRED_CONTEXT_DOMAIN
+      attr: "$.context.domain"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - ONDC:RET10
+      - ONDC:RET11
+      - ONDC:RET12
+      - ONDC:RET13
+      - ONDC:RET14
+      - ONDC:RET15
+      - ONDC:RET16
+      - ONDC:RET17
+      - ONDC:RET18
+      - ONDC:RET19
+    - _NAME_: REQUIRED_CONTEXT_COUNTRY
+      attr: "$.context.country"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_CITY
+      attr: "$.context.city"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_ACTION
+      attr: "$.context.action"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_CORE_VERSION
+      attr: "$.context.core_version"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BAP_ID
+      attr: "$.context.bap_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BAP_URI
+      attr: "$.context.bap_uri"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BPP_URI
+      attr: "$.context.bpp_uri"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TRANSACTION_ID
+      attr: "$.context.transaction_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_MESSAGE_ID
+      attr: "$.context.message_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TIMESTAMP
+      attr: "$.context.timestamp"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BPP_ID
+      attr: "$.context.bpp_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_STATE
+      attr: "$.message.order.state"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - Cancelled
+    - _NAME_: REQUIRED_MESSAGE_ID
+      attr: "$.message.order.items[*].id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_COUNT
+      attr: "$.message.order.items[*].quantity.count"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_FULFILLMENT_ID
+      attr: "$.message.order.items[*].fulfillment_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_17
+      attr: "$.message.order.provider.id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_18
+      attr: "$.message.order.provider.locations[*].id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_NAME
+      attr: "$.message.order.billing.address.name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_BUILDING
+      attr: "$.message.order.billing.address.building"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_LOCALITY
+      attr: "$.message.order.billing.address.locality"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CITY
+      attr: "$.message.order.billing.address.city"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_STATE_23
+      attr: "$.message.order.billing.address.state"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_COUNTRY
+      attr: "$.message.order.billing.address.country"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_AREA_CODE
+      attr: "$.message.order.billing.address.area_code"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_PHONE
+      attr: "$.message.order.billing.phone"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_EMAIL
+      attr: "$.message.order.billing.email"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CREATED_AT
+      attr: "$.message.order.billing.created_at"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_UPDATED_AT
+      attr: "$.message.order.billing.updated_at"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_30
+      attr: "$.message.order.fulfillments[*].id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_FULFILLMENTSONDCORGPROVIDER_NAME
+      attr: "$.message.order.fulfillments[*]['@ondc/org/provider_name']"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_FULFILLMENTSONDCORGTAT
+      attr: "$.message.order.fulfillments[*]['@ondc/org/TAT']"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CODE
+      attr: "$.message.order.fulfillments[*].state.descriptor.code"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - Cancelled
+      - RTO-Initiated
+      - RTO-Delivered
+      - RTO-Disposed
+    - _NAME_: REQUIRED_MESSAGE_TYPE
+      attr: "$.message.order.fulfillments[*].type"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - Delivery
+      - Self-Pickup
+      - Delivery and Self-Pickup
+    - _NAME_: REQUIRED_MESSAGE_TRACKING
+      attr: "$.message.order.fulfillments[*].tracking"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_36
+      attr: "$.message.order.fulfillments[*].start.location.id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_NAME_37
+      attr: "$.message.order.fulfillments[*].start.location.descriptor.name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_GPS
+      attr: "$.message.order.fulfillments[*].start.location.gps"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_LOCALITY_39
+      attr: "$.message.order.fulfillments[*].start.location.address.locality"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CITY_40
+      attr: "$.message.order.fulfillments[*].start.location.address.city"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_AREA_CODE_41
+      attr: "$.message.order.fulfillments[*].start.location.address.area_code"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_STATE_42
+      attr: "$.message.order.fulfillments[*].start.location.address.state"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_EMAIL_43
+      attr: "$.message.order.fulfillments[*].start.contact.email"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_PHONE_44
+      attr: "$.message.order.fulfillments[*].start.contact.phone"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_NAME_45
+      attr: "$.message.order.fulfillments[*].end.person.name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_EMAIL_46
+      attr: "$.message.order.fulfillments[*].end.contact.email"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_PHONE_47
+      attr: "$.message.order.fulfillments[*].end.contact.phone"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_GPS_48
+      attr: "$.message.order.fulfillments[*].end.location.gps"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_NAME_49
+      attr: "$.message.order.fulfillments[*].end.location.address.name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_BUILDING_50
+      attr: "$.message.order.fulfillments[*].end.location.address.building"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_LOCALITY_51
+      attr: "$.message.order.fulfillments[*].end.location.address.locality"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CITY_52
+      attr: "$.message.order.fulfillments[*].end.location.address.city"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_STATE_53
+      attr: "$.message.order.fulfillments[*].end.location.address.state"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_COUNTRY_54
+      attr: "$.message.order.fulfillments[*].end.location.address.country"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_AREA_CODE_55
+      attr: "$.message.order.fulfillments[*].end.location.address.area_code"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CURRENCY
+      attr: "$.message.order.quote.price.currency"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_VALUE
+      attr: "$.message.order.quote.price.value"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_BREAKUPONDCORGITEM_ID
+      attr: "$.message.order.quote.breakup[*]['@ondc/org/item_id']"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_COUNT_59
+      attr: "$.message.order.quote.breakup[*]['@ondc/org/item_quantity'].count"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_TITLE
+      attr: "$.message.order.quote.breakup[*].title"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_BREAKUPONDCORGTITLE_TYPE
+      attr: "$.message.order.quote.breakup[*]['@ondc/org/title_type']"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - item
+      - delivery
+      - packing
+      - tax
+      - misc
+      - discount
+      - discount_f
+      - tax_f
+      - 0
+    - _NAME_: REQUIRED_MESSAGE_CURRENCY_62
+      attr: "$.message.order.quote.breakup[*].price.currency"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_VALUE_63
+      attr: "$.message.order.quote.breakup[*].price.value"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CURRENCY_64
+      attr: "$.message.order.quote.breakup[*].price.currency"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_VALUE_65
+      attr: "$.message.order.quote.breakup[*].price.value"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_TTL
+      attr: "$.message.order.quote.ttl"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_URI
+      attr: "$.message.order.payment.uri"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_TL_METHOD
+      attr: "$.message.order.payment.tl_method"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_AMOUNT
+      attr: "$.message.order.payment.params.amount"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CURRENCY_70
+      attr: "$.message.order.payment.params.currency"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_TRANSACTION_ID
+      attr: "$.message.order.payment.params.transaction_id"
+      _RETURN_: attr are present
+    - _NAME_: VALIDATE_ENUM_MANUAL_1
+      enumList:
+      - NOT-PAID
+      - PAID
+      enumPath: "$.message.order.payments[*].status"
+      _RETURN_: enumPath all in enumList && enumPath are present
+    - _NAME_: REQUIRED_MESSAGE_TYPE_73
+      attr: "$.message.order.payment.type"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - ON-ORDER
+      - ON-FULFILLMENT
+      - POST-FULFILLMENT
+    - _NAME_: VALIDATE_ENUM_MANUAL_2
+      enumList:
+      - BPP
+      - BAP
+      enumPath: "$.message.order.payments[*].collected_by"
+      _RETURN_: enumPath all in enumList && enumPath are present
+    - _NAME_: VALIDATE_ENUM_3
+      enumList:
+      - PRE-ORDER
+      - ON-FULFILLMENT
+      - POST-FULFILLMENT
+      enumPath: "$.message.order.payments[*].type"
+      _RETURN_: enumPath all in enumList && enumPath are present
+    - _NAME_: REQUIRED_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_TYPE
+      attr: "$.message.order.payment['@ondc/org/buyer_app_finder_fee_type']"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - percent
+      - amount
+    - _NAME_: REQUIRED_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_AMOUNT
+      attr: "$.message.order.payment['@ondc/org/buyer_app_finder_fee_amount']"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_SETTLEMENT_COUNTERPARTY
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_counterparty"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_SETTLEMENT_PHASE
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_phase"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_SETTLEMENT_TYPE
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_type"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - upi
+      - neft
+      - rtgs
+      - wallet
+      - netbanking
+      - paylater
+    - _NAME_: REQUIRED_MESSAGE_UPI_ADDRESS
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].upi_address"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_SETTLEMENT_BANK_ACCOUNT_NO
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_bank_account_no"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_SETTLEMENT_IFSC_CODE
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_ifsc_code"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_BENEFICIARY_NAME
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].beneficiary_name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_BANK_NAME
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].bank_name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_BRANCH_NAME
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].branch_name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_86
+      attr: "$.message.order.id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CREATED_AT_87
+      attr: "$.message.order.created_at"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_UPDATED_AT_88
+      attr: "$.message.order.updated_at"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_COLLECTED_BY_89
+      attr: "$.message.order.payment.collected_by"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - BAP
+      - BPP
+    - _NAME_: REQUIRED_MESSAGE_END
+      attr: "$.message.order.payment.time.range.end"
+      _RETURN_: attr are present
+    - _NAME_: VALID_ENUM_CONTEXT_DOMAIN
+      enumList:
+      - ONDC:RET10
+      - ONDC:RET11
+      - ONDC:RET12
+      - ONDC:RET13
+      - ONDC:RET14
+      - ONDC:RET15
+      - ONDC:RET16
+      - ONDC:RET17
+      - ONDC:RET18
+      - ONDC:RET19
+      enumPath: "$.context.domain"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_STATE
+      enumList:
+      - Cancelled
+      enumPath: "$.message.order.state"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_TYPE
+      enumList:
+      - Delivery
+      - Self-Pickup
+      - Delivery and Self-Pickup
+      enumPath: "$.message.order.fulfillments[*].type"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_CODE
+      enumList:
+      - Cancelled
+      - RTO-Initiated
+      - RTO-Delivered
+      - RTO-Disposed
+      enumPath: "$.message.order.fulfillments[*].state.descriptor.code"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_BREAKUPONDCORGTITLE_TYPE
+      enumList:
+      - item
+      - delivery
+      - packing
+      - tax
+      - misc
+      - discount
+      - discount_f
+      - tax_f
+      - 0
+      enumPath: "$.message.order.quote.breakup[*]['@ondc/org/title_type']"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_COUNT
+      enumList:
+      - 0
+      - 99
+      enumPath: "$.message.order.quote.breakup[*].item.quantity.available.count"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_COUNT_7
+      enumList:
+      - 0
+      - 10
+      enumPath: "$.message.order.quote.breakup[*].item.quantity.maximum.count"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_TYPE_8
+      enumList:
+      - ON-ORDER
+      - ON-FULFILLMENT
+      - POST-FULFILLMENT
+      enumPath: "$.message.order.payment.type"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_SETTLEMENT_TYPE
+      enumList:
+      - upi
+      - neft
+      - rtgs
+      - wallet
+      - netbanking
+      - paylater
+      enumPath: "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_type"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_TYPE
+      enumList:
+      - percent
+      - amount
+      enumPath: "$.message.order.payment['@ondc/org/buyer_app_finder_fee_type']"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_COLLECTED_BY
+      enumList:
+      - BAP
+      - BPP
+      enumPath: "$.message.order.payment.collected_by"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_STATUS
+      enumList:
+      - PAID
+      - NOT-PAID
+      enumPath: "$.message.order.payment.status"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_PAYMENTONDCORGSETTLEMENT_BASIS
+      enumList:
+      - shipment
+      - delivery
+      - return_window_expiry
+      enumPath: "$.message.order.payment['@ondc/org/settlement_basis']"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    on_update:
+    - _NAME_: REQUIRED_CONTEXT_DOMAIN
+      attr: "$.context.domain"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - ONDC:RET10
+      - ONDC:RET11
+      - ONDC:RET12
+      - ONDC:RET13
+      - ONDC:RET14
+      - ONDC:RET15
+      - ONDC:RET16
+      - ONDC:RET17
+      - ONDC:RET18
+      - ONDC:RET19
+    - _NAME_: REQUIRED_CONTEXT_COUNTRY
+      attr: "$.context.country"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_CITY
+      attr: "$.context.city"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_ACTION
+      attr: "$.context.action"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_CORE_VERSION
+      attr: "$.context.core_version"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BAP_ID
+      attr: "$.context.bap_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BAP_URI
+      attr: "$.context.bap_uri"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BPP_ID
+      attr: "$.context.bpp_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BPP_URI
+      attr: "$.context.bpp_uri"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TRANSACTION_ID
+      attr: "$.context.transaction_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_MESSAGE_ID
+      attr: "$.context.message_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TIMESTAMP
+      attr: "$.context.timestamp"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID
+      attr: "$.message.order.id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_STATE
+      attr: "$.message.order.state"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - Created
+      - Accepted
+      - In-progress
+      - Completed
+      - Cancelled
+    - _NAME_: REQUIRED_MESSAGE_ID_15
+      attr: "$.message.order.provider.id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_16
+      attr: "$.message.order.provider.locations[*].id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_17
+      attr: "$.message.order.items[*].id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_COUNT
+      attr: "$.message.order.items[*].quantity.count"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_FULFILLMENT_ID
+      attr: "$.message.order.items[*].fulfillment_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CURRENCY
+      attr: "$.message.order.quote.price.currency"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_VALUE
+      attr: "$.message.order.quote.price.value"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_BREAKUPONDCORGTITLE_TYPE
+      attr: "$.message.order.quote.breakup[*]['@ondc/org/title_type']"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - item
+      - delivery
+      - packing
+      - tax
+      - misc
+      - discount
+      - discount_f
+      - tax_f
+      - 0
+    - _NAME_: REQUIRED_MESSAGE_NAME
+      attr: "$.message.order.billing.address.name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CITY
+      attr: "$.message.order.billing.address.city"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_STATE_25
+      attr: "$.message.order.billing.address.state"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_COUNTRY
+      attr: "$.message.order.billing.address.country"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_PHONE
+      attr: "$.message.order.billing.phone"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_EMAIL
+      attr: "$.message.order.billing.email"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_UPDATED_AT
+      attr: "$.message.order.billing.updated_at"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_30
+      attr: "$.message.order.fulfillments[*].id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_FULFILLMENTSONDCORGPROVIDER_NAME
+      attr: "$.message.order.fulfillments[*]['@ondc/org/provider_name']"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CODE
+      attr: "$.message.order.fulfillments[*].state.descriptor.code"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - Accepted
+      - Cancelled
+      - Pending
+      - Order-delivered
+      - Return_Initiated
+      - Return_Pick_Failed
+      - Return_Approved
+      - Return_Picked
+      - Return_Delivered
+      - Liquidated
+      - Return_Rejected
+    - _NAME_: REQUIRED_MESSAGE_TYPE
+      attr: "$.message.order.fulfillments[*].type"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - Cancel
+      - Delivery
+      - Return
+    - _NAME_: REQUIRED_MESSAGE_TRACKING
+      attr: "$.message.order.fulfillments[*].tracking"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_FULFILLMENTSONDCORGTAT
+      attr: "$.message.order.fulfillments[*]['@ondc/org/TAT']"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_36
+      attr: "$.message.order.fulfillments[*].start.location.id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_NAME_37
+      attr: "$.message.order.fulfillments[*].start.location.descriptor.name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_GPS
+      attr: "$.message.order.fulfillments[*].start.location.gps"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_LOCALITY
+      attr: "$.message.order.fulfillments[*].start.location.address.locality"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CITY_40
+      attr: "$.message.order.fulfillments[*].start.location.address.city"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_AREA_CODE
+      attr: "$.message.order.fulfillments[*].start.location.address.area_code"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_STATE_42
+      attr: "$.message.order.fulfillments[*].start.location.address.state"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CODE_43
+      attr: "$.message.order.fulfillments[*].start.instructions.code"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_NAME_44
+      attr: "$.message.order.fulfillments[*].start.instructions.name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_SHORT_DESC
+      attr: "$.message.order.fulfillments[*].start.instructions.short_desc"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_LONG_DESC
+      attr: "$.message.order.fulfillments[*].start.instructions.long_desc"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_PHONE_47
+      attr: "$.message.order.fulfillments[*].start.contact.phone"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_EMAIL_48
+      attr: "$.message.order.fulfillments[*].start.contact.email"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_START
+      attr: "$.message.order.fulfillments[*].start.time.range.start"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_END
+      attr: "$.message.order.fulfillments[*].start.time.range.end"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_TIMESTAMP
+      attr: "$.message.order.fulfillments[*].start.time.timestamp"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_GPS_52
+      attr: "$.message.order.fulfillments[*].end.location.gps"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_NAME_53
+      attr: "$.message.order.fulfillments[*].end.location.address.name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_BUILDING
+      attr: "$.message.order.fulfillments[*].end.location.address.building"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_LOCALITY_55
+      attr: "$.message.order.fulfillments[*].end.location.address.locality"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CITY_56
+      attr: "$.message.order.fulfillments[*].end.location.address.city"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_STATE_57
+      attr: "$.message.order.fulfillments[*].end.location.address.state"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_COUNTRY_58
+      attr: "$.message.order.fulfillments[*].end.location.address.country"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_AREA_CODE_59
+      attr: "$.message.order.fulfillments[*].end.location.address.area_code"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_NAME_60
+      attr: "$.message.order.fulfillments[*].end.person.name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_PHONE_61
+      attr: "$.message.order.fulfillments[*].end.contact.phone"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_EMAIL_62
+      attr: "$.message.order.fulfillments[*].end.contact.email"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_START_63
+      attr: "$.message.order.fulfillments[*].end.time.range.start"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_END_64
+      attr: "$.message.order.fulfillments[*].end.time.range.end"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_TIMESTAMP_65
+      attr: "$.message.order.fulfillments[*].end.time.timestamp"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_AMOUNT
+      attr: "$.message.order.payment.params.amount"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CURRENCY_67
+      attr: "$.message.order.payment.params.currency"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_TRANSACTION_ID
+      attr: "$.message.order.payment.params.transaction_id"
+      _RETURN_: attr are present
+    - _NAME_: VALIDATE_ENUM_MANUAL_1
+      enumList:
+      - NOT-PAID
+      - PAID
+      enumPath: "$.message.order.payments[*].status"
+      _RETURN_: enumPath all in enumList && enumPath are present
+    - _NAME_: REQUIRED_MESSAGE_TYPE_70
+      attr: "$.message.order.payment.type"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - ON-ORDER
+      - ON-FULFILLMENT
+      - POST-FULFILLMENT
+    - _NAME_: VALIDATE_ENUM_MANUAL_2
+      enumList:
+      - BPP
+      - BAP
+      enumPath: "$.message.order.payments[*].collected_by"
+      _RETURN_: enumPath all in enumList && enumPath are present
+    - _NAME_: VALIDATE_ENUM_3
+      enumList:
+      - PRE-ORDER
+      - ON-FULFILLMENT
+      - POST-FULFILLMENT
+      enumPath: "$.message.order.payments[*].type"
+      _RETURN_: enumPath all in enumList && enumPath are present
+    - _NAME_: REQUIRED_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_TYPE
+      attr: "$.message.order.payment['@ondc/org/buyer_app_finder_fee_type']"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - percent
+      - amount
+    - _NAME_: REQUIRED_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_AMOUNT
+      attr: "$.message.order.payment['@ondc/org/buyer_app_finder_fee_amount']"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_SETTLEMENT_COUNTERPARTY
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_counterparty"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_SETTLEMENT_PHASE
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_phase"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_SETTLEMENT_TYPE
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_type"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - upi
+      - neft
+      - rtgs
+      - wallet
+      - netbanking
+      - paylater
+    - _NAME_: REQUIRED_MESSAGE_BENEFICIARY_NAME
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].beneficiary_name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_SETTLEMENT_BANK_ACCOUNT_NO
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_bank_account_no"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_SETTLEMENT_IFSC_CODE
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_ifsc_code"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_BANK_NAME
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].bank_name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_BRANCH_NAME
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].branch_name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CREATED_AT
+      attr: "$.message.order.created_at"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_UPDATED_AT_83
+      attr: "$.message.order.updated_at"
+      _RETURN_: attr are present
+    - _NAME_: VALID_ENUM_CONTEXT_DOMAIN
+      enumList:
+      - ONDC:RET10
+      - ONDC:RET11
+      - ONDC:RET12
+      - ONDC:RET13
+      - ONDC:RET14
+      - ONDC:RET15
+      - ONDC:RET16
+      - ONDC:RET17
+      - ONDC:RET18
+      - ONDC:RET19
+      enumPath: "$.context.domain"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_CODE
+      enumList:
+      - Accepted
+      - Cancelled
+      - Pending
+      - Order-delivered
+      - Return_Initiated
+      - Return_Pick_Failed
+      - Return_Approved
+      - Return_Picked
+      - Return_Delivered
+      - Liquidated
+      - Return_Rejected
+      enumPath: "$.message.order.fulfillments[*].state.descriptor.code"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_TYPE
+      enumList:
+      - Cancel
+      - Delivery
+      - Return
+      enumPath: "$.message.order.fulfillments[*].type"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_CODE_4
+      enumList:
+      - 1
+      - 2
+      - 3
+      - 4
+      enumPath: "$.message.order.fulfillments[*].end.instructions.code"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_BREAKUPONDCORGTITLE_TYPE
+      enumList:
+      - item
+      - delivery
+      - packing
+      - tax
+      - misc
+      - discount
+      - discount_f
+      - tax_f
+      - 0
+      enumPath: "$.message.order.quote.breakup[*]['@ondc/org/title_type']"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_COUNT
+      enumList:
+      - 0
+      - 99
+      enumPath: "$.message.order.quote.breakup[*].item.quantity.available.count"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_COUNT_7
+      enumList:
+      - 0
+      - 10
+      enumPath: "$.message.order.quote.breakup[*].item.quantity.maximum.count"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_TYPE_8
+      enumList:
+      - ON-ORDER
+      - ON-FULFILLMENT
+      - POST-FULFILLMENT
+      enumPath: "$.message.order.payment.type"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_SETTLEMENT_TYPE
+      enumList:
+      - upi
+      - neft
+      - rtgs
+      - wallet
+      - netbanking
+      - paylater
+      enumPath: "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_type"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_TYPE
+      enumList:
+      - percent
+      - amount
+      enumPath: "$.message.order.payment['@ondc/org/buyer_app_finder_fee_type']"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_COLLECTED_BY
+      enumList:
+      - BAP
+      - BPP
+      enumPath: "$.message.order.payment.collected_by"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_STATUS
+      enumList:
+      - PAID
+      - NOT-PAID
+      enumPath: "$.message.order.payment.status"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_PAYMENTONDCORGSETTLEMENT_BASIS
+      enumList:
+      - shipment
+      - delivery
+      - return_window_expiry
+      enumPath: "$.message.order.payment['@ondc/org/settlement_basis']"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_STATE
+      enumList:
+      - Created
+      - Accepted
+      - In-progress
+      - Completed
+      - Cancelled
+      enumPath: "$.message.order.state"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    on_status:
+    - _NAME_: REQUIRED_CONTEXT_DOMAIN
+      attr: "$.context.domain"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - ONDC:RET10
+      - ONDC:RET11
+      - ONDC:RET12
+      - ONDC:RET13
+      - ONDC:RET14
+      - ONDC:RET15
+      - ONDC:RET16
+      - ONDC:RET17
+      - ONDC:RET18
+      - ONDC:RET19
+    - _NAME_: REQUIRED_CONTEXT_COUNTRY
+      attr: "$.context.country"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_CITY
+      attr: "$.context.city"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_ACTION
+      attr: "$.context.action"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_CORE_VERSION
+      attr: "$.context.core_version"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BAP_ID
+      attr: "$.context.bap_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BAP_URI
+      attr: "$.context.bap_uri"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BPP_ID
+      attr: "$.context.bpp_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_BPP_URI
+      attr: "$.context.bpp_uri"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TRANSACTION_ID
+      attr: "$.context.transaction_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_MESSAGE_ID
+      attr: "$.context.message_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_CONTEXT_TIMESTAMP
+      attr: "$.context.timestamp"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID
+      attr: "$.message.order.id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_STATE
+      attr: "$.message.order.state"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - Created
+      - Accepted
+      - In-progress
+      - Completed
+      - Cancelled
+    - _NAME_: REQUIRED_MESSAGE_ID_15
+      attr: "$.message.order.provider.id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_16
+      attr: "$.message.order.provider.locations[*].id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_17
+      attr: "$.message.order.items[*].id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_COUNT
+      attr: "$.message.order.items[*].quantity.count"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_FULFILLMENT_ID
+      attr: "$.message.order.items[*].fulfillment_id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_NAME
+      attr: "$.message.order.billing.address.name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_BUILDING
+      attr: "$.message.order.billing.address.building"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_LOCALITY
+      attr: "$.message.order.billing.address.locality"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CITY
+      attr: "$.message.order.billing.address.city"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_STATE_24
+      attr: "$.message.order.billing.address.state"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_COUNTRY
+      attr: "$.message.order.billing.address.country"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_AREA_CODE
+      attr: "$.message.order.billing.address.area_code"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_PHONE
+      attr: "$.message.order.billing.phone"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CREATED_AT
+      attr: "$.message.order.billing.created_at"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_UPDATED_AT
+      attr: "$.message.order.billing.updated_at"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_30
+      attr: "$.message.order.fulfillments[*].id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_FULFILLMENTSONDCORGPROVIDER_NAME
+      attr: "$.message.order.fulfillments[*]['@ondc/org/provider_name']"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CODE
+      attr: "$.message.order.fulfillments[*].state.descriptor.code"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - Pending
+      - Packed
+      - Pickup-approved
+      - Pickup-rejected
+      - Order-picked-up
+      - Out-for-delivery
+      - Order-delivered
+      - RTO-Initiated
+      - RTO-Delivered
+      - RTO-Disposed
+    - _NAME_: REQUIRED_MESSAGE_TYPE
+      attr: "$.message.order.fulfillments[*].type"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_FULFILLMENTSONDCORGTAT
+      attr: "$.message.order.fulfillments[*]['@ondc/org/TAT']"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_ID_35
+      attr: "$.message.order.fulfillments[*].start.location.id"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_NAME_36
+      attr: "$.message.order.fulfillments[*].start.location.descriptor.name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_GPS
+      attr: "$.message.order.fulfillments[*].start.location.gps"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_LOCALITY_38
+      attr: "$.message.order.fulfillments[*].start.location.address.locality"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CITY_39
+      attr: "$.message.order.fulfillments[*].start.location.address.city"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_AREA_CODE_40
+      attr: "$.message.order.fulfillments[*].start.location.address.area_code"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_STATE_41
+      attr: "$.message.order.fulfillments[*].start.location.address.state"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_NAME_42
+      attr: "$.message.order.fulfillments[*].start.instructions.name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_SHORT_DESC
+      attr: "$.message.order.fulfillments[*].start.instructions.short_desc"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_LONG_DESC
+      attr: "$.message.order.fulfillments[*].start.instructions.long_desc"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_PHONE_45
+      attr: "$.message.order.fulfillments[*].start.contact.phone"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_START
+      attr: "$.message.order.fulfillments[*].start.time.range.start"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_END
+      attr: "$.message.order.fulfillments[*].start.time.range.end"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_TIMESTAMP
+      attr: "$.message.order.fulfillments[*].start.time.timestamp"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_GPS_49
+      attr: "$.message.order.fulfillments[*].end.location.gps"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_NAME_50
+      attr: "$.message.order.fulfillments[*].end.location.address.name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_BUILDING_51
+      attr: "$.message.order.fulfillments[*].end.location.address.building"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_LOCALITY_52
+      attr: "$.message.order.fulfillments[*].end.location.address.locality"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CITY_53
+      attr: "$.message.order.fulfillments[*].end.location.address.city"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_STATE_54
+      attr: "$.message.order.fulfillments[*].end.location.address.state"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_COUNTRY_55
+      attr: "$.message.order.fulfillments[*].end.location.address.country"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_AREA_CODE_56
+      attr: "$.message.order.fulfillments[*].end.location.address.area_code"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_NAME_57
+      attr: "$.message.order.fulfillments[*].end.person.name"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_PHONE_58
+      attr: "$.message.order.fulfillments[*].end.contact.phone"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_EMAIL
+      attr: "$.message.order.fulfillments[*].end.contact.email"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_START_60
+      attr: "$.message.order.fulfillments[*].end.time.range.start"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_END_61
+      attr: "$.message.order.fulfillments[*].end.time.range.end"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_TIMESTAMP_62
+      attr: "$.message.order.fulfillments[*].end.time.timestamp"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CURRENCY
+      attr: "$.message.order.quote.price.currency"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_VALUE
+      attr: "$.message.order.quote.price.value"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_BREAKUPONDCORGITEM_ID
+      attr: "$.message.order.quote.breakup[*]['@ondc/org/item_id']"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_COUNT_66
+      attr: "$.message.order.quote.breakup[*]['@ondc/org/item_quantity'].count"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_TITLE
+      attr: "$.message.order.quote.breakup[*].title"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_BREAKUPONDCORGTITLE_TYPE
+      attr: "$.message.order.quote.breakup[*]['@ondc/org/title_type']"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - item
+      - delivery
+      - packing
+      - tax
+      - misc
+      - discount
+      - discount_f
+      - tax_f
+      - 0
+    - _NAME_: REQUIRED_MESSAGE_CURRENCY_69
+      attr: "$.message.order.quote.breakup[*].price.currency"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_VALUE_70
+      attr: "$.message.order.quote.breakup[*].price.value"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_URI
+      attr: "$.message.order.payment.uri"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_TL_METHOD
+      attr: "$.message.order.payment.tl_method"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_AMOUNT
+      attr: "$.message.order.payment.params.amount"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CURRENCY_74
+      attr: "$.message.order.payment.params.currency"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_TRANSACTION_ID
+      attr: "$.message.order.payment.params.transaction_id"
+      _RETURN_: attr are present
+    - _NAME_: VALIDATE_ENUM_MANUAL_1
+      enumList:
+      - NOT-PAID
+      - PAID
+      enumPath: "$.message.order.payments[*].status"
+      _RETURN_: enumPath all in enumList && enumPath are present
+    - _NAME_: REQUIRED_MESSAGE_TYPE_77
+      attr: "$.message.order.payment.type"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - ON-ORDER
+      - ON-FULFILLMENT
+      - POST-FULFILLMENT
+    - _NAME_: VALIDATE_ENUM_MANUAL_2
+      enumList:
+      - BPP
+      - BAP
+      enumPath: "$.message.order.payments[*].collected_by"
+      _RETURN_: enumPath all in enumList && enumPath are present
+    - _NAME_: VALIDATE_ENUM_3
+      enumList:
+      - PRE-ORDER
+      - ON-FULFILLMENT
+      - POST-FULFILLMENT
+      enumPath: "$.message.order.payments[*].type"
+      _RETURN_: enumPath all in enumList && enumPath are present
+    - _NAME_: REQUIRED_MESSAGE_SETTLEMENT_COUNTERPARTY
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_counterparty"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_SETTLEMENT_TYPE
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_type"
+      _RETURN_: attr are present && attr all in enumList
+      enumList:
+      - upi
+      - neft
+      - rtgs
+      - wallet
+      - netbanking
+      - paylater
+    - _NAME_: REQUIRED_MESSAGE_SETTLEMENT_BANK_ACCOUNT_NO
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_bank_account_no"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_SETTLEMENT_IFSC_CODE
+      attr: "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_ifsc_code"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_CREATED_AT_83
+      attr: "$.message.order.created_at"
+      _RETURN_: attr are present
+    - _NAME_: REQUIRED_MESSAGE_UPDATED_AT_84
+      attr: "$.message.order.updated_at"
+      _RETURN_: attr are present
+    - _NAME_: VALID_ENUM_CONTEXT_DOMAIN
+      enumList:
+      - ONDC:RET10
+      - ONDC:RET11
+      - ONDC:RET12
+      - ONDC:RET13
+      - ONDC:RET14
+      - ONDC:RET15
+      - ONDC:RET16
+      - ONDC:RET17
+      - ONDC:RET18
+      - ONDC:RET19
+      enumPath: "$.context.domain"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_CODE
+      enumList:
+      - Pending
+      - Packed
+      - Pickup-approved
+      - Pickup-rejected
+      - Order-picked-up
+      - Out-for-delivery
+      - Order-delivered
+      - RTO-Initiated
+      - RTO-Delivered
+      - RTO-Disposed
+      enumPath: "$.message.order.fulfillments[*].state.descriptor.code"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_CODE_3
+      enumList:
+      - 1
+      - 2
+      - 3
+      - 4
+      enumPath: "$.message.order.fulfillments[*].end.instructions.code"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_BREAKUPONDCORGTITLE_TYPE
+      enumList:
+      - item
+      - delivery
+      - packing
+      - tax
+      - misc
+      - discount
+      - discount_f
+      - tax_f
+      - 0
+      enumPath: "$.message.order.quote.breakup[*]['@ondc/org/title_type']"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_COUNT
+      enumList:
+      - 0
+      - 99
+      enumPath: "$.message.order.quote.breakup[*].item.quantity.available.count"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_COUNT_6
+      enumList:
+      - 0
+      - 10
+      enumPath: "$.message.order.quote.breakup[*].item.quantity.maximum.count"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_TYPE
+      enumList:
+      - ON-ORDER
+      - ON-FULFILLMENT
+      - POST-FULFILLMENT
+      enumPath: "$.message.order.payment.type"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_SETTLEMENT_TYPE
+      enumList:
+      - upi
+      - neft
+      - rtgs
+      - wallet
+      - netbanking
+      - paylater
+      enumPath: "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_type"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_PAYMENTONDCORGBUYER_APP_FINDER_FEE_TYPE
+      enumList:
+      - percent
+      - amount
+      enumPath: "$.message.order.payment['@ondc/org/buyer_app_finder_fee_type']"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_COLLECTED_BY
+      enumList:
+      - BAP
+      - BPP
+      enumPath: "$.message.order.payment.collected_by"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_STATUS
+      enumList:
+      - PAID
+      - NOT-PAID
+      enumPath: "$.message.order.payment.status"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_PAYMENTONDCORGSETTLEMENT_BASIS
+      enumList:
+      - shipment
+      - delivery
+      - return_window_expiry
+      enumPath: "$.message.order.payment['@ondc/org/settlement_basis']"
+      _CONTINUE_: "!(enumPath are present)"
+      _RETURN_: enumPath all in enumList
+    - _NAME_: VALID_ENUM_MESSAGE_STATE
+    enumList:
+    - Created
+    - Accepted
+    - In-progress
+    - Completed
+    - Cancelled
+    enumPath: "$.message.order.state"
+    _CONTINUE_: "!(enumPath are present)"
+    _RETURN_: enumPath all in enumList
