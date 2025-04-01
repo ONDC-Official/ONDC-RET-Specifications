@@ -1,0 +1,26 @@
+type: object
+properties:
+  context:
+    $ref: '../beckn_yaml.yaml#/components/schemas/Context'
+  message:
+    type: object
+    properties:
+      order_id:
+        $ref: '../beckn_yaml.yaml#/components/schemas/Order/properties/id'
+      cancellation_reason_id:
+        $ref: '../beckn_yaml.yaml#/components/schemas/Option/properties/id'
+      descriptor:
+        description: Describes the description of a real-world object.
+        type: object
+        properties:
+          name:
+            type: string
+          short_desc:
+            type: string
+          tags:
+            $ref: "../beckn_yaml.yaml#/components/schemas/TagGroup"
+    required:
+      - order_id
+required:
+  - context
+  - message

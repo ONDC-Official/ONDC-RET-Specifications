@@ -1,0 +1,192 @@
+context:
+  parent: true
+  domain:
+    description: Specifies the domain in which the transaction operates
+    required: Required
+    usage: ONDC:RET14
+    reference: if any
+  country:
+    description: Defines the country where the transaction is taking place
+    required: Required
+    usage: IND
+    reference: if any
+  city:
+    description: Represents the city in which the transaction is initiated
+    required: Required
+    usage: 'std:080, '
+    reference: if any
+  action:
+    description: Defines the intent of the current transaction
+    required: Required
+    usage: update
+    reference: if any
+  core_version:
+    description: Specifies the ONDC protocol version being used
+    required: Required
+    usage: 1.2.5
+    reference: if any
+  bap_id:
+    description: Identifies the buyer-side application involved in the transaction
+    required: Required
+    usage: buyerNP.com
+    reference: if any
+  bap_uri:
+    description: Provides the endpoint for communication with the buyer application
+    required: Required
+    usage: https://buyerNP.com/protocol/v1
+    reference: if any
+  bpp_id:
+    description: Identifies the seller-side application involved in the transaction
+    required: Required
+    usage: sellerNP.com
+    reference: if any
+  bpp_uri:
+    description: Provides the endpoint for communication with the seller application
+    required: Required
+    usage: https://sellerNP.com/api/v1/ondc/retail
+    reference: if any
+  transaction_id:
+    description: Ensures uniqueness for tracking the transaction
+    required: Required
+    usage: 5f50f5ab-f0e0-49e5-a4f5-94efdc08984d
+    reference: if any
+  message_id:
+    description: Helps in tracking individual messages within a transaction
+    required: Required
+    usage: 31a1bed4-764a-4704-862d-873cf575d61d, 8729d395-0c7a-48b3-802b-332b9e305404,
+      68b77c3b-28fa-41cc-b004-80058376b5f5, 622983d3-6843-4b34-b96b-dfc8755f7edc,
+      e74b1037-45fb-4cf8-b08d-4e5128488dff
+    reference: if any
+  timestamp:
+    description: Specifies the time when the request was created
+    required: Required
+    usage: '2025-02-15T08:30:45.376Z'
+    reference: if any
+  ttl:
+    description: Defines the time duration for which the message is valid
+    required: Required
+    usage: PT30S
+    reference: if any
+message:
+  parent: true
+  update_target:
+    description: Specifies which part of the order is being updated
+    required: Required
+    usage: item, payment
+    reference: if any
+  order:
+    id:
+      description: Helps in tracking the order within the transaction
+      required: Required
+      usage: ONDC001234,
+      reference: if any
+    fulfillments:
+      id:
+        description: Identifies the specific fulfillment instance
+        required: Required
+        usage: R1, CANCEL-a48b0756-c7fe-469a-bf52-946529b5b2ba
+        reference: if any
+      type:
+        description: Specifies the type of fulfillment (e.g., home delivery, return,
+          cancellation)
+        required: Required
+        usage: Delivery, Return, Cancel
+        reference: if any
+      end:
+        instructions:
+          long_desc:
+            description: 'additional instructions for delivery '
+            required: Optional
+            usage: leave package outside door
+            reference: if any
+          additional_desc:
+            content_type:
+              description: Content type of provided info. enum - "text/html", "text/plain"
+              required: Optional
+              usage: text/html
+              reference: if any
+            url:
+              description: 'URL provided for additional instructions ( URL should be accessible to SNP until fulfillment state is "Order-delivered")'
+              required: Optional
+              usage: www.info.com
+              reference: if any
+        authorization:
+          type:
+            description: 'Type of authorization used '
+            required: Optional
+            usage: OTP
+            reference: if any
+          token:
+            description: Value of authorization token
+            required: Optional
+            usage: OTP code
+            reference: if any
+          valid_from:
+            description: Authorization token valid from
+            required: Optional
+            usage: '2025-01-10T18:00:00.000Z'
+            reference: if any
+          valid_to:
+            description: Authorization token valid till
+            required: Optional
+            usage: '2025-01-10T22:00:00.000Z'
+            reference: if any
+        location:
+          gps:
+            description: GPS coordinates of the fulfillment end location
+            required: Required
+            usage: 12.963691,77.577137
+            reference: if any
+          address:
+            name:
+              description: The name associated with the fulfillment end location
+              required: Required
+              usage: Mr. Mister
+              reference: if any
+            building:
+              description: The building information for the fulfillment end location
+              required: Required
+              usage: Building 230
+              reference: if any
+            locality:
+              description: The locality of the fulfillment end location
+              required: Required
+              usage: KR Market Pedestrian Subway
+              reference: if any
+            city:
+              description: The city of the fulfillment end location
+              required: Required
+              usage: Bengaluru
+              reference: if any
+            state:
+              description: The state of the fulfillment end location
+              required: Required
+              usage: Karnataka
+              reference: if any
+            country:
+              description: The country of the fulfillment end location
+              required: Required
+              usage: IND
+              reference: if any
+            area_code:
+              description: The area code of the fulfillment end location
+              required: Required
+              usage: '560002'
+              reference: if any
+        person:
+          name:
+            description: The name of the person receiving the fulfillment
+            required: Required
+            usage: Mr. Mister
+            reference: if any
+        contact:
+          phone:
+            description: The phone number of the recipient at the fulfillment end location
+            required: Required
+            usage: '9999999999'
+            reference: if any
+          email:
+            description: The email of the recipient at the fulfillment end location
+            required: Required
+            usage: mister@gmail.com
+            reference: if any

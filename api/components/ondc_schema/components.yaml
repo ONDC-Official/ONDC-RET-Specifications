@@ -1,0 +1,275 @@
+components:
+  schemas:
+    Order_Select:
+      description: Describes the details of an order
+      type: object
+      properties:
+        provider:
+          type: object
+          properties:
+            id:
+              $ref: "../beckn_yaml.yaml#/components/schemas/Provider/properties/id"
+            locations:
+              type: array
+              maxItems: 1
+              items:
+                type: object
+                properties:
+                  id:
+                    $ref: "../beckn_yaml.yaml#/components/schemas/Location/properties/id"
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/Item_Select"
+        offers:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                $ref: "../beckn_yaml.yaml#/components/schemas/Offer/properties/id"
+              tags:
+                $ref: "../beckn_yaml.yaml#/components/schemas/TagGroup"
+        fulfillments:
+          type: array
+          items:
+            type: object
+            properties:
+              end:
+                $ref: "../beckn_yaml.yaml#/components/schemas/OrderFulfillment/properties/end/properties/location"
+        payment:
+          $ref: "../beckn_yaml.yaml#/components/schemas/Payment/properties/type"
+    Item_Select:
+      description: Describes a product or a service offered to the end consumer by the provider
+      type: object
+      properties:
+        id:
+          description: This is the most unique identifier of a service item. An example of an Item ID could be the SKU of a product.
+          type: string
+        quantity:
+          type: object
+          properties:
+            count:
+              type: integer
+              minimum: 0
+        tags:
+          $ref: "../beckn_yaml.yaml#/components/schemas/TagGroup"
+    ItemQuantity:
+      description: Describes count or amount of an item
+      type: object
+      properties:
+        available:
+          type: object
+          properties:
+            count:
+              type: integer
+              minimum: 0
+        maximum:
+          type: object
+          properties:
+            count:
+              type: integer
+              minimum: 1
+            measure:
+              $ref: "../beckn_yaml.yaml#/components/schemas/Scalar"
+    Order_On_Select:
+      description: Describes the details of an order
+      type: object
+      properties:
+        provider:
+          type: object
+          properties:
+            id:
+              $ref: "../beckn_yaml.yaml#/components/schemas/Provider/properties/id"
+            locations:
+              type: array
+              maxItems: 1
+              items:
+                type: object
+                properties:
+                  id:
+                    $ref: "../beckn_yaml.yaml#/components/schemas/Location/properties/id"
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/Item_On_Select"
+        offers:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                $ref: "../beckn_yaml.yaml#/components/schemas/Offer/properties/id"
+              tags:
+                $ref: "../beckn_yaml.yaml#/components/schemas/TagGroup"
+        fulfillments:
+          type: array
+          items:
+            $ref: "#/components/schemas/Fulfillment_On_Select"
+        quote:
+          $ref: "../beckn_yaml.yaml#/components/schemas/Quotation"
+        payment:
+          $ref: "../beckn_yaml.yaml#/components/schemas/Payment/properties/type"
+    Item_On_Select:
+      description: Describes a product or a service offered to the end consumer by the provider
+      type: object
+      properties:
+        id:
+          description: This is the most unique identifier of a service item. An example of an Item ID could be the SKU of a product.
+          type: string
+        fulfillment_id:
+          type: string
+          description: Unique reference ID to the fulfillment of an order
+        fulfillment_ids:
+          type: array
+          items:
+            type: string
+            description: Unique reference ID to the fulfillment of an order
+        tags:
+          $ref: "../beckn_yaml.yaml#/components/schemas/TagGroup"
+    Fulfillment_On_Select:
+      description: Describes how a single product/service will be rendered/fulfilled to the end customer
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique reference ID to the fulfillment of an order
+        type:
+          type: string
+          description: This describes the type of fulfillment ("Pickup" - Buyer picks up from store by themselves or through their logistics provider; "Delivery" - seller delivers to buyer)
+          enum:
+            - Delivery
+            - Pickup
+            - Delivery and Pickup
+            - Reverse QC
+        "@ondc/org/category":
+          type: string
+          description: Fulfillment Category
+        "@ondc/org/TAT":
+          description: fulfillment turnaround time in ISO8601 durations format e.g. 'PT24H' indicates 24 hour TAT
+          type: string
+        state:
+          $ref: "../beckn_yaml.yaml#/components/schemas/State"
+        tracking:
+          type: boolean
+          description: Indicates whether the fulfillment allows tracking
+          default: false
+        start:
+          description: Details on the end of fulfillment
+          type: object
+          properties:
+            time:
+              description: Describes time in its various forms. It can be a single point in time; duration; or a structured timetable of operations
+              type: object
+              properties:
+                range:
+                  type: object
+                  properties:
+                    start:
+                      type: string
+                      format: date-time
+                    end:
+                      type: string
+                      format: date-time
+        end:
+          description: Details on the start of fulfillment
+          type: object
+          properties:
+            location:
+              $ref: "../beckn_yaml.yaml#/components/schemas/Location"
+            time:
+              description: Describes time in its various forms. It can be a single point in time; duration; or a structured timetable of operations
+              type: object
+              properties:
+                range:
+                  type: object
+                  properties:
+                    start:
+                      type: string
+                      format: date-time
+                    end:
+                      type: string
+                      format: date-time
+        tags:
+          $ref: "../beckn_yaml.yaml#/components/schemas/TagGroup"
+      required:
+        - id
+        - type
+    Order_Update:
+      description: Describes the details of an order
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for Order across the network
+        items:
+          type: array
+          items:
+            $ref: "../beckn_yaml.yaml#/components/schemas/OrderItem"
+        fulfillments:
+          type: array
+          items:
+            description: Describes how a single product/service will be rendered/fulfilled to the end customer
+            type: object
+            properties:
+              id:
+                type: string
+                description: Unique reference ID to the fulfillment of an order
+              type:
+                type: string
+                description: This describes the type of fulfillment ("Pickup" - Buyer picks up from store by themselves or through their logistics provider; "Delivery" - seller delivers to buyer)
+                enum:
+                  - Delivery
+                  - Return
+              tags:
+                $ref: "../beckn_yaml.yaml#/components/schemas/TagGroup"
+        payment:
+          description: Describes a payment
+          type: object
+          properties:
+            collected_by:
+              type: string
+              enum:
+                - BAP
+                - BPP
+            status:
+              type: string
+              enum:
+                - PAID
+                - NOT-PAID
+            time:
+              type: object
+              properties:
+                timestamp:
+                  type: string
+                  format: date-time
+            "@ondc/org/settlement_details":
+              type: array
+              items:
+                type: object
+                properties:
+                  settlement_counterparty:
+                    type: string
+                    enum:
+                      - buyer
+                      - buyer-app
+                      - seller-app
+                      - logistics-provider
+                  settlement_phase:
+                    type: string
+                    enum:
+                      - sale-amount
+                      - withholding-amount
+                      - refund
+                  settlement_amount:
+                    type: integer
+                  settlement_type:
+                    type: string
+                    enum:
+                      - neft
+                      - rtgs
+                      - upi
+                  settlement_timestamp:
+                    description: Settlement transaction timestamp
+                    type: string
+                    format: date-time

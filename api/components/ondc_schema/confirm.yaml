@@ -1,0 +1,70 @@
+type: object
+properties:
+  context:
+    $ref: '../beckn_yaml.yaml#/components/schemas/Context'
+  message:
+    type: object
+    properties:
+      order:
+        description: Describes the details of an order
+        type: object
+        properties:
+          id:
+            type: string
+            description: Unique identifier for Order across the network
+          state:
+            type: string
+          provider:
+            type: object
+            properties:
+              id:
+                $ref: '../beckn_yaml.yaml#/components/schemas/Provider/properties/id'
+              locations:
+                type: array
+                maxItems: 1
+                items:
+                  type: object
+                  properties:
+                    id:
+                      $ref: '../beckn_yaml.yaml#/components/schemas/Location/properties/id'
+          items:
+            type: array
+            items:
+              $ref: '../beckn_yaml.yaml#/components/schemas/Item'
+          offers:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  $ref: '../beckn_yaml.yaml#/components/schemas/Offer/properties/id'
+          documents:
+            type: array
+            items:
+              $ref: '../beckn_yaml.yaml#/components/schemas/Document'
+          billing:
+            $ref: '../beckn_yaml.yaml#/components/schemas/Billing'
+          fulfillments:
+            type: array
+            items:
+              $ref: "../beckn_yaml.yaml#/components/schemas/Fulfillment"
+          cancellation_terms:
+            description: The cancellation terms of this order. This can be overriden at the item level cancellation terms.
+            type: array
+            items:
+              $ref: '../beckn_yaml.yaml#/components/schemas/CancellationTerm'
+          quote:
+            $ref: '../beckn_yaml.yaml#/components/schemas/Quotation'
+          payment:
+            $ref: '../beckn_yaml.yaml#/components/schemas/Payment'
+          created_at:
+            type: string
+            format: date-time
+          updated_at:
+            type: string
+            format: date-time
+    required:
+      - order
+required:
+  - context
+  - message

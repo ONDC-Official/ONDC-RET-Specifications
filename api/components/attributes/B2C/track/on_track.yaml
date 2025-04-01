@@ -1,0 +1,98 @@
+context:
+  parent: true
+  domain:
+    description: The domain of the ONDC transaction
+    required: Required
+    usage: ONDC:RET11
+    reference: if any
+  action:
+    description: Action being performed
+    required: Required
+    usage: on_track
+    reference: if any
+  country:
+    description: Country code
+    required: Required
+    usage: IND
+    reference: if any
+  city:
+    description: City code
+    required: Required
+    usage: std:080
+    reference: if any
+  core_version:
+    description: Version of ONDC core protocol
+    required: Required
+    usage: 1.2.0
+    reference: if any
+  bap_id:
+    description: Buyer App Participant ID
+    required: Required
+    usage: buyerNP.com
+    reference: if any
+  bap_uri:
+    description: Buyer App URI
+    required: Required
+    usage: https://buyerNP.com/ondc
+    reference: if any
+  bpp_id:
+    description: Seller App Participant ID
+    required: Required
+    usage: sellerNP.com
+    reference: if any
+  bpp_uri:
+    description: Seller App URI
+    required: Required
+    usage: https://sellerNP.com/ondc
+    reference: if any
+  transaction_id:
+    description: Unique identifier for transaction
+    required: Required
+    usage: T2
+    reference: if any
+  message_id:
+    description: Unique identifier for message
+    required: Required
+    usage: M11
+    reference: if any
+  timestamp:
+    description: Timestamp of the message
+    required: Required
+    usage: '2023-06-04T06:00:00.000Z'
+    reference: if any
+message:
+  parent: true
+  tracking:
+    parent: true
+    status:
+      description: Current status of tracking
+      required: Required
+      usage: active
+      reference: if any
+    id:
+      description: Unique identifier for tracking
+      required: Required
+      usage: F1
+      reference: if any
+    location:
+      gps:
+        description: Current GPS location
+        required: Required
+        usage: 12.974002,77.613458
+        reference: if any
+      time:
+        timestamp:
+          description: Timestamp of tracking event
+          required: Required
+          usage: '2023-06-02T06:20:00.000Z'
+          reference: if any
+      updated_at:
+        description: Last update timestamp
+        required: Required
+        usage: '2023-06-02T06:30:00.000Z'
+        reference: if any
+    url:
+      description: URL for tracking details
+      required: Required
+      usage: https://sellerNP.com/ondc/tracking/F1
+      reference: if any

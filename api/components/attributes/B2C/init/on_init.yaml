@@ -1,0 +1,145 @@
+context:
+  parent: true
+  domain:
+    description: Identifies the ONDC retail domain
+    required: Required
+    usage: ONDC:RET10
+    reference: any
+  action:
+    description: Describes the action performed
+    required: Required
+    usage: on_init
+    reference: any
+  country:
+    description: Country where the transaction occurs
+    required: Required
+    usage: IND
+    reference: any
+  core_version:
+    description: Version of the ONDC core protocol being used
+    required: Required
+    usage: 1.2.5
+    reference: any
+  bap_id:
+    description: Identifies the buyer application involved
+    required: Required
+    usage: buyerNP.com
+    reference: any
+  bap_uri:
+    description: URI of the buyer application
+    required: Required
+    usage: https://buyerNP.com/ondc
+    reference: any
+  bpp_uri:
+    description: URI of the seller application
+    required: Required
+    usage: https://sellerNP.com/ondc
+    reference: any
+  transaction_id:
+    description: Unique identifier for the transaction
+    required: Required
+    usage: 072ccd93-3928-49d4-b6ef-9c8bf69745f8
+    reference: any
+  message_id:
+    description: Unique identifier for the message
+    required: Required
+    usage: 56dd08ab-c183-49c4-ae1f-6040f0801618
+    reference: any
+  timestamp:
+    description: Timestamp when the message was created
+    required: Required
+    usage: '2024-12-23T07:01:44.759Z'
+    reference: any
+  bpp_id:
+    description: Identifies the seller application involved
+    required: Required
+    usage: sellerNP.com
+    reference: any
+  city:
+    description: Standardized city code
+    required: Required
+    usage: std:02
+    reference: an
+message:
+  parent: true
+  order:
+    parent: true
+    provider:
+      parent: true
+      id:
+        description: Unique identifier for the provider
+        required: Required
+        usage: P1
+        reference: any
+      locations:
+        id:
+          description: Location ID of the provider
+          required: Required
+          usage: L1
+          reference: any
+    items:
+      parent: true
+      id:
+        description: Unique identifier for the item
+        required: Required
+        usage: I1
+        reference: any
+      quantity:
+        count:
+          description: Quantity of the ordered item
+          required: Required
+          usage: '1'
+          reference: any
+      fulfillment_id:
+        description: ID of the fulfillment method
+        required: Required
+        usage: F1
+        reference: any
+    billing:
+      parent: true
+      name:
+        description: Name of the buyer
+        required: Required
+        usage: ONDC buyer
+        reference: any
+      address:
+        building:
+          description: Building name or house number
+          required: Required
+          usage: my building name or house
+          reference: any
+        city:
+          description: City for billing address
+          required: Required
+          usage: Mumbai
+          reference: any
+        state:
+          description: State for billing address
+          required: Required
+          usage: Maharashtra
+          reference: any
+        country:
+          description: Country for billing address
+          required: Required
+          usage: IND
+          reference: any
+        area_code:
+          description: Postal code for billing address
+          required: Required
+          usage: '400053'
+          reference: any
+        locality:
+          description: Locality/street details
+          required: Required
+          usage: my street name
+          reference: any
+      phone:
+        description: Contact number for billing
+        required: Required
+        usage: '9898989898'
+        reference: any
+      email:
+        description: Email ID of the buyer
+        required: Required
+        usage: nobody@nomail.com
+        reference: any

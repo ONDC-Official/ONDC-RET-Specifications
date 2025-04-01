@@ -1,0 +1,191 @@
+context:
+  parent: true
+  domain:
+    description: Identifies the ONDC domain
+    required: Required
+    usage: ONDC:RET12
+    reference: if any
+  action:
+    description: Defines the intent of the current transaction
+    required: Required
+    usage: on_select
+    reference: if any
+  core_version:
+    description: Specifies the ONDC protocol version being used
+    required: Required
+    usage: 1.2.5
+    reference: if any
+  bap_id:
+    description: Identifies the buyer application involved in the transaction
+    required: Required
+    usage: buyerNP.com
+    reference: if any
+  bap_uri:
+    description: Provides the endpoint for communication with the buyer
+    required: Required
+    usage: https://buyerNP.com/ondc
+    reference: if any
+  bpp_id:
+    description: Identifies the seller application involved in the transaction
+    required: Required
+    usage: sellerNP.com
+    reference: if any
+  bpp_uri:
+    description: Provides the endpoint for communication with the seller
+    required: Required
+    usage: https://sellerNP.com/ondc
+    reference: if any
+  transaction_id:
+    description: Unique identifier for tracking the transaction
+    required: Required
+    usage: '68079e7c-0af9-4e16-a356-2e6ec708e2cb'
+    reference: if any
+  message_id:
+    description: Unique identifier for tracking messages within a transaction
+    required: Required
+    usage: 'b8772264-1709-451b-8dcf-acb2b6ffe588'
+    reference: if any
+  city:
+    description: Standardized code representing the city
+    required: Required
+    usage: 'std:080'
+    reference: if any
+  country:
+    description: Represents the country code
+    required: Required
+    usage: IND
+    reference: if any
+  timestamp:
+    description: Specifies the time when the request was created
+    required: Required
+    usage: '2024-08-08T10:01:12.392Z'
+    reference: if any
+message:
+  parent: true
+  order:
+    parent: true
+    provider:
+      parent: true
+      id:
+        description: Identifies the service provider
+        required: Required
+        usage: '5b3981a7-512d-4ac4-bd75-ea48eff89a53'
+        reference: if any
+      locations:
+        id:
+          description: "Represents the provider’s location"
+          required: Required
+          usage: '668e238e1b106d310473ddb0'
+          reference: if any
+    items:
+      parent: true
+      id:
+        description: Identifies the item in the order
+        required: Required
+        usage: '839cb128-34bd-444d-9ffc-05903e62b35a'
+        reference: if any
+      fulfillment_id:
+        description: Associates the item with a fulfillment
+        required: Required
+        usage: F1
+        reference: if any
+      fulfillment_ids:
+        description: Associates the items with a fulfillment
+        required: Optional
+        usage: '[F1,F2,F5]'
+        reference: if any
+    fulfillments:
+      parent: true
+      id:
+        description: Identifies the fulfillment process
+        required: Required
+        usage: '3ac6a056-ceba-4c14-8e5d-ab5dd72d5239'
+        reference: if any
+      type:
+        description: Type of fulfillment
+        required: Required
+        usage: Delivery
+        reference: if any
+      '@ondc/org/provider_name':
+        description: Name of the provider
+        required: Required
+        usage: Seller Business, VMart-Bangalore
+        reference: if any
+      tracking:
+        description: Indicates if tracking is enabled
+        required: Required
+        usage: 'False'
+        reference: if any
+      '@ondc/org/category':
+        description: Category of the fulfillment process
+        required: Required
+        usage: Standard Delivery, Immediate Delivery
+        reference: if any
+      '@ondc/org/TAT':
+        description: Time Required for fulfillment
+        required: Required
+        usage: P4D, PT31H7M
+        reference: if any
+      state:
+        descriptor:
+          code:
+            description: Status of fulfillment
+            required: Required
+            usage: Serviceable
+            reference: if any
+      end:
+        parent: true
+        time:
+          parent: true
+          range:
+            parent: true
+            start:
+              description: Delivery start range for Slotted delivery
+              required: Optional
+              usage: '2024-08-09T10:01:12.392Z'
+              reference: if any
+            end:
+              description: Delivery end range for Slotted delivery
+              required: Optional
+              usage: '2025-02-15T05:32:47.629Z'
+              reference: if any
+    quote:
+      parent: true
+      ttl:
+        description: Time-to-live for the quote
+        required: Required
+        usage: P1D
+        reference: if any
+      price:
+        value:
+          description: Price of the order
+          required: Required
+          usage: 135.00
+          reference: if any
+        currency:
+          description: Currency of the quote price
+          required: Required
+          usage: INR
+          reference: if any
+      breakup:
+        '@ondc/org/title_type':
+          description: Type of the quoted item
+          required: Required
+          usage: item
+          reference: if any
+        price:
+          currency:
+            description: Currency of the quoted price
+            required: Required
+            usage: INR
+            reference: if any
+          value:
+            description: Value of the quoted price
+            required: Required
+            usage: '100'
+            reference: if any
+        title:
+          description: Discount offer
+          required: Required
+          usage: "Flat discount of ₹50 on minimum cart value of ₹100"
+          reference: if any

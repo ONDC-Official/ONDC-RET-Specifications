@@ -9,8 +9,6 @@ on_search:
         $ref: "./tag-group.yaml#/bpp_descriptor"
       "bpp/providers":
         $ref: "./tag-group.yaml#/bpp_providers"
-      providers:
-        $ref: "./tag-group.yaml#/providers"
 on_select: &ref0
   message:
     order:

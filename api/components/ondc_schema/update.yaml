@@ -1,0 +1,18 @@
+type: object
+properties:
+  context:
+    $ref: '../beckn_yaml.yaml#/components/schemas/Context'
+  message:
+    type: object
+    properties:
+      update_target:
+        description: 'Comma separated values of order objects being updated. For example: ```"update_target":"item,billing,fulfillment,payment"```'
+        type: string
+      order:
+        $ref: './components.yaml#/components/schemas/Order_Update'
+    required:
+      - update_target
+      - order
+required:
+  - context
+  - message

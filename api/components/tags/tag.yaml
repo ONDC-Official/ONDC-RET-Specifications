@@ -18,7 +18,7 @@ type:
     reference: <PR/Issue/Discussion Links md format text>
 timing:
   - code: TYPE
-    description: timing for fulfillment type, enum - "Order" (online order processing timings), "Delivery" (order shipment timings, will be same as delivery timings for hyperlocal), "Self-Pickup" (self-pickup timings); example shows store open 24x7- Monday to Sunday (0000 - 2359) | (or) | on_search_Fashion - value "ALL" means means same timings for online order processing, shipment, self-pickup (as applicable)
+    description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
   - code: LOCATION
     description: location id for provider
@@ -35,15 +35,14 @@ timing:
   - code: TIME_TO
     description: valid value - 24hr format ("0000" to "2359"), time_to >= time_from
     reference: <PR/Issue/Discussion Links md format text>
-provider_timing:
-  allOf:
-    - $ref: "#/timing"
-    - code: TYPE
-      description: Description about the tags
-      reference: <PR/Issue/Discussion Links md format text>
-    - code: LOCATION
-      description: Description about the tags
-      reference: <PR/Issue/Discussion Links md format text>
+# provider_timing:
+#     - $ref: "#/timing"
+#     - code: TYPE
+#       description: Description about the tags
+#       reference: <PR/Issue/Discussion Links md format text>
+#     - code: LOCATION
+#       description: Description about the tags
+#       reference: <PR/Issue/Discussion Links md format text>
 display:
   - code: RANK
     description: Description about the tags
@@ -83,17 +82,10 @@ attr:
     reference: <PR/Issue/Discussion Links md format text>
 veg_nonveg:
   - code: VEG
-    description: on_seach_Grocery - Used Only as Applicable
+    description: on_search_Grocery - Used Only as Applicable
     reference: <PR/Issue/Discussion Links md format text>
   - code: NON_VEG
-    description:  on_seach_Grocery - Used Only as Applicable
-    reference: <PR/Issue/Discussion Links md format text>
-variant_seq:
-  - code: VARIANT_ATTR
-    description: Description about the tags
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SEQ
-    description: Description about the tags
+    description: on_search_Grocery - Used Only as Applicable
     reference: <PR/Issue/Discussion Links md format text>
 parent:
   - code: ID
@@ -104,13 +96,6 @@ parent:
     reference: <PR/Issue/Discussion Links md format text>
 child:
   - code: ID
-    description: Description about the tags
-    reference: <PR/Issue/Discussion Links md format text>
-cart:
-  - code: MIN_VALUE
-    description: Description about the tags
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: ITEM_COUNT
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
 offer:
@@ -684,23 +669,23 @@ cancel_request:
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
 igm_request:
-- code: ID
-  description: id for the igm issue
-  reference: <PR/Issue/Discussion Links md format text>
+  - code: ID
+    description: id for the igm issue
+    reference: <PR/Issue/Discussion Links md format text>
 routing:
-- code: TYPE
-  description: [P2P, P2H2P]
-  reference: <PR/Issue/Discussion Links md format text>
+  - code: TYPE
+    description: [P2P, P2H2P]
+    reference: <PR/Issue/Discussion Links md format text>
 tracking:
-- code: GPS_ENABLED
-  description: Description about the tags
-  reference: <PR/Issue/Discussion Links md format text>
-- code: URL_ENABLED
-  description: Description about the tags
-  reference: <PR/Issue/Discussion Links md format text>
-- code: URL
-  description: Description about the tags
-  reference: <PR/Issue/Discussion Links md format text>
+  - code: GPS_ENABLED
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: URL_ENABLED
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: URL
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
 quote_trail:
   - code: TYPE
     description: matches order.quote.breakup[].title_type

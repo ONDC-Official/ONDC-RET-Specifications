@@ -1,0 +1,490 @@
+context:
+  parent: true
+  domain:
+    description: The domain of the ONDC transaction
+    required: Required
+    usage: ONDC:RET10
+    reference: if any
+  country:
+    description: The country code of the transaction
+    required: Required
+    usage: IND
+    reference: if any
+  city:
+    description: The city code where the transaction takes place
+    required: Required
+    usage: std:080
+    reference: if any
+  action:
+    description: The action being performed in the ONDC transaction
+    required: Required
+    usage: on_confirm
+    reference: if any
+  core_version:
+    description: The version of the ONDC core protocol being used
+    required: Required
+    usage: 1.2.5
+    reference: if any
+  bap_id:
+    description: The ID of the Buyer App participating in the transaction
+    required: Required
+    usage: buyerNP.com
+    reference: if any
+  bap_uri:
+    description: The URI of the Buyer App
+    required: Required
+    usage: https://buyerNP.com/ondc
+    reference: if any
+  bpp_id:
+    description: The ID of the Seller App (BPP)
+    required: Required
+    usage: sellerNP.com
+    reference: if any
+  bpp_uri:
+    description: The URI of the Seller App
+    required: Required
+    usage: https://sellerNP.com/ondc
+    reference: if any
+  transaction_id:
+    description: The unique ID for the transaction
+    required: Required
+    usage: 91728968-9aea-4d66-94a5-49dc89820af8
+    reference: if any
+  message_id:
+    description: The unique ID of the message in the transaction
+    required: Required
+    usage: 3faf4c2d-4e61-48da-92a7-fd833374bbcc
+    reference: if any
+  timestamp:
+    description: The timestamp of the transaction
+    required: Required
+    usage: '2025-02-10T07:27:27.000Z'
+    reference: if any
+message:
+  parent: true
+  order:
+    parent: true
+    id:
+      description: The unique identifier for the order
+      required: Required
+      usage: 2025-02-10-293522
+      reference: if any
+    state:
+      description: The current state of the order
+      required: Required
+      usage: Created
+      reference: if any
+    provider:
+      id:
+        description: The ID of the provider fulfilling the order
+        required: Required
+        usage: oc_22
+        reference: if any
+      locations:
+        id:
+          description: "The ID of the provider\u2019s location"
+          required: Required
+          usage: location_15
+          reference: if any
+      creds:
+        descriptor:
+          code:
+            description: Unique identifier for the provider's credentials.
+            required: Optional
+            usage: ESG-12345678
+            reference: if any
+        
+          short_desc:
+            description: Short description or reference for provider credentials.
+            required: Optional
+            usage: ESG-12345678-FF
+            reference: if any
+    items:
+      id:
+        description: The ID of the item in the order
+        required: Required
+        usage: oc_72
+        reference: if any
+      quantity:
+        count:
+          description: The quantity of the item in the order
+          required: Required
+          usage: '5'
+          reference: if any
+      fulfillment_id:
+        description: The ID of the fulfillment for the item
+        required: Required
+        usage: 05fddb5e0d6bfe1251975d039599c525
+        reference: if any
+    billing:
+      address:
+        name:
+          description: The name on the billing address
+          required: Required
+          usage: Mr. Mister
+          reference: if any
+        building:
+          description: The building information for billing
+          required: Required
+          usage: Building 230
+          reference: if any
+        locality:
+          description: The locality of the billing address
+          required: Required
+          usage: KR Market Pedestrian Subway
+          reference: if any
+        city:
+          description: The city in the billing address
+          required: Required
+          usage: Bengaluru
+          reference: if any
+        state:
+          description: The state in the billing address
+          required: Required
+          usage: Karnataka
+          reference: if any
+        country:
+          description: The country in the billing address
+          required: Required
+          usage: IND
+          reference: if any
+        area_code:
+          description: The area code of the billing address
+          required: Required
+          usage: '560002'
+          reference: if any
+      phone:
+        description: The phone number for billing
+        required: Required
+        usage: '9999999999'
+        reference: if any
+      email:
+        description: The email address for billing
+        required: Required
+        usage: mister@gmail.com
+        reference: if any
+      created_at:
+        description: The timestamp of when the billing details were created
+        required: Required
+        usage: '2025-02-10T07:27:02.436Z'
+        reference: if any
+      updated_at:
+        description: The timestamp of when the billing details were last updated
+        required: Required
+        usage: '2025-02-10T07:27:02.436Z'
+        reference: if any
+    fulfillments:
+      id:
+        description: The ID of the fulfillment
+        required: Required
+        usage: 05fddb5e0d6bfe1251975d039599c525
+        reference: if any
+      provider_id:
+        description: The ID of the fulfillment
+        required: Required
+        usage: logistix.com
+        reference: if any
+      '@ondc/org/provider_name':
+        description: The name of the provider
+        required: Required
+        usage: Opencart Vendor1
+        reference: if any
+      state:
+        descriptor:
+          code:
+            description: The state of fulfillment
+            required: Required
+            usage: Pending
+            reference: if any
+      type:
+        description: The type of fulfillment
+        required: Required
+        usage: Delivery
+        reference: if any
+      tracking:
+        description: Whether tracking is enabled for fulfillment
+        required: Required
+        usage: 'False'
+        reference: if any
+      '@ondc/org/TAT':
+        description: The turnaround time for fulfillment
+        required: Required
+        usage: PT2H
+        reference: if any
+      start:
+        location:
+          id:
+            description: The ID of the fulfillment start location
+            required: Required
+            usage: location_15
+            reference: if any
+          descriptor:
+            name:
+              description: The name of the fulfillment start location
+              required: Required
+              usage: Opencart Store1
+              reference: if any
+          gps:
+            description: GPS coordinates of the start location
+            required: Required
+            usage: 12.963500,77.582100
+            reference: if any
+      end:
+        location:
+          gps:
+            description: GPS coordinates of the fulfillment end location
+            required: Required
+            usage: 12.963691,77.577137
+            reference: if any
+          address:
+            name:
+              description: The name associated with the fulfillment end location
+              required: Required
+              usage: Mr. Mister
+              reference: if any
+            building:
+              description: The building information for the fulfillment end location
+              required: Required
+              usage: Building 230
+              reference: if any
+            locality:
+              description: The locality of the fulfillment end location
+              required: Required
+              usage: KR Market Pedestrian Subway
+              reference: if any
+            city:
+              description: The city of the fulfillment end location
+              required: Required
+              usage: Bengaluru
+              reference: if any
+            state:
+              description: The state of the fulfillment end location
+              required: Required
+              usage: Karnataka
+              reference: if any
+            country:
+              description: The country of the fulfillment end location
+              required: Required
+              usage: IND
+              reference: if any
+            area_code:
+              description: The area code of the fulfillment end location
+              required: Required
+              usage: '560002'
+              reference: if any
+        person:
+          name:
+            description: The name of the person receiving the fulfillment
+            required: Required
+            usage: Mr. Mister
+            reference: if any
+        contact:
+          phone:
+            description: The phone number of the recipient at the fulfillment end
+              location
+            required: Required
+            usage: '9999999999'
+            reference: if any
+          email:
+            description: The email of the recipient at the fulfillment end location
+            required: Required
+            usage: mister@gmail.com
+            reference: if any
+    quote:
+      price:
+        currency:
+          description: The currency of the order price
+          required: Required
+          usage: INR
+          reference: if any
+        value:
+          description: The total value of the order
+          required: Required
+          usage: '2500'
+          reference: if any
+      breakup:
+        '@ondc/org/item_id':
+          description: The unique identifier of the item in the quote breakup
+          required: Required
+          usage: oc_72
+          reference: if any
+        '@ondc/org/item_quantity':
+          count:
+            description: The quantity of the item in the quote breakup
+            required: Required
+            usage: '5'
+            reference: if any
+        title:
+          description: The title or name of the quoted item
+          required: Required
+          usage: Pavizham Rice 10KG
+          reference: if any
+        '@ondc/org/title_type':
+          description: The type of title (e.g., item, delivery charge, etc.)
+          required: Required
+          usage: item
+          reference: if any
+        price:
+          currency:
+            description: The currency in which the price is quoted
+            required: Required
+            usage: INR
+            reference: if any
+          value:
+            description: The total price of the quoted item
+            required: Required
+            usage: '2500'
+            reference: if any
+        item:
+          price:
+            currency:
+              description: The currency for the price of a single item
+              required: Required
+              usage: INR
+              reference: if any
+          
+            value:
+              description: The price per unit of the quoted item
+              required: Required
+              usage: '500'
+              reference: if any
+      ttl:
+        description: The time-to-live (TTL) for the quoted order
+        required: Required
+        usage: P1D
+        reference: if any
+    payment:
+      uri:
+        description: The URI for the payment gateway
+        required: Required
+        usage: https://razorpay.com/
+        reference: if any
+      tl_method:
+        description: The method of payment
+        required: Required
+        usage: http/get
+        reference: if any
+      params:
+        amount:
+          description: The total amount for the transaction
+          required: Required
+          usage: '2500'
+          reference: if any
+        currency:
+          description: The currency of the transaction
+          required: Required
+          usage: INR
+          reference: if any
+      status:
+        description: The status of the payment
+        required: Required
+        usage: PAID
+        reference: if any
+      type:
+        description: The type of payment used
+        required: Required
+        usage: ON-ORDER
+        reference: if any
+      '@ondc/org/settlement_details':
+        settlement_bank_account_no:
+          description: The settlement bank account number
+          required: Required
+          usage: '1112220032274181'
+          reference: if any
+        settlement_ifsc_code:
+          description: The IFSC code for settlement
+          required: Required
+          usage: SBI0095671
+          reference: if any
+        beneficiary_name:
+          description: The name of the beneficiary for settlement
+          required: Required
+          usage: Vishakh Chandran
+          reference: if any
+        settlement_counterparty:
+          description: The counterparty involved in the settlement process
+          required: Required
+          usage: seller-app
+          reference: if any
+        settlement_phase:
+          description: The phase of the settlement process
+          required: Required
+          usage: sale-amount
+          reference: if any
+        settlement_type:
+          description: The type of settlement method used
+          required: Required
+          usage: neft
+          reference: if any
+        bank_name:
+          description: The name of the bank where the settlement occurs
+          required: Required
+          usage: sbi
+          reference: if any
+        branch_name:
+          description: The branch of the bank for the settlement
+          required: Required
+          usage: thiruvalla
+          reference: if any
+      collected_by:
+        description: The entity responsible for collecting the payment
+        required: Required
+        usage: BAP
+        reference: if any
+      '@ondc/org/buyer_app_finder_fee_type':
+        description: The type of fee charged by the buyer app
+        required: Required
+        usage: percent
+        reference: if any
+      '@ondc/org/buyer_app_finder_fee_amount':
+        description: The amount of fee charged by the buyer app
+        required: Required
+        usage: '3'
+        reference: if any
+    created_at:
+      description: The timestamp when the order was created
+      required: Required
+      usage: '2025-02-10T07:27:24.809Z'
+      reference: if any
+    updated_at:
+      description: The timestamp when the order was last updated
+      required: Required
+      usage: '2025-02-10T07:27:27.000Z'
+      reference: if any
+    offers:
+      id:
+        description: Applied offer ID
+        required: Required
+        usage: FLAT50
+        reference: if any
+    cancellation_terms:
+      fulfillment_state:
+        descriptor:
+          code:
+            description: The cancellation terms for the fulfillment state
+            required: Optional
+            usage: Order-picked-up
+            reference: if any
+          short_desc:
+            description: The cancellation terms applicable for the reason code at
+              this fulfillment state
+            required: Optional
+            usage: '1003'
+            reference: if any
+      cancellation_fee:
+        percentage:
+          description: Cancellation fee in terms of percentage
+          required: Optional
+          usage: '10'
+          reference: if any
+        amount:
+          currency:
+            description: Currency of cancellation fee
+            required: Optional
+            usage: INR
+            reference: if any
+          value:
+            description: Value of cancellation fee
+            required: Optional
+            usage: '42'
+            reference: if any

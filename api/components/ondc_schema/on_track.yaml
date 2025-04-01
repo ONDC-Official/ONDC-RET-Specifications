@@ -1,0 +1,15 @@
+type: object
+properties:
+  context:
+    $ref: '../beckn_yaml.yaml#/components/schemas/Context'
+  message:
+    type: object
+    properties:
+      tracking:
+        $ref: '../beckn_yaml.yaml#/components/schemas/Tracking'
+    required:
+      - tracking
+  error:
+    $ref: '../beckn_yaml.yaml#/components/schemas/Error'
+required:
+  - context

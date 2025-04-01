@@ -1,0 +1,100 @@
+context:
+  parent: true
+  domain:
+    description: Specifies the domain in which the transaction operates
+    required: Required
+    usage: ONDC:RET10
+    reference: if any
+  action:
+    description: Specifies the action being performed in the transaction
+    required: Required
+    usage: search
+    reference: if any
+  country:
+    description: Specifies the country in which the transaction is occurring
+    required: Required
+    usage: IND
+    reference: if any
+  city:
+    description: Specifies the city or region of the transaction
+    required: Required
+    usage: '*'
+    reference: if any
+  core_version:
+    description: Specifies the ONDC core version being used
+    required: Required
+    usage: 1.2.5
+    reference: if any
+  bap_id:
+    description: Specifies the ID of the Buyer App participating in the transaction
+    required: Required
+    usage: buyerNP.com
+    reference: if any
+  bap_uri:
+    description: Specifies the URI where the Buyer App is hosted
+    required: Required
+    usage: https://buyerNP.com/ondc
+    reference: if any
+  transaction_id:
+    description: Helps track a specific transaction across ONDC
+    required: Required
+    usage: a4b24113-7c05-495b-9249-f33482bf3493
+    reference: if any
+  message_id:
+    description: Used for tracking and logging purposes
+    required: Required
+    usage: 6aae986b-37c2-47d2-a26c-daaf8ccbd764
+    reference: if any
+  timestamp:
+    description: Ensures synchronization across different ONDC participants
+    required: Required
+    usage: '2023-06-03T09:00:00.000Z'
+    reference: if any
+  ttl:
+    description: Specifies how long the request remains valid
+    required: Required
+    usage: PT30S
+    reference: if any
+message:
+  parent: true
+  intent:
+    parent: true
+    payment:
+      parent: true
+      '@ondc/org/buyer_app_finder_fee_type':
+        description: Indicates whether the fee is a fixed amount or a percentage
+        required: Required
+        usage: percent
+        reference: if any
+      '@ondc/org/buyer_app_finder_fee_amount':
+        description: Represents the value of the fee applied
+        required: Required
+        usage: '3'
+        reference: if any
+    fulfillment:
+      parent: true
+      type:
+        description: Specifies how the order will be fulfilled (e.g., Delivery, Pickup)
+        required: Optional
+        usage: Delivery
+        reference: if any
+      end:
+        location:
+          gps:
+            description: Indicates where the item is to be delivered
+            required: Optional
+            usage: 12.974002,77.613458
+            reference: if any
+          address:
+            area_code:
+              description: Specifies the postal code of the delivery location
+              required: Optional
+              usage: '560001'
+              reference: if any
+    item:
+      parent: true
+      descriptor['name']:
+        description: Specifies the product name in the order
+        required: Optional
+        usage: coffee
+        reference: if any

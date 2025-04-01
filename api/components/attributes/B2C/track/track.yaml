@@ -1,0 +1,74 @@
+context:
+  parent: true
+  domain:
+    description: The domain of the ONDC transaction
+    required: Required
+    usage: ONDC:RET11
+    reference: if any
+  action:
+    description: Action being performed
+    required: Required
+    usage: track
+    reference: if any
+  country:
+    description: Country code
+    required: Required
+    usage: IND
+    reference: if any
+  city:
+    description: City code
+    required: Required
+    usage: std:080
+    reference: if any
+  core_version:
+    description: Version of ONDC core protocol
+    required: Required
+    usage: 1.2.0
+    reference: if any
+  bap_id:
+    description: Buyer App Participant ID
+    required: Required
+    usage: buyerNP.com
+    reference: if any
+  bap_uri:
+    description: Buyer App URI
+    required: Required
+    usage: https://buyerNP.com/ondc
+    reference: if any
+  bpp_id:
+    description: Seller App Participant ID
+    required: Required
+    usage: sellerNP.com
+    reference: if any
+  bpp_uri:
+    description: Seller App URI
+    required: Required
+    usage: https://sellerNP.com/ondc
+    reference: if any
+  transaction_id:
+    description: Unique identifier for transaction
+    required: Required
+    usage: T2
+    reference: if any
+  message_id:
+    description: Unique identifier for message
+    required: Required
+    usage: M11
+    reference: if any
+  timestamp:
+    description: Timestamp of the message
+    required: Required
+    usage: '2023-06-04T06:00:00.000Z'
+    reference: if any
+  ttl:
+    description: Time-to-live for the request
+    required: Required
+    usage: PT30S
+    reference: if any
+message:
+  parent: true
+  order_id:
+    description: Unique identifier for the order
+    required: Required
+    usage: O1
+    reference: if any

@@ -1,0 +1,249 @@
+context:
+  parent: true
+  domain:
+    description: Identifies the ONDC domain
+    required: Required
+    usage: ONDC:RET10
+    reference: if any
+  action:
+    description: Defines the intent of the current transaction
+    required: Required
+    usage: init
+    reference: if any
+  core_version:
+    description: Specifies the ONDC protocol version being used
+    required: Required
+    usage: 1.2.5
+    reference: if any
+  bap_id:
+    description: Identifies the buyer application involved in the transaction
+    required: Required
+    usage: buyerNP.com
+    reference: if any
+  bap_uri:
+    description: Provides the endpoint for communication with the buyer
+    required: Required
+    usage: https://buyerNP.com/ondc
+    reference: if any
+  bpp_id:
+    description: Identifies the seller application involved in the transaction
+    required: Required
+    usage: sellerNP.com
+    reference: if any
+  bpp_uri:
+    description: Provides the endpoint for communication with the seller
+    required: Required
+    usage: https://sellerNP.com/ondc
+    reference: if any
+  transaction_id:
+    description: Unique identifier for tracking the transaction
+    required: Required
+    usage: 072ccd93-3928-49d4-b6ef-9c8bf69745f8
+    reference: if any
+  message_id:
+    description: Unique identifier for tracking messages within a transaction
+    required: Required
+    usage: 56dd08ab-c183-49c4-ae1f-6040f0801618
+    reference: if any
+  city:
+    description: Standardized code representing the city
+    required: Required
+    usage: std:022
+    reference: if any
+  country:
+    description: Represents the country code
+    required: Required
+    usage: IND
+    reference: if any
+  timestamp:
+    description: Specifies the time when the request was created
+    required: Required
+    usage: '2024-12-23T07:01:43.145Z'
+    reference: if any
+  ttl:
+    description: Time-to-live for the request
+    required: Required
+    usage: PT30S
+    reference: if any
+message:
+  parent: true
+  order:
+    parent: true
+    provider:
+      parent: true
+      id:
+        description: Identifies the service provider
+        required: Required
+        usage: P1
+        reference: if any
+      locations:
+        id:
+          description: "Represents the provider\u2019s location"
+          required: Required
+          usage: L1
+          reference: if any
+    items:
+      parent: true
+      id:
+        description: Identifies the item in the order
+        required: Required
+        usage: I1
+        reference: if any
+      quantity:
+        count:
+          description: Quantity of the item ordered
+          required: Required
+          usage: '1'
+          reference: if any
+      location_id:
+        description: Location ID of the item
+        required: Required
+        usage: L1
+        reference: if any
+      fulfillment_id:
+        description: Fulfillment ID for the item
+        required: Required
+        usage: F1
+        reference: if any
+    billing:
+      parent: true
+      address:
+        parent: true
+        building:
+          description: Billing address details
+          required: Required
+          usage: my building name or house
+          reference: if any
+        city:
+          description: Billing address details
+          required: Required
+          usage: Mumbai
+          reference: if any
+        state:
+          description: Billing address details
+          required: Required
+          usage: Maharashtra
+          reference: if any
+        country:
+          description: Billing address details
+          required: Required
+          usage: IND
+          reference: if any
+        area_code:
+          description: Billing address details
+          required: Required
+          usage: '400053'
+          reference: if any
+        locality:
+          description: Billing address details
+          required: Required
+          usage: my street name
+          reference: if any
+        name:
+          description: Billing address details
+          required: Optional
+          usage: my house or door or floor
+          reference: if any
+      phone:
+        description: Billing contact phone number
+        required: Required
+        usage: '9898989898'
+        reference: if any
+      name:
+        description: Billing name
+        required: Required
+        usage: ONDC buyer
+        reference: if any
+      email:
+        description: Billing contact email
+        required: Optional
+        usage: nobody@nomail.com
+        reference: if any
+      created_at:
+        description: Timestamp when billing info was created
+        required: Required
+        usage: '2024-12-23T07:01:43.145Z'
+        reference: if any
+      updated_at:
+        description: Timestamp when billing info was last updated
+        required: Required
+        usage: '2024-12-23T07:01:43.145Z'
+        reference: if any
+      tax_number:
+        description: Tax identification number for billing
+        required: Optional
+        usage: 29AAACU1901H1ZK
+        reference: if any
+    fulfillments:
+      parent: true
+      id:
+        description: Identifies the fulfillment process
+        required: Required
+        usage: F1
+        reference: if any
+      type:
+        description: Type of order fulfillment
+        required: Optional
+        usage: Buyer-Delivery
+        reference: if any
+      end:
+        contact:
+          email:
+            description: Fulfillment contact email
+            required: Required
+            usage: nobody@nomail.com
+            reference: if any
+          phone:
+            description: Fulfillment contact phone number
+            required: Required
+            usage: '9898989898'
+            reference: if any
+        location:
+          gps:
+            description: GPS coordinates of the fulfillment location
+            required: Required
+            usage: '"19.131140,72.834091"'
+            reference: if any
+          address:
+            building:
+              description: Fulfillment address details
+              required: Required
+              usage: my building name or house
+              reference: if any
+            city:
+              description: Fulfillment address details
+              required: Required
+              usage: Mumbai
+              reference: if any
+            state:
+              description: Fulfillment address details
+              required: Required
+              usage: Maharashtra
+              reference: if any
+            country:
+              description: Fulfillment address details
+              required: Required
+              usage: IND
+              reference: if any
+            area_code:
+              description: Fulfillment address details
+              required: Required
+              usage: '400053'
+              reference: if any
+            locality:
+              description: Fulfillment address details
+              required: Required
+              usage: my street name
+              reference: if any
+            name:
+              description: Fulfillment address details
+              required: Optional
+              usage: my house or door or floor
+              reference: if any
+    offers:
+      parent: true
+      id:
+        description: Identifies the applied offer
+        required: Optional
+        usage: FLAT50
+        reference: if any

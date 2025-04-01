@@ -1,0 +1,480 @@
+context:
+  parent: true
+  domain:
+    description: Represents the ONDC domain version used in the transaction
+    required: Required
+    usage: ONDC:RET10
+    reference: if any
+  action:
+    description: Specifies the event type in the ONDC protocol
+    required: Required
+    usage: on_search
+    reference: if any
+  country:
+    description: Identifies the country for the transaction
+    required: Required
+    usage: IND
+    reference: if any
+  core_version:
+    description: ONDC core version used
+    required: Required
+    usage: 1.2.5
+    reference: if any
+  bap_id:
+    description: Unique identifier of the buyer app
+    required: Required
+    usage: buyerNP.com
+    reference: if any
+  bap_uri:
+    description: URL for the buyer app
+    required: Required
+    usage: https://buyerNP.com/ondc
+    reference: if any
+  bpp_id:
+    description: Unique identifier of the seller app
+    required: Required
+    usage: sellerNP.com
+    reference: if any
+  bpp_uri:
+    description: URL for the seller app
+    required: Required
+    usage: https://sellerNP.com/ondc
+    reference: if any
+  transaction_id:
+    description: ID used to track the transaction
+    required: Required
+    usage: 7c7aa709-a05e-4ad5-a49d-22bd64282e71
+    reference: if any
+  message_id:
+    description: ID used for message correlation
+    required: Required
+    usage: bc167440-16e7-4ba6-9132-9b25518f1da2
+    reference: if any
+  timestamp:
+    description: Time of the request
+    required: Required
+    usage: '2024-12-23T06:55:45.035Z'
+    reference: if any
+  city:
+    description: Identifies the city
+    required: Required
+    usage: std:022
+    reference: if an
+message:
+  parent: true
+  catalog:
+    parent: true
+    bpp/fulfillments:
+      parent: true
+      id:
+        description: Represents fulfillment details
+        required: Required
+        usage: F1
+        reference: if any
+      type:
+        description: Defines the method of fulfillment
+        required: Required
+        usage: Delivery
+        reference: if any
+    bpp/descriptor:
+      parent: true
+      name:
+        description: Seller business name
+        required: Required
+        usage: Seller NP
+        reference: if any
+      symbol:
+        description: Seller brand icon URL
+        required: Required
+        usage: https://sellerNP.com/images/np.png
+        reference: if any
+      short_desc:
+        description: Short description of the seller
+        required: Required
+        usage: Seller Marketplace
+        reference: if any
+      long_desc:
+        description: Detailed description of the seller
+        required: Required
+        usage: Seller Marketplace
+        reference: if any
+      images:
+        description: Image URL of the seller
+        required: Required
+        usage: https://sellerNP.com/images/np.png
+        reference: if any
+    bpp/providers:
+      parent: true
+      id:
+        description: Unique identifier for provider
+        required: Required
+        usage: P1
+        reference: if any
+      descriptor:
+        name:
+          description: Name of the provider store
+          required: Required
+          usage: Store 1
+          reference: if any
+        symbol:
+          description: URL for provider logo
+          required: Required
+          usage: https://sellerNP.com/images/store1.png
+          reference: if any
+        short_desc:
+          description: Short description of the provider
+          required: Required
+          usage: Store 1
+          reference: if any
+        long_desc:
+          description: Detailed description of the provider
+          required: Required
+          usage: Store 1
+          reference: if any
+        images:
+          description: URL for provider image
+          required: Required
+          usage: https://sellerNP.com/images/store1.png
+          reference: if any
+      ttl:
+        description: Time-To-Live for provider data
+        required: Required
+        usage: P1D
+        reference: if any
+      items:
+        descriptor:
+          name:
+            description: Name of the item
+            required: Required
+            usage: Plain Atta
+            reference: if any
+          code:
+            description: Unique code for the item
+            required: Optional
+            usage: 1:XXXXXXXXXXXXX
+            reference: if any
+          symbol:
+            description: URL for product image
+            required: Required
+            usage: https://sellerNP.com/images/i1.png
+            reference: if any
+          short_desc:
+            description: Short description of the item
+            required: Required
+            usage: Plain Atta
+            reference: if any
+          long_desc:
+            description: Detailed description of the item
+            required: Required
+            usage: Plain Atta
+            reference: if any
+          images:
+            description: URL for product image
+            required: Required
+            usage: https://sellerNP.com/images/i1.png
+            reference: if any
+        price:
+          currency:
+            description: Currency for the item price
+            required: Required
+            usage: INR
+            reference: if any
+          value:
+            description: Price of the item
+            required: Required
+            usage: '100'
+            reference: if any
+          maximum_value:
+            description: Maximum price for the item
+            required: Required
+            usage: '100'
+            reference: if any
+        quantity:
+          unitized:
+            measure:
+              unit:
+                description: Unit of measurement for the item
+                required: Required
+                usage: kilogram
+                reference: if any
+              value:
+                description: Measured quantity of the item
+                required: Required
+                usage: '3'
+                reference: if any
+            count:
+              description: Measured Unitized count of the item
+              required: Required
+              usage: '3'
+              reference: if any
+          available:
+            count:
+              description: Available stock count
+              required: Required
+              usage: '99'
+              reference: if any
+          maximum:
+            count:
+              description: Max items per order
+              required: Required
+              usage: '99'
+              reference: if any
+          minimum:
+            count:
+              description: Min items per order
+              required: Required
+              usage: '1'
+              reference: if any
+        category_id:
+          description: Item category classification
+          required: Required
+          usage: Atta, Flours and Sooji
+          reference: if any
+        '@ondc/org/returnable':
+          description: Indicates if the item is returnable
+          required: Required
+          usage: '1'
+          reference: if any
+        rating:
+          description: Item Rating
+          required: Required
+          usage: '4'
+          reference: if any
+        '@ondc/org/cancellable':
+          description: Indicates if the item can be canceled
+          required: Required
+          usage: '1'
+          reference: if any
+        '@ondc/org/available_on_cod':
+          description: Whether Cash on Delivery is available
+          required: Required
+          usage: 'False'
+          reference: if any
+        '@ondc/org/statutory_reqs_packaged_commodities':
+          manufacturer_or_packer_name:
+            description: Name of the manufacturer
+            required: Optional
+            usage: ITC
+            reference: if any
+          manufacturer_or_packer_address:
+            description: Address of the manufacturer
+            required: Optional
+            usage: ITC Quality Care Cell, P.O Box No.592, Bangalore-560005
+            reference: if any
+          mfg_license_no:
+            description: Manufacturing License number
+            required: Optional
+            usage: 51/UA/SC/P-2013
+            reference: if any
+          multiple_products_name_number_or_qty:
+            description: Multiple products name,number or quantity
+            required: Optional
+            usage: '15'
+            reference: if any
+          common_or_generic_name_of_commodity:
+            description: The common or generic name of the packaged commodity
+            required: Optional
+            usage: Electric Sewing Machine
+            reference: if any
+          month_year_of_manufacture_packing_import:
+            description: The date of manufacture, packing, or import of the commodity
+            required: Optional
+            usage: '2024-08-06 00:00:00'
+            reference: if any
+        time:
+          timestamp:
+            description: Time of item update
+            required: Required
+            usage: '2024-12-23T06:55:45.035Z'
+            reference: if any
+        tags:
+          list:
+            code:
+              description: Type of channel margin
+              required: Required
+              usage: channel_margin_type
+              reference: if any
+            value:
+              description: Value of channel margin type
+              required: Required
+              usage: percent
+              reference: if any
+        replacement_terms:
+          replace_within:
+            duration:
+              description: The duration within which the item can be replaced
+              required: Required
+              usage: P7D
+              reference: if any
+        '@ondc/org/statutory_reqs_prepackaged_food':
+          nutritional_info:
+            description: Nutritional details per 100kg and per serving
+            required: Optional
+            usage: Energy(KCal)-(per 100kg) 420,(per serving 50g)250;Protein(g)-(per 100kg) 12,(per serving 50g) 6
+            reference: if any
+          additives_info:
+            description: Information about food additives
+            required: Optional
+            usage: Preservatives, Artificial Colours
+            reference: if any
+          brand_owner_FSSAI_license_no:
+            description: FSSAI license number of the brand owner
+            required: Optional
+            usage: '12345678901234'
+            reference: if any
+          other_FSSAI_license_no:
+            description: Other FSSAI license details
+            required: Optional
+            usage: '12345678901234'
+            reference: if any
+          importer_FSSAI_license_no:
+            description: Importer's FSSAI license number
+            required: Optional
+            usage: '12345678901234'
+            reference: if any
+        '@ondc/org/return_window':
+          description: Duration in which returns are allowed
+          required: Required
+          usage: PT1H
+          reference: if any
+        '@ondc/org/seller_pickup_return':
+          description: Whether the seller arranges for pickup on return
+          required: Required
+          usage: '1'
+          reference: if any
+        '@ondc/org/time_to_ship':
+          description: Time required to ship the item
+          required: Required
+          usage: PT45M
+          reference: if any
+        '@ondc/org/contact_details_consumer_care':
+          description: Consumer care contact details
+          required: Required
+          usage: Ramesh, ramesh@abc.com, 18004254444
+          reference: if any
+      rating:
+        description: 'Provider Rating '
+        required: Required
+        usage: '4'
+        reference: if any
+      fulfillments:
+        type:
+          description: Type of fulfillment method
+          required: Required
+          usage: Buyer-Delivery
+          reference: if any
+      offers:
+        id:
+          description: Unique ID for the offer
+          required: Optional
+          usage: FLAT50
+          reference: if any
+        descriptor:
+          code:
+            description: Descriptor code indicating offer discount type
+            required: Optional
+            usage: discount
+            reference: if any
+          images:
+            description: URL for the offer image
+            required: Optional
+            usage: https://sellerNP.com/images/offer2-banner.png
+            reference: if any
+        location_ids:
+          description: Location ID where the offer is applicable
+          required: Optional
+          usage: L1
+          reference: if any
+        item_ids:
+          description: Item ID for which the offer is applicable
+          required: Optional
+          usage: I1
+          reference: if any
+        time:
+          label:
+            description: Label indicating validity of the offer
+            required: Optional
+            usage: valid
+            reference: if any
+          range:
+            start:
+              description: Start time of the offer validity
+              required: Optional
+              usage: '2024-12-23T06:55:45.035Z'
+              reference: if any
+            end:
+              description: End time of the offer validity
+              required: Optional
+              usage: '2024-12-23T08:12:15.033Z'
+              reference: if any
+      time:
+        label:
+          description: Status of provider
+          required: Required
+          usage: disable
+          reference: if any
+        timestamp:
+          description: Time of provider status update
+          required: Required
+          usage: '2023-06-03T10:20:00.000Z'
+          reference: if any
+      locations:
+        id:
+          description: Identifier for location
+          required: Required
+          usage: L1
+          reference: if any
+        time:
+          label:
+            description: Store open status
+            required: Required
+            usage: open
+            reference: if any
+          timestamp:
+            description: Time of store closure
+            required: Required
+            usage: '2023-06-03T10:20:00.000Z'
+            reference: if any
+          range:
+            start:
+              description: Store opening time
+              required: Required
+              usage: '2023-06-03T16:00:00.000Z'
+              reference: if any
+            end:
+              description: Store closing time
+              required: Optional
+              usage: '2023-06-03T23:59:00.000Z'
+              reference: if any
+      categories:
+        id:
+          description: 'Category ID '
+          required: Required
+          usage: dwe-1231s-12
+          reference: if any
+        descriptor:
+          name:
+            description: Category name
+            required: Required
+            usage: pizzas
+            reference: if any
+          image:
+            description: Category Images
+            required: Optional
+            usage: https://snp.com/ondc/m005.png
+            reference: if any
+          short_desc:
+            description: Category short description
+            required: Required
+            usage: Veg and Non-Veg pizza
+            reference: if any
+          long_desc:
+            description: Category Long description
+            required: Required
+            usage: American and Italian Veg and Non-Veg Pizza
+            reference: if any
+        parent_category_id:
+          description: Parent_category_id
+          required: Optional
+          usage: 2323w-d223
+          reference: if any

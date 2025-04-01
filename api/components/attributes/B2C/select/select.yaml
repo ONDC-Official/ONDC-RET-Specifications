@@ -1,0 +1,129 @@
+context:
+  parent: true
+  domain:
+    description: Identifies the ONDC domain
+    required: Required
+    usage: ONDC:RET14
+    reference: if any
+  action:
+    description: Defines the intent of the current transaction
+    required: Required
+    usage: select
+    reference: if any
+  core_version:
+    description: Specifies the ONDC protocol version being used
+    required: Required
+    usage: 1.2.5
+    reference: if any
+  bap_id:
+    description: Identifies the buyer application involved in the transaction
+    required: Required
+    usage: buyerNP.com
+    reference: if any
+  bap_uri:
+    description: Provides the endpoint for communication with the buyer
+    required: Required
+    usage: https://buyerNP.com/buyer
+    reference: if any
+  bpp_id:
+    description: Identifies the seller application involved in the transaction
+    required: Required
+    usage: sellerNP.com
+    reference: if any
+  bpp_uri:
+    description: Provides the endpoint for communication with the seller
+    required: Required
+    usage: https://sellerNP.com/ondc
+    reference: if any
+  transaction_id:
+    description: Unique identifier for tracking the transaction
+    required: Required
+    usage: 7776bdeb-d84b-4f46-b748-6dd9ef8dc8e0
+    reference: if any
+  message_id:
+    description: Unique identifier for tracking messages within a transaction
+    required: Required
+    usage: 6df83e5f-b5cf-4110-8d30-7da165b30261
+    reference: if any
+  city:
+    description: Standardized code representing the city
+    required: Required
+    usage: std:0124
+    reference: if any
+  country:
+    description: Represents the country code
+    required: Required
+    usage: IND
+    reference: if any
+  timestamp:
+    description: Specifies the time when the request was created
+    required: Required
+    usage: '2024-12-12T09:07:06.760Z'
+    reference: if any
+  ttl:
+    description: Time-to-live for message validity
+    required: Required
+    usage: PT30S
+    reference: if any
+message:
+  parent: true
+  order:
+    parent: true
+    provider:
+      parent: true
+      id:
+        description: Identifies the service provider
+        required: Required
+        usage: sellerNP.com
+        reference: if any
+      locations:
+        id:
+          description: Represents the provider’s location
+          required: Required
+          usage: 69b685813a63a8114c7c40e4b17dd08c
+          reference: if any
+    items:
+      parent: true
+      id:
+        description: Identifies the second item in the order
+        required: Required
+        usage: 5041C0537916A32DBB468566368C246C_44241145659651_default
+        reference: if any
+      quantity:
+        count:
+          description: Number of additional items being ordered
+          required: Required
+          usage: '2'
+          reference: if any
+      location_id:
+        description: Specifies where the additional item is stored or picked from
+        required: Required
+        usage: 69b685813a63a8114c7c40e4b17dd08c
+        reference: if any
+    fulfillments['end']['location']:
+      parent: true
+      gps:
+        description: Provides latitude and longitude of the fulfillment location
+        required: Required
+        usage: "28.326451046477988,76.77823101205861"
+        reference: if any
+      address:
+        area_code:
+          description: Specifies the area code for the fulfillment location
+          required: Required
+          usage: "122503"
+          reference: if any
+    payment:
+      parent: true
+      type:
+        description: Defines the payment type for the order
+        required: Required
+        usage: ON-FULFILLMENT, ON-ORDER
+        reference: if any
+    offers:
+      parent: true
+      id:
+        description: Identifies the applied offer
+        required: Required
+        usage: FLAT50
+        reference: if any

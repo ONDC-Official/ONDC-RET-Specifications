@@ -19,16 +19,6 @@ value:
         id: P1
         locations:
           - id: L1
-      fulfillments-old:
-        - id: F1
-          type: Delivery
-          '@ondc/org/provider_name': LSP or Provider Name
-          tracking: true
-          '@ondc/org/category': Immediate Delivery
-          '@ondc/org/TAT': PT60M
-          state:
-            descriptor:
-              code: Serviceable
       fulfillments:
         - id: F1
           type: Delivery
@@ -118,4 +108,6 @@ value:
         ttl: P1D
       items:
         - id: I1
-          fulfillment_id: F1
+          fulfillment_ids:
+            - F1
+            - F2

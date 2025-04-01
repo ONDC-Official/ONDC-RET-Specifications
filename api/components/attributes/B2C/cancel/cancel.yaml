@@ -1,0 +1,91 @@
+context:
+  parent: true
+  domain:
+    description: Specifies the domain in which the transaction operates
+    required: Required
+    usage: ONDC:RET12
+    reference: if any
+  country:
+    description: Specifies the country where the transaction takes place
+    required: Required
+    usage: IND
+    reference: if any
+  city:
+    description: Specifies the location of the transaction
+    required: Required
+    usage: std:080
+    reference: if any
+  action:
+    description: Specifies the type of action being performed
+    required: Required
+    usage: cancel
+    reference: if any
+  core_version:
+    description: Indicates the version of ONDC being used
+    required: Required
+    usage: 1.2.0
+    reference: if any
+  bap_id:
+    description: Specifies the platform used by the buyer
+    required: Required
+    usage: buyerNP.com
+    reference: if any
+  bap_uri:
+    description: Specifies the API endpoint of the buyer's platform
+    required: Required
+    usage: https://buyerNP.com/ondc
+    reference: if any
+  bpp_uri:
+    description: Specifies the API endpoint of the seller's platform
+    required: Required
+    usage: https://sellerNP.com/ondc
+    reference: if any
+  transaction_id:
+    description: Specifies a unique identifier for the transaction
+    required: Required
+    usage: 043e401b-8dc8-457a-b4cd-5a32180c4e05
+    reference: if any
+  message_id:
+    description: Specifies a unique identifier for the message
+    required: Required
+    usage: b1b518a9-f81d-4a3f-bfcb-7d3668af3dd1
+    reference: if any
+  timestamp:
+    description: Specifies when the request was created
+    required: Required
+    usage: '2024-08-08T07:41:39.592Z'
+    reference: if any
+  bpp_id:
+    description: Specifies the platform used by the seller
+    required: Required
+    usage: sellerNP.com
+    reference: if any
+  ttl:
+    description: Specifies the validity duration of the request
+    required: Required
+    usage: PT30S
+    reference: if any
+message:
+  parent: true
+  order_id:
+    description: Specifies the order being referenced
+    required: Required
+    usage: 2024-08-08-250723
+    reference: if any
+  order:
+    cancellation_reason_id:
+      description: Specifies the reason code for the order cancellation
+      required: Required
+      usage: '"001"'
+      reference: if any
+    descriptor:
+      name:
+        description: Specifies the name of the fulfillment
+        required: Required
+        usage: fulfillment
+        reference: if any
+      short_desc:
+        description: 'Specifies the fulfillment id of the fulfillment '
+        required: Required
+        usage: R1
+        reference: if any

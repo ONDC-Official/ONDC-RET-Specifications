@@ -1,0 +1,15 @@
+type: object
+properties:
+  context:
+    $ref: '../beckn_yaml.yaml#/components/schemas/Context'
+  message:
+    type: object
+    properties:
+      order:
+        $ref: '../beckn_yaml.yaml#/components/schemas/Order'
+    required:
+      - order
+  error:
+    $ref: '../beckn_yaml.yaml#/components/schemas/Error'
+required:
+  - context

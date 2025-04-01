@@ -1,0 +1,487 @@
+context:
+  parent: true
+  domain:
+    description: The domain of the ONDC transaction
+    required: Required
+    usage: ONDC:RET12
+    reference: if any
+  country:
+    description: The country code
+    required: Required
+    usage: IND
+    reference: if any
+  city:
+    description: The city identifier
+    required: Required
+    usage: std:080
+    reference: if any
+  action:
+    description: The action type
+    required: Required
+    usage: on_cancel
+    reference: if any
+  core_version:
+    description: ONDC core version
+    required: Required
+    usage: 1.2.0
+    reference: if any
+  bap_id:
+    description: Buyer App ID
+    required: Required
+    usage: buyerNP.com
+    reference: if any
+  bap_uri:
+    description: Buyer App URI
+    required: Required
+    usage: https://buyerNP.com/ondc
+    reference: if any
+  bpp_uri:
+    description: Seller App URI
+    required: Required
+    usage: https://sellerNP.com/ondc
+    reference: if any
+  transaction_id:
+    description: Unique transaction ID
+    required: Required
+    usage: 043e401b-8dc8-457a-b4cd-5a32180c4e05
+    reference: if any
+  message_id:
+    description: Unique message ID
+    required: Required
+    usage: b1b518a9-f81d-4a3f-bfcb-7d3668af3dd1
+    reference: if any
+  timestamp:
+    description: Timestamp of the message
+    required: Required
+    usage: '2024-08-08T07:41:39.871Z'
+    reference: if any
+  bpp_id:
+    description: Seller App ID
+    required: Required
+    usage: sellerNP.com
+    reference: if any
+message:
+  parent: true
+  order:
+    parent: true
+    state:
+      description: Order status
+      required: Required
+      usage: Cancelled
+      reference: if any
+    items:
+      id:
+        description: Unique item ID
+        required: Required
+        usage: 839cb128-34bd-444d-9ffc-05903e62b35a
+        reference: if any
+      quantity:
+        count:
+          description: Quantity of the item
+          required: Required
+          usage: '0'
+          reference: if any
+      fulfillment_id:
+        description: Fulfillment ID
+        required: Required
+        usage: c4b2dd74-9ccd-4ec1-b8f8-58d36dd8ce33
+        reference: if any
+    provider:
+      id:
+        description: Provider identifier
+        required: Required
+        usage: 5b3981a7-512d-4ac4-bd75-ea48eff89a53
+        reference: if any
+      locations:
+        id:
+          description: Provider location ID
+          required: Required
+          usage: 668e238e1b106d310473ddb0
+          reference: if any
+    billing:
+      address:
+        name:
+          description: Billing name
+          required: Required
+          usage: Mr. Mister
+          reference: if any
+        building:
+          description: Building name
+          required: Required
+          usage: New_Building
+          reference: if any
+        locality:
+          description: Locality
+          required: Required
+          usage: 6th Cross Road
+          reference: if any
+        city:
+          description: City name
+          required: Required
+          usage: Bengaluru
+          reference: if any
+        state:
+          description: State name
+          required: Required
+          usage: Karnataka
+          reference: if any
+        country:
+          description: Country name
+          required: Required
+          usage: IND
+          reference: if any
+        area_code:
+          description: Area code
+          required: Required
+          usage: '560027'
+          reference: if any
+      phone:
+        description: Billing phone number
+        required: Required
+        usage: '9399788618'
+        reference: if any
+      email:
+        description: Billing email
+        required: Required
+        usage: mishratanishq619@gmail.com
+        reference: if any
+      created_at:
+        description: Timestamp of billing creation
+        required: Required
+        usage: '2024-08-08T07:40:37.071Z'
+        reference: if any
+      updated_at:
+        description: Timestamp of billing update
+        required: Required
+        usage: '2024-08-08T07:40:37.071Z'
+        reference: if any
+    fulfillments:
+      id:
+        description: Fulfillment ID
+        required: Required
+        usage: c4b2dd74-9ccd-4ec1-b8f8-58d36dd8ce33
+        reference: if any
+      '@ondc/org/provider_name':
+        description: Name of the provider
+        required: Required
+        usage: Seller Business
+        reference: if any
+      '@ondc/org/TAT':
+        description: Turnaround time
+        required: Required
+        usage: PT96H
+        reference: if any
+      state:
+        descriptor:
+          code:
+            description: Fulfillment status
+            required: Required
+            usage: Cancelled
+            reference: if any
+      type:
+        description: Type of fulfillment
+        required: Required
+        usage: Delivery
+        reference: if any
+      tracking:
+        description: Tracking status
+        required: Required
+        usage: '0'
+        reference: if any
+      start:
+        location:
+          id:
+            description: Start location ID
+            required: Required
+            usage: 668e238e1b106d310473ddb0
+            reference: if any
+          descriptor:
+            name:
+              description: Start location descriptor
+              required: Required
+              usage: Seller Business
+              reference: if any
+          gps:
+            description: GPS coordinates
+            required: Required
+            usage: '"12.92580970146639,77.58362409712942"'
+            reference: if any
+          address:
+            locality:
+              description: Start locality
+              required: Required
+              usage: Jayanagar
+              reference: if any
+            city:
+              description: Start city
+              required: Required
+              usage: Bengaluru
+              reference: if any
+            area_code:
+              description: Start area code
+              required: Required
+              usage: '560011'
+              reference: if any
+            state:
+              description: Start state
+              required: Required
+              usage: Karnataka
+              reference: if any
+        contact:
+          email:
+            description: Contact email
+            required: Required
+            usage: test@gmail.com
+            reference: if any
+          phone:
+            description: Contact phone
+            required: Required
+            usage: '9876543210'
+            reference: if any
+      end:
+        person:
+          name:
+            description: Recipient's name at the fulfillment end
+            required: Required
+            usage: Mr. Mister
+            reference: if any
+        contact:
+          email:
+            description: Email of the recipient
+            required: Required
+            usage: mishratanishq619@gmail.com
+            reference: if any
+          phone:
+            description: Phone number of the recipient
+            required: Required
+            usage: '9399788618'
+            reference: if any
+        location:
+          gps:
+            description: GPS coordinates of the fulfillment end
+            required: Required
+            usage: '"12.966545,77.592074"'
+            reference: if any
+          address:
+            name:
+              description: Name associated with the address
+              required: Required
+              usage: Mr. Mister
+              reference: if any
+            building:
+              description: Building name
+              required: Required
+              usage: New_Building
+              reference: if any
+            locality:
+              description: Locality name
+              required: Required
+              usage: 6th Cross Road
+              reference: if any
+            city:
+              description: City name
+              required: Required
+              usage: Bengaluru
+              reference: if any
+            state:
+              description: State name
+              required: Required
+              usage: Karnataka
+              reference: if any
+            country:
+              description: Country name
+              required: Required
+              usage: IND
+              reference: if any
+            area_code:
+              description: Area code
+              required: Required
+              usage: '560027'
+              reference: if any
+    quote:
+      price:
+        currency:
+          description: Currency for quoted price
+          required: Required
+          usage: INR
+          reference: if any
+        value:
+          description: Value of the quoted price
+          required: Required
+          usage: '0'
+          reference: if any
+      breakup:
+        '@ondc/org/item_id':
+          description: Unique identifier for item
+          required: Required
+          usage: 839cb128-34bd-444d-9ffc-05903e62b35a
+          reference: if any
+        '@ondc/org/item_quantity':
+          count:
+            description: Count of items
+            required: Required
+            usage: '0'
+            reference: if any
+        title:
+          description: Title of the item
+          required: Required
+          usage: Butterfly Beautiful 12 Gold Necklace
+          reference: if any
+        '@ondc/org/title_type':
+          description: Type of title
+          required: Required
+          usage: item
+          reference: if any
+        price:
+          currency:
+            description: Currency for item price
+            required: Required
+            usage: INR
+            reference: if any
+          value:
+            description: Value of item price
+            required: Required
+            usage: '0'
+            reference: if any
+        item:
+          price:
+            currency:
+              description: Original currency for item
+              required: Required
+              usage: INR
+              reference: if any
+            value:
+              description: Original price of the item
+              required: Required
+              usage: '2260'
+              reference: if any
+      ttl:
+        description: Time-to-live for quote
+        required: Required
+        usage: P1D
+        reference: if any
+    payment:
+      uri:
+        description: Payment processing URL
+        required: Required
+        usage: https://razorpay.com/
+        reference: if any
+      tl_method:
+        description: Payment method type
+        required: Required
+        usage: http/get
+        reference: if any
+      params:
+        amount:
+          description: Total payment amount
+          required: Required
+          usage: '2853.75'
+          reference: if any
+        currency:
+          description: Currency of payment
+          required: Required
+          usage: INR
+          reference: if any
+        transaction_id:
+          description: Unique transaction ID
+          required: Required
+          usage: 043e401b-8dc8-457a-b4cd-5a32180c4e05
+          reference: if any
+      status:
+        description: Payment status
+        required: Required
+        usage: PAID
+        reference: if any
+      type:
+        description: Type of payment
+        required: Required
+        usage: ON-ORDER
+        reference: if any
+      collected_by:
+        description: Entity collecting the payment
+        required: Required
+        usage: BAP
+        reference: if any
+      '@ondc/org/buyer_app_finder_fee_type':
+        description: Type of buyer app finder fee
+        required: Required
+        usage: percent
+        reference: if any
+      '@ondc/org/buyer_app_finder_fee_amount':
+        description: Amount of buyer app finder fee
+        required: Required
+        usage: '3'
+        reference: if any
+      '@ondc/org/settlement_details':
+        settlement_counterparty:
+          description: Party responsible for settlement
+          required: Required
+          usage: seller-app
+          reference: if any
+        settlement_phase:
+          description: Settlement phase
+          required: Required
+          usage: sale-amount
+          reference: if any
+        settlement_type:
+          description: Type of settlement
+          required: Required
+          usage: neft
+          reference: if any
+        upi_address:
+          description: UPI address for settlement
+          required: Required
+          usage: gft@oksbi
+          reference: if any
+        settlement_bank_account_no:
+          description: Bank account number for settlement
+          required: Required
+          usage: '34234343434'
+          reference: if any
+        settlement_ifsc_code:
+          description: IFSC code for settlement bank
+          required: Required
+          usage: SBIN0000123
+          reference: if any
+        beneficiary_name:
+          description: Name of the beneficiary
+          required: Required
+          usage: Seller Name
+          reference: if any
+        bank_name:
+          description: Name of the settlement bank
+          required: Required
+          usage: SBI
+          reference: if any
+        branch_name:
+          description: Branch name of the settlement bank
+          required: Required
+          usage: Nellore
+          reference: if any
+    id:
+      description: Unique order identifier
+      required: Required
+      usage: 2024-08-08-250723
+      reference: if any
+    created_at:
+      description: Timestamp when the order was created
+      required: Required
+      usage: '2024-08-08T07:41:04.771Z'
+      reference: if any
+    updated_at:
+      description: Timestamp when the order was last updated
+      required: Required
+      usage: '2024-08-08T07:41:39.871Z'
+      reference: if any
+    cancellation:
+      cancelled_by:
+        description: Who cancelled the order
+        required: Required
+        usage: buyerNP.com
+        reference: if any
+      reason:
+        id:
+          description: Identifier for cancellation reason
+          required: Required
+          usage: '1'
+          reference: if any

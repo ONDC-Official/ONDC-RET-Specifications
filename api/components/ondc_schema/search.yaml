@@ -1,0 +1,12 @@
+type: object
+properties:
+  context:
+    $ref: "../beckn_yaml.yaml#/components/schemas/Context"
+  message:
+    type: object
+    properties:
+      intent:
+        $ref: "../beckn_yaml.yaml#/components/schemas/Intent"
+required:
+  - context
+  - message
