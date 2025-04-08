@@ -30,13 +30,20 @@ confirm:
       tags:
         $ref: "./tag-group.yaml#/order/tags"
 on_confirm: *ref0
+cancel:
+  message:
+    descriptor:
+      $ref: "./cancel.yaml#/descriptor"
 update: *ref0
 on_update: *ref0
-on_cancel: *ref0
+on_cancel: 
+   message:
+    descriptor:
+      $ref: "./on_cancel.yaml#/descriptor"
 on_track:
   message:
-    tracking:
-      $ref: "./tag-group.yaml#/tracking"
+    descriptor:
+      $ref: "./on_track.yaml#/descriptor"
 on_status:
   message:
     order:

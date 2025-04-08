@@ -572,8 +572,7 @@ components:
           description: "Area code. This can be Pincode, ZIP code or any equivalent"
     Agent:
       description: Describes an order executor
-      allOf:
-        - $ref: "#/components/schemas/Contact"
+      $ref: "#/components/schemas/Contact"
     Authorization:
       description: Describes an authorization mechanism
       type: object
@@ -592,9 +591,6 @@ components:
           type: string
           format: date-time
           description: Timestamp in RFC3339 format until which token is valid
-        status:
-          type: string
-          description: Status of the token
     Billing:
       description: Describes a billing event
       type: object
@@ -629,10 +625,6 @@ components:
             - partial
         ref_id:
           type: string
-        policies:
-          type: array
-          items:
-            $ref: "#/components/schemas/Policy"
         time:
           type: string
           format: date-time
@@ -653,8 +645,7 @@ components:
       properties:
         fulfillment_state:
           description: The state of fulfillment during which these terms are applicable.
-          allOf:
-            - $ref: "#/components/schemas/FulfillmentState"
+          $ref: "#/components/schemas/FulfillmentState"
         cancellation_fee:
           $ref: "#/components/schemas/Fee"
         external_ref:
@@ -919,7 +910,6 @@ components:
             - CONTEXT-ERROR
             - CORE-ERROR
             - DOMAIN-ERROR
-            - POLICY-ERROR
             - JSON-SCHEMA-ERROR
         code:
           type: string
@@ -939,83 +929,10 @@ components:
       properties:
         percentage:
           description: Percentage of a value
-          allOf:
-            - $ref: "#/components/schemas/DecimalValue"
+          $ref: "#/components/schemas/DecimalValue"
         amount:
           description: A fixed value
-          allOf:
-            - $ref: "#/components/schemas/Price"
-    Feedback:
-      description: Feedback for a service
-      type: object
-      properties:
-        feedback_form:
-          $ref: "#/components/schemas/FeedbackForm"
-        feedback_url:
-          $ref: "#/components/schemas/FeedbackUrl"
-    FeedbackForm:
-      description: Describes a feedback form that a Seller App can send to get feedback from the Buyer App
-      type: array
-      items:
-        $ref: "#/components/schemas/FeedbackFormElement"
-    FeedbackFormElement:
-      description: An element in the feedback form. It can be question or an answer to the question.
-      type: object
-      properties:
-        id:
-          type: string
-        parent_id:
-          $ref: "#/components/schemas/FeedbackFormElement/properties/id"
-        question:
-          description: Specifies the question to which the answer options will be contained in the child FeedbackFormElements
-          type: string
-        answer:
-          description: Specifies an answer option to which the question will be in the FeedbackFormElement specified in parent_id
-          type: string
-        answer_type:
-          description: Specifies how the answer option should be rendered.
-          type: string
-          enum:
-            - radio
-            - checkbox
-            - text
-    FeedbackUrl:
-      description: Describes how a feedback URL will be sent by the Seller App
-      type: object
-      properties:
-        url:
-          description: feedback URL sent by the Seller App
-          type: string
-          format: uri
-        tl_method:
-          type: string
-          enum:
-            - http/get
-            - http/post
-        params:
-          type: object
-          properties:
-            feedback_id:
-              type: string
-              description: This value will be placed in the the $feedback_id url param in case of http/get and in the requestBody http/post requests
-          additionalProperties:
-            type: string
-          required:
-            - feedback_id
-    Form:
-      description: Describes a form
-      type: object
-      properties:
-        url:
-          description: "The URL from where the form can be fetched. The content fetched from the url must be processed as per the mime_type specified in this object. Once fetched, the rendering platform can choosed to render the form as-is as an embeddable element; or process it further to blend with the theme of the application. In case the interface is non-visual, the the render can process the form data and reproduce it as per the standard specified in the form."
-          type: string
-          format: uri
-        data:
-          description: The form content string. This content will again follow the mime_type field for processing. Typically forms should be sent as an html string starting with <form></form> tags. The application must render this form after removing any css or javascript code if necessary. The `action` attribute in the form should have a url where the form needs to be submitted.
-          type: string
-        mime_type:
-          description: This field indicates the nature and format of the form received by querying the url. MIME types are defined and standardized in IETF's RFC 6838.
-          type: string
+          $ref: "#/components/schemas/Price"
     Fulfillment:
       description: Describes how a single product/service will be rendered/fulfilled to the end customer
       type: object
@@ -1078,9 +995,9 @@ components:
         provider_id:
           type: string
         vehicle:
-          $ref: '#/components/schemas/Vehicle'
+          $ref: "#/components/schemas/Vehicle"
         agent:
-          $ref: '#/components/schemas/Agent'
+          $ref: "#/components/schemas/Agent"
         rating:
           $ref: "#/components/schemas/Rating/properties/value"
         state:
@@ -1136,7 +1053,7 @@ components:
     Intent:
       description: Intent of a user. Used for searching for services. Buyer App can set finder fee type in payment."@ondc/org/buyer_app_finder_fee_type" and amount in "@ondc/org/buyer_app_finder_fee_amount"
       type: object
-      properties: 
+      properties:
         fulfillment:
           $ref: "#/components/schemas/IntentFulfillment"
         payment:
@@ -1215,8 +1132,7 @@ components:
           description: Categories this item can be listed under
           type: array
           items:
-            allOf:
-              - $ref: "#/components/schemas/Category/properties/id"
+            $ref: "#/components/schemas/Category/properties/id"
         fulfillment_id:
           $ref: "#/components/schemas/Fulfillment/properties/id"
         fulfillment_ids:
@@ -1233,7 +1149,7 @@ components:
               replace_within:
                 type: object
                 properties:
-                  duration: 
+                  duration:
                     type: string
                     description: The duration within which the item can be replaced
         rating:
@@ -1325,6 +1241,9 @@ components:
         id:
           description: This is the most unique identifier of a service item. An example of an Item ID could be the SKU of a product.
           type: string
+        location_id:
+          description: This is the most unique identifier of a location item.
+          type: string
         fulfillment_id:
           type: string
           description: Unique reference ID to the fulfillment of an order
@@ -1402,7 +1321,6 @@ components:
         updated_at:
           type: string
           format: date-time
-          
     Name:
       type: string
       description: "Describes the name of a person in format: ./{given_name}/{honorific_prefix}/{first_name}/{middle_name}/{last_name}/{honorific_suffix}"
@@ -1440,8 +1358,7 @@ components:
           description: Categories this item can be listed under
           type: array
           items:
-            allOf:
-              - $ref: "#/components/schemas/Category/properties/id"
+            $ref: "#/components/schemas/Category/properties/id"
         item_ids:
           type: array
           items:
@@ -1551,14 +1468,6 @@ components:
         name:
           type: string
         cred:
-          type: string
-    Page:
-      description: Describes a page in a search result
-      type: object
-      properties:
-        id:
-          type: string
-        next_id:
           type: string
     Payment:
       description: Describes a payment
@@ -1685,6 +1594,9 @@ components:
                 type: string
                 format: date-time
     IntentPayment:
+      description: Describes a payment.
+      type: object
+      properties:
         "@ondc/org/buyer_app_finder_fee_type":
           type: string
           enum:
@@ -1698,18 +1610,6 @@ components:
       properties:
         name:
           $ref: "#/components/schemas/Name"
-    Policy:
-      description: Describes a policy. Allows for domain extension.
-      type: object
-      properties:
-        id:
-          type: string
-        descriptor:
-          $ref: "#/components/schemas/Descriptor"
-        parent_policy_id:
-          $ref: "#/components/schemas/Policy/properties/id"
-        time:
-          $ref: "#/components/schemas/Time"
     Price:
       description: Describes the price of an item. Allows for domain extension.
       type: object
@@ -1794,8 +1694,10 @@ components:
                   - misc
                   - discount
               item:
+                type: object
                 properties:
                   quantity:
+                    type: object
                     properties:
                       available:
                         $ref: "#/components/schemas/ItemQuantity/properties/available"
@@ -2010,8 +1912,7 @@ components:
           format: uri
         location:
           description: "In case there is no real-time tracking endpoint available, this field will contain the latest location of the entity being tracked. The BPP will update this value everytime the BAP calls the track API."
-          allOf:
-            - $ref: "#/components/schemas/TrackLocation"
+          $ref: "#/components/schemas/TrackLocation"
         status:
           description: "This value indicates if the tracking is currently active or not. If this value is `active`, then the BAP can begin tracking the order. If this value is `inactive`, the tracking URL is considered to be expired and the BAP should stop tracking the order."
           type: string

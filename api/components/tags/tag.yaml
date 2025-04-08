@@ -12,6 +12,20 @@ catalog_inc:
   - code: END_TIME
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
+bap_features: 
+  - code: 1
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: 2
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: 3
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+bnp_demand_signal: 
+  - code: SEARCH_TERM
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
 type:
   - code: TYPE
     description: Description about the tags
@@ -115,6 +129,18 @@ offer:
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
   - code: ITEM_VALUE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: ID
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: TYPE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: AUTO
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: ADDITIVE
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
 order_value:
@@ -792,6 +818,18 @@ serviceability:
   - code: UNIT
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
+  - code: TIME_FROM
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: TIME_TO
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: DAY_TO
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: DAY_FROM
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
 variant:
   - code: VARIANT_GROUP_ID
     description: Description about the tags
@@ -806,3 +844,43 @@ path:
   - code: sequence
     description: Description about the tags
     reference: <PR/Issue/Discussion Links md format text>
+range: 
+  - code: lower
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: upper
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+default_selection: 
+  - code: value
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: maximum_value
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+qualifier:
+  - code: MIN_VALUE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+benefit:
+  - code: VALUE_TYPE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: VALUE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: VALUE_CAP
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+meta: 
+  - code: ADDITIVE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: AUTO
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+quote:
+  - code: TYPE
+    description: value by which order quote for title_type is adjusted, will always be negative
+    reference: <PR/Issue/Discussion Links md format text>
+

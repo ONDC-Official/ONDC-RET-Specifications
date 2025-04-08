@@ -1,0 +1,61 @@
+descriptor:
+  tags:
+    - code: cancel_request
+      description: cancel_request
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        - code: retry_count
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: rto_id
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: reason_id
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: initiated_by
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: id
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+    - code: igm_request
+      description: igm_request
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        - code: id
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+    - code: precancel_state
+      description: precancel_state
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        - code: fulfillment_state
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: updated_at
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+    - code: quote_trail
+      description: quote_trail
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        - code: type
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: id
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: currency
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: value
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+    - code: quote
+      description: quote
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        - code: type
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>

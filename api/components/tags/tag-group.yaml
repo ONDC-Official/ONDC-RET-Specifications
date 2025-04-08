@@ -1,5 +1,11 @@
 intent:
   tags:
+    - code: BAP_TERMS
+      description: It is used to communicate the intent for BAP terms. Required when the request is for BAP terms.
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        $ref: "./search.yaml#/bap_terms"
+      required: required
     - code: CATALOG_FULL
       description: It is used communicate the intent for a full catalog refresh. Required when the request is for full catalog refresh.
       reference: <PR/Issue/Discussion Links md format text>
@@ -12,6 +18,24 @@ intent:
       list:
         $ref: "./tag.yaml#/catalog_inc"
       required: required
+    - code: BAP_FEATURES
+      description: It is used communicate the intent for a incremental catalog refresh. Required when the request is for incremental refresh.
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        $ref: "./tag.yaml#/bap_features"
+      required: required
+    - code: BAP_PROMOS
+      description: It is used communicate the intent for a incremental catalog refresh. Required when the request is for incremental refresh.
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        $ref: "./tag.yaml#/bap_promos"
+      required: required
+    - code: BNP_DEMAND_SIGNAL
+      description: It is used communicate the intent for a incremental catalog refresh. Required when the request is for incremental refresh.
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        $ref: "./tag.yaml#/bnp_demand_signal"
+      required: required
 bpp_descriptor:
   tags:
     - code: BPP_TERMS
@@ -21,6 +45,12 @@ bpp_descriptor:
       list:
         - code: NP_TYPE
           description: Allowed Values - [ISN, MSN]
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: ACCEPT_BAP_TERMS
+          description: Allowed Values - ["Y", "N"]
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: COLLECT_PAYMENT
+          description: Allowed Values - ["Y", "N"]
           reference: <PR/Issue/Discussion Links md format text>
 bpp_providers:
   categories:
@@ -56,6 +86,20 @@ bpp_providers:
       list:
         $ref: "./tag.yaml#/attr"
   items:
+      price: 
+        tags: 
+          - code: RANGE
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+            required: required
+            list:
+              $ref: "./tag.yaml#/range"
+          - code: DEFAULT_SELECTION
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+            required: required
+            list:
+              $ref: "./tag.yaml#/default_selection"
       tags:
         - code: ORIGIN
           description: Description about the tags
@@ -131,6 +175,24 @@ bpp_providers:
         required: required
         list:
           $ref: "./tag.yaml#/type"
+      - code: QUALIFIER
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        required: required
+        list:
+          $ref: "./tag.yaml#/qualifier"
+      - code: BENEFIT
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        required: required
+        list:
+          $ref: "./tag.yaml#/benefit"
+      - code: META
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        required: required
+        list:
+          $ref: "./tag.yaml#/meta"
   creds:
     tags:
       - code: VERIFICATION
@@ -250,6 +312,33 @@ order:
         required: required
         list:
          $ref: "./tag.yaml#/parent"
+    breakup: 
+      item:
+        tags:
+          - code: TYPE
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+            required: required
+            list:
+            $ref: "./tag.yaml#/type"
+          - code: PARENT
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+            required: required
+            list:
+            $ref: "./tag.yaml#/parent"
+          - code: QUOTE
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+            required: required
+            list:
+            $ref: "./tag.yaml#/quote"
+          - code: OFFER
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+            required: required
+            list:
+            $ref: "./tag.yaml#/offer"
 tracking:
   tags:
     - code: PATH

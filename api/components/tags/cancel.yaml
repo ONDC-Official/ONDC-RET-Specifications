@@ -1,0 +1,19 @@
+descriptor:
+  tags:
+    - code: params
+      description: params
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        - code: force
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: ttl_response
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+    - code: cancel_request
+      description: params
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        - code: initiated_by
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
