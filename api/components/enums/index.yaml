@@ -6,9 +6,13 @@ search:
       fulfillments: &fulfillments
         type: 
           $ref: "./fulfillments.yaml#/fulfillments/type"
+      tags: 
+        $ref: "./tags.yaml#/intentTags"
 on_search:
   message:
     catalog:
+      "bpp/descriptor":
+        $ref: "./descriptor.yaml#/descriptor"
       "bpp/fulfillments": *fulfillments
       "bpp/providers":
         fulfillments: *fulfillments

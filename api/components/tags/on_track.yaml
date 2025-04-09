@@ -1,0 +1,29 @@
+descriptor:
+  tags:
+    - code: order
+      description: order
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        - code: id
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+    - code: config
+      description: config
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        - code: attr
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: type
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+    - code: path
+      description: path
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        - code: lat_lng
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: sequence
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>

@@ -1,0 +1,8 @@
+time:
+  label:
+    - code: enable
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: disable
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>

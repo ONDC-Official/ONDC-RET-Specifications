@@ -1,0 +1,19 @@
+intentTags:
+  bap_features:
+    - code: Delivery
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: Self-Pickup
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: Delivery and Self-Pickup
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+  bap_promos: 
+    - code: CATEGORY
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+  bnp_demand_signal:
+    - code: SEARCH_TERM
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>

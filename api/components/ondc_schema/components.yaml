@@ -46,7 +46,11 @@ components:
         id:
           description: This is the most unique identifier of a service item. An example of an Item ID could be the SKU of a product.
           type: string
+        location_id:
+          description: This is the most unique identifier of a location item.
+          type: string
         quantity:
+          description: quantity
           type: object
           properties:
             count:

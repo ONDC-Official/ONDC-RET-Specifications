@@ -1,0 +1,98 @@
+descriptor:
+  tags:
+    - code: state
+      description: state
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        - code: ready_to_ship
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+    - code: routing
+      description: routing
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        - code: type
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+    - code: tracking
+      description: tracking
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        - code: gps_enabled
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: url_enabled
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: url
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+    - code: fulfillment_delay
+      description: fulfillment_delay
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        - code: state
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: reason_id
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: timestamp
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+    - code: quote
+      description: quote
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        - code: type
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+    - code: type
+      description: type
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        - code: type
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+    - code: parent
+      description: parent
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        - code: id
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+    - code: order_details
+      description: order_details
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        - code: id
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: weight_unit
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: weight_value
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: dim_unit
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: length
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: breadth
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: height
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+    - code: verify
+      description: verify
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        - code: type
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: value
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>

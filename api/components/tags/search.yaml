@@ -1,0 +1,10 @@
+bap_terms: 
+  - code: STATIC_TERMS
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: STATIC_TERMS_NEW
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: EFFECTIVE_DATE
+    description: Description about the tags
+    reference: <PR/Issue/Discussion Links md format text>

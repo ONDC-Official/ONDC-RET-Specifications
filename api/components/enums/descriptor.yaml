@@ -1,0 +1,14 @@
+descriptor: 
+  tags:
+    BPP_TERMS: 
+      code:
+        - code: NP_TYPE
+          description: about the enum
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: ACCEPT_BAP_TERMS
+          description: about the enum
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: COLLECT_PAYMENT
+          description: about the enum
+          reference: <PR/Issue/Discussion Links md format text>
+      
