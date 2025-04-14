@@ -1,156 +1,155 @@
 value:
-  value:
-    context:
-      domain: ONDC:RET10
-      action: on_init
-      country: IND
-      core_version: 1.2.5
-      bap_id: buyerNP.com
-      bap_uri: https://buyerNP.com/ondc
-      bpp_uri: https://sellerNP.com/ondc
-      transaction_id: 072ccd93-3928-49d4-b6ef-9c8bf69745f8
-      message_id: 56dd08ab-c183-49c4-ae1f-6040f0801618
-      timestamp: '2024-12-23T07:01:44.759Z'
-      bpp_id: sellerNP.com
-      city: std:022
-    message:
-      order:
-        provider:
-          id: P1
-          locations:
-            - id: L1
-        items:
-          - id: I1
-            quantity:
+  context:
+    domain: ONDC:RET10
+    action: on_init
+    country: IND
+    core_version: 1.2.5
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: 072ccd93-3928-49d4-b6ef-9c8bf69745f8
+    message_id: 56dd08ab-c183-49c4-ae1f-6040f0801618
+    timestamp: "2024-12-23T07:01:44.759Z"
+    bpp_id: sellerNP.com
+    city: std:022
+  message:
+    order:
+      provider:
+        id: P1
+        locations:
+          - id: L1
+      items:
+        - id: I1
+          quantity:
+            count: 1
+          location_id: L1
+          fulfillment_id: F1
+          tags:
+            - code: np_fees
+              list:
+                - code: id
+                  value: "1"
+      billing:
+        address:
+          building: my building name or house
+          city: Mumbai
+          state: Maharashtra
+          country: IND
+          area_code: "400053"
+          locality: my street name
+          name: my house or door or floor
+        phone: "9898989898"
+        name: ONDC buyer
+        email: nobody@nomail.com
+        created_at: "2024-12-23T07:01:43.145Z"
+        updated_at: "2024-12-23T07:01:43.145Z"
+      fulfillments:
+        - id: F1
+          type: Delivery
+          end:
+            contact:
+              email: nobody@nomail.com
+              phone: "9898989898"
+            location:
+              gps: 19.131140,72.834091
+              address:
+                building: my building name or house
+                city: Mumbai
+                state: Maharashtra
+                country: IND
+                area_code: "400053"
+                locality: my street name
+                name: my house or door or floor
+          tracking: true
+      quote:
+        price:
+          value: "111.80"
+          currency: INR
+        breakup:
+          - "@ondc/org/item_id": I1
+            "@ondc/org/item_quantity":
               count: 1
-            location_id: L1
-            fulfillment_id: F1
-            tags:
-              - code: np_fees
-                list:
-                  - code: id
-                    value: '1'
-        billing:
-          address:
-            building: my building name or house
-            city: Mumbai
-            state: Maharashtra
-            country: IND
-            area_code: '400053'
-            locality: my street name
-            name: my house or door or floor
-          phone: '9898989898'
-          name: ONDC buyer
-          email: nobody@nomail.com
-          created_at: '2024-12-23T07:01:43.145Z'
-          updated_at: '2024-12-23T07:01:43.145Z'
-        fulfillments:
-          - id: F1
-            type: Delivery
-            end:
-              contact:
-                email: nobody@nomail.com
-                phone: '9898989898'
-              location:
-                gps: 19.131140,72.834091
-                address:
-                  building: my building name or house
-                  city: Mumbai
-                  state: Maharashtra
-                  country: IND
-                  area_code: '400053'
-                  locality: my street name
-                  name: my house or door or floor
-            tracking: true
-        quote:
-          price:
-            value: '111.80'
-            currency: INR
-          breakup:
-            - '@ondc/org/item_id': I1
-              '@ondc/org/item_quantity':
-                count: 1
-              title: Plain Atta
-              '@ondc/org/title_type': item
+            title: Plain Atta
+            "@ondc/org/title_type": item
+            price:
+              currency: INR
+              value: "100.00"
+            item:
+              quantity:
+                available:
+                  count: "99"
+                maximum:
+                  count: "99"
               price:
                 currency: INR
-                value: '100.00'
-              item:
-                quantity:
-                  available:
-                    count: '99'
-                  maximum:
-                    count: '99'
-                price:
-                  currency: INR
-                  value: '100.00'
-            - '@ondc/org/item_id': I1
-              title: Delivery charges
-              '@ondc/org/title_type': delivery
-              price:
-                currency: INR
-                value: '00.00'
-            - '@ondc/org/item_id': I1
-              title: Convenience Fee
-              '@ondc/org/title_type': misc
-              price:
-                currency: INR
-                value: '00.00'
-            - '@ondc/org/item_id': I1
-              '@ondc/org/title_type': tax
-              price:
-                currency: INR
-                value: '1.8'
-              item:
-                tags:
-                  - code: quote
-                    list:
-                      - code: type
-                        value: item
-                      - code: subtype
-                        value: misc
-                  - code: np_fees
-                    list:
-                      - code: id
-                        value: '1'
-            - '@ondc/org/item_id': I1
-              '@ondc/org/title_type': misc
-              price:
-                currency: INR
-                value: '10.00'
-              item:
-                tags:
-                  - code: quote
-                    list:
-                      - code: type
-                        value: item
-                  - code: np_fees
-                    list:
-                      - code: id
-                        value: '1'
-                      - code: channel_margin_type
-                        value: percent
-                      - code: channel_margin_value
-                        value: '10'
-          ttl: P1D
-        payment:
-          '@ondc/org/buyer_app_finder_fee_type': percent
-          '@ondc/org/buyer_app_finder_fee_amount': '10'
-          '@ondc/org/settlement_details':
-            - settlement_counterparty: seller-app
-              settlement_phase: sale-amount
-              settlement_type: neft
-              beneficiary_name: xxxx
-              settlement_bank_account_no: XXXX
-              settlement_ifsc_code: XXXX
-              bank_name: XXXX
-              branch_name: XXXX
-        tags:
-          - code: bpp_terms
-            list:
-              - code: np_type
-                value: MSN
-              - code: tax_number
-                value: gst_number_of_sellerNP
-              - code: provider_tax_number
-                value: PAN_number_of_provider
+                value: "100.00"
+          - "@ondc/org/item_id": I1
+            title: Delivery charges
+            "@ondc/org/title_type": delivery
+            price:
+              currency: INR
+              value: "00.00"
+          - "@ondc/org/item_id": I1
+            title: Convenience Fee
+            "@ondc/org/title_type": misc
+            price:
+              currency: INR
+              value: "00.00"
+          - "@ondc/org/item_id": I1
+            "@ondc/org/title_type": tax
+            price:
+              currency: INR
+              value: "1.8"
+            item:
+              tags:
+                - code: quote
+                  list:
+                    - code: type
+                      value: item
+                    - code: subtype
+                      value: misc
+                - code: np_fees
+                  list:
+                    - code: id
+                      value: "1"
+          - "@ondc/org/item_id": I1
+            "@ondc/org/title_type": misc
+            price:
+              currency: INR
+              value: "10.00"
+            item:
+              tags:
+                - code: quote
+                  list:
+                    - code: type
+                      value: item
+                - code: np_fees
+                  list:
+                    - code: id
+                      value: "1"
+                    - code: channel_margin_type
+                      value: percent
+                    - code: channel_margin_value
+                      value: "10"
+        ttl: P1D
+      payment:
+        "@ondc/org/buyer_app_finder_fee_type": percent
+        "@ondc/org/buyer_app_finder_fee_amount": "10"
+        "@ondc/org/settlement_details":
+          - settlement_counterparty: seller-app
+            settlement_phase: sale-amount
+            settlement_type: neft
+            beneficiary_name: xxxx
+            settlement_bank_account_no: XXXX
+            settlement_ifsc_code: XXXX
+            bank_name: XXXX
+            branch_name: XXXX
+      tags:
+        - code: bpp_terms
+          list:
+            - code: np_type
+              value: MSN
+            - code: tax_number
+              value: gst_number_of_sellerNP
+            - code: provider_tax_number
+              value: PAN_number_of_provider
