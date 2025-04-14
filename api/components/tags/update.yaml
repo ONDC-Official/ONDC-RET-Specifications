@@ -1,0 +1,305 @@
+order:
+  fulfillments:
+    tags:
+      - code: return_request
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          - code: id
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: item_id
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: parent_item_id
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: item_quantity
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: reason_id
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: reason_desc
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: images
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: ttl_approval
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: ttl_reverseqc
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: replace
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: exchange
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: brand
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: model
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: ram_unit
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: ram
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: storage_unit
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: storage
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: condition_id
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: condition_desc
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+
+      - code: update_state
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          - code: state
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: reason_id
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: timestamp
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: start_time
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: end_time
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+
+      - code: cancel_request
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          - code: retry_count
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: reason_id
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: initiated_by
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+
+      - code: update_fulfillment_time
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          - code: state
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: timestamp
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: start_time
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: end_time
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+
+      - code: fulfillment_delay
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          - code: state
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: reason_id
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: timestamp
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+
+      - code: update_fulfillment_delay
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          - code: state
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: reason_id
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: start_time
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: end_time
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: attempt
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+
+      - code: update_agent_details
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          - code: name
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: phone
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: provider_id
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+
+      - code: update_label
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          - code: shipping
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: type
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: url
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+
+      - code: reverseqc_output
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          - code: P001
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: P003
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: Q001
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+
+      - code: bnp_receivables_claim
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          - code: type
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: currency
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: value
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+
+      - code: bnp_diff_weight
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          - code: unit
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: value
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+
+      - code: bnp_diff_length
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          - code: unit
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: value
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+
+      - code: bnp_diff_breadth
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          - code: unit
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: value
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+
+      - code: bnp_diff_height
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          - code: unit
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: value
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+
+      - code: update_verification
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          - code: type
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: value
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+
+      - code: linked_order_diff
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          - code: id
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: weight_unit
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: weight_value
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: dim_unit
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: length
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: breadth
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: height
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+
+      - code: linked_order_diff_proof
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          - code: type
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: url
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+
+      - code: update_sale_invoice
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          - code: url
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>

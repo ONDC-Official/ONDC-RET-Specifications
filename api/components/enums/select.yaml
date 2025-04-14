@@ -1,0 +1,24 @@
+message:
+  order:
+    items:
+      offers:
+        tags:
+          selection:
+            apply:
+              - code: "YES"
+                description: about the enum
+                reference: "<PR/Issue/Discussion Links md format text>"
+              - code: "NO"
+                description: about the enum
+                reference: "<PR/Issue/Discussion Links md format text>"
+    payment:
+      type:
+        - code: "ON-ORDER (PREPAID)"
+          description: about the enum
+          reference: "<PR/Issue/Discussion Links md format text>"
+        - code: "ON-FULFILLMENT (ON DELIVERY)"
+          description: about the enum
+          reference: "<PR/Issue/Discussion Links md format text>"
+        - code: "POST-FULFILLMENT (AFTER DELIVERY)"
+          description: about the enum
+          reference: "<PR/Issue/Discussion Links md format text>"

@@ -1,0 +1,31 @@
+message:
+  order:
+    items:
+      tags:
+        type:
+          type:
+            - code: "ITEM"
+              description: about the enum
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "CUSTOMIZATION"
+              description: about the enum
+              reference: "<PR/Issue/Discussion Links md format text>"
+    offers:
+      tags:
+        selection:
+          apply:
+            - code: "YES"
+              description: about the enum
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "NO"
+              description: about the enum
+              reference: "<PR/Issue/Discussion Links md format text>"
+    tags:
+      bap_terms:
+        finance_cost_type:
+          - code: "PERCENT"
+            description: about the enum
+            reference: "<PR/Issue/Discussion Links md format text>"
+          - code: "AMOUNT"
+            description: about the enum
+            reference: "<PR/Issue/Discussion Links md format text>"

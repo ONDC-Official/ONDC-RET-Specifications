@@ -1,0 +1,50 @@
+message:
+  order:
+    quote:
+      breakup:
+        item:
+          tags:
+            finance_txn:
+              loan_completed:
+                - code: "YES"
+                  description: "Indicates whether the loan is completed."
+                  reference: "<PR/Issue/Discussion Links md format text>"
+                - code: "NO"
+                  description: "Indicates whether the loan is completed."
+                  reference: "<PR/Issue/Discussion Links md format text>"
+            np_fees:
+              channel_margin_type:
+                - code: "PERCENT"
+                  description: "Type of channel margin."
+                  reference: "<PR/Issue/Discussion Links md format text>"
+                - code: "AMOUNT"
+                  description: "Type of channel margin."
+                  reference: "<PR/Issue/Discussion Links md format text>"
+    tags:
+      bap_terms:
+        finance_cost_type:
+          - code: "PERCENT"
+            description: "Type of financial cost."
+            reference: "<PR/Issue/Discussion Links md format text>"
+          - code: "AMOUNT"
+            description: "Type of financial cost."
+            reference: "<PR/Issue/Discussion Links md format text>"
+    payment:
+      "@ondc/org/settlement_details":
+        settlement_type:
+          - code: "UPI"
+            description: "Type of settlement."
+            reference: "<PR/Issue/Discussion Links md format text>"
+          - code: "NEFT"
+            description: "Type of settlement."
+            reference: "<PR/Issue/Discussion Links md format text>"
+          - code: "RTGS"
+            description: "Type of settlement."
+            reference: "<PR/Issue/Discussion Links md format text>"
+      status:
+        - code: "PAID"
+          description: "Payment status."
+          reference: "<PR/Issue/Discussion Links md format text>"
+        - code: "NOT-PAID"
+          description: "Payment status."
+          reference: "<PR/Issue/Discussion Links md format text>"

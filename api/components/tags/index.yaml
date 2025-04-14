@@ -6,40 +6,50 @@ on_search:
   message:
     catalog:
       "bpp/descriptor":
-        $ref: "./tag-group.yaml#/bpp_descriptor"
+        $ref: "./on_search.yaml#/message/catalog/bpp/descriptor"
       "bpp/providers":
-        $ref: "./tag-group.yaml#/bpp_providers"
+        $ref: "./on_search.yaml#/message/catalog/bpp/providers"
+select:
+  message:
+    order:
+      $ref: './select.yaml#/message/order'
 on_select: &ref0
   message:
     order:
-      $ref: "./tag-group.yaml#/order/items"
-init: *ref0
+      $ref: "./on_select.yaml#/message/order"
+init: 
+  message:
+    order:
+      $ref: "./init.yaml#/order"
 on_init: &ref0
   message:
     order:
-      $ref: "./tag-group.yaml#/order"
+      $ref: "./on_init.yaml#/order"
 confirm:
   message:
     order:
-      items:
-        $ref: "./tag-group.yaml#/order/items"
-      fulfillments:
-        $ref: "./tag-group.yaml#/order_confirm_fulfillments"
-      quote:
-        $ref: "./tag-group.yaml#/order/quote"
-      tags:
-        $ref: "./tag-group.yaml#/order/tags"
-on_confirm: *ref0
-cancel:
+      $ref: "./confirm.yaml#/order"
+      # items:
+      #   $ref: "./tag-group.yaml#/order/items"
+      # fulfillments:
+      #   $ref: "./tag-group.yaml#/order_confirm_fulfillments"
+      # quote:
+      #   $ref: "./tag-group.yaml#/order/quote"
+      # tags:
+      #   $ref: "./tag-group.yaml#/order/tags"
+on_confirm: 
+  message: 
+    order:
+      $ref: './on_confirm.yaml#/order'
+update: 
   message:
-    descriptor:
-      $ref: "./cancel.yaml#/descriptor"
-update: *ref0
-on_update: *ref0
-on_cancel: 
-   message:
-    descriptor:
-      $ref: "./on_cancel.yaml#/descriptor"
+    order:
+      $ref: './update.yaml#/order'
+on_update: 
+  message:
+    order:
+      $ref: './on_update.yaml#/order'
+on_cancel: *ref0
 on_track:
   message:
     descriptor:

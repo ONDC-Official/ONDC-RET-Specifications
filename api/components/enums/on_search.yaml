@@ -1,0 +1,231 @@
+message:
+  catalog:
+    bpp:
+      descriptor:
+        tags:
+          np_type:
+            - code: "ISN"
+              description: about the enum
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "MSN"
+              description: about the enum
+              reference: "<PR/Issue/Discussion Links md format text>"
+          accept_bap_terms:
+            - code: "Y"
+              description: about the enum
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "N"
+              description: about the enum
+              reference: "<PR/Issue/Discussion Links md format text>"
+          collect_payment:
+            - code: "Y"
+              description: about the enum
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "N"
+              description: about the enum
+              reference: "<PR/Issue/Discussion Links md format text>"
+          mandatory_arbitration:
+            - code: "TRUE"
+              description: about the enum
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "FALSE"
+              description: about the enum
+              reference: "<PR/Issue/Discussion Links md format text>"
+      providers:
+        categories:
+          tags:
+            type:
+              type:
+                - code: "CUSTOM_MENU"
+                  description: about the enum
+                  reference: "<PR/Issue/Discussion Links md format text>"
+                - code: "CUSTOM_GROUP"
+                  description: about the enum
+                  reference: "<PR/Issue/Discussion Links md format text>"
+                - code: "VARIANT_GROUP"
+                  description: about the enum
+                  reference: "<PR/Issue/Discussion Links md format text>"
+            timing:
+              type:
+                - code: "SELF-PICKUP"
+                  description: about the enum
+                  reference: "<PR/Issue/Discussion Links md format text>"
+                - code: "ORDER"
+                  description: about the enum
+                  reference: "<PR/Issue/Discussion Links md format text>"
+                - code: "DELIVERY"
+                  description: about the enum
+                  reference: "<PR/Issue/Discussion Links md format text>"
+                - code: "ALL"
+                  description: about the enum
+                  reference: "<PR/Issue/Discussion Links md format text>"
+            config:
+              input:
+                - code: "SELECT"
+                  description: about the enum
+                  reference: "<PR/Issue/Discussion Links md format text>"
+                - code: "TEXT"
+                  description: about the enum
+                  reference: "<PR/Issue/Discussion Links md format text>"
+            np_fees:
+              channel_margin_type:
+                - code: "PERCENT"
+                  description: about the enum
+                  reference: "<PR/Issue/Discussion Links md format text>"
+                - code: "AMOUNT"
+                  description: about the enum
+                  reference: "<PR/Issue/Discussion Links md format text>"
+        items:
+          time:
+            label:
+              - code: "ENABLE"
+                description: about the enum
+                reference: "<PR/Issue/Discussion Links md format text>"
+              - code: "DISABLE"
+                description: about the enum
+                reference: "<PR/Issue/Discussion Links md format text>"
+          tags:
+            type:
+              type:
+                - code: "ITEM"
+                  description: about the enum
+                  reference: "<PR/Issue/Discussion Links md format text>"
+                - code: "DYNAMIC_ITEM"
+                  description: about the enum
+                  reference: "<PR/Issue/Discussion Links md format text>"
+                - code: "CUSTOMIZATION"
+                  description: about the enum
+                  reference: "<PR/Issue/Discussion Links md format text>"
+            attribute:
+              gender:
+                - code: "https://github.com/ONDC-Official/protocol-network-extension/tree/main/enums/retail"
+                  description: about the enum
+                  reference: "<PR/Issue/Discussion Links md format text>"
+            veg_nonveg:
+              veg:
+                - code: "VEG"
+                  description: about the enum
+                  reference: "<PR/Issue/Discussion Links md format text>"
+                - code: "NON_VEG"
+                  description: about the enum
+                  reference: "<PR/Issue/Discussion Links md format text>"
+                - code: "EGG"
+                  description: about the enum
+                  reference: "<PR/Issue/Discussion Links md format text>"
+            np_fees:
+              channel_margin_type:
+                - code: "PERCENT"
+                  description: about the enum
+                  reference: "<PR/Issue/Discussion Links md format text>"
+                - code: "AMOUNT"
+                  description: about the enum
+                  reference: "<PR/Issue/Discussion Links md format text>"
+            category_id:
+                - code: "https://docs.google.com/spreadsheets/d/1APAvavF_BNbTA89benAlGtv0GuFvpn2b6XXi4lSdTTw/edit?gid=0#gid=0"
+                  description: about the enum
+                  reference: "<PR/Issue/Discussion Links md format text>"
+            quantity:
+              unitized:
+                measure:
+                  unit:
+                    - code: "UNIT"
+                      description: about the enum
+                      reference: "<PR/Issue/Discussion Links md format text>"
+                    - code: "DOZEN"
+                      description: about the enum
+                      reference: "<PR/Issue/Discussion Links md format text>"
+                    - code: "GRAM"
+                      description: about the enum
+                      reference: "<PR/Issue/Discussion Links md format text>"
+                    - code: "KILOGRAM"
+                      description: about the enum
+                      reference: "<PR/Issue/Discussion Links md format text>"
+                    - code: "TONNE"
+                      description: about the enum
+                      reference: "<PR/Issue/Discussion Links md format text>"
+                    - code: "LITRE"
+                      description: about the enum
+                      reference: "<PR/Issue/Discussion Links md format text>"
+                    - code: "MILLILITRE"
+                      description: about the enum
+                      reference: "<PR/Issue/Discussion Links md format text>"
+        offers:
+          tags:
+            benefit:
+              value_type:
+                - code: "PERCENT"
+                  description: about the enum
+                  reference: "<PR/Issue/Discussion Links md format text>"
+                - code: "AMOUNT"
+                  description: about the enum
+                  reference: "<PR/Issue/Discussion Links md format text>"
+            meta:
+              additive:
+                - code: "YES"
+                  description: about the enum
+                  reference: "<PR/Issue/Discussion Links md format text>"
+                - code: "NO"
+                  description: about the enum
+                  reference: "<PR/Issue/Discussion Links md format text>"
+              auto:
+                - code: "YES"
+                  description: about the enum
+                  reference: "<PR/Issue/Discussion Links md format text>"
+                - code: "NO"
+                  description: about the enum
+                  reference: "<PR/Issue/Discussion Links md format text>"
+        tags:
+          serviceability:
+            type:
+              - code: "10 (HYPERLOCAL)"
+                description: about the enum
+                reference: "<PR/Issue/Discussion Links md format text>"
+              - code: "11 (INTERCITY)"
+                description: about the enum
+                reference: "<PR/Issue/Discussion Links md format text>"
+              - code: "12 (PAN-INDIA)"
+                description: about the enum
+                reference: "<PR/Issue/Discussion Links md format text>"
+              - code: "13 (POLYGON)"
+                description: about the enum
+                reference: "<PR/Issue/Discussion Links md format text>"
+            unit:
+              - code: "KM"
+                description: about the enum
+                reference: "<PR/Issue/Discussion Links md format text>"
+              - code: "GEOJSON"
+                description: about the enum
+                reference: "<PR/Issue/Discussion Links md format text>"
+          catalog_link:
+            type:
+              - code: "LINK"
+                description: about the enum
+                reference: "<PR/Issue/Discussion Links md format text>"
+              - code: "INLINE"
+                description: about the enum
+                reference: "<PR/Issue/Discussion Links md format text>"
+          np_fees:
+            channel_margin_type:
+              - code: "PERCENT"
+                description: about the enum
+                reference: "<PR/Issue/Discussion Links md format text>"
+              - code: "AMOUNT"
+                description: about the enum
+                reference: "<PR/Issue/Discussion Links md format text>"
+        time:
+          label:
+            - code: "ENABLE"
+              description: about the enum
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "DISABLE"
+              description: about the enum
+              reference: "<PR/Issue/Discussion Links md format text>"
+        locations:
+          time:
+            label:
+              - code: "ENABLE"
+                description: about the enum
+                reference: "<PR/Issue/Discussion Links md format text>"
+              - code: "DISABLE"
+                description: about the enum
+                reference: "<PR/Issue/Discussion Links md format text>"

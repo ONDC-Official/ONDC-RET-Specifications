@@ -1,0 +1,115 @@
+message:
+  order:
+    items:
+      tags:
+        type:
+          type:
+            - code: "ITEM"
+              description: about the enum
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "CUSTOMIZATION"
+              description: about the enum
+              reference: "<PR/Issue/Discussion Links md format text>"
+    quote:
+      breakup:
+        item:
+          tags:
+            type:
+              type:
+                - code: "ITEM"
+                  description: about the enum
+                  reference: "<PR/Issue/Discussion Links md format text>"
+                - code: "CUSTOMIZATION"
+                  description: about the enum
+                  reference: "<PR/Issue/Discussion Links md format text>"
+            quote:
+              type:
+                - code: "FULFILLMENT"
+                  description: about the enum
+                  reference: "<PR/Issue/Discussion Links md format text>"
+                - code: "ORDER"
+                  description: about the enum
+                  reference: "<PR/Issue/Discussion Links md format text>"
+                - code: "ITEM"
+                  description: about the enum
+                  reference: "<PR/Issue/Discussion Links md format text>"
+              subtype:
+                - code: "DELIVERY"
+                  description: about the enum
+                  reference: "<PR/Issue/Discussion Links md format text>"
+                - code: "PACKAGING"
+                  description: about the enum
+                  reference: "<PR/Issue/Discussion Links md format text>"
+                - code: "MISC"
+                  description: about the enum
+                  reference: "<PR/Issue/Discussion Links md format text>"
+        "@ondc/org/title_type":
+          - code: "ITEM"
+            description: about the enum
+            reference: "<PR/Issue/Discussion Links md format text>"
+          - code: "TAX"
+            description: about the enum
+            reference: "<PR/Issue/Discussion Links md format text>"
+          - code: "DISCOUNT"
+            description: about the enum
+            reference: "<PR/Issue/Discussion Links md format text>"
+          - code: "DELIVERY"
+            description: about the enum
+            reference: "<PR/Issue/Discussion Links md format text>"
+          - code: "PACKING"
+            description: about the enum
+            reference: "<PR/Issue/Discussion Links md format text>"
+          - code: "MISC"
+            description: about the enum
+            reference: "<PR/Issue/Discussion Links md format text>"
+    payment:
+      tags:
+        bpp_collect:
+          success:
+            - code: "Y"
+              description: about the enum
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "N"
+              description: about the enum
+              reference: "<PR/Issue/Discussion Links md format text>"
+      status:
+        - code: "PAID"
+          description: about the enum
+          reference: "<PR/Issue/Discussion Links md format text>"
+        - code: "NOT-PAID"
+          description: about the enum
+          reference: "<PR/Issue/Discussion Links md format text>"
+    tags:
+      bap_terms:
+        finance_cost_type:
+          - code: "PERCENT"
+            description: about the enum
+            reference: "<PR/Issue/Discussion Links md format text>"
+          - code: "AMOUNT"
+            description: about the enum
+            reference: "<PR/Issue/Discussion Links md format text>"
+    fulfillments:
+      state:
+        - code: "SERVICEABLE"
+          description: about the enum
+          reference: "<PR/Issue/Discussion Links md format text>"
+        - code: "NON-SERVICEABLE"
+          description: about the enum
+          reference: "<PR/Issue/Discussion Links md format text>"
+      type:
+        - code: "SELF-PICKUP"
+          description: about the enum
+          reference: "<PR/Issue/Discussion Links md format text>"
+        - code: "BUYER-DELIVERY"
+          description: about the enum
+          reference: "<PR/Issue/Discussion Links md format text>"
+        - code: "DELIVERY"
+          description: about the enum
+          reference: "<PR/Issue/Discussion Links md format text>"
+      "@ondc/org/category":
+        - code: "TAKEAWAY"
+          description: about the enum
+          reference: "<PR/Issue/Discussion Links md format text>"
+        - code: "KERBSIDE"
+          description: about the enum
+          reference: "<PR/Issue/Discussion Links md format text>"

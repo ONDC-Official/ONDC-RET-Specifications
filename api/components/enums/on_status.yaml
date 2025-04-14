@@ -1,0 +1,63 @@
+message:
+  order:
+    fulfillments:
+      tags:
+        fulfillment_delay:
+          state:
+            - code: "ORDER-PICKED-UP"
+              description: "State of fulfillment delay."
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "ORDER-DELIVERED"
+              description: "State of fulfillment delay."
+              reference: "<PR/Issue/Discussion Links md format text>"
+      state:
+        descriptor:
+          code:
+            - code: "RTO-INITIATED"
+              description: "Descriptor codes for fulfillment state."
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "RTO-DELIVERED"
+              description: "Descriptor codes for fulfillment state."
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "RTO-DISPOSED"
+              description: "Descriptor codes for fulfillment state."
+              reference: "<PR/Issue/Discussion Links md format text>"
+      instructions:
+        code:
+          - code: "1"
+            description: "Instruction codes for fulfillment."
+            reference: "<PR/Issue/Discussion Links md format text>"
+          - code: "2"
+            description: "Instruction codes for fulfillment."
+            reference: "<PR/Issue/Discussion Links md format text>"
+          - code: "3"
+            description: "Instruction codes for fulfillment."
+            reference: "<PR/Issue/Discussion Links md format text>"
+          - code: "4"
+            description: "Instruction codes for fulfillment."
+            reference: "<PR/Issue/Discussion Links md format text>"
+      start:
+        additional_desc:
+          content_type:
+            - code: "TEXT/HTML"
+              description: "Content type for additional description."
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "TEXT/PLAIN"
+              description: "Content type for additional description."
+              reference: "<PR/Issue/Discussion Links md format text>"
+    state:
+      - code: "CREATED"
+        description: "State of the order."
+        reference: "<PR/Issue/Discussion Links md format text>"
+      - code: "ACCEPTED"
+        description: "State of the order."
+        reference: "<PR/Issue/Discussion Links md format text>"
+      - code: "IN-PROGRESS"
+        description: "State of the order."
+        reference: "<PR/Issue/Discussion Links md format text>"
+      - code: "COMPLETED"
+        description: "State of the order."
+        reference: "<PR/Issue/Discussion Links md format text>"
+      - code: "CANCELLED"
+        description: "State of the order."
+        reference: "<PR/Issue/Discussion Links md format text>"

@@ -1,0 +1,35 @@
+message:
+  order:
+    payment:
+      tags:
+        bpp_terms:
+          np_type:
+            - code: "ISN"
+              description: "Type of network provider."
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "MSN"
+              description: "Type of network provider."
+              reference: "<PR/Issue/Discussion Links md format text>"
+    state:
+      - code: "ACCEPTED"
+        description: "State of the order."
+        reference: "<PR/Issue/Discussion Links md format text>"
+      - code: "CREATED"
+        description: "State of the order."
+        reference: "<PR/Issue/Discussion Links md format text>"
+    fulfillments:
+      start:
+        instructions:
+          code:
+            - code: "1"
+              description: "Instruction codes for fulfillment start."
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "2"
+              description: "Instruction codes for fulfillment start."
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "3"
+              description: "Instruction codes for fulfillment start."
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "4"
+              description: "Instruction codes for fulfillment start."
+              reference: "<PR/Issue/Discussion Links md format text>"

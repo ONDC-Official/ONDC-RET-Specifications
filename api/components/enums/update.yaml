@@ -1,0 +1,119 @@
+message:
+  order:
+    fulfillments:
+      tags:
+        reverseqc_output:
+          Q001:
+            - code: "YES"
+              description: "Output for reverse quality check."
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "NO"
+              description: "Output for reverse quality check."
+              reference: "<PR/Issue/Discussion Links md format text>"
+        bnp_diff_weight:
+          unit:
+            - code: "UNIT"
+              description: "Units for weight difference."
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "DOZEN"
+              description: "Units for weight difference."
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "GRAM"
+              description: "Units for weight difference."
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "KILOGRAM"
+              description: "Units for weight difference."
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "TONNE"
+              description: "Units for weight difference."
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "LITRE"
+              description: "Units for weight difference."
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "MILLILITRE"
+              description: "Units for weight difference."
+              reference: "<PR/Issue/Discussion Links md format text>"
+        bnp_diff_length:
+          unit:
+            - code: "CENTIMETER"
+              description: "Units for length difference."
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "METER"
+              description: "Units for length difference."
+              reference: "<PR/Issue/Discussion Links md format text>"
+        update_fulfillment_delay:
+          state:
+            - code: "ORDER-PICKED-UP"
+              description: "State of fulfillment delay update."
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "ORDER-DELIVERED"
+              description: "State of fulfillment delay update."
+              reference: "<PR/Issue/Discussion Links md format text>"
+          attempt:
+            - code: "YES"
+              description: "Attempt status for fulfillment delay update."
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "NO"
+              description: "Attempt status for fulfillment delay update."
+              reference: "<PR/Issue/Discussion Links md format text>"
+        update_label:
+          type:
+            - code: "WEBP"
+              description: "Type of label update."
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "PNG"
+              description: "Type of label update."
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "JPEG"
+              description: "Type of label update."
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "PDF"
+              description: "Type of label update."
+              reference: "<PR/Issue/Discussion Links md format text>"
+        return_request:
+          replace:
+            - code: "YES"
+              description: "Replace option for return request."
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "NO"
+              description: "Replace option for return request."
+              reference: "<PR/Issue/Discussion Links md format text>"
+          exchange:
+            - code: "YES"
+              description: "Exchange option for return request."
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "NO"
+              description: "Exchange option for return request."
+              reference: "<PR/Issue/Discussion Links md format text>"
+          condition_id:
+            - code: "001"
+              description: "Condition IDs for return request."
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "002"
+              description: "Condition IDs for return request."
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "003"
+              description: "Condition IDs for return request."
+              reference: "<PR/Issue/Discussion Links md format text>"
+      end:
+        additional_desc:
+          content_type:
+            - code: "TEXT/HTML"
+              description: "Content type for additional description."
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "TEXT/PLAIN"
+              description: "Content type for additional description."
+              reference: "<PR/Issue/Discussion Links md format text>"
+    update_target:
+      - code: "ITEM"
+        description: "Targets for order update."
+        reference: "<PR/Issue/Discussion Links md format text>"
+      - code: "FULFILLMENT"
+        description: "Targets for order update."
+        reference: "<PR/Issue/Discussion Links md format text>"
+      - code: "BILLING"
+        description: "Targets for order update."
+        reference: "<PR/Issue/Discussion Links md format text>"
+      - code: "PAYMENT"
+        description: "Targets for order update."
+        reference: "<PR/Issue/Discussion Links md format text>"

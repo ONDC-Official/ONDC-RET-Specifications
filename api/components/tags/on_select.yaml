@@ -1,0 +1,150 @@
+message:
+  order:
+    items:
+      tags:
+        - code: type
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+          list:
+            - code: type
+              description: Description about the tags
+              reference: <PR/Issue/Discussion Links md format text>
+        - code: parent
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+          list:
+            - code: id
+              description: Description about the tags
+              reference: <PR/Issue/Discussion Links md format text>
+
+    quote:
+      breakup:
+        item:
+          tags:
+            - code: type
+              description: Description about the tags
+              reference: <PR/Issue/Discussion Links md format text>
+              list:
+                - code: type
+                  description: Description about the tags
+                  reference: <PR/Issue/Discussion Links md format text>
+            - code: parent
+              description: Description about the tags
+              reference: <PR/Issue/Discussion Links md format text>
+              list:
+                - code: id
+                  description: Description about the tags
+                  reference: <PR/Issue/Discussion Links md format text>
+            - code: quote
+              description: Description about the tags
+              reference: <PR/Issue/Discussion Links md format text>
+              list:
+                - code: type
+                  description: Description about the tags
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: subtype
+                  description: Description about the tags
+                  reference: <PR/Issue/Discussion Links md format text>
+            - code: offer
+              description: Description about the tags
+              reference: <PR/Issue/Discussion Links md format text>
+              list:
+                - code: id
+                  description: Description about the tags
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: type
+                  description: Description about the tags
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: auto
+                  description: Description about the tags
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: additive
+                  description: Description about the tags
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: item_id
+                  description: Description about the tags
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: item_value
+                  description: Description about the tags
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: item_count
+                  description: Description about the tags
+                  reference: <PR/Issue/Discussion Links md format text>
+            - code: np_fees
+              description: Description about the tags
+              reference: <PR/Issue/Discussion Links md format text>
+              list:
+                - code: id
+                  description: Description about the tags
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: channel_margin_type
+                  description: Description about the tags
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: channel_margin_value
+                  description: Description about the tags
+                  reference: <PR/Issue/Discussion Links md format text>
+
+    fulfillments:
+      tags:
+        - code: weight
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+          list:
+            - code: unit
+              description: Description about the tags
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: value
+              description: Description about the tags
+              reference: <PR/Issue/Discussion Links md format text>
+        - code: length
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+          list:
+            - code: unit
+              description: Description about the tags
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: value
+              description: Description about the tags
+              reference: <PR/Issue/Discussion Links md format text>
+        - code: breadth
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+          list:
+            - code: unit
+              description: Description about the tags
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: value
+              description: Description about the tags
+              reference: <PR/Issue/Discussion Links md format text>
+        - code: height
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+          list:
+            - code: unit
+              description: Description about the tags
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: value
+              description: Description about the tags
+              reference: <PR/Issue/Discussion Links md format text>
+        - code: order_details
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+          list:
+            - code: weight_unit
+              description: Description about the tags
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: weight_value
+              description: Description about the tags
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: dim_unit
+              description: Description about the tags
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: length
+              description: Description about the tags
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: breadth
+              description: Description about the tags
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: height
+              description: Description about the tags
+              reference: <PR/Issue/Discussion Links md format text>

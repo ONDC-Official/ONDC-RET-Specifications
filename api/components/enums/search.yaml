@@ -1,0 +1,32 @@
+intentTags:
+  bap_features:
+    1:
+      - code: "YES"
+        description: "Enum for feature 1."
+        reference: "<PR/Issue/Discussion Links md format text>"
+      - code: "NO"
+        description: "Enum for feature 1."
+        reference: "<PR/Issue/Discussion Links md format text>"
+    2:
+      - code: "YES"
+        description: "Enum for feature 2."
+        reference: "<PR/Issue/Discussion Links md format text>"
+      - code: "NO"
+        description: "Enum for feature 2."
+        reference: "<PR/Issue/Discussion Links md format text>"
+    3:
+      - code: "YES"
+        description: "Enum for feature 3."
+        reference: "<PR/Issue/Discussion Links md format text>"
+      - code: "NO"
+        description: "Enum for feature 3."
+        reference: "<PR/Issue/Discussion Links md format text>"
+  bap_promos:
+    - code: "CATEGORY"
+      description: "Enum for promotion category."
+      reference: "<PR/Issue/Discussion Links md format text>"
+
+intentPayment:
+  - code: "@ondc/org/buyer_app_finder_fee_type"
+    description: "Enum for buyer app finder fee type."
+    reference: "<PR/Issue/Discussion Links md format text>"
