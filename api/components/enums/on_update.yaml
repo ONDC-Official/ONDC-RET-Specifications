@@ -1,0 +1,33 @@
+message:
+  order:
+    fulfillments:
+      tags:
+        shipping_label:
+          type:
+            - code: "WEBP"
+              description: "Type of shipping label."
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "PNG"
+              description: "Type of shipping label."
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "JPEG"
+              description: "Type of shipping label."
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "PDF"
+              description: "Type of shipping label."
+              reference: "<PR/Issue/Discussion Links md format text>"
+      end:
+        instructions:
+          code:
+            - code: "1"
+              description: "Instruction codes for fulfillment end."
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "2"
+              description: "Instruction codes for fulfillment end."
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "3"
+              description: "Instruction codes for fulfillment end."
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "5"
+              description: "Instruction codes for fulfillment end."
+              reference: "<PR/Issue/Discussion Links md format text>"

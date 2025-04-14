@@ -1,0 +1,18 @@
+message:
+  tracking:
+    tags:
+      config:
+        type:
+          - code: "LIVE_POLL"
+            description: "Type of tracking configuration."
+            reference: "<PR/Issue/Discussion Links md format text>"
+          - code: "DEFERRED"
+            description: "Type of tracking configuration."
+            reference: "<PR/Issue/Discussion Links md format text>"
+    status:
+      - code: "ACTIVE"
+        description: "Status of tracking."
+        reference: "<PR/Issue/Discussion Links md format text>"
+      - code: "INACTIVE"
+        description: "Status of tracking."
+        reference: "<PR/Issue/Discussion Links md format text>"

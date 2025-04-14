@@ -1,0 +1,173 @@
+order:
+  items:
+    tags:
+      - code: type
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          - code: type
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+      - code: parent
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          - code: id
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+      - code: np_fees
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          - code: id
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+
+  quote:
+    breakup:
+      item:
+        tags:
+          - code: type
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+            list:
+              - code: type
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+          - code: parent
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+            list:
+              - code: id
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+          - code: quote
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+            list:
+              - code: type
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: subtype
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+          - code: finance_terms
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+            list:
+              - code: subvention_type
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: subvention_amount
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: provider_tax_number
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: bank_account_no
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: ifsc_code
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+          - code: finance_txn
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+            list:
+              - code: loan_completed
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: down_payment
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: loan_amount
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: loan_provider
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: transaction_id
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: timestamp
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+          - code: np_fees
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+            list:
+              - code: channel_margin_type
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: channel_margin_value
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+
+  payment:
+    tags:
+      - code: bpp_terms
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          - code: max_liability_cap
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: max_liability
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: mandatory_arbitration
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: court_jurisdiction
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: delay_interest
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: np_type
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: tax_number
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: provider_tax_number
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: accept_bap_terms
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+      - code: bap_terms
+        description: Description about the tags
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          - code: static_terms
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: tax_number
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+
+  tags:
+    - code: bap_terms
+      description: Description about the tags
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        - code: finance_cost_type
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: finance_cost_value
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+    - code: bnp_receivables_claim
+      description: Description about the tags
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        - code: type
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: currency
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: value
+          description: Description about the tags
+          reference: <PR/Issue/Discussion Links md format text>

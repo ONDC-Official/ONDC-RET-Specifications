@@ -1,0 +1,15 @@
+message:
+  order:
+    fulfillments:
+      state:
+        descriptor:
+          code:
+            - code: "RTO-INITIATED"
+              description: "Descriptor codes for fulfillment state."
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "RTO-DELIVERED"
+              description: "Descriptor codes for fulfillment state."
+              reference: "<PR/Issue/Discussion Links md format text>"
+            - code: "RTO-DISPOSED"
+              description: "Descriptor codes for fulfillment state."
+              reference: "<PR/Issue/Discussion Links md format text>"

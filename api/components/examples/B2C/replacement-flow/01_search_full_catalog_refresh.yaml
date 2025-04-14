@@ -1,21 +1,20 @@
 value:
-  value:
-    context:
-      domain: ONDC:RET10
-      action: search
-      country: IND
-      core_version: 1.2.5
-      bap_id: buyerNP.com
-      bap_uri: https://buyerNP.com/ondc
-      transaction_id: 7c7aa709-a05e-4ad5-a49d-22bd64282e71
-      message_id: bc167440-16e7-4ba6-9132-9b25518f1da2
-      timestamp: '2024-12-23T06:54:34.035Z'
-      ttl: PT30S
-      city: std:022
-    message:
-      intent:
-        fulfillment:
-          type: Delivery
-        payment:
-          '@ondc/org/buyer_app_finder_fee_type': percent
-          '@ondc/org/buyer_app_finder_fee_amount': '3'
+  context:
+    domain: ONDC:RET10
+    action: search
+    country: IND
+    core_version: 1.2.5
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    transaction_id: 7c7aa709-a05e-4ad5-a49d-22bd64282e71
+    message_id: bc167440-16e7-4ba6-9132-9b25518f1da2
+    timestamp: "2024-12-23T06:54:34.035Z"
+    ttl: PT30S
+    city: std:022
+  message:
+    intent:
+      fulfillment:
+        type: Delivery
+      payment:
+        "@ondc/org/buyer_app_finder_fee_type": percent
+        "@ondc/org/buyer_app_finder_fee_amount": "3"

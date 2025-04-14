@@ -1,105 +1,104 @@
 value:
-  value:
-    context:
-      domain: ONDC:RET10
-      action: on_select
-      country: IND
-      core_version: 1.2.5
-      bap_id: buyerNP.com
-      bap_uri: https://buyerNP.com/ondc
-      bpp_uri: https://sellerNP.com/ondc
-      transaction_id: 072ccd93-3928-49d4-b6ef-9c8bf69745f8
-      message_id: 8ded399c-89ea-4100-a7c8-343430a7c8d0
-      timestamp: '2024-12-23T06:58:35.754Z'
-      bpp_id: sellerNP.com
-      city: std:022
-    message:
-      order:
-        provider:
-          id: P1
-          locations:
-            - id: L1
-        fulfillments:
-          - id: F1
-            type: Delivery
-            '@ondc/org/provider_name': LSP or Provider Name
-            tracking: true
-            '@ondc/org/category': Immediate Delivery
-            '@ondc/org/TAT': PT60M
-            state:
-              descriptor:
-                code: Serviceable
-        quote:
-          price:
-            value: '111.80'
-            currency: INR
-          breakup:
-            - '@ondc/org/item_id': I1
-              '@ondc/org/item_quantity':
-                count: 1
-              title: Plain Atta
-              '@ondc/org/title_type': item
+  context:
+    domain: ONDC:RET10
+    action: on_select
+    country: IND
+    core_version: 1.2.5
+    bap_id: buyerNP.com
+    bap_uri: https://buyerNP.com/ondc
+    bpp_uri: https://sellerNP.com/ondc
+    transaction_id: 072ccd93-3928-49d4-b6ef-9c8bf69745f8
+    message_id: 8ded399c-89ea-4100-a7c8-343430a7c8d0
+    timestamp: "2024-12-23T06:58:35.754Z"
+    bpp_id: sellerNP.com
+    city: std:022
+  message:
+    order:
+      provider:
+        id: P1
+        locations:
+          - id: L1
+      fulfillments:
+        - id: F1
+          type: Delivery
+          "@ondc/org/provider_name": LSP or Provider Name
+          tracking: true
+          "@ondc/org/category": Immediate Delivery
+          "@ondc/org/TAT": PT60M
+          state:
+            descriptor:
+              code: Serviceable
+      quote:
+        price:
+          value: "111.80"
+          currency: INR
+        breakup:
+          - "@ondc/org/item_id": I1
+            "@ondc/org/item_quantity":
+              count: 1
+            title: Plain Atta
+            "@ondc/org/title_type": item
+            price:
+              currency: INR
+              value: "100.00"
+            item:
+              quantity:
+                available:
+                  count: "99"
+                maximum:
+                  count: "99"
               price:
                 currency: INR
-                value: '100.00'
-              item:
-                quantity:
-                  available:
-                    count: '99'
-                  maximum:
-                    count: '99'
-                price:
-                  currency: INR
-                  value: '100.00'
-            - '@ondc/org/item_id': I1
-              title: Delivery charges
-              '@ondc/org/title_type': delivery
-              price:
-                currency: INR
-                value: '00.00'
-            - '@ondc/org/item_id': I1
-              title: Convenience Fee
-              '@ondc/org/title_type': misc
-              price:
-                currency: INR
-                value: '00.00'
-            - '@ondc/org/item_id': I1
-              '@ondc/org/title_type': tax
-              price:
-                currency: INR
-                value: '1.8'
-              item:
-                tags:
-                  - code: quote
-                    list:
-                      - code: type
-                        value: item
-                      - code: subtype
-                        value: misc
-                  - code: np_fees
-                    list:
-                      - code: id
-                        value: '1'
-            - '@ondc/org/item_id': I1
-              '@ondc/org/title_type': misc
-              price:
-                currency: INR
-                value: '10.00'
-              item:
-                tags:
-                  - code: quote
-                    list:
-                      - code: type
-                        value: item
-                  - code: np_fees
-                    list:
-                      - code: id
-                        value: '1'
-                      - code: channel_margin_type
-                        value: percent
-                      - code: channel_margin_value
-                        value: '10'
-          ttl: P1D
-        items:
-          - id: I1
-            fulfillment_id: F1
+                value: "100.00"
+          - "@ondc/org/item_id": I1
+            title: Delivery charges
+            "@ondc/org/title_type": delivery
+            price:
+              currency: INR
+              value: "00.00"
+          - "@ondc/org/item_id": I1
+            title: Convenience Fee
+            "@ondc/org/title_type": misc
+            price:
+              currency: INR
+              value: "00.00"
+          - "@ondc/org/item_id": I1
+            "@ondc/org/title_type": tax
+            price:
+              currency: INR
+              value: "1.8"
+            item:
+              tags:
+                - code: quote
+                  list:
+                    - code: type
+                      value: item
+                    - code: subtype
+                      value: misc
+                - code: np_fees
+                  list:
+                    - code: id
+                      value: "1"
+          - "@ondc/org/item_id": I1
+            "@ondc/org/title_type": misc
+            price:
+              currency: INR
+              value: "10.00"
+            item:
+              tags:
+                - code: quote
+                  list:
+                    - code: type
+                      value: item
+                - code: np_fees
+                  list:
+                    - code: id
+                      value: "1"
+                    - code: channel_margin_type
+                      value: percent
+                    - code: channel_margin_value
+                      value: "10"
+        ttl: P1D
+      items:
+        - id: I1
+          fulfillment_id: F1

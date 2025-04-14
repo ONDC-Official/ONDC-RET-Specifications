@@ -1,0 +1,121 @@
+message:
+  catalog:
+    bpp:
+      descriptor:
+        tags:
+          - code: bpp_terms
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+            list:
+              - code: np_type
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: accept_bap_terms
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: collect_payment
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: max_liability
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: max_liability_cap
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: mandatory_arbitration
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: court_jurisdiction
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: delay_interest
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+      providers:
+        tags:
+          - code: serviceability
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+            list:
+              - code: location
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: category
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: type
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: val
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: day_from
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: day_to
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: time_from
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: time_to
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: unit
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+          - code: order_value
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+            list:
+              - code: min_value
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+          - code: catalog_link
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+            list:
+              - code: type
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: type_value
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: type_validity
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: last_update
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+          - code: timing
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+            list:
+              - code: type
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: location
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: day_from
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: day_to
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: time_from
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: time_to
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+          - code: np_fees
+            description: Description about the tags
+            reference: <PR/Issue/Discussion Links md format text>
+            list:
+              - code: channel_margin_type
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: channel_margin_value
+                description: Description about the tags
+                reference: <PR/Issue/Discussion Links md format text>

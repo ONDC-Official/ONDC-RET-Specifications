@@ -1,0 +1,11 @@
+message:
+  descriptor:
+    tags:
+      params:
+        force:
+          - code: "YES"
+            description: "Force parameter for descriptor tags."
+            reference: "<PR/Issue/Discussion Links md format text>"
+          - code: "NO"
+            description: "Force parameter for descriptor tags."
+            reference: "<PR/Issue/Discussion Links md format text>"
