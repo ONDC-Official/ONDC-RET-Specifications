@@ -20,24 +20,23 @@ async function readBuildFile(branchName) {
       },
     });
     const formattedResponse = await response?.json();
-    // reading data using github raw apis.
-    if(formattedResponse?.download_url){
+    
+    // Updated code using git_url and base64 decoding
+    if(formattedResponse?.git_url){
       setTimeout(async ()=>{
-        const rawResponse = await fetch(formattedResponse.download_url, {
+        const rawResponse = await fetch(formattedResponse.git_url, {
           // headers: {
           //   Authorization: "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",
           // },
         });
-        const formattedrawResponse = await rawResponse?.text();
-        build_spec = JSON.parse(getStringAfterEquals(formattedrawResponse));
+        let formattedrawResponse = await rawResponse?.text();
+        formattedrawResponse = JSON.parse(formattedrawResponse);
+        let splitedText = atob(formattedrawResponse?.content);
+        build_spec = JSON.parse(getStringAfterEquals(splitedText));
         
-        onFirstLoad(build_spec,features);
-      },1200)
+        onFirstLoad(build_spec, features);
+      }, 1200)
     }
-   
-    // let splitedText = atob(formattedResponse?.content);
-    // build_spec = JSON.parse(getStringAfterEquals(splitedText));
-    // onFirstLoad(build_spec);
     
   } catch (error) {
     console.log("Error fetching contract", error?.message || error);
@@ -53,7 +52,7 @@ async function fetchRequest(url){
       },
     });
     return await response?.json();
-  }catch{
+  }catch(error){
     console.log("Error fetching contract", error?.message || error);
   }
 }
@@ -81,7 +80,6 @@ function upadteContract() {
   const selectedOption = document.getElementById("contract-dropdown")?.value;
   readBuildFile(selectedOption);
 }
-
 
 window.onload = function () {
   loadContracts()
