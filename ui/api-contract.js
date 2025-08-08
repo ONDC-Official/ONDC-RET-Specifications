@@ -18,9 +18,19 @@ async function readBuildFile(branchName) {
       },
     });
     const formattedResponse = await response?.json();
-    let splitedText = atob(formattedResponse?.content);
-    build_spec = JSON.parse(getStringAfterEquals(splitedText));
-    // onFirstLoad(build_spec);
+    
+    setTimeout(async ()=>{
+        const rawResponse = await fetch(formattedResponse.git_url, {
+          // headers: {
+          //   Authorization: "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",
+          // },
+        });
+        let formattedrawResponse = await rawResponse?.text();
+        formattedrawResponse =  JSON.parse(formattedrawResponse)
+        let splitedText = atob(formattedrawResponse?.content);
+        build_spec = JSON.parse(getStringAfterEquals(splitedText));
+        onFirstLoad(build_spec);
+      },1200)
   } catch (error) {
     console.log("Error fetching contract", error?.message || error);
     alert('Something went wrong, Please try again later')
