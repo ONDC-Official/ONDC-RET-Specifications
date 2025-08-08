@@ -13,9 +13,6 @@ async function readBuildFile(branchName) {
 
   try {
     const response = await fetch(url, {
-      headers: {
-        Authorization: "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",
-      },
     });
     const formattedResponse = await response?.json();
     
