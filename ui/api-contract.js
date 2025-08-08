@@ -21,9 +21,6 @@ async function readBuildFile(branchName) {
     
     setTimeout(async ()=>{
         const rawResponse = await fetch(formattedResponse.git_url, {
-          // headers: {
-          //   Authorization: "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",
-          // },
         });
         let formattedrawResponse = await rawResponse?.text();
         formattedrawResponse =  JSON.parse(formattedrawResponse)
